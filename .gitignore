@@ -1,5 +1,8 @@
 # Project data
 data/
+legal_unit/samples/
+legal_unit/samples_validation/
+legal_unit/outputs/
 
 # Python bytecode and caches
 __pycache__/
