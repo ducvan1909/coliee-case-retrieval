@@ -1,0 +1,67 @@
+{
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[],\"assessed_scope_ids\":[\"r1\"],\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"work_scope_complete\"}}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792748955,
+    "id": "58eac39fd6af402e80eb33451504fa85",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 30,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 142,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 172
+    }
+  },
+  "trace": {
+    "transport": "jobs",
+    "job_id": "232c175b217a8f07ea01e2c859a9b17d01390c99aa59ac6c0bc0ccb114803551",
+    "payload_sha256": "232c175b217a8f07ea01e2c859a9b17d01390c99aa59ac6c0bc0ccb114803551",
+    "polls": 2,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792748953.5265243,
+    "job_status": "completed",
+    "latency_ms": 4843.0,
+    "finished_at_unix": 1792748958.3798811,
+    "server_timing": {
+      "created_at": "2026-10-23T09:49:13.280234+00:00",
+      "started_at": "2026-10-23T09:49:14.191812+00:00",
+      "finished_at": "2026-10-23T09:49:15.491578+00:00",
+      "inference_seconds": 0.7426121549999891
+    }
+  },
+  "usage": {
+    "input_tokens": 142,
+    "output_tokens": 30,
+    "total_tokens": 172
+  }
+}

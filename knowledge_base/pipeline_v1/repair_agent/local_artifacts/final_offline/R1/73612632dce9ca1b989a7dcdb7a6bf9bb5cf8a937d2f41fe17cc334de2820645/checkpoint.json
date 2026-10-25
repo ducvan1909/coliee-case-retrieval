@@ -1,0 +1,1093 @@
+{
+  "data": {
+    "attempts": [
+      {
+        "attempt_id": "1dfacef44cb2bd6713db62087640ffe877d918bf45bbba6515090d3b973590d5",
+        "charged_tokens": 5212,
+        "latency_ms": 0.0,
+        "mock_usage": null,
+        "provider_usage": null,
+        "request_sha256": "c39b7bbbdb2b4fd047c733fd6a312549cafad0364f455363b2ab1c9a748afe50",
+        "reserved_input_tokens": 4012,
+        "reserved_output_tokens": 1200,
+        "response": {
+          "mock_usage": null,
+          "output": {
+            "tool_calls": [
+              {
+                "arguments": {
+                  "decisions": [
+                    {
+                      "action": "unresolved",
+                      "primary_proposition": null,
+                      "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+                      "reason": "Mock has no semantic verdict",
+                      "replacements": []
+                    },
+                    {
+                      "action": "unresolved",
+                      "primary_proposition": null,
+                      "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+                      "reason": "Mock has no semantic verdict",
+                      "replacements": []
+                    }
+                  ],
+                  "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28"
+                },
+                "name": "submit_revision"
+              }
+            ]
+          }
+        },
+        "status": "returned",
+        "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28",
+        "turn": 1,
+        "usage_state": "mock_not_provider"
+      },
+      {
+        "attempt_id": "a4311978206331080e15614eb90260cfdb3df068a74e322aa51680cc5eb682ee",
+        "charged_tokens": 6186,
+        "latency_ms": 0.0,
+        "mock_usage": null,
+        "provider_usage": null,
+        "request_sha256": "dc878f3c88a56efee7fccd0bad60a46b7fc3401ebcc674a2efc8b584a828618a",
+        "reserved_input_tokens": 4986,
+        "reserved_output_tokens": 1200,
+        "response": {
+          "mock_usage": null,
+          "output": {
+            "tool_calls": [
+              {
+                "arguments": {
+                  "decisions": [
+                    {
+                      "action": "unresolved",
+                      "primary_proposition": null,
+                      "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+                      "reason": "Mock has no semantic verdict",
+                      "replacements": []
+                    },
+                    {
+                      "action": "unresolved",
+                      "primary_proposition": null,
+                      "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+                      "reason": "Mock has no semantic verdict",
+                      "replacements": []
+                    },
+                    {
+                      "action": "unresolved",
+                      "primary_proposition": null,
+                      "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+                      "reason": "Mock has no semantic verdict",
+                      "replacements": []
+                    },
+                    {
+                      "action": "unresolved",
+                      "primary_proposition": null,
+                      "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+                      "reason": "Mock has no semantic verdict",
+                      "replacements": []
+                    }
+                  ],
+                  "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf"
+                },
+                "name": "submit_revision"
+              }
+            ]
+          }
+        },
+        "status": "returned",
+        "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf",
+        "turn": 1,
+        "usage_state": "mock_not_provider"
+      },
+      {
+        "attempt_id": "2e2cdeb67c937fb628fe4b299e6a52321ccb3281892ac74dc7ad638dea86d6d6",
+        "charged_tokens": 3609,
+        "latency_ms": 0.0,
+        "mock_usage": null,
+        "provider_usage": null,
+        "request_sha256": "8b6cb9bf9cf5c38c9ceea94ddbe1b2f77bd167542f9eb1c8cc86fe5e0bcfd9d0",
+        "reserved_input_tokens": 2409,
+        "reserved_output_tokens": 1200,
+        "response": {
+          "mock_usage": null,
+          "output": {
+            "tool_calls": [
+              {
+                "arguments": {
+                  "decisions": [],
+                  "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba"
+                },
+                "name": "submit_revision"
+              }
+            ]
+          }
+        },
+        "status": "returned",
+        "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba",
+        "turn": 1,
+        "usage_state": "mock_not_provider"
+      },
+      {
+        "attempt_id": "f193f034b0cb2aa7a178f1dbdeecbe954aa11aabea1f8e99954ea086608c7a79",
+        "charged_tokens": 4825,
+        "latency_ms": 0.0,
+        "mock_usage": null,
+        "provider_usage": null,
+        "request_sha256": "ff6926a1775dff2b870c289e54e1f05624dbd9772476d8896b1fbc05fbfa3c08",
+        "reserved_input_tokens": 3625,
+        "reserved_output_tokens": 1200,
+        "response": {
+          "mock_usage": null,
+          "output": {
+            "tool_calls": [
+              {
+                "arguments": {
+                  "decisions": [],
+                  "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c"
+                },
+                "name": "submit_revision"
+              }
+            ]
+          }
+        },
+        "status": "returned",
+        "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c",
+        "turn": 1,
+        "usage_state": "mock_not_provider"
+      }
+    ],
+    "run_key": "73612632dce9ca1b989a7dcdb7a6bf9bb5cf8a937d2f41fe17cc334de2820645",
+    "tasks": {
+      "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba": {
+        "baseline": [],
+        "fingerprint": "e7280289ed6caf1deb875dc4bc3f8684a4c773b675068d7f795c8aaac37c3771",
+        "model_turns": 1,
+        "session": {
+          "events": [
+            {
+              "arguments": {
+                "decisions": [],
+                "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba"
+              },
+              "name": "submit_revision",
+              "ok": true,
+              "result": {
+                "decisions": [],
+                "original_proposals": [],
+                "read_atom_ids": [
+                  "sa-e42c0749bd11af1506c8f1a3",
+                  "sa-5af3b45f02e88d5c1d29d54c",
+                  "sa-5fc152780911a811b0f5b18e",
+                  "sa-27e1913a42fe6a5489fd7e70",
+                  "sa-e889c45a2cc328f6e4842d12",
+                  "sa-072a6e5abec486fc50958627",
+                  "sa-54c433ddc093142693ef3444",
+                  "sa-86f6689db8ae4f6982553016",
+                  "sa-dfe34e9fd0780bc394411475",
+                  "sa-f1dbb932b0ae52207f6019b6",
+                  "sa-05e997636cc3ad7262176858",
+                  "sa-804f2d4a2848752965fd148f",
+                  "sa-873800e9d8b6b64e6b00ec90",
+                  "sa-27d5f1d91d6f493b0a0be739",
+                  "sa-2977dca485bf00009143f914",
+                  "sa-43cc26142f610d1fa13b7dc3",
+                  "sa-ae76777cdeebd03a347f14e4",
+                  "sa-050c601093e5ac180b12ae57"
+                ],
+                "semantic_status": "semantic_review_pending",
+                "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba",
+                "verified_replacements": []
+              },
+              "sequence": 1
+            }
+          ],
+          "expanded_atom_ids": [],
+          "expansion_count": 0,
+          "obligations": [],
+          "read_atom_ids": [
+            "sa-e42c0749bd11af1506c8f1a3",
+            "sa-5af3b45f02e88d5c1d29d54c",
+            "sa-5fc152780911a811b0f5b18e",
+            "sa-27e1913a42fe6a5489fd7e70",
+            "sa-e889c45a2cc328f6e4842d12",
+            "sa-072a6e5abec486fc50958627",
+            "sa-54c433ddc093142693ef3444",
+            "sa-86f6689db8ae4f6982553016",
+            "sa-dfe34e9fd0780bc394411475",
+            "sa-f1dbb932b0ae52207f6019b6",
+            "sa-05e997636cc3ad7262176858",
+            "sa-804f2d4a2848752965fd148f",
+            "sa-873800e9d8b6b64e6b00ec90",
+            "sa-27d5f1d91d6f493b0a0be739",
+            "sa-2977dca485bf00009143f914",
+            "sa-43cc26142f610d1fa13b7dc3",
+            "sa-ae76777cdeebd03a347f14e4",
+            "sa-050c601093e5ac180b12ae57"
+          ],
+          "revision": {
+            "decisions": [],
+            "fingerprint": "e7280289ed6caf1deb875dc4bc3f8684a4c773b675068d7f795c8aaac37c3771",
+            "original_proposals": [],
+            "read_atom_ids": [
+              "sa-e42c0749bd11af1506c8f1a3",
+              "sa-5af3b45f02e88d5c1d29d54c",
+              "sa-5fc152780911a811b0f5b18e",
+              "sa-27e1913a42fe6a5489fd7e70",
+              "sa-e889c45a2cc328f6e4842d12",
+              "sa-072a6e5abec486fc50958627",
+              "sa-54c433ddc093142693ef3444",
+              "sa-86f6689db8ae4f6982553016",
+              "sa-dfe34e9fd0780bc394411475",
+              "sa-f1dbb932b0ae52207f6019b6",
+              "sa-05e997636cc3ad7262176858",
+              "sa-804f2d4a2848752965fd148f",
+              "sa-873800e9d8b6b64e6b00ec90",
+              "sa-27d5f1d91d6f493b0a0be739",
+              "sa-2977dca485bf00009143f914",
+              "sa-43cc26142f610d1fa13b7dc3",
+              "sa-ae76777cdeebd03a347f14e4",
+              "sa-050c601093e5ac180b12ae57"
+            ],
+            "semantic_status": "semantic_review_pending",
+            "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba",
+            "verified_replacements": []
+          },
+          "tool_count": 1
+        },
+        "status": "revision_submitted",
+        "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba"
+      },
+      "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28": {
+        "baseline": [
+          {
+            "aliases": [
+              {
+                "arm": "P2a",
+                "au_index": 0,
+                "request_id": "hreq-a727aa74c07eabb4699b4866"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+              "evidence_ref_ids": [
+                "sa-007850dc291ad9f7016eb726"
+              ],
+              "kind": "holding",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "current_court"
+            },
+            "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+            "proposal_sha256": "602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89"
+          },
+          {
+            "aliases": [
+              {
+                "arm": "P2b",
+                "au_index": 0,
+                "request_id": "hreq-d3eb474820ddda6ab35005d2"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+              "evidence_ref_ids": [
+                "sa-007850dc291ad9f7016eb726",
+                "sa-40ee92e19a0796bee4e3ae3a",
+                "sa-50d4054365caa2b910a4b56d"
+              ],
+              "kind": "holding",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "current_court"
+            },
+            "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+            "proposal_sha256": "91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467"
+          }
+        ],
+        "fingerprint": "7886c4f72ddafbcfecc9055011c89d4bda6fdd2995a3e7b3de5ac03a27a1c84f",
+        "model_turns": 1,
+        "session": {
+          "events": [
+            {
+              "arguments": {
+                "decisions": [
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  },
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  }
+                ],
+                "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28"
+              },
+              "name": "submit_revision",
+              "ok": true,
+              "result": {
+                "decisions": [
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  },
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  }
+                ],
+                "original_proposals": [
+                  {
+                    "aliases": [
+                      {
+                        "arm": "P2a",
+                        "au_index": 0,
+                        "request_id": "hreq-a727aa74c07eabb4699b4866"
+                      }
+                    ],
+                    "proposal": {
+                      "attribution_role": "proposition",
+                      "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+                      "evidence_ref_ids": [
+                        "sa-007850dc291ad9f7016eb726"
+                      ],
+                      "kind": "holding",
+                      "needs_context": [],
+                      "other_kind": null,
+                      "speaker": "current_court"
+                    },
+                    "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+                    "proposal_sha256": "602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89"
+                  },
+                  {
+                    "aliases": [
+                      {
+                        "arm": "P2b",
+                        "au_index": 0,
+                        "request_id": "hreq-d3eb474820ddda6ab35005d2"
+                      }
+                    ],
+                    "proposal": {
+                      "attribution_role": "proposition",
+                      "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+                      "evidence_ref_ids": [
+                        "sa-007850dc291ad9f7016eb726",
+                        "sa-40ee92e19a0796bee4e3ae3a",
+                        "sa-50d4054365caa2b910a4b56d"
+                      ],
+                      "kind": "holding",
+                      "needs_context": [],
+                      "other_kind": null,
+                      "speaker": "current_court"
+                    },
+                    "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+                    "proposal_sha256": "91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467"
+                  }
+                ],
+                "read_atom_ids": [
+                  "sa-0142393622b9ee99dee58e99",
+                  "sa-5433c2e50e0685b09ced6884",
+                  "sa-733129756c37f5139a260557",
+                  "sa-131b8ab6f7c7244d874e780b",
+                  "sa-f240bc26e6b75439ba8a170e",
+                  "sa-97c9cc968bda1600cba78291",
+                  "sa-603c7729b93df5970f11145f",
+                  "sa-88d279cbd3b8fbf74def6924",
+                  "sa-40ee92e19a0796bee4e3ae3a",
+                  "sa-50d4054365caa2b910a4b56d",
+                  "sa-007850dc291ad9f7016eb726",
+                  "sa-7ab1cdeb280427048f9a62c3",
+                  "sa-2d1296c34e4c0a35f4599968",
+                  "sa-1025e2b047fd98cd648e6b87"
+                ],
+                "semantic_status": "semantic_review_pending",
+                "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28",
+                "verified_replacements": []
+              },
+              "sequence": 1
+            }
+          ],
+          "expanded_atom_ids": [],
+          "expansion_count": 0,
+          "obligations": [],
+          "read_atom_ids": [
+            "sa-0142393622b9ee99dee58e99",
+            "sa-5433c2e50e0685b09ced6884",
+            "sa-733129756c37f5139a260557",
+            "sa-131b8ab6f7c7244d874e780b",
+            "sa-f240bc26e6b75439ba8a170e",
+            "sa-97c9cc968bda1600cba78291",
+            "sa-603c7729b93df5970f11145f",
+            "sa-88d279cbd3b8fbf74def6924",
+            "sa-40ee92e19a0796bee4e3ae3a",
+            "sa-50d4054365caa2b910a4b56d",
+            "sa-007850dc291ad9f7016eb726",
+            "sa-7ab1cdeb280427048f9a62c3",
+            "sa-2d1296c34e4c0a35f4599968",
+            "sa-1025e2b047fd98cd648e6b87"
+          ],
+          "revision": {
+            "decisions": [
+              {
+                "action": "unresolved",
+                "primary_proposition": null,
+                "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+                "reason": "Mock has no semantic verdict",
+                "replacements": []
+              },
+              {
+                "action": "unresolved",
+                "primary_proposition": null,
+                "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+                "reason": "Mock has no semantic verdict",
+                "replacements": []
+              }
+            ],
+            "fingerprint": "7886c4f72ddafbcfecc9055011c89d4bda6fdd2995a3e7b3de5ac03a27a1c84f",
+            "original_proposals": [
+              {
+                "aliases": [
+                  {
+                    "arm": "P2a",
+                    "au_index": 0,
+                    "request_id": "hreq-a727aa74c07eabb4699b4866"
+                  }
+                ],
+                "proposal": {
+                  "attribution_role": "proposition",
+                  "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+                  "evidence_ref_ids": [
+                    "sa-007850dc291ad9f7016eb726"
+                  ],
+                  "kind": "holding",
+                  "needs_context": [],
+                  "other_kind": null,
+                  "speaker": "current_court"
+                },
+                "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+                "proposal_sha256": "602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89"
+              },
+              {
+                "aliases": [
+                  {
+                    "arm": "P2b",
+                    "au_index": 0,
+                    "request_id": "hreq-d3eb474820ddda6ab35005d2"
+                  }
+                ],
+                "proposal": {
+                  "attribution_role": "proposition",
+                  "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+                  "evidence_ref_ids": [
+                    "sa-007850dc291ad9f7016eb726",
+                    "sa-40ee92e19a0796bee4e3ae3a",
+                    "sa-50d4054365caa2b910a4b56d"
+                  ],
+                  "kind": "holding",
+                  "needs_context": [],
+                  "other_kind": null,
+                  "speaker": "current_court"
+                },
+                "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+                "proposal_sha256": "91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467"
+              }
+            ],
+            "read_atom_ids": [
+              "sa-0142393622b9ee99dee58e99",
+              "sa-5433c2e50e0685b09ced6884",
+              "sa-733129756c37f5139a260557",
+              "sa-131b8ab6f7c7244d874e780b",
+              "sa-f240bc26e6b75439ba8a170e",
+              "sa-97c9cc968bda1600cba78291",
+              "sa-603c7729b93df5970f11145f",
+              "sa-88d279cbd3b8fbf74def6924",
+              "sa-40ee92e19a0796bee4e3ae3a",
+              "sa-50d4054365caa2b910a4b56d",
+              "sa-007850dc291ad9f7016eb726",
+              "sa-7ab1cdeb280427048f9a62c3",
+              "sa-2d1296c34e4c0a35f4599968",
+              "sa-1025e2b047fd98cd648e6b87"
+            ],
+            "semantic_status": "semantic_review_pending",
+            "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28",
+            "verified_replacements": []
+          },
+          "tool_count": 1
+        },
+        "status": "revision_submitted",
+        "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28"
+      },
+      "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c": {
+        "baseline": [],
+        "fingerprint": "eb310e6e7399daa5603e64330c20510b13264311c0c332011ce8f8519cd1daa6",
+        "model_turns": 1,
+        "session": {
+          "events": [
+            {
+              "arguments": {
+                "decisions": [],
+                "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c"
+              },
+              "name": "submit_revision",
+              "ok": true,
+              "result": {
+                "decisions": [],
+                "original_proposals": [],
+                "read_atom_ids": [
+                  "sa-48e5f512228ec516c73940b7",
+                  "sa-51c40f6602c7f58ecde5b0a3",
+                  "sa-73ddf76bb8339b307070e2d2",
+                  "sa-9db48caaa225ff08e6c43c57",
+                  "sa-52447a00d3d351b6c7c31ab8",
+                  "sa-fbc1e8f193a623ee246a15d6",
+                  "sa-1dc96bd55b1432b16b120531",
+                  "sa-2a1d6f2e0f3cd9f7f1ccceab",
+                  "sa-413c4a01bd4e2a2c8ff6de06",
+                  "sa-93180edbf0020ec25d740607",
+                  "sa-8c48e2cee2a543c3e8019dc4",
+                  "sa-4bc0faffcf190303637a1fff",
+                  "sa-e37b2a05064ecd5c909a6ce3",
+                  "sa-2b5c232396fd98c87fdf901e",
+                  "sa-fd6d43dcc9cabf6e82cec765"
+                ],
+                "semantic_status": "semantic_review_pending",
+                "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c",
+                "verified_replacements": []
+              },
+              "sequence": 1
+            }
+          ],
+          "expanded_atom_ids": [],
+          "expansion_count": 0,
+          "obligations": [],
+          "read_atom_ids": [
+            "sa-48e5f512228ec516c73940b7",
+            "sa-51c40f6602c7f58ecde5b0a3",
+            "sa-73ddf76bb8339b307070e2d2",
+            "sa-9db48caaa225ff08e6c43c57",
+            "sa-52447a00d3d351b6c7c31ab8",
+            "sa-fbc1e8f193a623ee246a15d6",
+            "sa-1dc96bd55b1432b16b120531",
+            "sa-2a1d6f2e0f3cd9f7f1ccceab",
+            "sa-413c4a01bd4e2a2c8ff6de06",
+            "sa-93180edbf0020ec25d740607",
+            "sa-8c48e2cee2a543c3e8019dc4",
+            "sa-4bc0faffcf190303637a1fff",
+            "sa-e37b2a05064ecd5c909a6ce3",
+            "sa-2b5c232396fd98c87fdf901e",
+            "sa-fd6d43dcc9cabf6e82cec765"
+          ],
+          "revision": {
+            "decisions": [],
+            "fingerprint": "eb310e6e7399daa5603e64330c20510b13264311c0c332011ce8f8519cd1daa6",
+            "original_proposals": [],
+            "read_atom_ids": [
+              "sa-48e5f512228ec516c73940b7",
+              "sa-51c40f6602c7f58ecde5b0a3",
+              "sa-73ddf76bb8339b307070e2d2",
+              "sa-9db48caaa225ff08e6c43c57",
+              "sa-52447a00d3d351b6c7c31ab8",
+              "sa-fbc1e8f193a623ee246a15d6",
+              "sa-1dc96bd55b1432b16b120531",
+              "sa-2a1d6f2e0f3cd9f7f1ccceab",
+              "sa-413c4a01bd4e2a2c8ff6de06",
+              "sa-93180edbf0020ec25d740607",
+              "sa-8c48e2cee2a543c3e8019dc4",
+              "sa-4bc0faffcf190303637a1fff",
+              "sa-e37b2a05064ecd5c909a6ce3",
+              "sa-2b5c232396fd98c87fdf901e",
+              "sa-fd6d43dcc9cabf6e82cec765"
+            ],
+            "semantic_status": "semantic_review_pending",
+            "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c",
+            "verified_replacements": []
+          },
+          "tool_count": 1
+        },
+        "status": "revision_submitted",
+        "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c"
+      },
+      "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf": {
+        "baseline": [
+          {
+            "aliases": [
+              {
+                "arm": "P2a",
+                "au_index": 0,
+                "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+              },
+              {
+                "arm": "P2b",
+                "au_index": 0,
+                "request_id": "hreq-874c6ffa109dfa3f02e40224"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+            "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b"
+          },
+          {
+            "aliases": [
+              {
+                "arm": "P2a",
+                "au_index": 1,
+                "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "The condition precedent for applying subsections (1) to (3) of section 172 of the Regulations is that the applicant be described in section 97 of the Act.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+            "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8"
+          },
+          {
+            "aliases": [
+              {
+                "arm": "P2a",
+                "au_index": 2,
+                "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+              },
+              {
+                "arm": "P2b",
+                "au_index": 2,
+                "request_id": "hreq-874c6ffa109dfa3f02e40224"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+            "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e"
+          },
+          {
+            "aliases": [
+              {
+                "arm": "P2b",
+                "au_index": 1,
+                "request_id": "hreq-874c6ffa109dfa3f02e40224"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "The condition precedent for applying subsections 172(1) to (3) of the Regulations is that the applicant be described in section 97 of the Act.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+            "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422"
+          }
+        ],
+        "fingerprint": "84d5bb602277709b44cee4a62cf4a0237097202d996bd071458450f13e861b4b",
+        "model_turns": 1,
+        "session": {
+          "events": [
+            {
+              "arguments": {
+                "decisions": [
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  },
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  },
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  },
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  }
+                ],
+                "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf"
+              },
+              "name": "submit_revision",
+              "ok": true,
+              "result": {
+                "decisions": [
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  },
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  },
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  },
+                  {
+                    "action": "unresolved",
+                    "primary_proposition": null,
+                    "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+                    "reason": "Mock has no semantic verdict",
+                    "replacements": []
+                  }
+                ],
+                "original_proposals": [
+                  {
+                    "aliases": [
+                      {
+                        "arm": "P2a",
+                        "au_index": 0,
+                        "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+                      },
+                      {
+                        "arm": "P2b",
+                        "au_index": 0,
+                        "request_id": "hreq-874c6ffa109dfa3f02e40224"
+                      }
+                    ],
+                    "proposal": {
+                      "attribution_role": "proposition",
+                      "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+                      "evidence_ref_ids": [
+                        "sa-dae5c70d9fa508f6d457c1ae"
+                      ],
+                      "kind": "statutory_hook",
+                      "needs_context": [],
+                      "other_kind": null,
+                      "speaker": "statute"
+                    },
+                    "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+                    "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b"
+                  },
+                  {
+                    "aliases": [
+                      {
+                        "arm": "P2a",
+                        "au_index": 1,
+                        "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+                      }
+                    ],
+                    "proposal": {
+                      "attribution_role": "proposition",
+                      "claim": "The condition precedent for applying subsections (1) to (3) of section 172 of the Regulations is that the applicant be described in section 97 of the Act.",
+                      "evidence_ref_ids": [
+                        "sa-dae5c70d9fa508f6d457c1ae",
+                        "sa-f751735fdfbd3b9fd4bee03e"
+                      ],
+                      "kind": "statutory_hook",
+                      "needs_context": [],
+                      "other_kind": null,
+                      "speaker": "statute"
+                    },
+                    "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+                    "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8"
+                  },
+                  {
+                    "aliases": [
+                      {
+                        "arm": "P2a",
+                        "au_index": 2,
+                        "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+                      },
+                      {
+                        "arm": "P2b",
+                        "au_index": 2,
+                        "request_id": "hreq-874c6ffa109dfa3f02e40224"
+                      }
+                    ],
+                    "proposal": {
+                      "attribution_role": "proposition",
+                      "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+                      "evidence_ref_ids": [
+                        "sa-dae5c70d9fa508f6d457c1ae",
+                        "sa-f751735fdfbd3b9fd4bee03e"
+                      ],
+                      "kind": "statutory_hook",
+                      "needs_context": [],
+                      "other_kind": null,
+                      "speaker": "statute"
+                    },
+                    "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+                    "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e"
+                  },
+                  {
+                    "aliases": [
+                      {
+                        "arm": "P2b",
+                        "au_index": 1,
+                        "request_id": "hreq-874c6ffa109dfa3f02e40224"
+                      }
+                    ],
+                    "proposal": {
+                      "attribution_role": "proposition",
+                      "claim": "The condition precedent for applying subsections 172(1) to (3) of the Regulations is that the applicant be described in section 97 of the Act.",
+                      "evidence_ref_ids": [
+                        "sa-dae5c70d9fa508f6d457c1ae",
+                        "sa-f751735fdfbd3b9fd4bee03e"
+                      ],
+                      "kind": "statutory_hook",
+                      "needs_context": [],
+                      "other_kind": null,
+                      "speaker": "statute"
+                    },
+                    "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+                    "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422"
+                  }
+                ],
+                "read_atom_ids": [
+                  "sa-a050d3f31b5b5db053e48dbc",
+                  "sa-dae5c70d9fa508f6d457c1ae",
+                  "sa-f751735fdfbd3b9fd4bee03e",
+                  "sa-ed437d5c5a3d23b5f6c0e005",
+                  "sa-6ccf6f7017b833e2663b4c82",
+                  "sa-8f588b3ab949f71b83338230",
+                  "sa-0799b37ea4c2eff1308ec1df",
+                  "sa-3dacdee768fa9c3b19146e83",
+                  "sa-2189e0d2eab8d5971022a7f7"
+                ],
+                "semantic_status": "semantic_review_pending",
+                "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf",
+                "verified_replacements": []
+              },
+              "sequence": 1
+            }
+          ],
+          "expanded_atom_ids": [],
+          "expansion_count": 0,
+          "obligations": [],
+          "read_atom_ids": [
+            "sa-a050d3f31b5b5db053e48dbc",
+            "sa-dae5c70d9fa508f6d457c1ae",
+            "sa-f751735fdfbd3b9fd4bee03e",
+            "sa-ed437d5c5a3d23b5f6c0e005",
+            "sa-6ccf6f7017b833e2663b4c82",
+            "sa-8f588b3ab949f71b83338230",
+            "sa-0799b37ea4c2eff1308ec1df",
+            "sa-3dacdee768fa9c3b19146e83",
+            "sa-2189e0d2eab8d5971022a7f7"
+          ],
+          "revision": {
+            "decisions": [
+              {
+                "action": "unresolved",
+                "primary_proposition": null,
+                "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+                "reason": "Mock has no semantic verdict",
+                "replacements": []
+              },
+              {
+                "action": "unresolved",
+                "primary_proposition": null,
+                "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+                "reason": "Mock has no semantic verdict",
+                "replacements": []
+              },
+              {
+                "action": "unresolved",
+                "primary_proposition": null,
+                "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+                "reason": "Mock has no semantic verdict",
+                "replacements": []
+              },
+              {
+                "action": "unresolved",
+                "primary_proposition": null,
+                "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+                "reason": "Mock has no semantic verdict",
+                "replacements": []
+              }
+            ],
+            "fingerprint": "84d5bb602277709b44cee4a62cf4a0237097202d996bd071458450f13e861b4b",
+            "original_proposals": [
+              {
+                "aliases": [
+                  {
+                    "arm": "P2a",
+                    "au_index": 0,
+                    "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+                  },
+                  {
+                    "arm": "P2b",
+                    "au_index": 0,
+                    "request_id": "hreq-874c6ffa109dfa3f02e40224"
+                  }
+                ],
+                "proposal": {
+                  "attribution_role": "proposition",
+                  "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+                  "evidence_ref_ids": [
+                    "sa-dae5c70d9fa508f6d457c1ae"
+                  ],
+                  "kind": "statutory_hook",
+                  "needs_context": [],
+                  "other_kind": null,
+                  "speaker": "statute"
+                },
+                "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+                "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b"
+              },
+              {
+                "aliases": [
+                  {
+                    "arm": "P2a",
+                    "au_index": 1,
+                    "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+                  }
+                ],
+                "proposal": {
+                  "attribution_role": "proposition",
+                  "claim": "The condition precedent for applying subsections (1) to (3) of section 172 of the Regulations is that the applicant be described in section 97 of the Act.",
+                  "evidence_ref_ids": [
+                    "sa-dae5c70d9fa508f6d457c1ae",
+                    "sa-f751735fdfbd3b9fd4bee03e"
+                  ],
+                  "kind": "statutory_hook",
+                  "needs_context": [],
+                  "other_kind": null,
+                  "speaker": "statute"
+                },
+                "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+                "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8"
+              },
+              {
+                "aliases": [
+                  {
+                    "arm": "P2a",
+                    "au_index": 2,
+                    "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+                  },
+                  {
+                    "arm": "P2b",
+                    "au_index": 2,
+                    "request_id": "hreq-874c6ffa109dfa3f02e40224"
+                  }
+                ],
+                "proposal": {
+                  "attribution_role": "proposition",
+                  "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+                  "evidence_ref_ids": [
+                    "sa-dae5c70d9fa508f6d457c1ae",
+                    "sa-f751735fdfbd3b9fd4bee03e"
+                  ],
+                  "kind": "statutory_hook",
+                  "needs_context": [],
+                  "other_kind": null,
+                  "speaker": "statute"
+                },
+                "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+                "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e"
+              },
+              {
+                "aliases": [
+                  {
+                    "arm": "P2b",
+                    "au_index": 1,
+                    "request_id": "hreq-874c6ffa109dfa3f02e40224"
+                  }
+                ],
+                "proposal": {
+                  "attribution_role": "proposition",
+                  "claim": "The condition precedent for applying subsections 172(1) to (3) of the Regulations is that the applicant be described in section 97 of the Act.",
+                  "evidence_ref_ids": [
+                    "sa-dae5c70d9fa508f6d457c1ae",
+                    "sa-f751735fdfbd3b9fd4bee03e"
+                  ],
+                  "kind": "statutory_hook",
+                  "needs_context": [],
+                  "other_kind": null,
+                  "speaker": "statute"
+                },
+                "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+                "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422"
+              }
+            ],
+            "read_atom_ids": [
+              "sa-a050d3f31b5b5db053e48dbc",
+              "sa-dae5c70d9fa508f6d457c1ae",
+              "sa-f751735fdfbd3b9fd4bee03e",
+              "sa-ed437d5c5a3d23b5f6c0e005",
+              "sa-6ccf6f7017b833e2663b4c82",
+              "sa-8f588b3ab949f71b83338230",
+              "sa-0799b37ea4c2eff1308ec1df",
+              "sa-3dacdee768fa9c3b19146e83",
+              "sa-2189e0d2eab8d5971022a7f7"
+            ],
+            "semantic_status": "semantic_review_pending",
+            "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf",
+            "verified_replacements": []
+          },
+          "tool_count": 1
+        },
+        "status": "revision_submitted",
+        "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf"
+      }
+    }
+  },
+  "digest": "a3ffb2cc3ecea604bfd6756abd2349b686281931380d090c0887bc9906137c8d"
+}

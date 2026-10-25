@@ -1,0 +1,58 @@
+{
+  "manifest_version": "selected-kos-manifest-v1",
+  "created_from": "G:/Legal-AI/kos_sample filesystem snapshot 2026-10-02",
+  "input_contract": {
+    "root_argument": "--kos-root",
+    "case_path_template": "cases/{case_id}",
+    "file_selection": "all regular files recursively under each selected case directory",
+    "allowed_suffixes": [".md"],
+    "file_hash_algorithm": "sha256_raw_bytes",
+    "tree_hash_algorithm": "sha256(canonical_json([{path, sha256, byte_length}, ...]))",
+    "path_order": "ascending POSIX relative path"
+  },
+  "role": "contract_calibration_only",
+  "quality_claim": "none",
+  "cases": [
+    {
+      "case_id": "013009",
+      "kos_role": "query",
+      "case_path": "cases/013009",
+      "file_count": 27,
+      "total_bytes": 30679,
+      "tree_sha256": "f860cb388c8ea7c851566999f4c971f8b0e23d3dd1b46f69848ea9b578161485"
+    },
+    {
+      "case_id": "013948",
+      "kos_role": "query",
+      "case_path": "cases/013948",
+      "file_count": 13,
+      "total_bytes": 16673,
+      "tree_sha256": "43fab087a3049b32d995eb61f30d01ff4cc49274dad0d0c4d872fd2300541e12"
+    },
+    {
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "case_path": "cases/011904",
+      "file_count": 9,
+      "total_bytes": 10662,
+      "tree_sha256": "28e4b13fdfdfa9fc978a00863bb864b0c02b4922703614abbf65ca492fbd6152"
+    },
+    {
+      "case_id": "045155",
+      "kos_role": "candidate",
+      "case_path": "cases/045155",
+      "file_count": 6,
+      "total_bytes": 6598,
+      "tree_sha256": "12c875a48410e6cbedf4b6b96a7966566fea3b7b4a3b24e441568705e3f8c33f"
+    },
+    {
+      "case_id": "099980",
+      "kos_role": "candidate",
+      "case_path": "cases/099980",
+      "file_count": 6,
+      "total_bytes": 5033,
+      "tree_sha256": "3cae09f8c9a3338efa1570f2f28b0c823f312832f81a06cac41451121303108d"
+    }
+  ]
+}
+

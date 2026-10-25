@@ -3,6 +3,8 @@
 Kho mã nguồn nghiên cứu và phát triển hệ thống cho
 [COLIEE 2026 Task 1 — Legal Case Retrieval (CL-IR)](https://coliee.org/COLIEE2026/tasks/task1).
 
+Hướng dẫn tiếp tục nghiên cứu trên máy khác: [RESEARCH_HANDOFF.md](RESEARCH_HANDOFF.md).
+
 ## Bài toán
 
 COLIEE Task 1 yêu cầu tìm các bản án đã được một bản án truy vấn viện dẫn

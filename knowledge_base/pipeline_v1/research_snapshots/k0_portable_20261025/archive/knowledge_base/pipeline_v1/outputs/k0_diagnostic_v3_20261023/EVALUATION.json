@@ -1,0 +1,36 @@
+{
+  "status": "diagnosis_complete_AU_control_failed",
+  "client_POST_attempts": 3,
+  "client_provider_usage": {
+    "input_tokens": 2478,
+    "output_tokens": 199,
+    "total_tokens": 2677
+  },
+  "runtime_startup_warmup_observed": {
+    "requests": 1,
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 21,
+      "total_tokens": 40,
+      "reasoning_tokens": 0
+    },
+    "latency_seconds": 0.8929717480000079,
+    "outcome": "completed",
+    "included_in_diagnostic_budget": false
+  },
+  "startup_usage_complete_across_failed_containers": false,
+  "cpu_probe_status": "pass",
+  "cpu_exact_original_status": "pass",
+  "runtime_xgrammar": "0.2.1",
+  "runtime_stop_ids": [
+    248044,
+    248046
+  ],
+  "parent_K0_unchanged": true,
+  "local_tests_passed": 30,
+  "synthetic_grammar_AUs": 0,
+  "synthetic_plain_protocol": "invalid",
+  "real_one_turn_AUs": 0,
+  "semantic_quality": "diagnostic_source_review_only_not_gold",
+  "K1_ready": false
+}

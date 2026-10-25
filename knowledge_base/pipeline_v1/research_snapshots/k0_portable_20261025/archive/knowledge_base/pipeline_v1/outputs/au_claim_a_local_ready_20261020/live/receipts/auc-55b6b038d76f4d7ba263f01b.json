@@ -1,0 +1,147 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-6dc239758ae2a67baef48c3c",
+        "claim": "Issues of procedural fairness are resolved on a case-by-case basis.",
+        "kind": "procedural_rule",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": "The Court is not bound by prior findings of fact where facts differ substantially, such as when an applicant was never formally informed of fraud suspicion.",
+        "evidence": [
+          {
+            "ref_id": "t-c5933e061efbb05cabf77e8e",
+            "case_id": "099980",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 58472,
+            "end_char": 58837,
+            "quote": "As we know, issues of procedural fairness are resolved on a case-by-case basis, which means that today, the Court is not bound by the findings of fact the Court made on this issue in\r\nSeck 1 first instance\r\n, at paragraphs 17 to 20, especially since the facts differ substantially because the applicant was never formally informed that she was suspected of fraud.\r\n",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-ab8531c7c9d443a957a14e80",
+        "claim": "The standard of correctness guides the analysis of the Court with respect to the alleged breach of the rules of procedural fairness.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-761ffc5ef53a68ac14c314dc",
+            "case_id": "099980",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 58238,
+            "end_char": 58472,
+            "quote": "[96]\r\nIt is appropriate for the standard of correctness to guide the analysis of the Court with respect to the alleged breach of the rules of procedural fairness:\r\n <FRAGMENT_SUPPRESSED>  [2006] FCJ No 1261 ( <FRAGMENT_SUPPRESSED> ). ",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1065,
+    "output_tokens": 112,
+    "total_tokens": 1177
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"Issues of procedural fairness are resolved on a case-by-case basis.\",\"kind\":\"procedural_rule\",\"evidence_ids\":[\"s2\"],\"limits\":\"The Court is not bound by prior findings of fact where facts differ substantially, such as when an applicant was never formally informed of fraud suspicion.\"},{\"claim\":\"The standard of correctness guides the analysis of the Court with respect to the alleged breach of the rules of procedural fairness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792496078,
+    "id": "08006461315d46578e1abd0019059bb2",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 112,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 112,
+      "prompt_tokens": 1065,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1177
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa",
+    "payload_sha256": "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa",
+    "polls": 5,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792496061.8138397,
+    "job_status": "completed",
+    "latency_ms": 20196.956,
+    "finished_at_unix": 1792496082.010746,
+    "server_timing": {
+      "created_at": "2026-10-20T11:34:26.296163+00:00",
+      "started_at": "2026-10-20T11:34:28.524950+00:00",
+      "finished_at": "2026-10-20T11:34:38.805336+00:00",
+      "inference_seconds": 9.505114773000003
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "Issues of procedural fairness are resolved on a case-by-case basis.",
+        "kind": "procedural_rule",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": "The Court is not bound by prior findings of fact where facts differ substantially, such as when an applicant was never formally informed of fraud suspicion."
+      },
+      {
+        "claim": "The standard of correctness guides the analysis of the Court with respect to the alleged breach of the rules of procedural fairness.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 20197.229,
+  "request_id": "auc-55b6b038d76f4d7ba263f01b",
+  "payload_sha256": "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa",
+  "receipt_sha256": "2cc8d5d7becdd243b693ade46b5297beea347dea0c5891e4b0fc7f762dda8640"
+}

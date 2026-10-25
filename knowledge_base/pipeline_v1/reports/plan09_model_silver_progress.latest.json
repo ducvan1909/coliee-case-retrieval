@@ -1,0 +1,95 @@
+{
+  "artifact_type": "Plan09ModelSilverProgress",
+  "progress_version": "plan09-model-silver-progress-v1",
+  "status": "complete",
+  "semantic_gold": false,
+  "evaluation_against": "model_silver",
+  "blocker": "R3 accepted; R4 model-silver coverage complete. R5 independent final audit required; semantic acceptance pending. Plan10 locked.",
+  "expected_target_count": 369,
+  "reviewed_target_count": 369,
+  "missing_target_count": 0,
+  "authority_unit_count": 188,
+  "hard_negative_count": 186,
+  "unresolved_target_count": 8,
+  "canonical_duplicate_target_count": 0,
+  "cases": [
+    {
+      "case_id": "011904",
+      "expected_target_count": 37,
+      "proposal_count": 10,
+      "reviewed_target_count": 37,
+      "authority_unit_count": 20,
+      "hard_negative_count": 16,
+      "unresolved_target_count": 1,
+      "missing_target_count": 0,
+      "missing_target_ids": [],
+      "coverage_complete": true
+    },
+    {
+      "case_id": "013009",
+      "expected_target_count": 19,
+      "proposal_count": 5,
+      "reviewed_target_count": 19,
+      "authority_unit_count": 9,
+      "hard_negative_count": 10,
+      "unresolved_target_count": 0,
+      "missing_target_count": 0,
+      "missing_target_ids": [],
+      "coverage_complete": true
+    },
+    {
+      "case_id": "013948",
+      "expected_target_count": 59,
+      "proposal_count": 15,
+      "reviewed_target_count": 59,
+      "authority_unit_count": 37,
+      "hard_negative_count": 22,
+      "unresolved_target_count": 0,
+      "missing_target_count": 0,
+      "missing_target_ids": [],
+      "coverage_complete": true
+    },
+    {
+      "case_id": "045155",
+      "expected_target_count": 53,
+      "proposal_count": 14,
+      "reviewed_target_count": 53,
+      "authority_unit_count": 16,
+      "hard_negative_count": 37,
+      "unresolved_target_count": 0,
+      "missing_target_count": 0,
+      "missing_target_ids": [],
+      "coverage_complete": true
+    },
+    {
+      "case_id": "099980",
+      "expected_target_count": 201,
+      "proposal_count": 168,
+      "reviewed_target_count": 201,
+      "authority_unit_count": 106,
+      "hard_negative_count": 101,
+      "unresolved_target_count": 7,
+      "missing_target_count": 0,
+      "missing_target_ids": [],
+      "coverage_complete": true
+    }
+  ],
+  "semantic_remediation": {
+    "quarantined_target_count": 37,
+    "open_severe_finding_count": 0,
+    "amendment_count": 42,
+    "semantic_pass": false,
+    "plan10_allowed": false,
+    "risk_item_count": 49,
+    "risk_reviewed_count": 49,
+    "risk_pending_count": 0,
+    "r3_status": "PASS",
+    "r3_independent_model_acceptance": true
+  },
+  "gates": {
+    "r3_pass": true,
+    "r4_coverage_complete": true,
+    "r5_final_audit_pass": false,
+    "plan10_allowed": false
+  }
+}

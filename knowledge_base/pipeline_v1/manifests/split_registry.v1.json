@@ -1,0 +1,68 @@
+{
+  "registry_version": "p2-split-registry-v1",
+  "calibration": ["013009", "013948", "011904", "045155", "099980"],
+  "runtime_validation_input": "manifests/selected_kos_manifest.v1.json",
+  "pilot_policy": {
+    "labels_used": false,
+    "inputs": {
+      "train": "data/task1_train_files_2026/cases/*.txt",
+      "test": "data/task1_test_files_2026/*.txt"
+    },
+    "ordering": "ascending (byte_length, case_id)",
+    "band_partition": "band i is rows[i*n//3:(i+1)*n//3], i=0..2",
+    "rank_key": "sha256('lynx-round2:{corpus_split}:{band}:{case_id}')",
+    "selected_per_band": 10,
+    "assignment": "concatenate short, medium, long; development iff global_selected_index % 3 == 0",
+    "assignment_sha256": "3e697753e5a544ecf7997d020905906317bc4d6962497e86e4c8790b33d943bd"
+  },
+  "pilot": {
+    "train": {
+      "short": {
+        "development": ["011680", "073214", "040898", "050313"],
+        "holdout": ["068905", "004750", "087182", "027941", "099523", "034757"]
+      },
+      "medium": {
+        "development": ["034501", "093150", "083288"],
+        "holdout": ["033849", "089468", "019072", "063124", "013378", "065768", "020779"]
+      },
+      "long": {
+        "development": ["047415", "006725", "043625"],
+        "holdout": ["030153", "086137", "016637", "073619", "049829", "014163", "012639"]
+      }
+    },
+    "test": {
+      "short": {
+        "development": ["097712", "048676", "094658", "016218"],
+        "holdout": ["040589", "070983", "040305", "090645", "005174", "074351"]
+      },
+      "medium": {
+        "development": ["026464", "014017", "027593"],
+        "holdout": ["078012", "067062", "050647", "034828", "073623", "027582", "025471"]
+      },
+      "long": {
+        "development": ["060339", "043490", "096254"],
+        "holdout": ["086515", "017964", "092684", "052918", "093995", "077956", "086623"]
+      }
+    }
+  },
+  "leakage_policy": {
+    "calibration_must_not_overlap_pilot": true,
+    "development_must_not_overlap_holdout": true,
+    "duplicate_case_id_forbidden": true,
+    "duplicate_source_hash_forbidden_within_locked_sets": true,
+    "holdout_forbidden_uses": [
+      "parser rule changes",
+      "prompt changes",
+      "threshold changes",
+      "label mapping changes",
+      "model selection or tuning"
+    ],
+    "forbidden_selection_inputs": [
+      "train labels",
+      "noticed-case gold",
+      "prior model outputs"
+    ],
+    "kos_artifact_rule": "selected KOS files are validation inputs and candidate evidence only; their existing labels are not evaluation gold"
+  }
+}
+

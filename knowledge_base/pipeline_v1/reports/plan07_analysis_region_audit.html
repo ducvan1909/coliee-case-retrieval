@@ -1,0 +1,526 @@
+<!doctype html><meta charset='utf-8'><title>Plan 07 region audit</title><h1>Plan 07 offline P2 audit</h1><p>No region source text is persisted. Caps are pilot assumptions, not optimized values.</p><pre>{
+  &quot;build_manifest_version&quot;: &quot;analysis-region-build-v1&quot;,
+  &quot;status&quot;: &quot;pass&quot;,
+  &quot;workload&quot;: &quot;KOS-5&quot;,
+  &quot;scheduler_version&quot;: &quot;p2-offline-scheduler-v1.6&quot;,
+  &quot;policy_sha256&quot;: &quot;ea167ffba6fe1c171ff4cdcf21605c9052095ca1d0234fa14a0b6fd6dcc9a2f7&quot;,
+  &quot;summary&quot;: {
+    &quot;case_count&quot;: 5,
+    &quot;block_count&quot;: 431,
+    &quot;content_block_count&quot;: 369,
+    &quot;empty_content_structural_only_count&quot;: 1,
+    &quot;primary_target_count&quot;: 369,
+    &quot;slice_count&quot;: 10,
+    &quot;work_item_count&quot;: 374,
+    &quot;batch_count&quot;: 96,
+    &quot;oversized_atom_count&quot;: 0,
+    &quot;excluded_role_counts&quot;: {
+      &quot;audit_only_editorial&quot;: 22,
+      &quot;structural_context_candidate_only&quot;: 39,
+      &quot;structural_only_not_content&quot;: 1
+    },
+    &quot;hint_disposition_count&quot;: 28,
+    &quot;hint_target_eligibility_counts&quot;: {
+      &quot;eligible_primary_target&quot;: 16,
+      &quot;target_ineligible_structural_only&quot;: 12
+    },
+    &quot;hint_disposition_counts&quot;: {
+      &quot;no_eligible_related_context&quot;: 16,
+      &quot;target_ineligible_structural_only&quot;: 12
+    },
+    &quot;arm_metrics&quot;: {
+      &quot;P2a&quot;: {
+        &quot;region_count&quot;: 96,
+        &quot;unique_source_chars&quot;: 201431,
+        &quot;proposed_source_chars&quot;: 293411,
+        &quot;repeated_source_chars&quot;: 91980,
+        &quot;rendered_chars&quot;: 339801,
+        &quot;estimated_input_tokens&quot;: 84984,
+        &quot;overlap_ratio&quot;: 0.31348518,
+        &quot;regions_with_stop_reason&quot;: 4,
+        &quot;stop_reason_counts&quot;: {
+          &quot;context_cap_exhausted&quot;: 4
+        },
+        &quot;context_drop_reason_counts&quot;: {
+          &quot;max_context_chars&quot;: 1,
+          &quot;max_context_spans&quot;: 4
+        },
+        &quot;context_spans&quot;: 216,
+        &quot;included_hints&quot;: 0,
+        &quot;max_region_unique_chars&quot;: 7069,
+        &quot;max_region_estimated_input_tokens&quot;: 1887,
+        &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+        &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+      },
+      &quot;P2b&quot;: {
+        &quot;region_count&quot;: 96,
+        &quot;unique_source_chars&quot;: 201431,
+        &quot;proposed_source_chars&quot;: 293411,
+        &quot;repeated_source_chars&quot;: 91980,
+        &quot;rendered_chars&quot;: 339801,
+        &quot;estimated_input_tokens&quot;: 84984,
+        &quot;overlap_ratio&quot;: 0.31348518,
+        &quot;regions_with_stop_reason&quot;: 4,
+        &quot;stop_reason_counts&quot;: {
+          &quot;context_cap_exhausted&quot;: 4
+        },
+        &quot;context_drop_reason_counts&quot;: {
+          &quot;max_context_chars&quot;: 1,
+          &quot;max_context_spans&quot;: 4
+        },
+        &quot;context_spans&quot;: 216,
+        &quot;included_hints&quot;: 16,
+        &quot;max_region_unique_chars&quot;: 7069,
+        &quot;max_region_estimated_input_tokens&quot;: 1887,
+        &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+        &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+      }
+    },
+    &quot;p2_context_comparison&quot;: {
+      &quot;selection_contract&quot;: &quot;P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans&quot;,
+      &quot;retained_p2a_context_spans&quot;: 216,
+      &quot;retained_p2a_context_chars&quot;: 97073,
+      &quot;displaced_p2a_context_spans&quot;: 0,
+      &quot;displaced_p2a_context_chars&quot;: 0,
+      &quot;new_p2b_context_spans&quot;: 0,
+      &quot;new_p2b_context_chars&quot;: 0
+    }
+  },
+  &quot;cases&quot;: [
+    {
+      &quot;case_id&quot;: &quot;013009&quot;,
+      &quot;source_hash&quot;: &quot;fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3&quot;,
+      &quot;artifact_ref&quot;: &quot;cases/013009/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8/151c9fb1917a98e9c949683731b466b7edcec49caa447f6fc88446a66f12dd98/516099a69aee20d28084297a7cab57b9c58334e7c0de664c26b3bd61c2cf79a7/ae994aec53fcd8b4e32f9697928afc1eac59e0342308747e71d1651ee77c3a5b/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json&quot;,
+      &quot;artifact_action&quot;: &quot;created&quot;,
+      &quot;block_count&quot;: 21,
+      &quot;content_block_count&quot;: 19,
+      &quot;empty_content_structural_only_count&quot;: 0,
+      &quot;excluded_role_counts&quot;: {
+        &quot;structural_context_candidate_only&quot;: 2
+      },
+      &quot;primary_target_count&quot;: 19,
+      &quot;slice_count&quot;: 0,
+      &quot;work_item_count&quot;: 19,
+      &quot;batch_count&quot;: 5,
+      &quot;oversized_atom_count&quot;: 0,
+      &quot;batch_stop_reason_counts&quot;: {},
+      &quot;hint_disposition_count&quot;: 0,
+      &quot;hint_target_eligibility_counts&quot;: {},
+      &quot;hint_disposition_counts&quot;: {},
+      &quot;arm_metrics&quot;: {
+        &quot;P2a&quot;: {
+          &quot;region_count&quot;: 5,
+          &quot;unique_source_chars&quot;: 12570,
+          &quot;proposed_source_chars&quot;: 17606,
+          &quot;repeated_source_chars&quot;: 5036,
+          &quot;rendered_chars&quot;: 19874,
+          &quot;estimated_input_tokens&quot;: 4971,
+          &quot;overlap_ratio&quot;: 0.28603885,
+          &quot;regions_with_stop_reason&quot;: 0,
+          &quot;stop_reason_counts&quot;: {},
+          &quot;context_drop_reason_counts&quot;: {},
+          &quot;context_spans&quot;: 10,
+          &quot;included_hints&quot;: 0,
+          &quot;max_region_unique_chars&quot;: 5307,
+          &quot;max_region_estimated_input_tokens&quot;: 1444,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        },
+        &quot;P2b&quot;: {
+          &quot;region_count&quot;: 5,
+          &quot;unique_source_chars&quot;: 12570,
+          &quot;proposed_source_chars&quot;: 17606,
+          &quot;repeated_source_chars&quot;: 5036,
+          &quot;rendered_chars&quot;: 19874,
+          &quot;estimated_input_tokens&quot;: 4971,
+          &quot;overlap_ratio&quot;: 0.28603885,
+          &quot;regions_with_stop_reason&quot;: 0,
+          &quot;stop_reason_counts&quot;: {},
+          &quot;context_drop_reason_counts&quot;: {},
+          &quot;context_spans&quot;: 10,
+          &quot;included_hints&quot;: 0,
+          &quot;max_region_unique_chars&quot;: 5307,
+          &quot;max_region_estimated_input_tokens&quot;: 1444,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        }
+      },
+      &quot;p2_context_comparison&quot;: {
+        &quot;selection_contract&quot;: &quot;P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans&quot;,
+        &quot;retained_p2a_context_spans&quot;: 10,
+        &quot;retained_p2a_context_chars&quot;: 5065,
+        &quot;displaced_p2a_context_spans&quot;: 0,
+        &quot;displaced_p2a_context_chars&quot;: 0,
+        &quot;new_p2b_context_spans&quot;: 0,
+        &quot;new_p2b_context_chars&quot;: 0
+      },
+      &quot;checks&quot;: {
+        &quot;schema_valid&quot;: true,
+        &quot;dependency_identity_valid&quot;: true,
+        &quot;content_target_coverage_100pct&quot;: true,
+        &quot;slice_coverage_exact&quot;: true,
+        &quot;arm_target_coverage_100pct&quot;: true,
+        &quot;fixed_cap_arm_selection_auditable&quot;: true,
+        &quot;hint_dispositions_reconciled&quot;: true,
+        &quot;context_not_target&quot;: true,
+        &quot;render_metrics_recomputed&quot;: true,
+        &quot;fingerprints_recomputed&quot;: true,
+        &quot;caps_or_stop_reason&quot;: true
+      }
+    },
+    {
+      &quot;case_id&quot;: &quot;013948&quot;,
+      &quot;source_hash&quot;: &quot;1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352&quot;,
+      &quot;artifact_ref&quot;: &quot;cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2/9ef99f92abbbc524a492214e313aa9bca7df293093816e176e71a034d5ff279b/ca5fdfb342f11e6820a6fa6ec8ef882a8b9b86193a0e9d78e60f4b925f4f3b3e/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json&quot;,
+      &quot;artifact_action&quot;: &quot;created&quot;,
+      &quot;block_count&quot;: 68,
+      &quot;content_block_count&quot;: 59,
+      &quot;empty_content_structural_only_count&quot;: 0,
+      &quot;excluded_role_counts&quot;: {
+        &quot;structural_context_candidate_only&quot;: 9
+      },
+      &quot;primary_target_count&quot;: 59,
+      &quot;slice_count&quot;: 0,
+      &quot;work_item_count&quot;: 59,
+      &quot;batch_count&quot;: 15,
+      &quot;oversized_atom_count&quot;: 0,
+      &quot;batch_stop_reason_counts&quot;: {},
+      &quot;hint_disposition_count&quot;: 2,
+      &quot;hint_target_eligibility_counts&quot;: {
+        &quot;eligible_primary_target&quot;: 2
+      },
+      &quot;hint_disposition_counts&quot;: {
+        &quot;no_eligible_related_context&quot;: 2
+      },
+      &quot;arm_metrics&quot;: {
+        &quot;P2a&quot;: {
+          &quot;region_count&quot;: 15,
+          &quot;unique_source_chars&quot;: 18351,
+          &quot;proposed_source_chars&quot;: 27838,
+          &quot;repeated_source_chars&quot;: 9487,
+          &quot;rendered_chars&quot;: 35261,
+          &quot;estimated_input_tokens&quot;: 8821,
+          &quot;overlap_ratio&quot;: 0.34079316,
+          &quot;regions_with_stop_reason&quot;: 0,
+          &quot;stop_reason_counts&quot;: {},
+          &quot;context_drop_reason_counts&quot;: {},
+          &quot;context_spans&quot;: 37,
+          &quot;included_hints&quot;: 0,
+          &quot;max_region_unique_chars&quot;: 2723,
+          &quot;max_region_estimated_input_tokens&quot;: 800,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        },
+        &quot;P2b&quot;: {
+          &quot;region_count&quot;: 15,
+          &quot;unique_source_chars&quot;: 18351,
+          &quot;proposed_source_chars&quot;: 27838,
+          &quot;repeated_source_chars&quot;: 9487,
+          &quot;rendered_chars&quot;: 35261,
+          &quot;estimated_input_tokens&quot;: 8821,
+          &quot;overlap_ratio&quot;: 0.34079316,
+          &quot;regions_with_stop_reason&quot;: 0,
+          &quot;stop_reason_counts&quot;: {},
+          &quot;context_drop_reason_counts&quot;: {},
+          &quot;context_spans&quot;: 37,
+          &quot;included_hints&quot;: 2,
+          &quot;max_region_unique_chars&quot;: 2723,
+          &quot;max_region_estimated_input_tokens&quot;: 800,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        }
+      },
+      &quot;p2_context_comparison&quot;: {
+        &quot;selection_contract&quot;: &quot;P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans&quot;,
+        &quot;retained_p2a_context_spans&quot;: 37,
+        &quot;retained_p2a_context_chars&quot;: 9586,
+        &quot;displaced_p2a_context_spans&quot;: 0,
+        &quot;displaced_p2a_context_chars&quot;: 0,
+        &quot;new_p2b_context_spans&quot;: 0,
+        &quot;new_p2b_context_chars&quot;: 0
+      },
+      &quot;checks&quot;: {
+        &quot;schema_valid&quot;: true,
+        &quot;dependency_identity_valid&quot;: true,
+        &quot;content_target_coverage_100pct&quot;: true,
+        &quot;slice_coverage_exact&quot;: true,
+        &quot;arm_target_coverage_100pct&quot;: true,
+        &quot;fixed_cap_arm_selection_auditable&quot;: true,
+        &quot;hint_dispositions_reconciled&quot;: true,
+        &quot;context_not_target&quot;: true,
+        &quot;render_metrics_recomputed&quot;: true,
+        &quot;fingerprints_recomputed&quot;: true,
+        &quot;caps_or_stop_reason&quot;: true
+      }
+    },
+    {
+      &quot;case_id&quot;: &quot;011904&quot;,
+      &quot;source_hash&quot;: &quot;c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12&quot;,
+      &quot;artifact_ref&quot;: &quot;cases/011904/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c/b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1/14aa1ca3594fdcbd794d590c425075d88b9bc30d0cbd46cdcdb09e2534e5c2bd/df366be3729e0d31766955cd933e6065ee53f649255450ecbb8a71cfb65e2967/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json&quot;,
+      &quot;artifact_action&quot;: &quot;created&quot;,
+      &quot;block_count&quot;: 41,
+      &quot;content_block_count&quot;: 37,
+      &quot;empty_content_structural_only_count&quot;: 0,
+      &quot;excluded_role_counts&quot;: {
+        &quot;structural_context_candidate_only&quot;: 4
+      },
+      &quot;primary_target_count&quot;: 37,
+      &quot;slice_count&quot;: 0,
+      &quot;work_item_count&quot;: 37,
+      &quot;batch_count&quot;: 10,
+      &quot;oversized_atom_count&quot;: 0,
+      &quot;batch_stop_reason_counts&quot;: {},
+      &quot;hint_disposition_count&quot;: 1,
+      &quot;hint_target_eligibility_counts&quot;: {
+        &quot;eligible_primary_target&quot;: 1
+      },
+      &quot;hint_disposition_counts&quot;: {
+        &quot;no_eligible_related_context&quot;: 1
+      },
+      &quot;arm_metrics&quot;: {
+        &quot;P2a&quot;: {
+          &quot;region_count&quot;: 10,
+          &quot;unique_source_chars&quot;: 20557,
+          &quot;proposed_source_chars&quot;: 28987,
+          &quot;repeated_source_chars&quot;: 8430,
+          &quot;rendered_chars&quot;: 33489,
+          &quot;estimated_input_tokens&quot;: 8375,
+          &quot;overlap_ratio&quot;: 0.29082002,
+          &quot;regions_with_stop_reason&quot;: 0,
+          &quot;stop_reason_counts&quot;: {},
+          &quot;context_drop_reason_counts&quot;: {},
+          &quot;context_spans&quot;: 20,
+          &quot;included_hints&quot;: 0,
+          &quot;max_region_unique_chars&quot;: 4659,
+          &quot;max_region_estimated_input_tokens&quot;: 1285,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        },
+        &quot;P2b&quot;: {
+          &quot;region_count&quot;: 10,
+          &quot;unique_source_chars&quot;: 20557,
+          &quot;proposed_source_chars&quot;: 28987,
+          &quot;repeated_source_chars&quot;: 8430,
+          &quot;rendered_chars&quot;: 33489,
+          &quot;estimated_input_tokens&quot;: 8375,
+          &quot;overlap_ratio&quot;: 0.29082002,
+          &quot;regions_with_stop_reason&quot;: 0,
+          &quot;stop_reason_counts&quot;: {},
+          &quot;context_drop_reason_counts&quot;: {},
+          &quot;context_spans&quot;: 20,
+          &quot;included_hints&quot;: 1,
+          &quot;max_region_unique_chars&quot;: 4659,
+          &quot;max_region_estimated_input_tokens&quot;: 1285,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        }
+      },
+      &quot;p2_context_comparison&quot;: {
+        &quot;selection_contract&quot;: &quot;P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans&quot;,
+        &quot;retained_p2a_context_spans&quot;: 20,
+        &quot;retained_p2a_context_chars&quot;: 8492,
+        &quot;displaced_p2a_context_spans&quot;: 0,
+        &quot;displaced_p2a_context_chars&quot;: 0,
+        &quot;new_p2b_context_spans&quot;: 0,
+        &quot;new_p2b_context_chars&quot;: 0
+      },
+      &quot;checks&quot;: {
+        &quot;schema_valid&quot;: true,
+        &quot;dependency_identity_valid&quot;: true,
+        &quot;content_target_coverage_100pct&quot;: true,
+        &quot;slice_coverage_exact&quot;: true,
+        &quot;arm_target_coverage_100pct&quot;: true,
+        &quot;fixed_cap_arm_selection_auditable&quot;: true,
+        &quot;hint_dispositions_reconciled&quot;: true,
+        &quot;context_not_target&quot;: true,
+        &quot;render_metrics_recomputed&quot;: true,
+        &quot;fingerprints_recomputed&quot;: true,
+        &quot;caps_or_stop_reason&quot;: true
+      }
+    },
+    {
+      &quot;case_id&quot;: &quot;045155&quot;,
+      &quot;source_hash&quot;: &quot;93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb&quot;,
+      &quot;artifact_ref&quot;: &quot;cases/045155/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c/00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d/8ab2c1d5fd62910850b1ffe0bb2cba234d98b98b5b4136fe6bd284aa18128db3/92159bf4fb12c0eabc54e78484457309dd99d113ef8863d31b25c407fca12d3d/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json&quot;,
+      &quot;artifact_action&quot;: &quot;created&quot;,
+      &quot;block_count&quot;: 89,
+      &quot;content_block_count&quot;: 53,
+      &quot;empty_content_structural_only_count&quot;: 0,
+      &quot;excluded_role_counts&quot;: {
+        &quot;audit_only_editorial&quot;: 22,
+        &quot;structural_context_candidate_only&quot;: 14
+      },
+      &quot;primary_target_count&quot;: 53,
+      &quot;slice_count&quot;: 2,
+      &quot;work_item_count&quot;: 54,
+      &quot;batch_count&quot;: 14,
+      &quot;oversized_atom_count&quot;: 0,
+      &quot;batch_stop_reason_counts&quot;: {},
+      &quot;hint_disposition_count&quot;: 23,
+      &quot;hint_target_eligibility_counts&quot;: {
+        &quot;eligible_primary_target&quot;: 11,
+        &quot;target_ineligible_structural_only&quot;: 12
+      },
+      &quot;hint_disposition_counts&quot;: {
+        &quot;no_eligible_related_context&quot;: 11,
+        &quot;target_ineligible_structural_only&quot;: 12
+      },
+      &quot;arm_metrics&quot;: {
+        &quot;P2a&quot;: {
+          &quot;region_count&quot;: 14,
+          &quot;unique_source_chars&quot;: 29274,
+          &quot;proposed_source_chars&quot;: 38230,
+          &quot;repeated_source_chars&quot;: 8956,
+          &quot;rendered_chars&quot;: 45480,
+          &quot;estimated_input_tokens&quot;: 11375,
+          &quot;overlap_ratio&quot;: 0.23426628,
+          &quot;regions_with_stop_reason&quot;: 4,
+          &quot;stop_reason_counts&quot;: {
+            &quot;context_cap_exhausted&quot;: 4
+          },
+          &quot;context_drop_reason_counts&quot;: {
+            &quot;max_context_chars&quot;: 1,
+            &quot;max_context_spans&quot;: 4
+          },
+          &quot;context_spans&quot;: 41,
+          &quot;included_hints&quot;: 0,
+          &quot;max_region_unique_chars&quot;: 7069,
+          &quot;max_region_estimated_input_tokens&quot;: 1887,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        },
+        &quot;P2b&quot;: {
+          &quot;region_count&quot;: 14,
+          &quot;unique_source_chars&quot;: 29274,
+          &quot;proposed_source_chars&quot;: 38230,
+          &quot;repeated_source_chars&quot;: 8956,
+          &quot;rendered_chars&quot;: 45480,
+          &quot;estimated_input_tokens&quot;: 11375,
+          &quot;overlap_ratio&quot;: 0.23426628,
+          &quot;regions_with_stop_reason&quot;: 4,
+          &quot;stop_reason_counts&quot;: {
+            &quot;context_cap_exhausted&quot;: 4
+          },
+          &quot;context_drop_reason_counts&quot;: {
+            &quot;max_context_chars&quot;: 1,
+            &quot;max_context_spans&quot;: 4
+          },
+          &quot;context_spans&quot;: 41,
+          &quot;included_hints&quot;: 11,
+          &quot;max_region_unique_chars&quot;: 7069,
+          &quot;max_region_estimated_input_tokens&quot;: 1887,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        }
+      },
+      &quot;p2_context_comparison&quot;: {
+        &quot;selection_contract&quot;: &quot;P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans&quot;,
+        &quot;retained_p2a_context_spans&quot;: 41,
+        &quot;retained_p2a_context_chars&quot;: 13564,
+        &quot;displaced_p2a_context_spans&quot;: 0,
+        &quot;displaced_p2a_context_chars&quot;: 0,
+        &quot;new_p2b_context_spans&quot;: 0,
+        &quot;new_p2b_context_chars&quot;: 0
+      },
+      &quot;checks&quot;: {
+        &quot;schema_valid&quot;: true,
+        &quot;dependency_identity_valid&quot;: true,
+        &quot;content_target_coverage_100pct&quot;: true,
+        &quot;slice_coverage_exact&quot;: true,
+        &quot;arm_target_coverage_100pct&quot;: true,
+        &quot;fixed_cap_arm_selection_auditable&quot;: true,
+        &quot;hint_dispositions_reconciled&quot;: true,
+        &quot;context_not_target&quot;: true,
+        &quot;render_metrics_recomputed&quot;: true,
+        &quot;fingerprints_recomputed&quot;: true,
+        &quot;caps_or_stop_reason&quot;: true
+      }
+    },
+    {
+      &quot;case_id&quot;: &quot;099980&quot;,
+      &quot;source_hash&quot;: &quot;49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319&quot;,
+      &quot;artifact_ref&quot;: &quot;cases/099980/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c/58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86/693870e6cadc38116a5aeb68654661a1ea9049b3d435ef70b101c413db3a72fe/2577a40337f01fcec043c48b7ad6aa3fd7fdcc3d75cf07f6e48b35da1e7fb728/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json&quot;,
+      &quot;artifact_action&quot;: &quot;created&quot;,
+      &quot;block_count&quot;: 212,
+      &quot;content_block_count&quot;: 201,
+      &quot;empty_content_structural_only_count&quot;: 1,
+      &quot;excluded_role_counts&quot;: {
+        &quot;structural_context_candidate_only&quot;: 10,
+        &quot;structural_only_not_content&quot;: 1
+      },
+      &quot;primary_target_count&quot;: 201,
+      &quot;slice_count&quot;: 8,
+      &quot;work_item_count&quot;: 205,
+      &quot;batch_count&quot;: 52,
+      &quot;oversized_atom_count&quot;: 0,
+      &quot;batch_stop_reason_counts&quot;: {},
+      &quot;hint_disposition_count&quot;: 2,
+      &quot;hint_target_eligibility_counts&quot;: {
+        &quot;eligible_primary_target&quot;: 2
+      },
+      &quot;hint_disposition_counts&quot;: {
+        &quot;no_eligible_related_context&quot;: 2
+      },
+      &quot;arm_metrics&quot;: {
+        &quot;P2a&quot;: {
+          &quot;region_count&quot;: 52,
+          &quot;unique_source_chars&quot;: 120679,
+          &quot;proposed_source_chars&quot;: 180750,
+          &quot;repeated_source_chars&quot;: 60071,
+          &quot;rendered_chars&quot;: 205697,
+          &quot;estimated_input_tokens&quot;: 51442,
+          &quot;overlap_ratio&quot;: 0.33234302,
+          &quot;regions_with_stop_reason&quot;: 0,
+          &quot;stop_reason_counts&quot;: {},
+          &quot;context_drop_reason_counts&quot;: {},
+          &quot;context_spans&quot;: 108,
+          &quot;included_hints&quot;: 0,
+          &quot;max_region_unique_chars&quot;: 5990,
+          &quot;max_region_estimated_input_tokens&quot;: 1617,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        },
+        &quot;P2b&quot;: {
+          &quot;region_count&quot;: 52,
+          &quot;unique_source_chars&quot;: 120679,
+          &quot;proposed_source_chars&quot;: 180750,
+          &quot;repeated_source_chars&quot;: 60071,
+          &quot;rendered_chars&quot;: 205697,
+          &quot;estimated_input_tokens&quot;: 51442,
+          &quot;overlap_ratio&quot;: 0.33234302,
+          &quot;regions_with_stop_reason&quot;: 0,
+          &quot;stop_reason_counts&quot;: {},
+          &quot;context_drop_reason_counts&quot;: {},
+          &quot;context_spans&quot;: 108,
+          &quot;included_hints&quot;: 2,
+          &quot;max_region_unique_chars&quot;: 5990,
+          &quot;max_region_estimated_input_tokens&quot;: 1617,
+          &quot;regions_at_or_above_80pct_char_cap&quot;: 0,
+          &quot;regions_at_or_above_80pct_token_cap&quot;: 0
+        }
+      },
+      &quot;p2_context_comparison&quot;: {
+        &quot;selection_contract&quot;: &quot;P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans&quot;,
+        &quot;retained_p2a_context_spans&quot;: 108,
+        &quot;retained_p2a_context_chars&quot;: 60366,
+        &quot;displaced_p2a_context_spans&quot;: 0,
+        &quot;displaced_p2a_context_chars&quot;: 0,
+        &quot;new_p2b_context_spans&quot;: 0,
+        &quot;new_p2b_context_chars&quot;: 0
+      },
+      &quot;checks&quot;: {
+        &quot;schema_valid&quot;: true,
+        &quot;dependency_identity_valid&quot;: true,
+        &quot;content_target_coverage_100pct&quot;: true,
+        &quot;slice_coverage_exact&quot;: true,
+        &quot;arm_target_coverage_100pct&quot;: true,
+        &quot;fixed_cap_arm_selection_auditable&quot;: true,
+        &quot;hint_dispositions_reconciled&quot;: true,
+        &quot;context_not_target&quot;: true,
+        &quot;render_metrics_recomputed&quot;: true,
+        &quot;fingerprints_recomputed&quot;: true,
+        &quot;caps_or_stop_reason&quot;: true
+      }
+    }
+  ]
+}</pre>

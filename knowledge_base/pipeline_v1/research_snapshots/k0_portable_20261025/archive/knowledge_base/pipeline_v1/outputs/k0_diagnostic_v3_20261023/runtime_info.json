@@ -1,0 +1,147 @@
+{
+  "case_id": "invalid_reason_int",
+  "original_payload_sha256": "62245e6597435a6d9012b558f45ace72bb0064abc2ee1529c41480cd090893ee",
+  "execute": false,
+  "max_diagnostic_inferences": 0,
+  "startup_warmup": {
+    "requests": 1,
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 21,
+      "total_tokens": 40,
+      "reasoning_tokens": 0
+    },
+    "latency_seconds": 0.8929717480000079,
+    "outcome": "completed",
+    "included_in_diagnostic_budget": false
+  },
+  "runtime": {
+    "versions": {
+      "sglang": "0.5.19",
+      "xgrammar": "0.2.1",
+      "transformers": "5.12.1"
+    },
+    "backend": {
+      "get_server_info": {
+        "available": true,
+        "fields": {
+          "context_length": 12288,
+          "max_total_tokens": 12288,
+          "max_running_requests": 1,
+          "skip_tokenizer_init": false,
+          "grammar_backend": "xgrammar",
+          "reasoning_parser": "qwen3",
+          "tool_call_parser": "qwen3_coder"
+        }
+      },
+      "get_model_info": {
+        "available": true,
+        "fields": {
+          "is_generation": true,
+          "reasoning_parser": "qwen3",
+          "tool_call_parser": "qwen3_coder"
+        }
+      }
+    },
+    "model_files": {
+      "config.json": {
+        "available": true,
+        "fields": {
+          "text_config": {
+            "eos_token_id": 248044,
+            "vocab_size": 248320
+          }
+        },
+        "evidence": "checkpoint_metadata_not_active_scheduler"
+      },
+      "generation_config.json": {
+        "available": false
+      },
+      "tokenizer_config.json": {
+        "available": true,
+        "fields": {
+          "eos_token": "<|im_end|>"
+        },
+        "evidence": "checkpoint_metadata_not_active_scheduler"
+      }
+    },
+    "startup_warmup": {
+      "requests": 1,
+      "usage": {
+        "prompt_tokens": 19,
+        "completion_tokens": 21,
+        "total_tokens": 40,
+        "reasoning_tokens": 0
+      },
+      "latency_seconds": 0.8929717480000079,
+      "outcome": "completed",
+      "included_in_diagnostic_budget": false
+    },
+    "active_grammar_stop_set": [
+      248044,
+      248046
+    ],
+    "grammar_mask": {
+      "available": false,
+      "reason": "Live scheduler TokenizerInfo is not exposed to gateway"
+    },
+    "token_trace": {
+      "available": false,
+      "reason": "Chat completions do not establish raw generate metadata or token IDs"
+    },
+    "scheduler": {
+      "model_eos_token_ids": [
+        248044
+      ],
+      "xgrammar_stop_token_ids": [
+        248044,
+        248046
+      ],
+      "tokenizer_eos_token_id": 248046,
+      "input_model_eos_token_ids": [
+        248044
+      ],
+      "effective_grammar_eos_token_ids": [
+        248044,
+        248046
+      ],
+      "expected_eos_union": [
+        248044,
+        248046
+      ],
+      "eos_sync_status": "validated",
+      "eos_sync_mode": "mandatory",
+      "available": true,
+      "evidence": "actual_scheduler_backend_constructor",
+      "tokenizer_eos_token": "<|im_end|>"
+    }
+  },
+  "original_job": {
+    "job_id": "62245e6597435a6d9012b558f45ace72bb0064abc2ee1529c41480cd090893ee",
+    "status": "completed",
+    "payload_sha256": "62245e6597435a6d9012b558f45ace72bb0064abc2ee1529c41480cd090893ee",
+    "provider_http_status": 200,
+    "inference_seconds": 2.6341742509999904,
+    "response_sha256": "372d64d60c03bab2ff5168c8ac0cbf0ddd7802ae4dbbff118107e0b2d4ef415b",
+    "usage": {
+      "prompt_tokens": 1151,
+      "completion_tokens": 101,
+      "total_tokens": 1252,
+      "reasoning_tokens": 0
+    },
+    "finish_reasons": [
+      "stop"
+    ],
+    "matched_stop": [
+      248046
+    ],
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "matched_stop": 248046
+      }
+    ],
+    "raw_backend_finish_reason_available": false,
+    "generated_token_ids_available": false
+  }
+}

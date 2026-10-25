@@ -1,0 +1,247 @@
+{
+  "artifact_type": "AUCompactLockedManifest",
+  "schema_version": "au-compact-manifest-v1",
+  "base_manifest_sha256": "d4741685b6bfc0ddb33a02f983b1e6da475f2cc8815062271168f372cfce1bda",
+  "plan04_build_manifest_sha256": "d16aee6b4ee11b934023fd2aec001f9678f1f6d75c14de602cc3a1edff1c6fef",
+  "requests": [
+    {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "region_id": "auo-2eebd925ea9e62d0ed69ad69",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-056fd4ca0454c65c2b585cea"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 17556,
+          "end_char": 18308,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 18316,
+          "end_char": 19533,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 19541,
+          "end_char": 20332,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 20340,
+          "end_char": 20493,
+          "target_ids": [
+            "at-056fd4ca0454c65c2b585cea"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 20501,
+          "end_char": 20650,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 20652,
+          "end_char": 20660,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 800,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-98ccb1cc5e31b1a47635418f",
+      "input_tokens": 2487,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\011904\\c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12\\7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c\\b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1\\14aa1ca3594fdcbd794d590c425075d88b9bc30d0cbd46cdcdb09e2534e5c2bd\\df366be3729e0d31766955cd933e6065ee53f649255450ecbb8a71cfb65e2967\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-4cdc004f0324d30db792af9d",
+        "selection": "model_silver development only; not human gold"
+      },
+      "atom_binding": {
+        "atom_map_relative_path": "cases/011904/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+        "atom_map_sha256": "9067d95f48d468160ea1296b6140da3cd2f41efc64e9bd1ea57aa26c7308a66a",
+        "atom_map_cache_key": "b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "segmenter_version": "legal-sentence-rules-v1.1",
+        "policy_sha256": "0a6a6de1904bd951be29ab5956dff062a875b3f6fcaac6bde01c55126909385c"
+      }
+    },
+    {
+      "case_id": "013948",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "region_id": "auo-471beb9aa7b9311e41369c71",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-3afd82f9ffea744294fd4624"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 13239,
+          "end_char": 13778,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 13786,
+          "end_char": 14019,
+          "target_ids": [
+            "at-3afd82f9ffea744294fd4624"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 14027,
+          "end_char": 14265,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 14273,
+          "end_char": 14555,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 14563,
+          "end_char": 14707,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 14715,
+          "end_char": 14918,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 800,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-885151f935ef8056f35cf5bc",
+      "input_tokens": 2130,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\013948\\1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352\\486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4\\14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2\\9ef99f92abbbc524a492214e313aa9bca7df293093816e176e71a034d5ff279b\\ca5fdfb342f11e6820a6fa6ec8ef882a8b9b86193a0e9d78e60f4b925f4f3b3e\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-c02d7e642c48412604487372",
+        "selection": "model_silver development only; not human gold"
+      },
+      "atom_binding": {
+        "atom_map_relative_path": "cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+        "atom_map_sha256": "2e0f98156fcd7044ec734576eafe9c0d6abbe2041038c387d4fa6f60ac8128d3",
+        "atom_map_cache_key": "14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2",
+        "case_id": "013948",
+        "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+        "segmenter_version": "legal-sentence-rules-v1.1",
+        "policy_sha256": "0a6a6de1904bd951be29ab5956dff062a875b3f6fcaac6bde01c55126909385c"
+      }
+    },
+    {
+      "case_id": "013948",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "region_id": "au-semantic-fact-contrast-013948-p44-v1",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-431f403e49e14eb49b2bb3f6"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 13239,
+          "end_char": 13778,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 13786,
+          "end_char": 14019,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 14027,
+          "end_char": 14265,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 14273,
+          "end_char": 14555,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 14563,
+          "end_char": 14707,
+          "target_ids": [
+            "at-431f403e49e14eb49b2bb3f6"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 14715,
+          "end_char": 14918,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 800,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-879e65369c7a3abc425d8d1e",
+      "input_tokens": 2130,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "kind": "derived_source_contrast_not_gold",
+        "parent_manifest_sha256": "4959dc1ab9a98b0a5297bdc30baa1170a204389e88a12acb02c9367a1a2eb204",
+        "parent_request_id": "auo-885151f935ef8056f35cf5bc",
+        "change": "Move TARGET to paragraph 44; source text, hash and atom map unchanged"
+      },
+      "atom_binding": {
+        "atom_map_relative_path": "cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+        "atom_map_sha256": "2e0f98156fcd7044ec734576eafe9c0d6abbe2041038c387d4fa6f60ac8128d3",
+        "atom_map_cache_key": "14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2",
+        "case_id": "013948",
+        "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+        "segmenter_version": "legal-sentence-rules-v1.1",
+        "policy_sha256": "0a6a6de1904bd951be29ab5956dff062a875b3f6fcaac6bde01c55126909385c"
+      }
+    }
+  ],
+  "evaluation_scope": "three_case_source_regions_development_only_not_gold",
+  "parent_manifest_sha256": "4959dc1ab9a98b0a5297bdc30baa1170a204389e88a12acb02c9367a1a2eb204"
+}

@@ -1,0 +1,119 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-12f53fe1b573388c0e422387",
+        "claim": "Where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-99df97cda98799560b76d1b6",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 15205,
+            "end_char": 15570,
+            "quote": "[28]\r\nThis Court has consistently held that where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy (\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 1224 (QL), at para. 44;\r\n <FRAGMENT_SUPPRESSED>  [2004] F.C.J. No. 43 (QL), at para. 9;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1032,
+    "output_tokens": 51,
+    "total_tokens": 1083
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"Where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792495994,
+    "id": "a26af8215d0e482b817ab8ae47afb443",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 51,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 1032,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1083
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605",
+    "payload_sha256": "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605",
+    "polls": 3,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495984.7915325,
+    "job_status": "completed",
+    "latency_ms": 13355.02,
+    "finished_at_unix": 1792495998.1471329,
+    "server_timing": {
+      "created_at": "2026-10-20T11:33:09.248686+00:00",
+      "started_at": "2026-10-20T11:33:10.520824+00:00",
+      "finished_at": "2026-10-20T11:33:14.974981+00:00",
+      "inference_seconds": 3.683382788000017
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "Where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 13355.865,
+  "request_id": "auc-9b69d0acdd3de1ca6e7bace2",
+  "payload_sha256": "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605",
+  "receipt_sha256": "8bd43323d7c1fd4317f2fe521227b279b105cd23daa7d1a6136f6193f172a7aa"
+}

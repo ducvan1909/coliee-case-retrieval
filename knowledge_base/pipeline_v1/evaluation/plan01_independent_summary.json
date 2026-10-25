@@ -1,0 +1,117 @@
+{
+  "evaluation_version": "pipeline-v1-independent-evaluation-v1",
+  "plan": "01",
+  "status": "pass",
+  "generated_at": "2026-10-03T15:36:59.0786295+07:00",
+  "scope": "KOS-5 manifest, split, annotation contract, hard-case catalog, and transition gate",
+  "environment": {
+    "repo": "G:/Git/coliee-case-retrieval",
+    "branch": "main",
+    "commit": "5fbf5652e2048328f41d37676177927457c95050",
+    "python": "3.10.0",
+    "jsonschema": "4.26.0",
+    "os": "Windows-10-10.0.22631-SP0"
+  },
+  "workload": {
+    "name": "KOS-5",
+    "case_ids": ["013009", "013948", "011904", "045155", "099980"],
+    "raw_source_is_truth": true,
+    "kos_artifact_is_gold": false
+  },
+  "commands": [
+    "python knowledge_base/pipeline_v1/scripts/validate_plan01.py --kos-root G:/Legal-AI/kos_sample --report knowledge_base/pipeline_v1/evaluation/runtime/plan01_gate.json",
+    "python -m unittest discover -s knowledge_base/pipeline_v1/tests -v",
+    "python -m unittest knowledge_base.pipeline_v1.evaluation.test_plan01_independent -v"
+  ],
+  "results": {
+    "original_gate": "pass",
+    "original_tests": {"total": 14, "passed": 14, "failed": 0},
+    "independent_tests": {"total": 7, "passed": 2, "failed": 5},
+    "current_raw_source_hashes": "pass",
+    "current_schema_fixture": "pass",
+    "transition_gate_reliability": "fail",
+    "semantic_correctness": "not_evaluated",
+    "au_quality": "not_evaluated",
+    "retrieval_quality": "not_evaluated"
+  },
+  "findings": [
+    {
+      "id": "P01-F01",
+      "severity": "high",
+      "title": "Plan 01 gate does not verify canonical raw-source hashes",
+      "reproduction": "test_plan01_gate_must_report_raw_source_hash_check",
+      "impact": "False PASS is possible after raw-source drift"
+    },
+    {
+      "id": "P01-F02",
+      "severity": "high",
+      "title": "Split assignment is counted but not reproduced or provenance-checked",
+      "reproduction": "test_split_gate_rejects_assignment_not_derived_from_locked_policy; test_split_gate_rejects_malformed_case_id",
+      "impact": "Arbitrary or malformed assignments can pass with correct counts and no overlap"
+    },
+    {
+      "id": "P01-F03",
+      "severity": "medium",
+      "title": "Main schema gate accepts an invalid Draft 2020-12 schema",
+      "reproduction": "test_schema_gate_rejects_invalid_json_schema",
+      "impact": "CLI report can PASS an unusable schema contract"
+    },
+    {
+      "id": "P01-F04",
+      "severity": "medium",
+      "title": "Mandatory hard-case scenario can be replaced by a placeholder",
+      "reproduction": "test_hard_case_gate_rejects_missing_mandatory_scenario",
+      "impact": "Required audit coverage can silently disappear"
+    }
+  ],
+  "retests": [
+    {
+      "retest_id": "2026-10-03-plan01-fixes",
+      "generated_at": "2026-10-03T15:53:16.3446706+07:00",
+      "status": "fail",
+      "baseline_evaluation_files_unchanged_before_retest": true,
+      "original_findings": {
+        "P01-F01": "fix_verified",
+        "P01-F02": "fix_verified",
+        "P01-F03": "fix_verified",
+        "P01-F04": "fix_verified"
+      },
+      "results": {
+        "plan01_cli": "pass",
+        "original_tests": {"total": 18, "passed": 18, "failed": 0},
+        "initial_independent_tests": {"total": 7, "passed": 7, "failed": 0},
+        "all_independent_tests": {"total": 8, "passed": 7, "failed": 1}
+      },
+      "new_findings": [
+        {
+          "id": "P01-RF01",
+          "severity": "medium",
+          "title": "Non-string case ID crashes split validator instead of producing a controlled FAIL report",
+          "reproduction": "test_non_string_case_id_is_reported_without_validator_crash",
+          "exception": "TypeError: '<' not supported between instances of 'int' and 'str'",
+          "impact": "Malformed registry input aborts validation without structured JSON evidence"
+        }
+      ]
+    },
+    {
+      "retest_id": "2026-10-03-p01-rf01-fix",
+      "generated_at": "2026-10-03T16:03:41.9861183+07:00",
+      "status": "pass",
+      "verified_finding": {"P01-RF01": "fix_verified"},
+      "integer_case_id_regression": {
+        "input": 123,
+        "validator_crashed": false,
+        "structured_status": "fail",
+        "structured_error_count": 3
+      },
+      "results": {
+        "plan01_cli": "pass",
+        "original_tests": {"total": 19, "passed": 19, "failed": 0},
+        "independent_tests": {"total": 8, "passed": 8, "failed": 0}
+      }
+    }
+  ],
+  "run_completion": "complete",
+  "advance_condition": "satisfied; Plan 02 independent evaluation may proceed"
+}
+

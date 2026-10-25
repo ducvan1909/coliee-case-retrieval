@@ -1,0 +1,28 @@
+{
+  "decisions": [],
+  "fingerprint": "eac094732c7e3fb17f4b1d3865644a530028dbaa3bc1a3482a3e913c1a69dd44",
+  "original_proposals": [],
+  "read_atom_ids": [
+    "sa-e42c0749bd11af1506c8f1a3",
+    "sa-5af3b45f02e88d5c1d29d54c",
+    "sa-5fc152780911a811b0f5b18e",
+    "sa-27e1913a42fe6a5489fd7e70",
+    "sa-e889c45a2cc328f6e4842d12",
+    "sa-072a6e5abec486fc50958627",
+    "sa-54c433ddc093142693ef3444",
+    "sa-86f6689db8ae4f6982553016",
+    "sa-dfe34e9fd0780bc394411475",
+    "sa-f1dbb932b0ae52207f6019b6",
+    "sa-05e997636cc3ad7262176858",
+    "sa-804f2d4a2848752965fd148f",
+    "sa-873800e9d8b6b64e6b00ec90",
+    "sa-27d5f1d91d6f493b0a0be739",
+    "sa-2977dca485bf00009143f914",
+    "sa-43cc26142f610d1fa13b7dc3",
+    "sa-ae76777cdeebd03a347f14e4",
+    "sa-050c601093e5ac180b12ae57"
+  ],
+  "semantic_status": "semantic_review_pending",
+  "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba",
+  "verified_replacements": []
+}

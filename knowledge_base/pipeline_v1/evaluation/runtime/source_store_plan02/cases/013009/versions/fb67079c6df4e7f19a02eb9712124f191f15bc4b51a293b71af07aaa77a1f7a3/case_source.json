@@ -1,0 +1,18 @@
+{
+  "record_type": "CaseSource",
+  "contract_version": "case-source-v1",
+  "case_id": "013009",
+  "source_version": "src-fb67079c6df4e7f1",
+  "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+  "text_ref": "cases/013009/versions/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/source.txt",
+  "byte_length": 12712,
+  "char_length": 12710,
+  "encoding": "utf-8-sig",
+  "offset_unit": "unicode_codepoint",
+  "metadata": {
+    "corpus_split": "train",
+    "kos_role": "query",
+    "input_source_path": "data/task1_train_files_2026/cases/013009.txt",
+    "audit_only_kos": true
+  }
+}

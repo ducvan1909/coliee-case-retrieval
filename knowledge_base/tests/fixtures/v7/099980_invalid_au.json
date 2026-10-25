@@ -1,0 +1,34 @@
+{
+  "case_id": "099980",
+  "original_operation": {
+    "op": "add",
+    "collection": "aus",
+    "item": {
+      "source_refs": [
+        {"source_id": "P0204", "role": "court_response", "attribution": "current_court"}
+      ],
+      "treatment": {
+        "value": "applies",
+        "authority_source_ids": [],
+        "response_source_ids": ["P0204"]
+      }
+    },
+    "reason": "the Court exercised its discretion to set aside the impugned decision for breach of fairness"
+  },
+  "invalid_repair_operation": {
+    "op": "add",
+    "collection": "aus",
+    "item": {
+      "source_refs": [
+        {"source_id": "P0204", "role": "court_response", "attribution": "current_court"},
+        {"source_id": "P0204", "role": "primary", "attribution": "current_court"}
+      ],
+      "treatment": {
+        "value": "applies",
+        "authority_source_ids": [],
+        "response_source_ids": ["P0204"]
+      }
+    },
+    "reason": "added a primary source entry for P0204 to fulfill the AU primary-source requirement"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[],\"assessed_scope_ids\":[\"r1\",\"r2\",\"r3\",\"r4\",\"r5\",\"r6\",\"r7\",\"r8\"],\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"work_scope_complete\"}}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792748968,
+    "id": "0501f4eca6d34e2c9be6daf523be50fe",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 50,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 50,
+      "prompt_tokens": 2194,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 2244
+    }
+  },
+  "trace": {
+    "transport": "jobs",
+    "job_id": "738b9c1c04d38061222d1c4fd57d2e6b31e5be92603cbd0512b6e6a20e4f1353",
+    "payload_sha256": "738b9c1c04d38061222d1c4fd57d2e6b31e5be92603cbd0512b6e6a20e4f1353",
+    "polls": 2,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792748965.6442106,
+    "job_status": "completed",
+    "latency_ms": 5422.0,
+    "finished_at_unix": 1792748971.0688438,
+    "server_timing": {
+      "created_at": "2026-10-23T09:49:25.188900+00:00",
+      "started_at": "2026-10-23T09:49:26.329591+00:00",
+      "finished_at": "2026-10-23T09:49:28.378503+00:00",
+      "inference_seconds": 1.3144344489999753
+    }
+  },
+  "usage": {
+    "input_tokens": 2194,
+    "output_tokens": 50,
+    "total_tokens": 2244
+  }
+}

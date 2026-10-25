@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContextHint build manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["build_manifest_version", "status", "workload", "rule_bundle_version", "policy_sha256", "summary", "cases"],
+  "properties": {
+    "build_manifest_version": {"const": "context-hint-build-v1"},
+    "status": {"enum": ["pass", "partial"]},
+    "workload": {"const": "KOS-5"},
+    "rule_bundle_version": {"type": "string", "minLength": 1},
+    "policy_sha256": {"$ref": "#/$defs/hash"},
+    "summary": {"$ref": "#/$defs/summary"},
+    "cases": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"$ref": "#/$defs/case"}}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "counts": {"type": "object", "propertyNames": {"type": "string", "minLength": 1}, "additionalProperties": {"type": "integer", "minimum": 0}},
+    "run": {"type": "object", "additionalProperties": false, "required": ["rule_id", "rule_version", "status", "output_count"], "properties": {"rule_id": {"type": "string", "minLength": 1}, "rule_version": {"type": "string", "minLength": 1}, "status": {"enum": ["complete", "failed"]}, "output_count": {"type": "integer", "minimum": 0}}},
+    "metrics": {"type": "object", "additionalProperties": false, "required": ["targets_with_hints", "unique_related_span_count", "unique_related_chars", "proposed_related_chars", "repeated_proposed_chars"], "properties": {"targets_with_hints": {"type": "integer", "minimum": 0}, "unique_related_span_count": {"type": "integer", "minimum": 0}, "unique_related_chars": {"type": "integer", "minimum": 0}, "proposed_related_chars": {"type": "integer", "minimum": 0}, "repeated_proposed_chars": {"type": "integer", "minimum": 0}}},
+    "summary": {"type": "object", "additionalProperties": false, "required": ["case_count", "target_count", "hint_count", "pre_policy_count", "post_policy_count", "hint_type_counts", "hint_status_counts", "hint_direction_counts", "dropped_reason_counts", "policy_ledger_count", "rule_event_count", "targets_with_hints", "unique_related_span_count", "unique_related_chars", "proposed_related_chars", "repeated_proposed_chars"], "properties": {"case_count": {"type": "integer", "minimum": 0}, "target_count": {"type": "integer", "minimum": 0}, "hint_count": {"type": "integer", "minimum": 0}, "pre_policy_count": {"type": "integer", "minimum": 0}, "post_policy_count": {"type": "integer", "minimum": 0}, "hint_type_counts": {"$ref": "#/$defs/counts"}, "hint_status_counts": {"$ref": "#/$defs/counts"}, "hint_direction_counts": {"$ref": "#/$defs/counts"}, "dropped_reason_counts": {"$ref": "#/$defs/counts"}, "policy_ledger_count": {"type": "integer", "minimum": 0}, "rule_event_count": {"type": "integer", "minimum": 0}, "targets_with_hints": {"type": "integer", "minimum": 0}, "unique_related_span_count": {"type": "integer", "minimum": 0}, "unique_related_chars": {"type": "integer", "minimum": 0}, "proposed_related_chars": {"type": "integer", "minimum": 0}, "repeated_proposed_chars": {"type": "integer", "minimum": 0}}},
+    "checks": {"type": "object", "additionalProperties": false, "required": ["schema_valid", "canonical_ids", "same_source_exact_spans", "direction_order_valid", "no_self_or_duplicates", "no_semantic_facts", "all_targets_preserved", "caps_and_dedup_reproducible"], "properties": {"schema_valid": {"const": true}, "canonical_ids": {"const": true}, "same_source_exact_spans": {"const": true}, "direction_order_valid": {"const": true}, "no_self_or_duplicates": {"const": true}, "no_semantic_facts": {"const": true}, "all_targets_preserved": {"const": true}, "caps_and_dedup_reproducible": {"const": true}}},
+    "case": {"type": "object", "additionalProperties": false, "required": ["case_id", "source_hash", "artifact_ref", "artifact_action", "target_count", "hint_count", "pre_policy_count", "post_policy_count", "hint_type_counts", "hint_status_counts", "hint_direction_counts", "dropped_reason_counts", "policy_ledger_count", "kept_count", "dropped_count", "error_event_count", "rule_runs", "metrics", "checks"], "properties": {
+      "case_id": {"type": "string", "pattern": "^[0-9]{6}$"}, "source_hash": {"$ref": "#/$defs/hash"},
+      "artifact_ref": {"type": "string", "pattern": "^cases/[0-9]{6}/[0-9a-f]{64}/[0-9a-f]{64}/[0-9a-f]{64}/[0-9a-f]{64}/context-hint-rules-[A-Za-z0-9.-]+-[0-9a-f]{16}(?:-partial-[0-9a-f]{12})?/context_hint_map\\.json$"},
+      "artifact_action": {"enum": ["created", "reused"]},
+      "target_count": {"type": "integer", "minimum": 0}, "hint_count": {"type": "integer", "minimum": 0}, "pre_policy_count": {"type": "integer", "minimum": 0}, "post_policy_count": {"type": "integer", "minimum": 0},
+      "hint_type_counts": {"$ref": "#/$defs/counts"}, "hint_status_counts": {"$ref": "#/$defs/counts"}, "hint_direction_counts": {"$ref": "#/$defs/counts"}, "dropped_reason_counts": {"$ref": "#/$defs/counts"},
+      "policy_ledger_count": {"type": "integer", "minimum": 0}, "kept_count": {"type": "integer", "minimum": 0}, "dropped_count": {"type": "integer", "minimum": 0}, "error_event_count": {"type": "integer", "minimum": 0},
+      "rule_runs": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"$ref": "#/$defs/run"}}, "metrics": {"$ref": "#/$defs/metrics"}, "checks": {"$ref": "#/$defs/checks"}
+    }}
+  }
+}

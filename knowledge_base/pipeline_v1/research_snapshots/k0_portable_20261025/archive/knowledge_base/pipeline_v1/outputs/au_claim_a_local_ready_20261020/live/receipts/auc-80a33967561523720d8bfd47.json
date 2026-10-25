@@ -1,0 +1,228 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-d450b788a062ca71bc740325",
+        "claim": "The internal grievance procedure provided by the Act is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court.",
+        "kind": "statutory_hook",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": "This applies where the respondent raises a preliminary point that the applicant has not exhausted internal remedies, rendering the application premature.",
+        "evidence": [
+          {
+            "ref_id": "t-c730a2fa9df10ee922d881cf",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 16910,
+            "end_char": 17386,
+            "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-f0ba49ab7f6a8dc068c2ed3d",
+        "claim": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court.",
+        "kind": "fact_pattern_rule",
+        "evidence_ids": [
+          "s2",
+          "s4"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-c730a2fa9df10ee922d881cf",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 16910,
+            "end_char": 17386,
+            "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+            "role": "target_body"
+          },
+          {
+            "ref_id": "t-f09a1b5215afdce61fd6c40b",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 17460,
+            "end_char": 17604,
+            "quote": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-22ca96d144a909c199d6815c",
+        "claim": "Judicial resources should not be occupied dealing with problems for which another forum is provided.",
+        "kind": "fact_pattern_rule",
+        "evidence_ids": [
+          "s2",
+          "s5"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-c730a2fa9df10ee922d881cf",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 16910,
+            "end_char": 17386,
+            "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+            "role": "target_body"
+          },
+          {
+            "ref_id": "t-8d63f8c1a41b18ce8d9638bf",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 17604,
+            "end_char": 17725,
+            "quote": "One might add that judicial resources should not be occupied dealing with problems for which another forum is provided.  ",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [
+      {
+        "au_ids": [
+          "au-d450b788a062ca71bc740325",
+          "au-f0ba49ab7f6a8dc068c2ed3d"
+        ],
+        "evidence_ids": [
+          "s2"
+        ],
+        "semantic_merge": false
+      },
+      {
+        "au_ids": [
+          "au-d450b788a062ca71bc740325",
+          "au-22ca96d144a909c199d6815c"
+        ],
+        "evidence_ids": [
+          "s2"
+        ],
+        "semantic_merge": false
+      },
+      {
+        "au_ids": [
+          "au-f0ba49ab7f6a8dc068c2ed3d",
+          "au-22ca96d144a909c199d6815c"
+        ],
+        "evidence_ids": [
+          "s2"
+        ],
+        "semantic_merge": false
+      }
+    ],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1231,
+    "output_tokens": 170,
+    "total_tokens": 1401
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"The internal grievance procedure provided by the Act is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s2\"],\"limits\":\"This applies where the respondent raises a preliminary point that the applicant has not exhausted internal remedies, rendering the application premature.\"},{\"claim\":\"The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court.\",\"kind\":\"fact_pattern_rule\",\"evidence_ids\":[\"s2\",\"s4\"],\"limits\":null},{\"claim\":\"Judicial resources should not be occupied dealing with problems for which another forum is provided.\",\"kind\":\"fact_pattern_rule\",\"evidence_ids\":[\"s2\",\"s5\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792496010,
+    "id": "4a56588ea6fe4716bd4572d25b029a19",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 170,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 170,
+      "prompt_tokens": 1231,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1401
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124",
+    "payload_sha256": "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124",
+    "polls": 7,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495988.3220966,
+    "job_status": "completed",
+    "latency_ms": 26092.588,
+    "finished_at_unix": 1792496014.4147625,
+    "server_timing": {
+      "created_at": "2026-10-20T11:33:12.771986+00:00",
+      "started_at": "2026-10-20T11:33:16.082231+00:00",
+      "finished_at": "2026-10-20T11:33:30.982009+00:00",
+      "inference_seconds": 14.137596152000015
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "The internal grievance procedure provided by the Act is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court.",
+        "kind": "statutory_hook",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": "This applies where the respondent raises a preliminary point that the applicant has not exhausted internal remedies, rendering the application premature."
+      },
+      {
+        "claim": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court.",
+        "kind": "fact_pattern_rule",
+        "evidence_ids": [
+          "s2",
+          "s4"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "Judicial resources should not be occupied dealing with problems for which another forum is provided.",
+        "kind": "fact_pattern_rule",
+        "evidence_ids": [
+          "s2",
+          "s5"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 26092.907,
+  "request_id": "auc-80a33967561523720d8bfd47",
+  "payload_sha256": "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124",
+  "receipt_sha256": "6fa6589e1711c0feee6182d542122c08c192dbc018df2245010220a79b34c77e"
+}

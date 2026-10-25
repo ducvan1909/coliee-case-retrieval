@@ -1,0 +1,95 @@
+{
+  "artifact_type": "Plan09R3Positions11And32FinalIndependentReaudit",
+  "audit_date": "2026-10-05",
+  "reviewer_model": "gpt-5.6-sol",
+  "reasoning_effort": "low",
+  "model_only": true,
+  "semantic_gold": false,
+  "decision": "accept_both_revisions",
+  "canonical_state_modified": false,
+  "snapshot": {
+    "queue_sha256": "6de97d57237c37ae49a9132b3f430c9a237cc553825e9822f2e4ce86a510f502",
+    "registry_sha256": "3b9df0c098931b791b1f25443e35fdb37fc86a7d6b879ee37f76e49bee20a407",
+    "review_heads_manifest_sha256": "1f3d97d622966d100f1eebf8df137ab0d27710fe54c556dbb6d911b36905778f",
+    "amendment_heads_manifest_sha256": "5cac2368d57565b886b95a88e45c82e6e741320ba81793378a62a018ea207a16",
+    "raw_sources_manifest_sha256": "943ca024ca70bb3ddb7e35d66396bfeb94ce7b7947d545bb356f2e2c3c0c9576",
+    "unchanged_at_end": true
+  },
+  "items": [
+    {
+      "position": 11,
+      "case_id": "011904",
+      "target_id": "at-a5b5b0fdf3bab9574aa4429e",
+      "decision": "accept",
+      "review_head": "p09-r3-audit-11-32-11-gpt61sol-v2",
+      "review_head_sha256": "0a5625dac7fc29247ebaac1e8b1c4e9c160ffd1b967327b794024daeb7a1a500",
+      "amendment_head": "p09-r3-audit-11-32-11-gpt61sol-v2",
+      "amendment_head_sha256": "2b98a6bf9ec41f425f059f7b3155401da9ba1fc3399ea221c5e13b94e3d03ccc",
+      "source_sha256": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "effective_outcome": "positive",
+      "effective_kind": "procedural_rule",
+      "effective_speaker": "current_court",
+      "only_kind_changed_semantically": true,
+      "claim_evidence_attribution_supported": true,
+      "validator": "pass"
+    },
+    {
+      "position": 32,
+      "case_id": "013948",
+      "target_id": "at-3f8c7b00587a03395a1070fa",
+      "finding_id": "P09-S01",
+      "decision": "accept",
+      "review_head": "p09-r3-audit-11-32-32-gpt61sol-v2",
+      "review_head_sha256": "4bbf553bc8e1f8b07bdb6cdc33b0ea92b42b22ce1abea4679494c9efe71f85bc",
+      "amendment_head": "p09-r3-audit-11-32-32-gpt61sol-v2",
+      "amendment_head_sha256": "e0bfa89f753461f02fe6f0d8f4704f66da7cf92300aff3a855363f6a3259bc08",
+      "source_sha256": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "effective_outcome": "positive",
+      "effective_kind": "holding",
+      "effective_speaker": "current_court",
+      "claim": "The Board never ruled on Mr. Bayavuge's risks of return",
+      "primary_evidence_ref": "raw:013948[11890,11945)",
+      "support_refs": [
+        "raw:013948[11953,12084)",
+        "raw:013948[12092,12474)",
+        "raw:013948[12482,12755)",
+        "raw:013948[12763,13024)",
+        "raw:013948[13032,13231)"
+      ],
+      "party_submission_ref": "raw:013948[11460,11888)",
+      "party_submission_excluded_from_all_witnesses": true,
+      "overclaim_detected": false,
+      "validator": "pass"
+    }
+  ],
+  "lineage": {
+    "predecessor_hashes_valid": true,
+    "overwrite_detected": false,
+    "fork_detected": false,
+    "cycle_detected": false
+  },
+  "validation": {
+    "review_heads_passed": 2,
+    "amendment_heads_passed": 2,
+    "focused_tests_passed": 7,
+    "focused_tests_failed": 0,
+    "focused_test_elapsed_seconds": 45.828,
+    "read_only_verifier": "pass"
+  },
+  "p09_s01": {
+    "status_during_audit": "pending_reaudit",
+    "independently_accepted": true,
+    "closure_references_sufficient": true,
+    "resolution_amendment_id": "p09-r3-audit-11-32-32-gpt61sol-v2",
+    "independent_review_ref": "evaluation/reports/plan09_r3_positions_11_32_final_reaudit.json",
+    "closed_by_this_audit": false
+  },
+  "plan10_allowed_by_this_audit": false,
+  "missing_target_count_untouched": 157,
+  "limitations": [
+    "This audit covers only positions 11 and 32.",
+    "The accepted revisions remain model-silver, not human gold.",
+    "Registry closure remains a separate coordinator action.",
+    "The 157 missing targets were not audited or modified."
+  ]
+}

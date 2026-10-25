@@ -1,0 +1,107 @@
+{
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "k0au-b1da7a368906ea970ad66436",
+        "case_id": "099980",
+        "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+        "claim": "Synthetic legal point; mock is not semantic assessment.",
+        "kind": null,
+        "evidence_ids": [
+          "e1"
+        ],
+        "evidence": [
+          {
+            "case_id": "099980",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 56160,
+            "end_char": 56482,
+            "quote": "[93]\r\nHowever, there is no need to express a definitive opinion on the issue of jurisdiction or reasonableness today or to base the judgment of the Court allowing the application for judicial review on such a contentious aspect that might soon be argued before the Federal Court of Appeal as part of the appeal in Seck 1. "
+          }
+        ],
+        "limits": null,
+        "replace_id": null,
+        "quality_status": "grounded_draft",
+        "semantic_quality": "not_assessed"
+      }
+    ],
+    "au_errors": [],
+    "warnings": [],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "delivered_scope_ids": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "work_scope_complete"
+    }
+  },
+  "usage": null,
+  "usage_state": "mock_unavailable",
+  "raw_response": {
+    "model": "Qwen/Qwen3.5-9B",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "message": {
+          "content": "{\"aus\": [{\"claim\": \"Synthetic legal point; mock is not semantic assessment.\", \"kind\": null, \"evidence_ids\": [\"e1\"], \"limits\": null}], \"assessed_scope_ids\": [\"r1\", \"r2\", \"r3\"], \"next_action\": {\"tool\": \"finish_case\", \"reason\": \"work_scope_complete\"}}"
+        }
+      }
+    ]
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "58b398d798e924946c1df1a3a8209c1872917277db434f094f14db1257b27228",
+    "payload_sha256": "58b398d798e924946c1df1a3a8209c1872917277db434f094f14db1257b27228",
+    "polls": 1,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792728558.5889657,
+    "job_status": "completed",
+    "latency_ms": 99.518,
+    "finished_at_unix": 1792728558.688761,
+    "server_timing": {
+      "created_at": null,
+      "started_at": null,
+      "finished_at": null,
+      "inference_seconds": null
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "Synthetic legal point; mock is not semantic assessment.",
+        "kind": null,
+        "evidence_ids": [
+          "e1"
+        ],
+        "limits": null
+      }
+    ],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "work_scope_complete"
+    }
+  },
+  "status": "verified",
+  "latency_ms": 99.693,
+  "request_id": "k0-cacaff1318be777d53743bd9",
+  "payload_sha256": "58b398d798e924946c1df1a3a8209c1872917277db434f094f14db1257b27228",
+  "receipt_sha256": "81f37566d042f841776b813b74585583887d8b4a14a0b7362e58fb07fc95debb"
+}

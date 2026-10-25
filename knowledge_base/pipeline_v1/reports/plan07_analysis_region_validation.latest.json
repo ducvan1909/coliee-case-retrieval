@@ -1,0 +1,663 @@
+{
+  "report_version": "plan07-analysis-region-validation-v1",
+  "status": "pass",
+  "scope": "offline KOS-5 P2a/P2b workload only; no model/LLM; KOS artifacts audit-only",
+  "inputs": {
+    "source_store": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1",
+    "source_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\calibration_manifest.v1.json",
+    "plan03_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan03_structural_validation.latest.json",
+    "plan04_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan04_sentence_atom_validation.latest.json",
+    "plan05_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan05_sidecar_validation.latest.json",
+    "plan06_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan06_context_hint_validation.latest.json",
+    "plan06_independent_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\evaluation\\plan06_independent_evaluation.md",
+    "policy": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\policies\\analysis_region_policy.v1.json"
+  },
+  "outputs": {
+    "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1",
+    "build_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\analysis_region_build_manifest.json",
+    "audit_html": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan07_analysis_region_audit.html"
+  },
+  "summary": {
+    "case_count": 5,
+    "block_count": 431,
+    "content_block_count": 369,
+    "empty_content_structural_only_count": 1,
+    "primary_target_count": 369,
+    "slice_count": 10,
+    "work_item_count": 374,
+    "batch_count": 96,
+    "oversized_atom_count": 0,
+    "excluded_role_counts": {
+      "audit_only_editorial": 22,
+      "structural_context_candidate_only": 39,
+      "structural_only_not_content": 1
+    },
+    "hint_disposition_count": 28,
+    "hint_target_eligibility_counts": {
+      "eligible_primary_target": 16,
+      "target_ineligible_structural_only": 12
+    },
+    "hint_disposition_counts": {
+      "no_eligible_related_context": 16,
+      "target_ineligible_structural_only": 12
+    },
+    "arm_metrics": {
+      "P2a": {
+        "region_count": 96,
+        "unique_source_chars": 201431,
+        "proposed_source_chars": 293411,
+        "repeated_source_chars": 91980,
+        "rendered_chars": 339801,
+        "estimated_input_tokens": 84984,
+        "overlap_ratio": 0.31348518,
+        "regions_with_stop_reason": 4,
+        "stop_reason_counts": {
+          "context_cap_exhausted": 4
+        },
+        "context_drop_reason_counts": {
+          "max_context_chars": 1,
+          "max_context_spans": 4
+        },
+        "context_spans": 216,
+        "included_hints": 0,
+        "max_region_unique_chars": 7069,
+        "max_region_estimated_input_tokens": 1887,
+        "regions_at_or_above_80pct_char_cap": 0,
+        "regions_at_or_above_80pct_token_cap": 0
+      },
+      "P2b": {
+        "region_count": 96,
+        "unique_source_chars": 201431,
+        "proposed_source_chars": 293411,
+        "repeated_source_chars": 91980,
+        "rendered_chars": 339801,
+        "estimated_input_tokens": 84984,
+        "overlap_ratio": 0.31348518,
+        "regions_with_stop_reason": 4,
+        "stop_reason_counts": {
+          "context_cap_exhausted": 4
+        },
+        "context_drop_reason_counts": {
+          "max_context_chars": 1,
+          "max_context_spans": 4
+        },
+        "context_spans": 216,
+        "included_hints": 16,
+        "max_region_unique_chars": 7069,
+        "max_region_estimated_input_tokens": 1887,
+        "regions_at_or_above_80pct_char_cap": 0,
+        "regions_at_or_above_80pct_token_cap": 0
+      }
+    },
+    "p2_context_comparison": {
+      "selection_contract": "P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans",
+      "retained_p2a_context_spans": 216,
+      "retained_p2a_context_chars": 97073,
+      "displaced_p2a_context_spans": 0,
+      "displaced_p2a_context_chars": 0,
+      "new_p2b_context_spans": 0,
+      "new_p2b_context_chars": 0
+    },
+    "elapsed_seconds": 12.419698199999402,
+    "characters_per_second": 16655.23563205505
+  },
+  "immutable_history": {
+    "total_workload_artifacts": 28,
+    "current_artifacts": 5,
+    "historical_artifacts_preserved": 23
+  },
+  "stored_build_validation": {
+    "safe_refs": true,
+    "five_current_artifacts": true,
+    "artifacts_recomputed": true,
+    "coverage_recomputed": true,
+    "metrics_recomputed": true,
+    "fingerprints_recomputed": true,
+    "summary": {
+      "case_count": 5,
+      "block_count": 431,
+      "content_block_count": 369,
+      "empty_content_structural_only_count": 1,
+      "primary_target_count": 369,
+      "slice_count": 10,
+      "work_item_count": 374,
+      "batch_count": 96,
+      "oversized_atom_count": 0,
+      "excluded_role_counts": {
+        "audit_only_editorial": 22,
+        "structural_context_candidate_only": 39,
+        "structural_only_not_content": 1
+      },
+      "hint_disposition_count": 28,
+      "hint_target_eligibility_counts": {
+        "eligible_primary_target": 16,
+        "target_ineligible_structural_only": 12
+      },
+      "hint_disposition_counts": {
+        "no_eligible_related_context": 16,
+        "target_ineligible_structural_only": 12
+      },
+      "arm_metrics": {
+        "P2a": {
+          "region_count": 96,
+          "unique_source_chars": 201431,
+          "proposed_source_chars": 293411,
+          "repeated_source_chars": 91980,
+          "rendered_chars": 339801,
+          "estimated_input_tokens": 84984,
+          "overlap_ratio": 0.31348518,
+          "regions_with_stop_reason": 4,
+          "stop_reason_counts": {
+            "context_cap_exhausted": 4
+          },
+          "context_drop_reason_counts": {
+            "max_context_chars": 1,
+            "max_context_spans": 4
+          },
+          "context_spans": 216,
+          "included_hints": 0,
+          "max_region_unique_chars": 7069,
+          "max_region_estimated_input_tokens": 1887,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        },
+        "P2b": {
+          "region_count": 96,
+          "unique_source_chars": 201431,
+          "proposed_source_chars": 293411,
+          "repeated_source_chars": 91980,
+          "rendered_chars": 339801,
+          "estimated_input_tokens": 84984,
+          "overlap_ratio": 0.31348518,
+          "regions_with_stop_reason": 4,
+          "stop_reason_counts": {
+            "context_cap_exhausted": 4
+          },
+          "context_drop_reason_counts": {
+            "max_context_chars": 1,
+            "max_context_spans": 4
+          },
+          "context_spans": 216,
+          "included_hints": 16,
+          "max_region_unique_chars": 7069,
+          "max_region_estimated_input_tokens": 1887,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        }
+      },
+      "p2_context_comparison": {
+        "selection_contract": "P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans",
+        "retained_p2a_context_spans": 216,
+        "retained_p2a_context_chars": 97073,
+        "displaced_p2a_context_spans": 0,
+        "displaced_p2a_context_chars": 0,
+        "new_p2b_context_spans": 0,
+        "new_p2b_context_chars": 0
+      }
+    }
+  },
+  "gates": {
+    "plan06_independent_pass": true,
+    "exact_kos5_hashes": true,
+    "content_target_coverage_100pct": true,
+    "slice_coverage_exact": true,
+    "p2a_p2b_same_target_workload": true,
+    "context_not_counted_as_target": true,
+    "all_28_hints_reconciled_exactly_once": true,
+    "caps_or_stop_reasons": true,
+    "render_on_demand_no_canonical_text": true,
+    "read_validation_recomputed": true,
+    "dependency_addressed_cache": true
+  },
+  "cases": [
+    {
+      "case_id": "013009",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "artifact_ref": "cases/013009/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8/151c9fb1917a98e9c949683731b466b7edcec49caa447f6fc88446a66f12dd98/516099a69aee20d28084297a7cab57b9c58334e7c0de664c26b3bd61c2cf79a7/ae994aec53fcd8b4e32f9697928afc1eac59e0342308747e71d1651ee77c3a5b/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json",
+      "artifact_action": "created",
+      "block_count": 21,
+      "content_block_count": 19,
+      "empty_content_structural_only_count": 0,
+      "excluded_role_counts": {
+        "structural_context_candidate_only": 2
+      },
+      "primary_target_count": 19,
+      "slice_count": 0,
+      "work_item_count": 19,
+      "batch_count": 5,
+      "oversized_atom_count": 0,
+      "batch_stop_reason_counts": {},
+      "hint_disposition_count": 0,
+      "hint_target_eligibility_counts": {},
+      "hint_disposition_counts": {},
+      "arm_metrics": {
+        "P2a": {
+          "region_count": 5,
+          "unique_source_chars": 12570,
+          "proposed_source_chars": 17606,
+          "repeated_source_chars": 5036,
+          "rendered_chars": 19874,
+          "estimated_input_tokens": 4971,
+          "overlap_ratio": 0.28603885,
+          "regions_with_stop_reason": 0,
+          "stop_reason_counts": {},
+          "context_drop_reason_counts": {},
+          "context_spans": 10,
+          "included_hints": 0,
+          "max_region_unique_chars": 5307,
+          "max_region_estimated_input_tokens": 1444,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        },
+        "P2b": {
+          "region_count": 5,
+          "unique_source_chars": 12570,
+          "proposed_source_chars": 17606,
+          "repeated_source_chars": 5036,
+          "rendered_chars": 19874,
+          "estimated_input_tokens": 4971,
+          "overlap_ratio": 0.28603885,
+          "regions_with_stop_reason": 0,
+          "stop_reason_counts": {},
+          "context_drop_reason_counts": {},
+          "context_spans": 10,
+          "included_hints": 0,
+          "max_region_unique_chars": 5307,
+          "max_region_estimated_input_tokens": 1444,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        }
+      },
+      "p2_context_comparison": {
+        "selection_contract": "P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans",
+        "retained_p2a_context_spans": 10,
+        "retained_p2a_context_chars": 5065,
+        "displaced_p2a_context_spans": 0,
+        "displaced_p2a_context_chars": 0,
+        "new_p2b_context_spans": 0,
+        "new_p2b_context_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "dependency_identity_valid": true,
+        "content_target_coverage_100pct": true,
+        "slice_coverage_exact": true,
+        "arm_target_coverage_100pct": true,
+        "fixed_cap_arm_selection_auditable": true,
+        "hint_dispositions_reconciled": true,
+        "context_not_target": true,
+        "render_metrics_recomputed": true,
+        "fingerprints_recomputed": true,
+        "caps_or_stop_reason": true
+      }
+    },
+    {
+      "case_id": "013948",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "artifact_ref": "cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2/9ef99f92abbbc524a492214e313aa9bca7df293093816e176e71a034d5ff279b/ca5fdfb342f11e6820a6fa6ec8ef882a8b9b86193a0e9d78e60f4b925f4f3b3e/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json",
+      "artifact_action": "created",
+      "block_count": 68,
+      "content_block_count": 59,
+      "empty_content_structural_only_count": 0,
+      "excluded_role_counts": {
+        "structural_context_candidate_only": 9
+      },
+      "primary_target_count": 59,
+      "slice_count": 0,
+      "work_item_count": 59,
+      "batch_count": 15,
+      "oversized_atom_count": 0,
+      "batch_stop_reason_counts": {},
+      "hint_disposition_count": 2,
+      "hint_target_eligibility_counts": {
+        "eligible_primary_target": 2
+      },
+      "hint_disposition_counts": {
+        "no_eligible_related_context": 2
+      },
+      "arm_metrics": {
+        "P2a": {
+          "region_count": 15,
+          "unique_source_chars": 18351,
+          "proposed_source_chars": 27838,
+          "repeated_source_chars": 9487,
+          "rendered_chars": 35261,
+          "estimated_input_tokens": 8821,
+          "overlap_ratio": 0.34079316,
+          "regions_with_stop_reason": 0,
+          "stop_reason_counts": {},
+          "context_drop_reason_counts": {},
+          "context_spans": 37,
+          "included_hints": 0,
+          "max_region_unique_chars": 2723,
+          "max_region_estimated_input_tokens": 800,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        },
+        "P2b": {
+          "region_count": 15,
+          "unique_source_chars": 18351,
+          "proposed_source_chars": 27838,
+          "repeated_source_chars": 9487,
+          "rendered_chars": 35261,
+          "estimated_input_tokens": 8821,
+          "overlap_ratio": 0.34079316,
+          "regions_with_stop_reason": 0,
+          "stop_reason_counts": {},
+          "context_drop_reason_counts": {},
+          "context_spans": 37,
+          "included_hints": 2,
+          "max_region_unique_chars": 2723,
+          "max_region_estimated_input_tokens": 800,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        }
+      },
+      "p2_context_comparison": {
+        "selection_contract": "P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans",
+        "retained_p2a_context_spans": 37,
+        "retained_p2a_context_chars": 9586,
+        "displaced_p2a_context_spans": 0,
+        "displaced_p2a_context_chars": 0,
+        "new_p2b_context_spans": 0,
+        "new_p2b_context_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "dependency_identity_valid": true,
+        "content_target_coverage_100pct": true,
+        "slice_coverage_exact": true,
+        "arm_target_coverage_100pct": true,
+        "fixed_cap_arm_selection_auditable": true,
+        "hint_dispositions_reconciled": true,
+        "context_not_target": true,
+        "render_metrics_recomputed": true,
+        "fingerprints_recomputed": true,
+        "caps_or_stop_reason": true
+      }
+    },
+    {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "artifact_ref": "cases/011904/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c/b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1/14aa1ca3594fdcbd794d590c425075d88b9bc30d0cbd46cdcdb09e2534e5c2bd/df366be3729e0d31766955cd933e6065ee53f649255450ecbb8a71cfb65e2967/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json",
+      "artifact_action": "created",
+      "block_count": 41,
+      "content_block_count": 37,
+      "empty_content_structural_only_count": 0,
+      "excluded_role_counts": {
+        "structural_context_candidate_only": 4
+      },
+      "primary_target_count": 37,
+      "slice_count": 0,
+      "work_item_count": 37,
+      "batch_count": 10,
+      "oversized_atom_count": 0,
+      "batch_stop_reason_counts": {},
+      "hint_disposition_count": 1,
+      "hint_target_eligibility_counts": {
+        "eligible_primary_target": 1
+      },
+      "hint_disposition_counts": {
+        "no_eligible_related_context": 1
+      },
+      "arm_metrics": {
+        "P2a": {
+          "region_count": 10,
+          "unique_source_chars": 20557,
+          "proposed_source_chars": 28987,
+          "repeated_source_chars": 8430,
+          "rendered_chars": 33489,
+          "estimated_input_tokens": 8375,
+          "overlap_ratio": 0.29082002,
+          "regions_with_stop_reason": 0,
+          "stop_reason_counts": {},
+          "context_drop_reason_counts": {},
+          "context_spans": 20,
+          "included_hints": 0,
+          "max_region_unique_chars": 4659,
+          "max_region_estimated_input_tokens": 1285,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        },
+        "P2b": {
+          "region_count": 10,
+          "unique_source_chars": 20557,
+          "proposed_source_chars": 28987,
+          "repeated_source_chars": 8430,
+          "rendered_chars": 33489,
+          "estimated_input_tokens": 8375,
+          "overlap_ratio": 0.29082002,
+          "regions_with_stop_reason": 0,
+          "stop_reason_counts": {},
+          "context_drop_reason_counts": {},
+          "context_spans": 20,
+          "included_hints": 1,
+          "max_region_unique_chars": 4659,
+          "max_region_estimated_input_tokens": 1285,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        }
+      },
+      "p2_context_comparison": {
+        "selection_contract": "P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans",
+        "retained_p2a_context_spans": 20,
+        "retained_p2a_context_chars": 8492,
+        "displaced_p2a_context_spans": 0,
+        "displaced_p2a_context_chars": 0,
+        "new_p2b_context_spans": 0,
+        "new_p2b_context_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "dependency_identity_valid": true,
+        "content_target_coverage_100pct": true,
+        "slice_coverage_exact": true,
+        "arm_target_coverage_100pct": true,
+        "fixed_cap_arm_selection_auditable": true,
+        "hint_dispositions_reconciled": true,
+        "context_not_target": true,
+        "render_metrics_recomputed": true,
+        "fingerprints_recomputed": true,
+        "caps_or_stop_reason": true
+      }
+    },
+    {
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "artifact_ref": "cases/045155/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c/00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d/8ab2c1d5fd62910850b1ffe0bb2cba234d98b98b5b4136fe6bd284aa18128db3/92159bf4fb12c0eabc54e78484457309dd99d113ef8863d31b25c407fca12d3d/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json",
+      "artifact_action": "created",
+      "block_count": 89,
+      "content_block_count": 53,
+      "empty_content_structural_only_count": 0,
+      "excluded_role_counts": {
+        "audit_only_editorial": 22,
+        "structural_context_candidate_only": 14
+      },
+      "primary_target_count": 53,
+      "slice_count": 2,
+      "work_item_count": 54,
+      "batch_count": 14,
+      "oversized_atom_count": 0,
+      "batch_stop_reason_counts": {},
+      "hint_disposition_count": 23,
+      "hint_target_eligibility_counts": {
+        "eligible_primary_target": 11,
+        "target_ineligible_structural_only": 12
+      },
+      "hint_disposition_counts": {
+        "no_eligible_related_context": 11,
+        "target_ineligible_structural_only": 12
+      },
+      "arm_metrics": {
+        "P2a": {
+          "region_count": 14,
+          "unique_source_chars": 29274,
+          "proposed_source_chars": 38230,
+          "repeated_source_chars": 8956,
+          "rendered_chars": 45480,
+          "estimated_input_tokens": 11375,
+          "overlap_ratio": 0.23426628,
+          "regions_with_stop_reason": 4,
+          "stop_reason_counts": {
+            "context_cap_exhausted": 4
+          },
+          "context_drop_reason_counts": {
+            "max_context_chars": 1,
+            "max_context_spans": 4
+          },
+          "context_spans": 41,
+          "included_hints": 0,
+          "max_region_unique_chars": 7069,
+          "max_region_estimated_input_tokens": 1887,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        },
+        "P2b": {
+          "region_count": 14,
+          "unique_source_chars": 29274,
+          "proposed_source_chars": 38230,
+          "repeated_source_chars": 8956,
+          "rendered_chars": 45480,
+          "estimated_input_tokens": 11375,
+          "overlap_ratio": 0.23426628,
+          "regions_with_stop_reason": 4,
+          "stop_reason_counts": {
+            "context_cap_exhausted": 4
+          },
+          "context_drop_reason_counts": {
+            "max_context_chars": 1,
+            "max_context_spans": 4
+          },
+          "context_spans": 41,
+          "included_hints": 11,
+          "max_region_unique_chars": 7069,
+          "max_region_estimated_input_tokens": 1887,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        }
+      },
+      "p2_context_comparison": {
+        "selection_contract": "P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans",
+        "retained_p2a_context_spans": 41,
+        "retained_p2a_context_chars": 13564,
+        "displaced_p2a_context_spans": 0,
+        "displaced_p2a_context_chars": 0,
+        "new_p2b_context_spans": 0,
+        "new_p2b_context_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "dependency_identity_valid": true,
+        "content_target_coverage_100pct": true,
+        "slice_coverage_exact": true,
+        "arm_target_coverage_100pct": true,
+        "fixed_cap_arm_selection_auditable": true,
+        "hint_dispositions_reconciled": true,
+        "context_not_target": true,
+        "render_metrics_recomputed": true,
+        "fingerprints_recomputed": true,
+        "caps_or_stop_reason": true
+      }
+    },
+    {
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "artifact_ref": "cases/099980/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c/58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86/693870e6cadc38116a5aeb68654661a1ea9049b3d435ef70b101c413db3a72fe/2577a40337f01fcec043c48b7ad6aa3fd7fdcc3d75cf07f6e48b35da1e7fb728/p2-offline-scheduler-v1.6-ea167ffba6fe1c17/analysis_workload_map.json",
+      "artifact_action": "created",
+      "block_count": 212,
+      "content_block_count": 201,
+      "empty_content_structural_only_count": 1,
+      "excluded_role_counts": {
+        "structural_context_candidate_only": 10,
+        "structural_only_not_content": 1
+      },
+      "primary_target_count": 201,
+      "slice_count": 8,
+      "work_item_count": 205,
+      "batch_count": 52,
+      "oversized_atom_count": 0,
+      "batch_stop_reason_counts": {},
+      "hint_disposition_count": 2,
+      "hint_target_eligibility_counts": {
+        "eligible_primary_target": 2
+      },
+      "hint_disposition_counts": {
+        "no_eligible_related_context": 2
+      },
+      "arm_metrics": {
+        "P2a": {
+          "region_count": 52,
+          "unique_source_chars": 120679,
+          "proposed_source_chars": 180750,
+          "repeated_source_chars": 60071,
+          "rendered_chars": 205697,
+          "estimated_input_tokens": 51442,
+          "overlap_ratio": 0.33234302,
+          "regions_with_stop_reason": 0,
+          "stop_reason_counts": {},
+          "context_drop_reason_counts": {},
+          "context_spans": 108,
+          "included_hints": 0,
+          "max_region_unique_chars": 5990,
+          "max_region_estimated_input_tokens": 1617,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        },
+        "P2b": {
+          "region_count": 52,
+          "unique_source_chars": 120679,
+          "proposed_source_chars": 180750,
+          "repeated_source_chars": 60071,
+          "rendered_chars": 205697,
+          "estimated_input_tokens": 51442,
+          "overlap_ratio": 0.33234302,
+          "regions_with_stop_reason": 0,
+          "stop_reason_counts": {},
+          "context_drop_reason_counts": {},
+          "context_spans": 108,
+          "included_hints": 2,
+          "max_region_unique_chars": 5990,
+          "max_region_estimated_input_tokens": 1617,
+          "regions_at_or_above_80pct_char_cap": 0,
+          "regions_at_or_above_80pct_token_cap": 0
+        }
+      },
+      "p2_context_comparison": {
+        "selection_contract": "P2a and P2b share identical base source contexts; P2b ContextHints are a separate payload and cannot add, remove, or substitute source spans",
+        "retained_p2a_context_spans": 108,
+        "retained_p2a_context_chars": 60366,
+        "displaced_p2a_context_spans": 0,
+        "displaced_p2a_context_chars": 0,
+        "new_p2b_context_spans": 0,
+        "new_p2b_context_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "dependency_identity_valid": true,
+        "content_target_coverage_100pct": true,
+        "slice_coverage_exact": true,
+        "arm_target_coverage_100pct": true,
+        "fixed_cap_arm_selection_auditable": true,
+        "hint_dispositions_reconciled": true,
+        "context_not_target": true,
+        "render_metrics_recomputed": true,
+        "fingerprints_recomputed": true,
+        "caps_or_stop_reason": true
+      }
+    }
+  ],
+  "metrics_not_reported": [
+    "precision",
+    "recall",
+    "F1",
+    "token_saving",
+    "semantic_quality"
+  ],
+  "limitations": [
+    "Caps are conservative KOS-5 pilot values and are not proven optimal. Coverage outranks caps; targets are preserved with stop reasons.",
+    "Token counts use a character-based estimator, not provider tokenization.",
+    "P2a/P2b manifests measure context construction only and do not show that hints improve omission or semantic quality.",
+    "P0 and P1 are intentionally not implemented in Plan 07.",
+    "No ContextObligation, CoverageLedger, AU, Issue, NN, retrieval, model, or LLM is implemented."
+  ]
+}

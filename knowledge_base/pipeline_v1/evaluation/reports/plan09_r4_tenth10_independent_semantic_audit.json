@@ -1,0 +1,64 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-6.1-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {"batch_id": "p09-r4-099980-tenth10-sol-v1", "case_id": "099980", "target_count": 10, "outside_batch_reviewed": false, "canonical_state_modified": false, "global_progress_or_r4_manifest_hash_locked": false},
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 6, "low": 4, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 8,
+    "accepted_hard_negatives": 4,
+    "accepted_unresolved": 0,
+    "required_canonical_changes": 0,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-tenth10-sol-v1.json",
+    "frozen_batch_sha256": "a785569cd9e3a792937e1bcddd8e71f5545499d046276c9cefab323265bc5da4",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-tenth10-01-gpt61sol-v1.json", "ffa3dc0626ee55bee82e2561b01ee70e7e380de23fd7e28b7c7d636717172f89", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-tenth10-02-gpt61sol-v1.json", "6aa28a3dc68615b14fc10d6f366b59e5d649969fd6af6e156801956fde66feed", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-tenth10-03-gpt61sol-v1.json", "09e2ffdc7ce407990d9c7d3dff9b4ab2fa4b4f5d67575abc7094a7695f6ec359", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-tenth10-04-gpt61sol-v1.json", "cf87d77932fa4177b77735291c08bc06a57b9f6122d797121c20eb4f0a864776", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-tenth10-05-gpt61sol-v1.json", "240c120b0e968e60d8fe6074b4d64b216ead03d546df6cf03e5d1f47ed9f6baf", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-tenth10-06-gpt61sol-v1.json", "a55625f6c0172f0bb5e6ba758786b6475dc6579be7c89a562b77409f5a447411", "903964f2b8a6da32dd144614d70a94ae236f63c0c83ee9a5d9b8e9617b78be38"],
+      ["p09-r4-099980-tenth10-07-gpt61sol-v1.json", "200eb98c44f17ee533e99f585d1add51b1d2a7c12b48a75f0b10e82b3d1481f0", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-tenth10-08-gpt61sol-v1.json", "4eda96fd98c0627040073f05c261ef65ab373786e9ce2936524a149471a05f4b", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-tenth10-09-gpt61sol-v1.json", "21bca99cec01cd9500c1deabb503c10cb1884bc377e17da29d4d1dd4f4cd892d", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-tenth10-10-gpt61sol-v1.json", "7f903460dfc4a7aa48edd20a328979a8271d74c805d7967127a8566195413e08", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "formal_judgment_evidence_spans_pairwise_non_overlapping": true,
+    "duplicate_guard_evidence": "r4 checkpoint/rebuild paths reject duplicate ownership; current registry read found one owner per frozen target.",
+    "qualification": "Mutable global registry was read only for ownership and not hash-locked."
+  },
+  "items": [
+    {"position": 1, "target_id": "at-8f8857880ffb9989ff95d485", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "statutory_hook", "attribution": "current_court", "evidence": "Paragraph 180 states broad remedy discretion under FCA 18.1(3) and discretionary costs governed by Rule 400(3) factors and other relevant matters.", "scope_review": "Qualification: broad does not mean unfettered, and this paragraph does not award a specific amount. The Rule 400 constraint is preserved."},
+    {"position": 2, "target_id": "at-9169a7cb049cf248e5c2ce1a", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 15 compares allegation seriousness and evidentiary strength among individuals.", "scope_review": "It states neither a legal standard of proof nor an innocence holding."},
+    {"position": 3, "target_id": "at-9225bf8f48de08423b2764aa", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "statutory_hook", "attribution": "cited_court", "evidence": "Paragraph 111 attributes to the Supreme Court the CHRC filtering role under the CHRA: referral screening rather than rights determination.", "scope_review": "Qualification: this is cited-court authority and CHRA-specific. It must not be transferred to the PSEA Commission or treated as a procedural-fairness exemption."},
+    {"position": 4, "target_id": "at-950ed802967a5dd1e6352b4e", "decision": "agree", "severity": "none", "outcome": "positive", "kind": "statutory_hook", "attribution": "current_court", "evidence": "Paragraph 3 accurately states the three alternative PSEA grounds and their corresponding sections 66-69.", "scope_review": "The after-investigation and Commission-satisfied conditions are explicit; this is not a claim that every ground exists in this case."},
+    {"position": 5, "target_id": "at-95364ee9fae807cd82176477", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "procedural_rule", "attribution": "current_court", "evidence": "Paragraph 126 concludes that section 69 fraud powers and their impact on individuals justify greater procedural protection.", "scope_review": "Qualification: this is tied to the fraud seriousness and individual-impact context after the Baker analysis; it does not specify one universally mandatory procedure."},
+    {"position": 6, "target_id": "at-98814cc80cdfb175986f0de4", "decision": "agree", "severity": "none", "outcome": "positive", "authority_unit_count": 3, "kinds": ["holding", "holding", "procedural_rule"], "attribution": "current_court", "evidence": "Judgment points 1-4 support relief/fairness, point 5 separately supports costs, and point 6 separately supports finality.", "scope_review": "The three evidence spans are pairwise disjoint. Relief remains limited to effects on the applicant; $650 is deducted only if not already paid; finality begins only upon expiry of appeal rights. Editor credit is excluded."},
+    {"position": 7, "target_id": "at-9a77548a0ed859334746f9be", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 12 reports investigator findings about deceit, job title, working relationship and credibility.", "scope_review": "Agency findings are not current-court guilt or credibility adjudication and do not state a general fraud test."},
+    {"position": 8, "target_id": "at-9b01d3f90b10e934c376245e", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "other", "evidence": "Paragraph 52 reports a dictionary definition quoted in the investigator's report.", "scope_review": "The lexical source is not a distinct current-court legal definition in this target. The court's later analysis in paragraph 53 is outside this target and is not negated."},
+    {"position": 9, "target_id": "at-9c36ec4f176e3085aed6e9c8", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 153 recounts reference-checking, examination/interview and e-mail history.", "scope_review": "It formulates no general reference rule or court fraud finding."},
+    {"position": 10, "target_id": "at-9d5ed1c1ad745b3679a3f919", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "statutory_hook", "attribution": "current_court", "evidence": "Paragraph 83 describes sections 66-68 appointment remedies for selection-affecting error, omission, improper conduct or political influence.", "scope_review": "Qualification: the proposition is confined to sections 66-68. It does not decide an independent section 69 corrective power against a third party; paragraphs 84, 93 and 183-184 preserve that unresolved question."}
+  ],
+  "boundaries": {"semantic_gold": false, "model_silver": true, "r5_pass": false, "plan10_allowed": false, "note": "Only frozen tenth10 decisions are accepted; mutable overall progress is outside scope."}
+}

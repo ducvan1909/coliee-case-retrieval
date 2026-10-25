@@ -1,0 +1,17 @@
+{
+  "artifact_role": "synthetic_non_gold_examples",
+  "not_gold": true,
+  "positive": [
+    {"hint_type": "open_quote", "cue": "unbalanced quote ending at a block boundary", "expected": "previous block proposed for the following target"},
+    {"hint_type": "open_list", "cue": "colon lead-in followed by a list block", "expected": "lead-in block proposed"},
+    {"hint_type": "reference_to_previous", "cue": "as noted above", "expected": "previous block proposed"},
+    {"hint_type": "citation_continuation", "cue": "Ibid. at the start of a block", "expected": "previous block proposed"}
+  ],
+  "negative": [
+    {"case": "balanced quote", "expected": "no open_quote hint"},
+    {"case": "list without a colon or dash lead-in", "expected": "no open_list hint"},
+    {"case": "the value is above ten", "expected": "no reference_to_previous hint"},
+    {"case": "formal heading governance candidate", "expected": "no ContextHint fact"},
+    {"case": "adjacent different or absent speaker cues", "expected": "no speaker continuity candidate"}
+  ]
+}

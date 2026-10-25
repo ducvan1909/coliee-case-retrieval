@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coliee:pipeline-v1:au-candidate-review-v1",
+  "title": "Offline agent review sidecar; exact evidence is not semantic gold",
+  "description": "run_sha256 hashes exact run file bytes (dictionary API: canonical JSON). proposal_sha256 hashes canonical original AU for au, entire compact_response for target_omission. Canonical: UTF-8, sorted keys, compact separators, ensure_ascii=false, no NaN. au_index is zero-based. Missing checks/witnesses remain unresolved. Each fail requires a reason. Conditions absent is a reviewer assertion, not host semantic verification.",
+  "type": "object", "additionalProperties": false,
+  "required": ["artifact_type", "schema_version", "reviewer", "reviews"],
+  "properties": {
+    "artifact_type": {"const": "AUCandidateReview"},
+    "schema_version": {"const": "au-candidate-review-v1"},
+    "reviewer": {"$ref": "#/$defs/reviewer"},
+    "reviews": {"type": "array", "items": {"$ref": "#/$defs/review"}}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "verdict": {"enum": ["pass", "fail", "unknown"]},
+    "witness": {
+      "type": "object", "additionalProperties": false, "required": ["atom_id", "quote"],
+      "properties": {"atom_id": {"$ref": "#/$defs/text"}, "quote": {"$ref": "#/$defs/text"}}
+    },
+    "witnesses": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/witness"}},
+    "reviewer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["reviewer_id", "reviewer_type", "producer", "version", "provenance"],
+      "properties": {
+        "reviewer_id": {"$ref": "#/$defs/text"}, "reviewer_type": {"enum": ["agent", "human"]},
+        "producer": {"$ref": "#/$defs/text"}, "version": {"$ref": "#/$defs/text"},
+        "provenance": {"type": "object", "additionalProperties": false,
+          "required": ["method", "input_artifacts"],
+          "properties": {"method": {"$ref": "#/$defs/text"},
+            "input_artifacts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+            "model": {"$ref": "#/$defs/text"}, "prompt_sha256": {"$ref": "#/$defs/hash"}}
+        }
+      }
+    },
+    "review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["review_type", "run_sha256", "request_id", "proposal_sha256", "reason"],
+      "properties": {
+        "review_type": {"enum": ["au", "target_omission"]},
+        "run_sha256": {"$ref": "#/$defs/hash"}, "request_id": {"$ref": "#/$defs/text"},
+        "proposal_sha256": {"$ref": "#/$defs/hash"}, "au_index": {"type": "integer", "minimum": 0},
+        "reason": {"$ref": "#/$defs/text"},
+        "primary_proposition": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/witness"}]},
+        "field_witnesses": {"type": "object", "additionalProperties": false,
+          "properties": {"claim": {"$ref": "#/$defs/witnesses"}, "kind": {"$ref": "#/$defs/witnesses"},
+            "other_kind": {"$ref": "#/$defs/witnesses"}, "speaker": {"$ref": "#/$defs/witnesses"},
+            "attribution_role": {"$ref": "#/$defs/witnesses"}}},
+        "material_conditions": {"type": "object", "additionalProperties": false,
+          "required": ["status", "witnesses"],
+          "properties": {"status": {"enum": ["present", "absent", "unknown"]}, "witnesses": {"$ref": "#/$defs/witnesses"}},
+          "allOf": [{"if": {"properties": {"status": {"const": "absent"}}},
+            "then": {"properties": {"witnesses": {"maxItems": 0}}}}]},
+        "checks": {"type": "object", "additionalProperties": false,
+          "properties": {"authority_qualification": {"$ref": "#/$defs/verdict"},
+            "target_contribution": {"$ref": "#/$defs/verdict"}, "claim_support": {"$ref": "#/$defs/verdict"},
+            "attribution": {"$ref": "#/$defs/verdict"}, "qualification": {"$ref": "#/$defs/verdict"},
+            "duplicate": {"$ref": "#/$defs/verdict"}, "omission": {"$ref": "#/$defs/verdict"}}},
+        "witnesses": {"$ref": "#/$defs/witnesses"}
+      },
+      "allOf": [
+        {"if": {"properties": {"review_type": {"const": "au"}}},
+         "then": {"required": ["au_index"], "not": {"required": ["witnesses"]}},
+         "else": {"not": {"anyOf": [{"required": ["au_index"]}, {"required": ["primary_proposition"]},
+           {"required": ["field_witnesses"]}, {"required": ["material_conditions"]}]}}}
+      ]
+    }
+  }
+}

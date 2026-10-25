@@ -1,0 +1,14 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "messages": [
+    {
+      "role": "user",
+      "content": "This is a synthetic protocol test, not real law. Author exactly one AU from the explicit fictional rule below, preserving its emergency exception. Return the K0 envelope aus, assessed_scope_ids, next_action. AU keys claim, kind, evidence_ids, limits. Use kind procedural_rule, evidence_ids [\"e1\"], assessed_scope_ids [\"r1\"], and next_action {\"tool\":\"finish_case\",\"reason\":\"work_scope_complete\"}. Only JSON, no markdown.\nSOURCE r1/e1:\nUnder this fictional test rule, an applicant must receive notice and an opportunity to respond before an adverse decision. This requirement does not apply in an emergency."
+    }
+  ],
+  "temperature": 0,
+  "max_tokens": 800,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

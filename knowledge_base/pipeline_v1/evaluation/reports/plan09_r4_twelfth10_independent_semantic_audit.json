@@ -1,0 +1,64 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-6.1-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {"batch_id": "p09-r4-099980-twelfth10-sol-v1", "case_id": "099980", "target_count": 10, "outside_batch_reviewed": false, "canonical_state_modified": false, "global_progress_or_r4_manifest_hash_locked": false},
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 4, "low": 6, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 8,
+    "accepted_hard_negatives": 4,
+    "accepted_unresolved": 0,
+    "required_canonical_changes": 0,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-twelfth10-sol-v1.json",
+    "frozen_batch_sha256": "c965458bd9e2a101f4d4b6bba005a51b8832035000e65b32bea16fac651badd6",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-twelfth10-01-gpt61sol-v1.json", "9f3ce567aab28249a8826c5b64400a4ae50f8de7475b02f0661d1607e70a09c1", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-twelfth10-02-gpt61sol-v1.json", "1557415911e5a2c5fd23cfcf6676053c90a1df2c17102177ae3e3a548559fece", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-twelfth10-03-gpt61sol-v1.json", "044c961ecb70ccb68076a24050c55324a5cd0388ae50d563d19e7c61bc393afe", "cf4d0f507764d4e8868ee9aac052048b9fa892084a8c82b43beb0e647a7b68b4"],
+      ["p09-r4-099980-twelfth10-04-gpt61sol-v1.json", "3489aa43e6151dfb26e76977af225d57920d3b7e3f8a6b64798f090f7c3f6a25", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-twelfth10-05-gpt61sol-v1.json", "dd0762619caebbc7fa87cebfaa016c5d34e285372c2aad43341092e925159f6f", "cf4d0f507764d4e8868ee9aac052048b9fa892084a8c82b43beb0e647a7b68b4"],
+      ["p09-r4-099980-twelfth10-06-gpt61sol-v1.json", "59f986e9f03fad1bb0bb6b7c6eb85ab1aeb5d2928eab96c2fb9b654265e60ed8", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-twelfth10-07-gpt61sol-v1.json", "35355ee6e6bc86c5d6505988d673917a27ba038e1fad9595597210500a692032", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-twelfth10-08-gpt61sol-v1.json", "b071a912ab633dae8c92a4eaf1717395a3721b64ed9f25e55136fab98f22447b", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-twelfth10-09-gpt61sol-v1.json", "e453e9d99b11becae62ae3151ddeb7f108e7597de08956897467220ca3637864", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-twelfth10-10-gpt61sol-v1.json", "ca2f0d798ad02a4b0432748a35635c75c5f7b39ec9b30b2d44a2106c4d4433a0", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "multi_au_primary_evidence_spans_pairwise_non_overlapping": true,
+    "duplicate_guard_evidence": "r4 checkpoint/rebuild paths reject duplicate ownership; current registry read found one owner per frozen target.",
+    "qualification": "Mutable global registry was read only for ownership and not hash-locked."
+  },
+  "items": [
+    {"position": 1, "target_id": "at-b414c5f923125d9ffbb13318", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 192 describes anticipated reputational consequences and distress within the costs discussion.", "scope_review": "It supplies no independent damages test or entitlement and expressly says Web dissemination had not yet occurred."},
+    {"position": 2, "target_id": "at-b4be11ef36bb42c7a0602c1c", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "holding", "attribution": "current_court", "evidence": "Paragraph 46 says that because applicant counsel did not object at the hearing, the Court would consider every respondent argument while reserving possible remedy-and-cost consequences.", "scope_review": "Qualification: this is a case-specific procedural choice, not a universal waiver rule or validation of the respondent's arguments."},
+    {"position": 3, "target_id": "at-b50c20d6fac5a5ff45581b48", "decision": "agree", "severity": "low", "outcome": "positive", "authority_unit_count": 2, "kinds": ["procedural_rule", "procedural_rule"], "attribution": "cited_court", "evidence": "The Sopinka majority quotation separately supports investigator-as-Commission-extension/delegation and CHRC screening on reasonable evidentiary basis rather than merits adjudication, with procedural fairness retained.", "scope_review": "Qualification: both AUs are cited-court propositions in the CHRA filtering context. The absence of formal natural-justice rules does not eliminate procedural fairness and cannot be transferred to the PSEA section 69 scheme. The two primary evidence spans are disjoint."},
+    {"position": 4, "target_id": "at-b69ad45bcc2f35fe4e2f2a4a", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 139 recounts interview chronology, representation and questioning under oath.", "scope_review": "The applicant's earlier exclusion is a case fact; this target creates neither a standalone oath entitlement nor a jurisdiction holding."},
+    {"position": 5, "target_id": "at-bb0fadd7519f573da9eaaf9e", "decision": "agree", "severity": "low", "outcome": "positive", "authority_unit_count": 2, "kinds": ["statutory_hook", "statutory_hook"], "attribution": "current_court", "evidence": "Paragraph 85 separately states PSDPA section 9 discipline for wrongdoing, including termination, and FAA section 12 deputy-head authority to discipline and terminate staff under their authority.", "scope_review": "Qualification: PSDPA discipline is appropriate-action language conditioned on wrongdoing, not automatic dismissal; FAA authority is limited to public servants under the deputy head. Neither AU grants PSEA Commission jurisdiction. The primary spans are adjacent but non-overlapping."},
+    {"position": 6, "target_id": "at-bcacdc4982d12ca435892d57", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "holding", "attribution": "current_court", "evidence": "Paragraph 195 holds that ensuring institutional confidence cannot justify the unfair means used by this investigator in this case.", "scope_review": "Qualification: this is case-specific and not a categorical prohibition on e-mail interception. Paragraph 196 expressly declines to declare the applicant innocent."},
+    {"position": 7, "target_id": "at-bed335129a82eef9211c598b", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "procedural_rule", "attribution": "current_court", "evidence": "Paragraph 23 states that where no respondent can be named under Rule 303(1), Rule 303(2) requires naming the Attorney General of Canada.", "scope_review": "Qualification: Rule 303(3), described immediately afterward, permits court-ordered substitution on the Attorney General's motion when its conditions are met. The AU is not a never-name-the-tribunal rule."},
+    {"position": 8, "target_id": "at-bee7bffa49507d9907ed2c9b", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "party_argument_only", "evidence": "Paragraph 37 recounts respondent advocacy from another case about lateness, guilt and corrective measures.", "scope_review": "The current court criticizes the advocacy posture and does not adopt the quoted propositions."},
+    {"position": 9, "target_id": "at-befd32410e3f601906b6e19a", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 19 describes another appointment process, references, non-appointment and an agency fraud finding.", "scope_review": "It is not an adjudication of this applicant's guilt or an adopted legal definition of fraud."},
+    {"position": 10, "target_id": "at-c027337ac756114775dcabdb", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "procedural_rule", "attribution": "current_court", "evidence": "Paragraph 109 contrasts the greater legitimate expectations of a person suspected of fraud in a PSEA section 69 investigation with a discrimination case.", "scope_review": "Qualification: the comparative proposition does not itself specify a mandatory hearing format or erase the distinct CHRC framework discussed afterward."}
+  ],
+  "boundaries": {"semantic_gold": false, "model_silver": true, "r5_pass": false, "plan10_allowed": false, "note": "Only frozen twelfth10 decisions are accepted; mutable overall progress is outside scope."}
+}

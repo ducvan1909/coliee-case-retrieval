@@ -1,0 +1,197 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-a2894606bf7087ac4513d95e",
+        "claim": "An early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-700fe830c8c6dc754a9cc49e",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 17830,
+            "end_char": 18015,
+            "quote": "<FRAGMENT_SUPPRESSED> ; 108 F.T.R. 93 (T.D.), MacKay, J., held that an early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-adcd8e60e132d901ffbf9408",
+        "claim": "Where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed.",
+        "kind": "statutory_hook",
+        "evidence_ids": [
+          "s3"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-7281f79d9d02a4e10e010345",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 18015,
+            "end_char": 18256,
+            "quote": "MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-2343c9cfb925b0aa4be3ade4",
+        "claim": "This provision confirmed that a party had a right to proceed in one forum or the other.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s3",
+          "s4"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-7281f79d9d02a4e10e010345",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 18015,
+            "end_char": 18256,
+            "quote": "MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. ",
+            "role": "target_body"
+          },
+          {
+            "ref_id": "t-8a67ac89bc34d14a624dea45",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 18256,
+            "end_char": 18362,
+            "quote": "In his view, this provision confirmed that a party had a right to proceed in one forum or the other.  \r\n  ",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [
+      {
+        "au_ids": [
+          "au-adcd8e60e132d901ffbf9408",
+          "au-2343c9cfb925b0aa4be3ade4"
+        ],
+        "evidence_ids": [
+          "s3"
+        ],
+        "semantic_merge": false
+      }
+    ],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1150,
+    "output_tokens": 125,
+    "total_tokens": 1275
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"An early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue.\",\"kind\":\"holding\",\"evidence_ids\":[\"s2\"],\"limits\":null},{\"claim\":\"Where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s3\"],\"limits\":null},{\"claim\":\"This provision confirmed that a party had a right to proceed in one forum or the other.\",\"kind\":\"holding\",\"evidence_ids\":[\"s3\",\"s4\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792496022,
+    "id": "7e7974463e2b4403b47dc59b90bba359",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 125,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 125,
+      "prompt_tokens": 1150,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1275
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e",
+    "payload_sha256": "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e",
+    "polls": 7,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495998.1602433,
+    "job_status": "completed",
+    "latency_ms": 27258.318,
+    "finished_at_unix": 1792496025.418726,
+    "server_timing": {
+      "created_at": "2026-10-20T11:33:22.657897+00:00",
+      "started_at": "2026-10-20T11:33:32.377225+00:00",
+      "finished_at": "2026-10-20T11:33:42.311424+00:00",
+      "inference_seconds": 9.200740267000015
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "An early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "Where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed.",
+        "kind": "statutory_hook",
+        "evidence_ids": [
+          "s3"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "This provision confirmed that a party had a right to proceed in one forum or the other.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s3",
+          "s4"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 27258.583,
+  "request_id": "auc-990fae8ff57520393d90ac04",
+  "payload_sha256": "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e",
+  "receipt_sha256": "3d8e593de03804f568a4915c68805cec2ce8311140be1ca36ec20f88544fa4f4"
+}

@@ -1,0 +1,21 @@
+{
+  "status": "local_cpu_ready_not_live_tested",
+  "date": "2026-10-24",
+  "code_sha256": "279b1be0208e232bb42f51b2d6b890a8791a5cb676d36cb2eff8f8c3eb386f7d",
+  "local_tests_passed": 48,
+  "independent_v2_tests_passed": 14,
+  "native_cpu_status": "pass",
+  "native_jobs": 9,
+  "native_positive_examples": 36,
+  "native_negative_examples": 27,
+  "old_protected_files_unchanged": 100,
+  "model_requests_planned": 9,
+  "model_requests_executed": 0,
+  "reserved_input_and_output_tokens": 22806,
+  "wrapper_dry_run": "pass",
+  "PowerShell_syntax": "pass",
+  "historical_CPU_IO_failure": "cpu_history/cpu_balanced_permission_error.json",
+  "semantic_quality": "not_assessed",
+  "omission_fixed": "not_demonstrated",
+  "corpus_dispatch_allowed": false
+}

@@ -1,0 +1,15 @@
+{
+  "evaluation_sha256": "127500728f2e7148deb813677dcbeba69595e401e7e7ee0ba8707189d6f9ebe5",
+  "decision": "supported",
+  "basis": "main_agent_source_review",
+  "reason": "Claim preserves applicant notice/opportunity to respond before adverse decision; Limits preserves the emergency exception; e1 contains both. Does not copy demo licensing rule or demo IDs. One fictional point, correct procedural_rule, no reasoning/truncation. This is a source-reviewed synthetic control, not legal-corpus quality.",
+  "checks": {
+    "actor": true,
+    "rule": true,
+    "exception": true,
+    "evidence": true,
+    "demo_not_copied": true
+  },
+  "reviewer": "main_agent",
+  "human_gold": false
+}

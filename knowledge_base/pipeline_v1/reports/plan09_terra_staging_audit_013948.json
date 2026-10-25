@@ -1,0 +1,22 @@
+{
+  "artifact_type": "TerraStagingAudit",
+  "audit_version": "plan09-terra-staging-audit-v1",
+  "case_id": "013948",
+  "status": "staging_cleaned_after_canonical_validation",
+  "staging_contract_error": {
+    "code": "forbidden_provenance",
+    "stage": "pre_checkpoint",
+    "detail": "The initial staged producer object included prompt_version, but the proposal contract requires the exact four-field Terra producer identity.",
+    "canonical_artifacts_affected": 0,
+    "resolution": "Regenerated staged proposals with the exact producer identity; validator then accepted the canonical checkpoints."
+  },
+  "canonical_verification": {
+    "batch_count": 15,
+    "reviewed_target_count": 59,
+    "authority_unit_count": 38,
+    "hard_negative_count": 21,
+    "unresolved_target_count": 0,
+    "validator_output_count": 15,
+    "source_or_rejected_history_deleted": false
+  }
+}

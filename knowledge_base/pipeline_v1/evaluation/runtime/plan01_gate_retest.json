@@ -1,0 +1,763 @@
+{
+  "report_version": "plan01-validation-report-v1",
+  "generated_at_utc": "2026-10-03T08:51:41.858008+00:00",
+  "status": "pass",
+  "inputs": {
+    "repo_root": "G:\\Git\\coliee-case-retrieval",
+    "kos_root": "G:\\Legal-AI\\kos_sample",
+    "calibration_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\calibration_manifest.v1.json",
+    "selected_kos_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\selected_kos_manifest.v1.json",
+    "split_registry": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\split_registry.v1.json",
+    "annotation_schema": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\contracts\\annotation_schema.v1.json",
+    "annotation_fixture": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\examples\\minimal_annotation.v1.json",
+    "hard_case_catalog": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\hard_cases.v1.json"
+  },
+  "summary": {
+    "raw_source_cases": 5,
+    "raw_source_bytes": 207473,
+    "selected_cases": 5,
+    "selected_files": 61,
+    "selected_bytes": 69645,
+    "error_count": 0
+  },
+  "checks": {
+    "raw_source_hashes": {
+      "status": "pass",
+      "cases": [
+        {
+          "case_id": "013009",
+          "source_path": "data/task1_train_files_2026/cases/013009.txt",
+          "status": "pass",
+          "resolved_path": "G:\\Git\\coliee-case-retrieval\\data\\task1_train_files_2026\\cases\\013009.txt",
+          "expected_sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+          "actual_sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+          "expected_byte_length": 12712,
+          "actual_byte_length": 12712,
+          "expected_char_length": 12710,
+          "actual_char_length": 12710,
+          "errors": []
+        },
+        {
+          "case_id": "013948",
+          "source_path": "data/task1_train_files_2026/cases/013948.txt",
+          "status": "pass",
+          "resolved_path": "G:\\Git\\coliee-case-retrieval\\data\\task1_train_files_2026\\cases\\013948.txt",
+          "expected_sha256": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "actual_sha256": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "expected_byte_length": 18832,
+          "actual_byte_length": 18832,
+          "expected_char_length": 18830,
+          "actual_char_length": 18830,
+          "errors": []
+        },
+        {
+          "case_id": "011904",
+          "source_path": "data/task1_train_files_2026/cases/011904.txt",
+          "status": "pass",
+          "resolved_path": "G:\\Git\\coliee-case-retrieval\\data\\task1_train_files_2026\\cases\\011904.txt",
+          "expected_sha256": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "actual_sha256": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "expected_byte_length": 20848,
+          "actual_byte_length": 20848,
+          "expected_char_length": 20847,
+          "actual_char_length": 20847,
+          "errors": []
+        },
+        {
+          "case_id": "045155",
+          "source_path": "data/task1_train_files_2026/cases/045155.txt",
+          "status": "pass",
+          "resolved_path": "G:\\Git\\coliee-case-retrieval\\data\\task1_train_files_2026\\cases\\045155.txt",
+          "expected_sha256": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "actual_sha256": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "expected_byte_length": 32643,
+          "actual_byte_length": 32643,
+          "expected_char_length": 32073,
+          "actual_char_length": 32073,
+          "errors": []
+        },
+        {
+          "case_id": "099980",
+          "source_path": "data/task1_train_files_2026/cases/099980.txt",
+          "status": "pass",
+          "resolved_path": "G:\\Git\\coliee-case-retrieval\\data\\task1_train_files_2026\\cases\\099980.txt",
+          "expected_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "actual_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "expected_byte_length": 122438,
+          "actual_byte_length": 122438,
+          "expected_char_length": 122393,
+          "actual_char_length": 122393,
+          "errors": []
+        }
+      ],
+      "errors": []
+    },
+    "selected_kos_inputs": {
+      "status": "pass",
+      "cases": [
+        {
+          "case_id": "013009",
+          "kos_role": "query",
+          "case_path": "cases/013009",
+          "status": "pass",
+          "file_count": 27,
+          "total_bytes": 30679,
+          "tree_sha256": "f860cb388c8ea7c851566999f4c971f8b0e23d3dd1b46f69848ea9b578161485",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "a02343bed44942c7ad3ab1157bb93b1c2a2f9cc7ef056b4c7605036b9bec8328",
+              "byte_length": 2049
+            },
+            {
+              "path": "cite_sites/cs-013009-w0.md",
+              "sha256": "ee45297321d7686c1924ac68213d9b15a0073d2d491318e395b66ac33533f778",
+              "byte_length": 1135
+            },
+            {
+              "path": "cite_sites/cs-013009-w1.md",
+              "sha256": "9f8f2d7250a160f9496eac3bc8e158bd3e63d69d938130eb161661a89bde92bd",
+              "byte_length": 1186
+            },
+            {
+              "path": "cite_sites/cs-013009-w10.md",
+              "sha256": "4966bee02f6dcbb983620e43b1e0058e9b943adf9a44e579a260124e2b7d21d8",
+              "byte_length": 947
+            },
+            {
+              "path": "cite_sites/cs-013009-w11.md",
+              "sha256": "2e72e159eb373a58820c7da669ec441e7f8995de0f05874a4124792af4226e99",
+              "byte_length": 1190
+            },
+            {
+              "path": "cite_sites/cs-013009-w12.md",
+              "sha256": "f8aea2fb830b2ef54ab0c7aa7ac3fee2227e73daadd62000a524280c75a78f75",
+              "byte_length": 1182
+            },
+            {
+              "path": "cite_sites/cs-013009-w2.md",
+              "sha256": "c5fe66c4f91ffe55b9e71540923666760df2d0095c11ff05d5eba45a36c1edc5",
+              "byte_length": 1186
+            },
+            {
+              "path": "cite_sites/cs-013009-w3.md",
+              "sha256": "a8480d5a4bc1b365c5b986a9d5db5b6523cda999bf3d254de048a15f57e735f0",
+              "byte_length": 1156
+            },
+            {
+              "path": "cite_sites/cs-013009-w4.md",
+              "sha256": "5d264b4646b0cc22eee57a6892850ea071b2fbe5a8574fa72a2befafae2dbf6c",
+              "byte_length": 1109
+            },
+            {
+              "path": "cite_sites/cs-013009-w5.md",
+              "sha256": "35e6ef5e8738b461b26c82c804f692b9c8d0c34da02decd9343356a21bc40a8d",
+              "byte_length": 1077
+            },
+            {
+              "path": "cite_sites/cs-013009-w6.md",
+              "sha256": "dc8228c4685438aec6d8af6d78f0afe99c4ef62a2fc775df057e03e864cd6cb3",
+              "byte_length": 1054
+            },
+            {
+              "path": "cite_sites/cs-013009-w7.md",
+              "sha256": "aad065aef32d2fa6d316fa828de51cb4c7483063081b177e7e20e6133b46fa55",
+              "byte_length": 929
+            },
+            {
+              "path": "cite_sites/cs-013009-w8.md",
+              "sha256": "0d6215e5007062e24269766ff0d4c4d9f7d5eb2bba4b9eb3f05999a49b8933b5",
+              "byte_length": 1176
+            },
+            {
+              "path": "cite_sites/cs-013009-w9.md",
+              "sha256": "ec21d65e0147ab03ec75cd29f2cb86679f19701cfd8e17691720256d23f13b58",
+              "byte_length": 942
+            },
+            {
+              "path": "notice_needs/nn-013009-w0.md",
+              "sha256": "90db459c15d4dff3453a8d9ba9c6c3e698933b94415fc2bdc9e1d9d3c159160f",
+              "byte_length": 912
+            },
+            {
+              "path": "notice_needs/nn-013009-w1.md",
+              "sha256": "cbf49e2e7bbcf7a8c9af736dc19d3c399e42efb7d46c13c7d8d250cbba0cc4b9",
+              "byte_length": 1185
+            },
+            {
+              "path": "notice_needs/nn-013009-w10.md",
+              "sha256": "f354960cac2609ae792ad924ad22b87c183d9852a6adc0dbbccc10c13fd72792",
+              "byte_length": 1248
+            },
+            {
+              "path": "notice_needs/nn-013009-w11.md",
+              "sha256": "4f88e3d0171254898706a4b0dcd058a3f5c00a735e0c14e5098bda511c1ae193",
+              "byte_length": 1033
+            },
+            {
+              "path": "notice_needs/nn-013009-w12.md",
+              "sha256": "de0ac00da4d28c84977d4ad4ae2ee8d7c06beef9e0c178427bb27f61020d3256",
+              "byte_length": 974
+            },
+            {
+              "path": "notice_needs/nn-013009-w2.md",
+              "sha256": "dec06043bf837b5061c122f49308dc166145a87a9734a02d3325091898e8e91e",
+              "byte_length": 1019
+            },
+            {
+              "path": "notice_needs/nn-013009-w3.md",
+              "sha256": "96306ce28e4d8c8f9f4505934b0c876f1d64f4f6e3922be137b96bf921058066",
+              "byte_length": 961
+            },
+            {
+              "path": "notice_needs/nn-013009-w4.md",
+              "sha256": "9e6a6d43a2ecf3435e173417cfe831db0060971deff6b63cc09b9196fe5ab9a7",
+              "byte_length": 1034
+            },
+            {
+              "path": "notice_needs/nn-013009-w5.md",
+              "sha256": "d767dbaabf63c8c410c7c4d422dcaa1bbfe9b355dcbfd7e5cf71cf7d0ccae83d",
+              "byte_length": 1022
+            },
+            {
+              "path": "notice_needs/nn-013009-w6.md",
+              "sha256": "7d383642ebb187aebac3f526be6957f4a409c7fdda60babdd5ec9946b9e597fa",
+              "byte_length": 1404
+            },
+            {
+              "path": "notice_needs/nn-013009-w7.md",
+              "sha256": "820138d90e8733d5291dd2384042a2c3ca81c0ad9791881cbe7cc5ab914c0c27",
+              "byte_length": 1114
+            },
+            {
+              "path": "notice_needs/nn-013009-w8.md",
+              "sha256": "c8963e6f8f709b8f0014c6c6da718ff83bc7529ae20dfed430a42e69dd9a0111",
+              "byte_length": 1233
+            },
+            {
+              "path": "notice_needs/nn-013009-w9.md",
+              "sha256": "0deccc510211d0faaca18fe4d731df8e2083eff10e6665aa2fecf02224a26f11",
+              "byte_length": 1222
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "013948",
+          "kos_role": "query",
+          "case_path": "cases/013948",
+          "status": "pass",
+          "file_count": 13,
+          "total_bytes": 16673,
+          "tree_sha256": "43fab087a3049b32d995eb61f30d01ff4cc49274dad0d0c4d872fd2300541e12",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "8c77b2ddb914e379807342fd3c3bf39262a0f325abadb91aa0f6a5c904449c57",
+              "byte_length": 1697
+            },
+            {
+              "path": "cite_sites/cs-013948-w0.md",
+              "sha256": "e107ca439d89ab3a31a8537eef3c1d5541e42190d6eba22f71a0dfd86c267667",
+              "byte_length": 1226
+            },
+            {
+              "path": "cite_sites/cs-013948-w1.md",
+              "sha256": "51945efa620664b96ecee12f479299aa0ee3711356a639a483cd74f7181a2c11",
+              "byte_length": 1297
+            },
+            {
+              "path": "cite_sites/cs-013948-w2.md",
+              "sha256": "c0580b2ef1480d077de7f63b8f390ac9a92ad5813267df08accae517fbd67f9a",
+              "byte_length": 1649
+            },
+            {
+              "path": "cite_sites/cs-013948-w3.md",
+              "sha256": "94e4536cfefb2b43c4b014536a1b416bb8fb6dd39d505b7984b0704bbc747a99",
+              "byte_length": 1642
+            },
+            {
+              "path": "cite_sites/cs-013948-w4.md",
+              "sha256": "0daf1c13efb004ed9dbdca72ad1f267b4120a865e42b272030f8ac1c01961d1d",
+              "byte_length": 1657
+            },
+            {
+              "path": "cite_sites/cs-013948-w5.md",
+              "sha256": "97c8934136ede1a13259094c4b2c75b01dc3ec4025f5fe262f52392ba422ebbd",
+              "byte_length": 1571
+            },
+            {
+              "path": "notice_needs/nn-013948-w0.md",
+              "sha256": "7224a18f8a5c3d1e125110fc1785c937567b02db80a3a8f93c5eb132293f75be",
+              "byte_length": 1055
+            },
+            {
+              "path": "notice_needs/nn-013948-w1.md",
+              "sha256": "80505eef721bddd82cf4d2cb876c6520e5a7a4c29d9b48ffb7907d71b49c2ad0",
+              "byte_length": 922
+            },
+            {
+              "path": "notice_needs/nn-013948-w2.md",
+              "sha256": "93f585b24625b0de565f927ebfd27151bc81eca90f661a80020a0003cd76e477",
+              "byte_length": 990
+            },
+            {
+              "path": "notice_needs/nn-013948-w3.md",
+              "sha256": "d58760125eed08ace136112c640797d20c5a839fc210ff3010b247e3ffe4ad6a",
+              "byte_length": 956
+            },
+            {
+              "path": "notice_needs/nn-013948-w4.md",
+              "sha256": "effaf10645321e71a7e5b06329613ef9393d83ebfc9bbb67ffa8330114926ad9",
+              "byte_length": 1025
+            },
+            {
+              "path": "notice_needs/nn-013948-w5.md",
+              "sha256": "e570d5f039ed9ddd40d5d17d73dcfca3f944091b78b4dfc29cf35afb4f39f889",
+              "byte_length": 986
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "011904",
+          "kos_role": "candidate",
+          "case_path": "cases/011904",
+          "status": "pass",
+          "file_count": 9,
+          "total_bytes": 10662,
+          "tree_sha256": "28e4b13fdfdfa9fc978a00863bb864b0c02b4922703614abbf65ca492fbd6152",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "fa84f1b3329608c12a1cc06cf31481e72fbf565929361fe3358f1c73e2c30550",
+              "byte_length": 1404
+            },
+            {
+              "path": "authority_units/au-011904-clear-convincing.md",
+              "sha256": "07b4cf27478f2558e84c6af5d90432de3d7e53dc5087b4311e799359a8861d10",
+              "byte_length": 1093
+            },
+            {
+              "path": "authority_units/au-011904-contradictory-evidence.md",
+              "sha256": "70054a8ccfc929535639a6fa398cb255462415a82d6a749e6ce1595638b9207d",
+              "byte_length": 871
+            },
+            {
+              "path": "authority_units/au-011904-effective-protection.md",
+              "sha256": "2dc44d5918d51b0eb82b52760cfc822b2a0fae92e337cca89972a107984420ce",
+              "byte_length": 877
+            },
+            {
+              "path": "authority_units/au-011904-exhaustion-not-danger.md",
+              "sha256": "a980ffba76a776021a00605513fe8eca41c38eb3035ca4bcdb9bf3e0158979bb",
+              "byte_length": 1755
+            },
+            {
+              "path": "authority_units/au-011904-mexico-full-assessment.md",
+              "sha256": "c9c220b393825d15c5de21c9b50daf9cbad821a5fce2b9aefecd4c387dd2b534",
+              "byte_length": 1203
+            },
+            {
+              "path": "authority_units/au-011904-police-primary-avenue.md",
+              "sha256": "62e6a49c12fa19b7adbe2ffe08b3b5d428b53c2165ecaed69c050666f4e087d3",
+              "byte_length": 1189
+            },
+            {
+              "path": "authority_units/au-011904-presumption-state-persecutors.md",
+              "sha256": "3958382a5bdf3f560575a10415c327557699c2852c1760af3f8a52d1b94eb9ae",
+              "byte_length": 1126
+            },
+            {
+              "path": "authority_units/au-011904-sor-reasonableness.md",
+              "sha256": "999a49905cd61ba6645fff0cb8b15848f72cef1c168f41c8eda1b7426d3c6bb9",
+              "byte_length": 1144
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "045155",
+          "kos_role": "candidate",
+          "case_path": "cases/045155",
+          "status": "pass",
+          "file_count": 6,
+          "total_bytes": 6598,
+          "tree_sha256": "12c875a48410e6cbedf4b6b96a7966566fea3b7b4a3b24e441568705e3f8c33f",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "278b089b5ef76765b60b86352252bfec2762ec121e618c3d3a44a352fe7bcff7",
+              "byte_length": 1009
+            },
+            {
+              "path": "authority_units/au-045155-classification-reasons-s27.md",
+              "sha256": "dae0dbaa20f85fea05beb02a16785218b12654fa2ec69dda0d3556f45bbb697e",
+              "byte_length": 1104
+            },
+            {
+              "path": "authority_units/au-045155-exception-commissioner-authority.md",
+              "sha256": "87233d4aed0c15126acb8695d203bdebec548a2c05a1810a1645d4aa752497b5",
+              "byte_length": 1158
+            },
+            {
+              "path": "authority_units/au-045155-exhaust-grievance-general.md",
+              "sha256": "d9dc47a8faff0c3ffac5182064cd8e7706a0cb5a8997f4e050096f20da362352",
+              "byte_length": 1109
+            },
+            {
+              "path": "authority_units/au-045155-policy-reasons-exhaust.md",
+              "sha256": "ca682e36bc58058a4d8bec2b74869f90609d3a26dfab48261f9549ea2f262199",
+              "byte_length": 1087
+            },
+            {
+              "path": "authority_units/au-045155-undisclosed-allegation-unfair.md",
+              "sha256": "c9ff5432164c6556ac14c176532fc313d31cec07ba71f79ce4cc080f1a9fab3c",
+              "byte_length": 1131
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "099980",
+          "kos_role": "candidate",
+          "case_path": "cases/099980",
+          "status": "pass",
+          "file_count": 6,
+          "total_bytes": 5033,
+          "tree_sha256": "3cae09f8c9a3338efa1570f2f28b0c823f312832f81a06cac41451121303108d",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "ab4e40174ebf55ce00a86dd62bde06e3231587133a0b8cc127a1ba7bbe175c31",
+              "byte_length": 829
+            },
+            {
+              "path": "authority_units/au-099980-investigations-impartiality-tool.md",
+              "sha256": "bca9c623cec574f1a1001e0333fc55f341cdb547d0201124f7782d19c7ce0153",
+              "byte_length": 773
+            },
+            {
+              "path": "authority_units/au-099980-pf-case-by-case.md",
+              "sha256": "35b2c3d243521b64b976a8ec2f56acf03378ba27ddc5f77702e0393f911ed1bd",
+              "byte_length": 902
+            },
+            {
+              "path": "authority_units/au-099980-pf-correctness.md",
+              "sha256": "dc3b6a737bd0a5c1ef8dc6297a037a3f85cef1a9aac4d197ed0a0789b855ef1d",
+              "byte_length": 674
+            },
+            {
+              "path": "authority_units/au-099980-pf-determinative.md",
+              "sha256": "33a741a072b6c1c5946407b0427643a9a52ab646c74992a84072e41626555669",
+              "byte_length": 1173
+            },
+            {
+              "path": "authority_units/au-099980-right-to-make-submissions.md",
+              "sha256": "dd0f469b26f5be72d9a6fdbd6e4dcb72be3167233feac474b5a8e53ddfc2993c",
+              "byte_length": 682
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    "split_registry": {
+      "status": "pass",
+      "counts": {
+        "calibration": 5,
+        "development": 20,
+        "holdout": 40
+      },
+      "overlaps": {
+        "calibration__development": [],
+        "calibration__holdout": [],
+        "development__holdout": []
+      },
+      "assignment_sha256": "3e697753e5a544ecf7997d020905906317bc4d6962497e86e4c8790b33d943bd",
+      "expected_assignment_sha256": "3e697753e5a544ecf7997d020905906317bc4d6962497e86e4c8790b33d943bd",
+      "reproduced_from_policy": true,
+      "corpus_file_counts": {
+        "train": 7708,
+        "test": 1848
+      },
+      "locked_source_hashes": {
+        "011904": {
+          "role": "calibration",
+          "sha256": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12"
+        },
+        "013009": {
+          "role": "calibration",
+          "sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3"
+        },
+        "013948": {
+          "role": "calibration",
+          "sha256": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352"
+        },
+        "045155": {
+          "role": "calibration",
+          "sha256": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb"
+        },
+        "099980": {
+          "role": "calibration",
+          "sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319"
+        },
+        "006725": {
+          "role": "development",
+          "sha256": "9cda4fda5ea6c8ab09cf11aae8a1e4cf5897de189ee728fb4427302e0c411443"
+        },
+        "011680": {
+          "role": "development",
+          "sha256": "5f245b1fc22f36ee33a4b82c5dd0280e0b28edcfa993c487c77e3cd8515761e4"
+        },
+        "014017": {
+          "role": "development",
+          "sha256": "9f3e799932c39112fdaea5f4cfef4c2b987d2c12d5bcb4da1cc3d6b50d0ab734"
+        },
+        "016218": {
+          "role": "development",
+          "sha256": "ad3c2b5b35d42f963367e51557d448ec4c10dd32ef9402f4f81e5b9c067ead04"
+        },
+        "026464": {
+          "role": "development",
+          "sha256": "4a95ac18fb0ec9ba486e6714fd061ee4d1eff44c1dac765b2794cd65e844ce5a"
+        },
+        "027593": {
+          "role": "development",
+          "sha256": "63f0ae27c0e62efeebb27451c8d85b866454610d3302cc42f6d53f0ca18d456b"
+        },
+        "034501": {
+          "role": "development",
+          "sha256": "90a1fe9bb87930bd1bab894c265bf9b693ba54d1f3fbf658f8c5b5cf45faa429"
+        },
+        "040898": {
+          "role": "development",
+          "sha256": "d237feb39740cdf7c3eec24dbf04038bdb9a9c88c49afb42592372a40b5b0d0c"
+        },
+        "043490": {
+          "role": "development",
+          "sha256": "d7ba8b2a06dc14b8a174691c2c13fc6fef13ae4c263f9621e2138b8e0fdba1ca"
+        },
+        "043625": {
+          "role": "development",
+          "sha256": "176273961518cbc001f7e1a6a9a60cbf866cbf1f9a339cd5d960d5412f2210ef"
+        },
+        "047415": {
+          "role": "development",
+          "sha256": "5c0f362e17ae1d4e268422f6fdce7e4e0cd4f43a78c12a71c9fb0641ac4d5ef7"
+        },
+        "048676": {
+          "role": "development",
+          "sha256": "9bfc6008f1930c98d1785e298d4b720640a81df4c1d817574b3c28db194927f8"
+        },
+        "050313": {
+          "role": "development",
+          "sha256": "f7b936a5e6545ff85efb6950b8b61bb482c63cde89e069f2617fb85e560c79dd"
+        },
+        "060339": {
+          "role": "development",
+          "sha256": "9b08d564f2e5b1cdaaa2ee2ebee5e1467098052b808b27dd2725c1a7d36e3af6"
+        },
+        "073214": {
+          "role": "development",
+          "sha256": "85a12e06bf087f2d323d8c097814ca3e571d184a15c504d55f0017018346851a"
+        },
+        "083288": {
+          "role": "development",
+          "sha256": "90ffe5f13a8162308b93fee022a3df7162d2af5e6220b7949be03bf07097fe1e"
+        },
+        "093150": {
+          "role": "development",
+          "sha256": "da5813ba83931edbfa416507e7dabd646ab645304089db995ed2e5e97e05fa3c"
+        },
+        "094658": {
+          "role": "development",
+          "sha256": "043de8e90a70f2e6b39686f05a5cba7456bbea054cca9e7db0ee20d825b6be96"
+        },
+        "096254": {
+          "role": "development",
+          "sha256": "e2eabf0f505f1d303dd875022da4b5eb55a77e692690b29a9e6d708a34168245"
+        },
+        "097712": {
+          "role": "development",
+          "sha256": "12f5c43aa968a299cc0b111436ab5e273e5c6043b5065c710b77992c32aaedf8"
+        },
+        "004750": {
+          "role": "holdout",
+          "sha256": "6b167e6c39349d9c2d55ce921ca133914cbb06906f04a2b94d7fea3bfd260d41"
+        },
+        "005174": {
+          "role": "holdout",
+          "sha256": "f1c3043d79afb35b2250e0afeae406df8a788c17ddb7913184c2d38909161763"
+        },
+        "012639": {
+          "role": "holdout",
+          "sha256": "83c4dc140ae52d4620fbf3c5b8eb1d55629f9c51eff9a2aa253e275f839b22dd"
+        },
+        "013378": {
+          "role": "holdout",
+          "sha256": "52282bd8d5e0e79e8e01d32c1d3d33b5d16c99f95efa04d49e1f81ebab334f70"
+        },
+        "014163": {
+          "role": "holdout",
+          "sha256": "18b559ee327f8b8e4d8094fd7997214433f9e9af7e8b2734920f0f56332d21cd"
+        },
+        "016637": {
+          "role": "holdout",
+          "sha256": "9cd375cf869229f4b2cd15ffa274551d2aa411c181e6624721bc18360f0cfadc"
+        },
+        "017964": {
+          "role": "holdout",
+          "sha256": "658582415b2e6adde25298437c2ce43fbfa97f9bf9c3422eaae2b460ba644cfd"
+        },
+        "019072": {
+          "role": "holdout",
+          "sha256": "8661888feae18e61ef8dbbfbfc46e72008ebe7892ebd2079393d214b2e89aafd"
+        },
+        "020779": {
+          "role": "holdout",
+          "sha256": "90199154baf48ad0b57b6621e921cdcd9a531aa348cfb6f72d39fc3f47c08b21"
+        },
+        "025471": {
+          "role": "holdout",
+          "sha256": "b55689a5fde13201044aa9c2022fc16baa91b6fa4c753e23f51277477feb73d2"
+        },
+        "027582": {
+          "role": "holdout",
+          "sha256": "74b4ef4e9cadfc67203559022dff21f4cc516123c0e43c31d9f183e079191ffe"
+        },
+        "027941": {
+          "role": "holdout",
+          "sha256": "dd2751f820b3259847079cf1403e94ea6582d2ae3dd4bb22864d348f9c763045"
+        },
+        "030153": {
+          "role": "holdout",
+          "sha256": "f7a7106b8e6fee9863a4539752d5ad7c1a17bcdd75488cd6b83f3aca33457851"
+        },
+        "033849": {
+          "role": "holdout",
+          "sha256": "dd98da76c04a29a9e3969704758ad1dd45daf7c139f7f2da2767edc8176f22c5"
+        },
+        "034757": {
+          "role": "holdout",
+          "sha256": "2a60a8cfab81ea9d502e98874db09de4b44989d64c8090461d7d40611513e73e"
+        },
+        "034828": {
+          "role": "holdout",
+          "sha256": "942543ef43b9bea3f796e2dc413600b33685d6939b452cc901fe9812b8a3af01"
+        },
+        "040305": {
+          "role": "holdout",
+          "sha256": "b6a56bc25b5a482ce8fb7f5c05f89d141b7e6262a72625fc87f2df810cf2b6e4"
+        },
+        "040589": {
+          "role": "holdout",
+          "sha256": "a561fb660b63c5ce9c09d4f7255d78f216295b29a11f9f4b859a708e2a360488"
+        },
+        "049829": {
+          "role": "holdout",
+          "sha256": "01bcc2e25d6c7d5b11c89623ba016272bc08b66fa49849b7b1d1641b34462a3e"
+        },
+        "050647": {
+          "role": "holdout",
+          "sha256": "c221d35bee375da90191542493ad7ba5442275a8584f9ab5281db82c33105f8c"
+        },
+        "052918": {
+          "role": "holdout",
+          "sha256": "8348c12a667511d966888b10f92489f1b4dd7db722a83173c44afe7752b1440f"
+        },
+        "063124": {
+          "role": "holdout",
+          "sha256": "d1816924e5a9deaca1059660829f1ccceabcc91b0b8e722025bca1c95d0c8216"
+        },
+        "065768": {
+          "role": "holdout",
+          "sha256": "a21783e6e765f1ed1efb069a7a9ecc61247a892f1574b1a21d27b5944fb1489a"
+        },
+        "067062": {
+          "role": "holdout",
+          "sha256": "d3869bf7af7bd13fecd5ca28d986d6483a83247d03a3b6bf809082a595c67175"
+        },
+        "068905": {
+          "role": "holdout",
+          "sha256": "6833fd8fe04b8f558417d16d52cfaa94e250e29582d698bdfbc649431a866d55"
+        },
+        "070983": {
+          "role": "holdout",
+          "sha256": "9a8b5671bba72bad77ed60c729eda8d36a5e0985538ce274b3bf26cf5a3e4a14"
+        },
+        "073619": {
+          "role": "holdout",
+          "sha256": "e87f65756d1216c08671fd888fee36bd3cabb7ed78b3d954a2ae61ee32e71ca4"
+        },
+        "073623": {
+          "role": "holdout",
+          "sha256": "191f0cde6c966b61cf8566fb7f73ea958dce6b27d7618fdf14d3c347276bae5a"
+        },
+        "074351": {
+          "role": "holdout",
+          "sha256": "f2bd6326521592326354d25fbc859aed676d4ad3f8c8b6bf8370fff35588d187"
+        },
+        "077956": {
+          "role": "holdout",
+          "sha256": "9712ca232a3aebca1c64af72a89bd9bd8c5c80bd59351e1bb5e43820e773043b"
+        },
+        "078012": {
+          "role": "holdout",
+          "sha256": "f4a503a4605fb607ca778226d09cefb05855f2a4953b0c098d7ef4d79cd4e342"
+        },
+        "086137": {
+          "role": "holdout",
+          "sha256": "2d1050005f10e4549137f53fd9c92d9c19ff3c6dc7d04acd4639f0acab3d68fe"
+        },
+        "086515": {
+          "role": "holdout",
+          "sha256": "ad9a9863f89765a682e4dc98fd647ce4a71e49a509505cddb5e8630b8e5236c7"
+        },
+        "086623": {
+          "role": "holdout",
+          "sha256": "274ee1b68efc7f0c9eac88483272826a4364733077da64333f769ef8b24c8126"
+        },
+        "087182": {
+          "role": "holdout",
+          "sha256": "4192e614b8f45cbc870549769e7ac68db72a240c435ed9011284b19f628e4f6f"
+        },
+        "089468": {
+          "role": "holdout",
+          "sha256": "eb76128bdb5a3070e4d7e994ab4f2dcd6a7fd363a07107c0352b63e2b2c497ff"
+        },
+        "090645": {
+          "role": "holdout",
+          "sha256": "543480f3341228c04bcb3231a4a83c9e4fcbbcd529aa3ca22dff2192521d4257"
+        },
+        "092684": {
+          "role": "holdout",
+          "sha256": "489e73f16e5a79678ae2e1a5d647e2b4732bcfa8026217ab5a23cc428cfde40a"
+        },
+        "093995": {
+          "role": "holdout",
+          "sha256": "7b12f2e8f8a7ec4cc5f45c4931357981f09c70aeabef517234b0412314288a97"
+        },
+        "099523": {
+          "role": "holdout",
+          "sha256": "efc44a4572f04eeee72cfecb858c1950ac77999333d144024cd7d15f78478f69"
+        }
+      },
+      "labels_read": false
+    },
+    "annotation_schema": {
+      "status": "pass",
+      "draft": "2020-12",
+      "metaschema_valid": true,
+      "fixture_valid": true,
+      "errors": []
+    },
+    "hard_case_catalog": {
+      "status": "pass",
+      "situation_count": 13,
+      "errors": []
+    }
+  },
+  "errors": [],
+  "scope_note": "PASS validates canonical KOS-5 raw-source hashes, split provenance, the selected KOS audit inventory, and contracts; existing gold_noticed/gold_for_queries and materialized KOS labels are not evaluation gold; PASS does not establish semantic correctness, parser quality, or retrieval quality."
+}

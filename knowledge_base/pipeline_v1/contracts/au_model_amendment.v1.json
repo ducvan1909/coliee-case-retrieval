@@ -1,0 +1,14 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema", "type":"object", "additionalProperties":false,
+ "required":["artifact_type","schema_version","amendment_id","finding_id","supersedes_proposal_id","supersedes_proposal_sha256","case_id","target_id","source_hash","reviewer","reason","replacement_review","context_spans","status"],
+ "properties":{
+  "artifact_type":{"const":"AUModelAmendment"},"schema_version":{"enum":["au-model-amendment-v1","au-model-amendment-v2"]},
+  "supersedes_amendment_id":{"type":"string","pattern":"^[a-zA-Z0-9_-]+$"},"supersedes_amendment_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+  "amendment_id":{"type":"string","pattern":"^[a-zA-Z0-9_-]+$"},"finding_id":{"type":"string","minLength":1},
+  "supersedes_proposal_id":{"type":"string"},"supersedes_proposal_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+  "case_id":{"type":"string"},"target_id":{"type":"string"},"source_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+  "reviewer":{"type":"object","additionalProperties":false,"required":["source_type","reviewer_id","model"],"properties":{"source_type":{"const":"model"},"reviewer_id":{"type":"string","minLength":1},"model":{"type":"string","minLength":1}}},
+  "reason":{"type":"string","minLength":1},"replacement_review":{"type":"object"},"context_spans":{"type":"array","minItems":1,"items":{"type":"object"}},"status":{"const":"model_reviewed_pending_independent_audit"}
+ },
+ "allOf":[{"if":{"properties":{"schema_version":{"const":"au-model-amendment-v2"}}},"then":{"required":["supersedes_amendment_id","supersedes_amendment_sha256"]},"else":{"not":{"anyOf":[{"required":["supersedes_amendment_id"]},{"required":["supersedes_amendment_sha256"]}]}}}]
+}

@@ -1,0 +1,55 @@
+{
+  "evaluation_version": "pipeline-v1-independent-evaluation-v1",
+  "plan": "04",
+  "status": "pass",
+  "generated_at": "2026-10-03T23:18:45+07:00",
+  "scope": "SentenceAtom, protected spans, and derived slice planning on KOS-5",
+  "runs": {
+    "plan04_cli": "pass",
+    "original_plan01_plan04_tests": {"total": 42, "passed": 42, "failed": 0},
+    "independent_plan01_plan03_tests": {"total": 24, "passed": 24, "failed": 0},
+    "independent_plan04_tests": {"total": 7, "passed": 7, "failed": 0},
+    "resume_artifacts": {"expected": 5, "reused": 5},
+    "existing_artifacts_changed": 0
+  },
+  "kos5_recomputed": {
+    "case_count": 5,
+    "source_characters": 206853,
+    "parent_sourceblocks": 431,
+    "atom_count": 1240,
+    "protected_span_count": 2754,
+    "slice_plan_count": 5,
+    "slice_count": 10,
+    "review_event_count": 10,
+    "error_event_count": 0,
+    "exact_case_round_trip": true,
+    "zero_atom_gap_overlap": true,
+    "zero_forbidden_boundary_cuts": true
+  },
+  "checks": {
+    "sourceblock_v1_3_identity_hash_path_before_segment": "pass",
+    "parent_block_refs_marker_content_provenance": "pass",
+    "deterministic_ids_and_cache": "pass",
+    "boundary_forbidden_vs_context_only": "pass",
+    "adversarial_legal_sentence_cases": "pass",
+    "slice_plan_ids_links_bounds_and_no_text": "pass",
+    "schema_malformed_partial_corrupt_rejection": "pass",
+    "quote_review_events_not_hidden": "pass",
+    "version_source_parent_invalidation": "pass"
+  },
+  "findings": [],
+  "semantic_sentence_quality": "not_evaluated_beyond_contract_hard_cases",
+  "generalization": "not_evaluated_beyond_kos5",
+  "forbidden_outputs_absent": [
+    "LegalUnit",
+    "semantic_role",
+    "AuthorityUnit",
+    "Issue",
+    "NoticeNeed",
+    "retrieval",
+    "AnalysisRegion",
+    "LLM"
+  ],
+  "plan05_started": false,
+  "advance_condition": "Plan 04 independent gate satisfied; Plan 05 requires a separate authorized run"
+}

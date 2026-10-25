@@ -1,0 +1,26 @@
+{
+  "scope": "design_only",
+  "updated": [
+    "03_decision_log.md",
+    "04_pipeline_spec.md",
+    "05_experiment_plan.md",
+    "09_kb_build_plan.md",
+    "README.md",
+    "37_kos_style_authoring_direction.md"
+  ],
+  "archive_files_verified": 5,
+  "broken_relative_links": [],
+  "runtime_changes": 0,
+  "inference_requests": 0,
+  "decisions": [
+    "agent_case_authoring",
+    "same_case_multi_span_AU",
+    "no_fixed_TARGET_ownership",
+    "no_global_planner_default",
+    "enrichment_off",
+    "soft_length",
+    "K0_actual_delivery_union_then_K1_full5case",
+    "Issue_matching_deferred"
+  ],
+  "review_note": "K0 exposure uses delivered stage1 payload; available context_refs were not sent. Reviewer concern resolved from actual ledger."
+}

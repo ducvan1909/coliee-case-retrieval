@@ -1,0 +1,19 @@
+{
+  "case_id": "invalid_reason_int",
+  "original_payload_sha256": "62245e6597435a6d9012b558f45ace72bb0064abc2ee1529c41480cd090893ee",
+  "execute": false,
+  "max_diagnostic_inferences": 0,
+  "startup_warmup": {
+    "requests": null,
+    "usage": null,
+    "latency_seconds": null,
+    "outcome": "not_observed",
+    "included_in_diagnostic_budget": false
+  },
+  "runtime": {
+    "available": false,
+    "http_status": 503
+  },
+  "error": "Diagnostic request failed; no retry. Inspect job by ID before any action.",
+  "http_status": 503
+}

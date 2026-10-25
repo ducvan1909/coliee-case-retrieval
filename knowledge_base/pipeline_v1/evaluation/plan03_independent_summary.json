@@ -1,0 +1,68 @@
+{
+  "evaluation_version": "pipeline-v1-independent-evaluation-v1",
+  "plan": "03",
+  "status": "pass",
+  "generated_at": "2026-10-03T21:09:02+07:00",
+  "scope": "Plan 03 SourceBlock exact partition, identity, cache, and audit event contract on KOS-5",
+  "runs": {
+    "plan03_cli": "pass",
+    "original_plan01_plan03_tests": {"total": 31, "passed": 31, "failed": 0},
+    "existing_independent_before_final_extension": {"total": 23, "passed": 23, "failed": 0},
+    "independent_plan03_after_extension": {"total": 9, "passed": 9, "failed": 0},
+    "resume_artifacts": {"expected": 5, "reused": 5},
+    "historical_artifacts_changed": 0
+  },
+  "kos5": {
+    "case_count": 5,
+    "block_count": 431,
+    "coverage_rate": 1.0,
+    "parser_events": 76,
+    "review_events": 49,
+    "info_events": 27,
+    "error_events": 0,
+    "exact_round_trip": true,
+    "zero_gap_overlap": true
+  },
+  "closed_findings": [
+    {
+      "id": "P03-F01",
+      "severity": "high",
+      "status": "fixed_verified",
+      "title": "SourceBlock validator accepts tampered cache key and block provenance identity"
+    },
+    {
+      "id": "P03-F02",
+      "severity": "high",
+      "status": "fixed_verified",
+      "title": "Audit event severity can be downgraded without invalidating canonical event provenance"
+    }
+  ],
+  "open_findings": [],
+  "event_mutations_verified_rejected": [
+    "severity",
+    "message",
+    "message_code",
+    "event_type",
+    "event_contract_version",
+    "block_id",
+    "block_order",
+    "span_case_id",
+    "span_source_hash",
+    "span_bounds",
+    "parser_version",
+    "policy_sha256",
+    "event_id"
+  ],
+  "forbidden_outputs_absent": [
+    "SentenceAtom",
+    "LegalUnit",
+    "AuthorityUnit",
+    "AnalysisRegion",
+    "LLM"
+  ],
+  "semantic_heading_quality": "not_evaluated",
+  "au_quality": "not_evaluated",
+  "retrieval_quality": "not_evaluated",
+  "plan04_started": false,
+  "advance_condition": "Plan 03 independent gate satisfied; Plan 04 requires a separate authorized run"
+}

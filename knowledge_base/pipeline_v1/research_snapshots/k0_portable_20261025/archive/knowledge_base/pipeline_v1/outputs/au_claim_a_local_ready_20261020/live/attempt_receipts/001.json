@@ -1,0 +1,14 @@
+{
+  "ordinal": 1,
+  "job_id": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+  "payload_sha256": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+  "reserved_input_tokens": 4566,
+  "reserved_output_tokens": 800,
+  "usage": null,
+  "usage_state": "unknown",
+  "acknowledgement": "received",
+  "started_at_unix": 1792495888.8708777,
+  "phase": "extraction",
+  "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+  "latency_ms": 1789.26
+}

@@ -1,0 +1,533 @@
+{
+  "report_version": "plan05-sidecar-validation-v1",
+  "status": "pass",
+  "scope": "KOS-5 local deterministic sidecars; no model/LLM; KOS artifacts audit-only",
+  "inputs": {
+    "source_store": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1",
+    "plan03_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan03_structural_validation.latest.json",
+    "plan04_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan04_sentence_atom_validation.latest.json",
+    "plan04_independent_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\evaluation\\plan04_independent_evaluation.md",
+    "policy": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\policies\\sidecar_policy.v1.json"
+  },
+  "outputs": {
+    "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan05_sidecars_v1",
+    "build_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan05_sidecars_v1\\sidecar_build_manifest.json",
+    "worker_event_ledger": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan05_sidecars_v1\\worker_event_ledger.jsonl",
+    "audit_html": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan05_sidecar_audit.html"
+  },
+  "summary": {
+    "case_count": 5,
+    "annotation_count": 1036,
+    "annotation_worker_counts": {
+      "citation_reference_rule": 87,
+      "marker_rule": 534,
+      "nested_structure_inheritance": 209,
+      "quote_balance_rule": 181,
+      "speaker_cue_rule": 25
+    },
+    "annotation_status_counts": {
+      "candidate": 112,
+      "observed": 904,
+      "review": 20
+    },
+    "annotation_review_count": 20,
+    "relation_count": 419,
+    "relation_type_counts": {
+      "containment": 209,
+      "continuation": 10,
+      "governed_by_heading": 200
+    },
+    "relation_status_counts": {
+      "candidate": 210,
+      "observed": 209
+    },
+    "worker_event_count": 0,
+    "review_event_count": 0,
+    "error_event_count": 0,
+    "elapsed_seconds": 5.106822099995043,
+    "characters_per_second": 40505.22926972545
+  },
+  "gates": {
+    "plan04_independent_pass": true,
+    "exact_kos5": true,
+    "dependencies_hash_path_validated_before_workers": true,
+    "annotation_relation_exact_spans": true,
+    "canonical_ids_provenance": true,
+    "no_duplicate_conflicting_ids": true,
+    "no_semantic_graph_relations": true,
+    "worker_failure_isolated": true,
+    "zero_worker_errors": true,
+    "dependency_addressed_cache": true
+  },
+  "cases": [
+    {
+      "case_id": "013009",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "artifact_ref": "cases/013009/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8/151c9fb1917a98e9c949683731b466b7edcec49caa447f6fc88446a66f12dd98/sidecar-rules-v1.1-4371919973515e21/sidecar_map.json",
+      "artifact_action": "reused",
+      "annotation_count": 62,
+      "annotation_worker_counts": {
+        "citation_reference_rule": 4,
+        "marker_rule": 31,
+        "nested_structure_inheritance": 12,
+        "quote_balance_rule": 12,
+        "speaker_cue_rule": 3
+      },
+      "annotation_type_counts": {
+        "nested_quote": 12,
+        "paragraph_marker": 18,
+        "quote_balance": 12,
+        "section_reference": 4,
+        "speaker_cue": 3,
+        "suppression_marker": 13
+      },
+      "annotation_status_counts": {
+        "candidate": 7,
+        "observed": 55
+      },
+      "annotation_review_count": 0,
+      "relation_count": 12,
+      "relation_type_counts": {
+        "containment": 12
+      },
+      "relation_status_counts": {
+        "observed": 12
+      },
+      "worker_event_count": 0,
+      "review_event_count": 0,
+      "error_event_count": 0,
+      "worker_runs": [
+        {
+          "worker_type": "marker_rule",
+          "producer_version": "marker-rule-v1",
+          "status": "complete",
+          "output_count": 31
+        },
+        {
+          "worker_type": "citation_reference_rule",
+          "producer_version": "citation-reference-rule-v1.1",
+          "status": "complete",
+          "output_count": 4
+        },
+        {
+          "worker_type": "nested_structure_inheritance",
+          "producer_version": "nested-structure-v1.1",
+          "status": "complete",
+          "output_count": 12
+        },
+        {
+          "worker_type": "quote_balance_rule",
+          "producer_version": "quote-balance-rule-v1.1",
+          "status": "complete",
+          "output_count": 12
+        },
+        {
+          "worker_type": "speaker_cue_rule",
+          "producer_version": "speaker-cue-rule-v1",
+          "status": "complete",
+          "output_count": 3
+        },
+        {
+          "worker_type": "structural_relation_rule",
+          "producer_version": "structural-relation-rule-v1",
+          "status": "complete",
+          "output_count": 12
+        }
+      ],
+      "checks": {
+        "schema_valid": true,
+        "dependencies_validated": true,
+        "canonical_ids_provenance": true,
+        "annotation_spans_exact_in_bounds": true,
+        "relation_evidence_exact_in_bounds": true,
+        "no_duplicate_conflicting_ids": true,
+        "adjacency_not_materialized": true,
+        "no_semantic_relations": true,
+        "artifact_path_matches_when_supplied": true,
+        "worker_failure_isolation_contract": true
+      }
+    },
+    {
+      "case_id": "013948",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "artifact_ref": "cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2/sidecar-rules-v1.1-4371919973515e21/sidecar_map.json",
+      "artifact_action": "reused",
+      "annotation_count": 108,
+      "annotation_worker_counts": {
+        "citation_reference_rule": 5,
+        "marker_rule": 65,
+        "nested_structure_inheritance": 22,
+        "quote_balance_rule": 14,
+        "speaker_cue_rule": 2
+      },
+      "annotation_type_counts": {
+        "nested_list": 8,
+        "nested_quote": 14,
+        "neutral_citation": 2,
+        "paragraph_marker": 59,
+        "quote_balance": 14,
+        "reporter_citation": 2,
+        "section_reference": 1,
+        "speaker_cue": 2,
+        "suppression_marker": 6
+      },
+      "annotation_status_counts": {
+        "candidate": 7,
+        "observed": 99,
+        "review": 2
+      },
+      "annotation_review_count": 2,
+      "relation_count": 78,
+      "relation_type_counts": {
+        "containment": 22,
+        "continuation": 1,
+        "governed_by_heading": 55
+      },
+      "relation_status_counts": {
+        "candidate": 56,
+        "observed": 22
+      },
+      "worker_event_count": 0,
+      "review_event_count": 0,
+      "error_event_count": 0,
+      "worker_runs": [
+        {
+          "worker_type": "marker_rule",
+          "producer_version": "marker-rule-v1",
+          "status": "complete",
+          "output_count": 65
+        },
+        {
+          "worker_type": "citation_reference_rule",
+          "producer_version": "citation-reference-rule-v1.1",
+          "status": "complete",
+          "output_count": 5
+        },
+        {
+          "worker_type": "nested_structure_inheritance",
+          "producer_version": "nested-structure-v1.1",
+          "status": "complete",
+          "output_count": 22
+        },
+        {
+          "worker_type": "quote_balance_rule",
+          "producer_version": "quote-balance-rule-v1.1",
+          "status": "complete",
+          "output_count": 14
+        },
+        {
+          "worker_type": "speaker_cue_rule",
+          "producer_version": "speaker-cue-rule-v1",
+          "status": "complete",
+          "output_count": 2
+        },
+        {
+          "worker_type": "structural_relation_rule",
+          "producer_version": "structural-relation-rule-v1",
+          "status": "complete",
+          "output_count": 78
+        }
+      ],
+      "checks": {
+        "schema_valid": true,
+        "dependencies_validated": true,
+        "canonical_ids_provenance": true,
+        "annotation_spans_exact_in_bounds": true,
+        "relation_evidence_exact_in_bounds": true,
+        "no_duplicate_conflicting_ids": true,
+        "adjacency_not_materialized": true,
+        "no_semantic_relations": true,
+        "artifact_path_matches_when_supplied": true,
+        "worker_failure_isolation_contract": true
+      }
+    },
+    {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "artifact_ref": "cases/011904/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c/b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1/sidecar-rules-v1.1-4371919973515e21/sidecar_map.json",
+      "artifact_action": "reused",
+      "annotation_count": 160,
+      "annotation_worker_counts": {
+        "citation_reference_rule": 50,
+        "marker_rule": 71,
+        "nested_structure_inheritance": 18,
+        "quote_balance_rule": 18,
+        "speaker_cue_rule": 3
+      },
+      "annotation_type_counts": {
+        "citation_year": 18,
+        "nested_quote": 18,
+        "paragraph_marker": 36,
+        "quote_balance": 18,
+        "section_reference": 32,
+        "speaker_cue": 3,
+        "suppression_marker": 35
+      },
+      "annotation_status_counts": {
+        "candidate": 53,
+        "observed": 107
+      },
+      "annotation_review_count": 0,
+      "relation_count": 46,
+      "relation_type_counts": {
+        "containment": 18,
+        "governed_by_heading": 28
+      },
+      "relation_status_counts": {
+        "candidate": 28,
+        "observed": 18
+      },
+      "worker_event_count": 0,
+      "review_event_count": 0,
+      "error_event_count": 0,
+      "worker_runs": [
+        {
+          "worker_type": "marker_rule",
+          "producer_version": "marker-rule-v1",
+          "status": "complete",
+          "output_count": 71
+        },
+        {
+          "worker_type": "citation_reference_rule",
+          "producer_version": "citation-reference-rule-v1.1",
+          "status": "complete",
+          "output_count": 50
+        },
+        {
+          "worker_type": "nested_structure_inheritance",
+          "producer_version": "nested-structure-v1.1",
+          "status": "complete",
+          "output_count": 18
+        },
+        {
+          "worker_type": "quote_balance_rule",
+          "producer_version": "quote-balance-rule-v1.1",
+          "status": "complete",
+          "output_count": 18
+        },
+        {
+          "worker_type": "speaker_cue_rule",
+          "producer_version": "speaker-cue-rule-v1",
+          "status": "complete",
+          "output_count": 3
+        },
+        {
+          "worker_type": "structural_relation_rule",
+          "producer_version": "structural-relation-rule-v1",
+          "status": "complete",
+          "output_count": 46
+        }
+      ],
+      "checks": {
+        "schema_valid": true,
+        "dependencies_validated": true,
+        "canonical_ids_provenance": true,
+        "annotation_spans_exact_in_bounds": true,
+        "relation_evidence_exact_in_bounds": true,
+        "no_duplicate_conflicting_ids": true,
+        "adjacency_not_materialized": true,
+        "no_semantic_relations": true,
+        "artifact_path_matches_when_supplied": true,
+        "worker_failure_isolation_contract": true
+      }
+    },
+    {
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "artifact_ref": "cases/045155/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c/00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d/sidecar-rules-v1.1-4371919973515e21/sidecar_map.json",
+      "artifact_action": "reused",
+      "annotation_count": 204,
+      "annotation_worker_counts": {
+        "citation_reference_rule": 11,
+        "marker_rule": 136,
+        "nested_structure_inheritance": 30,
+        "quote_balance_rule": 23,
+        "speaker_cue_rule": 4
+      },
+      "annotation_type_counts": {
+        "citation_year": 2,
+        "nested_list": 7,
+        "nested_quote": 23,
+        "paragraph_marker": 27,
+        "quote_balance": 23,
+        "reporter_citation": 4,
+        "section_reference": 5,
+        "speaker_cue": 4,
+        "suppression_marker": 109
+      },
+      "annotation_status_counts": {
+        "candidate": 15,
+        "observed": 171,
+        "review": 18
+      },
+      "annotation_review_count": 18,
+      "relation_count": 39,
+      "relation_type_counts": {
+        "containment": 30,
+        "continuation": 9
+      },
+      "relation_status_counts": {
+        "candidate": 9,
+        "observed": 30
+      },
+      "worker_event_count": 0,
+      "review_event_count": 0,
+      "error_event_count": 0,
+      "worker_runs": [
+        {
+          "worker_type": "marker_rule",
+          "producer_version": "marker-rule-v1",
+          "status": "complete",
+          "output_count": 136
+        },
+        {
+          "worker_type": "citation_reference_rule",
+          "producer_version": "citation-reference-rule-v1.1",
+          "status": "complete",
+          "output_count": 11
+        },
+        {
+          "worker_type": "nested_structure_inheritance",
+          "producer_version": "nested-structure-v1.1",
+          "status": "complete",
+          "output_count": 30
+        },
+        {
+          "worker_type": "quote_balance_rule",
+          "producer_version": "quote-balance-rule-v1.1",
+          "status": "complete",
+          "output_count": 23
+        },
+        {
+          "worker_type": "speaker_cue_rule",
+          "producer_version": "speaker-cue-rule-v1",
+          "status": "complete",
+          "output_count": 4
+        },
+        {
+          "worker_type": "structural_relation_rule",
+          "producer_version": "structural-relation-rule-v1",
+          "status": "complete",
+          "output_count": 39
+        }
+      ],
+      "checks": {
+        "schema_valid": true,
+        "dependencies_validated": true,
+        "canonical_ids_provenance": true,
+        "annotation_spans_exact_in_bounds": true,
+        "relation_evidence_exact_in_bounds": true,
+        "no_duplicate_conflicting_ids": true,
+        "adjacency_not_materialized": true,
+        "no_semantic_relations": true,
+        "artifact_path_matches_when_supplied": true,
+        "worker_failure_isolation_contract": true
+      }
+    },
+    {
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "artifact_ref": "cases/099980/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c/58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86/sidecar-rules-v1.1-4371919973515e21/sidecar_map.json",
+      "artifact_action": "reused",
+      "annotation_count": 502,
+      "annotation_worker_counts": {
+        "citation_reference_rule": 17,
+        "marker_rule": 231,
+        "nested_structure_inheritance": 127,
+        "quote_balance_rule": 114,
+        "speaker_cue_rule": 13
+      },
+      "annotation_type_counts": {
+        "citation_year": 7,
+        "nested_list": 13,
+        "nested_quote": 114,
+        "paragraph_marker": 200,
+        "quote_balance": 114,
+        "section_reference": 10,
+        "speaker_cue": 13,
+        "suppression_marker": 31
+      },
+      "annotation_status_counts": {
+        "candidate": 30,
+        "observed": 472
+      },
+      "annotation_review_count": 0,
+      "relation_count": 244,
+      "relation_type_counts": {
+        "containment": 127,
+        "governed_by_heading": 117
+      },
+      "relation_status_counts": {
+        "candidate": 117,
+        "observed": 127
+      },
+      "worker_event_count": 0,
+      "review_event_count": 0,
+      "error_event_count": 0,
+      "worker_runs": [
+        {
+          "worker_type": "marker_rule",
+          "producer_version": "marker-rule-v1",
+          "status": "complete",
+          "output_count": 231
+        },
+        {
+          "worker_type": "citation_reference_rule",
+          "producer_version": "citation-reference-rule-v1.1",
+          "status": "complete",
+          "output_count": 17
+        },
+        {
+          "worker_type": "nested_structure_inheritance",
+          "producer_version": "nested-structure-v1.1",
+          "status": "complete",
+          "output_count": 127
+        },
+        {
+          "worker_type": "quote_balance_rule",
+          "producer_version": "quote-balance-rule-v1.1",
+          "status": "complete",
+          "output_count": 114
+        },
+        {
+          "worker_type": "speaker_cue_rule",
+          "producer_version": "speaker-cue-rule-v1",
+          "status": "complete",
+          "output_count": 13
+        },
+        {
+          "worker_type": "structural_relation_rule",
+          "producer_version": "structural-relation-rule-v1",
+          "status": "complete",
+          "output_count": 244
+        }
+      ],
+      "checks": {
+        "schema_valid": true,
+        "dependencies_validated": true,
+        "canonical_ids_provenance": true,
+        "annotation_spans_exact_in_bounds": true,
+        "relation_evidence_exact_in_bounds": true,
+        "no_duplicate_conflicting_ids": true,
+        "adjacency_not_materialized": true,
+        "no_semantic_relations": true,
+        "artifact_path_matches_when_supplied": true,
+        "worker_failure_isolation_contract": true
+      }
+    }
+  ],
+  "metrics_not_reported": [
+    "precision",
+    "recall",
+    "F1"
+  ],
+  "metrics_reason": "No adjudicated Plan 05 annotation/relation gold exists; counts and error audit only.",
+  "limitations": [
+    "Annotations are observed/candidate/review sidecars, not legal conclusions.",
+    "Speaker cues do not assign speaker or attribution.",
+    "Citation/reference candidates do not identify authority, treatment, noticed case, or relevance.",
+    "Heading governance remains candidate-only and no mandatory tree is created.",
+    "Adjacency is reconstructed from SourceBlock order and is not materialized.",
+    "No NER/model, ContextHint, AnalysisRegion, LegalUnit, AU, Issue, NN, retrieval, or LLM is implemented."
+  ]
+}

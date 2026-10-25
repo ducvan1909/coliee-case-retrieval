@@ -1,0 +1,185 @@
+{
+  "report_version": "plan02-source-validation-v1",
+  "status": "pass",
+  "scope": "KOS-5 raw source; KOS artifacts are audit-only and not gold",
+  "inputs": {
+    "repo_root": "G:\\Git\\coliee-case-retrieval",
+    "source_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\calibration_manifest.v1.json",
+    "plan01_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\evaluation\\runtime\\plan01_gate_retest2.json"
+  },
+  "source_store": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\evaluation\\runtime\\source_store_plan02",
+  "audit": {
+    "status": "pass",
+    "report_path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\evaluation\\runtime\\plan01_gate_retest2.json",
+    "selected_kos_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\selected_kos_manifest.v1.json",
+    "case_ids": [
+      "011904",
+      "013009",
+      "013948",
+      "045155",
+      "099980"
+    ],
+    "semantic_gold": false
+  },
+  "summary": {
+    "case_count": 5,
+    "source_versions_created": 0,
+    "source_versions_reused": 5,
+    "verified_bytes": 207473,
+    "verified_characters": 206853,
+    "round_trip_hash_offset_rate": 1.0,
+    "invalidation_events": 0
+  },
+  "records": [
+    {
+      "record_type": "CaseSource",
+      "contract_version": "case-source-v1",
+      "case_id": "013009",
+      "source_version": "src-fb67079c6df4e7f1",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "text_ref": "cases/013009/versions/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/source.txt",
+      "byte_length": 12712,
+      "char_length": 12710,
+      "encoding": "utf-8-sig",
+      "offset_unit": "unicode_codepoint",
+      "metadata": {
+        "corpus_split": "train",
+        "kos_role": "query",
+        "input_source_path": "data/task1_train_files_2026/cases/013009.txt",
+        "audit_only_kos": true
+      },
+      "source_action": "reused",
+      "record_action": "reused",
+      "checks": {
+        "raw_byte_round_trip": true,
+        "source_hash": true,
+        "decoded_text_round_trip": true,
+        "full_span_offset_coverage": true,
+        "zero_length_boundary_spans": true
+      },
+      "verified_characters": 12710
+    },
+    {
+      "record_type": "CaseSource",
+      "contract_version": "case-source-v1",
+      "case_id": "013948",
+      "source_version": "src-1571876439f11252",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "text_ref": "cases/013948/versions/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/source.txt",
+      "byte_length": 18832,
+      "char_length": 18830,
+      "encoding": "utf-8-sig",
+      "offset_unit": "unicode_codepoint",
+      "metadata": {
+        "corpus_split": "train",
+        "kos_role": "query",
+        "input_source_path": "data/task1_train_files_2026/cases/013948.txt",
+        "audit_only_kos": true
+      },
+      "source_action": "reused",
+      "record_action": "reused",
+      "checks": {
+        "raw_byte_round_trip": true,
+        "source_hash": true,
+        "decoded_text_round_trip": true,
+        "full_span_offset_coverage": true,
+        "zero_length_boundary_spans": true
+      },
+      "verified_characters": 18830
+    },
+    {
+      "record_type": "CaseSource",
+      "contract_version": "case-source-v1",
+      "case_id": "011904",
+      "source_version": "src-c2bc7c0944a5ee10",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "text_ref": "cases/011904/versions/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/source.txt",
+      "byte_length": 20848,
+      "char_length": 20847,
+      "encoding": "utf-8-sig",
+      "offset_unit": "unicode_codepoint",
+      "metadata": {
+        "corpus_split": "train",
+        "kos_role": "candidate",
+        "input_source_path": "data/task1_train_files_2026/cases/011904.txt",
+        "audit_only_kos": true
+      },
+      "source_action": "reused",
+      "record_action": "reused",
+      "checks": {
+        "raw_byte_round_trip": true,
+        "source_hash": true,
+        "decoded_text_round_trip": true,
+        "full_span_offset_coverage": true,
+        "zero_length_boundary_spans": true
+      },
+      "verified_characters": 20847
+    },
+    {
+      "record_type": "CaseSource",
+      "contract_version": "case-source-v1",
+      "case_id": "045155",
+      "source_version": "src-93d2b91c8a6c01ef",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "text_ref": "cases/045155/versions/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/source.txt",
+      "byte_length": 32643,
+      "char_length": 32073,
+      "encoding": "utf-8-sig",
+      "offset_unit": "unicode_codepoint",
+      "metadata": {
+        "corpus_split": "train",
+        "kos_role": "candidate",
+        "input_source_path": "data/task1_train_files_2026/cases/045155.txt",
+        "audit_only_kos": true
+      },
+      "source_action": "reused",
+      "record_action": "reused",
+      "checks": {
+        "raw_byte_round_trip": true,
+        "source_hash": true,
+        "decoded_text_round_trip": true,
+        "full_span_offset_coverage": true,
+        "zero_length_boundary_spans": true
+      },
+      "verified_characters": 32073
+    },
+    {
+      "record_type": "CaseSource",
+      "contract_version": "case-source-v1",
+      "case_id": "099980",
+      "source_version": "src-49d56b1477fed32e",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "text_ref": "cases/099980/versions/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/source.txt",
+      "byte_length": 122438,
+      "char_length": 122393,
+      "encoding": "utf-8-sig",
+      "offset_unit": "unicode_codepoint",
+      "metadata": {
+        "corpus_split": "train",
+        "kos_role": "candidate",
+        "input_source_path": "data/task1_train_files_2026/cases/099980.txt",
+        "audit_only_kos": true
+      },
+      "source_action": "reused",
+      "record_action": "reused",
+      "checks": {
+        "raw_byte_round_trip": true,
+        "source_hash": true,
+        "decoded_text_round_trip": true,
+        "full_span_offset_coverage": true,
+        "zero_length_boundary_spans": true
+      },
+      "verified_characters": 122393
+    }
+  ],
+  "invalidation_events": [],
+  "non_applicable": [
+    "parser_version",
+    "segmenter_version",
+    "worker_version",
+    "SourceBlock_schema",
+    "region_policy",
+    "annotation",
+    "LLM"
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "events": [
+    {
+      "arguments": {
+        "decisions": [
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          },
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          }
+        ],
+        "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28"
+      },
+      "name": "submit_revision",
+      "ok": true,
+      "result": {
+        "decisions": [
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          },
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          }
+        ],
+        "original_proposals": [
+          {
+            "aliases": [
+              {
+                "arm": "P2a",
+                "au_index": 0,
+                "request_id": "hreq-a727aa74c07eabb4699b4866"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+              "evidence_ref_ids": [
+                "sa-007850dc291ad9f7016eb726"
+              ],
+              "kind": "holding",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "current_court"
+            },
+            "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+            "proposal_sha256": "602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89"
+          },
+          {
+            "aliases": [
+              {
+                "arm": "P2b",
+                "au_index": 0,
+                "request_id": "hreq-d3eb474820ddda6ab35005d2"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+              "evidence_ref_ids": [
+                "sa-007850dc291ad9f7016eb726",
+                "sa-40ee92e19a0796bee4e3ae3a",
+                "sa-50d4054365caa2b910a4b56d"
+              ],
+              "kind": "holding",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "current_court"
+            },
+            "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+            "proposal_sha256": "91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467"
+          }
+        ],
+        "read_atom_ids": [
+          "sa-0142393622b9ee99dee58e99",
+          "sa-5433c2e50e0685b09ced6884",
+          "sa-733129756c37f5139a260557",
+          "sa-131b8ab6f7c7244d874e780b",
+          "sa-f240bc26e6b75439ba8a170e",
+          "sa-97c9cc968bda1600cba78291",
+          "sa-603c7729b93df5970f11145f",
+          "sa-88d279cbd3b8fbf74def6924",
+          "sa-40ee92e19a0796bee4e3ae3a",
+          "sa-50d4054365caa2b910a4b56d",
+          "sa-007850dc291ad9f7016eb726",
+          "sa-7ab1cdeb280427048f9a62c3",
+          "sa-2d1296c34e4c0a35f4599968",
+          "sa-1025e2b047fd98cd648e6b87"
+        ],
+        "semantic_status": "semantic_review_pending",
+        "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28",
+        "verified_replacements": []
+      },
+      "sequence": 1
+    }
+  ],
+  "expanded_atom_ids": [],
+  "expansion_count": 0,
+  "obligations": [],
+  "read_atom_ids": [
+    "sa-0142393622b9ee99dee58e99",
+    "sa-5433c2e50e0685b09ced6884",
+    "sa-733129756c37f5139a260557",
+    "sa-131b8ab6f7c7244d874e780b",
+    "sa-f240bc26e6b75439ba8a170e",
+    "sa-97c9cc968bda1600cba78291",
+    "sa-603c7729b93df5970f11145f",
+    "sa-88d279cbd3b8fbf74def6924",
+    "sa-40ee92e19a0796bee4e3ae3a",
+    "sa-50d4054365caa2b910a4b56d",
+    "sa-007850dc291ad9f7016eb726",
+    "sa-7ab1cdeb280427048f9a62c3",
+    "sa-2d1296c34e4c0a35f4599968",
+    "sa-1025e2b047fd98cd648e6b87"
+  ],
+  "revision": {
+    "decisions": [
+      {
+        "action": "unresolved",
+        "primary_proposition": null,
+        "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+        "reason": "Mock has no semantic verdict",
+        "replacements": []
+      },
+      {
+        "action": "unresolved",
+        "primary_proposition": null,
+        "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+        "reason": "Mock has no semantic verdict",
+        "replacements": []
+      }
+    ],
+    "fingerprint": "45e8a5d482b9250e77d70ff14c827d51293089eb399e61d9a7b807c24d8105c9",
+    "original_proposals": [
+      {
+        "aliases": [
+          {
+            "arm": "P2a",
+            "au_index": 0,
+            "request_id": "hreq-a727aa74c07eabb4699b4866"
+          }
+        ],
+        "proposal": {
+          "attribution_role": "proposition",
+          "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+          "evidence_ref_ids": [
+            "sa-007850dc291ad9f7016eb726"
+          ],
+          "kind": "holding",
+          "needs_context": [],
+          "other_kind": null,
+          "speaker": "current_court"
+        },
+        "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+        "proposal_sha256": "602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89"
+      },
+      {
+        "aliases": [
+          {
+            "arm": "P2b",
+            "au_index": 0,
+            "request_id": "hreq-d3eb474820ddda6ab35005d2"
+          }
+        ],
+        "proposal": {
+          "attribution_role": "proposition",
+          "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+          "evidence_ref_ids": [
+            "sa-007850dc291ad9f7016eb726",
+            "sa-40ee92e19a0796bee4e3ae3a",
+            "sa-50d4054365caa2b910a4b56d"
+          ],
+          "kind": "holding",
+          "needs_context": [],
+          "other_kind": null,
+          "speaker": "current_court"
+        },
+        "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+        "proposal_sha256": "91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467"
+      }
+    ],
+    "read_atom_ids": [
+      "sa-0142393622b9ee99dee58e99",
+      "sa-5433c2e50e0685b09ced6884",
+      "sa-733129756c37f5139a260557",
+      "sa-131b8ab6f7c7244d874e780b",
+      "sa-f240bc26e6b75439ba8a170e",
+      "sa-97c9cc968bda1600cba78291",
+      "sa-603c7729b93df5970f11145f",
+      "sa-88d279cbd3b8fbf74def6924",
+      "sa-40ee92e19a0796bee4e3ae3a",
+      "sa-50d4054365caa2b910a4b56d",
+      "sa-007850dc291ad9f7016eb726",
+      "sa-7ab1cdeb280427048f9a62c3",
+      "sa-2d1296c34e4c0a35f4599968",
+      "sa-1025e2b047fd98cd648e6b87"
+    ],
+    "semantic_status": "semantic_review_pending",
+    "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28",
+    "verified_replacements": []
+  },
+  "tool_count": 1
+}

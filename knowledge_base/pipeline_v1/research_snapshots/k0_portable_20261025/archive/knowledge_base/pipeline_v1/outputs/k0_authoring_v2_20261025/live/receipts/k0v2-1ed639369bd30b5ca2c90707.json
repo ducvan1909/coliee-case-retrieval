@@ -1,0 +1,117 @@
+{
+  "normalized": {
+    "aus": [],
+    "au_errors": [],
+    "warnings": [],
+    "assessed_scope_ids": [],
+    "delivered_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "needs_context"
+    },
+    "read_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "unresolved_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "empty_reason": "insufficient_context",
+    "work_scope_complete": false,
+    "assessment_basis": "author_self_report",
+    "assessment_result": "uncertain",
+    "semantic_quality": "not_assessed"
+  },
+  "usage": {
+    "input_tokens": 2391,
+    "output_tokens": 27,
+    "total_tokens": 2418
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[],\"empty_reason\":\"insufficient_context\",\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"needs_context\"}}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792923223,
+    "id": "b6303a99429e44b7aa58f57572f41207",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 27,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 2391,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 2418
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "921af5fb7e2dd704084666be057bd5ed8d5e5517d8f24f2e37405abeae0d760d",
+    "payload_sha256": "921af5fb7e2dd704084666be057bd5ed8d5e5517d8f24f2e37405abeae0d760d",
+    "polls": 2,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792923215.915519,
+    "job_status": "completed",
+    "latency_ms": 10266.264,
+    "finished_at_unix": 1792923226.181685,
+    "server_timing": {
+      "created_at": "2026-10-25T10:13:41.594328+00:00",
+      "started_at": "2026-10-25T10:13:42.502962+00:00",
+      "finished_at": "2026-10-25T10:13:43.920681+00:00",
+      "inference_seconds": 0.7989074440000081
+    }
+  },
+  "model_output": {
+    "aus": [],
+    "empty_reason": "insufficient_context",
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "needs_context"
+    }
+  },
+  "status": "verified",
+  "latency_ms": 10266.48,
+  "request_id": "k0v2-1ed639369bd30b5ca2c90707",
+  "payload_sha256": "921af5fb7e2dd704084666be057bd5ed8d5e5517d8f24f2e37405abeae0d760d",
+  "receipt_sha256": "aded60aa70645aa8a8a36adbef5f8e039748b0bd16982a8f39cd7e92074cf015"
+}

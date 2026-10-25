@@ -1,0 +1,428 @@
+<!doctype html><meta charset='utf-8'><title>Plan 06 ContextHint audit</title><h1>Plan 06 ContextHint audit</h1><p>Hints are context proposals, not semantic facts. No source text is materialized.</p><pre>[
+  {
+    &quot;case_id&quot;: &quot;013009&quot;,
+    &quot;source_hash&quot;: &quot;fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3&quot;,
+    &quot;artifact_ref&quot;: &quot;cases/013009/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8/151c9fb1917a98e9c949683731b466b7edcec49caa447f6fc88446a66f12dd98/516099a69aee20d28084297a7cab57b9c58334e7c0de664c26b3bd61c2cf79a7/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json&quot;,
+    &quot;artifact_action&quot;: &quot;reused&quot;,
+    &quot;target_count&quot;: 21,
+    &quot;hint_count&quot;: 0,
+    &quot;pre_policy_count&quot;: 0,
+    &quot;post_policy_count&quot;: 0,
+    &quot;hint_type_counts&quot;: {},
+    &quot;hint_status_counts&quot;: {},
+    &quot;hint_direction_counts&quot;: {},
+    &quot;dropped_reason_counts&quot;: {},
+    &quot;policy_ledger_count&quot;: 0,
+    &quot;kept_count&quot;: 0,
+    &quot;dropped_count&quot;: 0,
+    &quot;error_event_count&quot;: 0,
+    &quot;rule_runs&quot;: [
+      {
+        &quot;rule_id&quot;: &quot;quote_continuation&quot;,
+        &quot;rule_version&quot;: &quot;quote-continuation-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_quote&quot;,
+        &quot;rule_version&quot;: &quot;open-quote-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_list&quot;,
+        &quot;rule_version&quot;: &quot;open-list-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;citation_continuation&quot;,
+        &quot;rule_version&quot;: &quot;citation-continuation-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;dependent_lead_in&quot;,
+        &quot;rule_version&quot;: &quot;dependent-lead-in-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;reference_to_previous&quot;,
+        &quot;rule_version&quot;: &quot;reference-to-previous-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;speaker_continuity_candidate&quot;,
+        &quot;rule_version&quot;: &quot;speaker-continuity-candidate-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      }
+    ],
+    &quot;metrics&quot;: {
+      &quot;targets_with_hints&quot;: 0,
+      &quot;unique_related_span_count&quot;: 0,
+      &quot;unique_related_chars&quot;: 0,
+      &quot;proposed_related_chars&quot;: 0,
+      &quot;repeated_proposed_chars&quot;: 0
+    },
+    &quot;checks&quot;: {
+      &quot;schema_valid&quot;: true,
+      &quot;canonical_ids&quot;: true,
+      &quot;same_source_exact_spans&quot;: true,
+      &quot;direction_order_valid&quot;: true,
+      &quot;no_self_or_duplicates&quot;: true,
+      &quot;no_semantic_facts&quot;: true,
+      &quot;all_targets_preserved&quot;: true,
+      &quot;caps_and_dedup_reproducible&quot;: true
+    }
+  },
+  {
+    &quot;case_id&quot;: &quot;013948&quot;,
+    &quot;source_hash&quot;: &quot;1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352&quot;,
+    &quot;artifact_ref&quot;: &quot;cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2/9ef99f92abbbc524a492214e313aa9bca7df293093816e176e71a034d5ff279b/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json&quot;,
+    &quot;artifact_action&quot;: &quot;reused&quot;,
+    &quot;target_count&quot;: 68,
+    &quot;hint_count&quot;: 2,
+    &quot;pre_policy_count&quot;: 2,
+    &quot;post_policy_count&quot;: 2,
+    &quot;hint_type_counts&quot;: {
+      &quot;open_quote&quot;: 1,
+      &quot;quote_continuation&quot;: 1
+    },
+    &quot;hint_status_counts&quot;: {
+      &quot;accepted_by_contract&quot;: 2
+    },
+    &quot;hint_direction_counts&quot;: {
+      &quot;next&quot;: 1,
+      &quot;previous&quot;: 1
+    },
+    &quot;dropped_reason_counts&quot;: {},
+    &quot;policy_ledger_count&quot;: 2,
+    &quot;kept_count&quot;: 2,
+    &quot;dropped_count&quot;: 0,
+    &quot;error_event_count&quot;: 0,
+    &quot;rule_runs&quot;: [
+      {
+        &quot;rule_id&quot;: &quot;quote_continuation&quot;,
+        &quot;rule_version&quot;: &quot;quote-continuation-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 1
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_quote&quot;,
+        &quot;rule_version&quot;: &quot;open-quote-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 1
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_list&quot;,
+        &quot;rule_version&quot;: &quot;open-list-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;citation_continuation&quot;,
+        &quot;rule_version&quot;: &quot;citation-continuation-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;dependent_lead_in&quot;,
+        &quot;rule_version&quot;: &quot;dependent-lead-in-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;reference_to_previous&quot;,
+        &quot;rule_version&quot;: &quot;reference-to-previous-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;speaker_continuity_candidate&quot;,
+        &quot;rule_version&quot;: &quot;speaker-continuity-candidate-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      }
+    ],
+    &quot;metrics&quot;: {
+      &quot;targets_with_hints&quot;: 2,
+      &quot;unique_related_span_count&quot;: 2,
+      &quot;unique_related_chars&quot;: 659,
+      &quot;proposed_related_chars&quot;: 659,
+      &quot;repeated_proposed_chars&quot;: 0
+    },
+    &quot;checks&quot;: {
+      &quot;schema_valid&quot;: true,
+      &quot;canonical_ids&quot;: true,
+      &quot;same_source_exact_spans&quot;: true,
+      &quot;direction_order_valid&quot;: true,
+      &quot;no_self_or_duplicates&quot;: true,
+      &quot;no_semantic_facts&quot;: true,
+      &quot;all_targets_preserved&quot;: true,
+      &quot;caps_and_dedup_reproducible&quot;: true
+    }
+  },
+  {
+    &quot;case_id&quot;: &quot;011904&quot;,
+    &quot;source_hash&quot;: &quot;c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12&quot;,
+    &quot;artifact_ref&quot;: &quot;cases/011904/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c/b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1/14aa1ca3594fdcbd794d590c425075d88b9bc30d0cbd46cdcdb09e2534e5c2bd/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json&quot;,
+    &quot;artifact_action&quot;: &quot;reused&quot;,
+    &quot;target_count&quot;: 41,
+    &quot;hint_count&quot;: 1,
+    &quot;pre_policy_count&quot;: 1,
+    &quot;post_policy_count&quot;: 1,
+    &quot;hint_type_counts&quot;: {
+      &quot;reference_to_previous&quot;: 1
+    },
+    &quot;hint_status_counts&quot;: {
+      &quot;candidate&quot;: 1
+    },
+    &quot;hint_direction_counts&quot;: {
+      &quot;previous&quot;: 1
+    },
+    &quot;dropped_reason_counts&quot;: {},
+    &quot;policy_ledger_count&quot;: 1,
+    &quot;kept_count&quot;: 1,
+    &quot;dropped_count&quot;: 0,
+    &quot;error_event_count&quot;: 0,
+    &quot;rule_runs&quot;: [
+      {
+        &quot;rule_id&quot;: &quot;quote_continuation&quot;,
+        &quot;rule_version&quot;: &quot;quote-continuation-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_quote&quot;,
+        &quot;rule_version&quot;: &quot;open-quote-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_list&quot;,
+        &quot;rule_version&quot;: &quot;open-list-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;citation_continuation&quot;,
+        &quot;rule_version&quot;: &quot;citation-continuation-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;dependent_lead_in&quot;,
+        &quot;rule_version&quot;: &quot;dependent-lead-in-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;reference_to_previous&quot;,
+        &quot;rule_version&quot;: &quot;reference-to-previous-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 1
+      },
+      {
+        &quot;rule_id&quot;: &quot;speaker_continuity_candidate&quot;,
+        &quot;rule_version&quot;: &quot;speaker-continuity-candidate-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      }
+    ],
+    &quot;metrics&quot;: {
+      &quot;targets_with_hints&quot;: 1,
+      &quot;unique_related_span_count&quot;: 1,
+      &quot;unique_related_chars&quot;: 799,
+      &quot;proposed_related_chars&quot;: 799,
+      &quot;repeated_proposed_chars&quot;: 0
+    },
+    &quot;checks&quot;: {
+      &quot;schema_valid&quot;: true,
+      &quot;canonical_ids&quot;: true,
+      &quot;same_source_exact_spans&quot;: true,
+      &quot;direction_order_valid&quot;: true,
+      &quot;no_self_or_duplicates&quot;: true,
+      &quot;no_semantic_facts&quot;: true,
+      &quot;all_targets_preserved&quot;: true,
+      &quot;caps_and_dedup_reproducible&quot;: true
+    }
+  },
+  {
+    &quot;case_id&quot;: &quot;045155&quot;,
+    &quot;source_hash&quot;: &quot;93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb&quot;,
+    &quot;artifact_ref&quot;: &quot;cases/045155/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c/00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d/8ab2c1d5fd62910850b1ffe0bb2cba234d98b98b5b4136fe6bd284aa18128db3/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json&quot;,
+    &quot;artifact_action&quot;: &quot;reused&quot;,
+    &quot;target_count&quot;: 89,
+    &quot;hint_count&quot;: 23,
+    &quot;pre_policy_count&quot;: 23,
+    &quot;post_policy_count&quot;: 23,
+    &quot;hint_type_counts&quot;: {
+      &quot;dependent_lead_in&quot;: 5,
+      &quot;open_quote&quot;: 9,
+      &quot;quote_continuation&quot;: 9
+    },
+    &quot;hint_status_counts&quot;: {
+      &quot;accepted_by_contract&quot;: 18,
+      &quot;candidate&quot;: 5
+    },
+    &quot;hint_direction_counts&quot;: {
+      &quot;next&quot;: 9,
+      &quot;previous&quot;: 14
+    },
+    &quot;dropped_reason_counts&quot;: {},
+    &quot;policy_ledger_count&quot;: 23,
+    &quot;kept_count&quot;: 23,
+    &quot;dropped_count&quot;: 0,
+    &quot;error_event_count&quot;: 0,
+    &quot;rule_runs&quot;: [
+      {
+        &quot;rule_id&quot;: &quot;quote_continuation&quot;,
+        &quot;rule_version&quot;: &quot;quote-continuation-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 9
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_quote&quot;,
+        &quot;rule_version&quot;: &quot;open-quote-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 9
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_list&quot;,
+        &quot;rule_version&quot;: &quot;open-list-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;citation_continuation&quot;,
+        &quot;rule_version&quot;: &quot;citation-continuation-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;dependent_lead_in&quot;,
+        &quot;rule_version&quot;: &quot;dependent-lead-in-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 5
+      },
+      {
+        &quot;rule_id&quot;: &quot;reference_to_previous&quot;,
+        &quot;rule_version&quot;: &quot;reference-to-previous-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;speaker_continuity_candidate&quot;,
+        &quot;rule_version&quot;: &quot;speaker-continuity-candidate-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      }
+    ],
+    &quot;metrics&quot;: {
+      &quot;targets_with_hints&quot;: 20,
+      &quot;unique_related_span_count&quot;: 20,
+      &quot;unique_related_chars&quot;: 7123,
+      &quot;proposed_related_chars&quot;: 8101,
+      &quot;repeated_proposed_chars&quot;: 978
+    },
+    &quot;checks&quot;: {
+      &quot;schema_valid&quot;: true,
+      &quot;canonical_ids&quot;: true,
+      &quot;same_source_exact_spans&quot;: true,
+      &quot;direction_order_valid&quot;: true,
+      &quot;no_self_or_duplicates&quot;: true,
+      &quot;no_semantic_facts&quot;: true,
+      &quot;all_targets_preserved&quot;: true,
+      &quot;caps_and_dedup_reproducible&quot;: true
+    }
+  },
+  {
+    &quot;case_id&quot;: &quot;099980&quot;,
+    &quot;source_hash&quot;: &quot;49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319&quot;,
+    &quot;artifact_ref&quot;: &quot;cases/099980/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c/58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86/693870e6cadc38116a5aeb68654661a1ea9049b3d435ef70b101c413db3a72fe/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json&quot;,
+    &quot;artifact_action&quot;: &quot;reused&quot;,
+    &quot;target_count&quot;: 212,
+    &quot;hint_count&quot;: 2,
+    &quot;pre_policy_count&quot;: 2,
+    &quot;post_policy_count&quot;: 2,
+    &quot;hint_type_counts&quot;: {
+      &quot;reference_to_previous&quot;: 1,
+      &quot;speaker_continuity_candidate&quot;: 1
+    },
+    &quot;hint_status_counts&quot;: {
+      &quot;candidate&quot;: 2
+    },
+    &quot;hint_direction_counts&quot;: {
+      &quot;previous&quot;: 2
+    },
+    &quot;dropped_reason_counts&quot;: {},
+    &quot;policy_ledger_count&quot;: 2,
+    &quot;kept_count&quot;: 2,
+    &quot;dropped_count&quot;: 0,
+    &quot;error_event_count&quot;: 0,
+    &quot;rule_runs&quot;: [
+      {
+        &quot;rule_id&quot;: &quot;quote_continuation&quot;,
+        &quot;rule_version&quot;: &quot;quote-continuation-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_quote&quot;,
+        &quot;rule_version&quot;: &quot;open-quote-v1.1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;open_list&quot;,
+        &quot;rule_version&quot;: &quot;open-list-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;citation_continuation&quot;,
+        &quot;rule_version&quot;: &quot;citation-continuation-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;dependent_lead_in&quot;,
+        &quot;rule_version&quot;: &quot;dependent-lead-in-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 0
+      },
+      {
+        &quot;rule_id&quot;: &quot;reference_to_previous&quot;,
+        &quot;rule_version&quot;: &quot;reference-to-previous-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 1
+      },
+      {
+        &quot;rule_id&quot;: &quot;speaker_continuity_candidate&quot;,
+        &quot;rule_version&quot;: &quot;speaker-continuity-candidate-v1&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;output_count&quot;: 1
+      }
+    ],
+    &quot;metrics&quot;: {
+      &quot;targets_with_hints&quot;: 2,
+      &quot;unique_related_span_count&quot;: 2,
+      &quot;unique_related_chars&quot;: 1051,
+      &quot;proposed_related_chars&quot;: 1051,
+      &quot;repeated_proposed_chars&quot;: 0
+    },
+    &quot;checks&quot;: {
+      &quot;schema_valid&quot;: true,
+      &quot;canonical_ids&quot;: true,
+      &quot;same_source_exact_spans&quot;: true,
+      &quot;direction_order_valid&quot;: true,
+      &quot;no_self_or_duplicates&quot;: true,
+      &quot;no_semantic_facts&quot;: true,
+      &quot;all_targets_preserved&quot;: true,
+      &quot;caps_and_dedup_reproducible&quot;: true
+    }
+  }
+]</pre>

@@ -1,0 +1,175 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-215fd891ed34eddce5a17120",
+        "claim": "The policy reasons for requiring applicants to exhaust their internal remedies are compelling.",
+        "kind": "other",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-20aaebba7ede708372d84551",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 18530,
+            "end_char": 18635,
+            "quote": " [10] \r\n  The policy reasons for requiring applicants to exhaust their internal remedies are compelling. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-253c801285d61df2472b9bb0",
+        "claim": "In the context of correctional facilities, timeliness, familiarity with a unique environment, adequate procedural safeguards and economy are reasons for which internal remedies ought to be exhausted before approaching this Court.",
+        "kind": "other",
+        "evidence_ids": [
+          "s3"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-cd70ad9a759db2a8d6ce5b73",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 18845,
+            "end_char": 19093,
+            "quote": "In the context of correctional facilities, one could identity timeliness, familiarity with a unique environment, adequate procedural safeguards and economy as reasons for which internal remedies ought to be exhausted before approaching this Court. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-6f469043cafb34d21a8fa166",
+        "claim": "However, there will be circumstances in which the internal remedies are not adequate.",
+        "kind": "other",
+        "evidence_ids": [
+          "s4"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-2f6b5ac77243ec97e3477253",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 19093,
+            "end_char": 19179,
+            "quote": "However, there will be circumstances in which the internal remedies are not adequate. ",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1219,
+    "output_tokens": 127,
+    "total_tokens": 1346
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"The policy reasons for requiring applicants to exhaust their internal remedies are compelling.\",\"kind\":\"other\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"In the context of correctional facilities, timeliness, familiarity with a unique environment, adequate procedural safeguards and economy are reasons for which internal remedies ought to be exhausted before approaching this Court.\",\"kind\":\"other\",\"evidence_ids\":[\"s3\"],\"limits\":null},{\"claim\":\"However, there will be circumstances in which the internal remedies are not adequate.\",\"kind\":\"other\",\"evidence_ids\":[\"s4\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792496033,
+    "id": "b715986b151c4e84b8a1d70dbd83041d",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 127,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 127,
+      "prompt_tokens": 1219,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1346
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b",
+    "payload_sha256": "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b",
+    "polls": 5,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792496014.4267926,
+    "job_status": "completed",
+    "latency_ms": 22693.968,
+    "finished_at_unix": 1792496037.120747,
+    "server_timing": {
+      "created_at": "2026-10-20T11:33:39.894592+00:00",
+      "started_at": "2026-10-20T11:33:43.301079+00:00",
+      "finished_at": "2026-10-20T11:33:53.770987+00:00",
+      "inference_seconds": 9.924775461000024
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "The policy reasons for requiring applicants to exhaust their internal remedies are compelling.",
+        "kind": "other",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "In the context of correctional facilities, timeliness, familiarity with a unique environment, adequate procedural safeguards and economy are reasons for which internal remedies ought to be exhausted before approaching this Court.",
+        "kind": "other",
+        "evidence_ids": [
+          "s3"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "However, there will be circumstances in which the internal remedies are not adequate.",
+        "kind": "other",
+        "evidence_ids": [
+          "s4"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 22694.355,
+  "request_id": "auc-1213243ce69f183fa3cc043b",
+  "payload_sha256": "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b",
+  "receipt_sha256": "d5f16b79836c87c72ed5b9bd0f024c33f11783602e74c64ac37ca7e0cbae819e"
+}

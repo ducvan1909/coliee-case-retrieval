@@ -1,0 +1,113 @@
+{
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "k0au-9e7ccaefb027b0492b4e8802",
+        "case_id": "045155",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "claim": "Synthetic legal point; mock is not semantic assessment.",
+        "kind": null,
+        "evidence_ids": [
+          "e1"
+        ],
+        "evidence": [
+          {
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 16739,
+            "end_char": 16910,
+            "quote": " [8] \r\n  The respondent raises as a preliminary point that the applicant has not exhausted his internal remedies and therefore his application to this Court is premature. "
+          }
+        ],
+        "limits": null,
+        "replace_id": null,
+        "quality_status": "grounded_draft",
+        "semantic_quality": "not_assessed"
+      }
+    ],
+    "au_errors": [],
+    "warnings": [],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "delivered_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "work_scope_complete"
+    }
+  },
+  "usage": null,
+  "usage_state": "mock_unavailable",
+  "raw_response": {
+    "model": "Qwen/Qwen3.5-9B",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "message": {
+          "content": "{\"aus\": [{\"claim\": \"Synthetic legal point; mock is not semantic assessment.\", \"kind\": null, \"evidence_ids\": [\"e1\"], \"limits\": null}], \"assessed_scope_ids\": [\"r1\", \"r2\", \"r3\", \"r4\", \"r5\"], \"next_action\": {\"tool\": \"finish_case\", \"reason\": \"work_scope_complete\"}}"
+        }
+      }
+    ]
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "fd54355ae128447ce666c668a0c791954972caf5bcd9f44efc3e749671005df5",
+    "payload_sha256": "fd54355ae128447ce666c668a0c791954972caf5bcd9f44efc3e749671005df5",
+    "polls": 1,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792728558.2809782,
+    "job_status": "completed",
+    "latency_ms": 100.815,
+    "finished_at_unix": 1792728558.381633,
+    "server_timing": {
+      "created_at": null,
+      "started_at": null,
+      "finished_at": null,
+      "inference_seconds": null
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "Synthetic legal point; mock is not semantic assessment.",
+        "kind": null,
+        "evidence_ids": [
+          "e1"
+        ],
+        "limits": null
+      }
+    ],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "work_scope_complete"
+    }
+  },
+  "status": "verified",
+  "latency_ms": 101.042,
+  "request_id": "k0-7cc9d463c484a376ce946dde",
+  "payload_sha256": "fd54355ae128447ce666c668a0c791954972caf5bcd9f44efc3e749671005df5",
+  "receipt_sha256": "c8e06bc5a88dbe3e34a522e89282b1b4c6044c8e3f99778063bd24d31008d7bc"
+}

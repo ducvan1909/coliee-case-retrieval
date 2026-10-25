@@ -1,0 +1,831 @@
+{
+  "artifact_type": "K0AuthoringWorkloadV2",
+  "version": "k0-authoring-v2",
+  "parent_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\k0_ready_20261023",
+  "parent_bindings": [
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\k0_ready_20261023\\input\\workload.json",
+      "sha256": "59a0821b1e4403ee94eb765f324b006d6be24113d2914e7c607dbacc521abfc6"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\input\\workload.json",
+      "sha256": "97cc009bca905f0c482b32c0f56d3599709be6bfb5405d7099b5095505568672"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\run.json",
+      "sha256": "cc7a27d83e6becbdb4a6ad2fb5128cc67adb1b7825e673bc86cf1e45c03bd884"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\runtime_ledger.json",
+      "sha256": "0a1018202566447297ef6a2de6e93182ccef1f36733e41c3edac0e97f1710a97"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-c9381cfc3da5ec9284eecaeb.json",
+      "sha256": "343f0079a82ddb460b58148141d7f6471af0f3be2cede02a6c43d5b8b3b3fb1d"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-fbf2b9ad792df64588a39027.json",
+      "sha256": "b4930f586d92bcad19241f7b48da3cace4e940be9d211e2447e99502dbef1cea"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-74098902e4c9cb8d2c968b5c.json",
+      "sha256": "206dc6b86e121e23c75b4230aa8b5702206f5037c9e7013cc1373974f75a220b"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-621f4ef0ea66a5e3734aeb5d.json",
+      "sha256": "30098c7590350ba874ea7451496f1f0c18de13f92d20b20c6652ca2bd8b80b92"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-71c67f3f267d7f4ad1d3ecc6.json",
+      "sha256": "60d3b1aded79a5a8268624978211fa16107d6674109fc5eb5017c4929c84b264"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-758b5e76f2fb10e427b4e0a8.json",
+      "sha256": "859bce97a15241a6ccd545e680a655962a100887186ebb2609fe192c6754f68e"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-abaf5e85ca1d1342856b6e5d.json",
+      "sha256": "1414be2829286248d53eeedc1fb6e19007e2d5a8a4ffb01e7bf87ff3b17e2f78"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-9b69d0acdd3de1ca6e7bace2.json",
+      "sha256": "6c5b7e85dc08a583a16819caae3a4f3844fb6fdb6eda7001cc7a3034d3d2667a"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-80a33967561523720d8bfd47.json",
+      "sha256": "6df3a52f04c6d75fac1bca82b3defb976a8da8dfb05a6c12cb5e4af30df7822e"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-990fae8ff57520393d90ac04.json",
+      "sha256": "d9e8c1688b64802864ced11ed8970fd8dd641e2848a22551e7977b9cbf814bfd"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-1213243ce69f183fa3cc043b.json",
+      "sha256": "d1c71b1e30c36567bd8c8b754328b3ab9d0f11e44b8620fb0521c4dbb35b916f"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-a9d02f74a3d246e3af135acb.json",
+      "sha256": "eb31878ee9beac4c4c8cb77c0705d6bd8950b2d11e614ec892900d643786e40e"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-261bfde61316f67bda3c4a76.json",
+      "sha256": "5062c19c3e3c1de4880201913128d655dbbae6d4b6369bb9db84d52507d8ae2d"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-043529c252d9ca960e652a7d.json",
+      "sha256": "dcf87f7738b6d91e02ba1ceb9222b15305ad5f98e10d6d45f72d5f9183a6b0d6"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-55b6b038d76f4d7ba263f01b.json",
+      "sha256": "3eed19035084b2c11dd232399e055f936b77dbb80a39a9e40912851a8ff6b5be"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\receipts\\auc-bf0c8b7ec86e9bc5d7be7e7d.json",
+      "sha256": "6ddc64a9638edc4ae539054987b573f0127e6fae3d2cb51380d76d4c9774526d"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\001.json",
+      "sha256": "f27727d6f085c9728fb1bac72a2dee063133f8c8e2d6640eeea5d43ea40ac82a"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\002.json",
+      "sha256": "98759eb832e6b62c6f26f18491f47c514270881f79c26bc61feae4259795628c"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\003.json",
+      "sha256": "b50a7627932cb6d0b1042ab0c4569f34426e81383e2231b19ecef94e1c048744"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\004.json",
+      "sha256": "48bf1af0e4dc4351390e0bfbdeed7aca24aa65c1a445b4827923449f206d5ee4"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\005.json",
+      "sha256": "b40eb6d5ce6b762916a0f1f130341f5abd994a66eaed5cc86f5b1eaa5d668f83"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\006.json",
+      "sha256": "919862593911f8e8d5b6ad05778c8395980f8b03047b6924a3528d1778401f38"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\007.json",
+      "sha256": "184ab0dbc7e32d13f202752e90d55ceb52a36b990771566778e00b4b5dd02fd5"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\008.json",
+      "sha256": "dfd104485f9ab55713908d42b23b8cc019e95eb867f100acf385fbb910906613"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\009.json",
+      "sha256": "f183964d3e4d33e752a027e00a8ea42239498d0b5acd7a564df04a55786f4d84"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\010.json",
+      "sha256": "1c2f4546903cd33b2bf01c17242055616fd23cc0fcc3027f6a33335280936051"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\011.json",
+      "sha256": "d2fc7f1fd5c8889c3dc5e101604e313dfe4236e71a3fd5d800a96cbc5eeac8db"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\012.json",
+      "sha256": "fe2ef277d6c46f84087bdd75253f2a114a9ed33d3d0d4e2f80125b323641d4e3"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\013.json",
+      "sha256": "9118988011b86b61433bbbc1e434c03cd90a59b68c0cba0731003e9c1752c1db"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\014.json",
+      "sha256": "45f8b4835a27455a789422edc750a15576d6365e44f9d9e525f20d07ccb4f018"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\015.json",
+      "sha256": "8ea428ff370005ee9461078a90419c0bebfac071930cd8fdfccd3d02ca22a792"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\au_claim_a_local_ready_20261020\\live\\attempt_receipts\\016.json",
+      "sha256": "27c2c8e3b5c2487564a0994930e06c98d22092e0a87306deedff6bed18730589"
+    }
+  ],
+  "source_bindings": [
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1\\cases\\011904\\versions\\c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12\\case_source.json",
+      "sha256": "188546da210d367947ed8eb7d6462479fb2554cdbe2d6744ebea4d41e8409b3f"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1\\cases\\011904\\versions\\c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12\\source.txt",
+      "sha256": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1\\cases\\045155\\versions\\93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb\\case_source.json",
+      "sha256": "81e9288c5a9d855c45df99007341f07c39ecdad481bb24d5722a477d60e2bfb9"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1\\cases\\045155\\versions\\93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb\\source.txt",
+      "sha256": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1\\cases\\099980\\versions\\49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319\\case_source.json",
+      "sha256": "d5c16ccab6cb1d07a4495ac33437aaace7e56e82a71839ed9faf43da1f40210f"
+    },
+    {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1\\cases\\099980\\versions\\49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319\\source.txt",
+      "sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319"
+    }
+  ],
+  "source_store": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1",
+  "cases": [
+    {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "scopes": [
+        {
+          "historical_request_id": "auc-c9381cfc3da5ec9284eecaeb",
+          "scope_id": "r1",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        },
+        {
+          "historical_request_id": "auc-fbf2b9ad792df64588a39027",
+          "scope_id": "r2",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ]
+        },
+        {
+          "historical_request_id": "auc-74098902e4c9cb8d2c968b5c",
+          "scope_id": "r3",
+          "evidence_ids": [
+            "e6",
+            "e7"
+          ]
+        },
+        {
+          "historical_request_id": "auc-621f4ef0ea66a5e3734aeb5d",
+          "scope_id": "r4",
+          "evidence_ids": [
+            "e8",
+            "e9",
+            "e10",
+            "e11",
+            "e12"
+          ]
+        },
+        {
+          "historical_request_id": "auc-71c67f3f267d7f4ad1d3ecc6",
+          "scope_id": "r5",
+          "evidence_ids": [
+            "e13",
+            "e14",
+            "e15",
+            "e16"
+          ]
+        },
+        {
+          "historical_request_id": "auc-758b5e76f2fb10e427b4e0a8",
+          "scope_id": "r6",
+          "evidence_ids": [
+            "e17",
+            "e18"
+          ]
+        },
+        {
+          "historical_request_id": "auc-abaf5e85ca1d1342856b6e5d",
+          "scope_id": "r7",
+          "evidence_ids": [
+            "e19",
+            "e20"
+          ]
+        },
+        {
+          "historical_request_id": "auc-9b69d0acdd3de1ca6e7bace2",
+          "scope_id": "r8",
+          "evidence_ids": [
+            "e21"
+          ]
+        }
+      ],
+      "source_char_length": 20847,
+      "evidence_catalog": {
+        "e1": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 5394,
+          "end_char": 5680,
+          "quote": "[10]\r\nIn a recent decision, Madam Justice Eleanor Dawson, examined the standard of review applicable to findings regarding state protection and concluded that in light of <FRAGMENT_SUPPRESSED> , above, the standard remains that of reasonableness (\r\n <FRAGMENT_SUPPRESSED>  at para. 6). "
+        },
+        "e2": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 5680,
+          "end_char": 5910,
+          "quote": "Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] "
+        },
+        "e3": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 5910,
+          "end_char": 6087,
+          "quote": "whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law\" ( <FRAGMENT_SUPPRESSED> , above, at para. 47).\r\n"
+        },
+        "e4": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 6763,
+          "end_char": 7028,
+          "quote": "[13]\r\nIt is true that \"clear and convincing confirmation\" of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 50). "
+        },
+        "e5": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 7028,
+          "end_char": 7276,
+          "quote": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 5;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 584 (QL), at para. 57).\r\n"
+        },
+        "e6": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 7276,
+          "end_char": 7618,
+          "quote": "[14]\r\nIn the recent decision of <FRAGMENT_SUPPRESSED> , above, at para. 54 the Federal Court of Appeal noted that \"[t] he presumption of state protection described in\r\nWard\r\n, therefore, applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\" "
+        },
+        "e7": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 7618,
+          "end_char": 7773,
+          "quote": "Thus, the existence of state persecuting agents does not serve to automatically rebut the presumption that a state is capable of protecting its citizens.\r\n"
+        },
+        "e8": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 8352,
+          "end_char": 8589,
+          "quote": "[16]\r\nWhile the burden placed on claimants from developed democratic states is a high one, I remain of the view that this burden does not require that they put themselves in danger in order to exhaust all possible avenues of protection. "
+        },
+        "e9": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 8589,
+          "end_char": 8772,
+          "quote": "Indeed, as Justice LaForest indicated, an individual will be required to seek state protection where it would be objectively unreasonable not to do so (\r\nWard\r\n, above, at para. 49). "
+        },
+        "e10": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 8772,
+          "end_char": 8841,
+          "quote": "In <FRAGMENT_SUPPRESSED> , above, at para. 18, I stated that:\r\n[...] "
+        },
+        "e11": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 8841,
+          "end_char": 9116,
+          "quote": "notwithstanding that not every member of the [police] was implicated in the applicant's persecution, seeking help from the [police], - asking, in effect, the [police] to protect the applicant from itself - would have in all likelihood placed the applicant in greater peril.\r\n"
+        },
+        "e12": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 9116,
+          "end_char": 9333,
+          "quote": "Indeed, in my opinion, the requirement of having to place oneself in danger in order to exhaust all protection avenues would constitute an \"exceptional circumstance\" referred to by the Federal Court of Appeal above.\r\n"
+        },
+        "e13": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 11681,
+          "end_char": 11795,
+          "quote": "[20]\r\nI find Madam Justice Gauthier's approach to the presumption of state protection in Mexico to be persuasive. "
+        },
+        "e14": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 11795,
+          "end_char": 11930,
+          "quote": "While Mexico is a democracy and generally willing to protect its citizens, its governance and corruption problems are well documented. "
+        },
+        "e15": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 11930,
+          "end_char": 12101,
+          "quote": "Accordingly, decision-makers must engage in a full assessment of the evidence placed before them suggesting that Mexico, while willing to protect, may be unable to do so. "
+        },
+        "e16": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 12101,
+          "end_char": 12414,
+          "quote": "This assessment should include the context of the country of origin in general, all the steps that the applicants did in fact take, and their interaction with the authorities (\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1563 (QL), at para. 21;\r\n <FRAGMENT_SUPPRESSED>  [2002] F.C.J. No. 1331 (QL), at para. 18).\r\n"
+        },
+        "e17": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 13761,
+          "end_char": 14076,
+          "quote": "[25]\r\nI am of the view that these alternate institutions do not constitute avenues of protection\r\nper se\r\n; unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate. "
+        },
+        "e18": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 14076,
+          "end_char": 14352,
+          "quote": "For example, the documentary evidence explicitly states that the National Human Rights Commission has no legal power of enforcement (\"Mexico: Situation of Witness to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation\").\r\n"
+        },
+        "e19": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 14352,
+          "end_char": 14467,
+          "quote": "[26]\r\nThe Board's decision points to many efforts being made by the state to protect women from domestic violence. "
+        },
+        "e20": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 14467,
+          "end_char": 14828,
+          "quote": "However, what was important was for the Board to be satisfied that the protection offered in Mexico was effective (\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1733 (QL), at para. 16;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 118 (QL), at para. 15;\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 439 (QL), at para. 34;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n"
+        },
+        "e21": {
+          "case_id": "011904",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 15205,
+          "end_char": 15570,
+          "quote": "[28]\r\nThis Court has consistently held that where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy (\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 1224 (QL), at para. 44;\r\n <FRAGMENT_SUPPRESSED>  [2004] F.C.J. No. 43 (QL), at para. 9;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n"
+        }
+      }
+    },
+    {
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "scopes": [
+        {
+          "historical_request_id": "auc-80a33967561523720d8bfd47",
+          "scope_id": "r1",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4",
+            "e5",
+            "e6"
+          ]
+        },
+        {
+          "historical_request_id": "auc-990fae8ff57520393d90ac04",
+          "scope_id": "r2",
+          "evidence_ids": [
+            "e7",
+            "e8",
+            "e9",
+            "e10",
+            "e11"
+          ]
+        },
+        {
+          "historical_request_id": "auc-1213243ce69f183fa3cc043b",
+          "scope_id": "r3",
+          "evidence_ids": [
+            "e12",
+            "e13",
+            "e14",
+            "e15",
+            "e16",
+            "e17",
+            "e18",
+            "e19"
+          ]
+        },
+        {
+          "historical_request_id": "auc-a9d02f74a3d246e3af135acb",
+          "scope_id": "r4",
+          "evidence_ids": [
+            "e20",
+            "e21",
+            "e22",
+            "e23",
+            "e24"
+          ]
+        },
+        {
+          "historical_request_id": "auc-261bfde61316f67bda3c4a76",
+          "scope_id": "r5",
+          "evidence_ids": [
+            "e25",
+            "e26",
+            "e27",
+            "e28",
+            "e29",
+            "e30"
+          ]
+        }
+      ],
+      "source_char_length": 32073,
+      "evidence_catalog": {
+        "e1": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 16739,
+          "end_char": 16910,
+          "quote": " [8] \r\n  The respondent raises as a preliminary point that the applicant has not exhausted his internal remedies and therefore his application to this Court is premature. "
+        },
+        "e2": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 16910,
+          "end_char": 17386,
+          "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. "
+        },
+        "e3": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 17386,
+          "end_char": 17460,
+          "quote": "Both of these cases set out the case law which supports that proposition. "
+        },
+        "e4": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 17460,
+          "end_char": 17604,
+          "quote": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court. "
+        },
+        "e5": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 17604,
+          "end_char": 17725,
+          "quote": "One might add that judicial resources should not be occupied dealing with problems for which another forum is provided.  "
+        },
+        "e6": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 17725,
+          "end_char": 17750,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n"
+        },
+        "e7": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 17750,
+          "end_char": 17830,
+          "quote": " [9] \r\n  There are exceptions to this general rule as there are to all others.  "
+        },
+        "e8": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 17830,
+          "end_char": 18015,
+          "quote": "<FRAGMENT_SUPPRESSED> ; 108 F.T.R. 93 (T.D.), MacKay, J., held that an early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue. "
+        },
+        "e9": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 18015,
+          "end_char": 18256,
+          "quote": "MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. "
+        },
+        "e10": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 18256,
+          "end_char": 18362,
+          "quote": "In his view, this provision confirmed that a party had a right to proceed in one forum or the other.  \r\n  "
+        },
+        "e11": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 18362,
+          "end_char": 18478,
+          "quote": "<FRAGMENT_SUPPRESSED> , which may have turned on its particular facts, was not referred to in  \r\n Fortin \r\n  and  \r\n"
+        },
+        "e12": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 18530,
+          "end_char": 18635,
+          "quote": " [10] \r\n  The policy reasons for requiring applicants to exhaust their internal remedies are compelling. "
+        },
+        "e13": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 18635,
+          "end_char": 18845,
+          "quote": "To hold otherwise is to undermine the legitimacy of alternate remedies by assigning them to a secondary position when there are many reasons why they should occupy a primary role in the resolution of disputes. "
+        },
+        "e14": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 18845,
+          "end_char": 19093,
+          "quote": "In the context of correctional facilities, one could identity timeliness, familiarity with a unique environment, adequate procedural safeguards and economy as reasons for which internal remedies ought to be exhausted before approaching this Court. "
+        },
+        "e15": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 19093,
+          "end_char": 19179,
+          "quote": "However, there will be circumstances in which the internal remedies are not adequate. "
+        },
+        "e16": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 19179,
+          "end_char": 19368,
+          "quote": "In this case, there is evidence, in the memorandum of Nancy Chow, suggesting that the Correctional Service has had the applicant's security classification dictated to it by another agency. "
+        },
+        "e17": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 19368,
+          "end_char": 19543,
+          "quote": "A grievance which puts such an issue into question cannot credibly be adjudicated by the Correctional Service since it is the Correctional Service itself which is implicated. "
+        },
+        "e18": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 19543,
+          "end_char": 19706,
+          "quote": "For that reason, while upholding the general rule as to exhaustion of internal remedies, I find that the facts of this case constitute an exception to that rule.  "
+        },
+        "e19": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 19706,
+          "end_char": 19731,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n"
+        },
+        "e20": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 22308,
+          "end_char": 22388,
+          "quote": " [14] \r\n  This is not a discipline case but the effect is essentially the same. "
+        },
+        "e21": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 22388,
+          "end_char": 22560,
+          "quote": "The refusal to reclassify and transfer the applicant is based upon an allegation which has not been shared with him and to which he has not had the opportunity to respond. "
+        },
+        "e22": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 22560,
+          "end_char": 22738,
+          "quote": "The evidentiary record is clear that the only obstacle in the way of the applicant's reclassification is the undisclosed information on the applicant's preventive security file. "
+        },
+        "e23": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 22738,
+          "end_char": 22972,
+          "quote": "It is true that the refusals in question here do nothing more than maintain the status quo whereas in  \r\n  <FRAGMENT_SUPPRESSED> , and other cases to the same effect, the information is being used to restrict the applicant's rights.  "
+        },
+        "e24": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 22972,
+          "end_char": 22997,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n"
+        },
+        "e25": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 25718,
+          "end_char": 25878,
+          "quote": " [21] \r\n  The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons. "
+        },
+        "e26": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 25878,
+          "end_char": 26170,
+          "quote": "As a result, subsection 27(2) requires that he be given \"all the information that was considered in the taking of the decision or a summary of that information\" or \"les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci\", subject only to the terms of subsection 27(3). "
+        },
+        "e27": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 26170,
+          "end_char": 26314,
+          "quote": "Since the applicant has not received the information relied upon or a summary of that information, subsection 27(2) has not been complied with. "
+        },
+        "e28": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 26314,
+          "end_char": 26447,
+          "quote": "Subsection 27(3) provides a means whereby information may be withheld but it must be authorized by the Commissioner or his delegate. "
+        },
+        "e29": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 26447,
+          "end_char": 26710,
+          "quote": "The respondent argued that since the report prepared for the Warden by the Case Management Team referred to subsection 27(3) and since the Warden adopted their recommendation, the Warden, as the Commissioner's delegate, had effectively invoked subsection 27(3).  "
+        },
+        "e30": {
+          "case_id": "045155",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 26710,
+          "end_char": 26735,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n"
+        }
+      }
+    },
+    {
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "scopes": [
+        {
+          "historical_request_id": "auc-043529c252d9ca960e652a7d",
+          "scope_id": "r1",
+          "evidence_ids": [
+            "e1",
+            "e2"
+          ]
+        },
+        {
+          "historical_request_id": "auc-55b6b038d76f4d7ba263f01b",
+          "scope_id": "r2",
+          "evidence_ids": [
+            "e3",
+            "e4"
+          ]
+        },
+        {
+          "historical_request_id": "auc-bf0c8b7ec86e9bc5d7be7e7d",
+          "scope_id": "r3",
+          "evidence_ids": [
+            "e5",
+            "e6",
+            "e7"
+          ]
+        }
+      ],
+      "source_char_length": 122393,
+      "evidence_catalog": {
+        "e1": {
+          "case_id": "099980",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 56160,
+          "end_char": 56482,
+          "quote": "[93]\r\nHowever, there is no need to express a definitive opinion on the issue of jurisdiction or reasonableness today or to base the judgment of the Court allowing the application for judicial review on such a contentious aspect that might soon be argued before the Federal Court of Appeal as part of the appeal in Seck 1. "
+        },
+        "e2": {
+          "case_id": "099980",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 56482,
+          "end_char": 56725,
+          "quote": "In fact, the issue of procedural fairness seems determinative to me; as explained below, there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.\r\n"
+        },
+        "e3": {
+          "case_id": "099980",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 58238,
+          "end_char": 58472,
+          "quote": "[96]\r\nIt is appropriate for the standard of correctness to guide the analysis of the Court with respect to the alleged breach of the rules of procedural fairness:\r\n <FRAGMENT_SUPPRESSED>  [2006] FCJ No 1261 ( <FRAGMENT_SUPPRESSED> ). "
+        },
+        "e4": {
+          "case_id": "099980",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 58472,
+          "end_char": 58837,
+          "quote": "As we know, issues of procedural fairness are resolved on a case-by-case basis, which means that today, the Court is not bound by the findings of fact the Court made on this issue in\r\nSeck 1 first instance\r\n, at paragraphs 17 to 20, especially since the facts differ substantially because the applicant was never formally informed that she was suspected of fraud.\r\n"
+        },
+        "e5": {
+          "case_id": "099980",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 59362,
+          "end_char": 59701,
+          "quote": "[98]\r\nSection 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 which address the Commission's investigations into appointments, and sections 74 to 87, which deal with complaints that may be referred to the Public Service Staffing Tribunal, created under Part 6 of the PSEA, with respect to appointments and revocations. "
+        },
+        "e6": {
+          "case_id": "099980",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 59701,
+          "end_char": 59904,
+          "quote": "We note that investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service. "
+        },
+        "e7": {
+          "case_id": "099980",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 59904,
+          "end_char": 60059,
+          "quote": "Furthermore, the right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).\r\n"
+        }
+      }
+    }
+  ],
+  "identity": {
+    "model": "Qwen/Qwen3.5-9B",
+    "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/chat/completions",
+    "enable_thinking": false,
+    "transport": "jobs",
+    "string_decoder": "host_validated",
+    "expected_model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "prompt_identity": {
+      "prompt_version": "au-compact-semantic-v6",
+      "content_sha256": "0f439607236ca73197b4f154e8fc2bc75d3229563e31589f04e65b4d62da0d5a"
+    },
+    "selective_policy_sha256": "d127145bdd83e283dc8c7ec76e255f95f153c8f62bdf62a4a9cd047191dc3ebb"
+  },
+  "budget": {
+    "max_requests": 12,
+    "max_provider_attempts": 12,
+    "max_total_input_tokens": 30000,
+    "max_total_output_tokens": 30000
+  },
+  "input_cap": 6000,
+  "output_cap": 800,
+  "total_cap": 30000,
+  "input_counter": {
+    "method": "max_rendered_chat_and_full_serialized_payload_Qwen_tokens_plus128_reserve",
+    "model": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "files": {
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8"
+    },
+    "versions": {
+      "tokenizers": "0.22.1",
+      "jinja2": "3.1.6"
+    },
+    "provider_usage": false
+  },
+  "code_sha256": "0b59610d1621cbd45502d0f829d1a8f86dac90a3b0c6069c209e8ef89d39de4e",
+  "prompt_sha256": "99cb51e03d51a818afda391f526645eaafd57790bcf14b0c20b2b9bf829a059b",
+  "wire_version": "kos-authoring-wire-v2-host-assessment",
+  "schema_sha256": "025fdcfa9318c2db95adbf725260dc350576c71e645dd757facdeefa3d93b56a",
+  "scope_policy": "actual_delivered_stage1_catalog_only",
+  "baseline_accounting": {
+    "mode": "execute",
+    "target_count": 16,
+    "logical_requests": 16,
+    "provider_POST_attempts": 16,
+    "transport_POST_attempts": 16,
+    "known_usage_observed_subtotal": {
+      "input_tokens": 17722,
+      "output_tokens": 1950,
+      "total_tokens": 19672
+    },
+    "unknown_usage_jobs": 0,
+    "usage_is_complete": false,
+    "usage_note": "Receipt subtotal; retries may have unknown usage; mock is not provider usage.",
+    "stage1_requests": 16,
+    "stage2_requests": 0,
+    "needs_context_targets": 0,
+    "reported_elapsed_wall_ms": 396821.629,
+    "semantic_quality": "not_assessed"
+  },
+  "semantic_quality": "not_assessed",
+  "case_source_status": "partial",
+  "workload_sha256": "8da3f88dc0c76ae15206cf6bfb78e004d0b8ec1348fe202a2450e27f927ad98e"
+}

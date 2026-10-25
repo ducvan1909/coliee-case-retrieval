@@ -1,0 +1,59 @@
+{
+  "evaluation_version": "pipeline-v1-independent-evaluation-v1",
+  "plan": "05",
+  "status": "pass",
+  "generated_at": "2026-10-04T07:30:05+07:00",
+  "scope": "Plan 05 deterministic sidecars, structural relations, query API, worker isolation, and cache on KOS-5",
+  "runs": {
+    "plan05_cli": "pass",
+    "original_plan01_plan05_tests": {"total": 55, "passed": 55, "failed": 0},
+    "independent_plan01_plan05_tests": {"total": 38, "passed": 38, "failed": 0},
+    "independent_plan05_tests": {"total": 7, "passed": 7, "failed": 0},
+    "resume_artifacts": {"expected": 5, "reused": 5},
+    "sidecar_maps_before": 10,
+    "sidecar_maps_after": 10,
+    "historical_artifacts_changed_or_missing": 0
+  },
+  "recomputed_counts": {
+    "annotations": 1036,
+    "annotation_status": {"observed": 904, "candidate": 112, "review": 20},
+    "relations": 419,
+    "relation_types": {"containment": 209, "continuation": 10, "governed_by_heading": 200},
+    "relation_status": {"observed": 209, "candidate": 210},
+    "worker_events": 0,
+    "worker_errors": 0
+  },
+  "findings": [
+    {
+      "id": "P05-F01",
+      "severity": "medium",
+      "status": "fixed_verified",
+      "title": "Zero-length half-open annotation query returned containing annotations",
+      "verification": "Empty and touching queries now return no overlap across annotations, persisted relation evidence, and derived adjacency evidence; malformed bounds and wrong identities raise SidecarQueryError",
+      "regression_test": "test_api_filters_and_adjacency_are_exact_half_open"
+    }
+  ],
+  "open_findings": [],
+  "checks_passed": [
+    "artifact counts and exact source spans recomputed",
+    "shared exact half-open query behavior including empty and touching spans",
+    "invalid bounds and case source identity rejected",
+    "case block atom worker status filters",
+    "next previous adjacency derived from SourceBlock order and not persisted",
+    "annotation relation map mutation rejection",
+    "worker failure isolation and partial namespace",
+    "cache resume and immutable history",
+    "200 heading governance candidates follow formal contiguous range policy",
+    "209 containment and 10 continuation edges have no self duplicate cross-parent defect",
+    "semantic assertions and forbidden relation types absent"
+  ],
+  "metrics_not_reported": ["precision", "recall", "F1"],
+  "metrics_reason": "No adjudicated Plan 05 annotation or relation gold exists",
+  "limitations": [
+    "Contract PASS is not semantic correctness or legal validity",
+    "Candidate relations do not prove governance, continuation, relevance, or support",
+    "Evaluation is limited to KOS-5 and does not establish generalization"
+  ],
+  "plan06_started": false,
+  "advance_condition": "Satisfied for Plan 05 only; Plan 06 remains outside this evaluation"
+}

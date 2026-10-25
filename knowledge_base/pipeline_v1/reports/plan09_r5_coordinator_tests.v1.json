@@ -1,0 +1,242 @@
+{
+  "artifact_type": "Plan09R5CoordinatorTests",
+  "revision": 1,
+  "date": "2026-10-06",
+  "status": "PASS",
+  "focused_modules": [
+    "knowledge_base.pipeline_v1.evaluation.test_plan09_remediation_independent",
+    "knowledge_base.pipeline_v1.tests.test_plan09_revision_history",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_amendments",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r5_acceptance"
+  ],
+  "full_plan09_scope": "tests/test_plan09*.py plus both evaluation/test_plan09*.py",
+  "focused": {
+    "run": 15,
+    "passed": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 87.174
+  },
+  "full_plan09": {
+    "run": 89,
+    "passed": 89,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 463.329
+  },
+  "full_plan09_modules": [
+    "knowledge_base.pipeline_v1.tests.test_plan09",
+    "knowledge_base.pipeline_v1.tests.test_plan09_audit_positions11_32",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r3_completion",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r3_final_batch",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r3_fourth_batch",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r3_second_batch",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r3_third_batch",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_amendments",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_eighth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_eleventh10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_fifteenth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_fifth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_final7",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_fourteenth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_fourth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_ninth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_second10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_seventh10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_sixth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_tenth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_third10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_thirteenth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r4_twelfth10",
+    "knowledge_base.pipeline_v1.tests.test_plan09_r5_acceptance",
+    "knowledge_base.pipeline_v1.tests.test_plan09_remediation",
+    "knowledge_base.pipeline_v1.tests.test_plan09_revision_history",
+    "knowledge_base.pipeline_v1.tests.test_plan09_risk_reviews"
+  ],
+  "implementation_bindings": [
+    {
+      "ref": "accept_plan09_r5.py",
+      "sha256": "6bbf51f10f56fa47f2b6534da782742bc47f9f1ec2e590bac0211b027dceb766"
+    },
+    {
+      "ref": "au_gold/__init__.py",
+      "sha256": "8bf2ce5b8ef05f97ba4a1f7c5285b0749e5e8a07038c79b5c5feca7774d240fe"
+    },
+    {
+      "ref": "au_gold/__main__.py",
+      "sha256": "e8c5ad7e31906af0c3fe1440af2ceb4df0688306f7e0568c43ad40dcd6eaf5a9"
+    },
+    {
+      "ref": "au_gold/build.py",
+      "sha256": "b38ad18dee008ea7ff20c69bb01cec563dfc97dad2a7985cb6a567bfcbcaefaf"
+    },
+    {
+      "ref": "au_gold/cli.py",
+      "sha256": "9efa17e1a055e997d64707fed34575fa0680885e44d2571916c2f58f88b5a6ce"
+    },
+    {
+      "ref": "au_gold/core.py",
+      "sha256": "cb44398400f060e770f0397db29ec7a09f8dad08a5a203c0cec70db4f4b9b703"
+    },
+    {
+      "ref": "au_gold/progress.py",
+      "sha256": "03957a773c86e08eb6373e1edc2e5c8437072d870c1eda5b777ec7a537c3b79a"
+    },
+    {
+      "ref": "au_gold/r3_completion.py",
+      "sha256": "cbd6b29af31ef03f9b20cdabcd248ebb11f59798439b6237ab121fab872197cb"
+    },
+    {
+      "ref": "au_gold/r4.py",
+      "sha256": "95b169b7265a92e887a1c5e0f9ccfe139dd4fc988cf5bd741f5b623d3dadb6f3"
+    },
+    {
+      "ref": "au_gold/r4_amendments.py",
+      "sha256": "af22a9f1bee6d0c82bda704f2b4dd0fa1568e5a98a76e412f1a17737f6332af0"
+    },
+    {
+      "ref": "au_gold/r4_batch.py",
+      "sha256": "a6086bda4c259f144587441d6953913598e5f934a267b9b9dec55497a94696b4"
+    },
+    {
+      "ref": "au_gold/r5_acceptance.py",
+      "sha256": "0eb39576e3a2d6ea053ecc8b48b05df7def3cb2282d8f1ae6a4d17456ed46f5b"
+    },
+    {
+      "ref": "au_gold/remediation.py",
+      "sha256": "7cb34f57b6471d65be1d55115a53ae55815778e92b0b40c44e05585b0e6a892c"
+    },
+    {
+      "ref": "au_gold/scoring.py",
+      "sha256": "e269615443576e01fa377851f03a61f4e038e63c079c5f5bdf62c6826b85294e"
+    },
+    {
+      "ref": "evaluation/test_plan09_independent.py",
+      "sha256": "d992d69359d75108b183e93636b080fa9475c67db9c2fe78ffdb7133bba294a8"
+    },
+    {
+      "ref": "evaluation/test_plan09_remediation_independent.py",
+      "sha256": "a2a0031806bda2e9fe5126a0e11872c7e51c767066562424dfe0c446b6686b7f"
+    },
+    {
+      "ref": "plan09_workflow.md",
+      "sha256": "2f777b9894646df0ec2810432558c3202c9379c62295820a15ece03971614b4f"
+    },
+    {
+      "ref": "tests/test_plan09.py",
+      "sha256": "e0b0092b5da98f44fbb9b815001ec3c900acda0dd273f18876bd130afc946bbe"
+    },
+    {
+      "ref": "tests/test_plan09_audit_positions11_32.py",
+      "sha256": "3efd28948bb8afb12a99eb12d6a98d5e15e43613c6ce33a756f95237d86eab34"
+    },
+    {
+      "ref": "tests/test_plan09_r3_completion.py",
+      "sha256": "85118fadf236f2a97889264fa3c3b0f8280a7ca804813839122a4d3747ded5d8"
+    },
+    {
+      "ref": "tests/test_plan09_r3_final_batch.py",
+      "sha256": "073884cfa96693c006d9821b7b91c777dce3a9eb801dbfad1e86de98f603b24f"
+    },
+    {
+      "ref": "tests/test_plan09_r3_fourth_batch.py",
+      "sha256": "7ecb333cb331a25158b2454a5b5b489caaa77df1553f912cae96815fd35835eb"
+    },
+    {
+      "ref": "tests/test_plan09_r3_second_batch.py",
+      "sha256": "78806cc77abd60d759508492fd49ba1a3b2d4a199e67e66a785a5253d35cfb28"
+    },
+    {
+      "ref": "tests/test_plan09_r3_third_batch.py",
+      "sha256": "b02c0dd6bef4019672dd490c5387b521785eb7f8d203ae4aa6f7239b76c86f85"
+    },
+    {
+      "ref": "tests/test_plan09_r4.py",
+      "sha256": "9306e1de93e4f9957535bd37c2323101b915611f840793e2aec32d28775f32cc"
+    },
+    {
+      "ref": "tests/test_plan09_r4_amendments.py",
+      "sha256": "cc3b4fbff6b494c0c6caaec19b35f6423052bdd53f352a0e5b1cfc4ff91a348f"
+    },
+    {
+      "ref": "tests/test_plan09_r4_eighth10.py",
+      "sha256": "f8450f7c4fa9088be8756d0653880cd145356bff7015a684c1d49141e985f4d1"
+    },
+    {
+      "ref": "tests/test_plan09_r4_eleventh10.py",
+      "sha256": "64d4f68161b18dfe96790b76295d88787f543f6a39ca027d0ba831ea537687f8"
+    },
+    {
+      "ref": "tests/test_plan09_r4_fifteenth10.py",
+      "sha256": "bef235e745ad02aa9ab43ed13cc068932b7fabe0593d72dce03e6b0ece9e8f93"
+    },
+    {
+      "ref": "tests/test_plan09_r4_fifth10.py",
+      "sha256": "0b5abdcd0db7266f1f53a05426a94faf4f58db949344ad0ed97edf344f475682"
+    },
+    {
+      "ref": "tests/test_plan09_r4_final7.py",
+      "sha256": "4a3f7f1439557fd46e1a153e024f2f23b9d33a09a4967b32bb6f34a2a6fa40ca"
+    },
+    {
+      "ref": "tests/test_plan09_r4_fourteenth10.py",
+      "sha256": "e85abeddc902c077fcc62104c09c29fc24a28c4418ab4851892beb00309e094f"
+    },
+    {
+      "ref": "tests/test_plan09_r4_fourth10.py",
+      "sha256": "278972baf65f7924ea2b3900e4f406ee678fb64e5b33afd6af2d2ca5e3d9d3bd"
+    },
+    {
+      "ref": "tests/test_plan09_r4_ninth10.py",
+      "sha256": "0568add492e458af1e12b7d15770cff0bdeed86a971df4bb49a72c848f104044"
+    },
+    {
+      "ref": "tests/test_plan09_r4_second10.py",
+      "sha256": "8a0b83bee8cabdb8905c3b2151e7fc6527bf17b7ef1c789ed5b8926230c69556"
+    },
+    {
+      "ref": "tests/test_plan09_r4_seventh10.py",
+      "sha256": "c0ac11ac58c01a6b054ddf680316b431b541b3c5b4fdeb6825d9e3b3e3e1e0fa"
+    },
+    {
+      "ref": "tests/test_plan09_r4_sixth10.py",
+      "sha256": "6108515d82173855b2f566a0e6629ce4404927ce5dc2ac48a49bf4f15628beeb"
+    },
+    {
+      "ref": "tests/test_plan09_r4_tenth10.py",
+      "sha256": "ab7900a9e0342fc538a59ed0f5b82518073aa6827ff2d4e1accfb3e03a853e9f"
+    },
+    {
+      "ref": "tests/test_plan09_r4_third10.py",
+      "sha256": "337b6eba60119f69cb1b4b82648c3f94b8f88cca4e92d1b4e44b28429036b91f"
+    },
+    {
+      "ref": "tests/test_plan09_r4_thirteenth10.py",
+      "sha256": "1511ece21eabdbdb69322667d044342474dbbd270a16acaf619eee6ce81be6e8"
+    },
+    {
+      "ref": "tests/test_plan09_r4_twelfth10.py",
+      "sha256": "068c2f330f54e26dfea399700790c685e7ee2a185dbe0da462253f1eb1c37b8d"
+    },
+    {
+      "ref": "tests/test_plan09_r5_acceptance.py",
+      "sha256": "ab1fff15ac5cb9b21336833fa12d8403a4f203b441c55e08819655f210f1d068"
+    },
+    {
+      "ref": "tests/test_plan09_remediation.py",
+      "sha256": "bf2f76757b819cf2d41057a7c1d3dc015c732d812ff49aa3bbad48320669d869"
+    },
+    {
+      "ref": "tests/test_plan09_revision_history.py",
+      "sha256": "8c61327175e2ac1caa01ae94690c0fc96e41356e4cbe1a8ac624330f83ab99fc"
+    },
+    {
+      "ref": "tests/test_plan09_risk_reviews.py",
+      "sha256": "6703c74208edf0b34eaf85390735f62a1893cbf302f5abd5fc22e0d20db1cc50"
+    }
+  ],
+  "plan10_executed": false
+}

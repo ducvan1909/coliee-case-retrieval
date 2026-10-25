@@ -1,0 +1,238 @@
+{
+  "build_manifest_version": "sentence-atom-build-v1",
+  "status": "pass",
+  "workload": "KOS-5",
+  "segmenter_version": "legal-sentence-rules-v1.1",
+  "policy_sha256": "0a6a6de1904bd951be29ab5956dff062a875b3f6fcaac6bde01c55126909385c",
+  "cache_key_fields": [
+    "case_id",
+    "source_hash",
+    "sourceblock_map_cache_key",
+    "segmenter_version",
+    "policy_sha256"
+  ],
+  "cases": [
+    {
+      "case_id": "013009",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "sourceblock_cache_key": "0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8",
+      "cache_key": "151c9fb1917a98e9c949683731b466b7edcec49caa447f6fc88446a66f12dd98",
+      "artifact_ref": "cases/013009/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+      "artifact_action": "reused",
+      "source_characters": 12710,
+      "sourceblock_count": 21,
+      "atom_count": 86,
+      "protected_span_count": 143,
+      "protected_span_type_counts": {
+        "abbreviation": 10,
+        "balanced_quotation": 24,
+        "initial": 8,
+        "newline_layout": 79,
+        "paragraph_marker": 18,
+        "section_reference": 4
+      },
+      "protection_mode_counts": {
+        "boundary_forbidden": 40,
+        "context_only": 103
+      },
+      "slice_plan_count": 0,
+      "slice_count": 0,
+      "review_event_count": 0,
+      "error_event_count": 0,
+      "event_type_counts": {},
+      "checks": {
+        "schema_valid": true,
+        "parent_sourceblock_valid": true,
+        "canonical_identity_and_provenance": true,
+        "atom_parent_containment": true,
+        "atom_exact_block_round_trip": true,
+        "zero_atom_gap_overlap": true,
+        "no_forbidden_boundary_cut": true,
+        "protected_modes_explicit": true,
+        "slice_plan_exact_parent_coverage": true,
+        "artifact_path_matches_when_supplied": true
+      }
+    },
+    {
+      "case_id": "013948",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "sourceblock_cache_key": "486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4",
+      "cache_key": "14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2",
+      "artifact_ref": "cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+      "artifact_action": "reused",
+      "source_characters": 18830,
+      "sourceblock_count": 68,
+      "atom_count": 123,
+      "protected_span_count": 411,
+      "protected_span_type_counts": {
+        "abbreviation": 68,
+        "balanced_quotation": 23,
+        "initial": 6,
+        "list_marker": 16,
+        "newline_layout": 229,
+        "paragraph_marker": 59,
+        "reporter_citation": 8,
+        "section_reference": 1,
+        "unbalanced_quotation": 1
+      },
+      "protection_mode_counts": {
+        "boundary_forbidden": 158,
+        "context_only": 253
+      },
+      "slice_plan_count": 0,
+      "slice_count": 0,
+      "review_event_count": 1,
+      "error_event_count": 0,
+      "event_type_counts": {
+        "unbalanced_quotation": 1
+      },
+      "checks": {
+        "schema_valid": true,
+        "parent_sourceblock_valid": true,
+        "canonical_identity_and_provenance": true,
+        "atom_parent_containment": true,
+        "atom_exact_block_round_trip": true,
+        "zero_atom_gap_overlap": true,
+        "no_forbidden_boundary_cut": true,
+        "protected_modes_explicit": true,
+        "slice_plan_exact_parent_coverage": true,
+        "artifact_path_matches_when_supplied": true
+      }
+    },
+    {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "sourceblock_cache_key": "7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c",
+      "cache_key": "b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1",
+      "artifact_ref": "cases/011904/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+      "artifact_action": "reused",
+      "source_characters": 20847,
+      "sourceblock_count": 41,
+      "atom_count": 108,
+      "protected_span_count": 423,
+      "protected_span_type_counts": {
+        "abbreviation": 91,
+        "balanced_quotation": 35,
+        "citation_year": 18,
+        "decimal_reference": 1,
+        "initial": 63,
+        "newline_layout": 147,
+        "paragraph_marker": 36,
+        "section_reference": 32
+      },
+      "protection_mode_counts": {
+        "boundary_forbidden": 241,
+        "context_only": 182
+      },
+      "slice_plan_count": 0,
+      "slice_count": 0,
+      "review_event_count": 0,
+      "error_event_count": 0,
+      "event_type_counts": {},
+      "checks": {
+        "schema_valid": true,
+        "parent_sourceblock_valid": true,
+        "canonical_identity_and_provenance": true,
+        "atom_parent_containment": true,
+        "atom_exact_block_round_trip": true,
+        "zero_atom_gap_overlap": true,
+        "no_forbidden_boundary_cut": true,
+        "protected_modes_explicit": true,
+        "slice_plan_exact_parent_coverage": true,
+        "artifact_path_matches_when_supplied": true
+      }
+    },
+    {
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "sourceblock_cache_key": "8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c",
+      "cache_key": "00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d",
+      "artifact_ref": "cases/045155/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+      "artifact_action": "reused",
+      "source_characters": 32073,
+      "sourceblock_count": 89,
+      "atom_count": 266,
+      "protected_span_count": 500,
+      "protected_span_type_counts": {
+        "abbreviation": 71,
+        "balanced_quotation": 21,
+        "citation_year": 2,
+        "decimal_reference": 2,
+        "initial": 104,
+        "list_marker": 14,
+        "newline_layout": 237,
+        "paragraph_marker": 27,
+        "reporter_citation": 8,
+        "section_reference": 5,
+        "unbalanced_quotation": 9
+      },
+      "protection_mode_counts": {
+        "boundary_forbidden": 233,
+        "context_only": 267
+      },
+      "slice_plan_count": 1,
+      "slice_count": 2,
+      "review_event_count": 9,
+      "error_event_count": 0,
+      "event_type_counts": {
+        "unbalanced_quotation": 9
+      },
+      "checks": {
+        "schema_valid": true,
+        "parent_sourceblock_valid": true,
+        "canonical_identity_and_provenance": true,
+        "atom_parent_containment": true,
+        "atom_exact_block_round_trip": true,
+        "zero_atom_gap_overlap": true,
+        "no_forbidden_boundary_cut": true,
+        "protected_modes_explicit": true,
+        "slice_plan_exact_parent_coverage": true,
+        "artifact_path_matches_when_supplied": true
+      }
+    },
+    {
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "sourceblock_cache_key": "75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c",
+      "cache_key": "58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86",
+      "artifact_ref": "cases/099980/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+      "artifact_action": "reused",
+      "source_characters": 122393,
+      "sourceblock_count": 212,
+      "atom_count": 657,
+      "protected_span_count": 1277,
+      "protected_span_type_counts": {
+        "abbreviation": 102,
+        "balanced_quotation": 222,
+        "citation_year": 7,
+        "decimal_reference": 15,
+        "initial": 7,
+        "list_marker": 26,
+        "newline_layout": 688,
+        "paragraph_marker": 200,
+        "section_reference": 10
+      },
+      "protection_mode_counts": {
+        "boundary_forbidden": 367,
+        "context_only": 910
+      },
+      "slice_plan_count": 4,
+      "slice_count": 8,
+      "review_event_count": 0,
+      "error_event_count": 0,
+      "event_type_counts": {},
+      "checks": {
+        "schema_valid": true,
+        "parent_sourceblock_valid": true,
+        "canonical_identity_and_provenance": true,
+        "atom_parent_containment": true,
+        "atom_exact_block_round_trip": true,
+        "zero_atom_gap_overlap": true,
+        "no_forbidden_boundary_cut": true,
+        "protected_modes_explicit": true,
+        "slice_plan_exact_parent_coverage": true,
+        "artifact_path_matches_when_supplied": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "normalized": {
+    "aus": [],
+    "au_errors": [],
+    "warnings": [],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "delivered_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "work_scope_complete"
+    }
+  },
+  "usage": {
+    "input_tokens": 1974,
+    "output_tokens": 41,
+    "total_tokens": 2015
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[],\"assessed_scope_ids\":[\"r1\",\"r2\",\"r3\",\"r4\",\"r5\"],\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"work_scope_complete\"}}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792747316,
+    "id": "0f32124b9cbf4c61802d0185352fa4d6",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 41,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 1974,
+      "prompt_tokens_details": {
+        "cached_tokens": 384
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 2015
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "dbbeee3a9984e086df01c18e6b88e7e1f9ec0a724f9a538c99264a91239d6da5",
+    "payload_sha256": "dbbeee3a9984e086df01c18e6b88e7e1f9ec0a724f9a538c99264a91239d6da5",
+    "polls": 2,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792747309.5477073,
+    "job_status": "completed",
+    "latency_ms": 10026.155,
+    "finished_at_unix": 1792747319.5740442,
+    "server_timing": {
+      "created_at": "2026-10-23T09:21:53.669886+00:00",
+      "started_at": "2026-10-23T09:21:54.520253+00:00",
+      "finished_at": "2026-10-23T09:21:56.619462+00:00",
+      "inference_seconds": 1.4850373369999943
+    }
+  },
+  "model_output": {
+    "aus": [],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "work_scope_complete"
+    }
+  },
+  "status": "verified",
+  "latency_ms": 10026.344,
+  "request_id": "k0-fd62bd9ed57ca4501200f9b8",
+  "payload_sha256": "dbbeee3a9984e086df01c18e6b88e7e1f9ec0a724f9a538c99264a91239d6da5",
+  "receipt_sha256": "c3282fed48350795fb9160d366766cdc6d53757e5968f4385448eed992410ceb"
+}

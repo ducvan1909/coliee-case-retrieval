@@ -1,0 +1,50 @@
+{
+  "evaluation_version": "pipeline-v1-independent-evaluation-v1",
+  "plan": "07",
+  "status": "pass",
+  "generated_at": "2026-10-04T16:42:08+07:00",
+  "scope": "Plan 07 offline deterministic P2a/P2b workload construction on KOS-5",
+  "runs": {
+    "plan07_cli": "pass",
+    "original_plan01_plan07_tests": {"total": 83, "passed": 83, "failed": 0},
+    "independent_plan01_plan07_tests": {"total": 51, "passed": 51, "failed": 0},
+    "independent_plan07_tests": {"total": 6, "passed": 6, "failed": 0},
+    "current_artifacts": {"expected": 5, "reused": 5},
+    "all_artifacts_before": 18,
+    "all_artifacts_after": 18,
+    "artifacts_changed_or_missing": 0,
+    "historical_artifacts_preserved": 13
+  },
+  "recomputed_counts": {
+    "source_blocks": 431,
+    "content_targets": 369,
+    "excluded_blocks": 62,
+    "empty_content_structural_only": 1,
+    "long_parent_blocks": 5,
+    "slices": 10,
+    "work_items": 374,
+    "batches": 96,
+    "regions_per_arm": 96,
+    "hint_dispositions": 28,
+    "hint_target_eligibility": {"eligible_primary_target": 16, "target_ineligible_structural_only": 12},
+    "hint_disposition": {"included_provenance_only_already_baseline_context": 7, "related_is_primary": 9, "target_ineligible_structural_only": 12},
+    "regions_with_context_cap_exhausted_per_arm": 3
+  },
+  "arm_metrics": {
+    "P2a": {"unique_source_chars": 201599, "proposed_source_chars": 295519, "repeated_source_chars": 93920, "rendered_chars": 342095, "estimated_input_tokens": 85559},
+    "P2b": {"unique_source_chars": 201599, "proposed_source_chars": 295519, "repeated_source_chars": 93920, "rendered_chars": 342186, "estimated_input_tokens": 85581}
+  },
+  "p2b_observation": {
+    "status": "confirmed_limitation",
+    "new_source_spans": 0,
+    "new_source_chars": 0,
+    "displaced_p2a_spans": 0,
+    "metadata_rendered_char_increase": 91,
+    "estimated_token_increase": 22,
+    "interpretation": "P2b is a source-context no-op on KOS-5; metadata growth is not semantic or token gain"
+  },
+  "findings": [],
+  "open_findings": [],
+  "metrics_not_reported": ["precision", "recall", "F1", "token_saving", "semantic_quality"],
+  "plan08_started": false
+}

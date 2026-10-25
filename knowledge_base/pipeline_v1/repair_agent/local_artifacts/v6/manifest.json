@@ -1,0 +1,2703 @@
+{
+  "artifact_type": "RepairManifest",
+  "atom_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan04_sentence_atoms_v1",
+  "inputs": {
+    "review": {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan12_agent_repair_20261011\\inputs\\review.source_exact.v2.json",
+      "sha256": "56a7535b4b00f7c2d1f38f8d5667266b53e85614910ade6052e66a00038b15dc"
+    },
+    "run": {
+      "path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan11_semantic_v6_gate_20261011\\run\\run.json",
+      "sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+    }
+  },
+  "manifest_sha256": "9f29caab9c131487cf1e7ccde7405de075581d7fbea6b3ddce513a40dfea5224",
+  "model": "Qwen/Qwen3.5-9B",
+  "policy": {
+    "concurrency": 1,
+    "expansion_chars": 1200,
+    "expansions": 1,
+    "input_tokens": 6000,
+    "model_turns": 2,
+    "output_tokens": 1200,
+    "source_model_attempts": 8,
+    "tool_calls": 8,
+    "total_tokens": 20000
+  },
+  "reviewer": {
+    "producer": "Codex tester",
+    "provenance": {
+      "input_artifacts": [
+        "knowledge_base\\pipeline_v1\\outputs\\plan11_semantic_v6_gate_20261011\\run\\review_packet.masked.json",
+        "knowledge_base/pipeline_v1/outputs/plan11_semantic_v6_gate_20261011/run/semantic_review.masked.normalized.json",
+        "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan11_semantic_v6_gate_20261011\\run\\review.bound.json"
+      ],
+      "method": "Arm-masked source review; deterministic ID binding after verdicts; not gold. Main formats two omission witnesses to exact immutable raw source; does not change semantic verdicts. Original sidecar retained; see witness_correction.audit.json."
+    },
+    "reviewer_id": "plan11-arm-masked-tester",
+    "reviewer_type": "agent",
+    "version": "development-masked-review-v1-exact-witness-v2"
+  },
+  "schema_version": "repair-manifest-v1",
+  "semantic_gold": false,
+  "semantic_metrics": null,
+  "source_store": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1",
+  "source_workload": [
+    {
+      "case_id": "013009",
+      "case_source_ref": "cases/013009/versions/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/case_source.json",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "source_version": "src-fb67079c6df4e7f1"
+    },
+    {
+      "case_id": "013948",
+      "case_source_ref": "cases/013948/versions/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/case_source.json",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "source_version": "src-1571876439f11252"
+    },
+    {
+      "case_id": "011904",
+      "case_source_ref": "cases/011904/versions/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/case_source.json",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "source_version": "src-c2bc7c0944a5ee10"
+    },
+    {
+      "case_id": "045155",
+      "case_source_ref": "cases/045155/versions/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/case_source.json",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "source_version": "src-93d2b91c8a6c01ef"
+    },
+    {
+      "case_id": "099980",
+      "case_source_ref": "cases/099980/versions/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/case_source.json",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "source_version": "src-49d56b1477fed32e"
+    }
+  ],
+  "task_case_ids": [
+    "011904",
+    "013948",
+    "045155",
+    "099980"
+  ],
+  "task_count": 4,
+  "task_workload": "v6 output subset; not full KOS-5",
+  "tasks": [
+    {
+      "artifact_type": "RepairTask",
+      "case_id": "011904",
+      "error_origin": "agent_review",
+      "expansion_atom_catalog": [
+        {
+          "atom_id": "sa-5d1e98b04bb0674ceb613126",
+          "case_id": "011904",
+          "direction": "before",
+          "end_char": 16866,
+          "quote": "Finally, according to Marta Torres, Coordinator of the Interdisciplinary Women's Studies Program at the Colegio de México, \"despite the progress made in the legislative field, the existing legislation on spousal abuse has not yet had a decisive impact.\"\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 16611
+        },
+        {
+          "atom_id": "sa-8058d173154ccd6e8e877dc9",
+          "case_id": "011904",
+          "direction": "before",
+          "end_char": 17181,
+          "quote": "[30]\r\nThe 2006 U.S. State Department Report on Mexico, also specifically referred to by the Board, indicates that at the state level, laws sanctioning domestic violence, if any, are weak, and victims generally do not report abuse for many reasons, including disinterest of authorities in prosecuting such offences. ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 16866
+        },
+        {
+          "atom_id": "sa-ac580f9c1d215b9428b8a239",
+          "case_id": "011904",
+          "direction": "before",
+          "end_char": 17369,
+          "quote": "Further, violence against women remained a widespread phenomenon throughout the country; on an annual basis approximately 1,600 women were killed nationwide mostly from domestic violence. ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 17181
+        },
+        {
+          "atom_id": "sa-0262293b6d7df0d0ec6e254c",
+          "case_id": "011904",
+          "direction": "before",
+          "end_char": 17550,
+          "quote": "Finally, in August the UN Committee for the Elimination of Discrimination Against Women said that there were no visible results from government efforts to prevent gender violence.\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 17369
+        },
+        {
+          "atom_id": "sa-9383ad0f2090591a5c92a2f3",
+          "case_id": "011904",
+          "direction": "after",
+          "end_char": 20740,
+          "quote": "[36]\r\nTHIS COURT ORDERS that\r\nthe application for judicial review is allowed. ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20662
+        },
+        {
+          "atom_id": "sa-322341db82a51b1f58c2bf61",
+          "case_id": "011904",
+          "direction": "after",
+          "end_char": 20830,
+          "quote": "The matter is returned to a newly constituted Board for re-hearing and re-determination.\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20740
+        },
+        {
+          "atom_id": "sa-70b0362341a62704929d669c",
+          "case_id": "011904",
+          "direction": "after",
+          "end_char": 20847,
+          "quote": "[End of document]",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20830
+        }
+      ],
+      "model": "Qwen/Qwen3.5-9B",
+      "obligations": [],
+      "original_proposals": [
+        {
+          "aliases": [
+            {
+              "arm": "P2a",
+              "au_index": 0,
+              "request_id": "hreq-a727aa74c07eabb4699b4866"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+            "evidence_ref_ids": [
+              "sa-007850dc291ad9f7016eb726"
+            ],
+            "kind": "holding",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "current_court"
+          },
+          "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+          "proposal_sha256": "602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89"
+        },
+        {
+          "aliases": [
+            {
+              "arm": "P2b",
+              "au_index": 0,
+              "request_id": "hreq-d3eb474820ddda6ab35005d2"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+            "evidence_ref_ids": [
+              "sa-007850dc291ad9f7016eb726",
+              "sa-40ee92e19a0796bee4e3ae3a",
+              "sa-50d4054365caa2b910a4b56d"
+            ],
+            "kind": "holding",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "current_court"
+          },
+          "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+          "proposal_sha256": "91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467"
+        }
+      ],
+      "original_responses": [
+        {
+          "aus": [
+            {
+              "attribution_role": "proposition",
+              "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+              "evidence_ref_ids": [
+                "sa-007850dc291ad9f7016eb726"
+              ],
+              "kind": "holding",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "current_court"
+            }
+          ],
+          "coverage_status": "complete",
+          "decision": "positive",
+          "hard_negative_reason": null,
+          "request_id": "hreq-a727aa74c07eabb4699b4866",
+          "target_id": "at-482555489e0d0aaf0d44100e",
+          "unresolved_reason": null
+        },
+        {
+          "aus": [
+            {
+              "attribution_role": "proposition",
+              "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+              "evidence_ref_ids": [
+                "sa-007850dc291ad9f7016eb726",
+                "sa-40ee92e19a0796bee4e3ae3a",
+                "sa-50d4054365caa2b910a4b56d"
+              ],
+              "kind": "holding",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "current_court"
+            }
+          ],
+          "coverage_status": "complete",
+          "decision": "positive",
+          "hard_negative_reason": null,
+          "request_id": "hreq-d3eb474820ddda6ab35005d2",
+          "target_id": "at-482555489e0d0aaf0d44100e",
+          "unresolved_reason": null
+        }
+      ],
+      "policy": {
+        "concurrency": 1,
+        "expansion_chars": 1200,
+        "expansions": 1,
+        "input_tokens": 6000,
+        "model_turns": 2,
+        "output_tokens": 1200,
+        "source_model_attempts": 8,
+        "tool_calls": 8,
+        "total_tokens": 20000
+      },
+      "raw_targets": [
+        {
+          "block_id": null,
+          "case_id": "011904",
+          "end_char": 20493,
+          "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+          "role": "target",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20340,
+          "target_ids": [
+            "at-482555489e0d0aaf0d44100e"
+          ]
+        }
+      ],
+      "request": {
+        "arm": "P2a",
+        "atom_binding": {
+          "atom_map_cache_key": "b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1",
+          "atom_map_relative_path": "cases/011904/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+          "atom_map_sha256": "9067d95f48d468160ea1296b6140da3cd2f41efc64e9bd1ea57aa26c7308a66a",
+          "case_id": "011904",
+          "policy_sha256": "0a6a6de1904bd951be29ab5956dff062a875b3f6fcaac6bde01c55126909385c",
+          "segmenter_version": "legal-sentence-rules-v1.1",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12"
+        },
+        "case_id": "011904",
+        "context_hint_experiment": "metadata-only-v1",
+        "expected_target_ids": [
+          "at-482555489e0d0aaf0d44100e"
+        ],
+        "hint_payload": {
+          "case_id": "011904",
+          "hints": [],
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "version": "resolved-context-hints-v1"
+        },
+        "input_tokens": 11503,
+        "provenance": {
+          "plan07_workload_sha256": "6e2b41dd8aa691976bcdcb743a07e7bfd5c480630b7908b9864dd59eeec9dd6d",
+          "readiness_sha256": "c1a1c775705a2d049f2b1e1c62d773884d6cd833742ff22a5a9c2e5d6b39e83e",
+          "selection": "four real hint targets; development only; not gold"
+        },
+        "region_id": "ar-b6f998bdc782d0a5eb70b3e9",
+        "request_id": "hreq-a727aa74c07eabb4699b4866",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "source_refs": [
+          {
+            "case_id": "011904",
+            "end_char": 18308,
+            "role": "context",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 17556,
+            "target_ids": []
+          },
+          {
+            "case_id": "011904",
+            "end_char": 19533,
+            "role": "context",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 18316,
+            "target_ids": []
+          },
+          {
+            "case_id": "011904",
+            "end_char": 20332,
+            "role": "context",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 19541,
+            "target_ids": []
+          },
+          {
+            "case_id": "011904",
+            "end_char": 20493,
+            "role": "target",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 20340,
+            "target_ids": [
+              "at-482555489e0d0aaf0d44100e"
+            ]
+          },
+          {
+            "case_id": "011904",
+            "end_char": 20650,
+            "role": "context",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 20501,
+            "target_ids": []
+          },
+          {
+            "case_id": "011904",
+            "end_char": 20660,
+            "role": "context",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 20652,
+            "target_ids": []
+          }
+        ],
+        "spec": {
+          "caps": {
+            "au_candidates": 3,
+            "output_tokens": 800,
+            "targets": 1
+          },
+          "enable_thinking": false,
+          "model": "Qwen/Qwen3.5-9B"
+        }
+      },
+      "review_oracle": [
+        {
+          "checks": {
+            "omission": "pass"
+          },
+          "proposal_sha256": "dfffafee18025e21f0e8d1ee03acd2886331a16fc9551eaee806b8c98c94c0f1",
+          "reason": "No missed TARGET authority: \"the Board erred by failing to consider the abovementioned documents in its analysis of state protection\" is fully covered by AU0. Source context identifies the documents and the contradiction relevant to state protection; the independent context rule \"required to address relevant and contradictory evidence\" and the remittal remedy do not become separate TARGET AUs.",
+          "request_id": "hreq-a727aa74c07eabb4699b4866",
+          "review_type": "target_omission",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09",
+          "witnesses": [
+            {
+              "atom_id": "sa-007850dc291ad9f7016eb726",
+              "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+            }
+          ]
+        },
+        {
+          "au_index": 0,
+          "checks": {
+            "attribution": "pass",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "pass",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {
+            "attribution_role": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ],
+            "claim": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ],
+            "kind": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ],
+            "speaker": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ]
+          },
+          "material_conditions": {
+            "status": "present",
+            "witnesses": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ]
+          },
+          "primary_proposition": {
+            "atom_id": "sa-007850dc291ad9f7016eb726",
+            "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+          },
+          "proposal_sha256": "602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+          "reason": "Supported case-specific holding: rawTARGET says \"I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection.\" It is the current court's conclusion, not the Board's assertion. The supplied context resolves \"abovementioned documents\" to the country-protection material, including the Special Rapporteur and Amnesty material; \"not required to defer ... required to address relevant and contradictory evidence\" supplies context, not a second TARGET primary. The claim preserves the concrete Board/error/documents/state-protection scope; it does not assert every unconsidered document invalidates every protection decision. No other legal proposition is independently contributed by this TARGET. The claim remains anaphoric; support here does not certify standalone referent completeness.",
+          "request_id": "hreq-a727aa74c07eabb4699b4866",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "checks": {
+            "omission": "pass"
+          },
+          "proposal_sha256": "90869bd86b1e62fec3213ad411a0bd26eb9bc5e1114bbad534e9dc55d6244a5f",
+          "reason": "No missed TARGET authority: \"the Board erred by failing to consider the abovementioned documents in its analysis of state protection\" is fully covered by AU0. Source context identifies the documents and the contradiction relevant to state protection; the independent context rule \"required to address relevant and contradictory evidence\" and the remittal remedy do not become separate TARGET AUs.",
+          "request_id": "hreq-d3eb474820ddda6ab35005d2",
+          "review_type": "target_omission",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09",
+          "witnesses": [
+            {
+              "atom_id": "sa-007850dc291ad9f7016eb726",
+              "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+            }
+          ]
+        },
+        {
+          "au_index": 0,
+          "checks": {
+            "attribution": "pass",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "pass",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {
+            "attribution_role": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ],
+            "claim": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ],
+            "kind": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ],
+            "speaker": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ]
+          },
+          "material_conditions": {
+            "status": "present",
+            "witnesses": [
+              {
+                "atom_id": "sa-007850dc291ad9f7016eb726",
+                "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+              }
+            ]
+          },
+          "primary_proposition": {
+            "atom_id": "sa-007850dc291ad9f7016eb726",
+            "quote": "In light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection."
+          },
+          "proposal_sha256": "91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+          "reason": "Supported case-specific holding: rawTARGET says \"I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection.\" It is the current court's conclusion, not the Board's assertion. The supplied context resolves \"abovementioned documents\" to the country-protection material, including the Special Rapporteur and Amnesty material; \"not required to defer ... required to address relevant and contradictory evidence\" supplies context, not a second TARGET primary. The claim preserves the concrete Board/error/documents/state-protection scope; it does not assert every unconsidered document invalidates every protection decision. No other legal proposition is independently contributed by this TARGET. The claim remains anaphoric; support here does not certify standalone referent completeness.",
+          "request_id": "hreq-d3eb474820ddda6ab35005d2",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        }
+      ],
+      "schema_version": "repair-task-v1",
+      "selection": "correct_control",
+      "semantic_errors": [],
+      "semantic_gold": false,
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "supplied_atom_catalog": [
+        {
+          "atom_id": "sa-0142393622b9ee99dee58e99",
+          "case_id": "011904",
+          "end_char": 18310,
+          "parent_block_id": "sb-bfb443b018b513ad335ffa3b",
+          "quote": "[31]\r\nThe issue paper entitled \"Mexico: Situation of Witnesses to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation\", dated February 2007, again referred to by the Board, indicates in the \"Effectiveness of protection efforts\" section that the effectiveness of law enforcement and shelters in meeting the needs of victims could not be provided:\r\nRegarding the effectiveness of protection available to women victims of violence interlocutors from both governmental and non-governmental organizations stated that evaluation efforts are relatively new and statistical information on, for example, the effectiveness of law enforcement and shelters in meeting the needs of victims could not be provided [...]\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 17550,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-5433c2e50e0685b09ced6884",
+          "case_id": "011904",
+          "end_char": 18580,
+          "parent_block_id": "sb-1abd2a67ac2e76ad33c69617",
+          "quote": "[32]\r\nFurther, in the National Documentation Package provided to the Board was a document entitled \"Integration of the Human Rights of Women and a Gender Perspective: Violence Against Women\", dated January 13, 2006 (National Documentation Package on Mexico, item 5.15). ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 18310,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-733129756c37f5139a260557",
+          "case_id": "011904",
+          "end_char": 18860,
+          "parent_block_id": "sb-1abd2a67ac2e76ad33c69617",
+          "quote": "This report by the United Nations Special Rapporteur on violence against women regarding the situation in Mexico, instructively states the following:\r\nThe Government of Mexico has taken significant steps to prevent, punish and eradicate violence against women with due diligence. ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 18580,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-131b8ab6f7c7244d874e780b",
+          "case_id": "011904",
+          "end_char": 19045,
+          "parent_block_id": "sb-1abd2a67ac2e76ad33c69617",
+          "quote": "But in the light of the unbearably high levels of violence against women that continue to exist in Mexico, the Government needs to do more to live up to its international obligations.\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 18860,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-f240bc26e6b75439ba8a170e",
+          "case_id": "011904",
+          "end_char": 19381,
+          "parent_block_id": "sb-1abd2a67ac2e76ad33c69617",
+          "quote": "The responsiveness of the police and justice sectors to gender-based violence remains inadequate overall and needs to be improved\r\n(para. 63)\r\n[Emphasis added]\r\nThe views of the Special Rapporteur present cogent evidence that despite the government of Mexico's \"due diligence\", the response to gender-based violence remains inadequate. ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 19045,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-97c9cc968bda1600cba78291",
+          "case_id": "011904",
+          "end_char": 19535,
+          "parent_block_id": "sb-1abd2a67ac2e76ad33c69617",
+          "quote": "While the Board is not required to defer to the Special Rapporteur's general conclusions, it is required to address relevant and contradictory evidence.\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 19381,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-603c7729b93df5970f11145f",
+          "case_id": "011904",
+          "end_char": 19667,
+          "parent_block_id": "sb-3ee45e0c92f680bb8f29c8e8",
+          "quote": "[33]\r\nWith respect to the male applicant, the Board was of the view that he should have exhausted additional avenues of protection. ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 19535,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-88d279cbd3b8fbf74def6924",
+          "case_id": "011904",
+          "end_char": 19894,
+          "parent_block_id": "sb-3ee45e0c92f680bb8f29c8e8",
+          "quote": "The Board was cognizant of the fact that the applicant complained directly to the police after his attack; however,\r\nit failed to mention the fact that he did submit a complaint to the Queretaro State Human Rights Commission.\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 19667,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-40ee92e19a0796bee4e3ae3a",
+          "case_id": "011904",
+          "end_char": 20056,
+          "parent_block_id": "sb-3ee45e0c92f680bb8f29c8e8",
+          "quote": "This State Human Rights Commission was specifically mentioned by the Board as an alternate institution capable of addressing the applicants' corruption concerns. ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 19894,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-50d4054365caa2b910a4b56d",
+          "case_id": "011904",
+          "end_char": 20334,
+          "parent_block_id": "sb-3ee45e0c92f680bb8f29c8e8",
+          "quote": "I note that the Board referred to an Amnesty Report in its reasons stating that commissions were overall ineffective in holding the authorities accountable for their actions and yet without further explanation paradoxically went on to cite it as a possible avenue for redress.\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20056,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-007850dc291ad9f7016eb726",
+          "case_id": "011904",
+          "end_char": 20495,
+          "parent_block_id": "sb-b31970c134b556e5242b2009",
+          "quote": "[34]\r\nIn light of the foregoing, I am of the view that the Board erred by failing to consider the abovementioned documents in its analysis of state protection.\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20334,
+          "target_intersecting": true
+        },
+        {
+          "atom_id": "sa-7ab1cdeb280427048f9a62c3",
+          "case_id": "011904",
+          "end_char": 20562,
+          "parent_block_id": "sb-b953e236dace6617842175d0",
+          "quote": "[35]\r\nAccordingly, the application for judicial review is allowed. ",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20495,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-2d1296c34e4c0a35f4599968",
+          "case_id": "011904",
+          "end_char": 20652,
+          "parent_block_id": "sb-b953e236dace6617842175d0",
+          "quote": "The matter is returned to a newly constituted Board for re-hearing and re-determination.\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20562,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-1025e2b047fd98cd648e6b87",
+          "case_id": "011904",
+          "end_char": 20662,
+          "parent_block_id": "sb-d525d6ec70bc153d944ee940",
+          "quote": "JUDGMENT\r\n",
+          "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+          "start_char": 20652,
+          "target_intersecting": false
+        }
+      ],
+      "target_id": "at-482555489e0d0aaf0d44100e",
+      "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28",
+      "technical_errors": [],
+      "technical_errors_origin": "host"
+    },
+    {
+      "artifact_type": "RepairTask",
+      "case_id": "013948",
+      "error_origin": "agent_review",
+      "expansion_atom_catalog": [
+        {
+          "atom_id": "sa-f03699705131580fe2985545",
+          "case_id": "013948",
+          "direction": "before",
+          "end_char": 6868,
+          "quote": "[21]\r\nMr. Bayavuge completely ignores subsection 172(4) of the\r\nRegulations\r\nwhen he submits that before making his decision the PRRA officer should have given him a written assessment under subsection 172(2) of the\r\nRegulations\r\n.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 6635
+        },
+        {
+          "atom_id": "sa-59dd7793d953e00438b36b1e",
+          "case_id": "013948",
+          "direction": "before",
+          "end_char": 7028,
+          "quote": "[22]\r\nIt is true that Mr. Bayavuge is described in paragraph 112(3)(c) of the\r\nAct\r\n, as he was excluded by the Board under Article 1F(a) of the\r\nConvention\r\n. ",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 6868
+        },
+        {
+          "atom_id": "sa-559da8c54b4c5bd5dfe1af54",
+          "case_id": "013948",
+          "direction": "before",
+          "end_char": 7218,
+          "quote": "It is also true that PRRA applications by persons described in one of the paragraphs of subsection 112(3) are subject to a special assessment, as set out in paragraph 113(d) of the\r\nAct\r\n.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 7028
+        },
+        {
+          "atom_id": "sa-386cac03e5758ed5a354015b",
+          "case_id": "013948",
+          "direction": "before",
+          "end_char": 7569,
+          "quote": "[23]\r\nIn fact, subsection 172(2) of the\r\nRegulations\r\nprovides that a written assessment on the basis of the factors set out in section 97 of the\r\nAct\r\nand a written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the\r\nAct\r\nmust be given to Mr. Bayavuge, an applicant described in subsection 112(3) of the\r\nAct\r\n.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 7218
+        },
+        {
+          "atom_id": "sa-72619d69fac15c8e001b02ab",
+          "case_id": "013948",
+          "direction": "after",
+          "end_char": 10557,
+          "quote": "[30]\r\nIn the case at bar, since the PRRA officer concluded that Mr. Bayavuge had not established any danger of torture or risk of cruel and unusual treatment or punishment, he was not obliged to give Mr. Bayavuge a written assessment or to conduct an assessment of the factors set out in paragraph 113(d) of the\r\nAct\r\n. ",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 10237
+        },
+        {
+          "atom_id": "sa-26065efd68914b28bacd09a8",
+          "case_id": "013948",
+          "direction": "after",
+          "end_char": 10619,
+          "quote": "Accordingly, the officer had to reject the PRRA application.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 10557
+        },
+        {
+          "atom_id": "sa-ec19dd288c87782655526463",
+          "case_id": "013948",
+          "direction": "after",
+          "end_char": 10767,
+          "quote": "[31]\r\nTherefore, the PRRA officer did not err in not giving Mr. Bayavuge the written assessment set out in subsection 172(2) of the\r\nRegulations\r\n. ",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 10619
+        },
+        {
+          "atom_id": "sa-bfb4283120ad9dffab839cb6",
+          "case_id": "013948",
+          "direction": "after",
+          "end_char": 10825,
+          "quote": "No intervention is warranted by the Court on this point.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 10767
+        },
+        {
+          "atom_id": "sa-36bf02380220b821ef162e69",
+          "case_id": "013948",
+          "direction": "after",
+          "end_char": 10828,
+          "quote": "2. ",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 10825
+        },
+        {
+          "atom_id": "sa-5d43ff82964df57778ce3e72",
+          "case_id": "013948",
+          "direction": "after",
+          "end_char": 10962,
+          "quote": "Could the PRRA officer reasonably reject Mr. Bayavuge's PRRA application in spite of the decision rendered by the Board in his case?\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 10828
+        },
+        {
+          "atom_id": "sa-759e60c34db5d574c848b0bd",
+          "case_id": "013948",
+          "direction": "after",
+          "end_char": 11175,
+          "quote": "[32]\r\nMr. Bayavuge submits that the PRRA officer ignored the decision rendered by the Board, which, according to him, acknowledged that the facts alleged in support of his claim for refugee protection were true.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 10962
+        }
+      ],
+      "model": "Qwen/Qwen3.5-9B",
+      "obligations": [],
+      "original_proposals": [
+        {
+          "aliases": [
+            {
+              "arm": "P2a",
+              "au_index": 0,
+              "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+            },
+            {
+              "arm": "P2b",
+              "au_index": 0,
+              "request_id": "hreq-874c6ffa109dfa3f02e40224"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+            "evidence_ref_ids": [
+              "sa-dae5c70d9fa508f6d457c1ae"
+            ],
+            "kind": "statutory_hook",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "statute"
+          },
+          "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+          "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b"
+        },
+        {
+          "aliases": [
+            {
+              "arm": "P2a",
+              "au_index": 1,
+              "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "The condition precedent for applying subsections (1) to (3) of section 172 of the Regulations is that the applicant be described in section 97 of the Act.",
+            "evidence_ref_ids": [
+              "sa-dae5c70d9fa508f6d457c1ae",
+              "sa-f751735fdfbd3b9fd4bee03e"
+            ],
+            "kind": "statutory_hook",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "statute"
+          },
+          "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+          "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8"
+        },
+        {
+          "aliases": [
+            {
+              "arm": "P2a",
+              "au_index": 2,
+              "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+            },
+            {
+              "arm": "P2b",
+              "au_index": 2,
+              "request_id": "hreq-874c6ffa109dfa3f02e40224"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+            "evidence_ref_ids": [
+              "sa-dae5c70d9fa508f6d457c1ae",
+              "sa-f751735fdfbd3b9fd4bee03e"
+            ],
+            "kind": "statutory_hook",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "statute"
+          },
+          "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+          "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e"
+        },
+        {
+          "aliases": [
+            {
+              "arm": "P2b",
+              "au_index": 1,
+              "request_id": "hreq-874c6ffa109dfa3f02e40224"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "The condition precedent for applying subsections 172(1) to (3) of the Regulations is that the applicant be described in section 97 of the Act.",
+            "evidence_ref_ids": [
+              "sa-dae5c70d9fa508f6d457c1ae",
+              "sa-f751735fdfbd3b9fd4bee03e"
+            ],
+            "kind": "statutory_hook",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "statute"
+          },
+          "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+          "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422"
+        }
+      ],
+      "original_responses": [
+        {
+          "aus": [
+            {
+              "attribution_role": "proposition",
+              "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            {
+              "attribution_role": "proposition",
+              "claim": "The condition precedent for applying subsections (1) to (3) of section 172 of the Regulations is that the applicant be described in section 97 of the Act.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            {
+              "attribution_role": "proposition",
+              "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            }
+          ],
+          "coverage_status": "complete",
+          "decision": "positive",
+          "hard_negative_reason": null,
+          "request_id": "hreq-aa6d732a5bb79c4d314fa455",
+          "target_id": "at-471255685516a37ee508b835",
+          "unresolved_reason": null
+        },
+        {
+          "aus": [
+            {
+              "attribution_role": "proposition",
+              "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            {
+              "attribution_role": "proposition",
+              "claim": "The condition precedent for applying subsections 172(1) to (3) of the Regulations is that the applicant be described in section 97 of the Act.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            {
+              "attribution_role": "proposition",
+              "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            }
+          ],
+          "coverage_status": "complete",
+          "decision": "positive",
+          "hard_negative_reason": null,
+          "request_id": "hreq-874c6ffa109dfa3f02e40224",
+          "target_id": "at-471255685516a37ee508b835",
+          "unresolved_reason": null
+        }
+      ],
+      "policy": {
+        "concurrency": 1,
+        "expansion_chars": 1200,
+        "expansions": 1,
+        "input_tokens": 6000,
+        "model_turns": 2,
+        "output_tokens": 1200,
+        "source_model_attempts": 8,
+        "tool_calls": 8,
+        "total_tokens": 20000
+      },
+      "raw_targets": [
+        {
+          "block_id": null,
+          "case_id": "013948",
+          "end_char": 8303,
+          "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\"",
+          "role": "target",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 7864,
+          "target_ids": [
+            "at-471255685516a37ee508b835"
+          ]
+        }
+      ],
+      "request": {
+        "arm": "P2a",
+        "atom_binding": {
+          "atom_map_cache_key": "14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2",
+          "atom_map_relative_path": "cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+          "atom_map_sha256": "2e0f98156fcd7044ec734576eafe9c0d6abbe2041038c387d4fa6f60ac8128d3",
+          "case_id": "013948",
+          "policy_sha256": "0a6a6de1904bd951be29ab5956dff062a875b3f6fcaac6bde01c55126909385c",
+          "segmenter_version": "legal-sentence-rules-v1.1",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352"
+        },
+        "case_id": "013948",
+        "context_hint_experiment": "metadata-only-v1",
+        "expected_target_ids": [
+          "at-471255685516a37ee508b835"
+        ],
+        "hint_payload": {
+          "case_id": "013948",
+          "hints": [],
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "version": "resolved-context-hints-v1"
+        },
+        "input_tokens": 10661,
+        "provenance": {
+          "plan07_workload_sha256": "e3efa55905a47101be771dbeeb93fcacd9acf5a2ca1f51b17c7a0a59234e5f01",
+          "readiness_sha256": "c1a1c775705a2d049f2b1e1c62d773884d6cd833742ff22a5a9c2e5d6b39e83e",
+          "selection": "four real hint targets; development only; not gold"
+        },
+        "region_id": "ar-be63422bed84fec1685f15fa",
+        "request_id": "hreq-aa6d732a5bb79c4d314fa455",
+        "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+        "source_refs": [
+          {
+            "case_id": "013948",
+            "end_char": 7856,
+            "role": "context",
+            "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+            "start_char": 7575,
+            "target_ids": []
+          },
+          {
+            "case_id": "013948",
+            "end_char": 8303,
+            "role": "target",
+            "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+            "start_char": 7864,
+            "target_ids": [
+              "at-471255685516a37ee508b835"
+            ]
+          },
+          {
+            "case_id": "013948",
+            "end_char": 8515,
+            "role": "context",
+            "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+            "start_char": 8311,
+            "target_ids": []
+          },
+          {
+            "case_id": "013948",
+            "end_char": 8681,
+            "role": "context",
+            "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+            "start_char": 8523,
+            "target_ids": []
+          },
+          {
+            "case_id": "013948",
+            "end_char": 9915,
+            "role": "context",
+            "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+            "start_char": 8689,
+            "target_ids": []
+          },
+          {
+            "case_id": "013948",
+            "end_char": 10235,
+            "role": "context",
+            "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+            "start_char": 9923,
+            "target_ids": []
+          }
+        ],
+        "spec": {
+          "caps": {
+            "au_candidates": 3,
+            "output_tokens": 800,
+            "targets": 1
+          },
+          "enable_thinking": false,
+          "model": "Qwen/Qwen3.5-9B"
+        }
+      },
+      "review_oracle": [
+        {
+          "checks": {
+            "omission": "pass"
+          },
+          "proposal_sha256": "dc8b58be5c45ac0f61d8aae318a4907c8801a2ac2b8e5261ff496f7def48e8a6",
+          "reason": "No missed TARGET authority: quoted subsection 172(4) has a section-97-negative trigger and two consequences, \"no written assessment ... need be made\" and \"the application is rejected\"; AU0 covers both. \"Despite subsections (1) to (3)\" qualifies this rule rather than constituting an omitted independent AU. Court [26]-[27] and the Manual in [28]-[29] are context; they cannot create an independent TARGET primary. Rejected extra AUs do not imply an omission of the actual statutory rule.",
+          "request_id": "hreq-aa6d732a5bb79c4d314fa455",
+          "review_type": "target_omission",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09",
+          "witnesses": [
+            {
+              "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+              "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+            }
+          ]
+        },
+        {
+          "au_index": 0,
+          "checks": {
+            "attribution": "pass",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "pass",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {
+            "attribution_role": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+              }
+            ],
+            "claim": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+              }
+            ],
+            "kind": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+              }
+            ],
+            "speaker": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+              }
+            ]
+          },
+          "material_conditions": {
+            "status": "present",
+            "witnesses": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,"
+              }
+            ]
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+          "reason": "Supported paraphrase of the quoted regulation: \"if the Minister decides on the basis of the factors set out in section 97 ... the applicant is not described in that section\", followed by \"no written assessment ... need be made\" and \"the application is rejected.\" Both legal consequences are included; \"need be made\" is permission to omit, not a prohibition. Read as a section-97 determination under the quoted subsection, the abbreviated trigger retains its legal meaning; omission of the verbatim phrase \"on the basis of the factors\" alone does not demonstrate broadening. No arbitrary decision based solely on unrelated administrative convenience is authorized: that would be a material counterexample to an unrestricted reading, but the claim does not expressly adopt that reading. Context [24] locates this regime in subsection 112(3); it does not create a new primary. Attribution to statute correctly identifies quoted regulatory text rather than court interpretation.",
+          "request_id": "hreq-aa6d732a5bb79c4d314fa455",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "au_index": 1,
+          "checks": {
+            "attribution": "fail",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "unknown",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {},
+          "material_conditions": {
+            "status": "unknown",
+            "witnesses": []
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+          "reason": "Confirmed attribution defect: the selected context atom sa-f751735fdfbd3b9fd4bee03e says \"Under this provision, it is clear that the condition precedent ... is that he be described in section 97\" in the court's explanatory voice. The model labels that interpretation speaker=\"statute\" and kind=\"statutory_hook\". rawTARGET quotes the regulation's negative branch, \"Despite subsections (1) to (3) ... no written assessment ... need be made\"; it materially contributes the statutory basis, so target contribution passes, but the positive prerequisite formulation must be identified as court interpretation, not direct quoted legislation. The prerequisite is supported by the selected court explanation and is not rejected for failing to copy all statutory words. Duplicate remains unknown: it overlaps AU0 but a necessary-condition interpretation can be a distinct proposition; the packet alone does not settle the desired granularity. Proposed adjudication: distinguish quoted subsection 172(4) from court [26], then decide whether its prerequisite interpretation deserves a separate AU.",
+          "request_id": "hreq-aa6d732a5bb79c4d314fa455",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "au_index": 2,
+          "checks": {
+            "attribution": "fail",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "fail",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {},
+          "material_conditions": {
+            "status": "unknown",
+            "witnesses": []
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+          "reason": "Confirmed attribution defect and redundant TARGET extraction: rawTARGET gives the same negative section-97 branch as AU0, \"no written assessment ... need be made\". \"Therefore, when the risk assessment is negative ... subsections 172(1) to (3) ... do not apply\" is court interpretation in context atom sa-ed437d5c5a3d23b5f6c0e005, not quoted statutory speech. That atom was not selected by the model and is NOT supplied as a sidecar witness. Selected [26] explains the section-97 prerequisite, allowing the negative-risk shorthand to be understood within this regime; no unsupported broadened meaning is inferred solely from paraphrase. As a TARGET-owned proposition AU2 repeats AU0's no-written-assessment consequence, adding no separate TARGET rule; treating the court's context sentence as a new independent primary would violate scope. Proposed adjudication: compare AU0 and AU2 under the same section-97-negative scenario; both produce the same written-assessment result. The model's statute attribution is incorrect regardless of whether a separately attributed court interpretation might be useful in another target scope.",
+          "request_id": "hreq-aa6d732a5bb79c4d314fa455",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "checks": {
+            "omission": "pass"
+          },
+          "proposal_sha256": "fbd24585c4c859bb9e167246e3863589cb6fafa387ab73e9d3589c1eba3c99ed",
+          "reason": "No missed TARGET authority: quoted subsection 172(4) has a section-97-negative trigger and two consequences, \"no written assessment ... need be made\" and \"the application is rejected\"; AU0 covers both. \"Despite subsections (1) to (3)\" qualifies this rule rather than constituting an omitted independent AU. Court [26]-[27] and the Manual in [28]-[29] are context; they cannot create an independent TARGET primary. Rejected extra AUs do not imply an omission of the actual statutory rule.",
+          "request_id": "hreq-874c6ffa109dfa3f02e40224",
+          "review_type": "target_omission",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09",
+          "witnesses": [
+            {
+              "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+              "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+            }
+          ]
+        },
+        {
+          "au_index": 0,
+          "checks": {
+            "attribution": "pass",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "pass",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {
+            "attribution_role": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+              }
+            ],
+            "claim": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+              }
+            ],
+            "kind": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+              }
+            ],
+            "speaker": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+              }
+            ]
+          },
+          "material_conditions": {
+            "status": "present",
+            "witnesses": [
+              {
+                "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+                "quote": "Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,"
+              }
+            ]
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+          "reason": "Supported paraphrase of the quoted regulation: \"if the Minister decides on the basis of the factors set out in section 97 ... the applicant is not described in that section\", followed by \"no written assessment ... need be made\" and \"the application is rejected.\" Both legal consequences are included; \"need be made\" is permission to omit, not a prohibition. Read as a section-97 determination under the quoted subsection, the abbreviated trigger retains its legal meaning; omission of the verbatim phrase \"on the basis of the factors\" alone does not demonstrate broadening. No arbitrary decision based solely on unrelated administrative convenience is authorized: that would be a material counterexample to an unrestricted reading, but the claim does not expressly adopt that reading. Context [24] locates this regime in subsection 112(3); it does not create a new primary. Attribution to statute correctly identifies quoted regulatory text rather than court interpretation.",
+          "request_id": "hreq-874c6ffa109dfa3f02e40224",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "au_index": 1,
+          "checks": {
+            "attribution": "fail",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "unknown",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {},
+          "material_conditions": {
+            "status": "unknown",
+            "witnesses": []
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+          "reason": "Confirmed attribution defect: the selected context atom sa-f751735fdfbd3b9fd4bee03e says \"Under this provision, it is clear that the condition precedent ... is that he be described in section 97\" in the court's explanatory voice. The model labels that interpretation speaker=\"statute\" and kind=\"statutory_hook\". rawTARGET quotes the regulation's negative branch, \"Despite subsections (1) to (3) ... no written assessment ... need be made\"; it materially contributes the statutory basis, so target contribution passes, but the positive prerequisite formulation must be identified as court interpretation, not direct quoted legislation. The prerequisite is supported by the selected court explanation and is not rejected for failing to copy all statutory words. Duplicate remains unknown: it overlaps AU0 but a necessary-condition interpretation can be a distinct proposition; the packet alone does not settle the desired granularity. Proposed adjudication: distinguish quoted subsection 172(4) from court [26], then decide whether its prerequisite interpretation deserves a separate AU.",
+          "request_id": "hreq-874c6ffa109dfa3f02e40224",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "au_index": 2,
+          "checks": {
+            "attribution": "fail",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "fail",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {},
+          "material_conditions": {
+            "status": "unknown",
+            "witnesses": []
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+          "reason": "Confirmed attribution defect and redundant TARGET extraction: rawTARGET gives the same negative section-97 branch as AU0, \"no written assessment ... need be made\". \"Therefore, when the risk assessment is negative ... subsections 172(1) to (3) ... do not apply\" is court interpretation in context atom sa-ed437d5c5a3d23b5f6c0e005, not quoted statutory speech. That atom was not selected by the model and is NOT supplied as a sidecar witness. Selected [26] explains the section-97 prerequisite, allowing the negative-risk shorthand to be understood within this regime; no unsupported broadened meaning is inferred solely from paraphrase. As a TARGET-owned proposition AU2 repeats AU0's no-written-assessment consequence, adding no separate TARGET rule; treating the court's context sentence as a new independent primary would violate scope. Proposed adjudication: compare AU0 and AU2 under the same section-97-negative scenario; both produce the same written-assessment result. The model's statute attribution is incorrect regardless of whether a separately attributed court interpretation might be useful in another target scope.",
+          "request_id": "hreq-874c6ffa109dfa3f02e40224",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        }
+      ],
+      "schema_version": "repair-task-v1",
+      "selection": "repair",
+      "semantic_errors": [
+        {
+          "au_index": 1,
+          "checks": {
+            "attribution": "fail",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "unknown",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {},
+          "material_conditions": {
+            "status": "unknown",
+            "witnesses": []
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+          "reason": "Confirmed attribution defect: the selected context atom sa-f751735fdfbd3b9fd4bee03e says \"Under this provision, it is clear that the condition precedent ... is that he be described in section 97\" in the court's explanatory voice. The model labels that interpretation speaker=\"statute\" and kind=\"statutory_hook\". rawTARGET quotes the regulation's negative branch, \"Despite subsections (1) to (3) ... no written assessment ... need be made\"; it materially contributes the statutory basis, so target contribution passes, but the positive prerequisite formulation must be identified as court interpretation, not direct quoted legislation. The prerequisite is supported by the selected court explanation and is not rejected for failing to copy all statutory words. Duplicate remains unknown: it overlaps AU0 but a necessary-condition interpretation can be a distinct proposition; the packet alone does not settle the desired granularity. Proposed adjudication: distinguish quoted subsection 172(4) from court [26], then decide whether its prerequisite interpretation deserves a separate AU.",
+          "request_id": "hreq-aa6d732a5bb79c4d314fa455",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "au_index": 2,
+          "checks": {
+            "attribution": "fail",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "fail",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {},
+          "material_conditions": {
+            "status": "unknown",
+            "witnesses": []
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+          "reason": "Confirmed attribution defect and redundant TARGET extraction: rawTARGET gives the same negative section-97 branch as AU0, \"no written assessment ... need be made\". \"Therefore, when the risk assessment is negative ... subsections 172(1) to (3) ... do not apply\" is court interpretation in context atom sa-ed437d5c5a3d23b5f6c0e005, not quoted statutory speech. That atom was not selected by the model and is NOT supplied as a sidecar witness. Selected [26] explains the section-97 prerequisite, allowing the negative-risk shorthand to be understood within this regime; no unsupported broadened meaning is inferred solely from paraphrase. As a TARGET-owned proposition AU2 repeats AU0's no-written-assessment consequence, adding no separate TARGET rule; treating the court's context sentence as a new independent primary would violate scope. Proposed adjudication: compare AU0 and AU2 under the same section-97-negative scenario; both produce the same written-assessment result. The model's statute attribution is incorrect regardless of whether a separately attributed court interpretation might be useful in another target scope.",
+          "request_id": "hreq-aa6d732a5bb79c4d314fa455",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "au_index": 1,
+          "checks": {
+            "attribution": "fail",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "unknown",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {},
+          "material_conditions": {
+            "status": "unknown",
+            "witnesses": []
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+          "reason": "Confirmed attribution defect: the selected context atom sa-f751735fdfbd3b9fd4bee03e says \"Under this provision, it is clear that the condition precedent ... is that he be described in section 97\" in the court's explanatory voice. The model labels that interpretation speaker=\"statute\" and kind=\"statutory_hook\". rawTARGET quotes the regulation's negative branch, \"Despite subsections (1) to (3) ... no written assessment ... need be made\"; it materially contributes the statutory basis, so target contribution passes, but the positive prerequisite formulation must be identified as court interpretation, not direct quoted legislation. The prerequisite is supported by the selected court explanation and is not rejected for failing to copy all statutory words. Duplicate remains unknown: it overlaps AU0 but a necessary-condition interpretation can be a distinct proposition; the packet alone does not settle the desired granularity. Proposed adjudication: distinguish quoted subsection 172(4) from court [26], then decide whether its prerequisite interpretation deserves a separate AU.",
+          "request_id": "hreq-874c6ffa109dfa3f02e40224",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        },
+        {
+          "au_index": 2,
+          "checks": {
+            "attribution": "fail",
+            "authority_qualification": "pass",
+            "claim_support": "pass",
+            "duplicate": "fail",
+            "qualification": "pass",
+            "target_contribution": "pass"
+          },
+          "field_witnesses": {},
+          "material_conditions": {
+            "status": "unknown",
+            "witnesses": []
+          },
+          "primary_proposition": {
+            "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+            "quote": "Subsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\""
+          },
+          "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+          "reason": "Confirmed attribution defect and redundant TARGET extraction: rawTARGET gives the same negative section-97 branch as AU0, \"no written assessment ... need be made\". \"Therefore, when the risk assessment is negative ... subsections 172(1) to (3) ... do not apply\" is court interpretation in context atom sa-ed437d5c5a3d23b5f6c0e005, not quoted statutory speech. That atom was not selected by the model and is NOT supplied as a sidecar witness. Selected [26] explains the section-97 prerequisite, allowing the negative-risk shorthand to be understood within this regime; no unsupported broadened meaning is inferred solely from paraphrase. As a TARGET-owned proposition AU2 repeats AU0's no-written-assessment consequence, adding no separate TARGET rule; treating the court's context sentence as a new independent primary would violate scope. Proposed adjudication: compare AU0 and AU2 under the same section-97-negative scenario; both produce the same written-assessment result. The model's statute attribution is incorrect regardless of whether a separately attributed court interpretation might be useful in another target scope.",
+          "request_id": "hreq-874c6ffa109dfa3f02e40224",
+          "review_type": "au",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09"
+        }
+      ],
+      "semantic_gold": false,
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "supplied_atom_catalog": [
+        {
+          "atom_id": "sa-a050d3f31b5b5db053e48dbc",
+          "case_id": "013948",
+          "end_char": 7858,
+          "parent_block_id": "sb-dc5c38b4408e357987fa826b",
+          "quote": "[24]\r\nHowever, subsection 172(4) of the\r\nRegulations\r\n, which applies to Mr. Bayavuge as an applicant described in subsection 112(3) of the\r\nAct\r\n, provides that if a person is not described in section 97 of the\r\nAct\r\n, as is the case with Mr. Bayavuge, the application must be rejected.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 7569,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-dae5c70d9fa508f6d457c1ae",
+          "case_id": "013948",
+          "end_char": 8305,
+          "parent_block_id": "sb-6ee43cdcd4c11d616fc2faea",
+          "quote": "[25]\r\nSubsection 172(4) of the\r\nRegulations\r\nreads as follows:\r\n\"Applicant not described in s. 97 of the Act\r\n\"(4) Despite subsections (1) to (3), if the Minister decides on the basis of the factors set out in section 97 of the Act that the applicant is not described in that section,\r\n(a) no written assessment on the basis of the factors set out in subparagraph 113(d)(i) or (ii) of the Act need be made; and\r\n(b) the application is rejected.\"\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 7858,
+          "target_intersecting": true
+        },
+        {
+          "atom_id": "sa-f751735fdfbd3b9fd4bee03e",
+          "case_id": "013948",
+          "end_char": 8517,
+          "parent_block_id": "sb-9d1762a5f24a015d8476ab7e",
+          "quote": "[26]\r\nUnder this provision, it is clear that the condition precedent for applying subsections (1) to (3) of section 172 of the\r\nRegulations\r\nto the applicant is that he be described in section 97 of the\r\nAct\r\n.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 8305,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-ed437d5c5a3d23b5f6c0e005",
+          "case_id": "013948",
+          "end_char": 8683,
+          "parent_block_id": "sb-a81a522a457e1ed690896da2",
+          "quote": "[27]\r\nTherefore, when the risk assessment is negative, as in this case, subsections 172(1) to (3) of the\r\nRegulations\r\nrespecting a written assessment do not apply.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 8517,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-6ccf6f7017b833e2663b4c82",
+          "case_id": "013948",
+          "end_char": 9170,
+          "parent_block_id": "sb-aa322530edb2ff86daf7b52f",
+          "quote": "[28]\r\nSection 14 of chapter PP3 of the Protected Persons Manual confirms that it is only when the PRRA officer concludes that the risk assessment is positive that he or she must conduct an assessment of the factors set out in paragraph 113(d) of the\r\nAct\r\nand give the applicant a written assessment:\r\n\"The PRRA officer must follow the following process:\r\n- Should the risk assessment be negative, the PRRA officer will make the final decision to reject the application for protection.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 8683,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-8f588b3ab949f71b83338230",
+          "case_id": "013948",
+          "end_char": 9618,
+          "parent_block_id": "sb-aa322530edb2ff86daf7b52f",
+          "quote": "- Should the risk assessment be positive on the basis of the existence of danger of torture, risk to life or risk of cruel and unusual treatment or punishment, an opinion will be prepared by Case Management on whether the person is a danger to the public in Canada or, in security cases, whether the applicant should be removed because of the nature and severity of the acts committed or danger the applicant constitutes to the security of Canada. ",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 9170,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-0799b37ea4c2eff1308ec1df",
+          "case_id": "013948",
+          "end_char": 9734,
+          "parent_block_id": "sb-aa322530edb2ff86daf7b52f",
+          "quote": "Once the danger opinion is completed, both risk and danger opinions are disclosed to the applicant for submissions. ",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 9618,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-3dacdee768fa9c3b19146e83",
+          "case_id": "013948",
+          "end_char": 9917,
+          "parent_block_id": "sb-aa322530edb2ff86daf7b52f",
+          "quote": "The final decision, to allow or reject the application for protection, is based on a balancing of the conflicting interests: the risk to the individual against the risk to society.\"\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 9734,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-2189e0d2eab8d5971022a7f7",
+          "case_id": "013948",
+          "end_char": 10237,
+          "parent_block_id": "sb-43d1a8e12a5edf19165935fa",
+          "quote": "[29]\r\nThe rationale for this written assessment is to allow an applicant who is facing removal to a country where he or she runs the risk of being tortured to make comments about the assessment conducted by the decision-maker based on the factors set out in section 97 and subparagraph 113(d)(i) or (ii) of the\r\nAct\r\n.\r\n",
+          "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+          "start_char": 9917,
+          "target_intersecting": false
+        }
+      ],
+      "target_id": "at-471255685516a37ee508b835",
+      "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf",
+      "technical_errors": [],
+      "technical_errors_origin": "host"
+    },
+    {
+      "artifact_type": "RepairTask",
+      "case_id": "045155",
+      "error_origin": "agent_review",
+      "expansion_atom_catalog": [
+        {
+          "atom_id": "sa-7a3f4293f90fbc3c5ecad343",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3206,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3181
+        },
+        {
+          "atom_id": "sa-5463ffd53c1a8530e474acbc",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3244,
+          "quote": " Administrative Law - Topic 7096 \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3206
+        },
+        {
+          "atom_id": "sa-2552fa8a99efe94b1f7b6f5e",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3391,
+          "quote": " Judicial review - Bars - Discretionary bars - Existence of convenient or adequate alternative remedy - [See  \r\n Administrative Law - Topic 3302 \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3244
+        },
+        {
+          "atom_id": "sa-3c0eeca0725736bac257cb14",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3396,
+          "quote": " ].  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3391
+        },
+        {
+          "atom_id": "sa-98d7e47e92d1b9b6e207f9be",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3421,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3396
+        },
+        {
+          "atom_id": "sa-72fddb850f62c0781200214c",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3448,
+          "quote": " Prisons - Topic 1026 \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3421
+        },
+        {
+          "atom_id": "sa-f64517481bfc4554706f4706",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3542,
+          "quote": " Administration - Powers re prisoners - Transfers - [See  \r\n Administrative Law - Topic 608 \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3448
+        },
+        {
+          "atom_id": "sa-b6a2b0ed332d3b31c28150be",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3547,
+          "quote": " ].  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3542
+        },
+        {
+          "atom_id": "sa-d53dfc5a37753048f83803d4",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3572,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3547
+        },
+        {
+          "atom_id": "sa-40a16fd7188a8236a0e398c0",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3599,
+          "quote": " Prisons - Topic 1027 \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3572
+        },
+        {
+          "atom_id": "sa-caff830067de0b605b9e51bf",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3698,
+          "quote": " Administration - Powers re prisoners - Classification - [See  \r\n Administrative Law - Topic 608 \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3599
+        },
+        {
+          "atom_id": "sa-3a16226adac1b54c2c8b7b74",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3703,
+          "quote": " ].  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3698
+        },
+        {
+          "atom_id": "sa-66b9e6632e6cc0e7f570a5ce",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3728,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3703
+        },
+        {
+          "atom_id": "sa-ce175bfb0f4612598490e2fe",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3755,
+          "quote": " Prisons - Topic 1122 \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3728
+        },
+        {
+          "atom_id": "sa-c0e8b785f20a01996fe9db90",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3861,
+          "quote": " Administration - Prisoners' rights - Right to a fair hearing - [See  \r\n Administrative Law - Topic 608 \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3755
+        },
+        {
+          "atom_id": "sa-4c751ba391057d2af918fe4b",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3866,
+          "quote": " ].  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3861
+        },
+        {
+          "atom_id": "sa-84c14567132132c97f6785c2",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3891,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3866
+        },
+        {
+          "atom_id": "sa-739703be9f1a364675dcf47d",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 3918,
+          "quote": " Prisons - Topic 1131 \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3891
+        },
+        {
+          "atom_id": "sa-a74fe723b69d3cb5e7c14693",
+          "case_id": "045155",
+          "direction": "before",
+          "end_char": 4030,
+          "quote": " Administration - Prisoners' rights - Judicial review or grievance - [See  \r\n Administrative Law - Topic 3302 \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 3918
+        },
+        {
+          "atom_id": "sa-d4a12a38b5dd71e3eba34c91",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 4577,
+          "quote": " Stephen Fineberg and Haytoug Léon Chamlian, for the applicant; \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4508
+        },
+        {
+          "atom_id": "sa-812a1240e8899584b2d8d1c0",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 4616,
+          "quote": " Eric Lafrenière, for the respondent.  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4577
+        },
+        {
+          "atom_id": "sa-45b99b0137becf299c103614",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 4641,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4616
+        },
+        {
+          "atom_id": "sa-a1bc8ced497db57bd01f7969",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 4669,
+          "quote": " Solicitors of Record: \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4641
+        },
+        {
+          "atom_id": "sa-adbdf2dace4401fad9500ae7",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 4730,
+          "quote": " Stephen Fineberg, Montreal, Quebec, for the applicant; \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4669
+        },
+        {
+          "atom_id": "sa-a4ca965b7e06745ec3dfda4d",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 4822,
+          "quote": " Morris Rosenberg, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4730
+        },
+        {
+          "atom_id": "sa-8e22b9e53d9d4b9d6044ee32",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 4847,
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4822
+        },
+        {
+          "atom_id": "sa-7c7fb2a1b4dd3f619bfc1a88",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 5040,
+          "quote": " Pelletier, J., of the Federal Court of Canada, Trial Division, heard these applications at Montreal, Quebec, on June 12, 2000, and delivered the following reasons for order on July 11, 2000.  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4847
+        },
+        {
+          "atom_id": "sa-e96415438405345ae48aedd6",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 5214,
+          "quote": "<FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>                                                                                                        <FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 5040
+        },
+        {
+          "atom_id": "sa-bd7a675b5891b709093a59af",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 5388,
+          "quote": " [1] \r\n   \r\n Pelletier, J. \r\n : In 1985, Kevork Marachelian and two others attacked the Turkish embassy in Ottawa to draw attention to the genocide of the armenians in 1915. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 5214
+        },
+        {
+          "atom_id": "sa-388357776d60b1d06cb6ace9",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 5417,
+          "quote": "A security guard was killed. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 5388
+        },
+        {
+          "atom_id": "sa-5493f908e6661601c2a73920",
+          "case_id": "045155",
+          "direction": "after",
+          "end_char": 5570,
+          "quote": "Marachelian and his accomplices were convicted of first degree murder and sentenced to life imprisonment without the possibility of parole for 25 years. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 5417
+        }
+      ],
+      "model": "Qwen/Qwen3.5-9B",
+      "obligations": [],
+      "original_proposals": [],
+      "original_responses": [
+        {
+          "aus": [],
+          "coverage_status": "complete",
+          "decision": "hard_negative",
+          "hard_negative_reason": "citation_without_proposition",
+          "request_id": "hreq-f353273a4933904123b7a05d",
+          "target_id": "at-9950e94059a3c450fb3b34e2",
+          "unresolved_reason": null
+        },
+        {
+          "aus": [],
+          "coverage_status": "complete",
+          "decision": "hard_negative",
+          "hard_negative_reason": "citation_without_proposition",
+          "request_id": "hreq-ba56ec17f17435db5ec73b17",
+          "target_id": "at-9950e94059a3c450fb3b34e2",
+          "unresolved_reason": null
+        }
+      ],
+      "policy": {
+        "concurrency": 1,
+        "expansion_chars": 1200,
+        "expansions": 1,
+        "input_tokens": 6000,
+        "model_turns": 2,
+        "output_tokens": 1200,
+        "source_model_attempts": 8,
+        "tool_calls": 8,
+        "total_tokens": 20000
+      },
+      "raw_targets": [
+        {
+          "block_id": null,
+          "case_id": "045155",
+          "end_char": 4180,
+          "quote": "Fortin v. Établissement de Donnacona (Directeur) (1997), 153 F.T.R. 84 (T.D.), refd to. [para. 8].",
+          "role": "target",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4082,
+          "target_ids": [
+            "at-9950e94059a3c450fb3b34e2"
+          ]
+        }
+      ],
+      "request": {
+        "arm": "P2a",
+        "atom_binding": {
+          "atom_map_cache_key": "00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d",
+          "atom_map_relative_path": "cases/045155/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+          "atom_map_sha256": "e9071beaf319614505c169b97afe0c4c0c25864d2a7ceb768fd2497484002c16",
+          "case_id": "045155",
+          "policy_sha256": "0a6a6de1904bd951be29ab5956dff062a875b3f6fcaac6bde01c55126909385c",
+          "segmenter_version": "legal-sentence-rules-v1.1",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb"
+        },
+        "case_id": "045155",
+        "context_hint_experiment": "metadata-only-v1",
+        "expected_target_ids": [
+          "at-9950e94059a3c450fb3b34e2"
+        ],
+        "hint_payload": {
+          "case_id": "045155",
+          "hints": [],
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "version": "resolved-context-hints-v1"
+        },
+        "input_tokens": 9198,
+        "provenance": {
+          "plan07_workload_sha256": "768572ce4129d5a1d1aed465281899a08caa641ef58bc5021f36e2c5524460a4",
+          "readiness_sha256": "c1a1c775705a2d049f2b1e1c62d773884d6cd833742ff22a5a9c2e5d6b39e83e",
+          "selection": "four real hint targets; development only; not gold"
+        },
+        "region_id": "ar-438e6da42588b4bae9040355",
+        "request_id": "hreq-f353273a4933904123b7a05d",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "source_refs": [
+          {
+            "case_id": "045155",
+            "end_char": 4056,
+            "role": "context",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 4031,
+            "target_ids": []
+          },
+          {
+            "case_id": "045155",
+            "end_char": 4075,
+            "role": "context",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 4061,
+            "target_ids": []
+          },
+          {
+            "case_id": "045155",
+            "end_char": 4180,
+            "role": "target",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 4082,
+            "target_ids": [
+              "at-9950e94059a3c450fb3b34e2"
+            ]
+          },
+          {
+            "case_id": "045155",
+            "end_char": 4241,
+            "role": "context",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 4188,
+            "target_ids": []
+          },
+          {
+            "case_id": "045155",
+            "end_char": 4353,
+            "role": "context",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 4249,
+            "target_ids": []
+          },
+          {
+            "case_id": "045155",
+            "end_char": 4375,
+            "role": "context",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 4358,
+            "target_ids": []
+          },
+          {
+            "case_id": "045155",
+            "end_char": 4489,
+            "role": "context",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 4382,
+            "target_ids": []
+          },
+          {
+            "case_id": "045155",
+            "end_char": 4502,
+            "role": "context",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "start_char": 4494,
+            "target_ids": []
+          }
+        ],
+        "spec": {
+          "caps": {
+            "au_candidates": 3,
+            "output_tokens": 800,
+            "targets": 1
+          },
+          "enable_thinking": false,
+          "model": "Qwen/Qwen3.5-9B"
+        }
+      },
+      "review_oracle": [
+        {
+          "checks": {
+            "omission": "pass"
+          },
+          "proposal_sha256": "df31c59729a06de7d401d50bdd3ae8704cf07cdb1425cfcd4272bd53e5d5ef58",
+          "reason": "No missed TARGET authority: \"Fortin v. Ã‰tablissement de Donnacona (Directeur) ... refd to. [para. 8].\" is a Cases Noticed bibliographic entry, not a legal proposition or holding. Context \"Statutes Noticed\" likewise cannot supply an independent TARGET primary. No AU is warranted from the supplied TARGET.",
+          "request_id": "hreq-f353273a4933904123b7a05d",
+          "review_type": "target_omission",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09",
+          "witnesses": [
+            {
+              "atom_id": "sa-27e1913a42fe6a5489fd7e70",
+              "quote": "Fortin v. Établissement de Donnacona (Directeur) (1997), 153 F.T.R. 84 (T.D.), refd to."
+            },
+            {
+              "atom_id": "sa-e889c45a2cc328f6e4842d12",
+              "quote": "[para. 8]."
+            }
+          ]
+        },
+        {
+          "checks": {
+            "omission": "pass"
+          },
+          "proposal_sha256": "a62732c9f9a2c8cb3f1c8f9c05a9f88ae6c70b30baf18a6df65a755392c0a473",
+          "reason": "No missed TARGET authority: \"Fortin v. Ã‰tablissement de Donnacona (Directeur) ... refd to. [para. 8].\" is a Cases Noticed bibliographic entry, not a legal proposition or holding. Context \"Statutes Noticed\" likewise cannot supply an independent TARGET primary. No AU is warranted from the supplied TARGET.",
+          "request_id": "hreq-ba56ec17f17435db5ec73b17",
+          "review_type": "target_omission",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09",
+          "witnesses": [
+            {
+              "atom_id": "sa-27e1913a42fe6a5489fd7e70",
+              "quote": "Fortin v. Établissement de Donnacona (Directeur) (1997), 153 F.T.R. 84 (T.D.), refd to."
+            },
+            {
+              "atom_id": "sa-e889c45a2cc328f6e4842d12",
+              "quote": "[para. 8]."
+            }
+          ]
+        }
+      ],
+      "schema_version": "repair-task-v1",
+      "selection": "correct_control",
+      "semantic_errors": [],
+      "semantic_gold": false,
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "supplied_atom_catalog": [
+        {
+          "atom_id": "sa-e42c0749bd11af1506c8f1a3",
+          "case_id": "045155",
+          "end_char": 4035,
+          "parent_block_id": "sb-f0fdd0fa8637ba8a3b34e50a",
+          "quote": " ].  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4030,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-5af3b45f02e88d5c1d29d54c",
+          "case_id": "045155",
+          "end_char": 4060,
+          "parent_block_id": "sb-f0fdd0fa8637ba8a3b34e50a",
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4035,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-5fc152780911a811b0f5b18e",
+          "case_id": "045155",
+          "end_char": 4081,
+          "parent_block_id": "sb-0fb3eb61e7b56528f71693b9",
+          "quote": " Cases Noticed: \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4060,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-27e1913a42fe6a5489fd7e70",
+          "case_id": "045155",
+          "end_char": 4170,
+          "parent_block_id": "sb-c79c92a83ee69d7b27d1a5b8",
+          "quote": " Fortin v. Établissement de Donnacona (Directeur) (1997), 153 F.T.R. 84 (T.D.), refd to. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4081,
+          "target_intersecting": true
+        },
+        {
+          "atom_id": "sa-e889c45a2cc328f6e4842d12",
+          "case_id": "045155",
+          "end_char": 4186,
+          "parent_block_id": "sb-c79c92a83ee69d7b27d1a5b8",
+          "quote": "[para. 8]. \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4170,
+          "target_intersecting": true
+        },
+        {
+          "atom_id": "sa-072a6e5abec486fc50958627",
+          "case_id": "045155",
+          "end_char": 4230,
+          "parent_block_id": "sb-2332d79b183989da616db891",
+          "quote": "  <FRAGMENT_SUPPRESSED>  (F.C.A.), refd to. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4186,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-54c433ddc093142693ef3444",
+          "case_id": "045155",
+          "end_char": 4247,
+          "parent_block_id": "sb-2332d79b183989da616db891",
+          "quote": "[para. 13]. \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4230,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-86f6689db8ae4f6982553016",
+          "case_id": "045155",
+          "end_char": 4282,
+          "parent_block_id": "sb-45395a617a40b3236793fbfc",
+          "quote": "  <FRAGMENT_SUPPRESSED> ; 9 Admin. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4247,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-dfe34e9fd0780bc394411475",
+          "case_id": "045155",
+          "end_char": 4307,
+          "parent_block_id": "sb-45395a617a40b3236793fbfc",
+          "quote": "L.R. 50 (T.D.), refd to. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4282,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-f1dbb932b0ae52207f6019b6",
+          "case_id": "045155",
+          "end_char": 4332,
+          "parent_block_id": "sb-45395a617a40b3236793fbfc",
+          "quote": "[para. 15, footnote 2].  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4307,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-05e997636cc3ad7262176858",
+          "case_id": "045155",
+          "end_char": 4357,
+          "parent_block_id": "sb-45395a617a40b3236793fbfc",
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4332,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-804f2d4a2848752965fd148f",
+          "case_id": "045155",
+          "end_char": 4381,
+          "parent_block_id": "sb-f440f821a2c08ba9163b382d",
+          "quote": " Statutes Noticed: \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4357,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-873800e9d8b6b64e6b00ec90",
+          "case_id": "045155",
+          "end_char": 4430,
+          "parent_block_id": "sb-bd4d1702f0afb56af56fae0d",
+          "quote": " Corrections and Conditional Release Act, R.S.C. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4381,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-27d5f1d91d6f493b0a0be739",
+          "case_id": "045155",
+          "end_char": 4439,
+          "parent_block_id": "sb-bd4d1702f0afb56af56fae0d",
+          "quote": "1985, c. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4430,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-2977dca485bf00009143f914",
+          "case_id": "045155",
+          "end_char": 4453,
+          "parent_block_id": "sb-bd4d1702f0afb56af56fae0d",
+          "quote": "C-44.6, sect. ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4439,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-43cc26142f610d1fa13b7dc3",
+          "case_id": "045155",
+          "end_char": 4468,
+          "parent_block_id": "sb-bd4d1702f0afb56af56fae0d",
+          "quote": "27 [para. 5].  ",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4453,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-ae76777cdeebd03a347f14e4",
+          "case_id": "045155",
+          "end_char": 4493,
+          "parent_block_id": "sb-bd4d1702f0afb56af56fae0d",
+          "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4468,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-050c601093e5ac180b12ae57",
+          "case_id": "045155",
+          "end_char": 4508,
+          "parent_block_id": "sb-6537d21bf1e558346f6b0979",
+          "quote": " Counsel: \r\n \r\n",
+          "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+          "start_char": 4493,
+          "target_intersecting": false
+        }
+      ],
+      "target_id": "at-9950e94059a3c450fb3b34e2",
+      "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba",
+      "technical_errors": [],
+      "technical_errors_origin": "host"
+    },
+    {
+      "artifact_type": "RepairTask",
+      "case_id": "099980",
+      "error_origin": "agent_review",
+      "expansion_atom_catalog": [
+        {
+          "atom_id": "sa-d2292abaaccbb21fcc7bb14c",
+          "case_id": "099980",
+          "direction": "before",
+          "end_char": 13374,
+          "quote": "Moreover, Ms. M'Kounga advised the Court that she wanted to withdraw because she had retired; also on June 7 and 27, 2011, the applications for judicial review  <FRAGMENT_SUPPRESSED>  1 and 2 were dismissed for delay.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 13155
+        },
+        {
+          "atom_id": "sa-96a2ca27134d719b6a766cf7",
+          "case_id": "099980",
+          "direction": "before",
+          "end_char": 13594,
+          "quote": "[27]\r\nWe should also note that, on November 24, 2011, the candidate's application for judicial review in Seck 1 was dismissed on the merits by the  <FRAGMENT_SUPPRESSED>  (\r\nSeck 1 first instance\r\n); on appeal A-493-11. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 13374
+        },
+        {
+          "atom_id": "sa-73e1704410fb4098b731f94b",
+          "case_id": "099980",
+          "direction": "before",
+          "end_char": 13710,
+          "quote": "That last application by Ms. Seck concerns the other decision and the other investigation report by the Commission. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 13594
+        },
+        {
+          "atom_id": "sa-74e23c6b4044a0b560e438b9",
+          "case_id": "099980",
+          "direction": "before",
+          "end_char": 13873,
+          "quote": "In the interim, the proceedings in Seck 2 that concern the impugned decision and report were suspended until determination or resolution of the appeal in Seck 1.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 13710
+        },
+        {
+          "atom_id": "sa-75d2762ad8deb13911813884",
+          "case_id": "099980",
+          "direction": "before",
+          "end_char": 13918,
+          "quote": "The present application for judicial review\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 13873
+        },
+        {
+          "atom_id": "sa-74ef8bf5b8cf0eb12e704c73",
+          "case_id": "099980",
+          "direction": "before",
+          "end_char": 14067,
+          "quote": "[28]\r\nThis application was heard by the Court on September 6, 2012, and its deliberation was suspended to allow the parties to come to an agreement. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 13918
+        },
+        {
+          "atom_id": "sa-86cddeb63bd8651df670370c",
+          "case_id": "099980",
+          "direction": "before",
+          "end_char": 14276,
+          "quote": "On September 24, 2012, counsel advised the Court that the parties had not reached an agreement and asked the Court to render a final judgment on the matter; counsel have since also made submissions on costs.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 14067
+        },
+        {
+          "atom_id": "sa-73fab70d74e9359f7ed78375",
+          "case_id": "099980",
+          "direction": "after",
+          "end_char": 17750,
+          "quote": "[35]\r\nHowever, the applicant is asking the Court to determine whether section 69 of the PSEA authorizes the Commission to investigate with respect to the conduct of other candidates and third parties in situations where fraud may have occurred but had no practical effect on the proposed appointment or appointment of selected candidates. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 17411
+        },
+        {
+          "atom_id": "sa-aeaab0d5e12f4d487e6ae155",
+          "case_id": "099980",
+          "direction": "after",
+          "end_char": 17968,
+          "quote": "With respect, in my view, this is a question of jurisdiction, if not a question of law that is of vital importance to the entire public service appointment system and that merits a correct interpretation of the PSEA.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 17750
+        },
+        {
+          "atom_id": "sa-d748cffb33cc67469f12e42f",
+          "case_id": "099980",
+          "direction": "after",
+          "end_char": 17990,
+          "quote": "Finding by the Court\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 17968
+        },
+        {
+          "atom_id": "sa-3cab62ed1ef61772565ba597",
+          "case_id": "099980",
+          "direction": "after",
+          "end_char": 18057,
+          "quote": "[36]\r\nFor the following reasons, this application will be allowed. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 17990
+        },
+        {
+          "atom_id": "sa-dedd89cb205601ddf838cbc7",
+          "case_id": "099980",
+          "direction": "after",
+          "end_char": 18389,
+          "quote": "Nevertheless, before addressing the merit of the various issues discussed by the parties, it is important to address the scope of the respondent's participation in this case and the difficulties that can occur first in terms of an image of justice and impartiality and then in terms of the exercise of the Court's remedial powers.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 18057
+        },
+        {
+          "atom_id": "sa-71caa2f7616183f3e3f33630",
+          "case_id": "099980",
+          "direction": "after",
+          "end_char": 18393,
+          "quote": "IV. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 18389
+        },
+        {
+          "atom_id": "sa-153c6925bed11d2ca051df10",
+          "case_id": "099980",
+          "direction": "after",
+          "end_char": 18433,
+          "quote": "ROLE OF THE ATTORNEY GENERAL OF CANADA\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 18393
+        },
+        {
+          "atom_id": "sa-a1d091a5a5918129be9cc33e",
+          "case_id": "099980",
+          "direction": "after",
+          "end_char": 18498,
+          "quote": "[37]\r\nThe respondent is acting on behalf of the Commission here. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 18433
+        }
+      ],
+      "model": "Qwen/Qwen3.5-9B",
+      "obligations": [],
+      "original_proposals": [],
+      "original_responses": [
+        {
+          "aus": [],
+          "coverage_status": "complete",
+          "decision": "hard_negative",
+          "hard_negative_reason": "party_argument_only",
+          "request_id": "hreq-20c06a1d74a76c763d47bba9",
+          "target_id": "at-9b015c650450d57594f4b51b",
+          "unresolved_reason": null
+        },
+        {
+          "aus": [],
+          "coverage_status": "complete",
+          "decision": "hard_negative",
+          "hard_negative_reason": "party_argument_only",
+          "request_id": "hreq-4343e6e63ac772442dc6ad8d",
+          "target_id": "at-9b015c650450d57594f4b51b",
+          "unresolved_reason": null
+        }
+      ],
+      "policy": {
+        "concurrency": 1,
+        "expansion_chars": 1200,
+        "expansions": 1,
+        "input_tokens": 6000,
+        "model_turns": 2,
+        "output_tokens": 1200,
+        "source_model_attempts": 8,
+        "tool_calls": 8,
+        "total_tokens": 20000
+      },
+      "raw_targets": [
+        {
+          "block_id": null,
+          "case_id": "099980",
+          "end_char": 15941,
+          "quote": "Alternatively, the applicant submits to the Court that the Commission's findings are unreasonable because she did not gain anything personally from the fraud. That relevant evidence was not considered by the investigator. Moreover, contrary to the harsh passages that explicitly concern the candidate and Ms. M'Kounga, the investigator accepts that the applicant actually worked with the candidate and \"supervised\" her work for a two-year period at DFAIT.",
+          "role": "target",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 15486,
+          "target_ids": [
+            "at-9b015c650450d57594f4b51b"
+          ]
+        }
+      ],
+      "request": {
+        "arm": "P2a",
+        "atom_binding": {
+          "atom_map_cache_key": "58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86",
+          "atom_map_relative_path": "cases/099980/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c/legal-sentence-rules-v1.1-0a6a6de1904bd951/sentence_atom_map.json",
+          "atom_map_sha256": "90ff17ca89757407bdf6fc725f6ed5eea05eab1a661a26c5062ad6fbb2e9a935",
+          "case_id": "099980",
+          "policy_sha256": "0a6a6de1904bd951be29ab5956dff062a875b3f6fcaac6bde01c55126909385c",
+          "segmenter_version": "legal-sentence-rules-v1.1",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319"
+        },
+        "case_id": "099980",
+        "context_hint_experiment": "metadata-only-v1",
+        "expected_target_ids": [
+          "at-9b015c650450d57594f4b51b"
+        ],
+        "hint_payload": {
+          "case_id": "099980",
+          "hints": [],
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "version": "resolved-context-hints-v1"
+        },
+        "input_tokens": 11703,
+        "provenance": {
+          "plan07_workload_sha256": "6eca2e95c5377fdfa9814feef5b4784ade4d2654b7c5780a7fd60d5c62190aec",
+          "readiness_sha256": "c1a1c775705a2d049f2b1e1c62d773884d6cd833742ff22a5a9c2e5d6b39e83e",
+          "selection": "four real hint targets; development only; not gold"
+        },
+        "region_id": "ar-c0381e89c80007c4977315fd",
+        "request_id": "hreq-20c06a1d74a76c763d47bba9",
+        "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+        "source_refs": [
+          {
+            "case_id": "099980",
+            "end_char": 14813,
+            "role": "context",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 14282,
+            "target_ids": []
+          },
+          {
+            "case_id": "099980",
+            "end_char": 15478,
+            "role": "context",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 14821,
+            "target_ids": []
+          },
+          {
+            "case_id": "099980",
+            "end_char": 15941,
+            "role": "target",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 15486,
+            "target_ids": [
+              "at-9b015c650450d57594f4b51b"
+            ]
+          },
+          {
+            "case_id": "099980",
+            "end_char": 16381,
+            "role": "context",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 15949,
+            "target_ids": []
+          },
+          {
+            "case_id": "099980",
+            "end_char": 16883,
+            "role": "context",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 16389,
+            "target_ids": []
+          },
+          {
+            "case_id": "099980",
+            "end_char": 17409,
+            "role": "context",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 16891,
+            "target_ids": []
+          }
+        ],
+        "spec": {
+          "caps": {
+            "au_candidates": 3,
+            "output_tokens": 800,
+            "targets": 1
+          },
+          "enable_thinking": false,
+          "model": "Qwen/Qwen3.5-9B"
+        }
+      },
+      "review_oracle": [
+        {
+          "checks": {
+            "omission": "pass"
+          },
+          "proposal_sha256": "3bd63a21c871e857706a9f6e07dceb568c1b19cc52b8c1d5f1669a57b56029dc",
+          "reason": "No missed TARGET authority: \"Alternatively, the applicant submits to the Court\" governs the paragraph; \"she did not gain anything personally\", \"That relevant evidence was not considered\" and the investigator's acceptance that she \"supervised\" the candidate concern a party argument and underlying evidence, not an endorsed legal rule. Context says \"Those claims are highly contested\" and \"If the Court accepts this argument\"; this does not prove court adoption. Whether the applicant's substantive argument is correct remains unknown. The Dunsmuir review rule in context is outside TARGET and cannot become a primary. Hard-negative classification is correct for this supplied passage, without deciding the contested merits.",
+          "request_id": "hreq-4343e6e63ac772442dc6ad8d",
+          "review_type": "target_omission",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09",
+          "witnesses": [
+            {
+              "atom_id": "sa-fbc1e8f193a623ee246a15d6",
+              "quote": "Alternatively, the applicant submits to the Court that the Commission's findings are unreasonable because she did not gain anything personally from the fraud."
+            },
+            {
+              "atom_id": "sa-1dc96bd55b1432b16b120531",
+              "quote": "That relevant evidence was not considered by the investigator."
+            },
+            {
+              "atom_id": "sa-2a1d6f2e0f3cd9f7f1ccceab",
+              "quote": "Moreover, contrary to the harsh passages that explicitly concern the candidate and Ms. M'Kounga, the investigator accepts that the applicant actually worked with the candidate and \"supervised\" her work for a two-year period at DFAIT."
+            }
+          ]
+        },
+        {
+          "checks": {
+            "omission": "pass"
+          },
+          "proposal_sha256": "f01d75e499aa3c745f004499ea01eef1a2864cc7c3e9f7cf9e5d573315c03896",
+          "reason": "No missed TARGET authority: \"Alternatively, the applicant submits to the Court\" governs the paragraph; \"she did not gain anything personally\", \"That relevant evidence was not considered\" and the investigator's acceptance that she \"supervised\" the candidate concern a party argument and underlying evidence, not an endorsed legal rule. Context says \"Those claims are highly contested\" and \"If the Court accepts this argument\"; this does not prove court adoption. Whether the applicant's substantive argument is correct remains unknown. The Dunsmuir review rule in context is outside TARGET and cannot become a primary. Hard-negative classification is correct for this supplied passage, without deciding the contested merits.",
+          "request_id": "hreq-20c06a1d74a76c763d47bba9",
+          "review_type": "target_omission",
+          "run_sha256": "ad95a9f150515a5096dfb2cc21970310e5143b9822f69fe76e3960e56a911e09",
+          "witnesses": [
+            {
+              "atom_id": "sa-fbc1e8f193a623ee246a15d6",
+              "quote": "Alternatively, the applicant submits to the Court that the Commission's findings are unreasonable because she did not gain anything personally from the fraud."
+            },
+            {
+              "atom_id": "sa-1dc96bd55b1432b16b120531",
+              "quote": "That relevant evidence was not considered by the investigator."
+            },
+            {
+              "atom_id": "sa-2a1d6f2e0f3cd9f7f1ccceab",
+              "quote": "Moreover, contrary to the harsh passages that explicitly concern the candidate and Ms. M'Kounga, the investigator accepts that the applicant actually worked with the candidate and \"supervised\" her work for a two-year period at DFAIT."
+            }
+          ]
+        }
+      ],
+      "schema_version": "repair-task-v1",
+      "selection": "correct_control",
+      "semantic_errors": [],
+      "semantic_gold": false,
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "supplied_atom_catalog": [
+        {
+          "atom_id": "sa-48e5f512228ec516c73940b7",
+          "case_id": "099980",
+          "end_char": 14584,
+          "parent_block_id": "sb-1d6d98242caf55bab5c6e9f1",
+          "quote": "[29]\r\nEssentially, the applicant is claiming that the rules of procedural fairness or natural justice were not respected, that the impugned decision that she committed fraud is unreasonable and that section 69 of the PSEA does not authorize the Commission to take corrective action against her specifically. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 14276,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-51c40f6602c7f58ecde5b0a3",
+          "case_id": "099980",
+          "end_char": 14815,
+          "parent_block_id": "sb-1d6d98242caf55bab5c6e9f1",
+          "quote": "Those claims are highly contested by the respondent, who defends the lawfulness of the investigation process and the reasonableness of the impugned decision, as well as the Commission's jurisdiction to make the order in question.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 14584,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-73ddf76bb8339b307070e2d2",
+          "case_id": "099980",
+          "end_char": 15079,
+          "parent_block_id": "sb-eae7c5504d9e145a7bc040a8",
+          "quote": "[30]\r\nFirst, the applicant submits that the investigator should have told her that she was suspected of fraud and provided her with all the relevant evidence before her interview, in particular Ms. Cousineau's testimony and notes, which was not done in this case. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 14815,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-9db48caaa225ff08e6c43c57",
+          "case_id": "099980",
+          "end_char": 15215,
+          "parent_block_id": "sb-eae7c5504d9e145a7bc040a8",
+          "quote": "If the Court accepts this argument, the investigator's finding of fraud cannot legally succeed given the denial of procedural fairness. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 15079,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-52447a00d3d351b6c7c31ab8",
+          "case_id": "099980",
+          "end_char": 15480,
+          "parent_block_id": "sb-eae7c5504d9e145a7bc040a8",
+          "quote": "The applicant's other major argument involves the Commission's lack of jurisdiction: either the Commission did not have jurisdiction to start the investigation, or it otherwise usurped its powers by making an order of \"corrective action\" against her specifically.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 15215,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-fbc1e8f193a623ee246a15d6",
+          "case_id": "099980",
+          "end_char": 15645,
+          "parent_block_id": "sb-bce5278d9c5c973fb18dd676",
+          "quote": "[31]\r\nAlternatively, the applicant submits to the Court that the Commission's findings are unreasonable because she did not gain anything personally from the fraud. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 15480,
+          "target_intersecting": true
+        },
+        {
+          "atom_id": "sa-1dc96bd55b1432b16b120531",
+          "case_id": "099980",
+          "end_char": 15708,
+          "parent_block_id": "sb-bce5278d9c5c973fb18dd676",
+          "quote": "That relevant evidence was not considered by the investigator. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 15645,
+          "target_intersecting": true
+        },
+        {
+          "atom_id": "sa-2a1d6f2e0f3cd9f7f1ccceab",
+          "case_id": "099980",
+          "end_char": 15943,
+          "parent_block_id": "sb-bce5278d9c5c973fb18dd676",
+          "quote": "Moreover, contrary to the harsh passages that explicitly concern the candidate and Ms. M'Kounga, the investigator accepts that the applicant actually worked with the candidate and \"supervised\" her work for a two-year period at DFAIT.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 15708,
+          "target_intersecting": true
+        },
+        {
+          "atom_id": "sa-413c4a01bd4e2a2c8ff6de06",
+          "case_id": "099980",
+          "end_char": 16232,
+          "parent_block_id": "sb-acd619694fe53963202c8fb1",
+          "quote": "[32]\r\nRegardless, if there was fraud, which is highly contested by the applicant (who instead speaks of a \"communication problem\" with the person in charge of verifying the references), any \"false information\" that she may have provided had no practical effect on the appointment process. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 15943,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-93180edbf0020ec25d740607",
+          "case_id": "099980",
+          "end_char": 16354,
+          "parent_block_id": "sb-acd619694fe53963202c8fb1",
+          "quote": "In fact, the candidate was not appointed to the analyst position and another candidate was eventually selected by PWGSC.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 16232,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-8c48e2cee2a543c3e8019dc4",
+          "case_id": "099980",
+          "end_char": 16383,
+          "parent_block_id": "sb-acd619694fe53963202c8fb1",
+          "quote": "Standard of judicial review\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 16354,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-4bc0faffcf190303637a1fff",
+          "case_id": "099980",
+          "end_char": 16544,
+          "parent_block_id": "sb-2123084bc06938887f3720ae",
+          "quote": "[33]\r\nIt should be noted that, as decided by the Supreme Court of Canada in\r\n <FRAGMENT_SUPPRESSED>  (Dunsmuir), the judicial review process involves two steps. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 16383,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-e37b2a05064ecd5c909a6ce3",
+          "case_id": "099980",
+          "end_char": 16731,
+          "parent_block_id": "sb-2123084bc06938887f3720ae",
+          "quote": "First, courts ascertain whether the jurisprudence has already determined in a satisfactory manner the degree of deference to be accorded with regard to a particular category of question. ",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 16544,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-2b5c232396fd98c87fdf901e",
+          "case_id": "099980",
+          "end_char": 16885,
+          "parent_block_id": "sb-2123084bc06938887f3720ae",
+          "quote": "Second, where the first inquiry proves unfruitful, courts must proceed to an analysis of the factors in order to identify the proper standard of review.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 16731,
+          "target_intersecting": false
+        },
+        {
+          "atom_id": "sa-fd6d43dcc9cabf6e82cec765",
+          "case_id": "099980",
+          "end_char": 17411,
+          "parent_block_id": "sb-36aa986c0fecce8d97ce2011",
+          "quote": "[34]\r\nTo the extent that the blame lies solely on the Commission-in effect, the investigator-for erring in its analysis of the evidence, the decisions in\r\nSeck 1 first instance\r\n(in appeal A-493-11) and\r\n <FRAGMENT_SUPPRESSED>  [2009] FCJ No. 1589 ( <FRAGMENT_SUPPRESSED> ) (appeal in A-3-10 discontinued), satisfactorily respond to the question of the standard of review applicable to findings of fact, even to the Commission's possible interpretations of the PSEA provisions, where no jurisdiction issue is truly at stake.\r\n",
+          "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+          "start_char": 16885,
+          "target_intersecting": false
+        }
+      ],
+      "target_id": "at-9b015c650450d57594f4b51b",
+      "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c",
+      "technical_errors": [],
+      "technical_errors_origin": "host"
+    }
+  ]
+}

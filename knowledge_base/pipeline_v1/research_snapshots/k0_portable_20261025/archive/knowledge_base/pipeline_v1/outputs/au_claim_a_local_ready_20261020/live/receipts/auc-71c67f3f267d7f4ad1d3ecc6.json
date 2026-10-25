@@ -1,0 +1,147 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-cf4ad9ee91d7a43100a7a5be",
+        "claim": "Decision-makers must engage in a full assessment of evidence suggesting Mexico, while willing to protect, may be unable to do so.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s3"
+        ],
+        "limits": "This assessment includes the context of the country of origin, steps applicants took, and their interaction with authorities.",
+        "evidence": [
+          {
+            "ref_id": "t-15d5d8717965cc718bb21db8",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 11930,
+            "end_char": 12101,
+            "quote": "Accordingly, decision-makers must engage in a full assessment of the evidence placed before them suggesting that Mexico, while willing to protect, may be unable to do so. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-29364c1af15d1387a48868d9",
+        "claim": "Madam Justice Gauthier's approach to the presumption of state protection in Mexico is persuasive.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-6fe2b3ca03a63fbbe4375fc0",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 11681,
+            "end_char": 11795,
+            "quote": "[20]\r\nI find Madam Justice Gauthier's approach to the presumption of state protection in Mexico to be persuasive. ",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1133,
+    "output_tokens": 108,
+    "total_tokens": 1241
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"Decision-makers must engage in a full assessment of evidence suggesting Mexico, while willing to protect, may be unable to do so.\",\"kind\":\"holding\",\"evidence_ids\":[\"s3\"],\"limits\":\"This assessment includes the context of the country of origin, steps applicants took, and their interaction with authorities.\"},{\"claim\":\"Madam Justice Gauthier's approach to the presumption of state protection in Mexico is persuasive.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792495970,
+    "id": "0bb7220c07b04f7d9560a9cf27f0ef21",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 108,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 108,
+      "prompt_tokens": 1133,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1241
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46",
+    "payload_sha256": "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46",
+    "polls": 10,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495935.5070138,
+    "job_status": "completed",
+    "latency_ms": 38741.268,
+    "finished_at_unix": 1792495974.248801,
+    "server_timing": {
+      "created_at": "2026-10-20T11:32:19.962344+00:00",
+      "started_at": "2026-10-20T11:32:39.893709+00:00",
+      "finished_at": "2026-10-20T11:32:50.592888+00:00",
+      "inference_seconds": 9.879821470000024
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "Decision-makers must engage in a full assessment of evidence suggesting Mexico, while willing to protect, may be unable to do so.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s3"
+        ],
+        "limits": "This assessment includes the context of the country of origin, steps applicants took, and their interaction with authorities."
+      },
+      {
+        "claim": "Madam Justice Gauthier's approach to the presumption of state protection in Mexico is persuasive.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 38741.537,
+  "request_id": "auc-71c67f3f267d7f4ad1d3ecc6",
+  "payload_sha256": "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46",
+  "receipt_sha256": "eb898cac59aa86a480a9a6c47ff058c6d3622193a175c630f114bbfd7e6cb37e"
+}

@@ -1,0 +1,44 @@
+{
+  "policy_version": "context-hint-policy-v1.3",
+  "rule_bundle_version": "context-hint-rules-v1.3",
+  "schema_version": "context-hint-map-v1",
+  "rules": {
+    "open_quote": "open-quote-v1.1",
+    "open_list": "open-list-v1",
+    "dependent_lead_in": "dependent-lead-in-v1",
+    "reference_to_previous": "reference-to-previous-v1",
+    "citation_continuation": "citation-continuation-v1",
+    "quote_continuation": "quote-continuation-v1.1",
+    "speaker_continuity_candidate": "speaker-continuity-candidate-v1"
+  },
+  "priority": [
+    "quote_continuation",
+    "open_quote",
+    "open_list",
+    "citation_continuation",
+    "dependent_lead_in",
+    "reference_to_previous",
+    "speaker_continuity_candidate"
+  ],
+  "caps": {
+    "max_hints_per_target": 3,
+    "max_related_blocks_per_target": 2,
+    "max_related_chars_per_target": 4000,
+    "max_hints_per_case": 500
+  },
+  "allowed_hint_types": [
+    "open_quote",
+    "open_list",
+    "dependent_lead_in",
+    "reference_to_previous",
+    "citation_continuation",
+    "quote_continuation",
+    "speaker_continuity_candidate"
+  ],
+  "statuses": ["candidate", "accepted_by_contract", "unresolved"],
+  "directions": ["previous", "next", "explicit_ref"],
+  "forbidden_semantic_fields": [
+    "speaker", "speaker_id", "attribution", "condition", "coreference",
+    "topic", "semantic_edge", "authority_unit", "issue", "notice_need"
+  ]
+}

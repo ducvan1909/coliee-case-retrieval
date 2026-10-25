@@ -1,0 +1,55 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-6.1-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {"batch_id": "p09-r4-099980-fourth10-sol-v1", "case_id": "099980", "target_count": 10, "outside_batch_reviewed": false, "canonical_state_modified": false, "global_progress_or_r4_manifest_hash_locked": false},
+  "verdict": "reject_pending_revisions",
+  "summary": {
+    "agree": 8,
+    "disagree": 2,
+    "insufficient": 0,
+    "severity_counts": {"none": 5, "low": 3, "moderate": 2, "high": 0, "severe": 0},
+    "accepted_authority_units": 3,
+    "accepted_hard_negatives": 5,
+    "accepted_unresolved": 0,
+    "recommended_final_counts": {"authority_units": 4, "hard_negatives": 6, "unresolved": 0},
+    "required_canonical_changes": 2,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-fourth10-sol-v1.json",
+    "frozen_batch_sha256": "ae35f022c21f8eb78a4a3cad0e881ddd98156b384e1740ffc40b88aaad5a274a",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-fourth10-01-gpt61sol-v1.json", "f46240338ef36ad2cb6cb1fe7c44554c2ce8ff067e89e19f7849f2f72c4b06fb", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fourth10-02-gpt61sol-v1.json", "52732d664a09606603e2573915057fbbc5ecdcac679a9f539efa729f7907bb5b", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fourth10-03-gpt61sol-v1.json", "927499f15b7db2ba45d9e71bfbbfdd2edac0e0dee00a528dd313cebaeacd3b9e", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fourth10-04-gpt61sol-v1.json", "da23716ed15db5462587291a2895937a1e20a4335d709a3acc4e358fe82b0da7", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fourth10-05-gpt61sol-v1.json", "5b221d5dcb2a1cfba29e6f0035ba220fbdef4502c81271d4d2cdd4f2078a736a", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fourth10-06-gpt61sol-v1.json", "b0668453d77374d0b44fdb2d86a5e3166fa9660939bbdb0cbdafecf0c85a8037", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fourth10-07-gpt61sol-v1.json", "8dbdeac90041bf39e5fbc459ce1b32c201daf2ac0eca994813af682b6a804e08", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"],
+      ["p09-r4-099980-fourth10-08-gpt61sol-v1.json", "89786562d3e5529c0db488558736b77f6b423bf8f0b191ddac43a749259f9946", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fourth10-09-gpt61sol-v1.json", "509be6d5595816c63526415604e2a043f24d022392c472681424629e8248ac04", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fourth10-10-gpt61sol-v1.json", "2561bca425ec29a6d8a0ce441959c31a5159acdca6a7becfe975a638d6ae6a23", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"]
+    ]
+  },
+  "technical_validation": {"all_validate_model_proposal_calls_passed": true, "all_sidecars_exactly_equal_recomputed_checks": true, "all_target_ids_match_frozen_order": true, "all_producers_exactly_gpt_6_1_sol_low": true, "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true, "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true, "qualification": "Mutable global registry was read only for ownership and not hash-locked. Technical validation does not cure the two semantic disposition errors."},
+  "items": [
+    {"position": 1, "target_id": "at-2c1bd134149633afd4376e74", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "procedural_history_only", "evidence": "Paragraph 36 announces the result and analytical roadmap.", "scope_review": "It is not a separate reasoned authority proposition and later grounds must not be imported."},
+    {"position": 2, "target_id": "at-2ee52523f9ffaed8ef6d78a9", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "procedural_history_only", "evidence": "Paragraph 21 reports Commission letters advising affected persons of judicial review under FCA section 18.1.", "scope_review": "Reported agency notification is not current-court statutory interpretation."},
+    {"position": 3, "target_id": "at-30fcb7387e01828cdc463add", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "procedural_rule", "attribution": "current_court", "evidence": "Paragraph 102 states that respect for procedural choice is not determinative under Baker.", "scope_review": "Qualification: non-determinative does not mean irrelevant and does not give the Commission unrestricted freedom from fairness."},
+    {"position": 4, "target_id": "at-31fb5ee31ba428e383f369cf", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 10 narrates the DNR investigation, intercepted e-mails and transmittal that triggered the Commission investigation.", "scope_review": "It adopts no rule on interception legality or legal duty to investigate."},
+    {"position": 5, "target_id": "at-322488d8d16a073136576e8a", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 115 describes possible disciplinary consequences after employers receive the report.", "scope_review": "The impact observation neither prescribes discipline nor validates a disciplinary power."},
+    {"position": 6, "target_id": "at-34095952cc8f4531057b05a3", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "procedural_rule", "attribution": "current_court", "evidence": "Paragraph 164 says that absent direct provision of the new evidence, the investigator should at least have issued another revised factual report incorporating the May 17 information.", "scope_review": "Qualification: direct disclosure remains the alternative; this is a case-specific minimum, not an absolute revised-report duty."},
+    {"position": 7, "target_id": "at-36d2799e80bf0e3f5421c6cf", "decision": "disagree", "severity": "moderate", "proposed_outcome": "positive", "proposed_kind": "standard_of_review", "proposed_attribution": "current_court", "evidence": "Paragraph 35 directly characterizes the section 69 authority over other candidates/third parties as a jurisdictional, or at least vital legal, question meriting correct statutory interpretation.", "scope_review": "The later reservation prevents a final jurisdiction merits result or definitive agency review standard, but does not erase this express current-court characterization. Replace unresolved with a narrowly worded AU preserving `jurisdiction, if not question of law`, vital-system importance and correct-interpretation language."},
+    {"position": 8, "target_id": "at-397a79d4d287d795fed0e818", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 135 recounts interested-employer notice and participation.", "scope_review": "These facts create no universal employer entitlement to reports or proposed remedies."},
+    {"position": 9, "target_id": "at-3b322354b56dc150db0ef7af", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "procedural_rule", "attribution": "current_court", "evidence": "Paragraph 51 says that in this case, with no PSEA fraud definition, the analysis must rely on the Commission's interpretation.", "scope_review": "Qualification: this is not universal deference, non-reviewability or a final jurisdiction standard; the concept remains a legal question."},
+    {"position": 10, "target_id": "at-3bf2d5382a3dbb34d161b87b", "decision": "disagree", "severity": "moderate", "proposed_outcome": "hard_negative", "proposed_reason": "party_argument_only", "evidence": "Paragraph 62 expressly frames unclear intent, lack of gain and personal-interest comparisons as the applicant's argument.", "scope_review": "No court adoption occurs inside the target, and paragraph 63 postpones merits assessment pending jurisdiction. Replace unresolved with party-argument hard negative; do not invent a rule that personal gain is always required for fraud."}
+  ],
+  "boundaries": {"semantic_gold": false, "model_silver": true, "r5_pass": false, "plan10_allowed": false, "note": "Fourth10 requires two semantic corrections before R5 can accept it. No canonical change was made by this read-only audit."}
+}

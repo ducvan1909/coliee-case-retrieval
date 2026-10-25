@@ -1,0 +1,463 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coliee:repair-selection-wire-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tool_calls"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "repair-selection-v1"
+    },
+    "tool_calls": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "arguments"
+            ],
+            "properties": {
+              "name": {
+                "const": "get_repair_task"
+              },
+              "arguments": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [],
+                "properties": {}
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "arguments"
+            ],
+            "properties": {
+              "name": {
+                "const": "open_span"
+              },
+              "arguments": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "span_selection_id"
+                ],
+                "properties": {
+                  "span_selection_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "arguments"
+            ],
+            "properties": {
+              "name": {
+                "const": "expand_context"
+              },
+              "arguments": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "direction",
+                  "reason"
+                ],
+                "properties": {
+                  "direction": {
+                    "enum": [
+                      "before",
+                      "after"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "arguments"
+            ],
+            "properties": {
+              "name": {
+                "const": "get_related_aus"
+              },
+              "arguments": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [],
+                "properties": {}
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "arguments"
+            ],
+            "properties": {
+              "name": {
+                "const": "submit_revision"
+              },
+              "arguments": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "task_id",
+                  "decisions"
+                ],
+                "properties": {
+                  "task_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "decisions": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "proposal_id",
+                            "reason",
+                            "primary_proposition",
+                            "verdict"
+                          ],
+                          "properties": {
+                            "proposal_id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "verdict": {
+                              "const": "supported"
+                            },
+                            "reason": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 120
+                            },
+                            "primary_proposition": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "proposal_id",
+                            "reason",
+                            "verdict"
+                          ],
+                          "properties": {
+                            "proposal_id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "verdict": {
+                              "const": "uncertain"
+                            },
+                            "reason": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 120
+                            },
+                            "needed_context": {
+                              "type": "array",
+                              "maxItems": 6,
+                              "uniqueItems": true,
+                              "items": {
+                                "enum": [
+                                  "attribution",
+                                  "condition",
+                                  "exception",
+                                  "limit",
+                                  "current_court_response",
+                                  "cross_block_context"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "proposal_id",
+                            "verdict",
+                            "reason",
+                            "defect_type",
+                            "witnesses",
+                            "correction"
+                          ],
+                          "properties": {
+                            "proposal_id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "verdict": {
+                              "const": "defect_found"
+                            },
+                            "reason": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 120
+                            },
+                            "defect_type": {
+                              "enum": [
+                                "ownership",
+                                "attribution",
+                                "qualification",
+                                "evidence_support",
+                                "duplicate"
+                              ]
+                            },
+                            "witnesses": {
+                              "type": "array",
+                              "minItems": 1,
+                              "maxItems": 3,
+                              "uniqueItems": true,
+                              "items": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "correction": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "action"
+                                  ],
+                                  "properties": {
+                                    "action": {
+                                      "const": "reject"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "action",
+                                    "replacements"
+                                  ],
+                                  "properties": {
+                                    "action": {
+                                      "const": "replace"
+                                    },
+                                    "replacements": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                          "au",
+                                          "primary_proposition"
+                                        ],
+                                        "properties": {
+                                          "au": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "required": [
+                                              "kind",
+                                              "claim",
+                                              "evidence_ref_ids",
+                                              "speaker",
+                                              "attribution_role"
+                                            ],
+                                            "properties": {
+                                              "kind": {
+                                                "enum": [
+                                                  "holding",
+                                                  "standard_of_review",
+                                                  "statutory_hook",
+                                                  "procedural_rule",
+                                                  "fact_pattern_rule",
+                                                  "foreign_law",
+                                                  "other",
+                                                  "unresolved_kind"
+                                                ]
+                                              },
+                                              "other_kind": {
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ],
+                                                "maxLength": 160
+                                              },
+                                              "claim": {
+                                                "type": "string",
+                                                "minLength": 1,
+                                                "maxLength": 300
+                                              },
+                                              "evidence_ref_ids": {
+                                                "type": "array",
+                                                "minItems": 1,
+                                                "maxItems": 3,
+                                                "uniqueItems": true,
+                                                "items": {
+                                                  "type": "string",
+                                                  "minLength": 1,
+                                                  "maxLength": 128
+                                                }
+                                              },
+                                              "speaker": {
+                                                "enum": [
+                                                  "current_court",
+                                                  "cited_authority",
+                                                  "party",
+                                                  "statute",
+                                                  "editor",
+                                                  "mixed",
+                                                  "unknown"
+                                                ]
+                                              },
+                                              "attribution_role": {
+                                                "enum": [
+                                                  "proposition",
+                                                  "authority",
+                                                  "current_court_response",
+                                                  "condition",
+                                                  "exception",
+                                                  "limit",
+                                                  "other"
+                                                ]
+                                              },
+                                              "needs_context": {
+                                                "type": "array",
+                                                "maxItems": 6,
+                                                "uniqueItems": true,
+                                                "items": {
+                                                  "enum": [
+                                                    "attribution",
+                                                    "condition",
+                                                    "exception",
+                                                    "limit",
+                                                    "current_court_response",
+                                                    "cross_block_context"
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            "allOf": [
+                                              {
+                                                "if": {
+                                                  "properties": {
+                                                    "kind": {
+                                                      "const": "other"
+                                                    }
+                                                  }
+                                                },
+                                                "then": {
+                                                  "properties": {
+                                                    "other_kind": {
+                                                      "type": "string",
+                                                      "minLength": 1
+                                                    }
+                                                  }
+                                                },
+                                                "else": {
+                                                  "properties": {
+                                                    "other_kind": {
+                                                      "const": null
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          },
+                                          "primary_proposition": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          }
+                                        }
+                                      },
+                                      "maxItems": 3,
+                                      "minItems": 1
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "retained_proposal_id": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "allOf": [
+                            {
+                              "if": {
+                                "properties": {
+                                  "defect_type": {
+                                    "const": "duplicate"
+                                  }
+                                }
+                              },
+                              "then": {
+                                "required": [
+                                  "retained_proposal_id"
+                                ],
+                                "properties": {
+                                  "correction": {
+                                    "properties": {
+                                      "action": {
+                                        "const": "reject"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "else": {
+                                "not": {
+                                  "required": [
+                                    "retained_proposal_id"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 12
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

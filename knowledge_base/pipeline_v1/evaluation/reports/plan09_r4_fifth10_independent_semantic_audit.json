@@ -1,0 +1,168 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-5.6-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {
+    "batch_id": "p09-r4-099980-fifth10-sol-v1",
+    "case_id": "099980",
+    "target_count": 10,
+    "outside_batch_reviewed": false,
+    "canonical_state_modified": false,
+    "global_progress_or_r4_manifest_hash_locked": false
+  },
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 7, "low": 3, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 3,
+    "accepted_hard_negatives": 6,
+    "accepted_unresolved": 1,
+    "required_canonical_changes": 0,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-fifth10-sol-v1.json",
+    "frozen_batch_sha256": "37c17bb8e21fc9bee70fd334d38a7cce3d839352e66abd56cf9afbab0d194f55",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-fifth10-01-gpt61sol-v1.json", "81f47afe1507599628f188bb7bd6ab3b7f9ff63bbad8de953ed2630911c2b8af", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fifth10-02-gpt61sol-v1.json", "ba43dce9893a17dd3f349ad5d6569922de53762446a5d04d40862266a01dbd9d", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fifth10-03-gpt61sol-v1.json", "b403a0ed3cb96ba5ae75c3aed9813356f59f8d02fca044872883d6687a17d7e2", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fifth10-04-gpt61sol-v1.json", "2faf8f03ab6ebed59e9ccdfa1fa77ae3bc16c6f639163acf0fba513b0414d9f0", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fifth10-05-gpt61sol-v1.json", "387b49adcb75adf8ebcc0700cac71125ce4e87bcf0edd02c63e369f337c2f2e3", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fifth10-06-gpt61sol-v1.json", "4eca229f5aaae1d53e65376ccfb363882124a2acf5f4f35d7662ca25cd108099", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fifth10-07-gpt61sol-v1.json", "9b0f44eb41440c112de5a5460f47bee84b3211f2942430e1933aa340f099e853", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fifth10-08-gpt61sol-v1.json", "c1eb6a8f62773d4cf54091f96a2df2fc34fb96c4ffd150eee3cc2a68aa6455be", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fifth10-09-gpt61sol-v1.json", "36c96ee61adbdbfb53d760611f1137e66fa25260bbe37b851f09eff1d0301bd6", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fifth10-10-gpt61sol-v1.json", "fb5f7c42686f99bd1b92da2eb129f03c28eaa99fa80f72e3578c4e0f313fbb0c", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "duplicate_guard_evidence": "r4.checkpoint and r4.rebuild_manifest reject duplicate case/target ownership with checkpoint_duplicate_target; the current registry read found one owner per frozen target.",
+    "qualification": "The mutable global registry was read only for ownership and deliberately not hash-locked."
+  },
+  "items": [
+    {
+      "position": 1,
+      "target_id": "at-3c30af827186591d2bf66be2",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 45 expressly states the court's opinion that nothing authorized the respondent, acting for the Commission, to argue that natural justice or procedural fairness was respected in this case.",
+      "scope_review": "The `in this case` limit is exact. Qualification: paragraphs 43 and 46 are important operational context—the respondent was acting for the Commission without another defending party, and the Court still considered the arguments because the applicant did not object, subject to remedies/costs consequences. The paragraph-46 cross-reference is present; this AU must not become a general ban on respondent advocacy."
+    },
+    {
+      "position": 2,
+      "target_id": "at-3e39044f97b84404b520022e",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 94 repeatedly attributes the inadequate-notice, disclosure, bias and hearing complaints to the applicant.",
+      "scope_review": "Later court agreement cannot retroactively change the speaker of this target."
+    },
+    {
+      "position": 3,
+      "target_id": "at-3e97359dc0a6d7669025040b",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 172 describes the final report's structure, changed allegations and the guilt determination embedded in the agency report.",
+      "scope_review": "The phrase that guilt was established reports the agency outcome; it is not a court conviction. The draft-comment rule belongs to paragraph 173."
+    },
+    {
+      "position": 4,
+      "target_id": "at-41ba0116a63ebb7c839e9149",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 91 is expressly framed as the applicant's jurisdiction and conjunction argument.",
+      "scope_review": "Paragraph 92's tentative assent and paragraph 93's reservation do not turn this target into adopted current-court law."
+    },
+    {
+      "position": 5,
+      "target_id": "at-422fbd7f49cb2cff502c7399",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 152 explicitly rejects the respondent suggestion that the investigator's procedure respected the legitimate expectations of a person suspected of fraud.",
+      "scope_review": "The claim is limited to this investigator procedure; later narrative about preparation and motive is not promoted into a general rule."
+    },
+    {
+      "position": 6,
+      "target_id": "at-4751d840ca72860653e65cd8",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 131 accepts the applicant's factual account and notes the investigator's failure to contact managers who might corroborate it.",
+      "scope_review": "No unconditional or general manager-interview duty is formulated."
+    },
+    {
+      "position": 7,
+      "target_id": "at-47a655a27ed5534b3a17e956",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "The final sentence of paragraph 151 rejects as truncated and unrealistic the respondent's no-prejudice argument based on interview and later comment opportunities.",
+      "scope_review": "Qualification: the primary sentence is referential and cannot stand alone; the preceding respondent sentences identify the rejected argument, while paragraph 152 confirms the fairness conclusion. The exact paragraph-152 cross-reference is present. The claim correctly avoids a universal no-cure rule."
+    },
+    {
+      "position": 8,
+      "target_id": "at-49def3d233262fffd76bbd5a",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 4 introduces the applicant and the challenged Commission decision that found fraud.",
+      "scope_review": "The guilty finding belongs to the agency decision, not the current court."
+    },
+    {
+      "position": 9,
+      "target_id": "at-49ed1261d578f869e56746d2",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 88 narrates the DNR information and appointment facts, then asks why referral to a deputy head did not occur.",
+      "scope_review": "The rhetorical criticism does not adopt Review Team recommendation 3.1 as a binding referral rule."
+    },
+    {
+      "position": 10,
+      "target_id": "at-4b1f384513ca1b440639bff3",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "unresolved",
+      "evidence": "Paragraph 76 distances the court from Seck 1 and calls the reasonableness presumption on a truly jurisdictional issue a serious legal question; paragraph 93 later declines a definitive jurisdiction/reasonableness opinion.",
+      "scope_review": "Qualification: this is current-court analytical doubt, not party speech, but it is not a settled standard-of-review holding either. The remote paragraph-93 reservation is mandatory context and is included. Unresolved is preferable to forcing a positive or negative label."
+    }
+  ],
+  "boundaries": {
+    "semantic_gold": false,
+    "model_silver": true,
+    "r5_pass": false,
+    "plan10_allowed": false,
+    "note": "This report independently accepts only the frozen fifth10 model-silver decisions; it does not validate mutable overall R4 progress."
+  }
+}

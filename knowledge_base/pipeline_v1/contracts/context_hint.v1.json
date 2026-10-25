@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/pipeline_v1/context_hint.v1.json",
+  "title": "ContextHintMap v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "schema_version", "case_id", "source_hash", "sourceblock_cache_key", "sentence_atom_cache_key", "sidecar_cache_key", "rule_bundle_version", "policy_sha256", "cache_key", "run_status", "failed_rules", "rule_runs", "target_block_ids", "pre_policy_count", "post_policy_count", "hints", "policy_ledger", "rule_events"],
+  "properties": {
+    "artifact_type": {"const": "ContextHintMap"},
+    "schema_version": {"const": "context-hint-map-v1"},
+    "case_id": {"type": "string", "pattern": "^[0-9]{6}$"},
+    "source_hash": {"$ref": "#/$defs/hash"},
+    "sourceblock_cache_key": {"$ref": "#/$defs/hash"},
+    "sentence_atom_cache_key": {"$ref": "#/$defs/hash"},
+    "sidecar_cache_key": {"$ref": "#/$defs/hash"},
+    "rule_bundle_version": {"type": "string", "minLength": 1},
+    "policy_sha256": {"$ref": "#/$defs/hash"},
+    "cache_key": {"$ref": "#/$defs/hash"},
+    "run_status": {"enum": ["complete", "partial"]},
+    "failed_rules": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "rule_runs": {"type": "array", "items": {"$ref": "#/$defs/ruleRun"}},
+    "target_block_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^sb-[0-9a-f]{24}$"}},
+    "pre_policy_count": {"type": "integer", "minimum": 0},
+    "post_policy_count": {"type": "integer", "minimum": 0},
+    "hints": {"type": "array", "items": {"$ref": "#/$defs/hint"}},
+    "policy_ledger": {"type": "array", "items": {"$ref": "#/$defs/ledger"}},
+    "rule_events": {"type": "array", "items": {"$ref": "#/$defs/event"}}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "span": {"type": "object", "additionalProperties": false, "required": ["case_id", "source_hash", "start_char", "end_char"], "properties": {"case_id": {"type": "string"}, "source_hash": {"$ref": "#/$defs/hash"}, "start_char": {"type": "integer", "minimum": 0}, "end_char": {"type": "integer", "minimum": 0}}},
+    "deps": {"type": "object", "additionalProperties": false, "required": ["sourceblock_cache_key", "sentence_atom_cache_key", "sidecar_cache_key", "sourceblock_policy_sha256", "sentence_policy_sha256", "sidecar_policy_sha256", "context_hint_policy_sha256"], "properties": {"sourceblock_cache_key": {"$ref": "#/$defs/hash"}, "sentence_atom_cache_key": {"$ref": "#/$defs/hash"}, "sidecar_cache_key": {"$ref": "#/$defs/hash"}, "sourceblock_policy_sha256": {"$ref": "#/$defs/hash"}, "sentence_policy_sha256": {"$ref": "#/$defs/hash"}, "sidecar_policy_sha256": {"$ref": "#/$defs/hash"}, "context_hint_policy_sha256": {"$ref": "#/$defs/hash"}}},
+    "hint": {"type": "object", "additionalProperties": false, "required": ["record_type", "hint_id", "case_id", "source_hash", "target_block_id", "target_span", "hint_type", "direction", "related_block_ids", "related_spans", "evidence_spans", "status", "rule_id", "rule_version", "producer", "dependencies"], "properties": {
+      "record_type": {"const": "ContextHint"}, "hint_id": {"type": "string", "pattern": "^ch-[0-9a-f]{24}$"}, "case_id": {"type": "string"}, "source_hash": {"$ref": "#/$defs/hash"}, "target_block_id": {"type": "string"}, "target_span": {"$ref": "#/$defs/span"},
+      "hint_type": {"enum": ["open_quote", "open_list", "dependent_lead_in", "reference_to_previous", "citation_continuation", "quote_continuation", "speaker_continuity_candidate"]}, "direction": {"enum": ["previous", "next", "explicit_ref"]},
+      "related_block_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}, "related_spans": {"type": "array", "items": {"$ref": "#/$defs/span"}}, "evidence_spans": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/span"}},
+      "status": {"enum": ["candidate", "accepted_by_contract", "unresolved"]}, "rule_id": {"type": "string"}, "rule_version": {"type": "string"}, "producer": {"const": "deterministic_local_rule"}, "dependencies": {"$ref": "#/$defs/deps"}
+    }},
+    "ruleRun": {"type": "object", "additionalProperties": false, "required": ["rule_id", "rule_version", "status", "output_count"], "properties": {"rule_id": {"type": "string"}, "rule_version": {"type": "string"}, "status": {"enum": ["complete", "failed"]}, "output_count": {"type": "integer", "minimum": 0}}},
+    "ledger": {"type": "object", "additionalProperties": false, "required": ["proposal_id", "target_block_id", "hint_type", "action", "reason"], "properties": {"proposal_id": {"type": "string"}, "target_block_id": {"type": "string"}, "hint_type": {"type": "string"}, "action": {"enum": ["kept", "dropped"]}, "reason": {"type": "string"}}},
+    "event": {"type": "object", "additionalProperties": false, "required": ["event_id", "event_type", "case_id", "source_hash", "rule_id", "rule_version", "producer", "policy_sha256", "severity", "status", "message_code", "message"], "properties": {"event_id": {"type": "string", "pattern": "^he-[0-9a-f]{20}$"}, "event_type": {"const": "rule_failure"}, "case_id": {"type": "string"}, "source_hash": {"$ref": "#/$defs/hash"}, "rule_id": {"type": "string"}, "rule_version": {"type": "string"}, "producer": {"const": "deterministic_local_rule"}, "policy_sha256": {"$ref": "#/$defs/hash"}, "severity": {"const": "error"}, "status": {"const": "error"}, "message_code": {"const": "rule_failure_isolated"}, "message": {"type": "string"}}}
+  }
+}

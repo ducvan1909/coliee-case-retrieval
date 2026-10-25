@@ -1,0 +1,39 @@
+{
+  "policy_version": "sentence-atom-policy-v1",
+  "segmenter_version": "legal-sentence-rules-v1.1",
+  "schema_version": "sentence-atom-map-v1",
+  "offset_unit": "unicode_codepoint",
+  "span_interval": "half_open",
+  "segmented_scope": "entire SourceBlock span including marker and attached whitespace",
+  "boundary_forbidden_types": [
+    "abbreviation",
+    "initial",
+    "reporter_citation",
+    "case_name",
+    "decimal_reference",
+    "section_reference",
+    "citation_year",
+    "paragraph_marker",
+    "list_marker"
+  ],
+  "context_only_types": [
+    "balanced_quotation",
+    "unbalanced_quotation",
+    "newline_layout"
+  ],
+  "slice_policy": {
+    "policy_version": "derived-slice-policy-v1",
+    "max_chars": 2000,
+    "model_specific": false,
+    "boundary_source": "SentenceAtom"
+  },
+  "forbidden_outputs": [
+    "LegalUnit",
+    "AnalysisRegion",
+    "AuthorityUnit",
+    "Issue",
+    "NoticeNeed",
+    "retrieval",
+    "LLM"
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-a16beabae28ca8230c5b1aad",
+        "claim": "The Board must be satisfied that the protection offered in Mexico was effective.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-8cc8df18ee2225077351172b",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 14467,
+            "end_char": 14828,
+            "quote": "However, what was important was for the Board to be satisfied that the protection offered in Mexico was effective (\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1733 (QL), at para. 16;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 118 (QL), at para. 15;\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 439 (QL), at para. 34;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1094,
+    "output_tokens": 41,
+    "total_tokens": 1135
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"The Board must be satisfied that the protection offered in Mexico was effective.\",\"kind\":\"holding\",\"evidence_ids\":[\"s2\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792495985,
+    "id": "d05e0597a53948669306b5898dc4b617",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 41,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 1094,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1135
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f",
+    "payload_sha256": "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f",
+    "polls": 3,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495974.2601368,
+    "job_status": "completed",
+    "latency_ms": 14050.047,
+    "finished_at_unix": 1792495988.3095553,
+    "server_timing": {
+      "created_at": "2026-10-20T11:32:58.731035+00:00",
+      "started_at": "2026-10-20T11:33:02.596052+00:00",
+      "finished_at": "2026-10-20T11:33:05.904225+00:00",
+      "inference_seconds": 2.419729732999997
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "The Board must be satisfied that the protection offered in Mexico was effective.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 14050.789,
+  "request_id": "auc-abaf5e85ca1d1342856b6e5d",
+  "payload_sha256": "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f",
+  "receipt_sha256": "d5f7ed1887c563e3bc43a8121028c027b9dbe3785dbcdc5bff989251c8b08661"
+}

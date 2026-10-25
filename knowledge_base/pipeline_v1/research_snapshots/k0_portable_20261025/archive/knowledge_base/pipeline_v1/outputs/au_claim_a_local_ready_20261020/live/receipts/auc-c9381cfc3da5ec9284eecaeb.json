@@ -1,0 +1,195 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-ab539596cf91f3d68e8c433d",
+        "claim": "The standard of review applicable to findings regarding state protection is reasonableness.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": "In light of prior authority, the standard remains that of reasonableness.",
+        "evidence": [
+          {
+            "ref_id": "t-d3ba9f7cb194fe3c6ab339af",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 5394,
+            "end_char": 5680,
+            "quote": "[10]\r\nIn a recent decision, Madam Justice Eleanor Dawson, examined the standard of review applicable to findings regarding state protection and concluded that in light of <FRAGMENT_SUPPRESSED> , above, the standard remains that of reasonableness (\r\n <FRAGMENT_SUPPRESSED>  at para. 6). ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-c89c2ff37519c36410600878",
+        "claim": "Under the reasonableness standard, the analysis of the Board's decision concerns the existence of justification, transparency and intelligibility within the decision-making process.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": "This analysis applies pursuant to the reasonableness standard.",
+        "evidence": [
+          {
+            "ref_id": "t-d306032f01d093e60d75e775",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 5680,
+            "end_char": 5910,
+            "quote": "Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-45b864c51c94a1fb73e7ba8c",
+        "claim": "Under the reasonableness standard, the decision must fall within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s2",
+          "s3"
+        ],
+        "limits": "This test applies to the analysis of the Board's decision.",
+        "evidence": [
+          {
+            "ref_id": "t-d306032f01d093e60d75e775",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 5680,
+            "end_char": 5910,
+            "quote": "Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] ",
+            "role": "target_body"
+          },
+          {
+            "ref_id": "t-a38bdac66a583d74e8256d0d",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 5910,
+            "end_char": 6087,
+            "quote": "whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law\" ( <FRAGMENT_SUPPRESSED> , above, at para. 47).\r\n",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [
+      {
+        "au_ids": [
+          "au-c89c2ff37519c36410600878",
+          "au-45b864c51c94a1fb73e7ba8c"
+        ],
+        "evidence_ids": [
+          "s2"
+        ],
+        "semantic_merge": false
+      }
+    ],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1084,
+    "output_tokens": 181,
+    "total_tokens": 1265
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"The standard of review applicable to findings regarding state protection is reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":\"In light of prior authority, the standard remains that of reasonableness.\"},{\"claim\":\"Under the reasonableness standard, the analysis of the Board's decision concerns the existence of justification, transparency and intelligibility within the decision-making process.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s2\"],\"limits\":\"This analysis applies pursuant to the reasonableness standard.\"},{\"claim\":\"Under the reasonableness standard, the decision must fall within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s2\",\"s3\"],\"limits\":\"This test applies to the analysis of the Board's decision.\"}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792495919,
+    "id": "ad9863098e4d47d6b4335d1b778c1efe",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 181,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 181,
+      "prompt_tokens": 1084,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 1265
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d",
+    "payload_sha256": "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d",
+    "polls": 10,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495883.387174,
+    "job_status": "completed",
+    "latency_ms": 40312.353,
+    "finished_at_unix": 1792495923.6993876,
+    "server_timing": {
+      "created_at": "2026-10-20T11:31:29.367549+00:00",
+      "started_at": "2026-10-20T11:31:42.871522+00:00",
+      "finished_at": "2026-10-20T11:31:59.920997+00:00",
+      "inference_seconds": 16.139221656000018
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "The standard of review applicable to findings regarding state protection is reasonableness.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": "In light of prior authority, the standard remains that of reasonableness."
+      },
+      {
+        "claim": "Under the reasonableness standard, the analysis of the Board's decision concerns the existence of justification, transparency and intelligibility within the decision-making process.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": "This analysis applies pursuant to the reasonableness standard."
+      },
+      {
+        "claim": "Under the reasonableness standard, the decision must fall within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s2",
+          "s3"
+        ],
+        "limits": "This test applies to the analysis of the Board's decision."
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 40313.081,
+  "request_id": "auc-c9381cfc3da5ec9284eecaeb",
+  "payload_sha256": "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d",
+  "receipt_sha256": "9cabe30ef2789e206354e3e839a222fd6bd82fe20a7d170ad7032b8f8e07da68"
+}

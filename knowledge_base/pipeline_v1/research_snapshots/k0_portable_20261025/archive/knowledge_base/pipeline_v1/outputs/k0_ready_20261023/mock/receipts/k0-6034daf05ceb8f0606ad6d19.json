@@ -1,0 +1,122 @@
+{
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "k0au-07864b0962b9f5107bf192d1",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "claim": "Synthetic legal point; mock is not semantic assessment.",
+        "kind": null,
+        "evidence_ids": [
+          "e1"
+        ],
+        "evidence": [
+          {
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 5394,
+            "end_char": 5680,
+            "quote": "[10]\r\nIn a recent decision, Madam Justice Eleanor Dawson, examined the standard of review applicable to findings regarding state protection and concluded that in light of <FRAGMENT_SUPPRESSED> , above, the standard remains that of reasonableness (\r\n <FRAGMENT_SUPPRESSED>  at para. 6). "
+          }
+        ],
+        "limits": null,
+        "replace_id": null,
+        "quality_status": "grounded_draft",
+        "semantic_quality": "not_assessed"
+      }
+    ],
+    "au_errors": [],
+    "warnings": [],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8"
+    ],
+    "delivered_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "work_scope_complete"
+    }
+  },
+  "usage": null,
+  "usage_state": "mock_unavailable",
+  "raw_response": {
+    "model": "Qwen/Qwen3.5-9B",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "message": {
+          "content": "{\"aus\": [{\"claim\": \"Synthetic legal point; mock is not semantic assessment.\", \"kind\": null, \"evidence_ids\": [\"e1\"], \"limits\": null}], \"assessed_scope_ids\": [\"r1\", \"r2\", \"r3\", \"r4\", \"r5\", \"r6\", \"r7\", \"r8\"], \"next_action\": {\"tool\": \"finish_case\", \"reason\": \"work_scope_complete\"}}"
+        }
+      }
+    ]
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "9996bd89a0c6a4d27f3085782d3fc1784fe92a36e7c40811cacbdbee4caec432",
+    "payload_sha256": "9996bd89a0c6a4d27f3085782d3fc1784fe92a36e7c40811cacbdbee4caec432",
+    "polls": 1,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792728557.8792996,
+    "job_status": "completed",
+    "latency_ms": 91.532,
+    "finished_at_unix": 1792728557.9710522,
+    "server_timing": {
+      "created_at": null,
+      "started_at": null,
+      "finished_at": null,
+      "inference_seconds": null
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "Synthetic legal point; mock is not semantic assessment.",
+        "kind": null,
+        "evidence_ids": [
+          "e1"
+        ],
+        "limits": null
+      }
+    ],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "work_scope_complete"
+    }
+  },
+  "status": "verified",
+  "latency_ms": 91.749,
+  "request_id": "k0-6034daf05ceb8f0606ad6d19",
+  "payload_sha256": "9996bd89a0c6a4d27f3085782d3fc1784fe92a36e7c40811cacbdbee4caec432",
+  "receipt_sha256": "63c468809451f8cf66f400659497447b23f43f8001ecf64863ca702ae63f7763"
+}

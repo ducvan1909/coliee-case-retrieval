@@ -1,0 +1,41 @@
+{
+  "policy_version": "sidecar-policy-v1",
+  "worker_bundle_version": "sidecar-rules-v1.1",
+  "schema_version": "sidecar-map-v1",
+  "workers": {
+    "marker_rule": "marker-rule-v1",
+    "citation_reference_rule": "citation-reference-rule-v1.1",
+    "nested_structure_inheritance": "nested-structure-v1.1",
+    "quote_balance_rule": "quote-balance-rule-v1.1",
+    "speaker_cue_rule": "speaker-cue-rule-v1",
+    "structural_relation_rule": "structural-relation-rule-v1"
+  },
+  "annotation_statuses": ["observed", "candidate", "review", "error"],
+  "adjacency": {
+    "materialized": false,
+    "derived_from": "SourceBlock.order",
+    "directions": ["next", "previous"]
+  },
+  "governance": {
+    "status": "candidate",
+    "accepted_semantic_governance": false,
+    "formal_heading_patterns_only": true
+  },
+  "semantic_assertions_forbidden": [
+    "speaker_identity",
+    "attribution",
+    "authority_identity",
+    "treatment",
+    "noticed_case",
+    "relevance",
+    "qualifies",
+    "responds_to",
+    "condition_for",
+    "same_legal_point",
+    "Issue",
+    "AuthorityUnit",
+    "NoticeNeed",
+    "retrieval",
+    "LLM"
+  ]
+}

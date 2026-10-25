@@ -1,0 +1,12 @@
+{
+  "status": "ready",
+  "ready": true,
+  "http_status": 200,
+  "error_class": null,
+  "count": 131,
+  "elapsed_ms": 339000.0,
+  "warmup_count": 131,
+  "warmup_elapsed_ms": 339000.0,
+  "deadline_seconds": 600,
+  "retrieval_deadline_seconds": 30
+}

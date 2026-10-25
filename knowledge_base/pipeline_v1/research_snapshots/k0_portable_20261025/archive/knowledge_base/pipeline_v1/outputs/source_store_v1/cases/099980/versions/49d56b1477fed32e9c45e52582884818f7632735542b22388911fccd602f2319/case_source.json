@@ -1,0 +1,18 @@
+{
+  "record_type": "CaseSource",
+  "contract_version": "case-source-v1",
+  "case_id": "099980",
+  "source_version": "src-49d56b1477fed32e",
+  "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+  "text_ref": "cases/099980/versions/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/source.txt",
+  "byte_length": 122438,
+  "char_length": 122393,
+  "encoding": "utf-8-sig",
+  "offset_unit": "unicode_codepoint",
+  "metadata": {
+    "corpus_split": "train",
+    "kos_role": "candidate",
+    "input_source_path": "data/task1_train_files_2026/cases/099980.txt",
+    "audit_only_kos": true
+  }
+}

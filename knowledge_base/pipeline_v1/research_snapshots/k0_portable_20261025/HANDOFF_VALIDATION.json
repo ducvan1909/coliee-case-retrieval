@@ -1,0 +1,45 @@
+{
+  "status": "handoff_local_pass",
+  "date": "2026-10-25",
+  "basis_sha256": "8aca90943ecb120af87996b9b2824b39cc6c63c504485519163b07845396a9c4",
+  "archive_files": 238,
+  "code_asset_bindings": 152,
+  "portable_suite": {
+    "tests": 4,
+    "passed": 4,
+    "skipped": 0,
+    "seconds": 75.875,
+    "scope": [
+      "different repository root and Unicode CWD",
+      "old checkout inaccessible",
+      "relative active paths and unsafe path rejection",
+      "tampered source/code/receipt/tokenizer rejected",
+      "mock checkpoint resumes without replay or provider usage"
+    ]
+  },
+  "native_cpu": {
+    "status": "pass",
+    "grammars": 4,
+    "positive_examples": 7,
+    "negative_examples": 10,
+    "seconds": 12.086775,
+    "optional_torch_dlpack_jit": "disabled; NumPy CPU mask probe",
+    "input_file_missing_attempt": {
+      "status": "failed_before_probe",
+      "requests": 0
+    },
+    "optional_jit_attempt": {
+      "status": "stopped_after_dependency_import_stall",
+      "requests": 0
+    }
+  },
+  "credential_scan": {
+    "matches": 0,
+    "scope": "candidate code, docs, assets and bounded archive; local credential values and common key patterns"
+  },
+  "network_requests": 0,
+  "new_model_requests": 0,
+  "semantic_quality": "not_assessed",
+  "legacy_legal_unit_deleted_files": 13,
+  "history_resume_policy": "historical execution archive-only; new portable checkpoints resumable across roots"
+}

@@ -1,0 +1,110 @@
+{
+  "normalized": {
+    "aus": [],
+    "au_errors": [],
+    "warnings": [],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "delivered_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "next_action": {
+      "tool": "search_source",
+      "query": "exhaustion of internal remedies exception undisclosed information"
+    }
+  },
+  "usage": {
+    "input_tokens": 1942,
+    "output_tokens": 47,
+    "total_tokens": 1989
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[],\"assessed_scope_ids\":[\"r1\",\"r2\",\"r3\",\"r4\",\"r5\"],\"next_action\":{\"tool\":\"search_source\",\"query\":\"exhaustion of internal remedies exception undisclosed information\"}}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792747306,
+    "id": "a432cc3e3aeb4022bb70f8852c9d1054",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 47,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 47,
+      "prompt_tokens": 1942,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 1989
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "fd54355ae128447ce666c668a0c791954972caf5bcd9f44efc3e749671005df5",
+    "payload_sha256": "fd54355ae128447ce666c668a0c791954972caf5bcd9f44efc3e749671005df5",
+    "polls": 2,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792747296.9613132,
+    "job_status": "completed",
+    "latency_ms": 12489.787,
+    "finished_at_unix": 1792747309.451115,
+    "server_timing": {
+      "created_at": "2026-10-23T09:21:42.325890+00:00",
+      "started_at": "2026-10-23T09:21:43.507347+00:00",
+      "finished_at": "2026-10-23T09:21:46.330517+00:00",
+      "inference_seconds": 2.1868771869999932
+    }
+  },
+  "model_output": {
+    "aus": [],
+    "assessed_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5"
+    ],
+    "next_action": {
+      "tool": "search_source",
+      "query": "exhaustion of internal remedies exception undisclosed information"
+    }
+  },
+  "status": "verified",
+  "latency_ms": 12489.984,
+  "request_id": "k0-7cc9d463c484a376ce946dde",
+  "payload_sha256": "fd54355ae128447ce666c668a0c791954972caf5bcd9f44efc3e749671005df5",
+  "receipt_sha256": "99c16621491ecaec95d83b0fa10947a560419c0cf0dd35e203dbc14dedf37724"
+}

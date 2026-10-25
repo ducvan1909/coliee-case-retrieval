@@ -1,0 +1,2287 @@
+{
+  "artifact_type": "AUClaimRun",
+  "version": "au-claim-v1",
+  "workload_sha256": "1eab617aa7ee56d9594738c5b3bdfeae8723b8c9633a6b550eecc17addc2b9d9",
+  "identity": "7375d2b2de9ce068e58e702500b388c8d0ad86fcd172c9b713c01cdec6ca2954",
+  "mode": "execute",
+  "status": "incomplete",
+  "protocol_complete": false,
+  "protocol_counts": {
+    "verified": 14,
+    "invalid": 2,
+    "failed": 0,
+    "reserved": 0,
+    "pending": 0
+  },
+  "protocol_verified": 14,
+  "protocol_invalid": 2,
+  "failed": 0,
+  "pending": 0,
+  "needs_context": 0,
+  "results": [
+    {
+      "target_id": "act-c0ed7ba27278c298e3f9806f",
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "target": {
+        "start_char": 5394,
+        "end_char": 6087
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-ab539596cf91f3d68e8c433d",
+            "claim": "The standard of review applicable to findings regarding state protection is reasonableness.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": "In light of prior authority, the standard remains that of reasonableness.",
+            "evidence": [
+              {
+                "ref_id": "t-d3ba9f7cb194fe3c6ab339af",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5394,
+                "end_char": 5680,
+                "quote": "[10]\r\nIn a recent decision, Madam Justice Eleanor Dawson, examined the standard of review applicable to findings regarding state protection and concluded that in light of <FRAGMENT_SUPPRESSED> , above, the standard remains that of reasonableness (\r\n <FRAGMENT_SUPPRESSED>  at para. 6). ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-c89c2ff37519c36410600878",
+            "claim": "Under the reasonableness standard, the analysis of the Board's decision concerns the existence of justification, transparency and intelligibility within the decision-making process.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": "This analysis applies pursuant to the reasonableness standard.",
+            "evidence": [
+              {
+                "ref_id": "t-d306032f01d093e60d75e775",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5680,
+                "end_char": 5910,
+                "quote": "Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-45b864c51c94a1fb73e7ba8c",
+            "claim": "Under the reasonableness standard, the decision must fall within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s2",
+              "s3"
+            ],
+            "limits": "This test applies to the analysis of the Board's decision.",
+            "evidence": [
+              {
+                "ref_id": "t-d306032f01d093e60d75e775",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5680,
+                "end_char": 5910,
+                "quote": "Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] ",
+                "role": "target_body"
+              },
+              {
+                "ref_id": "t-a38bdac66a583d74e8256d0d",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5910,
+                "end_char": 6087,
+                "quote": "whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law\" ( <FRAGMENT_SUPPRESSED> , above, at para. 47).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [
+          {
+            "au_ids": [
+              "au-c89c2ff37519c36410600878",
+              "au-45b864c51c94a1fb73e7ba8c"
+            ],
+            "evidence_ids": [
+              "s2"
+            ],
+            "semantic_merge": false
+          }
+        ],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-ab539596cf91f3d68e8c433d",
+            "claim": "The standard of review applicable to findings regarding state protection is reasonableness.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": "In light of prior authority, the standard remains that of reasonableness.",
+            "evidence": [
+              {
+                "ref_id": "t-d3ba9f7cb194fe3c6ab339af",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5394,
+                "end_char": 5680,
+                "quote": "[10]\r\nIn a recent decision, Madam Justice Eleanor Dawson, examined the standard of review applicable to findings regarding state protection and concluded that in light of <FRAGMENT_SUPPRESSED> , above, the standard remains that of reasonableness (\r\n <FRAGMENT_SUPPRESSED>  at para. 6). ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-c89c2ff37519c36410600878",
+            "claim": "Under the reasonableness standard, the analysis of the Board's decision concerns the existence of justification, transparency and intelligibility within the decision-making process.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": "This analysis applies pursuant to the reasonableness standard.",
+            "evidence": [
+              {
+                "ref_id": "t-d306032f01d093e60d75e775",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5680,
+                "end_char": 5910,
+                "quote": "Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-45b864c51c94a1fb73e7ba8c",
+            "claim": "Under the reasonableness standard, the decision must fall within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s2",
+              "s3"
+            ],
+            "limits": "This test applies to the analysis of the Board's decision.",
+            "evidence": [
+              {
+                "ref_id": "t-d306032f01d093e60d75e775",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5680,
+                "end_char": 5910,
+                "quote": "Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] ",
+                "role": "target_body"
+              },
+              {
+                "ref_id": "t-a38bdac66a583d74e8256d0d",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5910,
+                "end_char": 6087,
+                "quote": "whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law\" ( <FRAGMENT_SUPPRESSED> , above, at para. 47).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [
+          {
+            "au_ids": [
+              "au-c89c2ff37519c36410600878",
+              "au-45b864c51c94a1fb73e7ba8c"
+            ],
+            "evidence_ids": [
+              "s2"
+            ],
+            "semantic_merge": false
+          }
+        ],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1084,
+          "output_tokens": 181,
+          "total_tokens": 1265
+        }
+      ],
+      "client_latency_ms": 40313.081,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-c9381cfc3da5ec9284eecaeb"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-b81273b7291bcd4577a91687",
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "target": {
+        "start_char": 6763,
+        "end_char": 7276
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-6a7be348918eb533696e0f25",
+            "claim": "It is true that 'clear and convincing confirmation' of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-9368668d19de6103cfd7383e",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 6763,
+                "end_char": 7028,
+                "quote": "[13]\r\nIt is true that \"clear and convincing confirmation\" of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 50). ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-cab0d6686f648e1ff494918d",
+            "claim": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-e73a1b8538ba83c0221d0cbb",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 7028,
+                "end_char": 7276,
+                "quote": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 5;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 584 (QL), at para. 57).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-6a7be348918eb533696e0f25",
+            "claim": "It is true that 'clear and convincing confirmation' of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-9368668d19de6103cfd7383e",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 6763,
+                "end_char": 7028,
+                "quote": "[13]\r\nIt is true that \"clear and convincing confirmation\" of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 50). ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-cab0d6686f648e1ff494918d",
+            "claim": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-e73a1b8538ba83c0221d0cbb",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 7028,
+                "end_char": 7276,
+                "quote": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 5;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 584 (QL), at para. 57).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1070,
+          "output_tokens": 119,
+          "total_tokens": 1189
+        }
+      ],
+      "client_latency_ms": 21692.395,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-fbf2b9ad792df64588a39027"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-936031965b08be61d8d765cc",
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "target": {
+        "start_char": 7276,
+        "end_char": 7773
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-1a4badb348f8fd4b4eec61b1",
+            "claim": "The presumption of state protection described in Ward applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-37945bb85e5aca0c3b3cadea",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 7276,
+                "end_char": 7618,
+                "quote": "[14]\r\nIn the recent decision of <FRAGMENT_SUPPRESSED> , above, at para. 54 the Federal Court of Appeal noted that \"[t] he presumption of state protection described in\r\nWard\r\n, therefore, applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\" ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-e204603190dcddc2d6ea87fe",
+            "claim": "The existence of state persecuting agents does not automatically rebut the presumption that a state is capable of protecting its citizens.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-8b5d5fbf0615d805ac48d7e9",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 7618,
+                "end_char": 7773,
+                "quote": "Thus, the existence of state persecuting agents does not serve to automatically rebut the presumption that a state is capable of protecting its citizens.\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-1a4badb348f8fd4b4eec61b1",
+            "claim": "The presumption of state protection described in Ward applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-37945bb85e5aca0c3b3cadea",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 7276,
+                "end_char": 7618,
+                "quote": "[14]\r\nIn the recent decision of <FRAGMENT_SUPPRESSED> , above, at para. 54 the Federal Court of Appeal noted that \"[t] he presumption of state protection described in\r\nWard\r\n, therefore, applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\" ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-e204603190dcddc2d6ea87fe",
+            "claim": "The existence of state persecuting agents does not automatically rebut the presumption that a state is capable of protecting its citizens.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-8b5d5fbf0615d805ac48d7e9",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 7618,
+                "end_char": 7773,
+                "quote": "Thus, the existence of state persecuting agents does not serve to automatically rebut the presumption that a state is capable of protecting its citizens.\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1028,
+          "output_tokens": 104,
+          "total_tokens": 1132
+        }
+      ],
+      "client_latency_ms": 30414.924,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-74098902e4c9cb8d2c968b5c"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-26e0f0e181977f9ba0c27362",
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "target": {
+        "start_char": 8352,
+        "end_char": 9333
+      },
+      "stage1_status": "invalid",
+      "stage2_status": "not_needed",
+      "draft_status": "invalid",
+      "status": "invalid",
+      "initial_output": null,
+      "output": null,
+      "needs_context": false,
+      "protocol_complete": false,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1174,
+          "output_tokens": 236,
+          "total_tokens": 1410
+        }
+      ],
+      "client_latency_ms": 38307.799,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-621f4ef0ea66a5e3734aeb5d"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-80bdb6c502b053d3d914f453",
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "target": {
+        "start_char": 11681,
+        "end_char": 12414
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-cf4ad9ee91d7a43100a7a5be",
+            "claim": "Decision-makers must engage in a full assessment of evidence suggesting Mexico, while willing to protect, may be unable to do so.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s3"
+            ],
+            "limits": "This assessment includes the context of the country of origin, steps applicants took, and their interaction with authorities.",
+            "evidence": [
+              {
+                "ref_id": "t-15d5d8717965cc718bb21db8",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 11930,
+                "end_char": 12101,
+                "quote": "Accordingly, decision-makers must engage in a full assessment of the evidence placed before them suggesting that Mexico, while willing to protect, may be unable to do so. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-29364c1af15d1387a48868d9",
+            "claim": "Madam Justice Gauthier's approach to the presumption of state protection in Mexico is persuasive.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-6fe2b3ca03a63fbbe4375fc0",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 11681,
+                "end_char": 11795,
+                "quote": "[20]\r\nI find Madam Justice Gauthier's approach to the presumption of state protection in Mexico to be persuasive. ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-cf4ad9ee91d7a43100a7a5be",
+            "claim": "Decision-makers must engage in a full assessment of evidence suggesting Mexico, while willing to protect, may be unable to do so.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s3"
+            ],
+            "limits": "This assessment includes the context of the country of origin, steps applicants took, and their interaction with authorities.",
+            "evidence": [
+              {
+                "ref_id": "t-15d5d8717965cc718bb21db8",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 11930,
+                "end_char": 12101,
+                "quote": "Accordingly, decision-makers must engage in a full assessment of the evidence placed before them suggesting that Mexico, while willing to protect, may be unable to do so. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-29364c1af15d1387a48868d9",
+            "claim": "Madam Justice Gauthier's approach to the presumption of state protection in Mexico is persuasive.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-6fe2b3ca03a63fbbe4375fc0",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 11681,
+                "end_char": 11795,
+                "quote": "[20]\r\nI find Madam Justice Gauthier's approach to the presumption of state protection in Mexico to be persuasive. ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1133,
+          "output_tokens": 108,
+          "total_tokens": 1241
+        }
+      ],
+      "client_latency_ms": 38741.537,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-71c67f3f267d7f4ad1d3ecc6"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-7a05789ca8a61373b9c6d93c",
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "target": {
+        "start_char": 13761,
+        "end_char": 14352
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-a555c6a0219fda9092d6ca46",
+            "claim": "Unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": "Alternate institutions do not constitute avenues of protection per se.",
+            "evidence": [
+              {
+                "ref_id": "t-e7cb0f142bb99621385d0970",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 13761,
+                "end_char": 14076,
+                "quote": "[25]\r\nI am of the view that these alternate institutions do not constitute avenues of protection\r\nper se\r\n; unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-d0669032d98d5448ff9ea294",
+            "claim": "The National Human Rights Commission has no legal power of enforcement.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-996a27e08fd5d3b8978fa260",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 14076,
+                "end_char": 14352,
+                "quote": "For example, the documentary evidence explicitly states that the National Human Rights Commission has no legal power of enforcement (\"Mexico: Situation of Witness to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation\").\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-a555c6a0219fda9092d6ca46",
+            "claim": "Unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": "Alternate institutions do not constitute avenues of protection per se.",
+            "evidence": [
+              {
+                "ref_id": "t-e7cb0f142bb99621385d0970",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 13761,
+                "end_char": 14076,
+                "quote": "[25]\r\nI am of the view that these alternate institutions do not constitute avenues of protection\r\nper se\r\n; unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-d0669032d98d5448ff9ea294",
+            "claim": "The National Human Rights Commission has no legal power of enforcement.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-996a27e08fd5d3b8978fa260",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 14076,
+                "end_char": 14352,
+                "quote": "For example, the documentary evidence explicitly states that the National Human Rights Commission has no legal power of enforcement (\"Mexico: Situation of Witness to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation\").\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1031,
+          "output_tokens": 103,
+          "total_tokens": 1134
+        }
+      ],
+      "client_latency_ms": 22759.27,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-758b5e76f2fb10e427b4e0a8"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-1b96649d1cc24edf6febb043",
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "target": {
+        "start_char": 14352,
+        "end_char": 14828
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-a16beabae28ca8230c5b1aad",
+            "claim": "The Board must be satisfied that the protection offered in Mexico was effective.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-8cc8df18ee2225077351172b",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 14467,
+                "end_char": 14828,
+                "quote": "However, what was important was for the Board to be satisfied that the protection offered in Mexico was effective (\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1733 (QL), at para. 16;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 118 (QL), at para. 15;\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 439 (QL), at para. 34;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-a16beabae28ca8230c5b1aad",
+            "claim": "The Board must be satisfied that the protection offered in Mexico was effective.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-8cc8df18ee2225077351172b",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 14467,
+                "end_char": 14828,
+                "quote": "However, what was important was for the Board to be satisfied that the protection offered in Mexico was effective (\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1733 (QL), at para. 16;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 118 (QL), at para. 15;\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 439 (QL), at para. 34;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1094,
+          "output_tokens": 41,
+          "total_tokens": 1135
+        }
+      ],
+      "client_latency_ms": 14050.789,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-abaf5e85ca1d1342856b6e5d"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-44a15a9ba2f89eeea686ba72",
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "target": {
+        "start_char": 15205,
+        "end_char": 15570
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-12f53fe1b573388c0e422387",
+            "claim": "Where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-99df97cda98799560b76d1b6",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 15205,
+                "end_char": 15570,
+                "quote": "[28]\r\nThis Court has consistently held that where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy (\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 1224 (QL), at para. 44;\r\n <FRAGMENT_SUPPRESSED>  [2004] F.C.J. No. 43 (QL), at para. 9;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-12f53fe1b573388c0e422387",
+            "claim": "Where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-99df97cda98799560b76d1b6",
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 15205,
+                "end_char": 15570,
+                "quote": "[28]\r\nThis Court has consistently held that where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy (\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 1224 (QL), at para. 44;\r\n <FRAGMENT_SUPPRESSED>  [2004] F.C.J. No. 43 (QL), at para. 9;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1032,
+          "output_tokens": 51,
+          "total_tokens": 1083
+        }
+      ],
+      "client_latency_ms": 13355.865,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-9b69d0acdd3de1ca6e7bace2"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-b8525d8b98810bf91984a946",
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "target": {
+        "start_char": 16739,
+        "end_char": 17750
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-d450b788a062ca71bc740325",
+            "claim": "The internal grievance procedure provided by the Act is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": "This applies where the respondent raises a preliminary point that the applicant has not exhausted internal remedies, rendering the application premature.",
+            "evidence": [
+              {
+                "ref_id": "t-c730a2fa9df10ee922d881cf",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 16910,
+                "end_char": 17386,
+                "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-f0ba49ab7f6a8dc068c2ed3d",
+            "claim": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court.",
+            "kind": "fact_pattern_rule",
+            "evidence_ids": [
+              "s2",
+              "s4"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-c730a2fa9df10ee922d881cf",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 16910,
+                "end_char": 17386,
+                "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+                "role": "target_body"
+              },
+              {
+                "ref_id": "t-f09a1b5215afdce61fd6c40b",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 17460,
+                "end_char": 17604,
+                "quote": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-22ca96d144a909c199d6815c",
+            "claim": "Judicial resources should not be occupied dealing with problems for which another forum is provided.",
+            "kind": "fact_pattern_rule",
+            "evidence_ids": [
+              "s2",
+              "s5"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-c730a2fa9df10ee922d881cf",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 16910,
+                "end_char": 17386,
+                "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+                "role": "target_body"
+              },
+              {
+                "ref_id": "t-8d63f8c1a41b18ce8d9638bf",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 17604,
+                "end_char": 17725,
+                "quote": "One might add that judicial resources should not be occupied dealing with problems for which another forum is provided.  ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [
+          {
+            "au_ids": [
+              "au-d450b788a062ca71bc740325",
+              "au-f0ba49ab7f6a8dc068c2ed3d"
+            ],
+            "evidence_ids": [
+              "s2"
+            ],
+            "semantic_merge": false
+          },
+          {
+            "au_ids": [
+              "au-d450b788a062ca71bc740325",
+              "au-22ca96d144a909c199d6815c"
+            ],
+            "evidence_ids": [
+              "s2"
+            ],
+            "semantic_merge": false
+          },
+          {
+            "au_ids": [
+              "au-f0ba49ab7f6a8dc068c2ed3d",
+              "au-22ca96d144a909c199d6815c"
+            ],
+            "evidence_ids": [
+              "s2"
+            ],
+            "semantic_merge": false
+          }
+        ],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-d450b788a062ca71bc740325",
+            "claim": "The internal grievance procedure provided by the Act is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": "This applies where the respondent raises a preliminary point that the applicant has not exhausted internal remedies, rendering the application premature.",
+            "evidence": [
+              {
+                "ref_id": "t-c730a2fa9df10ee922d881cf",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 16910,
+                "end_char": 17386,
+                "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-f0ba49ab7f6a8dc068c2ed3d",
+            "claim": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court.",
+            "kind": "fact_pattern_rule",
+            "evidence_ids": [
+              "s2",
+              "s4"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-c730a2fa9df10ee922d881cf",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 16910,
+                "end_char": 17386,
+                "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+                "role": "target_body"
+              },
+              {
+                "ref_id": "t-f09a1b5215afdce61fd6c40b",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 17460,
+                "end_char": 17604,
+                "quote": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-22ca96d144a909c199d6815c",
+            "claim": "Judicial resources should not be occupied dealing with problems for which another forum is provided.",
+            "kind": "fact_pattern_rule",
+            "evidence_ids": [
+              "s2",
+              "s5"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-c730a2fa9df10ee922d881cf",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 16910,
+                "end_char": 17386,
+                "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+                "role": "target_body"
+              },
+              {
+                "ref_id": "t-8d63f8c1a41b18ce8d9638bf",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 17604,
+                "end_char": 17725,
+                "quote": "One might add that judicial resources should not be occupied dealing with problems for which another forum is provided.  ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [
+          {
+            "au_ids": [
+              "au-d450b788a062ca71bc740325",
+              "au-f0ba49ab7f6a8dc068c2ed3d"
+            ],
+            "evidence_ids": [
+              "s2"
+            ],
+            "semantic_merge": false
+          },
+          {
+            "au_ids": [
+              "au-d450b788a062ca71bc740325",
+              "au-22ca96d144a909c199d6815c"
+            ],
+            "evidence_ids": [
+              "s2"
+            ],
+            "semantic_merge": false
+          },
+          {
+            "au_ids": [
+              "au-f0ba49ab7f6a8dc068c2ed3d",
+              "au-22ca96d144a909c199d6815c"
+            ],
+            "evidence_ids": [
+              "s2"
+            ],
+            "semantic_merge": false
+          }
+        ],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1231,
+          "output_tokens": 170,
+          "total_tokens": 1401
+        }
+      ],
+      "client_latency_ms": 26092.907,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-80a33967561523720d8bfd47"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-ea26d42af4a55d267c0f0517",
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "target": {
+        "start_char": 17750,
+        "end_char": 18478
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-a2894606bf7087ac4513d95e",
+            "claim": "An early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-700fe830c8c6dc754a9cc49e",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 17830,
+                "end_char": 18015,
+                "quote": "<FRAGMENT_SUPPRESSED> ; 108 F.T.R. 93 (T.D.), MacKay, J., held that an early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-adcd8e60e132d901ffbf9408",
+            "claim": "Where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s3"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-7281f79d9d02a4e10e010345",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18015,
+                "end_char": 18256,
+                "quote": "MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-2343c9cfb925b0aa4be3ade4",
+            "claim": "This provision confirmed that a party had a right to proceed in one forum or the other.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s3",
+              "s4"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-7281f79d9d02a4e10e010345",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18015,
+                "end_char": 18256,
+                "quote": "MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. ",
+                "role": "target_body"
+              },
+              {
+                "ref_id": "t-8a67ac89bc34d14a624dea45",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18256,
+                "end_char": 18362,
+                "quote": "In his view, this provision confirmed that a party had a right to proceed in one forum or the other.  \r\n  ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [
+          {
+            "au_ids": [
+              "au-adcd8e60e132d901ffbf9408",
+              "au-2343c9cfb925b0aa4be3ade4"
+            ],
+            "evidence_ids": [
+              "s3"
+            ],
+            "semantic_merge": false
+          }
+        ],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-a2894606bf7087ac4513d95e",
+            "claim": "An early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-700fe830c8c6dc754a9cc49e",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 17830,
+                "end_char": 18015,
+                "quote": "<FRAGMENT_SUPPRESSED> ; 108 F.T.R. 93 (T.D.), MacKay, J., held that an early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-adcd8e60e132d901ffbf9408",
+            "claim": "Where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s3"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-7281f79d9d02a4e10e010345",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18015,
+                "end_char": 18256,
+                "quote": "MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-2343c9cfb925b0aa4be3ade4",
+            "claim": "This provision confirmed that a party had a right to proceed in one forum or the other.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s3",
+              "s4"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-7281f79d9d02a4e10e010345",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18015,
+                "end_char": 18256,
+                "quote": "MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. ",
+                "role": "target_body"
+              },
+              {
+                "ref_id": "t-8a67ac89bc34d14a624dea45",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18256,
+                "end_char": 18362,
+                "quote": "In his view, this provision confirmed that a party had a right to proceed in one forum or the other.  \r\n  ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [
+          {
+            "au_ids": [
+              "au-adcd8e60e132d901ffbf9408",
+              "au-2343c9cfb925b0aa4be3ade4"
+            ],
+            "evidence_ids": [
+              "s3"
+            ],
+            "semantic_merge": false
+          }
+        ],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1150,
+          "output_tokens": 125,
+          "total_tokens": 1275
+        }
+      ],
+      "client_latency_ms": 27258.583,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-990fae8ff57520393d90ac04"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-c0dbce2da157944020f9c77d",
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "target": {
+        "start_char": 18530,
+        "end_char": 19731
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-215fd891ed34eddce5a17120",
+            "claim": "The policy reasons for requiring applicants to exhaust their internal remedies are compelling.",
+            "kind": "other",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-20aaebba7ede708372d84551",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18530,
+                "end_char": 18635,
+                "quote": " [10] \r\n  The policy reasons for requiring applicants to exhaust their internal remedies are compelling. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-253c801285d61df2472b9bb0",
+            "claim": "In the context of correctional facilities, timeliness, familiarity with a unique environment, adequate procedural safeguards and economy are reasons for which internal remedies ought to be exhausted before approaching this Court.",
+            "kind": "other",
+            "evidence_ids": [
+              "s3"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-cd70ad9a759db2a8d6ce5b73",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18845,
+                "end_char": 19093,
+                "quote": "In the context of correctional facilities, one could identity timeliness, familiarity with a unique environment, adequate procedural safeguards and economy as reasons for which internal remedies ought to be exhausted before approaching this Court. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-6f469043cafb34d21a8fa166",
+            "claim": "However, there will be circumstances in which the internal remedies are not adequate.",
+            "kind": "other",
+            "evidence_ids": [
+              "s4"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-2f6b5ac77243ec97e3477253",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 19093,
+                "end_char": 19179,
+                "quote": "However, there will be circumstances in which the internal remedies are not adequate. ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-215fd891ed34eddce5a17120",
+            "claim": "The policy reasons for requiring applicants to exhaust their internal remedies are compelling.",
+            "kind": "other",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-20aaebba7ede708372d84551",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18530,
+                "end_char": 18635,
+                "quote": " [10] \r\n  The policy reasons for requiring applicants to exhaust their internal remedies are compelling. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-253c801285d61df2472b9bb0",
+            "claim": "In the context of correctional facilities, timeliness, familiarity with a unique environment, adequate procedural safeguards and economy are reasons for which internal remedies ought to be exhausted before approaching this Court.",
+            "kind": "other",
+            "evidence_ids": [
+              "s3"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-cd70ad9a759db2a8d6ce5b73",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 18845,
+                "end_char": 19093,
+                "quote": "In the context of correctional facilities, one could identity timeliness, familiarity with a unique environment, adequate procedural safeguards and economy as reasons for which internal remedies ought to be exhausted before approaching this Court. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-6f469043cafb34d21a8fa166",
+            "claim": "However, there will be circumstances in which the internal remedies are not adequate.",
+            "kind": "other",
+            "evidence_ids": [
+              "s4"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-2f6b5ac77243ec97e3477253",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 19093,
+                "end_char": 19179,
+                "quote": "However, there will be circumstances in which the internal remedies are not adequate. ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1219,
+          "output_tokens": 127,
+          "total_tokens": 1346
+        }
+      ],
+      "client_latency_ms": 22694.355,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-1213243ce69f183fa3cc043b"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-38b0180ca1eb9a9c2d62e7fc",
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "target": {
+        "start_char": 22308,
+        "end_char": 22997
+      },
+      "stage1_status": "invalid",
+      "stage2_status": "not_needed",
+      "draft_status": "invalid",
+      "status": "invalid",
+      "initial_output": null,
+      "output": null,
+      "needs_context": false,
+      "protocol_complete": false,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1107,
+          "output_tokens": 55,
+          "total_tokens": 1162
+        }
+      ],
+      "client_latency_ms": 20267.641,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-a9d02f74a3d246e3af135acb"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-6d8f91680f2a2f2b18bc1802",
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "target": {
+        "start_char": 25718,
+        "end_char": 26735
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-96e9fe069861ae9b67fbc77a",
+            "claim": "The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-58e5b578ae1065ee0de96215",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 25718,
+                "end_char": 25878,
+                "quote": " [21] \r\n  The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-e2768aa613c006bef1dd6acd",
+            "claim": "Subsection 27(2) requires that a decision-maker be given all the information considered in the taking of the decision or a summary of that information, subject only to the terms of subsection 27(3).",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-4a0350fa6f125599f3a6a0fd",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 25878,
+                "end_char": 26170,
+                "quote": "As a result, subsection 27(2) requires that he be given \"all the information that was considered in the taking of the decision or a summary of that information\" or \"les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci\", subject only to the terms of subsection 27(3). ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-3f496197c7dc2bc679cb2252",
+            "claim": "Subsection 27(3) provides a means whereby information may be withheld but it must be authorized by the Commissioner or his delegate.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s4"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-00b76dd7c51463ddbe047b9f",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 26314,
+                "end_char": 26447,
+                "quote": "Subsection 27(3) provides a means whereby information may be withheld but it must be authorized by the Commissioner or his delegate. ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-96e9fe069861ae9b67fbc77a",
+            "claim": "The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-58e5b578ae1065ee0de96215",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 25718,
+                "end_char": 25878,
+                "quote": " [21] \r\n  The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-e2768aa613c006bef1dd6acd",
+            "claim": "Subsection 27(2) requires that a decision-maker be given all the information considered in the taking of the decision or a summary of that information, subject only to the terms of subsection 27(3).",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-4a0350fa6f125599f3a6a0fd",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 25878,
+                "end_char": 26170,
+                "quote": "As a result, subsection 27(2) requires that he be given \"all the information that was considered in the taking of the decision or a summary of that information\" or \"les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci\", subject only to the terms of subsection 27(3). ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-3f496197c7dc2bc679cb2252",
+            "claim": "Subsection 27(3) provides a means whereby information may be withheld but it must be authorized by the Commissioner or his delegate.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s4"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-00b76dd7c51463ddbe047b9f",
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 26314,
+                "end_char": 26447,
+                "quote": "Subsection 27(3) provides a means whereby information may be withheld but it must be authorized by the Commissioner or his delegate. ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1194,
+          "output_tokens": 166,
+          "total_tokens": 1360
+        }
+      ],
+      "client_latency_ms": 24659.248,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-261bfde61316f67bda3c4a76"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-cbff3a7eb4d28f50b1e0d656",
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "target": {
+        "start_char": 56160,
+        "end_char": 56725
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-dce2b78026e3db8dda4b1d6a",
+            "claim": "The issue of procedural fairness is determinative, as there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-790c01a88146daa0d105c05b",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 56482,
+                "end_char": 56725,
+                "quote": "In fact, the issue of procedural fairness seems determinative to me; as explained below, there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-dce2b78026e3db8dda4b1d6a",
+            "claim": "The issue of procedural fairness is determinative, as there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.",
+            "kind": "holding",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-790c01a88146daa0d105c05b",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 56482,
+                "end_char": 56725,
+                "quote": "In fact, the issue of procedural fairness seems determinative to me; as explained below, there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1034,
+          "output_tokens": 67,
+          "total_tokens": 1101
+        }
+      ],
+      "client_latency_ms": 24898.684,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-043529c252d9ca960e652a7d"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-6e9917a5d050d2111093d183",
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "target": {
+        "start_char": 58238,
+        "end_char": 58837
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-6dc239758ae2a67baef48c3c",
+            "claim": "Issues of procedural fairness are resolved on a case-by-case basis.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": "The Court is not bound by prior findings of fact where facts differ substantially, such as when an applicant was never formally informed of fraud suspicion.",
+            "evidence": [
+              {
+                "ref_id": "t-c5933e061efbb05cabf77e8e",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 58472,
+                "end_char": 58837,
+                "quote": "As we know, issues of procedural fairness are resolved on a case-by-case basis, which means that today, the Court is not bound by the findings of fact the Court made on this issue in\r\nSeck 1 first instance\r\n, at paragraphs 17 to 20, especially since the facts differ substantially because the applicant was never formally informed that she was suspected of fraud.\r\n",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-ab8531c7c9d443a957a14e80",
+            "claim": "The standard of correctness guides the analysis of the Court with respect to the alleged breach of the rules of procedural fairness.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-761ffc5ef53a68ac14c314dc",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 58238,
+                "end_char": 58472,
+                "quote": "[96]\r\nIt is appropriate for the standard of correctness to guide the analysis of the Court with respect to the alleged breach of the rules of procedural fairness:\r\n <FRAGMENT_SUPPRESSED>  [2006] FCJ No 1261 ( <FRAGMENT_SUPPRESSED> ). ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-6dc239758ae2a67baef48c3c",
+            "claim": "Issues of procedural fairness are resolved on a case-by-case basis.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": "The Court is not bound by prior findings of fact where facts differ substantially, such as when an applicant was never formally informed of fraud suspicion.",
+            "evidence": [
+              {
+                "ref_id": "t-c5933e061efbb05cabf77e8e",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 58472,
+                "end_char": 58837,
+                "quote": "As we know, issues of procedural fairness are resolved on a case-by-case basis, which means that today, the Court is not bound by the findings of fact the Court made on this issue in\r\nSeck 1 first instance\r\n, at paragraphs 17 to 20, especially since the facts differ substantially because the applicant was never formally informed that she was suspected of fraud.\r\n",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-ab8531c7c9d443a957a14e80",
+            "claim": "The standard of correctness guides the analysis of the Court with respect to the alleged breach of the rules of procedural fairness.",
+            "kind": "standard_of_review",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-761ffc5ef53a68ac14c314dc",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 58238,
+                "end_char": 58472,
+                "quote": "[96]\r\nIt is appropriate for the standard of correctness to guide the analysis of the Court with respect to the alleged breach of the rules of procedural fairness:\r\n <FRAGMENT_SUPPRESSED>  [2006] FCJ No 1261 ( <FRAGMENT_SUPPRESSED> ). ",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1065,
+          "output_tokens": 112,
+          "total_tokens": 1177
+        }
+      ],
+      "client_latency_ms": 20197.229,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-55b6b038d76f4d7ba263f01b"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    },
+    {
+      "target_id": "act-c195f34a1c15faced768c5e1",
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "target": {
+        "start_char": 59362,
+        "end_char": 60059
+      },
+      "stage1_status": "verified",
+      "stage2_status": "not_needed",
+      "draft_status": "verified",
+      "status": "complete",
+      "initial_output": {
+        "aus": [
+          {
+            "au_id": "au-c11b1f2ef3bd70bc552b2378",
+            "claim": "Section 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 addressing the Commission's investigations into appointments, and sections 74 to 87 dealing with complaints referred to the Public Service Staffing Tribunal regarding appointments and revocations.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-2cb739a0968b4d2db8d1dc0a",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 59362,
+                "end_char": 59701,
+                "quote": "[98]\r\nSection 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 which address the Commission's investigations into appointments, and sections 74 to 87, which deal with complaints that may be referred to the Public Service Staffing Tribunal, created under Part 6 of the PSEA, with respect to appointments and revocations. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-a59f0c902873797a8bd992af",
+            "claim": "Investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service.",
+            "kind": "fact_pattern_rule",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-1f4fd24a1136fd15eb3d5cf3",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 59701,
+                "end_char": 59904,
+                "quote": "We note that investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-4c055d59b38d8b84806334bc",
+            "claim": "The right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s3"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-9a96b0e746e67f2063a8f175",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 59904,
+                "end_char": 60059,
+                "quote": "Furthermore, the right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "output": {
+        "aus": [
+          {
+            "au_id": "au-c11b1f2ef3bd70bc552b2378",
+            "claim": "Section 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 addressing the Commission's investigations into appointments, and sections 74 to 87 dealing with complaints referred to the Public Service Staffing Tribunal regarding appointments and revocations.",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s1"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-2cb739a0968b4d2db8d1dc0a",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 59362,
+                "end_char": 59701,
+                "quote": "[98]\r\nSection 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 which address the Commission's investigations into appointments, and sections 74 to 87, which deal with complaints that may be referred to the Public Service Staffing Tribunal, created under Part 6 of the PSEA, with respect to appointments and revocations. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-a59f0c902873797a8bd992af",
+            "claim": "Investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service.",
+            "kind": "fact_pattern_rule",
+            "evidence_ids": [
+              "s2"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-1f4fd24a1136fd15eb3d5cf3",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 59701,
+                "end_char": 59904,
+                "quote": "We note that investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service. ",
+                "role": "target_body"
+              }
+            ]
+          },
+          {
+            "au_id": "au-4c055d59b38d8b84806334bc",
+            "claim": "The right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).",
+            "kind": "statutory_hook",
+            "evidence_ids": [
+              "s3"
+            ],
+            "limits": null,
+            "evidence": [
+              {
+                "ref_id": "t-9a96b0e746e67f2063a8f175",
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 59904,
+                "end_char": 60059,
+                "quote": "Furthermore, the right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).\r\n",
+                "role": "target_body"
+              }
+            ]
+          }
+        ],
+        "context_request": null,
+        "needs_context": false,
+        "exact_duplicates_removed": 0,
+        "shared_evidence_pairs": [],
+        "semantic_quality": "not_assessed",
+        "semantic_status": "unknown"
+      },
+      "needs_context": false,
+      "protocol_complete": true,
+      "failed": false,
+      "logical_requests": 1,
+      "usage": [
+        {
+          "input_tokens": 1076,
+          "output_tokens": 185,
+          "total_tokens": 1261
+        }
+      ],
+      "client_latency_ms": 31002.764,
+      "semantic_quality": "not_assessed",
+      "request_ids": [
+        "auc-bf0c8b7ec86e9bc5d7be7e7d"
+      ],
+      "transport_POST_attempts": 1,
+      "provider_POST_attempts": 1
+    }
+  ],
+  "selected_target_count": 16,
+  "frozen_target_count": 16,
+  "concurrency": 2,
+  "logical_requests": 16,
+  "stage1_requests": 16,
+  "stage2_requests": 0,
+  "provider_POST_attempts": 16,
+  "transport_POST_attempts": 16,
+  "GET_polls": 319,
+  "network_executed": true,
+  "network_requests": 335,
+  "usage": {
+    "known_provider_usage_observed_subtotal": {
+      "input_tokens": 17722,
+      "output_tokens": 1950,
+      "total_tokens": 19672
+    },
+    "unknown_usage_jobs": 0,
+    "unknown_provider_attempts": 0,
+    "usage_is_complete": true
+  },
+  "known_provider_usage_observed_subtotal": {
+    "input_tokens": 17722,
+    "output_tokens": 1950,
+    "total_tokens": 19672
+  },
+  "unknown_usage_jobs": 0,
+  "unknown_provider_attempts": 0,
+  "total_provider_usage": {
+    "input_tokens": 17722,
+    "output_tokens": 1950,
+    "total_tokens": 19672
+  },
+  "reserved_input_utf8_bytes": 76842,
+  "reserved_output_tokens": 12800,
+  "client_latency_ms": 416707.071,
+  "POST_ack_latency_ms": 26972.266,
+  "elapsed_wall_ms": 396821.629,
+  "readiness": {
+    "status": "ready",
+    "ready": true,
+    "http_status": 200,
+    "error_class": null,
+    "count": 202,
+    "elapsed_ms": 396013.043,
+    "warmup_count": 69,
+    "warmup_elapsed_ms": 178420.575,
+    "deadline_seconds": 600,
+    "retrieval_deadline_seconds": 30
+  },
+  "semantic_quality": "not_assessed",
+  "mock_max_inflight": null,
+  "budget": {
+    "max_requests": 32,
+    "max_provider_attempts": 100,
+    "max_total_input_tokens": 800000,
+    "max_total_output_tokens": 80000
+  }
+}

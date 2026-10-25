@@ -1,0 +1,25 @@
+{
+  "purpose": "Exact pre-pivot design snapshot; runtime and artifacts untouched",
+  "files": [
+    {
+      "path": "03_decision_log.md",
+      "sha256": "8cea0d603dda8ee7b476bc7caee6894379dd7b734db88196894c15bb4331bea4"
+    },
+    {
+      "path": "04_pipeline_spec.md",
+      "sha256": "c3e23708c1574c3099a4a200dce391334179d821f75c0907dc3985005e3a0b2a"
+    },
+    {
+      "path": "05_experiment_plan.md",
+      "sha256": "3ed31bdab872c730f5880d4be5a824e6f2155ea2ffc9b7d817428ab8bd9148f8"
+    },
+    {
+      "path": "09_kb_build_plan.md",
+      "sha256": "b4b68eecc7a15a9cd95119a10a658bb929587e185e83bbf31dc686b40a52d2b6"
+    },
+    {
+      "path": "README.md",
+      "sha256": "7ee31df709b68ee9e762ffabf9e7a049df694dbbb8532969db433c9cc25d2ef4"
+    }
+  ]
+}

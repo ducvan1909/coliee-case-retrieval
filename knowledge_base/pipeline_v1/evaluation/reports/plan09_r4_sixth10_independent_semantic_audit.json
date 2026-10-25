@@ -1,0 +1,172 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-5.6-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {
+    "batch_id": "p09-r4-099980-sixth10-sol-v1",
+    "case_id": "099980",
+    "target_count": 10,
+    "outside_batch_reviewed": false,
+    "canonical_state_modified": false,
+    "global_progress_or_r4_manifest_hash_locked": false
+  },
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 6, "low": 4, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 7,
+    "accepted_hard_negatives": 2,
+    "accepted_unresolved": 1,
+    "required_canonical_changes": 0,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-sixth10-sol-v1.json",
+    "frozen_batch_sha256": "329398b85606d874645d91e7528c6c9a930aac050ce8e94b89cee8fc31f047ab",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-sixth10-01-gpt61sol-v1.json", "36dbed25c2a77b273c533f1ac1b6f2372a094ee0d31e38e7ada9cc1b58ca7ec0", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-sixth10-02-gpt61sol-v1.json", "f8354407e24f6ebb937fe49883eb0e6a0c66836254097f6e0a09de7544b216ec", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-sixth10-03-gpt61sol-v1.json", "4eb7ddc884ca21074b5c169a1dd1ec4a18ae61886054396bf95ecc17a9cd5648", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-sixth10-04-gpt61sol-v1.json", "541615014ad760455204a04543b0977572e1daca9ae00574d54163a76e2d9912", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"],
+      ["p09-r4-099980-sixth10-05-gpt61sol-v1.json", "56cb8eb572d76753feb04610b74950aac1daa202e10cc8dfac10ccac50204d4d", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-sixth10-06-gpt61sol-v1.json", "733d19f8947098d93621a35cdea5fac46522a06a58bd2af3a12559bc7246ce5a", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-sixth10-07-gpt61sol-v1.json", "db993025e203a550d33e2cfda403ccc64fffaa7a480219e16f7a45afb7f99f2a", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-sixth10-08-gpt61sol-v1.json", "05b4d979232af983c4fc833a519b73c7968769d1501e2aa81eadc65ada62e28b", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-sixth10-09-gpt61sol-v1.json", "f8ffe4db5e60973d926df17fef1ddb4b78c11541f8e745d261c9d5a7d474b748", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-sixth10-10-gpt61sol-v1.json", "a28c8af943556a2277b2c822f50aebb9665032cab73aba0bcd3ab87aa2a1701e", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "duplicate_guard_evidence": "r4.checkpoint and r4.rebuild_manifest reject duplicate case/target ownership with checkpoint_duplicate_target; current registry read found one owner per target.",
+    "qualification": "Mutable global registry was read only for ownership and deliberately not hash-locked."
+  },
+  "items": [
+    {
+      "position": 1,
+      "target_id": "at-4d1f2de7b9825c4769503ecd",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 97 states that the duty of fairness varies depending on context.",
+      "scope_review": "The contextual limit is exact. The separate Baker-factor list is not duplicated into this AU."
+    },
+    {
+      "position": 2,
+      "target_id": "at-53b9e5a98f7f48d4d0b6edeb",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 116 calls the failure to submit the June 10 final investigation report containing analysis and findings for applicant comment before final approval a fundamental problem and later a fatal flaw.",
+      "scope_review": "Qualification: this is not a duty to circulate every investigative document. The exact report/date/pre-approval limits and paragraphs 173-174 witness are indispensable and present."
+    },
+    {
+      "position": 3,
+      "target_id": "at-5504fe5bd31f8b96cf578894",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 97 lists the five contextual Baker considerations after the court says consideration must first be given to them.",
+      "scope_review": "Qualification: the list-only primary span does not independently establish speaker/adoption. The preceding court introduction is therefore mandatory attribution context and is recorded as an exact cross-block attribution witness. The factors are not five unconditional duties."
+    },
+    {
+      "position": 4,
+      "target_id": "at-5ae776a11ff4273a21d10c5e",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "unresolved",
+      "evidence": "Paragraph 25 combines non-party history, an express assumption that the employer was not represented, and a hypothetical conflict if it were represented by the respondent.",
+      "scope_review": "The passage does not find actual concurrent representation or adjudicate a conflict. A fact-only negative is plausible, but unresolved is safer because the court makes a conditional legal inference whose AU kind and reusable scope remain uncertain."
+    },
+    {
+      "position": 5,
+      "target_id": "at-5b314a4af85452a367b6930c",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "statutory_hook",
+      "attribution": "current_court",
+      "evidence": "Paragraph 84 paraphrases paragraph 69(a): for fraud, the Commission may revoke or not make an appointment as applicable.",
+      "scope_review": "Fraud condition and as-case-may-be limit are exact. The unanswered third-party corrective-action question and later jurisdiction reservation are not converted into a holding."
+    },
+    {
+      "position": 6,
+      "target_id": "at-5d005ab7046f40f4effbf4c6",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "standard_of_review",
+      "attribution": "current_court",
+      "evidence": "Paragraph 96 expressly applies correctness to the alleged procedural-fairness breach.",
+      "scope_review": "The exact fairness limit prevents misuse as a jurisdiction/reasonableness standard; no suppressed authority is invented."
+    },
+    {
+      "position": 7,
+      "target_id": "at-5e5b91a4b13687e831ba0418",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "editorial",
+      "evidence": "Paragraph 181 is a rhetorical reflection on judicial dialogue, truth-telling and argument quality.",
+      "scope_review": "It contains no operative remedy, costs entitlement or reusable test."
+    },
+    {
+      "position": 8,
+      "target_id": "at-5ec7836e659f3030d36f47ac",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 190 awards increased costs above ordinary Column III costs and identifies the factors determining discretion.",
+      "scope_review": "Exceptional-case condition, ordinary-default qualification, case and costs limits are all explicit. It does not award automatic solicitor-and-client costs or adopt either party's requested amount."
+    },
+    {
+      "position": 9,
+      "target_id": "at-604adea56602fb87307c1f7d",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "statutory_hook",
+      "attribution": "statutory_text",
+      "evidence": "Paragraph 48 reproduces English section 69 with separate suspicion and satisfaction thresholds and permissive investigation/remedy powers.",
+      "scope_review": "Qualification: this is statutory text, not a current-court holding that independent corrective action against this third party was lawful. The two thresholds, permissive `may`, remedy limits and later jurisdiction reservation must remain intact; the proposal preserves them."
+    },
+    {
+      "position": 10,
+      "target_id": "at-61be17d6a14ab52741a7c2a4",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 165 appraises incompleteness concerning the applicant's actual tasks and supervisory functions.",
+      "scope_review": "It states no universal manager-interview duty or freestanding investigation test."
+    }
+  ],
+  "boundaries": {
+    "semantic_gold": false,
+    "model_silver": true,
+    "r5_pass": false,
+    "plan10_allowed": false,
+    "note": "This report independently accepts only the frozen sixth10 model-silver decisions; mutable overall R4 progress remains outside scope."
+  }
+}

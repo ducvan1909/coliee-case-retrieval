@@ -1,0 +1,145 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-6a7be348918eb533696e0f25",
+        "claim": "It is true that 'clear and convincing confirmation' of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-9368668d19de6103cfd7383e",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 6763,
+            "end_char": 7028,
+            "quote": "[13]\r\nIt is true that \"clear and convincing confirmation\" of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 50). ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-cab0d6686f648e1ff494918d",
+        "claim": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-e73a1b8538ba83c0221d0cbb",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 7028,
+            "end_char": 7276,
+            "quote": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 5;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 584 (QL), at para. 57).\r\n",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1070,
+    "output_tokens": 119,
+    "total_tokens": 1189
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"It is true that 'clear and convincing confirmation' of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s2\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792495901,
+    "id": "c66ec7367665432ea3fbcffab37a5215",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 119,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 119,
+      "prompt_tokens": 1070,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 1189
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+    "payload_sha256": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+    "polls": 5,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495883.3894255,
+    "job_status": "completed",
+    "latency_ms": 21691.63,
+    "finished_at_unix": 1792495905.0810473,
+    "server_timing": {
+      "created_at": "2026-10-20T11:31:28.178550+00:00",
+      "started_at": "2026-10-20T11:31:30.372116+00:00",
+      "finished_at": "2026-10-20T11:31:41.403151+00:00",
+      "inference_seconds": 10.277376691
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "It is true that 'clear and convincing confirmation' of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available.",
+        "kind": "standard_of_review",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 21692.395,
+  "request_id": "auc-fbf2b9ad792df64588a39027",
+  "payload_sha256": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+  "receipt_sha256": "3bae3163317ea753cd96d2208e023fee7ca6cd263c6ba05d715965996477f2a7"
+}

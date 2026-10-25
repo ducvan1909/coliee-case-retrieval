@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coliee:repair-obligation-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "obligation_id",
+    "task_id",
+    "target_id",
+    "obligation_type",
+    "requested_direction_or_ref",
+    "reason",
+    "producer",
+    "run_id",
+    "status",
+    "searched_spans",
+    "stop_reason",
+    "review_confirmation"
+  ],
+  "properties": {
+    "obligation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "obligation_type": {
+      "enum": [
+        "attribution",
+        "condition",
+        "exception",
+        "limit",
+        "current_court_response",
+        "cross_block_context",
+        "missing_speaker",
+        "possible_prior_condition",
+        "open_quotation",
+        "unresolved_reference",
+        "possible_following_qualification"
+      ]
+    },
+    "requested_direction_or_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "producer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "pending",
+        "satisfied",
+        "unresolved",
+        "budget_exhausted"
+      ]
+    },
+    "searched_spans": {
+      "type": "array"
+    },
+    "stop_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review_confirmation": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  }
+}

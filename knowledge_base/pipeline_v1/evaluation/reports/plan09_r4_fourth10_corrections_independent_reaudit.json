@@ -1,0 +1,94 @@
+{
+  "artifact_type": "Plan09R4CorrectionIndependentReaudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-6.1-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {
+    "original_batch_id": "p09-r4-099980-fourth10-sol-v1",
+    "case_id": "099980",
+    "correction_target_count": 2,
+    "correction_target_ids": ["at-36d2799e80bf0e3f5421c6cf", "at-3bf2d5382a3dbb34d161b87b"],
+    "other_367_reviews_semantically_reaudited": false,
+    "canonical_state_modified_by_reaudit": false
+  },
+  "verdict": "pass_corrections_accepted",
+  "summary": {
+    "corrections_agree": 2,
+    "corrections_disagree": 0,
+    "original_moderate_findings_closed": 2,
+    "remaining_findings_from_original_fourth10_audit": 0,
+    "severe_findings": [],
+    "effective_count_delta": {"authority_units": 1, "hard_negatives": 1, "unresolved": -2},
+    "effective_counts_after": {"authority_units": 188, "hard_negatives": 186, "unresolved": 8}
+  },
+  "snapshot": {
+    "original_independent_audit_ref": "evaluation/reports/plan09_r4_fourth10_independent_semantic_audit.json",
+    "original_independent_audit_sha256": "d70fcedd0c66dfe73af05dfb0df1c710c96969e8dfd1e7a9b5f3c99340d6319a",
+    "original_frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-fourth10-sol-v1.json",
+    "original_frozen_batch_sha256": "ae35f022c21f8eb78a4a3cad0e881ddd98156b384e1740ffc40b88aaad5a274a",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "correction_frozen_ref": "outputs/plan09_au_gold_v1/r4_fourth10_correction_frozen.json",
+    "correction_frozen_sha256": "ca7e38eb307efe011593f9dd3d5ba7562a0301df0078441e698d5378865db717",
+    "correction_validation_ref": "outputs/plan09_au_gold_v1/r4_fourth10_correction_validation.json",
+    "correction_validation_sha256": "36c055ce31f0e337de682a8632eb328a365e7c4b836fbdfd685e93525b97ede4",
+    "coverage_revision_ref": "outputs/plan09_au_gold_v1/r4_coverage_completion.after_fourth10_corrections.json",
+    "coverage_revision_sha256": "4cdef57ec3235fad7ec4b970133e4479e94422154f229d1792aeb5c429e82718",
+    "completion_verification_ref": "outputs/plan09_au_gold_v1/r4_fourth10_correction_completion_verification.json",
+    "completion_verification_sha256": "ed69df81a43597f0a0c02b9fff20e469ebbdbfe67c666fa7f0260a1cd991dbd4",
+    "amendments": [
+      {"ref": "outputs/plan09_au_gold_v1/r4_model_amendments/r4-fourth10-moderate-correction-01-gpt61sol-v1.json", "sha256": "422d148137758f13f3c4d97f4e5c1ae0515db26e399206874352cbae2a1ca758", "sidecar_sha256": "891421645f49ca802611b722bd132a5350f39d33355e60307197f539c9119e7c"},
+      {"ref": "outputs/plan09_au_gold_v1/r4_model_amendments/r4-fourth10-moderate-correction-02-gpt61sol-v1.json", "sha256": "77b517a849d5b1c03d08f1dc0f3290b81962494af065000281fba0d4bac36c8e", "sidecar_sha256": "87a160e62ebb7ee10b9efb3345f4de4ec123869fa2d2e7f5ce6b80328ef3cec2"}
+    ],
+    "superseded_proposals_unchanged": [
+      {"ref": "outputs/plan09_au_gold_v1/r4_model_proposals/099980/p09-r4-099980-fourth10-07-gpt61sol-v1.json", "sha256": "8dbdeac90041bf39e5fbc459ce1b32c201daf2ac0eca994813af682b6a804e08"},
+      {"ref": "outputs/plan09_au_gold_v1/r4_model_proposals/099980/p09-r4-099980-fourth10-10-gpt61sol-v1.json", "sha256": "2561bca425ec29a6d8a0ce441959c31a5159acdca6a7becfe975a638d6ae6a23"}
+    ]
+  },
+  "technical_verification": {
+    "both_amendments_validate": true,
+    "both_sidecars_equal_recomputed_validation": true,
+    "effective_changed_target_count": 2,
+    "effective_changed_target_ids_exact": true,
+    "all_other_367_reviews_unchanged": true,
+    "preserved_artifact_count": 615,
+    "all_615_preservation_hashes_match": true,
+    "original_proposals_sidecars_frozen_batches_and_audits_unchanged": true,
+    "raw_r4_manifest_unchanged": true,
+    "reviewed_target_count": 369,
+    "expected_target_count": 369,
+    "missing_target_count": 0,
+    "canonical_duplicate_target_count": 0,
+    "exact_case_target_set_verified": true
+  },
+  "items": [
+    {
+      "target_id": "at-36d2799e80bf0e3f5421c6cf",
+      "decision": "agree",
+      "finding_closed": true,
+      "effective_outcome": "positive",
+      "kind": "standard_of_review",
+      "attribution": "current_court",
+      "assessment": "The replacement AU accurately captures paragraph 35's express current-court characterization of the other-candidate/third-party section 69 issue as jurisdictional, if not a vital legal question, meriting correct PSEA interpretation.",
+      "scope_guard": "It does not state that the Commission lacked jurisdiction, decide the merits, or settle the agency review standard. Paragraphs 93 and 183-184 are correctly retained as cross-block reservation witnesses."
+    },
+    {
+      "target_id": "at-3bf2d5382a3dbb34d161b87b",
+      "decision": "agree",
+      "finding_closed": true,
+      "effective_outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "assessment": "The replacement correctly treats paragraph 62's intent, gain and personal-interest comparisons as expressly framed applicant advocacy.",
+      "scope_guard": "Paragraph 63 postpones merits review; no current-court adoption or universal personal-gain element is inferred."
+    }
+  ],
+  "boundaries": {
+    "semantic_gold": false,
+    "model_silver": true,
+    "r4_coverage_complete": true,
+    "r5_pass": false,
+    "plan10_allowed": false,
+    "note": "The two fourth10 findings are closed, but only the later R5 final audit may set R5 PASS or unlock Plan10. Eight model-silver unresolved reviews remain."
+  }
+}

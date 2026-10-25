@@ -1,0 +1,1260 @@
+{
+  "artifact_type": "AUKOSAlignedReferenceChecklist",
+  "version": 1,
+  "selector": {
+    "version": "kos-full-blocks-v1",
+    "selection": "reference_guided_calibration",
+    "context_blocks_each_side": 1,
+    "merge": "same_or_overlapping_blocks",
+    "boundary_fallback": "full_paragraphs_with_printed_markers"
+  },
+  "cases": [
+    {
+      "case_id": "013009",
+      "reference_count": 0,
+      "status": "no_reference",
+      "is_negative": false
+    },
+    {
+      "case_id": "013948",
+      "reference_count": 0,
+      "status": "no_reference",
+      "is_negative": false
+    },
+    {
+      "case_id": "011904",
+      "reference_count": 8,
+      "status": "reference_guided_calibration",
+      "is_negative": false
+    },
+    {
+      "case_id": "045155",
+      "reference_count": 5,
+      "status": "reference_guided_calibration",
+      "is_negative": false
+    },
+    {
+      "case_id": "099980",
+      "reference_count": 5,
+      "status": "reference_guided_calibration",
+      "is_negative": false
+    }
+  ],
+  "kos_inventory": [
+    {
+      "case_id": "013009",
+      "kos_role": "query",
+      "case_path": "cases/013009",
+      "file_count": 27,
+      "total_bytes": 30679,
+      "tree_sha256": "f860cb388c8ea7c851566999f4c971f8b0e23d3dd1b46f69848ea9b578161485",
+      "status": "hash_verified",
+      "files": [
+        {
+          "path": "CASE.md",
+          "sha256": "a02343bed44942c7ad3ab1157bb93b1c2a2f9cc7ef056b4c7605036b9bec8328",
+          "byte_length": 2049
+        },
+        {
+          "path": "cite_sites/cs-013009-w0.md",
+          "sha256": "ee45297321d7686c1924ac68213d9b15a0073d2d491318e395b66ac33533f778",
+          "byte_length": 1135
+        },
+        {
+          "path": "cite_sites/cs-013009-w1.md",
+          "sha256": "9f8f2d7250a160f9496eac3bc8e158bd3e63d69d938130eb161661a89bde92bd",
+          "byte_length": 1186
+        },
+        {
+          "path": "cite_sites/cs-013009-w10.md",
+          "sha256": "4966bee02f6dcbb983620e43b1e0058e9b943adf9a44e579a260124e2b7d21d8",
+          "byte_length": 947
+        },
+        {
+          "path": "cite_sites/cs-013009-w11.md",
+          "sha256": "2e72e159eb373a58820c7da669ec441e7f8995de0f05874a4124792af4226e99",
+          "byte_length": 1190
+        },
+        {
+          "path": "cite_sites/cs-013009-w12.md",
+          "sha256": "f8aea2fb830b2ef54ab0c7aa7ac3fee2227e73daadd62000a524280c75a78f75",
+          "byte_length": 1182
+        },
+        {
+          "path": "cite_sites/cs-013009-w2.md",
+          "sha256": "c5fe66c4f91ffe55b9e71540923666760df2d0095c11ff05d5eba45a36c1edc5",
+          "byte_length": 1186
+        },
+        {
+          "path": "cite_sites/cs-013009-w3.md",
+          "sha256": "a8480d5a4bc1b365c5b986a9d5db5b6523cda999bf3d254de048a15f57e735f0",
+          "byte_length": 1156
+        },
+        {
+          "path": "cite_sites/cs-013009-w4.md",
+          "sha256": "5d264b4646b0cc22eee57a6892850ea071b2fbe5a8574fa72a2befafae2dbf6c",
+          "byte_length": 1109
+        },
+        {
+          "path": "cite_sites/cs-013009-w5.md",
+          "sha256": "35e6ef5e8738b461b26c82c804f692b9c8d0c34da02decd9343356a21bc40a8d",
+          "byte_length": 1077
+        },
+        {
+          "path": "cite_sites/cs-013009-w6.md",
+          "sha256": "dc8228c4685438aec6d8af6d78f0afe99c4ef62a2fc775df057e03e864cd6cb3",
+          "byte_length": 1054
+        },
+        {
+          "path": "cite_sites/cs-013009-w7.md",
+          "sha256": "aad065aef32d2fa6d316fa828de51cb4c7483063081b177e7e20e6133b46fa55",
+          "byte_length": 929
+        },
+        {
+          "path": "cite_sites/cs-013009-w8.md",
+          "sha256": "0d6215e5007062e24269766ff0d4c4d9f7d5eb2bba4b9eb3f05999a49b8933b5",
+          "byte_length": 1176
+        },
+        {
+          "path": "cite_sites/cs-013009-w9.md",
+          "sha256": "ec21d65e0147ab03ec75cd29f2cb86679f19701cfd8e17691720256d23f13b58",
+          "byte_length": 942
+        },
+        {
+          "path": "notice_needs/nn-013009-w0.md",
+          "sha256": "90db459c15d4dff3453a8d9ba9c6c3e698933b94415fc2bdc9e1d9d3c159160f",
+          "byte_length": 912
+        },
+        {
+          "path": "notice_needs/nn-013009-w1.md",
+          "sha256": "cbf49e2e7bbcf7a8c9af736dc19d3c399e42efb7d46c13c7d8d250cbba0cc4b9",
+          "byte_length": 1185
+        },
+        {
+          "path": "notice_needs/nn-013009-w10.md",
+          "sha256": "f354960cac2609ae792ad924ad22b87c183d9852a6adc0dbbccc10c13fd72792",
+          "byte_length": 1248
+        },
+        {
+          "path": "notice_needs/nn-013009-w11.md",
+          "sha256": "4f88e3d0171254898706a4b0dcd058a3f5c00a735e0c14e5098bda511c1ae193",
+          "byte_length": 1033
+        },
+        {
+          "path": "notice_needs/nn-013009-w12.md",
+          "sha256": "de0ac00da4d28c84977d4ad4ae2ee8d7c06beef9e0c178427bb27f61020d3256",
+          "byte_length": 974
+        },
+        {
+          "path": "notice_needs/nn-013009-w2.md",
+          "sha256": "dec06043bf837b5061c122f49308dc166145a87a9734a02d3325091898e8e91e",
+          "byte_length": 1019
+        },
+        {
+          "path": "notice_needs/nn-013009-w3.md",
+          "sha256": "96306ce28e4d8c8f9f4505934b0c876f1d64f4f6e3922be137b96bf921058066",
+          "byte_length": 961
+        },
+        {
+          "path": "notice_needs/nn-013009-w4.md",
+          "sha256": "9e6a6d43a2ecf3435e173417cfe831db0060971deff6b63cc09b9196fe5ab9a7",
+          "byte_length": 1034
+        },
+        {
+          "path": "notice_needs/nn-013009-w5.md",
+          "sha256": "d767dbaabf63c8c410c7c4d422dcaa1bbfe9b355dcbfd7e5cf71cf7d0ccae83d",
+          "byte_length": 1022
+        },
+        {
+          "path": "notice_needs/nn-013009-w6.md",
+          "sha256": "7d383642ebb187aebac3f526be6957f4a409c7fdda60babdd5ec9946b9e597fa",
+          "byte_length": 1404
+        },
+        {
+          "path": "notice_needs/nn-013009-w7.md",
+          "sha256": "820138d90e8733d5291dd2384042a2c3ca81c0ad9791881cbe7cc5ab914c0c27",
+          "byte_length": 1114
+        },
+        {
+          "path": "notice_needs/nn-013009-w8.md",
+          "sha256": "c8963e6f8f709b8f0014c6c6da718ff83bc7529ae20dfed430a42e69dd9a0111",
+          "byte_length": 1233
+        },
+        {
+          "path": "notice_needs/nn-013009-w9.md",
+          "sha256": "0deccc510211d0faaca18fe4d731df8e2083eff10e6665aa2fecf02224a26f11",
+          "byte_length": 1222
+        }
+      ]
+    },
+    {
+      "case_id": "013948",
+      "kos_role": "query",
+      "case_path": "cases/013948",
+      "file_count": 13,
+      "total_bytes": 16673,
+      "tree_sha256": "43fab087a3049b32d995eb61f30d01ff4cc49274dad0d0c4d872fd2300541e12",
+      "status": "hash_verified",
+      "files": [
+        {
+          "path": "CASE.md",
+          "sha256": "8c77b2ddb914e379807342fd3c3bf39262a0f325abadb91aa0f6a5c904449c57",
+          "byte_length": 1697
+        },
+        {
+          "path": "cite_sites/cs-013948-w0.md",
+          "sha256": "e107ca439d89ab3a31a8537eef3c1d5541e42190d6eba22f71a0dfd86c267667",
+          "byte_length": 1226
+        },
+        {
+          "path": "cite_sites/cs-013948-w1.md",
+          "sha256": "51945efa620664b96ecee12f479299aa0ee3711356a639a483cd74f7181a2c11",
+          "byte_length": 1297
+        },
+        {
+          "path": "cite_sites/cs-013948-w2.md",
+          "sha256": "c0580b2ef1480d077de7f63b8f390ac9a92ad5813267df08accae517fbd67f9a",
+          "byte_length": 1649
+        },
+        {
+          "path": "cite_sites/cs-013948-w3.md",
+          "sha256": "94e4536cfefb2b43c4b014536a1b416bb8fb6dd39d505b7984b0704bbc747a99",
+          "byte_length": 1642
+        },
+        {
+          "path": "cite_sites/cs-013948-w4.md",
+          "sha256": "0daf1c13efb004ed9dbdca72ad1f267b4120a865e42b272030f8ac1c01961d1d",
+          "byte_length": 1657
+        },
+        {
+          "path": "cite_sites/cs-013948-w5.md",
+          "sha256": "97c8934136ede1a13259094c4b2c75b01dc3ec4025f5fe262f52392ba422ebbd",
+          "byte_length": 1571
+        },
+        {
+          "path": "notice_needs/nn-013948-w0.md",
+          "sha256": "7224a18f8a5c3d1e125110fc1785c937567b02db80a3a8f93c5eb132293f75be",
+          "byte_length": 1055
+        },
+        {
+          "path": "notice_needs/nn-013948-w1.md",
+          "sha256": "80505eef721bddd82cf4d2cb876c6520e5a7a4c29d9b48ffb7907d71b49c2ad0",
+          "byte_length": 922
+        },
+        {
+          "path": "notice_needs/nn-013948-w2.md",
+          "sha256": "93f585b24625b0de565f927ebfd27151bc81eca90f661a80020a0003cd76e477",
+          "byte_length": 990
+        },
+        {
+          "path": "notice_needs/nn-013948-w3.md",
+          "sha256": "d58760125eed08ace136112c640797d20c5a839fc210ff3010b247e3ffe4ad6a",
+          "byte_length": 956
+        },
+        {
+          "path": "notice_needs/nn-013948-w4.md",
+          "sha256": "effaf10645321e71a7e5b06329613ef9393d83ebfc9bbb67ffa8330114926ad9",
+          "byte_length": 1025
+        },
+        {
+          "path": "notice_needs/nn-013948-w5.md",
+          "sha256": "e570d5f039ed9ddd40d5d17d73dcfca3f944091b78b4dfc29cf35afb4f39f889",
+          "byte_length": 986
+        }
+      ]
+    },
+    {
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "case_path": "cases/011904",
+      "file_count": 9,
+      "total_bytes": 10662,
+      "tree_sha256": "28e4b13fdfdfa9fc978a00863bb864b0c02b4922703614abbf65ca492fbd6152",
+      "status": "hash_verified",
+      "files": [
+        {
+          "path": "CASE.md",
+          "sha256": "fa84f1b3329608c12a1cc06cf31481e72fbf565929361fe3358f1c73e2c30550",
+          "byte_length": 1404
+        },
+        {
+          "path": "authority_units/au-011904-clear-convincing.md",
+          "sha256": "07b4cf27478f2558e84c6af5d90432de3d7e53dc5087b4311e799359a8861d10",
+          "byte_length": 1093
+        },
+        {
+          "path": "authority_units/au-011904-contradictory-evidence.md",
+          "sha256": "70054a8ccfc929535639a6fa398cb255462415a82d6a749e6ce1595638b9207d",
+          "byte_length": 871
+        },
+        {
+          "path": "authority_units/au-011904-effective-protection.md",
+          "sha256": "2dc44d5918d51b0eb82b52760cfc822b2a0fae92e337cca89972a107984420ce",
+          "byte_length": 877
+        },
+        {
+          "path": "authority_units/au-011904-exhaustion-not-danger.md",
+          "sha256": "a980ffba76a776021a00605513fe8eca41c38eb3035ca4bcdb9bf3e0158979bb",
+          "byte_length": 1755
+        },
+        {
+          "path": "authority_units/au-011904-mexico-full-assessment.md",
+          "sha256": "c9c220b393825d15c5de21c9b50daf9cbad821a5fce2b9aefecd4c387dd2b534",
+          "byte_length": 1203
+        },
+        {
+          "path": "authority_units/au-011904-police-primary-avenue.md",
+          "sha256": "62e6a49c12fa19b7adbe2ffe08b3b5d428b53c2165ecaed69c050666f4e087d3",
+          "byte_length": 1189
+        },
+        {
+          "path": "authority_units/au-011904-presumption-state-persecutors.md",
+          "sha256": "3958382a5bdf3f560575a10415c327557699c2852c1760af3f8a52d1b94eb9ae",
+          "byte_length": 1126
+        },
+        {
+          "path": "authority_units/au-011904-sor-reasonableness.md",
+          "sha256": "999a49905cd61ba6645fff0cb8b15848f72cef1c168f41c8eda1b7426d3c6bb9",
+          "byte_length": 1144
+        }
+      ]
+    },
+    {
+      "case_id": "045155",
+      "kos_role": "candidate",
+      "case_path": "cases/045155",
+      "file_count": 6,
+      "total_bytes": 6598,
+      "tree_sha256": "12c875a48410e6cbedf4b6b96a7966566fea3b7b4a3b24e441568705e3f8c33f",
+      "status": "hash_verified",
+      "files": [
+        {
+          "path": "CASE.md",
+          "sha256": "278b089b5ef76765b60b86352252bfec2762ec121e618c3d3a44a352fe7bcff7",
+          "byte_length": 1009
+        },
+        {
+          "path": "authority_units/au-045155-classification-reasons-s27.md",
+          "sha256": "dae0dbaa20f85fea05beb02a16785218b12654fa2ec69dda0d3556f45bbb697e",
+          "byte_length": 1104
+        },
+        {
+          "path": "authority_units/au-045155-exception-commissioner-authority.md",
+          "sha256": "87233d4aed0c15126acb8695d203bdebec548a2c05a1810a1645d4aa752497b5",
+          "byte_length": 1158
+        },
+        {
+          "path": "authority_units/au-045155-exhaust-grievance-general.md",
+          "sha256": "d9dc47a8faff0c3ffac5182064cd8e7706a0cb5a8997f4e050096f20da362352",
+          "byte_length": 1109
+        },
+        {
+          "path": "authority_units/au-045155-policy-reasons-exhaust.md",
+          "sha256": "ca682e36bc58058a4d8bec2b74869f90609d3a26dfab48261f9549ea2f262199",
+          "byte_length": 1087
+        },
+        {
+          "path": "authority_units/au-045155-undisclosed-allegation-unfair.md",
+          "sha256": "c9ff5432164c6556ac14c176532fc313d31cec07ba71f79ce4cc080f1a9fab3c",
+          "byte_length": 1131
+        }
+      ]
+    },
+    {
+      "case_id": "099980",
+      "kos_role": "candidate",
+      "case_path": "cases/099980",
+      "file_count": 6,
+      "total_bytes": 5033,
+      "tree_sha256": "3cae09f8c9a3338efa1570f2f28b0c823f312832f81a06cac41451121303108d",
+      "status": "hash_verified",
+      "files": [
+        {
+          "path": "CASE.md",
+          "sha256": "ab4e40174ebf55ce00a86dd62bde06e3231587133a0b8cc127a1ba7bbe175c31",
+          "byte_length": 829
+        },
+        {
+          "path": "authority_units/au-099980-investigations-impartiality-tool.md",
+          "sha256": "bca9c623cec574f1a1001e0333fc55f341cdb547d0201124f7782d19c7ce0153",
+          "byte_length": 773
+        },
+        {
+          "path": "authority_units/au-099980-pf-case-by-case.md",
+          "sha256": "35b2c3d243521b64b976a8ec2f56acf03378ba27ddc5f77702e0393f911ed1bd",
+          "byte_length": 902
+        },
+        {
+          "path": "authority_units/au-099980-pf-correctness.md",
+          "sha256": "dc3b6a737bd0a5c1ef8dc6297a037a3f85cef1a9aac4d197ed0a0789b855ef1d",
+          "byte_length": 674
+        },
+        {
+          "path": "authority_units/au-099980-pf-determinative.md",
+          "sha256": "33a741a072b6c1c5946407b0427643a9a52ab646c74992a84072e41626555669",
+          "byte_length": 1173
+        },
+        {
+          "path": "authority_units/au-099980-right-to-make-submissions.md",
+          "sha256": "dd0f469b26f5be72d9a6fdbd6e4dcb72be3167233feac474b5a8e53ddfc2993c",
+          "byte_length": 682
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "kos_id": "au-011904-clear-convincing",
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "file": "cases/011904/authority_units/au-011904-clear-convincing.md",
+      "file_sha256": "07b4cf27478f2558e84c6af5d90432de3d7e53dc5087b4311e799359a8861d10",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-011904-clear-convincing",
+        "case_id": "011904.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-presumption-of-state-protection",
+          "issue-presumption-of-state-protection-rebuttal"
+        ],
+        "para_idxs": [
+          "14"
+        ],
+        "extraction": "llm_assisted+verified",
+        "status": "active",
+        "created_at": "2026-09-07"
+      },
+      "claim_text": "Absent clear and convincing confirmation of inability to protect, a state is presumed capable of protecting its citizens; more democratic states raise the exhaustion expectation.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "It is true that \"clear and convincing confirmation\" of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens ( <FRAGMENT_SUPPRESSED> (QL), at para. 50). In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available",
+      "limits_text": "Source paragraph ends mid-citation string.",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 6769,
+            "end_char": 7162,
+            "quote": "It is true that \"clear and convincing confirmation\" of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 50). In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available"
+          }
+        ]
+      },
+      "target_id": "act-b81273b7291bcd4577a91687"
+    },
+    {
+      "kos_id": "au-011904-contradictory-evidence",
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "file": "cases/011904/authority_units/au-011904-contradictory-evidence.md",
+      "file_sha256": "70054a8ccfc929535639a6fa398cb255462415a82d6a749e6ce1595638b9207d",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-011904-contradictory-evidence",
+        "case_id": "011904.txt",
+        "kind": "procedural_rule",
+        "issue_ids": [
+          "issue-contradictory-country-evidence-reasons",
+          "issue-duty-to-consider-favourable-evidence"
+        ],
+        "para_idxs": [
+          "37"
+        ],
+        "extraction": "llm_assisted+verified",
+        "status": "active",
+        "created_at": "2026-09-07"
+      },
+      "claim_text": "Where contradictory evidence is before the Board, it must provide reasons why it did not consider that evidence relevant or trustworthy.",
+      "kind": "procedural_rule",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "This Court has consistently held that where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy",
+      "limits_text": "Does not prescribe the weight outcome—only the duty to explain.",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 15211,
+            "end_char": 15390,
+            "quote": "This Court has consistently held that where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy"
+          }
+        ]
+      },
+      "target_id": "act-44a15a9ba2f89eeea686ba72"
+    },
+    {
+      "kos_id": "au-011904-effective-protection",
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "file": "cases/011904/authority_units/au-011904-effective-protection.md",
+      "file_sha256": "2dc44d5918d51b0eb82b52760cfc822b2a0fae92e337cca89972a107984420ce",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-011904-effective-protection",
+        "case_id": "011904.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-state-protection-effectiveness",
+          "issue-state-protection-adequacy"
+        ],
+        "para_idxs": [
+          "35"
+        ],
+        "extraction": "llm_assisted+verified",
+        "status": "active",
+        "created_at": "2026-09-07"
+      },
+      "claim_text": "Pointing to state efforts and legislative schemes is not enough; the Board must be satisfied that protection offered is effective.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "The Board's decision points to many efforts being made by the state to protect women from domestic violence. However, what was important was for the Board to be satisfied that the protection offered in Mexico was effective",
+      "limits_text": "Domestic-violence Mexico context; cite continues with FRAG.",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 14358,
+            "end_char": 14580,
+            "quote": "The Board's decision points to many efforts being made by the state to protect women from domestic violence. However, what was important was for the Board to be satisfied that the protection offered in Mexico was effective"
+          }
+        ]
+      },
+      "target_id": "act-1b96649d1cc24edf6febb043"
+    },
+    {
+      "kos_id": "au-011904-exhaustion-not-danger",
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "file": "cases/011904/authority_units/au-011904-exhaustion-not-danger.md",
+      "file_sha256": "a980ffba76a776021a00605513fe8eca41c38eb3035ca4bcdb9bf3e0158979bb",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-011904-exhaustion-not-danger",
+        "case_id": "011904.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-protection-exhaustion-not-require-danger",
+          "issue-presumption-of-state-protection-rebuttal"
+        ],
+        "para_idxs": [
+          "18"
+        ],
+        "extraction": "llm_assisted+verified",
+        "status": "active",
+        "created_at": "2026-09-07"
+      },
+      "claim_text": "Even where the democratic-state burden is high, claimants need not place themselves in danger to exhaust protection avenues; seeking protection from the persecuting force itself may be an exceptional circumstance.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "While the burden placed on claimants from developed democratic states is a high one, I remain of the view that this burden does not require that they put themselves in danger in order to exhaust all possible avenues of protection. Indeed, as Justice LaForest indicated, an individual will be required to seek state protection where it would be objectively unreasonable not to do so ( Ward , above, at para. 49). In <FRAGMENT_SUPPRESSED> , above, at para. 18, I stated that: [...] notwithstanding that not every member of the [police] was implicated in the applicant's persecution, seeking help from the [police], - asking, in effect, the [police] to protect the applicant from itself - would have in all likelihood placed the applicant in greater peril. Indeed, in my opinion, the requirement of having to place oneself in danger in order to exhaust all protection avenues would constitute an \"exceptional circumstance\" referred to by the Federal Court of Appeal above.",
+      "limits_text": "Builds on prior police-persecution facts; not a bright-line exemption.",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 8358,
+            "end_char": 9331,
+            "quote": "While the burden placed on claimants from developed democratic states is a high one, I remain of the view that this burden does not require that they put themselves in danger in order to exhaust all possible avenues of protection. Indeed, as Justice LaForest indicated, an individual will be required to seek state protection where it would be objectively unreasonable not to do so (\r\nWard\r\n, above, at para. 49). In <FRAGMENT_SUPPRESSED> , above, at para. 18, I stated that:\r\n[...] notwithstanding that not every member of the [police] was implicated in the applicant's persecution, seeking help from the [police], - asking, in effect, the [police] to protect the applicant from itself - would have in all likelihood placed the applicant in greater peril.\r\nIndeed, in my opinion, the requirement of having to place oneself in danger in order to exhaust all protection avenues would constitute an \"exceptional circumstance\" referred to by the Federal Court of Appeal above."
+          }
+        ]
+      },
+      "target_id": "act-26e0f0e181977f9ba0c27362"
+    },
+    {
+      "kos_id": "au-011904-mexico-full-assessment",
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "file": "cases/011904/authority_units/au-011904-mexico-full-assessment.md",
+      "file_sha256": "c9c220b393825d15c5de21c9b50daf9cbad821a5fce2b9aefecd4c387dd2b534",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-011904-mexico-full-assessment",
+        "case_id": "011904.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-state-protection-adequacy",
+          "issue-state-protection-effectiveness"
+        ],
+        "para_idxs": [
+          "26"
+        ],
+        "extraction": "llm_assisted+verified",
+        "status": "active",
+        "created_at": "2026-09-07"
+      },
+      "claim_text": "Mexico’s democracy does not end the analysis: decision-makers must fully assess evidence that Mexico may be willing but unable to protect, including country context and steps actually taken.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "While Mexico is a democracy and generally willing to protect its citizens, its governance and corruption problems are well documented. Accordingly, decision-makers must engage in a full assessment of the evidence placed before them suggesting that Mexico, while willing to protect, may be unable to do so. This assessment should include the context of the country of origin in general, all the steps that the applicants did in fact take, and their interaction with the authorities",
+      "limits_text": "Persuasive adoption of Gauthier approach; fact-sensitive.",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 11795,
+            "end_char": 12275,
+            "quote": "While Mexico is a democracy and generally willing to protect its citizens, its governance and corruption problems are well documented. Accordingly, decision-makers must engage in a full assessment of the evidence placed before them suggesting that Mexico, while willing to protect, may be unable to do so. This assessment should include the context of the country of origin in general, all the steps that the applicants did in fact take, and their interaction with the authorities"
+          }
+        ]
+      },
+      "target_id": "act-80bdb6c502b053d3d914f453"
+    },
+    {
+      "kos_id": "au-011904-police-primary-avenue",
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "file": "cases/011904/authority_units/au-011904-police-primary-avenue.md",
+      "file_sha256": "62e6a49c12fa19b7adbe2ffe08b3b5d428b53c2165ecaed69c050666f4e087d3",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-011904-police-primary-avenue",
+        "case_id": "011904.txt",
+        "kind": "procedural_rule",
+        "issue_ids": [
+          "issue-police-enforcement-mandate-protection",
+          "issue-state-protection-adequacy"
+        ],
+        "para_idxs": [
+          "34"
+        ],
+        "extraction": "llm_assisted+verified",
+        "status": "active",
+        "created_at": "2026-09-07"
+      },
+      "claim_text": "Absent contrary evidence, non-police institutions without enforcement powers are not protection avenues per se; the police force is the institution mandated to protect citizens.",
+      "kind": "procedural_rule",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "these alternate institutions do not constitute avenues of protection per se ; unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate. For example, the documentary evidence explicitly states that the National Human Rights Commission has no legal power of enforcement",
+      "limits_text": "Unless evidence shows other institutions have enforcement capacity.",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 13789,
+            "end_char": 14207,
+            "quote": "these alternate institutions do not constitute avenues of protection\r\nper se\r\n; unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate. For example, the documentary evidence explicitly states that the National Human Rights Commission has no legal power of enforcement"
+          }
+        ]
+      },
+      "target_id": "act-7a05789ca8a61373b9c6d93c"
+    },
+    {
+      "kos_id": "au-011904-presumption-state-persecutors",
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "file": "cases/011904/authority_units/au-011904-presumption-state-persecutors.md",
+      "file_sha256": "3958382a5bdf3f560575a10415c327557699c2852c1760af3f8a52d1b94eb9ae",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-011904-presumption-state-persecutors",
+        "case_id": "011904.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-presumption-applies-to-state-persecutors",
+          "issue-presumption-of-state-protection"
+        ],
+        "para_idxs": [
+          "16"
+        ],
+        "extraction": "llm_assisted+verified",
+        "status": "active",
+        "created_at": "2026-09-07"
+      },
+      "claim_text": "The Ward presumption of state protection applies equally to non-state and state alleged persecutors; alleging state agents does not automatically rebut the presumption.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "\"[t] he presumption of state protection described in Ward , therefore, applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\" Thus, the existence of state persecuting agents does not serve to automatically rebut the presumption that a state is capable of protecting its citizens.",
+      "limits_text": "Does not decide when exceptional circumstances excuse seeking protection.",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 7390,
+            "end_char": 7771,
+            "quote": "\"[t] he presumption of state protection described in\r\nWard\r\n, therefore, applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\" Thus, the existence of state persecuting agents does not serve to automatically rebut the presumption that a state is capable of protecting its citizens."
+          }
+        ]
+      },
+      "target_id": "act-936031965b08be61d8d765cc"
+    },
+    {
+      "kos_id": "au-011904-sor-reasonableness",
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "file": "cases/011904/authority_units/au-011904-sor-reasonableness.md",
+      "file_sha256": "999a49905cd61ba6645fff0cb8b15848f72cef1c168f41c8eda1b7426d3c6bb9",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-011904-sor-reasonableness",
+        "case_id": "011904.txt",
+        "kind": "standard_of_review",
+        "issue_ids": [
+          "issue-standard-of-review-state-protection",
+          "issue-reasonableness-standard-content"
+        ],
+        "para_idxs": [
+          "11"
+        ],
+        "extraction": "llm_assisted+verified",
+        "status": "active",
+        "created_at": "2026-09-07"
+      },
+      "claim_text": "After Dunsmuir, findings on state protection remain reviewable on reasonableness, focusing on justification, transparency, intelligibility and acceptable outcomes.",
+      "kind": "standard_of_review",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "the standard remains that of reasonableness ( <FRAGMENT_SUPPRESSED> at para. 6). Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law",
+      "limits_text": "Federal Court synthesis; cite for SP not IFA.",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 5596,
+            "end_char": 6037,
+            "quote": "the standard remains that of reasonableness (\r\n <FRAGMENT_SUPPRESSED>  at para. 6). Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law"
+          }
+        ]
+      },
+      "target_id": "act-c0ed7ba27278c298e3f9806f"
+    },
+    {
+      "kos_id": "au-045155-classification-reasons-s27",
+      "case_id": "045155",
+      "kos_role": "candidate",
+      "file": "cases/045155/authority_units/au-045155-classification-reasons-s27.md",
+      "file_sha256": "dae0dbaa20f85fea05beb02a16785218b12654fa2ec69dda0d3556f45bbb697e",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-045155-classification-reasons-s27",
+        "case_id": "045155.txt",
+        "kind": "statutory_hook",
+        "issue_ids": [
+          "issue-inmate-exceptional-override-duty-reasons"
+        ],
+        "para_idxs": [
+          "19"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "Refusal of a transfer request and a classification decision both entitle the inmate to written reasons; CCRA s.27(2) requires all information considered or a summary, subject to s.27(3).",
+      "kind": "statutory_hook",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons. As a result, subsection 27(2) requires that he be given \"all the information that was considered in the taking of the decision or a summary of that information\" or \"les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci\", subject only to the terms",
+      "limits_text": "Preventive-security / CSIS disclosure facts.",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 25728,
+            "end_char": 26148,
+            "quote": "The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons. As a result, subsection 27(2) requires that he be given \"all the information that was considered in the taking of the decision or a summary of that information\" or \"les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci\", subject only to the terms"
+          }
+        ]
+      },
+      "target_id": "act-6d8f91680f2a2f2b18bc1802"
+    },
+    {
+      "kos_id": "au-045155-exception-commissioner-authority",
+      "case_id": "045155",
+      "kos_role": "candidate",
+      "file": "cases/045155/authority_units/au-045155-exception-commissioner-authority.md",
+      "file_sha256": "87233d4aed0c15126acb8695d203bdebec548a2c05a1810a1645d4aa752497b5",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-045155-exception-commissioner-authority",
+        "case_id": "045155.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-exhaust-inmate-grievance-remedies"
+        ],
+        "para_idxs": [
+          "9"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "Early JR may be appropriate without exhausting grievances where the lawful authority of the Commissioner is in issue; Regulations s.81 staying grievances during JR supports that inmates may pursue court remedies.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "There are exceptions to this general rule as there are to all others. <FRAGMENT_SUPPRESSED> ; 108 F.T.R. 93 (T.D.), MacKay, J., held that an early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue. MacKay, J., relied in part upon section 81 of the Regulations made under the Act which provides that where an application for judicial review is made, the grievance",
+      "limits_text": "MacKay line as applied by Pelletier; not automatic.",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 17759,
+            "end_char": 18195,
+            "quote": "There are exceptions to this general rule as there are to all others.  <FRAGMENT_SUPPRESSED> ; 108 F.T.R. 93 (T.D.), MacKay, J., held that an early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue. MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance"
+          }
+        ]
+      },
+      "target_id": "act-ea26d42af4a55d267c0f0517"
+    },
+    {
+      "kos_id": "au-045155-exhaust-grievance-general",
+      "case_id": "045155",
+      "kos_role": "candidate",
+      "file": "cases/045155/authority_units/au-045155-exhaust-grievance-general.md",
+      "file_sha256": "d9dc47a8faff0c3ffac5182064cd8e7706a0cb5a8997f4e050096f20da362352",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-045155-exhaust-grievance-general",
+        "case_id": "045155.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-exhaust-inmate-grievance-remedies"
+        ],
+        "para_idxs": [
+          "8"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "The internal grievance procedure under the CCRA is, in general, an adequate alternate remedy that must be exhausted before Federal Court proceedings; otherwise the statutory remedy is deprived of relevance.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the Act is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. Both of these cases set out the case law which supports that propositi",
+      "limits_text": "Classification/transfer context; exceptions follow.",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 17023,
+            "end_char": 17456,
+            "quote": "F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. Both of these cases set out the case law which supports that propositi"
+          }
+        ]
+      },
+      "target_id": "act-b8525d8b98810bf91984a946"
+    },
+    {
+      "kos_id": "au-045155-policy-reasons-exhaust",
+      "case_id": "045155",
+      "kos_role": "candidate",
+      "file": "cases/045155/authority_units/au-045155-policy-reasons-exhaust.md",
+      "file_sha256": "ca682e36bc58058a4d8bec2b74869f90609d3a26dfab48261f9549ea2f262199",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-045155-policy-reasons-exhaust",
+        "case_id": "045155.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-exhaust-inmate-grievance-remedies"
+        ],
+        "para_idxs": [
+          "10"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "Policy reasons for requiring exhaustion in correctional facilities include timeliness, familiarity with the unique environment, procedural safeguards, and economy.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "The policy reasons for requiring applicants to exhaust their internal remedies are compelling. To hold otherwise is to undermine the legitimacy of alternate remedies by assigning them to a secondary position when there are many reasons why they should occupy a primary role in the resolution of disputes. In the context of correctional facilities, one could identity timeliness, familiarity with a unique environment, ad",
+      "limits_text": "Policy rationale; fact-specific exceptions remain.",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 18540,
+            "end_char": 18960,
+            "quote": "The policy reasons for requiring applicants to exhaust their internal remedies are compelling. To hold otherwise is to undermine the legitimacy of alternate remedies by assigning them to a secondary position when there are many reasons why they should occupy a primary role in the resolution of disputes. In the context of correctional facilities, one could identity timeliness, familiarity with a unique environment, ad"
+          }
+        ]
+      },
+      "target_id": "act-c0dbce2da157944020f9c77d"
+    },
+    {
+      "kos_id": "au-045155-undisclosed-allegation-unfair",
+      "case_id": "045155",
+      "kos_role": "candidate",
+      "file": "cases/045155/authority_units/au-045155-undisclosed-allegation-unfair.md",
+      "file_sha256": "c9ff5432164c6556ac14c176532fc313d31cec07ba71f79ce4cc080f1a9fab3c",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-045155-undisclosed-allegation-unfair",
+        "case_id": "045155.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-inmate-exceptional-override-duty-reasons",
+          "issue-procedural-fairness-correctness"
+        ],
+        "para_idxs": [
+          "14"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "Refusing reclassification/transfer based on an allegation not shared with the inmate, without opportunity to respond, is unfair even if it merely maintains the status quo.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "This is not a discipline case but the effect is essentially the same. The refusal to reclassify and transfer the applicant is based upon an allegation which has not been shared with him and to which he has not had the opportunity to respond. The evidentiary record is clear that the only obstacle in the way of the applicant's reclassification is the undisclosed information on the applicant's preven",
+      "limits_text": "CSIS/RCMP preventive security file context.",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 22318,
+            "end_char": 22718,
+            "quote": "This is not a discipline case but the effect is essentially the same. The refusal to reclassify and transfer the applicant is based upon an allegation which has not been shared with him and to which he has not had the opportunity to respond. The evidentiary record is clear that the only obstacle in the way of the applicant's reclassification is the undisclosed information on the applicant's preven"
+          }
+        ]
+      },
+      "target_id": "act-38b0180ca1eb9a9c2d62e7fc"
+    },
+    {
+      "kos_id": "au-099980-investigations-impartiality-tool",
+      "case_id": "099980",
+      "kos_role": "candidate",
+      "file": "cases/099980/authority_units/au-099980-investigations-impartiality-tool.md",
+      "file_sha256": "bca9c623cec574f1a1001e0333fc55f341cdb547d0201124f7782d19c7ce0153",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-099980-investigations-impartiality-tool",
+        "case_id": "099980.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-cjc-inquiry-separation"
+        ],
+        "para_idxs": [
+          "100"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "Commission investigations into appointments are an important supervisory tool to manage staffing and ensure public service impartiality.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "We note that investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service.",
+      "limits_text": "PSEA Part 5.",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 59701,
+            "end_char": 59903,
+            "quote": "We note that investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service."
+          }
+        ]
+      },
+      "target_id": "act-c195f34a1c15faced768c5e1"
+    },
+    {
+      "kos_id": "au-099980-pf-case-by-case",
+      "case_id": "099980",
+      "kos_role": "candidate",
+      "file": "cases/099980/authority_units/au-099980-pf-case-by-case.md",
+      "file_sha256": "35b2c3d243521b64b976a8ec2f56acf03378ba27ddc5f77702e0393f911ed1bd",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-099980-pf-case-by-case",
+        "case_id": "099980.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-jr-prematurity-exhaustion"
+        ],
+        "para_idxs": [
+          "98"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "Fairness issues are resolved case-by-case; prior fairness findings do not bind where facts differ (e.g., never informed of fraud suspicion).",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "As we know, issues of procedural fairness are resolved on a case-by-case basis, which means that today, the Court is not bound by the findings of fact the Court made on this issue in Seck 1 first instance , at paragraphs 17 to 20, especially since the facts differ substantially because the applicant was never formally informed that she was suspected of fraud.",
+      "limits_text": "PSEA investigations.",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 58472,
+            "end_char": 58835,
+            "quote": "As we know, issues of procedural fairness are resolved on a case-by-case basis, which means that today, the Court is not bound by the findings of fact the Court made on this issue in\r\nSeck 1 first instance\r\n, at paragraphs 17 to 20, especially since the facts differ substantially because the applicant was never formally informed that she was suspected of fraud."
+          }
+        ]
+      },
+      "target_id": "act-6e9917a5d050d2111093d183"
+    },
+    {
+      "kos_id": "au-099980-pf-correctness",
+      "case_id": "099980",
+      "kos_role": "candidate",
+      "file": "cases/099980/authority_units/au-099980-pf-correctness.md",
+      "file_sha256": "dc3b6a737bd0a5c1ef8dc6297a037a3f85cef1a9aac4d197ed0a0789b855ef1d",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-099980-pf-correctness",
+        "case_id": "099980.txt",
+        "kind": "standard_of_review",
+        "issue_ids": [
+          "issue-jr-prematurity-exhaustion"
+        ],
+        "para_idxs": [
+          "97"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "The standard of correctness guides analysis of alleged breaches of procedural fairness.",
+      "kind": "standard_of_review",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "It is appropriate for the standard of correctness to guide the analysis of the Court with respect to the alleged breach of the rules of procedural fairness: <FRAGMENT_SUPPRESSED>",
+      "limits_text": "General admin law.",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "alignment": {
+        "status": "whitespace_normalized",
+        "method": "whitespace_normalized",
+        "spans": [
+          {
+            "start_char": 58244,
+            "end_char": 58424,
+            "quote": "It is appropriate for the standard of correctness to guide the analysis of the Court with respect to the alleged breach of the rules of procedural fairness:\r\n <FRAGMENT_SUPPRESSED>"
+          }
+        ]
+      },
+      "target_id": "act-6e9917a5d050d2111093d183"
+    },
+    {
+      "kos_id": "au-099980-pf-determinative",
+      "case_id": "099980",
+      "kos_role": "candidate",
+      "file": "cases/099980/authority_units/au-099980-pf-determinative.md",
+      "file_sha256": "33a741a072b6c1c5946407b0427643a9a52ab646c74992a84072e41626555669",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-099980-pf-determinative",
+        "case_id": "099980.txt",
+        "kind": "holding",
+        "issue_ids": [
+          "issue-jr-prematurity-exhaustion"
+        ],
+        "para_idxs": [
+          "94"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "The Court may allow JR on a flagrant fairness breach without expressing a definitive opinion on contested jurisdiction/reasonableness issues.",
+      "kind": "holding",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "However, there is no need to express a definitive opinion on the issue of jurisdiction or reasonableness today or to base the judgment of the Court allowing the application for judicial review on such a contentious aspect that might soon be argued before the Federal Court of Appeal as part of the appeal in Seck 1. In fact, the issue of procedural fairness seems determinative to me; as explained below, there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.",
+      "limits_text": "Public Service Commission investigations.",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 56166,
+            "end_char": 56723,
+            "quote": "However, there is no need to express a definitive opinion on the issue of jurisdiction or reasonableness today or to base the judgment of the Court allowing the application for judicial review on such a contentious aspect that might soon be argued before the Federal Court of Appeal as part of the appeal in Seck 1. In fact, the issue of procedural fairness seems determinative to me; as explained below, there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant."
+          }
+        ]
+      },
+      "target_id": "act-cbff3a7eb4d28f50b1e0d656"
+    },
+    {
+      "kos_id": "au-099980-right-to-make-submissions",
+      "case_id": "099980",
+      "kos_role": "candidate",
+      "file": "cases/099980/authority_units/au-099980-right-to-make-submissions.md",
+      "file_sha256": "dd0f469b26f5be72d9a6fdbd6e4dcb72be3167233feac474b5a8e53ddfc2993c",
+      "metadata": {
+        "type": "authority_unit",
+        "id": "au-099980-right-to-make-submissions",
+        "case_id": "099980.txt",
+        "kind": "procedural_rule",
+        "issue_ids": [
+          "issue-jr-prematurity-exhaustion"
+        ],
+        "para_idxs": [
+          "100"
+        ],
+        "extraction": "curated",
+        "status": "active",
+        "created_at": "2026-08-27"
+      },
+      "claim_text": "The right to make submissions is legislatively recognized when an appointment or proposed appointment is investigated.",
+      "kind": "procedural_rule",
+      "attribution": null,
+      "speaker": null,
+      "evidence_text": "Furthermore, the right to make submissions is legislatively recognized when the appointment or proposed appointmen",
+      "limits_text": "SIL truncated end of para.",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "alignment": {
+        "status": "exact",
+        "method": "exact",
+        "spans": [
+          {
+            "start_char": 59904,
+            "end_char": 60018,
+            "quote": "Furthermore, the right to make submissions is legislatively recognized when the appointment or proposed appointmen"
+          }
+        ]
+      },
+      "target_id": "act-c195f34a1c15faced768c5e1"
+    }
+  ],
+  "target_reference_density": [
+    {
+      "target_id": "act-c0ed7ba27278c298e3f9806f",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-b81273b7291bcd4577a91687",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-936031965b08be61d8d765cc",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-26e0f0e181977f9ba0c27362",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-80bdb6c502b053d3d914f453",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-7a05789ca8a61373b9c6d93c",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-1b96649d1cc24edf6febb043",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-44a15a9ba2f89eeea686ba72",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-b8525d8b98810bf91984a946",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-ea26d42af4a55d267c0f0517",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-c0dbce2da157944020f9c77d",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-38b0180ca1eb9a9c2d62e7fc",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-6d8f91680f2a2f2b18bc1802",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-cbff3a7eb4d28f50b1e0d656",
+      "kos_reference_count": 1,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-6e9917a5d050d2111093d183",
+      "kos_reference_count": 2,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    },
+    {
+      "target_id": "act-c195f34a1c15faced768c5e1",
+      "kos_reference_count": 2,
+      "max_pipeline_anchors": 3,
+      "saturation_risk": false
+    }
+  ],
+  "semantic_review_status": "semantic_review_pending",
+  "limitations": [
+    "Reference-guided selected regions only; not blind full-case coverage.",
+    "KOS is a reference, not human gold; overlap does not establish correctness.",
+    "Semantic review pending; no precision/recall/F1 or retrieval quality claim.",
+    "At most three pipeline anchors per TARGET; dense regions can saturate this cap."
+  ],
+  "reference_sha256": "61df924dea8086c5b446bba9dea0e983510f216feb62f9471e93505b0e95f177"
+}

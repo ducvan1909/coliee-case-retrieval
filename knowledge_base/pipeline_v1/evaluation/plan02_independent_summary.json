@@ -1,0 +1,48 @@
+{
+  "evaluation_version": "pipeline-v1-independent-evaluation-v1",
+  "plan": "02",
+  "status": "pass",
+  "generated_at": "2026-10-03T16:26:50+07:00",
+  "scope": "CaseSource, SpanRef, immutable source store, exact-span API, and source-hash invalidation on KOS-5",
+  "prerequisite": {
+    "plan01_status": "pass",
+    "report": "evaluation/runtime/plan01_gate_retest2.json"
+  },
+  "retest": {
+    "retest_id": "2026-10-03-p02-f01-fix",
+    "plan02_cli": "pass",
+    "plan02_cli_case_count": 5,
+    "round_trip_hash_offset_rate": 1.0,
+    "original_plan01_plan02_tests": {"total": 20, "passed": 20, "failed": 0},
+    "independent_plan01_plan02_tests_before_extension": {"total": 12, "passed": 12, "failed": 0},
+    "independent_plan02_tests_after_extension": {"total": 7, "passed": 7, "failed": 0},
+    "checks": {
+      "record_type_tamper_rejection": "pass",
+      "contract_version_tamper_rejection": "pass",
+      "source_version_tamper_rejection": "pass",
+      "identity_and_text_ref_tamper_rejection": "pass",
+      "malformed_missing_wrong_type_and_extra_fields": "pass",
+      "source_bytes_hash_length_immutability": "pass",
+      "span_identity_and_bounds": "pass",
+      "cache_identity_and_invalidation_idempotence": "pass"
+    }
+  },
+  "closed_findings": [
+    {
+      "id": "P02-F01",
+      "severity": "high",
+      "status": "fixed_verified",
+      "title": "Read API accepts tampered CaseSource contract and provenance fields",
+      "reproduction": "test_case_source_contract_tamper_is_rejected_by_read_api",
+      "independent_extension": "test_each_case_source_contract_fault_is_rejected_independently"
+    }
+  ],
+  "open_findings": [],
+  "contract_status": "pass",
+  "run_completion": "complete",
+  "semantic_correctness": "not_evaluated",
+  "au_quality": "not_evaluated",
+  "retrieval_quality": "not_evaluated",
+  "plan03_started": false,
+  "advance_condition": "Plan 02 independent gate satisfied; Plan 03 requires a separate authorized run"
+}

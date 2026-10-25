@@ -1,0 +1,712 @@
+{
+  "artifact_type": "AUOnlyLockedManifest",
+  "schema_version": "au-only-manifest-v1",
+  "requests": [
+    {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "region_id": "auo-2eebd925ea9e62d0ed69ad69",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-056fd4ca0454c65c2b585cea"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 17556,
+          "end_char": 18308,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 18316,
+          "end_char": 19533,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 19541,
+          "end_char": 20332,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 20340,
+          "end_char": 20493,
+          "target_ids": [
+            "at-056fd4ca0454c65c2b585cea"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 20501,
+          "end_char": 20650,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 20652,
+          "end_char": 20660,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-98ccb1cc5e31b1a47635418f",
+      "input_tokens": 2487,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\011904\\c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12\\7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c\\b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1\\14aa1ca3594fdcbd794d590c425075d88b9bc30d0cbd46cdcdb09e2534e5c2bd\\df366be3729e0d31766955cd933e6065ee53f649255450ecbb8a71cfb65e2967\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-4cdc004f0324d30db792af9d",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "region_id": "auo-cfd0fcbcf8e38a1b52f0a3ea",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-ade4a3797b31d7deb9bf7baf"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 10339,
+          "end_char": 11679,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 11687,
+          "end_char": 12412,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 12420,
+          "end_char": 12607,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 12615,
+          "end_char": 12950,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 12958,
+          "end_char": 13300,
+          "target_ids": [
+            "at-ade4a3797b31d7deb9bf7baf"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 13308,
+          "end_char": 13759,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-aa1165a39213c2a0c656e4ab",
+      "input_tokens": 2565,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\011904\\c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12\\7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c\\b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1\\14aa1ca3594fdcbd794d590c425075d88b9bc30d0cbd46cdcdb09e2534e5c2bd\\df366be3729e0d31766955cd933e6065ee53f649255450ecbb8a71cfb65e2967\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-6c2342fe5067d15457c1ce34",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "013009",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "region_id": "auo-028a8a6e497ce75f33595531",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-d1a9498ecd408d28317aa793"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 7608,
+          "end_char": 7962,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 7970,
+          "end_char": 8693,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 8700,
+          "end_char": 10545,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 10553,
+          "end_char": 11266,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 11274,
+          "end_char": 12222,
+          "target_ids": [
+            "at-d1a9498ecd408d28317aa793"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 12230,
+          "end_char": 12405,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-52033b30209cd5abf3c8f182",
+      "input_tokens": 2908,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\013009\\fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3\\0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8\\151c9fb1917a98e9c949683731b466b7edcec49caa447f6fc88446a66f12dd98\\516099a69aee20d28084297a7cab57b9c58334e7c0de664c26b3bd61c2cf79a7\\ae994aec53fcd8b4e32f9697928afc1eac59e0342308747e71d1651ee77c3a5b\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-00a23a8d0767f779717fc6a2",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "013009",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "region_id": "auo-6e8af6feebd3d67dbb2c283d",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-f4a073144323210976dace57"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 7608,
+          "end_char": 7962,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 7970,
+          "end_char": 8693,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 8700,
+          "end_char": 10545,
+          "target_ids": [
+            "at-f4a073144323210976dace57"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 10553,
+          "end_char": 11266,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 11274,
+          "end_char": 12222,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 12230,
+          "end_char": 12405,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-e375a7ef798bd039adc52a34",
+      "input_tokens": 2908,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\013009\\fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3\\0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8\\151c9fb1917a98e9c949683731b466b7edcec49caa447f6fc88446a66f12dd98\\516099a69aee20d28084297a7cab57b9c58334e7c0de664c26b3bd61c2cf79a7\\ae994aec53fcd8b4e32f9697928afc1eac59e0342308747e71d1651ee77c3a5b\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-00a23a8d0767f779717fc6a2",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "013948",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "region_id": "auo-471beb9aa7b9311e41369c71",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-3afd82f9ffea744294fd4624"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 13239,
+          "end_char": 13778,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 13786,
+          "end_char": 14019,
+          "target_ids": [
+            "at-3afd82f9ffea744294fd4624"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 14027,
+          "end_char": 14265,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 14273,
+          "end_char": 14555,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 14563,
+          "end_char": 14707,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 14715,
+          "end_char": 14918,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-885151f935ef8056f35cf5bc",
+      "input_tokens": 2130,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\013948\\1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352\\486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4\\14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2\\9ef99f92abbbc524a492214e313aa9bca7df293093816e176e71a034d5ff279b\\ca5fdfb342f11e6820a6fa6ec8ef882a8b9b86193a0e9d78e60f4b925f4f3b3e\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-c02d7e642c48412604487372",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "013948",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "region_id": "auo-9af29ea12f7fc8cf9a85e381",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-726483a83077ee92addf3aff"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 7575,
+          "end_char": 7856,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 7864,
+          "end_char": 8303,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 8311,
+          "end_char": 8515,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 8523,
+          "end_char": 8681,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 8689,
+          "end_char": 9915,
+          "target_ids": [
+            "at-726483a83077ee92addf3aff"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 9923,
+          "end_char": 10235,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-5317f7b5bf3980d512b78f3a",
+      "input_tokens": 2372,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\013948\\1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352\\486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4\\14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2\\9ef99f92abbbc524a492214e313aa9bca7df293093816e176e71a034d5ff279b\\ca5fdfb342f11e6820a6fa6ec8ef882a8b9b86193a0e9d78e60f4b925f4f3b3e\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-655f1114a72d501fafa00c92",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "region_id": "auo-41250b65ff2f4034842280fa",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-923a3aae96b77d61178e6d57"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 26745,
+          "end_char": 27735,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 27752,
+          "end_char": 28220,
+          "target_ids": [
+            "at-923a3aae96b77d61178e6d57"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 28234,
+          "end_char": 29264,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 29278,
+          "end_char": 30057,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 30071,
+          "end_char": 30411,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 30425,
+          "end_char": 30809,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-9ae2afa8136ccc7cb7a5749d",
+      "input_tokens": 2718,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\045155\\93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb\\8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c\\00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d\\8ab2c1d5fd62910850b1ffe0bb2cba234d98b98b5b4136fe6bd284aa18128db3\\92159bf4fb12c0eabc54e78484457309dd99d113ef8863d31b25c407fca12d3d\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-e3132a57569db66805e421f7",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "region_id": "auo-e49abf3aca88881e448182cc",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-52c4e1747233e8e73f3510f5"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 15549,
+          "end_char": 15925,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 15938,
+          "end_char": 16735,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 16748,
+          "end_char": 17746,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 17759,
+          "end_char": 18474,
+          "target_ids": [
+            "at-52c4e1747233e8e73f3510f5"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 18480,
+          "end_char": 18526,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 18540,
+          "end_char": 19727,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 19741,
+          "end_char": 20494,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-b5ec97c11498d106fd1895f9",
+      "input_tokens": 2953,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\045155\\93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb\\8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c\\00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d\\8ab2c1d5fd62910850b1ffe0bb2cba234d98b98b5b4136fe6bd284aa18128db3\\92159bf4fb12c0eabc54e78484457309dd99d113ef8863d31b25c407fca12d3d\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-3e7a6a201a1048fd98454aa6",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "region_id": "auo-0b0f6866e9f61dad2ac66331",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-c346a3add188a66127ed9fb5"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 25303,
+          "end_char": 25734,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 25742,
+          "end_char": 26097,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 26105,
+          "end_char": 26357,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 26365,
+          "end_char": 26760,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 26768,
+          "end_char": 27420,
+          "target_ids": [
+            "at-c346a3add188a66127ed9fb5"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 27428,
+          "end_char": 28033,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-a485dfc76198c1be66d746d1",
+      "input_tokens": 2392,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\099980\\49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319\\75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c\\58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86\\693870e6cadc38116a5aeb68654661a1ea9049b3d435ef70b101c413db3a72fe\\2577a40337f01fcec043c48b7ad6aa3fd7fdcc3d75cf07f6e48b35da1e7fb728\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-625e316925984e9f3e04c3e1",
+        "selection": "model_silver development only; not human gold"
+      }
+    },
+    {
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "region_id": "auo-08bef3485eff70a583f26a87",
+      "arm": "AU-only",
+      "expected_target_ids": [
+        "at-422fbd7f49cb2cff502c7399"
+      ],
+      "source_refs": [
+        {
+          "role": "context",
+          "start_char": 87893,
+          "end_char": 89111,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 89120,
+          "end_char": 89941,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 89950,
+          "end_char": 90724,
+          "target_ids": []
+        },
+        {
+          "role": "target",
+          "start_char": 90733,
+          "end_char": 91372,
+          "target_ids": [
+            "at-422fbd7f49cb2cff502c7399"
+          ]
+        },
+        {
+          "role": "context",
+          "start_char": 91381,
+          "end_char": 91714,
+          "target_ids": []
+        },
+        {
+          "role": "context",
+          "start_char": 91723,
+          "end_char": 92151,
+          "target_ids": []
+        }
+      ],
+      "spec": {
+        "model": "Qwen/Qwen3.5-9B",
+        "enable_thinking": false,
+        "caps": {
+          "targets": 1,
+          "output_tokens": 1600,
+          "au_candidates": 8
+        }
+      },
+      "request_id": "auo-17f864d0f779313b1dfd5736",
+      "input_tokens": 2773,
+      "hint_payload": {
+        "version": "context-hint-payload-v1",
+        "hint_ids": []
+      },
+      "provenance": {
+        "identity_source": "frozen Plan07 v1.4 exact Plan09 R5 namespace",
+        "frozen_map": "knowledge_base\\pipeline_v1\\outputs\\plan07_analysis_regions_v1\\cases\\099980\\49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319\\75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c\\58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86\\693870e6cadc38116a5aeb68654661a1ea9049b3d435ef70b101c413db3a72fe\\2577a40337f01fcec043c48b7ad6aa3fd7fdcc3d75cf07f6e48b35da1e7fb728\\p2-offline-scheduler-v1.4-0a0d9176c5fa621d\\analysis_workload_map.json",
+        "frozen_region_id": "ar-b79fa8b2edccced0b775c316",
+        "selection": "model_silver development only; not human gold"
+      }
+    }
+  ]
+}

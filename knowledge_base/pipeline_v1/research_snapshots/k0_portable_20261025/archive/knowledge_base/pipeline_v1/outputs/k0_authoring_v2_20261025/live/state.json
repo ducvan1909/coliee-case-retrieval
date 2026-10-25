@@ -1,0 +1,219 @@
+{
+  "states": {
+    "011904": {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "turn": 1,
+      "active_scope_ids": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ],
+      "drafts": {},
+      "revisions": [],
+      "warnings": [],
+      "au_errors": [],
+      "read_ledger": {
+        "r1": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r2": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r3": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r4": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r5": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r6": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r7": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r8": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        }
+      },
+      "finished": true,
+      "stop_reason": "needs_context",
+      "work_scope_complete": false,
+      "case_source_assessment_complete": false,
+      "case_status": "partial",
+      "tool_result": null
+    },
+    "045155": {
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "turn": 1,
+      "active_scope_ids": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
+      "drafts": {},
+      "revisions": [],
+      "warnings": [],
+      "au_errors": [],
+      "read_ledger": {
+        "r1": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r2": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r3": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r4": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r5": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        }
+      },
+      "finished": true,
+      "stop_reason": "needs_context",
+      "work_scope_complete": false,
+      "case_source_assessment_complete": false,
+      "case_status": "partial",
+      "tool_result": null
+    },
+    "099980": {
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "turn": 1,
+      "active_scope_ids": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "drafts": {},
+      "revisions": [],
+      "warnings": [],
+      "au_errors": [],
+      "read_ledger": {
+        "r1": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r2": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        },
+        "r3": {
+          "state": "unresolved",
+          "delivered_count": 1,
+          "assessed": false,
+          "assessment_result": "uncertain"
+        }
+      },
+      "finished": true,
+      "stop_reason": "needs_context",
+      "work_scope_complete": false,
+      "case_source_assessment_complete": false,
+      "case_status": "partial",
+      "tool_result": null
+    }
+  },
+  "binding": {
+    "workload_sha256": "8da3f88dc0c76ae15206cf6bfb78e004d0b8ec1348fe202a2450e27f927ad98e",
+    "code_sha256": "0b59610d1621cbd45502d0f829d1a8f86dac90a3b0c6069c209e8ef89d39de4e",
+    "mode": "execute",
+    "runtime": {
+      "model": "Qwen/Qwen3.5-9B",
+      "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/chat/completions",
+      "enable_thinking": false,
+      "transport": "jobs",
+      "string_decoder": "host_validated",
+      "jobs_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+      "expected_model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "endpoint_verification": "historical_parent_operator_verification; no_live_check",
+      "runtime_revision_setting_present": false,
+      "timeout": 60.0,
+      "job_wait_seconds": 600.0,
+      "job_poll_seconds": 2.0,
+      "readiness_seconds": 600.0
+    },
+    "input_counter": {
+      "method": "max_rendered_chat_and_full_serialized_payload_Qwen_tokens_plus128_reserve",
+      "model": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "files": {
+        "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+        "tokenizer_config.json": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8"
+      },
+      "versions": {
+        "tokenizers": "0.22.1",
+        "jinja2": "3.1.6"
+      },
+      "provider_usage": false
+    },
+    "limits": [
+      12,
+      6000,
+      800,
+      30000,
+      128
+    ]
+  },
+  "derived_from": {
+    "k0v2-7af9326356dbf195d2cb96f8": "300dce743e13d81f2780f6a494f7368755033b42f55e20905e6eb3c59889f86c",
+    "k0v2-1ed639369bd30b5ca2c90707": "aded60aa70645aa8a8a36adbef5f8e039748b0bd16982a8f39cd7e92074cf015",
+    "k0v2-b21f7447919d04e2ca8f5e6b": "d12fe3777bf4299f47e5058bc052fd62dadc04c41c5cb38ad439ad5aa2a9e993"
+  }
+}

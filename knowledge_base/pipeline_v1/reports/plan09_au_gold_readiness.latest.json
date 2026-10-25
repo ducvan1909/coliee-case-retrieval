@@ -1,0 +1,101 @@
+{
+  "report_version": "plan09-au-gold-readiness-v1",
+  "overall_status": "gold_awaiting_independent_adjudication",
+  "structural_tool_readiness": {
+    "status": "structural_ready",
+    "packet_count": 5,
+    "target_count": 369,
+    "exact_kos5": true,
+    "raw_source_hash_verified": true,
+    "blank_packets_no_semantic_labels": true
+  },
+  "silver_readiness": {
+    "status": "partially_checkpointed_model_review",
+    "batch_contract_ready": true,
+    "batch_count": 96,
+    "proposal_count": 55,
+    "reviewed_target_count": 212,
+    "unresolved_target_count": 2,
+    "authority_unit_count": 98,
+    "hard_negative_count": 112,
+    "provider_calls": 0,
+    "provider_or_endpoint_usage_claimed": false,
+    "locked_silver_snapshot": null,
+    "evaluation_boundary": "any future score must declare evaluation_against=model_silver",
+    "count_basis": "effective_model_amendment_view"
+  },
+  "human_annotation_progress": {
+    "artifact_type": "HumanAnnotationProgress",
+    "progress_version": "plan09-human-progress-v1",
+    "status": "awaiting_human_adjudication",
+    "packet_count": 5,
+    "target_count": 369,
+    "independent_submission_count": 0,
+    "adjudication_count": 0,
+    "locked_gold_snapshot_count": 0,
+    "semantic_gold_available": false
+  },
+  "gold_lock_status": {
+    "status": "gold_awaiting_independent_adjudication",
+    "locked_gold_snapshot": null,
+    "semantic_pass": false
+  },
+  "split_leakage_status": {
+    "status": "dependency_missing",
+    "case_id_disjoint": true,
+    "source_hash_disjoint": true,
+    "heldout_labels_materialized": false,
+    "source_contract_dependency": "dependency_missing_source_contract"
+  },
+  "few_shot_readiness": {
+    "status": "blocked_no_locked_gold",
+    "record_count": 0,
+    "heldout_excluded": true,
+    "silver_manifest_status": "blocked_no_locked_silver",
+    "silver_evaluation_against": "model_silver"
+  },
+  "inputs": {
+    "plan07_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan07_analysis_region_validation.latest.json",
+    "plan08_independent_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\evaluation\\plan08_independent_evaluation.md",
+    "source_store": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1",
+    "policy": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\policies\\au_annotation_policy.v1.json",
+    "split_registry": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\split_registry.v1.json"
+  },
+  "outputs": {
+    "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan09_au_gold_v1",
+    "build_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan09_au_gold_v1\\au_annotation_build_manifest.json",
+    "heldout_lock": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan09_au_gold_v1\\heldout_source_lock.json",
+    "few_shot_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan09_au_gold_v1\\few_shot_selection_manifest.json",
+    "silver_few_shot_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan09_au_gold_v1\\silver_few_shot_selection_manifest.json",
+    "terra_proposal_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan09_au_gold_v1\\terra_proposal_manifest.json",
+    "human_progress": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan09_au_gold_v1\\human_annotation_progress.json",
+    "terra_batches": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan09_au_gold_v1\\terra_annotation_batches.json",
+    "audit_html": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan09_au_annotation_audit.html"
+  },
+  "gates": {
+    "structural_ready": true,
+    "silver_ready": false,
+    "two_independent_human_submissions": false,
+    "human_adjudication_complete": false,
+    "locked_gold_valid": false,
+    "heldout_source_contract_valid": false,
+    "few_shot_ready": false,
+    "plan10_allowed": false
+  },
+  "elapsed_seconds": 0.44859400000132155,
+  "limitations": [
+    "Agent cannot create independent human gold.",
+    "KOS-5 calibration is not held-out semantic evidence.",
+    "Structural readiness does not establish annotation quality.",
+    "No Terra proposal is materialized without a per-target review trace/checksum and specific decision or unresolved reason.",
+    "No provider endpoint or budget was supplied and no provider/endpoint usage is claimed.",
+    "Future accepted Terra labels remain model silver and cannot unlock held-out quality claims."
+  ],
+  "semantic_remediation": {
+    "quarantined_target_count": 1,
+    "open_severe_finding_count": 1,
+    "amendment_count": 1,
+    "semantic_pass": false,
+    "plan10_allowed": false
+  }
+}

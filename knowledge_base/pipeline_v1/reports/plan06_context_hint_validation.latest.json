@@ -1,0 +1,708 @@
+{
+  "report_version": "plan06-context-hint-validation-v1",
+  "status": "pass",
+  "scope": "KOS-5 deterministic local ContextHint rules; no model/LLM; KOS artifacts audit-only",
+  "inputs": {
+    "source_store": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\source_store_v1",
+    "source_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\calibration_manifest.v1.json",
+    "plan03_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan03_structural_validation.latest.json",
+    "plan04_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan04_sentence_atom_validation.latest.json",
+    "plan05_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan05_sidecar_validation.latest.json",
+    "plan05_independent_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\evaluation\\plan05_independent_evaluation.md",
+    "policy": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\policies\\context_hint_policy.v1.json"
+  },
+  "outputs": {
+    "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan06_context_hints_v1",
+    "build_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan06_context_hints_v1\\context_hint_build_manifest.json",
+    "cap_dedup_ledger": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan06_context_hints_v1\\cap_dedup_ledger.jsonl",
+    "rule_event_ledger": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan06_context_hints_v1\\rule_event_ledger.jsonl",
+    "audit_html": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan06_context_hint_audit.html"
+  },
+  "summary": {
+    "case_count": 5,
+    "target_count": 431,
+    "hint_count": 28,
+    "pre_policy_count": 28,
+    "post_policy_count": 28,
+    "hint_type_counts": {
+      "open_quote": 10,
+      "open_list": 0,
+      "dependent_lead_in": 5,
+      "reference_to_previous": 2,
+      "citation_continuation": 0,
+      "quote_continuation": 10,
+      "speaker_continuity_candidate": 1
+    },
+    "hint_status_counts": {
+      "candidate": 8,
+      "accepted_by_contract": 20,
+      "unresolved": 0
+    },
+    "hint_direction_counts": {
+      "next": 10,
+      "previous": 18
+    },
+    "dropped_reason_counts": {},
+    "policy_ledger_count": 28,
+    "targets_with_hints": 25,
+    "unique_related_span_count": 25,
+    "unique_related_chars": 9632,
+    "proposed_related_chars": 10610,
+    "repeated_proposed_chars": 978,
+    "addition_distributions": {
+      "per_target_hint_count_histogram": {
+        "1": 22,
+        "2": 3
+      },
+      "per_target_added_chars_histogram": {
+        "15": 2,
+        "21": 1,
+        "24": 1,
+        "28": 1,
+        "105": 1,
+        "128": 2,
+        "176": 1,
+        "212": 1,
+        "268": 2,
+        "306": 1,
+        "386": 1,
+        "404": 1,
+        "447": 1,
+        "485": 1,
+        "509": 1,
+        "665": 1,
+        "689": 1,
+        "695": 1,
+        "799": 1,
+        "850": 1,
+        "1272": 1,
+        "1715": 1
+      },
+      "by_hint_type": {
+        "dependent_lead_in": {
+          "hint_count": 5,
+          "targets_with_hints": 5,
+          "unique_related_span_count": 5,
+          "unique_related_chars": 103,
+          "proposed_related_chars": 103,
+          "repeated_proposed_chars": 0
+        },
+        "open_quote": {
+          "hint_count": 10,
+          "targets_with_hints": 10,
+          "unique_related_span_count": 10,
+          "unique_related_chars": 2757,
+          "proposed_related_chars": 2757,
+          "repeated_proposed_chars": 0
+        },
+        "quote_continuation": {
+          "hint_count": 10,
+          "targets_with_hints": 10,
+          "unique_related_span_count": 10,
+          "unique_related_chars": 5900,
+          "proposed_related_chars": 5900,
+          "repeated_proposed_chars": 0
+        },
+        "reference_to_previous": {
+          "hint_count": 2,
+          "targets_with_hints": 2,
+          "unique_related_span_count": 2,
+          "unique_related_chars": 1185,
+          "proposed_related_chars": 1185,
+          "repeated_proposed_chars": 0
+        },
+        "speaker_continuity_candidate": {
+          "hint_count": 1,
+          "targets_with_hints": 1,
+          "unique_related_span_count": 1,
+          "unique_related_chars": 665,
+          "proposed_related_chars": 665,
+          "repeated_proposed_chars": 0
+        }
+      }
+    },
+    "error_event_count": 0,
+    "elapsed_seconds": 21.870170200003486,
+    "characters_per_second": 9458.22543255594
+  },
+  "p2_counterfactual": {
+    "P2a": {
+      "context_hint_count": 0,
+      "added_related_chars": 0
+    },
+    "P2b": {
+      "context_hint_count": 28,
+      "targets_with_hints": 25,
+      "unique_related_span_count": 25,
+      "unique_related_chars": 9632,
+      "proposed_related_chars": 10610,
+      "repeated_proposed_chars": 978,
+      "addition_distributions": {
+        "per_target_hint_count_histogram": {
+          "1": 22,
+          "2": 3
+        },
+        "per_target_added_chars_histogram": {
+          "15": 2,
+          "21": 1,
+          "24": 1,
+          "28": 1,
+          "105": 1,
+          "128": 2,
+          "176": 1,
+          "212": 1,
+          "268": 2,
+          "306": 1,
+          "386": 1,
+          "404": 1,
+          "447": 1,
+          "485": 1,
+          "509": 1,
+          "665": 1,
+          "689": 1,
+          "695": 1,
+          "799": 1,
+          "850": 1,
+          "1272": 1,
+          "1715": 1
+        },
+        "by_hint_type": {
+          "dependent_lead_in": {
+            "hint_count": 5,
+            "targets_with_hints": 5,
+            "unique_related_span_count": 5,
+            "unique_related_chars": 103,
+            "proposed_related_chars": 103,
+            "repeated_proposed_chars": 0
+          },
+          "open_quote": {
+            "hint_count": 10,
+            "targets_with_hints": 10,
+            "unique_related_span_count": 10,
+            "unique_related_chars": 2757,
+            "proposed_related_chars": 2757,
+            "repeated_proposed_chars": 0
+          },
+          "quote_continuation": {
+            "hint_count": 10,
+            "targets_with_hints": 10,
+            "unique_related_span_count": 10,
+            "unique_related_chars": 5900,
+            "proposed_related_chars": 5900,
+            "repeated_proposed_chars": 0
+          },
+          "reference_to_previous": {
+            "hint_count": 2,
+            "targets_with_hints": 2,
+            "unique_related_span_count": 2,
+            "unique_related_chars": 1185,
+            "proposed_related_chars": 1185,
+            "repeated_proposed_chars": 0
+          },
+          "speaker_continuity_candidate": {
+            "hint_count": 1,
+            "targets_with_hints": 1,
+            "unique_related_span_count": 1,
+            "unique_related_chars": 665,
+            "proposed_related_chars": 665,
+            "repeated_proposed_chars": 0
+          }
+        }
+      }
+    }
+  },
+  "stored_build_validation": {
+    "manifest_schema_valid": true,
+    "safe_existing_artifact_refs": true,
+    "five_complete_current_artifacts": true,
+    "case_metrics_recomputed": true,
+    "global_metrics_recomputed": true,
+    "ledgers_schema_and_identity_valid": true,
+    "ledgers_reconciled": true,
+    "totals": {
+      "case_count": 5,
+      "target_count": 431,
+      "hint_count": 28,
+      "pre_policy_count": 28,
+      "post_policy_count": 28,
+      "hint_type_counts": {
+        "dependent_lead_in": 5,
+        "open_quote": 10,
+        "quote_continuation": 10,
+        "reference_to_previous": 2,
+        "speaker_continuity_candidate": 1
+      },
+      "hint_status_counts": {
+        "accepted_by_contract": 20,
+        "candidate": 8
+      },
+      "hint_direction_counts": {
+        "next": 10,
+        "previous": 18
+      },
+      "dropped_reason_counts": {},
+      "policy_ledger_count": 28,
+      "rule_event_count": 0,
+      "targets_with_hints": 25,
+      "unique_related_span_count": 25,
+      "unique_related_chars": 9632,
+      "proposed_related_chars": 10610,
+      "repeated_proposed_chars": 978
+    }
+  },
+  "gates": {
+    "plan05_independent_pass": true,
+    "exact_kos5": true,
+    "dependency_hash_paths_validated": true,
+    "same_source_exact_spans": true,
+    "canonical_ids": true,
+    "direction_order_consistent": true,
+    "no_semantic_facts": true,
+    "all_primary_targets_preserved": true,
+    "context_additions_measurable": true,
+    "zero_rule_errors": true,
+    "dependency_addressed_cache": true,
+    "stored_manifest_recomputed": true,
+    "ledgers_reconciled": true
+  },
+  "cases": [
+    {
+      "case_id": "013009",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "artifact_ref": "cases/013009/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/0fe122e8810942abebc02795a68835cacf1dbef6070f682a4980b23f1f962de8/151c9fb1917a98e9c949683731b466b7edcec49caa447f6fc88446a66f12dd98/516099a69aee20d28084297a7cab57b9c58334e7c0de664c26b3bd61c2cf79a7/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json",
+      "artifact_action": "reused",
+      "target_count": 21,
+      "hint_count": 0,
+      "pre_policy_count": 0,
+      "post_policy_count": 0,
+      "hint_type_counts": {},
+      "hint_status_counts": {},
+      "hint_direction_counts": {},
+      "dropped_reason_counts": {},
+      "policy_ledger_count": 0,
+      "kept_count": 0,
+      "dropped_count": 0,
+      "error_event_count": 0,
+      "rule_runs": [
+        {
+          "rule_id": "quote_continuation",
+          "rule_version": "quote-continuation-v1.1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "open_quote",
+          "rule_version": "open-quote-v1.1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "open_list",
+          "rule_version": "open-list-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "citation_continuation",
+          "rule_version": "citation-continuation-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "dependent_lead_in",
+          "rule_version": "dependent-lead-in-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "reference_to_previous",
+          "rule_version": "reference-to-previous-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "speaker_continuity_candidate",
+          "rule_version": "speaker-continuity-candidate-v1",
+          "status": "complete",
+          "output_count": 0
+        }
+      ],
+      "metrics": {
+        "targets_with_hints": 0,
+        "unique_related_span_count": 0,
+        "unique_related_chars": 0,
+        "proposed_related_chars": 0,
+        "repeated_proposed_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "canonical_ids": true,
+        "same_source_exact_spans": true,
+        "direction_order_valid": true,
+        "no_self_or_duplicates": true,
+        "no_semantic_facts": true,
+        "all_targets_preserved": true,
+        "caps_and_dedup_reproducible": true
+      }
+    },
+    {
+      "case_id": "013948",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "artifact_ref": "cases/013948/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/486124bf9d2010ee38be9a71bd7de4577c4bddf46455cc54d2d29cc7752f0ae4/14f875ba72239db7cbe3abdb22b4ee43b7989d8e09a3a85afe6e3085f455e7d2/9ef99f92abbbc524a492214e313aa9bca7df293093816e176e71a034d5ff279b/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json",
+      "artifact_action": "reused",
+      "target_count": 68,
+      "hint_count": 2,
+      "pre_policy_count": 2,
+      "post_policy_count": 2,
+      "hint_type_counts": {
+        "open_quote": 1,
+        "quote_continuation": 1
+      },
+      "hint_status_counts": {
+        "accepted_by_contract": 2
+      },
+      "hint_direction_counts": {
+        "next": 1,
+        "previous": 1
+      },
+      "dropped_reason_counts": {},
+      "policy_ledger_count": 2,
+      "kept_count": 2,
+      "dropped_count": 0,
+      "error_event_count": 0,
+      "rule_runs": [
+        {
+          "rule_id": "quote_continuation",
+          "rule_version": "quote-continuation-v1.1",
+          "status": "complete",
+          "output_count": 1
+        },
+        {
+          "rule_id": "open_quote",
+          "rule_version": "open-quote-v1.1",
+          "status": "complete",
+          "output_count": 1
+        },
+        {
+          "rule_id": "open_list",
+          "rule_version": "open-list-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "citation_continuation",
+          "rule_version": "citation-continuation-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "dependent_lead_in",
+          "rule_version": "dependent-lead-in-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "reference_to_previous",
+          "rule_version": "reference-to-previous-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "speaker_continuity_candidate",
+          "rule_version": "speaker-continuity-candidate-v1",
+          "status": "complete",
+          "output_count": 0
+        }
+      ],
+      "metrics": {
+        "targets_with_hints": 2,
+        "unique_related_span_count": 2,
+        "unique_related_chars": 659,
+        "proposed_related_chars": 659,
+        "repeated_proposed_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "canonical_ids": true,
+        "same_source_exact_spans": true,
+        "direction_order_valid": true,
+        "no_self_or_duplicates": true,
+        "no_semantic_facts": true,
+        "all_targets_preserved": true,
+        "caps_and_dedup_reproducible": true
+      }
+    },
+    {
+      "case_id": "011904",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "artifact_ref": "cases/011904/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/7b839c6c60c4e62302eb06674618be23e3f13552465fb1d31644e84f650dda0c/b2418ee766bf7be158a0be14b5b5f3bea6891dce9cb19b5b3e8b233e1702ecb1/14aa1ca3594fdcbd794d590c425075d88b9bc30d0cbd46cdcdb09e2534e5c2bd/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json",
+      "artifact_action": "reused",
+      "target_count": 41,
+      "hint_count": 1,
+      "pre_policy_count": 1,
+      "post_policy_count": 1,
+      "hint_type_counts": {
+        "reference_to_previous": 1
+      },
+      "hint_status_counts": {
+        "candidate": 1
+      },
+      "hint_direction_counts": {
+        "previous": 1
+      },
+      "dropped_reason_counts": {},
+      "policy_ledger_count": 1,
+      "kept_count": 1,
+      "dropped_count": 0,
+      "error_event_count": 0,
+      "rule_runs": [
+        {
+          "rule_id": "quote_continuation",
+          "rule_version": "quote-continuation-v1.1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "open_quote",
+          "rule_version": "open-quote-v1.1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "open_list",
+          "rule_version": "open-list-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "citation_continuation",
+          "rule_version": "citation-continuation-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "dependent_lead_in",
+          "rule_version": "dependent-lead-in-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "reference_to_previous",
+          "rule_version": "reference-to-previous-v1",
+          "status": "complete",
+          "output_count": 1
+        },
+        {
+          "rule_id": "speaker_continuity_candidate",
+          "rule_version": "speaker-continuity-candidate-v1",
+          "status": "complete",
+          "output_count": 0
+        }
+      ],
+      "metrics": {
+        "targets_with_hints": 1,
+        "unique_related_span_count": 1,
+        "unique_related_chars": 799,
+        "proposed_related_chars": 799,
+        "repeated_proposed_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "canonical_ids": true,
+        "same_source_exact_spans": true,
+        "direction_order_valid": true,
+        "no_self_or_duplicates": true,
+        "no_semantic_facts": true,
+        "all_targets_preserved": true,
+        "caps_and_dedup_reproducible": true
+      }
+    },
+    {
+      "case_id": "045155",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "artifact_ref": "cases/045155/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/8946ffd81941e92b98924a035efa5739eb2b0e0f13684aac7ffcdc87acc58c2c/00c0f6b3e7d37210491af55f68992fdd46d794086364eab028692331dd90b65d/8ab2c1d5fd62910850b1ffe0bb2cba234d98b98b5b4136fe6bd284aa18128db3/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json",
+      "artifact_action": "reused",
+      "target_count": 89,
+      "hint_count": 23,
+      "pre_policy_count": 23,
+      "post_policy_count": 23,
+      "hint_type_counts": {
+        "dependent_lead_in": 5,
+        "open_quote": 9,
+        "quote_continuation": 9
+      },
+      "hint_status_counts": {
+        "accepted_by_contract": 18,
+        "candidate": 5
+      },
+      "hint_direction_counts": {
+        "next": 9,
+        "previous": 14
+      },
+      "dropped_reason_counts": {},
+      "policy_ledger_count": 23,
+      "kept_count": 23,
+      "dropped_count": 0,
+      "error_event_count": 0,
+      "rule_runs": [
+        {
+          "rule_id": "quote_continuation",
+          "rule_version": "quote-continuation-v1.1",
+          "status": "complete",
+          "output_count": 9
+        },
+        {
+          "rule_id": "open_quote",
+          "rule_version": "open-quote-v1.1",
+          "status": "complete",
+          "output_count": 9
+        },
+        {
+          "rule_id": "open_list",
+          "rule_version": "open-list-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "citation_continuation",
+          "rule_version": "citation-continuation-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "dependent_lead_in",
+          "rule_version": "dependent-lead-in-v1",
+          "status": "complete",
+          "output_count": 5
+        },
+        {
+          "rule_id": "reference_to_previous",
+          "rule_version": "reference-to-previous-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "speaker_continuity_candidate",
+          "rule_version": "speaker-continuity-candidate-v1",
+          "status": "complete",
+          "output_count": 0
+        }
+      ],
+      "metrics": {
+        "targets_with_hints": 20,
+        "unique_related_span_count": 20,
+        "unique_related_chars": 7123,
+        "proposed_related_chars": 8101,
+        "repeated_proposed_chars": 978
+      },
+      "checks": {
+        "schema_valid": true,
+        "canonical_ids": true,
+        "same_source_exact_spans": true,
+        "direction_order_valid": true,
+        "no_self_or_duplicates": true,
+        "no_semantic_facts": true,
+        "all_targets_preserved": true,
+        "caps_and_dedup_reproducible": true
+      }
+    },
+    {
+      "case_id": "099980",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "artifact_ref": "cases/099980/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/75f9308dd32ce99cdad5f0a276e2ff2a7e1b9bec579363b184bfb79e80b6bb4c/58f4aa6780799387999e1e0f50ce8a64906d498fe0578d12244a0880d871cf86/693870e6cadc38116a5aeb68654661a1ea9049b3d435ef70b101c413db3a72fe/context-hint-rules-v1.3-118be4c796134be2/context_hint_map.json",
+      "artifact_action": "reused",
+      "target_count": 212,
+      "hint_count": 2,
+      "pre_policy_count": 2,
+      "post_policy_count": 2,
+      "hint_type_counts": {
+        "reference_to_previous": 1,
+        "speaker_continuity_candidate": 1
+      },
+      "hint_status_counts": {
+        "candidate": 2
+      },
+      "hint_direction_counts": {
+        "previous": 2
+      },
+      "dropped_reason_counts": {},
+      "policy_ledger_count": 2,
+      "kept_count": 2,
+      "dropped_count": 0,
+      "error_event_count": 0,
+      "rule_runs": [
+        {
+          "rule_id": "quote_continuation",
+          "rule_version": "quote-continuation-v1.1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "open_quote",
+          "rule_version": "open-quote-v1.1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "open_list",
+          "rule_version": "open-list-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "citation_continuation",
+          "rule_version": "citation-continuation-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "dependent_lead_in",
+          "rule_version": "dependent-lead-in-v1",
+          "status": "complete",
+          "output_count": 0
+        },
+        {
+          "rule_id": "reference_to_previous",
+          "rule_version": "reference-to-previous-v1",
+          "status": "complete",
+          "output_count": 1
+        },
+        {
+          "rule_id": "speaker_continuity_candidate",
+          "rule_version": "speaker-continuity-candidate-v1",
+          "status": "complete",
+          "output_count": 1
+        }
+      ],
+      "metrics": {
+        "targets_with_hints": 2,
+        "unique_related_span_count": 2,
+        "unique_related_chars": 1051,
+        "proposed_related_chars": 1051,
+        "repeated_proposed_chars": 0
+      },
+      "checks": {
+        "schema_valid": true,
+        "canonical_ids": true,
+        "same_source_exact_spans": true,
+        "direction_order_valid": true,
+        "no_self_or_duplicates": true,
+        "no_semantic_facts": true,
+        "all_targets_preserved": true,
+        "caps_and_dedup_reproducible": true
+      }
+    }
+  ],
+  "metrics_not_reported": [
+    "precision",
+    "recall",
+    "F1"
+  ],
+  "metrics_reason": "No adjudicated ContextHint gold exists.",
+  "limitations": [
+    "ContextHint is only a context proposal and does not prove semantic continuity.",
+    "accepted_by_contract means an evidence-backed structural continuation contract, not semantic correctness.",
+    "Speaker continuity candidates compare adjacent lexical cue classes and never assign identity.",
+    "No topic/coreference/condition inference, ContextObligation, AnalysisRegion, LegalUnit, AU, Issue, NN, retrieval, model, or LLM is implemented."
+  ]
+}

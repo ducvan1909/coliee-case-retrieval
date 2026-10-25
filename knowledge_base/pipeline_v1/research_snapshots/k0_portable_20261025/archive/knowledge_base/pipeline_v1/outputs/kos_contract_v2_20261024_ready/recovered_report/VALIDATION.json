@@ -1,0 +1,20 @@
+{
+  "status": "offline_recovery_pass",
+  "date": "2026-10-25",
+  "protocol_controls_passed": 9,
+  "structural_controls_passed": 9,
+  "observed_POSTs": 9,
+  "new_POSTs_during_recovery": 0,
+  "actual_usage": {
+    "input_tokens": 8280,
+    "output_tokens": 368,
+    "total_tokens": 8648
+  },
+  "recovery_tests_passed": 7,
+  "combined_tests_passed": 21,
+  "original_wrapper_execute_cached_path": "pass",
+  "report_only_wrapper_network_blocked_test": "pass",
+  "generation_code_sha256": "279b1be0208e232bb42f51b2d6b890a8791a5cb676d36cb2eff8f8c3eb386f7d",
+  "semantic_quality": "semantic_review_pending",
+  "reporter_sha256": "1a5f77b79f50f1b57e7660c2a4fc1557213e4a311caffdb0dc0e9b559d6f9804"
+}

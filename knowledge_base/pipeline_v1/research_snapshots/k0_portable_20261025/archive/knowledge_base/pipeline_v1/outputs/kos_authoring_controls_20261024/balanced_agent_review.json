@@ -1,0 +1,179 @@
+{
+  "basis": "main_agent_source_review",
+  "evaluation_sha256": "6da62cd6676cc70599ac9c962bffcd39c3c3e8ada3f81febe0019dfa821f6171",
+  "decision": "blocked",
+  "rows": [
+    {
+      "name": "positive_notice",
+      "decision": "rejected_omission",
+      "reason": "Explicit notice/opportunity-to-respond rule and emergency exception exist; no_independent_legal_point is unsupported.",
+      "raw_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r21"
+        ],
+        "empty_reason": "no_independent_legal_point",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      }
+    },
+    {
+      "name": "positive_refund",
+      "decision": "supported_fictional_control",
+      "reason": "Board/refund/seven-days/fraud-exception preserved. Kind holding has no judicial origin in this fictional source; subtype not semantically certified.",
+      "raw_output": {
+        "aus": [
+          {
+            "claim": "The board must refund a deposit within seven days.",
+            "kind": "holding",
+            "evidence_ids": [
+              "e22"
+            ],
+            "limits": "Unless the applicant obtained the deposit by fraud."
+          }
+        ],
+        "assessed_scope_ids": [
+          "r22"
+        ],
+        "empty_reason": null,
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      }
+    },
+    {
+      "name": "positive_multi",
+      "decision": "supported_fictional_control",
+      "reason": "Both independent inspector-record and registry-confidentiality points preserved; no merge and no demo licensing content.",
+      "raw_output": {
+        "aus": [
+          {
+            "claim": "An inspector must maintain an inspection record.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "limits": null
+          },
+          {
+            "claim": "A registry must protect the confidentiality of personal data.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "limits": null
+          }
+        ],
+        "assessed_scope_ids": [
+          "r23"
+        ],
+        "empty_reason": null,
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      }
+    },
+    {
+      "name": "negative_facts",
+      "decision": "supported_fictional_control",
+      "reason": "Pure chronology, no operative rule; empty is appropriate.",
+      "raw_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r24"
+        ],
+        "empty_reason": "no_independent_legal_point",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      }
+    },
+    {
+      "name": "negative_party",
+      "decision": "supported_fictional_control",
+      "reason": "Only submission expressly not adopted, no independent judicial/reported rule; empty is appropriate.",
+      "raw_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r25"
+        ],
+        "empty_reason": "no_independent_legal_point",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      }
+    },
+    {
+      "name": "negative_citation",
+      "decision": "supported_fictional_control",
+      "reason": "Suppressed references without proposition; empty and citation_without_substance appropriate.",
+      "raw_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r26"
+        ],
+        "empty_reason": "citation_without_substance",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      }
+    },
+    {
+      "name": "uncertain_test",
+      "decision": "semantic_uncertainty_supported_protocol_rejected",
+      "reason": "Correctly identifies insufficient_context and needs_context, but nonempty assessed_scope_ids certifies completion contrary to final wire. Do not relabel no-AU or silently normalize to pass.",
+      "raw_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r27"
+        ],
+        "empty_reason": "insufficient_context",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        }
+      }
+    },
+    {
+      "name": "uncertain_voice",
+      "decision": "semantic_uncertainty_supported_protocol_rejected",
+      "reason": "Correctly identifies insufficient_context and needs_context, but nonempty assessed_scope_ids certifies completion contrary to final wire. Do not relabel no-AU or silently normalize to pass.",
+      "raw_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r28"
+        ],
+        "empty_reason": "insufficient_context",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        }
+      }
+    },
+    {
+      "name": "uncertain_exception",
+      "decision": "semantic_uncertainty_supported_protocol_rejected",
+      "reason": "Correctly identifies insufficient_context and needs_context, but nonempty assessed_scope_ids certifies completion contrary to final wire. Do not relabel no-AU or silently normalize to pass.",
+      "raw_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r29"
+        ],
+        "empty_reason": "insufficient_context",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        }
+      }
+    }
+  ],
+  "human_gold": false,
+  "scope": "fictional controls only"
+}

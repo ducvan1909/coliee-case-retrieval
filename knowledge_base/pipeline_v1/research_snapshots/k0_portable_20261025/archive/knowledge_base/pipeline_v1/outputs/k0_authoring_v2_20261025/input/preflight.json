@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "case_count": 3,
+  "scope_count": 16,
+  "part_count": 58,
+  "initial_packets": [
+    {
+      "case_id": "011904",
+      "payload_sha256": "40122d233251d3218978f068fee2425f36a2b27a414525bef8eb31dc7a7cd0b2",
+      "input_reservation": 3759
+    },
+    {
+      "case_id": "045155",
+      "payload_sha256": "921af5fb7e2dd704084666be057bd5ed8d5e5517d8f24f2e37405abeae0d760d",
+      "input_reservation": 3597
+    },
+    {
+      "case_id": "099980",
+      "payload_sha256": "81e2a260bf1c75f40dd7e4c9c7ccd32dd80673c3aa3226c791429daa33fc330b",
+      "input_reservation": 2379
+    }
+  ],
+  "network_executed": false,
+  "semantic_quality": "not_assessed"
+}

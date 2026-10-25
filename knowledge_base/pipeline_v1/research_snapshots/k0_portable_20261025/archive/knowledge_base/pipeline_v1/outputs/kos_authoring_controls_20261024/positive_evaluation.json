@@ -1,0 +1,99 @@
+{
+  "stage": "positive",
+  "status": "agent_review_pending",
+  "rows": [
+    {
+      "name": "positive_only",
+      "expected": {
+        "group": "positive",
+        "AU_count": 1,
+        "concepts": [
+          "applicant",
+          "notice",
+          "respond",
+          "emergency"
+        ]
+      },
+      "usage": {
+        "input_tokens": 271,
+        "output_tokens": 70,
+        "total_tokens": 341
+      },
+      "status": "structural_control_pass",
+      "semantic_quality": "agent_review_pending",
+      "model_output": {
+        "aus": [
+          {
+            "claim": "An applicant must receive notice and an opportunity to respond before an adverse decision.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e1"
+            ],
+            "limits": "This requirement does not apply in an emergency."
+          }
+        ],
+        "assessed_scope_ids": [
+          "r1"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [
+          {
+            "au_id": "k0au-7b82c85e31e492e6542cb8e9",
+            "case_id": "synthetic",
+            "source_hash": "synthetic",
+            "claim": "An applicant must receive notice and an opportunity to respond before an adverse decision.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e1"
+            ],
+            "evidence": [
+              {
+                "case_id": "synthetic",
+                "source_hash": "synthetic",
+                "start_char": 0,
+                "end_char": 171,
+                "quote": "Under this fictional test rule, an applicant must receive notice and an opportunity to respond before an adverse decision. This requirement does not apply in an emergency."
+              }
+            ],
+            "limits": "This requirement does not apply in an emergency.",
+            "replace_id": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        ],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r1"
+        ],
+        "delivered_scope_ids": [
+          "r1"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "empty_reason": null
+      },
+      "AU_count": 1,
+      "lexical_concept_hints": {
+        "applicant": true,
+        "notice": true,
+        "respond": true,
+        "emergency": true
+      },
+      "note": "Concept keywords are hints, never entailment or gold."
+    }
+  ],
+  "code_sha256": "d0179ce46bade8250ffab073788ae9ef0412d6bd3af542124cf0e3805a3a0daf",
+  "manifest_sha256": "2b2e2c9b0a0b347064a312b67d3ba223bd97cf89ea60f357e896405e4a813ae0",
+  "K1_allowed": false,
+  "corpus_dispatch_allowed": false,
+  "semantic_quality": "not_gold",
+  "sha256": "127500728f2e7148deb813677dcbeba69595e401e7e7ee0ba8707189d6f9ebe5"
+}

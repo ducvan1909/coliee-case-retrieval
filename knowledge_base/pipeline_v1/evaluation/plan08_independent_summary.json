@@ -1,0 +1,46 @@
+{
+  "evaluation_version": "pipeline-v1-independent-evaluation-v1",
+  "plan": "08",
+  "status": "pass",
+  "generated_at": "2026-10-04T18:29:25+07:00",
+  "scope": "Plan 08 offline protocol ledger, mock execution, cache, resume, invalidation, and sealed lifecycle",
+  "runs": {
+    "plan08_cli": "pass",
+    "original_plan01_plan08_tests": {"total": 93, "passed": 93, "failed": 0},
+    "independent_plan01_plan08_tests": {"total": 57, "passed": 57, "failed": 0},
+    "independent_plan08_tests": {"total": 6, "passed": 6, "failed": 0}
+  },
+  "inventory": {"primary_targets": 369, "work_items": 374, "requests": 96, "protocol_only": true},
+  "lifecycle": {
+    "current_build_id": "e61ea9eb91545f4c82df905ba4d7fecfa33966b565f8e5b518b7dc1dd5a117be",
+    "archive_build_id": "e61ea9eb91545f4c82df905ba4d7fecfa33966b565f8e5b518b7dc1dd5a117be",
+    "sealed_archive_count": 1,
+    "sealed_payload_count": 594,
+    "payload_types": {"mock_cache_entry": 578, "attempt_log_projection": 7, "execution_run_snapshot": 7, "dependency_invalidation_probe": 1, "execution_suite_manifest": 1},
+    "migration_mode": "legacy-payload-inventory-migration-v1",
+    "tamper_detection_begins_at_migration": true,
+    "legacy_unsealed_preserved": true,
+    "current_pointer_selects_archive": false
+  },
+  "scenario_metrics": {
+    "cold_resume": {"cold_calls": 96, "resume_calls": 0, "attempts": 96, "verified_targets": 369, "avoided_chars": 342095, "avoided_estimated_tokens": 85559},
+    "interrupt_resume": {"initial_calls": 7, "resume_calls": 89, "skipped_verified_requests": 7, "avoided_chars": 24648, "avoided_estimated_tokens": 6163},
+    "transient_retry": {"calls": 97, "attempts": 97, "retry_count": 1, "useful_retry_count": 1},
+    "permanent_failure": {"calls": 96, "status_counts": {"error": 4, "mock_protocol_verified": 365}},
+    "protocol_failure": {"calls": 96, "status_counts": {"error": 4, "mock_protocol_verified": 365}},
+    "budget_stop": {"calls": 5, "status_counts": {"budget_exhausted": 349, "mock_protocol_verified": 20}}
+  },
+  "findings": [
+    {
+      "id": "P08-F01",
+      "severity": "medium",
+      "status": "fixed_verified",
+      "title": "Immutable history validation did not protect archived scenario payloads",
+      "verification": "Sealed archive inventory now hashes and validates all 594 payload paths, sizes and types, including snapshot schema/cache and snapshot-JSONL reconciliation"
+    }
+  ],
+  "open_findings": [],
+  "metrics_note": "Estimated tokens use ceil(rendered_chars/4), not provider token usage",
+  "semantic_limit": "mock_protocol_verified is protocol-only and does not mean AU/no-AU or semantic completion",
+  "plan09_started": false
+}

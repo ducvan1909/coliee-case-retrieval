@@ -1,0 +1,104 @@
+{
+  "artifact_type": "Plan09R5FinalIndependentSemanticAudit",
+  "report_revision": 1,
+  "audit_date": "2026-10-06",
+  "reviewer": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "low",
+    "independent_of_producers": true
+  },
+  "verdict": "PASS",
+  "scope": {
+    "evaluation_against": "model_silver",
+    "canonical_state_modified": false,
+    "gate_artifacts_modified": false,
+    "effective_target_count": 369,
+    "effective_authority_unit_count": 188,
+    "effective_hard_negative_count": 186,
+    "effective_unresolved_count": 8
+  },
+  "frozen_sample": {
+    "manifest_ref": "evaluation/reports/plan09_r5_final_independent_semantic_audit.sample_manifest.json",
+    "manifest_sha256": "e4138bbdbb80e27be607000707aac8328ca374ead22317c75d9bd564d87e85d2",
+    "positive_targets_reviewed": 38,
+    "positive_authority_units_reviewed": 38,
+    "positive_sampling_fraction": 0.2021276596,
+    "positive_by_case": {"011904": 7, "013009": 3, "013948": 9, "045155": 3, "099980": 16},
+    "positive_case_kind_strata_observed": 16,
+    "hard_negative_targets_reviewed": 30,
+    "hard_negative_sampling_fraction": 0.1612903226,
+    "hard_negative_by_case": {"011904": 2, "013009": 2, "013948": 2, "045155": 2, "099980": 22},
+    "hard_negative_selection_priority": "court/reporting cues before deterministic SHA256 fill",
+    "unresolved_targets_reviewed": 8,
+    "unresolved_by_case": {"011904": 1, "099980": 7}
+  },
+  "independent_findings": {
+    "severe": 0,
+    "high": 0,
+    "moderate": 0,
+    "attribution_errors": 0,
+    "wrong_kind_errors": 0,
+    "lost_condition_exception_limit_errors": 0,
+    "evidence_span_errors": 0,
+    "omission_errors": 0,
+    "duplicate_or_coverage_errors": 0,
+    "strata_expanded_to_100_percent": [],
+    "qualifications": [
+      "The eight unresolved decisions are genuine mixed-speaker, tentative, citation-suppressed, or non-standalone passages; none can safely be forced to positive or hard-negative from the raw source.",
+      "Several accepted positives are tightly case-specific and remain usable only with their recorded speaker, context, and scope; the audit does not convert them into universal rules.",
+      "The hard-negative sample includes court/reporting-cue passages; case facts, party submissions, agency positions, procedural history, headings, and non-standalone rhetoric were not promoted merely because judicial language appears nearby."
+    ]
+  },
+  "r3_attribution_and_amendment_chain": {
+    "attribution_risk_items_reviewed": 49,
+    "attribution_risk_items_total": 49,
+    "pending_model_review_count": 0,
+    "risk_review_head_count": 49,
+    "physical_risk_review_file_count": 54,
+    "physical_amendment_file_count": 42,
+    "all_heads_valid": true,
+    "all_amendments_valid": true,
+    "open_severe_finding_count": 0,
+    "r3_completion_status": "PASS",
+    "r3_completion_ref": "outputs/plan09_au_gold_v1/r3_completion.json",
+    "r3_completion_sha256": "419eecbb5f59f7a6df9f5b37ddaa976ed7338dd48ab0da944549a0df6fc6612b",
+    "post_r4_verification_ref": "outputs/plan09_au_gold_v1/r3_post_r4_verification.json",
+    "post_r4_verification_valid": true
+  },
+  "r4_chain_verification": {
+    "batch_independent_audits_reviewed": 16,
+    "batch_target_count": 157,
+    "frozen_batch_or_checkpoint_hash_errors": 0,
+    "fourth10_original_audit_verdict": "reject_pending_revisions",
+    "fourth10_correction_reaudit_ref": "evaluation/reports/plan09_r4_fourth10_corrections_independent_reaudit.json",
+    "fourth10_correction_reaudit_verdict": "pass_corrections_accepted",
+    "coverage_ref": "outputs/plan09_au_gold_v1/r4_coverage_completion.after_fourth10_corrections.json",
+    "coverage_valid": true,
+    "bound_artifact_count": 417,
+    "bound_artifact_missing_count": 0,
+    "bound_artifact_hash_mismatch_count": 0,
+    "canonical_duplicate_target_count": 0,
+    "missing_target_count": 0
+  },
+  "legacy_sidecar_disclosure": {
+    "historical_terra_proposals_without_persisted_sidecar": 17,
+    "fresh_validation_pass_count": 17,
+    "sidecars_created_or_modified_by_this_audit": false,
+    "interpretation": "Fresh structural validation PASS does not manufacture historical sidecars and does not itself prove semantic correctness."
+  },
+  "verification_notes": {
+    "raw_source_review_performed": true,
+    "sample_is_error_detection_not_precision_or_recall_estimate": true,
+    "focused_test_command": "python -m unittest knowledge_base.pipeline_v1.evaluation.test_plan09_remediation_independent knowledge_base.pipeline_v1.tests.test_plan09_revision_history knowledge_base.pipeline_v1.tests.test_plan09_r4_amendments",
+    "focused_test_result": {"passed": 9, "failed": 3},
+    "focused_test_failures_interpretation": "Three legacy assertions still require the pre-completion state (212 reviews, quarantined P09-S01, and an unresolved original R3 replacement). They are state-drift failures and are reported, not treated as proof against the current 369-target semantic audit."
+  },
+  "gates": {
+    "r5_final_independent_audit_pass": true,
+    "semantic_gold": false,
+    "human_gold": false,
+    "r6_use_decision_still_required": true,
+    "plan10_gate_artifact_changed": false
+  },
+  "conclusion": "P09-R5 passes for model-silver development scope: no unhandled severe semantic defect was found in the mandated full queues or frozen stratified samples. This is not human gold, not a precision/recall estimate, and not an independent retrieval-quality claim."
+}

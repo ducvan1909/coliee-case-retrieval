@@ -1,0 +1,29 @@
+{
+  "status": "documentation_checks_pass",
+  "date": "2026-10-24",
+  "files": [
+    "03_decision_log.md",
+    "04_pipeline_spec.md",
+    "05_experiment_plan.md",
+    "09_kb_build_plan.md",
+    "37_kos_style_authoring_direction.md",
+    "39_kos_authoring_improved.md",
+    "README.md"
+  ],
+  "local_file_links_valid": true,
+  "replacement_characters": false,
+  "K0_code_unchanged": true,
+  "K0_checkpoint_bindings_unchanged": true,
+  "runtime_implemented": false,
+  "inference_requests_this_update": 0,
+  "semantic_benefit": "not_measured",
+  "hashes": {
+    "03_decision_log.md": "6b123277bfe28442387f17c0f2722f767427ebd0bf12830096682bcf0f0ef2d8",
+    "04_pipeline_spec.md": "59981db9aec59f28308f736bc5107f1d535be87275fc663cff41fa8cbac86d11",
+    "05_experiment_plan.md": "191053b240884773ffa668031f7e81c0e53870ac4ee99880ec7b17d1a0b92b40",
+    "09_kb_build_plan.md": "c9469bda5511d2b80bfdcda6e9ad0aecfc6a9ceda53b53d5c167565f272904e5",
+    "37_kos_style_authoring_direction.md": "0fe101ad8b10f1114ca9d221de44e0b7e39205968dc26409efdf4fbf9b40798b",
+    "39_kos_authoring_improved.md": "4544380766eb2ead78432263c4fb9d67bd9b5901c6b8736bd6a4b7fe1c7b47d8",
+    "README.md": "8a0be5262104db4c370e957551ad72fc4cbad22fdc158211c9001ba43096cb19"
+  }
+}

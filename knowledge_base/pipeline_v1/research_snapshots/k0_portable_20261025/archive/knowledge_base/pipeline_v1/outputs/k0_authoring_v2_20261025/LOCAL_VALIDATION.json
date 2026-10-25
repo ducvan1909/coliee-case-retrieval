@@ -1,0 +1,38 @@
+{
+  "status": "local_ready",
+  "code_sha256": "0b59610d1621cbd45502d0f829d1a8f86dac90a3b0c6069c209e8ef89d39de4e",
+  "workload_sha256": "8da3f88dc0c76ae15206cf6bfb78e004d0b8ec1348fe202a2450e27f927ad98e",
+  "cases": 3,
+  "scopes": 16,
+  "evidence_parts": 58,
+  "native_cpu": {
+    "status": "pass",
+    "grammars": 4,
+    "positive_examples": 7,
+    "negative_examples": 10
+  },
+  "tests": {
+    "combined_cases": 35,
+    "initial_combined": {
+      "passed": 33,
+      "failed_test_assertions": 2,
+      "seconds": 124.575
+    },
+    "corrections": "test names: provider_attempts -> transport_POST_attempts; EBNF root literal checked with JSON escaping",
+    "affected_test_rerun": {
+      "passed": 2,
+      "failed": 0,
+      "seconds": 28.727
+    },
+    "production_changed_for_test_failures": false
+  },
+  "mock_resume": "implementer verified cumulative simulated POST 1,2,3,3; prior receipts unchanged",
+  "protected_files": 72,
+  "changed_protected_files": [],
+  "controls_report_sha256": "cc14ee0b55264b9a6544d7110d566cf55e6f3ccc9e1dbe29345a90b6ff18d3f5",
+  "network_executed": false,
+  "new_model_requests": 0,
+  "live_exists": false,
+  "semantic_quality": "not_assessed",
+  "K1_allowed": false
+}

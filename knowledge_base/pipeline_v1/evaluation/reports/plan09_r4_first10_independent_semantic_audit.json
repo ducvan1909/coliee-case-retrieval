@@ -1,0 +1,177 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-05",
+  "reviewer": {
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "low",
+    "independent_of_producer": true
+  },
+  "scope": {
+    "batch_id": "p09-r4-099980-first10-sol-v1",
+    "case_id": "099980",
+    "target_count": 10,
+    "outside_batch_reviewed": false,
+    "canonical_state_modified": false,
+    "global_progress_or_r4_manifest_hash_locked": false
+  },
+  "verdict": "pass_with_qualification",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {
+      "none": 9,
+      "low": 1,
+      "moderate": 0,
+      "high": 0,
+      "severe": 0
+    },
+    "accepted_authority_units": 4,
+    "accepted_hard_negatives": 6,
+    "required_canonical_changes": 0
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-first10-sol-v1.json",
+    "frozen_batch_sha256": "c8ffdeeccd6d0c0180121255e3d0af414980aded3999a7abae0cccc2cb6fbd82",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_sha256": [
+      ["p09-r4-099980-first10-01-gpt61sol-v1.json", "a6dd6d0aae25fd241f5504009350d73d00d3050c188591e18536bb380a2d3c1b", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-first10-02-gpt61sol-v1.json", "89a126d5f8c9f07537fda8fdb754af270f8f8e92a9425cd92fb045b2c13f7bc7", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-first10-03-gpt61sol-v1.json", "f543d36cb92af6ba2488e893049adb86fa7f4215edca72d0ee8a17e8690931ea", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-first10-04-gpt61sol-v1.json", "29cefb3cced479995dacb896df94f76d40da134663a8951c1734157b007ce1f6", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-first10-05-gpt61sol-v1.json", "184f8d3a075afc33ba7f7d9cd44dfc52ff7c9028aa7f99460928dbc7c449d394", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-first10-06-gpt61sol-v1.json", "b8940d3f07dea6fd68147657277e7f0b9ea284672c28113bd3d45bf4a42f745a", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-first10-07-gpt61sol-v1.json", "5b61c302090c40d1ab1dc7b760d42ea3cefff65e2aeedd4c11f5b39dd4101ff0", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-first10-08-gpt61sol-v1.json", "2ed593adc4904022013308011cddde1924d5c66f3b63dd15938e040b0dbfbd72", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-first10-09-gpt61sol-v1.json", "ce04b4bca5f04a09bb49a2791cb6814eebc820e53aae3df34cacd5d598e22387", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-first10-10-gpt61sol-v1.json", "f73942b67c258f92901683f4d673ee387cb48c0292f278bbb8fd3c492a9e0c25", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"]
+    ],
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "duplicate_guard_evidence": "r4.checkpoint rejects another owner with checkpoint_duplicate_target; r4.rebuild_manifest rejects repeated case/target ownership with checkpoint_duplicate_target; persisted ownership scan found one owner for each frozen target.",
+    "qualification": "The current registry was read for ownership, but its mutable global manifest was intentionally not hash-locked because another writer may append batches."
+  },
+  "items": [
+    {
+      "position": 1,
+      "target_id": "at-002724763909ed3cbd562979",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 107 states the quid pro quo in the court's analytical voice and expressly links compelled testimony of a person suspected of fraud to fair-play duties.",
+      "scope_review": "The claim preserves the fraud-investigation and compelled-testimony trigger; the exact condition witness captures the coercive-power antecedent. No exception is stated."
+    },
+    {
+      "position": 2,
+      "target_id": "at-04bf386d8c5d925091d491c6",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraphs 66-67 narrate the jurisdiction review, investigation trigger and omitted Policy considerations. The investigator's legal interpretation begins only in paragraph 68 outside this target.",
+      "scope_review": "No adopted legal test or final jurisdiction holding occurs inside the target."
+    },
+    {
+      "position": 3,
+      "target_id": "at-054dfde5d03691a3ecdf1850",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 127 uses 'I find' after weighing the Baker factors and finds the Commission procedure seriously flawed and inconsistent with legitimate expectations.",
+      "scope_review": "The claim is confined to the Commission procedure and the investigation phase. The following evidence heading is excluded."
+    },
+    {
+      "position": 4,
+      "target_id": "at-057d175123c3feeaa748a894",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "procedural_history_only",
+      "evidence": "Paragraph 178 introduces and quotes the Investigations Directorate memorandum. The actual court disposition begins at paragraph 179 and is separately owned by item 9.",
+      "scope_review": "The court's sceptical introduction does not independently supply a reusable proposition distinct from item 9."
+    },
+    {
+      "position": 5,
+      "target_id": "at-05b0930b0c23a8bd764d4430",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 128 inventories the sworn affidavit and certified record. Credibility findings begin in paragraph 129 outside the target.",
+      "scope_review": "The target is evidentiary-record narration, not a legal proposition."
+    },
+    {
+      "position": 6,
+      "target_id": "at-05ddb4f2a8aa0a4312eef8e3",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 13 narrates who checked the references and how Ms M'Kounga responded.",
+      "scope_review": "No court-created rule or adopted legal standard appears in the target."
+    },
+    {
+      "position": 7,
+      "target_id": "at-0875297b672250b6552a1a4c",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 193 says irreparable harm and public interest require consideration; paragraph 190 expressly identifies those factors as determining the court's costs discretion.",
+      "scope_review": "The case-specific limit is essential and is present. Qualification: the primary target sentence alone does not mention costs, so the paragraph-190 cross-block witness is indispensable; consuming this AU without cross_block_refs would overstate the evidence. No canonical correction is required because that witness is recorded exactly."
+    },
+    {
+      "position": 8,
+      "target_id": "at-09d62c9c1e03e472ef963e5c",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 73 repeatedly attributes the position to the applicant ('asking', 'arguing', 'submits', 'also argues').",
+      "scope_review": "No current-court adoption occurs in the target."
+    },
+    {
+      "position": 9,
+      "target_id": "at-0b86a942dd15b6bbbe7e3baa",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 179 directly states that the procedural-fairness breach is flagrant in the applicant's case.",
+      "scope_review": "The evidence and claim preserve the applicant-specific limit and exclude the Directorate and respondent positions."
+    },
+    {
+      "position": 10,
+      "target_id": "at-0be8a81021550bf6fad9cdb2",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 117 describes the practical effect of the permission condition on transfer and advancement opportunities.",
+      "scope_review": "Although written in the court's analytical voice, it is a case-specific consequence, not a standalone validity rule or general legal test. Current-court voice alone does not compel a positive AU."
+    }
+  ],
+  "boundaries": {
+    "semantic_gold": false,
+    "r5_pass": false,
+    "plan10_allowed": false,
+    "note": "This audit accepts only the ten frozen model-silver decisions. It does not validate overall R4 coverage or mutable progress."
+  }
+}

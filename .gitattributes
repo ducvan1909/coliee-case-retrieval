@@ -1,0 +1,9 @@
+# Research bindings hash exact bytes. Do not normalize frozen code, source,
+# tokenizer assets, receipts or portable snapshots on checkout across platforms.
+/knowledge_base/** -text
+/tests/** -text
+
+# Human-facing configuration/documentation outside frozen research bindings.
+/AGENTS.md text eol=lf
+/.codex/** text eol=lf
+/.env.example text eol=lf

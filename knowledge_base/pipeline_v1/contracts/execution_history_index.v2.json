@@ -1,0 +1,4 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","title":"Plan 08 immutable history index","type":"object","additionalProperties":false,
+  "required":["artifact_type","history_version","builds"],"properties":{"artifact_type":{"const":"ExecutionBuildHistory"},"history_version":{"const":"plan08-history-v2"},"builds":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["build_id","manifest_ref","archive_record_ref","archive_record_sha256"],"properties":{"build_id":{"type":"string","pattern":"^[0-9a-f]{64}$"},"manifest_ref":{"type":"string","pattern":"^[0-9a-f]{64}/execution_suite_manifest\\.json$"},"archive_record_ref":{"type":"string","pattern":"^[0-9a-f]{64}/archive_record\\.json$"},"archive_record_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"}}}}}
+}

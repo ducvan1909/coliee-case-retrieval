@@ -1,0 +1,165 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-05",
+  "reviewer": {"model": "gpt-5.6-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {
+    "batch_id": "p09-r4-099980-second10-sol-v1",
+    "case_id": "099980",
+    "target_count": 10,
+    "outside_batch_reviewed": false,
+    "canonical_state_modified": false,
+    "global_progress_or_r4_manifest_hash_locked": false
+  },
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 8, "low": 2, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 2,
+    "accepted_hard_negatives": 7,
+    "accepted_unresolved": 1,
+    "required_canonical_changes": 0
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-second10-sol-v1.json",
+    "frozen_batch_sha256": "b480e669e1160664ab7271c1357a0d9eb54fc2d99ce0d0ffc16a5a0c3b9d8b37",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-second10-01-gpt61sol-v1.json", "8e129f43fbe18df9c9dc2bbceace58a1acd83dfa0de9bac9826152067f84d83d", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"],
+      ["p09-r4-099980-second10-02-gpt61sol-v1.json", "1a723cce3d58e1be8acb92dbd8886a8921a241ce19532e1273682c9f0f18a978", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-second10-03-gpt61sol-v1.json", "e96e55f3ec297e1fdb0b482a0d4c445265bfef6f9067a469ed033aa5bf3396c4", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-second10-04-gpt61sol-v1.json", "bef4be71a825cf296a45164f8c2cfc754bab7620875a57f894fc0e74426e776f", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-second10-05-gpt61sol-v1.json", "b3aadbb68ec74581bed07576d64c8fa12b4ed92bfdbf43b5c4eacf001d017306", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-second10-06-gpt61sol-v1.json", "e41d14e86f80342f31b129ec3180c7bc75c82471cc93906f52abbf54653da436", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-second10-07-gpt61sol-v1.json", "ac2f71d50df807ceec43b508e49faaa2594f3029df4e46235846d58b7d7b413c", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-second10-08-gpt61sol-v1.json", "9a5f3813d5c358d3e7e3b6f5707cd09036c618f0c2fb41ed79cb64473dbb1d65", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-second10-09-gpt61sol-v1.json", "a31c86649bd18bc2ab33d361ea4846486ddaf000087f40be5880022aaac28d6a", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-second10-10-gpt61sol-v1.json", "1d41160ae4e043d9cec9651932c9d39936dfbd95fd9ba57579fa5413ecb6e7b7", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "duplicate_guard_evidence": "r4.checkpoint rejects another owner with checkpoint_duplicate_target; r4.rebuild_manifest rejects repeated case/target ownership with checkpoint_duplicate_target; the current read found one owner per frozen target.",
+    "qualification": "The mutable global registry was read only for ownership and intentionally not hash-locked."
+  },
+  "items": [
+    {
+      "position": 1,
+      "target_id": "at-0c041e93ec332ab4eaa1354a",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "unresolved",
+      "evidence": "Paragraph 92 moves from statutory analysis to 'I am inclined to agree', but paragraph 93 expressly declines a definitive jurisdiction or reasonableness opinion.",
+      "scope_review": "A final holding would overstate the reservation; party_argument_only would erase the court's tentative agreement. Unresolved is the faithful outcome."
+    },
+    {
+      "position": 2,
+      "target_id": "at-10bb35c0b238a53d984dfdf8",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 189 is expressly the respondent's concession, proposed tariff treatment and unpaid-cost submission. The court's costs ruling starts at paragraph 190.",
+      "scope_review": "No current-court adoption occurs inside the target."
+    },
+    {
+      "position": 3,
+      "target_id": "at-143c4e018a2c0568cdf11a72",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 16 narrates maternity leave, the supervisor-title dispute, and what the investigator found and presumed.",
+      "scope_review": "The asserted duty to correct the reference belongs to the investigator's report, not an adopted current-court rule."
+    },
+    {
+      "position": 4,
+      "target_id": "at-14a2c80dde4ce6c302eded10",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 160 evaluates the stated investigation purpose and applicant testimony as record facts.",
+      "scope_review": "The legitimate-expectation proposition begins in paragraph 161 and must not be imported into this owner target."
+    },
+    {
+      "position": 5,
+      "target_id": "at-14ff8ed5bd6fc2b9d2b9cff5",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 74 attributes reliance on Seck 1 and plenary Commission powers to the respondent.",
+      "scope_review": "The court begins its own analysis under the following heading and later distances itself from Seck 1."
+    },
+    {
+      "position": 6,
+      "target_id": "at-169450a12e07bd505d8d2dab",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "hard_negative",
+      "reason": "editorial",
+      "evidence": "Paragraph 196 expressly disclaims an innocence finding and then uses emphatic Rule-of-Law rhetoric to condemn inconsistency, concealment and inequities in this investigation.",
+      "scope_review": "Qualification: the passage is current-court evaluative language, not mere neutral editorial text. The hard negative remains preferable because it supplies no new legal test or operative disposition beyond the already explicit procedural-fairness holding; consumers must not misread the label as non-court speech."
+    },
+    {
+      "position": 7,
+      "target_id": "at-174a2f0bbfd0b2d0d0ee2608",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 95 attributes both the admission of serious consequences and the defence of procedural sufficiency to the respondent.",
+      "scope_review": "The court's correctness/fairness analysis starts in paragraph 96."
+    },
+    {
+      "position": 8,
+      "target_id": "at-188b314c4f3fc2293a2a3f9e",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "fact_pattern_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 54 states that intent is essential to the evidence analysis and that the material fact alone is insufficient.",
+      "scope_review": "Paragraph 53 provides the fraud/deception context and exact good-faith/error exception. The later Commission quotation is not used as court proposition evidence."
+    },
+    {
+      "position": 9,
+      "target_id": "at-19699b1ac79c9676fcc00a6d",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 61 says it is highly relevant, in assessing this decision's reasonableness, to verify whether the Commission applied and considered its own false-reference jurisprudence.",
+      "scope_review": "Qualification: this is analytical guidance, not a final jurisdiction or reasonableness holding. The jurisdiction assumption in paragraph 61 and the paragraph-93 no-definitive-opinion limit are indispensable; removing either would materially overstate the AU. Both exact witnesses are present."
+    },
+    {
+      "position": 10,
+      "target_id": "at-1f0c7e3838ca599ebd75ae72",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "procedural_history_only",
+      "evidence": "Paragraph 90 enumerates the three corrective actions imposed by the Commission.",
+      "scope_review": "The target does not endorse general authority to impose those measures; the contested jurisdiction analysis follows."
+    }
+  ],
+  "boundaries": {
+    "semantic_gold": false,
+    "r5_pass": false,
+    "plan10_allowed": false,
+    "note": "This audit accepts only the ten frozen second-batch model-silver decisions and does not validate mutable overall R4 progress."
+  }
+}

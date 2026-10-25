@@ -1,0 +1,167 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-5.6-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {
+    "batch_id": "p09-r4-099980-third10-sol-v1",
+    "case_id": "099980",
+    "target_count": 10,
+    "outside_batch_reviewed": false,
+    "canonical_state_modified": false,
+    "global_progress_or_r4_manifest_hash_locked": false
+  },
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 7, "low": 3, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 4,
+    "accepted_hard_negatives": 5,
+    "accepted_unresolved": 1,
+    "required_canonical_changes": 0
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-third10-sol-v1.json",
+    "frozen_batch_sha256": "c292811c09e0f356b988ddf587892100f4a4f60f2b2aa2d061c40aad0b736d03",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-third10-01-gpt61sol-v1.json", "5ce2ee6ea0ea81791527b73bf4666aaaf8c5e39a65a18a48a85247528bc24dbc", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-third10-02-gpt61sol-v1.json", "e4cd82ea6c7b8293f6bfc471667dde7d951d87e7b9da76ed3f38ae65de43b1da", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-third10-03-gpt61sol-v1.json", "4d1dfce1dc24d6a6ba48d95e2c06ba5ac2491404d3da4062ceeb1c484d890864", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-third10-04-gpt61sol-v1.json", "eb41a9434ff49fb0a62f588e767f965323f50dacbb09afef687caad30f5a1fd2", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-third10-05-gpt61sol-v1.json", "6740e9b801291c4968d7279f6f69e9b4c2d347796749285c47a900962d5be443", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-third10-06-gpt61sol-v1.json", "c1be1756d50baf449de9c47c33408bc6a2b4e0173baec3c01acdcdf48a767472", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"],
+      ["p09-r4-099980-third10-07-gpt61sol-v1.json", "d45448fdd468183888e2c72e545811048433d6e5c1d1930f902e49191ee1c5f4", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-third10-08-gpt61sol-v1.json", "95807f4255bf5979052bc6d0382b27d346be8cc6a7e9ff8fe221369f3e25d5fb", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-third10-09-gpt61sol-v1.json", "d4de44bd2521a0b0ee1c2110cba1c463c557654a96acb8c53770991c5f0420a3", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-third10-10-gpt61sol-v1.json", "88038dd7dd15fb9b83714a1d6b9b53025e9dd941b3d9e4cc3840c711a9a87bcb", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "duplicate_guard_evidence": "r4.checkpoint and r4.rebuild_manifest reject duplicate case/target ownership with checkpoint_duplicate_target; the current registry read found one owner for every frozen target.",
+    "qualification": "The mutable global registry was read only for ownership and was intentionally not hash-locked."
+  },
+  "items": [
+    {
+      "position": 1,
+      "target_id": "at-1f8713f545365df1f151daa4",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "editorial",
+      "evidence": "Paragraph 200 thanks counsel and asks the Commission to reflect on practices; the separately owned formal judgment follows in paragraph 201.",
+      "scope_review": "The request is non-operative and does not order systemic reform or state a distinct legal test."
+    },
+    {
+      "position": 2,
+      "target_id": "at-23e0d9d111911c28fba85628",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 173 rhetorically asks how directly affected people could be denied a draft final investigation report and an opportunity to comment before approval; paragraph 174 confirms the answer.",
+      "scope_review": "The recorded final-report condition and before-approval limit prevent generalization to every document. Qualification: paragraph 174 cross-block confirmation is indispensable because the primary sentence is phrased as a question; it is present exactly."
+    },
+    {
+      "position": 3,
+      "target_id": "at-246ff349485b66f67fe5c39d",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "editorial",
+      "evidence": "Paragraph 182 introduces the remedies discussion with a repair/not-excuse metaphor.",
+      "scope_review": "Specific declarations and reservations appear in paragraphs 183-184, not this target."
+    },
+    {
+      "position": 4,
+      "target_id": "at-25a47b63b5767f7bc735f6be",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 150 explicitly finds the March 31, 2010 notice clearly insufficient because it never disclosed that the Commission suspected this applicant of fraud.",
+      "scope_review": "The date/applicant limitation and non-disclosure reason are preserved; quoted boilerplate and other notices are not proposition evidence."
+    },
+    {
+      "position": 5,
+      "target_id": "at-27935875158c3bd52e6220aa",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 141 introduces and quotes the investigator's stated purpose and allegations.",
+      "scope_review": "This is agency narration, not a court finding that the applicant committed fraud or an adopted statutory interpretation."
+    },
+    {
+      "position": 6,
+      "target_id": "at-27d52ebdf0fe44b1ec832078",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "unresolved",
+      "evidence": "Paragraph 57 reports that a cited court confirmed a case-specific fraud finding, then identifies the following copying-for-advantage language as an investigator argument within that judgment.",
+      "scope_review": "Qualification: `citation_without_proposition` is a plausible alternative, but the suppressed citation and nested speaker boundary leave reusable-proposition adoption uncertain. Unresolved is the safer result and avoids falsely assigning investigator language to either current_court or cited_court."
+    },
+    {
+      "position": 7,
+      "target_id": "at-2830ad7af31dc36e2dfd45a2",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "statutory_hook",
+      "attribution": "current_court",
+      "evidence": "Paragraph 87 paraphrases the PSEA/PSLRA review provision and its five-year trigger.",
+      "scope_review": "The five-year limit is exact. Review Team observations and recommendation 3.1 are excluded from statutory proposition evidence."
+    },
+    {
+      "position": 8,
+      "target_id": "at-298921465b894cd1e165f1c2",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 66 describes the timing and cursory nature of this jurisdiction review and omission of the Policy.",
+      "scope_review": "It is case-record appraisal, not the court's final jurisdiction determination or a general test."
+    },
+    {
+      "position": 9,
+      "target_id": "at-2ad9077730065065ecf5523f",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "procedural_history_only",
+      "evidence": "Paragraph 68 expressly introduces the quoted response as the investigator's treatment of the jurisdiction objection.",
+      "scope_review": "Later paragraphs reserve the present court's final jurisdiction opinion; no current-court adoption occurs here."
+    },
+    {
+      "position": 10,
+      "target_id": "at-2be613d920e6ea831c8e3022",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 191 states that the Court lacks authority to retroactively set aside this impugned decision while discussing its continuing effects.",
+      "scope_review": "Qualification: this is a case-specific remedial/temporal observation, not a universal bar on retroactive judicial relief and not validation of the permission condition. The exact `the impugned decision` limit is essential and present."
+    }
+  ],
+  "boundaries": {
+    "semantic_gold": false,
+    "r5_pass": false,
+    "plan10_allowed": false,
+    "note": "This audit accepts only the frozen third-batch model-silver decisions; mutable overall R4 progress is outside scope."
+  }
+}

@@ -1,0 +1,457 @@
+{
+  "stage": "balanced",
+  "status": "control_failed",
+  "rows": [
+    {
+      "name": "positive_notice",
+      "expected": {
+        "group": "positive",
+        "AU_count": 1,
+        "concepts": [
+          "applicant",
+          "notice",
+          "respond",
+          "emergency"
+        ]
+      },
+      "usage": {
+        "input_tokens": 879,
+        "output_tokens": 39,
+        "total_tokens": 918
+      },
+      "status": "control_failed",
+      "semantic_quality": "agent_review_pending",
+      "model_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r21"
+        ],
+        "empty_reason": "no_independent_legal_point",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r21"
+        ],
+        "delivered_scope_ids": [
+          "r21"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "empty_reason": "no_independent_legal_point"
+      },
+      "AU_count": 0,
+      "lexical_concept_hints": {
+        "applicant": false,
+        "notice": false,
+        "respond": false,
+        "emergency": false
+      },
+      "note": "Concept keywords are hints, never entailment or gold."
+    },
+    {
+      "name": "positive_refund",
+      "expected": {
+        "group": "positive",
+        "AU_count": 1,
+        "concepts": [
+          "board",
+          "refund",
+          "seven",
+          "fraud"
+        ]
+      },
+      "usage": {
+        "input_tokens": 876,
+        "output_tokens": 70,
+        "total_tokens": 946
+      },
+      "status": "structural_control_pass",
+      "semantic_quality": "agent_review_pending",
+      "model_output": {
+        "aus": [
+          {
+            "claim": "The board must refund a deposit within seven days.",
+            "kind": "holding",
+            "evidence_ids": [
+              "e22"
+            ],
+            "limits": "Unless the applicant obtained the deposit by fraud."
+          }
+        ],
+        "assessed_scope_ids": [
+          "r22"
+        ],
+        "empty_reason": null,
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [
+          {
+            "au_id": "k0au-3a45a9c8d285263494105ade",
+            "case_id": "fictional-positive_refund",
+            "source_hash": "013b982fbbd07e211f907efb684d67ac4d1070c421903add1a26f0b84ef7968e",
+            "claim": "The board must refund a deposit within seven days.",
+            "kind": "holding",
+            "evidence_ids": [
+              "e22"
+            ],
+            "evidence": [
+              {
+                "case_id": "fictional-positive_refund",
+                "source_hash": "013b982fbbd07e211f907efb684d67ac4d1070c421903add1a26f0b84ef7968e",
+                "start_char": 0,
+                "end_char": 116,
+                "quote": "Under a fictional rule, the board must refund a deposit within seven days unless the applicant obtained it by fraud."
+              }
+            ],
+            "limits": "Unless the applicant obtained the deposit by fraud.",
+            "replace_id": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        ],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r22"
+        ],
+        "delivered_scope_ids": [
+          "r22"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "empty_reason": null
+      },
+      "AU_count": 1,
+      "lexical_concept_hints": {
+        "board": true,
+        "refund": true,
+        "seven": true,
+        "fraud": true
+      },
+      "note": "Concept keywords are hints, never entailment or gold."
+    },
+    {
+      "name": "positive_multi",
+      "expected": {
+        "group": "positive",
+        "AU_count": 2,
+        "concepts": [
+          "inspector",
+          "record",
+          "registry",
+          "confidential"
+        ]
+      },
+      "usage": {
+        "input_tokens": 882,
+        "output_tokens": 93,
+        "total_tokens": 975
+      },
+      "status": "structural_control_pass",
+      "semantic_quality": "agent_review_pending",
+      "model_output": {
+        "aus": [
+          {
+            "claim": "An inspector must maintain an inspection record.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "limits": null
+          },
+          {
+            "claim": "A registry must protect the confidentiality of personal data.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "limits": null
+          }
+        ],
+        "assessed_scope_ids": [
+          "r23"
+        ],
+        "empty_reason": null,
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [
+          {
+            "au_id": "k0au-3eabd4de33d6bbe6e4640639",
+            "case_id": "fictional-positive_multi",
+            "source_hash": "04768d90c910f20baf92e067dfebb1bcf5fb5e2b736e85b3a84f2dc22f1d555a",
+            "claim": "An inspector must maintain an inspection record.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "evidence": [
+              {
+                "case_id": "fictional-positive_multi",
+                "source_hash": "04768d90c910f20baf92e067dfebb1bcf5fb5e2b736e85b3a84f2dc22f1d555a",
+                "start_char": 0,
+                "end_char": 153,
+                "quote": "Under a fictional rule, an inspector must keep an inspection record. Under a separate rule, a registry must protect the confidentiality of personal data."
+              }
+            ],
+            "limits": null,
+            "replace_id": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          },
+          {
+            "au_id": "k0au-b259ee08e080cee3cbca7db5",
+            "case_id": "fictional-positive_multi",
+            "source_hash": "04768d90c910f20baf92e067dfebb1bcf5fb5e2b736e85b3a84f2dc22f1d555a",
+            "claim": "A registry must protect the confidentiality of personal data.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "evidence": [
+              {
+                "case_id": "fictional-positive_multi",
+                "source_hash": "04768d90c910f20baf92e067dfebb1bcf5fb5e2b736e85b3a84f2dc22f1d555a",
+                "start_char": 0,
+                "end_char": 153,
+                "quote": "Under a fictional rule, an inspector must keep an inspection record. Under a separate rule, a registry must protect the confidentiality of personal data."
+              }
+            ],
+            "limits": null,
+            "replace_id": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        ],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r23"
+        ],
+        "delivered_scope_ids": [
+          "r23"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "empty_reason": null
+      },
+      "AU_count": 2,
+      "lexical_concept_hints": {
+        "inspector": true,
+        "record": true,
+        "registry": true,
+        "confidential": true
+      },
+      "note": "Concept keywords are hints, never entailment or gold."
+    },
+    {
+      "name": "negative_facts",
+      "expected": {
+        "group": "negative",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "usage": {
+        "input_tokens": 876,
+        "output_tokens": 37,
+        "total_tokens": 913
+      },
+      "status": "structural_control_pass",
+      "semantic_quality": "agent_review_pending",
+      "model_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r24"
+        ],
+        "empty_reason": "no_independent_legal_point",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r24"
+        ],
+        "delivered_scope_ids": [
+          "r24"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "empty_reason": "no_independent_legal_point"
+      },
+      "AU_count": 0,
+      "lexical_concept_hints": {},
+      "note": "Concept keywords are hints, never entailment or gold."
+    },
+    {
+      "name": "negative_party",
+      "expected": {
+        "group": "negative",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "usage": {
+        "input_tokens": 886,
+        "output_tokens": 37,
+        "total_tokens": 923
+      },
+      "status": "structural_control_pass",
+      "semantic_quality": "agent_review_pending",
+      "model_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r25"
+        ],
+        "empty_reason": "no_independent_legal_point",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r25"
+        ],
+        "delivered_scope_ids": [
+          "r25"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "empty_reason": "no_independent_legal_point"
+      },
+      "AU_count": 0,
+      "lexical_concept_hints": {},
+      "note": "Concept keywords are hints, never entailment or gold."
+    },
+    {
+      "name": "negative_citation",
+      "expected": {
+        "group": "negative",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "usage": {
+        "input_tokens": 872,
+        "output_tokens": 36,
+        "total_tokens": 908
+      },
+      "status": "structural_control_pass",
+      "semantic_quality": "agent_review_pending",
+      "model_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r26"
+        ],
+        "empty_reason": "citation_without_substance",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r26"
+        ],
+        "delivered_scope_ids": [
+          "r26"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "empty_reason": "citation_without_substance"
+      },
+      "AU_count": 0,
+      "lexical_concept_hints": {},
+      "note": "Concept keywords are hints, never entailment or gold."
+    },
+    {
+      "name": "uncertain_test",
+      "expected": {
+        "group": "uncertain",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "usage": {
+        "input_tokens": 873,
+        "output_tokens": 34,
+        "total_tokens": 907
+      },
+      "status": "invalid",
+      "semantic_quality": "not_assessed",
+      "error_type": "ValueError"
+    },
+    {
+      "name": "uncertain_voice",
+      "expected": {
+        "group": "uncertain",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "usage": {
+        "input_tokens": 883,
+        "output_tokens": 34,
+        "total_tokens": 917
+      },
+      "status": "invalid",
+      "semantic_quality": "not_assessed",
+      "error_type": "ValueError"
+    },
+    {
+      "name": "uncertain_exception",
+      "expected": {
+        "group": "uncertain",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "usage": {
+        "input_tokens": 875,
+        "output_tokens": 34,
+        "total_tokens": 909
+      },
+      "status": "invalid",
+      "semantic_quality": "not_assessed",
+      "error_type": "ValueError"
+    }
+  ],
+  "code_sha256": "d0179ce46bade8250ffab073788ae9ef0412d6bd3af542124cf0e3805a3a0daf",
+  "manifest_sha256": "2b2e2c9b0a0b347064a312b67d3ba223bd97cf89ea60f357e896405e4a813ae0",
+  "K1_allowed": false,
+  "corpus_dispatch_allowed": false,
+  "semantic_quality": "not_gold",
+  "sha256": "6da62cd6676cc70599ac9c962bffcd39c3c3e8ada3f81febe0019dfa821f6171"
+}

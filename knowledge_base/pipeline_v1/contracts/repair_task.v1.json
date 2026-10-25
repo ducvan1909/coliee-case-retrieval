@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coliee:repair-task-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "case_id",
+    "target_id",
+    "model",
+    "artifact_type",
+    "schema_version",
+    "source_hash",
+    "raw_targets",
+    "request",
+    "original_proposals",
+    "original_responses",
+    "supplied_atom_catalog",
+    "expansion_atom_catalog",
+    "review_oracle",
+    "error_origin",
+    "technical_errors_origin",
+    "technical_errors",
+    "selection",
+    "semantic_errors",
+    "obligations",
+    "policy",
+    "semantic_gold"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_type": {
+      "const": "RepairTask"
+    },
+    "schema_version": {
+      "const": "repair-task-v1"
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "raw_targets": {
+      "type": "array",
+      "minItems": 1
+    },
+    "request": {
+      "type": "object"
+    },
+    "original_proposals": {
+      "type": "array"
+    },
+    "original_responses": {
+      "type": "array"
+    },
+    "supplied_atom_catalog": {
+      "type": "array",
+      "minItems": 1
+    },
+    "expansion_atom_catalog": {
+      "type": "array"
+    },
+    "review_oracle": {
+      "type": "array"
+    },
+    "error_origin": {
+      "const": "agent_review"
+    },
+    "technical_errors_origin": {
+      "const": "host"
+    },
+    "technical_errors": {
+      "type": "array"
+    },
+    "selection": {
+      "enum": [
+        "repair",
+        "correct_control",
+        "unreviewed_control"
+      ]
+    },
+    "semantic_errors": {
+      "type": "array"
+    },
+    "obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "obligation_id",
+          "task_id",
+          "target_id",
+          "obligation_type",
+          "requested_direction_or_ref",
+          "reason",
+          "producer",
+          "run_id",
+          "status",
+          "searched_spans",
+          "stop_reason",
+          "review_confirmation"
+        ],
+        "properties": {
+          "obligation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "task_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "obligation_type": {
+            "enum": [
+              "attribution",
+              "condition",
+              "exception",
+              "limit",
+              "current_court_response",
+              "cross_block_context",
+              "missing_speaker",
+              "possible_prior_condition",
+              "open_quotation",
+              "unresolved_reference",
+              "possible_following_qualification"
+            ]
+          },
+          "requested_direction_or_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "producer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "run_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "satisfied",
+              "unresolved",
+              "budget_exhausted"
+            ]
+          },
+          "searched_spans": {
+            "type": "array"
+          },
+          "stop_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "review_confirmation": {
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "policy": {
+      "type": "object"
+    },
+    "semantic_gold": {
+      "const": false
+    }
+  }
+}

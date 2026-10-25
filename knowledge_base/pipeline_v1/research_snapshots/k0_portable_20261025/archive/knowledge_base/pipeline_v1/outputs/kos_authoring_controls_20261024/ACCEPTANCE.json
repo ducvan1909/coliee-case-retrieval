@@ -1,0 +1,41 @@
+{
+  "status": "local_and_transport_pass_control_quality_failed",
+  "code_sha256": "d0179ce46bade8250ffab073788ae9ef0412d6bd3af542124cf0e3805a3a0daf",
+  "manifest_sha256": "2b2e2c9b0a0b347064a312b67d3ba223bd97cf89ea60f357e896405e4a813ae0",
+  "local_tests_passed": 34,
+  "independent_new_tests_passed": 9,
+  "native_positive_cpu": "pass",
+  "native_final_wire_cpu": "pass",
+  "POST_attempts": 10,
+  "provider_usage": {
+    "input_tokens": 8173,
+    "output_tokens": 484,
+    "total_tokens": 8657
+  },
+  "unknown_client_usage": 0,
+  "startup_warmup_usage": "unavailable_runtime_GET_503",
+  "first_readiness_main_observed_ms": 184687,
+  "last_readiness_report_only": true,
+  "positive_only": "source_review_supported",
+  "balanced_positive_substance": {
+    "supported": 2,
+    "total": 3
+  },
+  "negative_controls": {
+    "appropriate_empty": 3,
+    "total": 3
+  },
+  "uncertain_controls": {
+    "recognized_missing_context": 3,
+    "protocol_consistent": 0,
+    "total": 3
+  },
+  "no_truncation": true,
+  "resume_network_calls": 0,
+  "K0_bindings_unchanged": true,
+  "corpus_requests": 0,
+  "authoring_v2_implemented": false,
+  "validate0AU_implemented": false,
+  "K1_allowed": false,
+  "semantic_evidence": "small fictional agent-reviewed controls, not human gold or legal-corpus performance"
+}

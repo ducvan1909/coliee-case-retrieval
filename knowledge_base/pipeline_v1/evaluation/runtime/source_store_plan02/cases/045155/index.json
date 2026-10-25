@@ -1,0 +1,13 @@
+{
+  "index_version": "case-source-index-v1",
+  "case_id": "045155",
+  "current_source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+  "current_source_version": "src-93d2b91c8a6c01ef",
+  "versions": [
+    {
+      "source_version": "src-93d2b91c8a6c01ef",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "case_source_ref": "cases/045155/versions/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/case_source.json"
+    }
+  ]
+}

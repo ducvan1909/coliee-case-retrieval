@@ -1,0 +1,158 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-5.6-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {"batch_id": "p09-r4-099980-eighth10-sol-v1", "case_id": "099980", "target_count": 10, "outside_batch_reviewed": false, "canonical_state_modified": false, "global_progress_or_r4_manifest_hash_locked": false},
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 5, "low": 5, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 6,
+    "accepted_hard_negatives": 3,
+    "accepted_unresolved": 1,
+    "required_canonical_changes": 0,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-eighth10-sol-v1.json",
+    "frozen_batch_sha256": "75abea00a0b5812726b6c4732f3511ff984801923606bb83a4c3b93b6b7e5a77",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-eighth10-01-gpt61sol-v1.json", "9b9746a0657d0f18ecf3c12aa8ff5b25d87f1b56ec45155966a0a6563e7704c7", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-eighth10-02-gpt61sol-v1.json", "0994192891152a6f22163f90058932d991f434beef1c1a70c994235603d2970a", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-eighth10-03-gpt61sol-v1.json", "506623305e25455941e7ea29d1fe93a47721a6d1b275625f8541e9c62b0c31e1", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-eighth10-04-gpt61sol-v1.json", "d8d873fbc1e17219b209d75a30fa2920c720f5e68c9c8392eb447e27abf6f9f4", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"],
+      ["p09-r4-099980-eighth10-05-gpt61sol-v1.json", "9e025613c4d0c32a51ae3fbc30f633d06afef9ae0fab57ab141c3ffbfeb38afd", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-eighth10-06-gpt61sol-v1.json", "dae47ba1a49ed5290114fe66e7c91a83f13cab3dc7c8c60ca1c85631c5a1dc38", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-eighth10-07-gpt61sol-v1.json", "e18ed9e1957447b98fece1bb0ae805823971972556bae966356e4f94c2fcc890", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-eighth10-08-gpt61sol-v1.json", "49cc717fd438b8f90cc104cc103ad1523a621d521fae9cd3141114c93045e89a", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-eighth10-09-gpt61sol-v1.json", "f141dddb42518844ad22d1553e5bb3c5c5fc532b5be5e9497c5ee94a19207381", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-eighth10-10-gpt61sol-v1.json", "a68cbbaa0b289741c03adcda4ea95a219e1ed799e0e78e083c67b933f889e096", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "duplicate_guard_evidence": "r4 checkpoint/rebuild paths reject duplicate target ownership; current registry read found one owner per frozen target.",
+    "qualification": "Mutable global registry was read only for ownership and was not hash-locked."
+  },
+  "items": [
+    {
+      "position": 1,
+      "target_id": "at-77795080c5c4a12d616c23fb",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "statutory_hook",
+      "attribution": "current_court",
+      "evidence": "Paragraph 104 explains commissioner compulsion and says refusal can lead to contempt and criminal prosecution.",
+      "scope_review": "Qualification: `can` is possibility, not automatic conviction. Called-witness/refusal conditions, commissioner limit, and paragraphs 103/107-108 safeguards are indispensable and present."
+    },
+    {
+      "position": 2,
+      "target_id": "at-7ae2ae96e98fe1711c0bb0c8",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 20 reports another investigation, investigator fraud findings and reference-compilation facts.",
+      "scope_review": "Agency findings are not current-court guilt findings or a general reference-entitlement rule."
+    },
+    {
+      "position": 3,
+      "target_id": "at-7c2438bcce27682cdd68ac16",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 105 states that investigative means in this Commission fraud/compulsion context must respect legitimate expectations of integrity, fairness, respect and transparency.",
+      "scope_review": "The exact `such a case` limit prevents extension to every investigation or automatic remedies."
+    },
+    {
+      "position": 4,
+      "target_id": "at-7ca139c74013a440ec1f9b58",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "unresolved",
+      "evidence": "Paragraph 174 merely says the preceding rhetorical question answers itself and then begins a heading.",
+      "scope_review": "Qualification: this is useful confirmation of paragraph 173 but not a distinct standalone proposition. Unresolved safely avoids a duplicate AU and avoids falsely treating confirmation as editorial no-AU."
+    },
+    {
+      "position": 5,
+      "target_id": "at-7d8a081b1e141c63b05c04f0",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "statutory_hook",
+      "attribution": "current_court",
+      "evidence": "Paragraph 99 explains conditional disqualification or revocation consequences depending on appointment stage.",
+      "scope_review": "Qualification: `could lead` and both stage conditions are essential. The next sentence's `requires investigate` paraphrase is excluded because quoted section 69 says `may investigate`; no mandatory-investigation rule is created."
+    },
+    {
+      "position": 6,
+      "target_id": "at-7e7fcd55dcd3ac2c48651d45",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 44 conditionally permits objective explanation of the decision, jurisdiction and statutory powers.",
+      "scope_review": "The as-long-as condition and paragraphs 43/45-46 context prevent conversion into unrestricted merits or fairness advocacy."
+    },
+    {
+      "position": 7,
+      "target_id": "at-80dd855d64256453a585304d",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "commission_policy",
+      "evidence": "Paragraph 65 attributes the complete investigation-consideration list to Commission Policy.",
+      "scope_review": "Qualification: this is policy, not statute or current-court law, and `must take into consideration whether` does not make all factors cumulative eligibility gates. Timing limits and exceptions are preserved exactly."
+    },
+    {
+      "position": 8,
+      "target_id": "at-82b9a66eda69a6ecd5efa988",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "standard_of_review",
+      "attribution": "current_court",
+      "evidence": "Paragraph 60 conditionally frames whether this fraud finding is defensible in facts and law.",
+      "scope_review": "Qualification: the third-party-jurisdiction assumption and applicant-finding limit are mandatory. This is not an actual jurisdiction finding, final reasonableness result, universal standard or document-production rule; later reservations are recorded."
+    },
+    {
+      "position": 9,
+      "target_id": "at-848aa7019c8e57579343e4c6",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 138 describes actual questioning, oath/compulsion and the announced two-report plan.",
+      "scope_review": "It states neither a universal two-report duty nor a distinct general compulsion rule."
+    },
+    {
+      "position": 10,
+      "target_id": "at-84d29312a5bc05be38261afa",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 171 appraises an internal approval note and differences between the final and revised factual reports.",
+      "scope_review": "It is record history, not a general finality or draft-comment rule."
+    }
+  ],
+  "boundaries": {"semantic_gold": false, "model_silver": true, "r5_pass": false, "plan10_allowed": false, "note": "Only frozen eighth10 decisions are accepted; mutable overall R4 progress remains outside scope."}
+}

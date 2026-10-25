@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContextHint ledger event v1",
+  "oneOf": [
+    {
+      "type": "object", "additionalProperties": false,
+      "required": ["ledger_event_id", "event_type", "case_id", "source_hash", "proposal_id", "target_block_id", "hint_type", "action", "reason", "severity", "message_code", "message", "rule_bundle_version", "policy_sha256"],
+      "properties": {
+        "ledger_event_id": {"type": "string", "pattern": "^cl-[0-9a-f]{20}$"}, "event_type": {"const": "cap_dedup_decision"}, "case_id": {"type": "string", "pattern": "^[0-9]{6}$"}, "source_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "proposal_id": {"type": "string", "pattern": "^ch-[0-9a-f]{24}$"}, "target_block_id": {"type": "string", "pattern": "^sb-[0-9a-f]{24}$"}, "hint_type": {"enum": ["open_quote", "open_list", "dependent_lead_in", "reference_to_previous", "citation_continuation", "quote_continuation", "speaker_continuity_candidate"]},
+        "action": {"enum": ["kept", "dropped"]}, "reason": {"enum": ["within_policy", "duplicate_canonical_key", "case_hint_cap", "target_hint_cap", "related_block_cap", "related_char_cap"]}, "severity": {"const": "audit"}, "message_code": {"enum": ["within_policy", "duplicate_canonical_key", "case_hint_cap", "target_hint_cap", "related_block_cap", "related_char_cap"]}, "message": {"type": "string", "minLength": 1},
+        "rule_bundle_version": {"type": "string", "minLength": 1}, "policy_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    {
+      "type": "object", "additionalProperties": false,
+      "required": ["event_id", "event_type", "case_id", "source_hash", "rule_id", "rule_version", "producer", "policy_sha256", "severity", "status", "message_code", "message"],
+      "properties": {
+        "event_id": {"type": "string", "pattern": "^he-[0-9a-f]{20}$"}, "event_type": {"const": "rule_failure"}, "case_id": {"type": "string", "pattern": "^[0-9]{6}$"}, "source_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "rule_id": {"type": "string", "minLength": 1}, "rule_version": {"type": "string", "minLength": 1}, "producer": {"const": "deterministic_local_rule"}, "policy_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "severity": {"const": "error"}, "status": {"const": "error"}, "message_code": {"const": "rule_failure_isolated"}, "message": {"type": "string", "minLength": 1}
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "artifact_type": "Plan09SchedulingDefectAudit",
+  "case_id": "045155",
+  "original_batch_id": "terra-310f12c28675c91e3de45fa8",
+  "duplicate_target_id": "at-5929ffb989b919cd1334a0d2",
+  "canonical_owner_proposal_id": "terra-045155-339e09ea6418d500f461afa8",
+  "resolution": "Do not overwrite the canonical review. Repair work must contain only the remaining unreviewed targets.",
+  "remaining_target_ids": [
+    "at-995c41ba2d4afb50450e88b0",
+    "at-ed0ed2032799316a320a9fd9"
+  ],
+  "status": "repair_required"
+}

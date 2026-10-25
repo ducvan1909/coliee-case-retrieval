@@ -1,0 +1,63 @@
+{
+  "manifest_version": "calibration-source-manifest-v1",
+  "created_from": "raw COLIEE source snapshot 2026-10-02",
+  "workload": "KOS-5",
+  "audit_kos_manifest": "knowledge_base/pipeline_v1/manifests/selected_kos_manifest.v1.json",
+  "source_contract": {
+    "hash_algorithm": "sha256_raw_bytes",
+    "text_decoding": "utf-8-sig",
+    "offset_unit": "unicode_codepoint_after_utf8_sig_decode",
+    "span_interval": "half_open",
+    "source_mutability": "immutable"
+  },
+  "role": "contract_calibration_only",
+  "quality_claim": "none",
+  "cases": [
+    {
+      "case_id": "013009",
+      "kos_role": "query",
+      "corpus_split": "train",
+      "source_path": "data/task1_train_files_2026/cases/013009.txt",
+      "sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "byte_length": 12712,
+      "char_length": 12710
+    },
+    {
+      "case_id": "013948",
+      "kos_role": "query",
+      "corpus_split": "train",
+      "source_path": "data/task1_train_files_2026/cases/013948.txt",
+      "sha256": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "byte_length": 18832,
+      "char_length": 18830
+    },
+    {
+      "case_id": "011904",
+      "kos_role": "candidate",
+      "corpus_split": "train",
+      "source_path": "data/task1_train_files_2026/cases/011904.txt",
+      "sha256": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "byte_length": 20848,
+      "char_length": 20847
+    },
+    {
+      "case_id": "045155",
+      "kos_role": "candidate",
+      "corpus_split": "train",
+      "source_path": "data/task1_train_files_2026/cases/045155.txt",
+      "sha256": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "byte_length": 32643,
+      "char_length": 32073
+    },
+    {
+      "case_id": "099980",
+      "kos_role": "candidate",
+      "corpus_split": "train",
+      "source_path": "data/task1_train_files_2026/cases/099980.txt",
+      "sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "byte_length": 122438,
+      "char_length": 122393
+    }
+  ]
+}
+

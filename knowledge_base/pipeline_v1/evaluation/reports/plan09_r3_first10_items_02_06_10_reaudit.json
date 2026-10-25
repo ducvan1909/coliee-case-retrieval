@@ -1,0 +1,87 @@
+{
+  "artifact_type": "Plan09R3ThreeItemReaudit",
+  "audit_date": "2026-10-05",
+  "scope": [2, 6, 10],
+  "decision": "accept_all_three_revisions",
+  "model_only": true,
+  "semantic_gold": false,
+  "canonical_state_modified": false,
+  "raw_source": {
+    "case_id": "011904",
+    "source_sha256": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+    "mexico_utf8_hex": "4dc3a97869636f",
+    "decoded_codepoints": ["U+004D", "U+00E9", "U+0078", "U+0069", "U+0063", "U+006F"],
+    "contains_u00e9": true,
+    "contains_ufffd_at_witness": false
+  },
+  "items": [
+    {
+      "position": 2,
+      "target_id": "at-2f7477cfb9547856d31ae73a",
+      "decision": "accept",
+      "review_head": "p09-r3-first10-audit-02-gpt61sol-v2",
+      "review_head_sha256": "9541e45435009fddda3c32d242f8f7780f0ea3ff2d13bb48a1f5953742c990d5",
+      "amendment_head": "p09-r3-first10-audit-02-gpt61sol-v2",
+      "amendment_head_sha256": "e6bcc2742c6039b71c92d4ff65eadd7200e7490dd8abdeae3bc4b4f1bf5f0663",
+      "effective_outcome": "positive",
+      "effective_kind": "procedural_rule",
+      "effective_speaker": "current_court",
+      "condition_preserved": true,
+      "danger_exception_preserved": true,
+      "danger_limit_preserved": true,
+      "validator": "pass"
+    },
+    {
+      "position": 6,
+      "target_id": "at-c6800dac79406967a0f487af",
+      "decision": "accept",
+      "review_head": "p09-r3-first10-audit-06-gpt61sol-v2",
+      "review_head_sha256": "41ce7a307cc3b032d212d51a9a9ab73d2608a51dea6ee237e3c6f39548810dec",
+      "amendment_head": null,
+      "effective_outcome": "positive",
+      "effective_kind": "holding",
+      "effective_speaker": "current_court",
+      "exact_quote_matches_raw": true,
+      "previous_quote_mismatch_finding": "retracted",
+      "false_finding_root_cause": "UTF-8 JSON was loaded with Windows cp1252 by the earlier ad-hoc audit harness; terminal glyph rendering did not reflect source code points.",
+      "validator": "pass"
+    },
+    {
+      "position": 10,
+      "target_id": "at-8269eb428258043e32dca5a8",
+      "decision": "accept",
+      "review_head": "p09-r3-first10-audit-10-gpt61sol-v2",
+      "review_head_sha256": "679c61f68994c53a6bdf5c3642f321e423fe847189aca0c3a4fdb59ff831e6ea",
+      "amendment_head": "p09-r3-first10-audit-10-gpt61sol-v2",
+      "amendment_head_sha256": "33db855e7e081e9a1327a5fd92dc1f937e56ff01fbb3f1c1c42c34732776f058",
+      "effective_outcome": "positive",
+      "effective_kind": "holding",
+      "effective_speaker": "current_court",
+      "narrow_scope_preserved": true,
+      "evidence_ref": "raw:011904[15089,15203), with paragraphs 28 and 34 as context",
+      "validator": "pass"
+    }
+  ],
+  "lineage": {
+    "review_heads_unique": true,
+    "amendment_heads_unique": true,
+    "predecessor_hashes_valid": true,
+    "fork_detected": false,
+    "overwrite_detected": false,
+    "cycle_detected": false
+  },
+  "tests": {
+    "revision_history_and_risk_review": {
+      "passed": 7,
+      "failed": 0,
+      "elapsed_seconds": 53.277
+    }
+  },
+  "p09_s01_closed": false,
+  "plan10_allowed_by_this_audit": false,
+  "limitations": [
+    "This re-audit covers only items 02, 06, and 10.",
+    "The result is model-only/model-silver and is not human adjudication.",
+    "No conclusion is made about the other 20 records."
+  ]
+}

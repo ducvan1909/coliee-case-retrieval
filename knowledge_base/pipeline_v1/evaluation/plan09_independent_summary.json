@@ -1,0 +1,70 @@
+{
+  "artifact_type": "Plan09IndependentEvaluationSummary",
+  "evaluation_date": "2026-10-05",
+  "overall_status": "partial_resumable_with_semantic_failure",
+  "structural_infrastructure_status": "pass",
+  "semantic_silver_quality_status": "fail",
+  "semantic_quality_scope": "non_statistical_nine_target_sample_from_four_complete_cases",
+  "semantic_gold": false,
+  "evaluation_against": "model_silver",
+  "plan10_allowed": false,
+  "counts": {
+    "expected_targets": 369,
+    "reviewed_targets": 212,
+    "missing_targets": 157,
+    "authority_units": 99,
+    "hard_negatives": 112,
+    "unresolved_targets": 1,
+    "canonical_duplicate_targets": 0
+  },
+  "incomplete_cases": [
+    {
+      "case_id": "099980",
+      "missing_target_count": 157
+    }
+  ],
+  "tests": {
+    "plan09_independent": {
+      "passed": 4,
+      "failed": 0,
+      "elapsed_seconds": 2.074
+    },
+    "pipeline_regression": {
+      "passed": 105,
+      "failed": 0,
+      "elapsed_seconds": 77.408
+    },
+    "independent_evaluation_suite": {
+      "passed": 60,
+      "failed": 0,
+      "elapsed_seconds": 215.853
+    }
+  },
+  "semantic_sample": {
+    "sampled_positive_targets": 9,
+    "severe_errors_found": 1,
+    "statistical_quality_claim": false,
+    "findings": [
+      {
+        "finding_id": "P09-S01",
+        "severity": "severe",
+        "case_id": "013948",
+        "target_id": "at-3f8c7b00587a03395a1070fa",
+        "error_types": [
+          "speaker_attribution",
+          "authority_kind"
+        ],
+        "recorded_kind": "holding",
+        "recorded_speaker": "current_court",
+        "evidence_cue": "Mr. Bayavuge submits",
+        "assessment": "An expressly attributed litigant submission was labeled as a current-court holding."
+      }
+    ]
+  },
+  "semantic_labels_modified": false,
+  "limitations": [
+    "Structural validation does not establish semantic correctness.",
+    "The semantic audit is a small defect-finding sample, not a precision or recall estimate.",
+    "Model silver is not human gold and cannot unlock Plan 10."
+  ]
+}

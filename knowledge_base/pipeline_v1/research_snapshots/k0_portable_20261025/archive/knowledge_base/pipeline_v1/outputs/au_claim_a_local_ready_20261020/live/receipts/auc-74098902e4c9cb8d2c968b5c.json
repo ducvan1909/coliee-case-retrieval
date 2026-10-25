@@ -1,0 +1,147 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-1a4badb348f8fd4b4eec61b1",
+        "claim": "The presumption of state protection described in Ward applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-37945bb85e5aca0c3b3cadea",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 7276,
+            "end_char": 7618,
+            "quote": "[14]\r\nIn the recent decision of <FRAGMENT_SUPPRESSED> , above, at para. 54 the Federal Court of Appeal noted that \"[t] he presumption of state protection described in\r\nWard\r\n, therefore, applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\" ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-e204603190dcddc2d6ea87fe",
+        "claim": "The existence of state persecuting agents does not automatically rebut the presumption that a state is capable of protecting its citizens.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-8b5d5fbf0615d805ac48d7e9",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 7618,
+            "end_char": 7773,
+            "quote": "Thus, the existence of state persecuting agents does not serve to automatically rebut the presumption that a state is capable of protecting its citizens.\r\n",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1028,
+    "output_tokens": 104,
+    "total_tokens": 1132
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"The presumption of state protection described in Ward applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"The existence of state persecuting agents does not automatically rebut the presumption that a state is capable of protecting its citizens.\",\"kind\":\"holding\",\"evidence_ids\":[\"s2\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792495931,
+    "id": "d756a588f97a4bacb9fff7e2434286bb",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 104,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 104,
+      "prompt_tokens": 1028,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1132
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e",
+    "payload_sha256": "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e",
+    "polls": 7,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495905.0873148,
+    "job_status": "completed",
+    "latency_ms": 30414.637,
+    "finished_at_unix": 1792495935.5015032,
+    "server_timing": {
+      "created_at": "2026-10-20T11:31:49.459121+00:00",
+      "started_at": "2026-10-20T11:32:01.147186+00:00",
+      "finished_at": "2026-10-20T11:32:11.552710+00:00",
+      "inference_seconds": 9.154192792000003
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "The presumption of state protection described in Ward applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "The existence of state persecuting agents does not automatically rebut the presumption that a state is capable of protecting its citizens.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 30414.924,
+  "request_id": "auc-74098902e4c9cb8d2c968b5c",
+  "payload_sha256": "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e",
+  "receipt_sha256": "515172db7cd3b5ed86aa12e719523b680c85aa5d5ef03b8fb69b532693894684"
+}

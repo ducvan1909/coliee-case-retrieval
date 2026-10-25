@@ -1,0 +1,132 @@
+{
+  "artifact_type": "Plan09R3IndependentSemanticAudit",
+  "audit_date": "2026-10-05",
+  "scope": "exactly_first_10_risk_review_records",
+  "case_id": "011904",
+  "model_only": true,
+  "semantic_gold": false,
+  "evaluation_against": "model_silver",
+  "batch_decision": "reject_pending_revisions",
+  "counts": {
+    "reviewed": 10,
+    "agree": 7,
+    "disagree": 2,
+    "insufficient_evidence": 0,
+    "structurally_invalid": 1
+  },
+  "p09_s01": {
+    "in_batch": false,
+    "finding_closed_by_this_audit": false
+  },
+  "items": [
+    {
+      "position": 1,
+      "audited_record_sha256": "b46a13cadf00e3e4e2ed4e7325fd75682e6ba4548ab930f33d0300b50cb39690",
+      "target_id": "at-166e883b4b22f4c136190986",
+      "review_outcome": "keep",
+      "audit_disposition": "agree",
+      "severity": "none",
+      "evidence_ref": "raw:011904[5400,6085)",
+      "assessment": "Reasonableness standard and current-court application are supported."
+    },
+    {
+      "position": 2,
+      "audited_record_sha256": "0ef8e86e18a758beda493054e2b9a2e5605c1f5ecd7d02d8c980dd45ffefbe33",
+      "target_id": "at-2f7477cfb9547856d31ae73a",
+      "review_outcome": "keep",
+      "audit_disposition": "disagree",
+      "severity": "moderate",
+      "evidence_ref": "raw:011904[8358,9331)",
+      "assessment": "Keep omits the developed-democracy condition and danger-as-exception qualification; an amendment is required."
+    },
+    {
+      "position": 3,
+      "audited_record_sha256": "f08c805db4675a163f4ac9e22056e41e19f7d3a7a8e0dc581eb4c56142455457",
+      "target_id": "at-056fd4ca0454c65c2b585cea",
+      "review_outcome": "keep",
+      "audit_disposition": "agree",
+      "severity": "none",
+      "evidence_ref": "raw:011904[20340,20493); paragraph 35",
+      "assessment": "Explicit current-court error holding supports the AU."
+    },
+    {
+      "position": 4,
+      "audited_record_sha256": "c5a16a5b1902191e75ee2e5b3406023097086a0e5e5cbe69105a8a46e3ca63fe",
+      "target_id": "at-0802db7ceff18ea43d1a3387",
+      "review_outcome": "amendment",
+      "audit_disposition": "agree",
+      "severity": "none",
+      "evidence_ref": "raw:011904[18316,19533)",
+      "assessment": "Procedural-rule amendment and no-deference limit are supported."
+    },
+    {
+      "position": 5,
+      "audited_record_sha256": "b19839ba3ecc7cc1e9d1badfa6c425bd177a4de30af5eb20adab0ca01ff6107a",
+      "target_id": "at-b6e11fcb6b0d65c364d63d7b",
+      "review_outcome": "keep",
+      "audit_disposition": "agree",
+      "severity": "none",
+      "evidence_ref": "raw:011904[19541,20332); paragraphs 34-35",
+      "assessment": "The omission and paradoxical reliance are current-court critique supporting the disposition."
+    },
+    {
+      "position": 6,
+      "audited_record_sha256": "570d9ea4bfc62d4f45b69ee0af17ad335bb1b82c7527c3a3a0c607cedb47c795",
+      "target_id": "at-c6800dac79406967a0f487af",
+      "review_outcome": "keep",
+      "audit_disposition": "agree_semantically_but_structurally_invalid",
+      "severity": "high",
+      "evidence_ref": "raw:011904[15576,16864); context[15076,17364)",
+      "assessment": "Semantic decision is supported, but stored quotes use Mexico with e-acute while raw source contains a replacement character; validator raises quote_mismatch.",
+      "validator_status": "fail_quote_mismatch"
+    },
+    {
+      "position": 7,
+      "audited_record_sha256": "ddcdb8915c91fd4037f0b88c0fd282ea7d316aedf2e5680f466845e0701af9d8",
+      "target_id": "at-e6d8b4b85d3ed8642bf952df",
+      "review_outcome": "amendment",
+      "audit_disposition": "agree",
+      "severity": "none",
+      "evidence_ref": "raw:011904[15211,15568)",
+      "assessment": "Procedural-rule kind and contradictory-evidence condition are supported."
+    },
+    {
+      "position": 8,
+      "audited_record_sha256": "2eb949c46f6b8d80610af34b3665a4e64f5d6a42d3d67762d0e5a952457ef9a6",
+      "target_id": "at-d2edd223db1b214b6af3212a",
+      "review_outcome": "keep",
+      "audit_disposition": "agree",
+      "severity": "none",
+      "evidence_ref": "raw:011904[7282,7771)",
+      "assessment": "The separate Thus sentence supports current-court adoption."
+    },
+    {
+      "position": 9,
+      "audited_record_sha256": "4a91fcf34f175a373d0fdd7c7cbab244f3e94968eff4663fcb3197823412ca27",
+      "target_id": "at-fa73738e43e28d91717f8a07",
+      "review_outcome": "amendment",
+      "audit_disposition": "agree",
+      "severity": "none",
+      "evidence_ref": "raw:011904[7779,8350)",
+      "assessment": "Cited-court attribution, condition, and exception are all source-supported."
+    },
+    {
+      "position": 10,
+      "audited_record_sha256": "fe2ea23ec1c50a1b865d22c3ddd79b484f9c105a62c8986aa50b001e96c5ef6f",
+      "target_id": "at-8269eb428258043e32dca5a8",
+      "review_outcome": "unresolved",
+      "audit_disposition": "disagree",
+      "severity": "moderate",
+      "evidence_ref": "raw:011904[14834,15203); paragraphs 28 and 34",
+      "assessment": "The source supports a scoped current-court holding; lack of generic reusability does not require unresolved."
+    }
+  ],
+  "accepted_positions": [1, 3, 4, 5, 7, 8, 9],
+  "revision_required_positions": [2, 6, 10],
+  "canonical_state_modified": false,
+  "limitations": [
+    "This is an independent model-only defect-finding audit, not human adjudication.",
+    "No precision or recall claim follows from ten records.",
+    "Concurrent implementation activity means this report is bound to the audited record hashes and raw source offsets."
+  ]
+}

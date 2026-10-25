@@ -1,0 +1,64 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-6.1-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {"batch_id": "p09-r4-099980-fourteenth10-sol-v1", "case_id": "099980", "target_count": 10, "outside_batch_reviewed": false, "canonical_state_modified": false, "global_progress_or_r4_manifest_hash_locked": false},
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 3, "low": 7, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 9,
+    "accepted_hard_negatives": 3,
+    "accepted_unresolved": 0,
+    "required_canonical_changes": 0,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-fourteenth10-sol-v1.json",
+    "frozen_batch_sha256": "ca6254e14932a27a21a1a808adeff505179e1f264d99ca27f82b4bc1919088b1",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-fourteenth10-01-gpt61sol-v1.json", "b4adb5af9e67ed6e471db1b1d95bed54b689b51ae91d7ae6906e3f15bc4c49b2", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fourteenth10-02-gpt61sol-v1.json", "b7a03768bd6510c60aba4540d27b8036f397299a48b4ae9f385ac06613359e6d", "cf4d0f507764d4e8868ee9aac052048b9fa892084a8c82b43beb0e647a7b68b4"],
+      ["p09-r4-099980-fourteenth10-03-gpt61sol-v1.json", "993b418d959bcf72aa1c3ad1fe819d07ddd2a218b0e2fdfeac17c9383a0b86cc", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-fourteenth10-04-gpt61sol-v1.json", "5511613b8f5696bbe2ce4f7db0a756b31b467f1bdb77dfac61761093163f13b3", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fourteenth10-05-gpt61sol-v1.json", "2e8b3a82ce252d8c1f35420dd05ac405d0f7ed168251c72b339b9f5859726634", "cf4d0f507764d4e8868ee9aac052048b9fa892084a8c82b43beb0e647a7b68b4"],
+      ["p09-r4-099980-fourteenth10-06-gpt61sol-v1.json", "d65c5cd7594e448b8239ed46e6447067e0c4fabbfaf89229dc4dd48130a871c4", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fourteenth10-07-gpt61sol-v1.json", "45e218482dbe5b1d270e85e184c4aa68643beb1c32ac9b7f6fe5a30e7a108d67", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fourteenth10-08-gpt61sol-v1.json", "e00f67a7a94b851d758d5eaed2be70f439fd52fcbe48ecc26dc3da6f130a21b1", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fourteenth10-09-gpt61sol-v1.json", "5507506d66af2dd0d8562b5d1e4d559c31c7fed6ced5e6f33d6e9a60c5c31e03", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-fourteenth10-10-gpt61sol-v1.json", "41d678c09be700f6f5601dc541c204846958aaa3e8cfe9a8da4153fc58dd2682", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "multi_au_primary_evidence_spans_pairwise_non_overlapping": true,
+    "duplicate_guard_evidence": "r4 checkpoint/rebuild paths reject duplicate ownership; current registry read found one owner per frozen target.",
+    "qualification": "Mutable global registry was read only for ownership and not hash-locked."
+  },
+  "items": [
+    {"position": 1, "target_id": "at-cf6fca31c74537f0ecac83c6", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 56 illustrates agency plagiarism, intent and credibility findings about another candidate.", "scope_review": "The next paragraph's judicial confirmation is outside the target; this is neither applicant guilt nor a standalone current-court fraud test."},
+    {"position": 2, "target_id": "at-cfec9b9748dc2d026558f94e", "decision": "agree", "severity": "low", "outcome": "positive", "authority_unit_count": 2, "kinds": ["procedural_rule", "procedural_rule"], "attribution": "mixed_current_and_cited_court", "evidence": "Paragraph 110 separately requires Commission satisfaction, not mere reasonable grounds, for a post-investigation section 69 order and attributes the civil balance-of-probabilities candidate-fraud standard to a cited Court.", "scope_review": "Qualification: the two speakers and stages must remain distinct. The threshold AU concerns an order following investigation; the proof AU concerns an investigator determining candidate fraud. Their primary spans are disjoint."},
+    {"position": 3, "target_id": "at-d13565be34b60a161deff6f7", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 9 identifies allegations outside this application and explains how the investigation began.", "scope_review": "It adjudicates neither the other persons' allegations nor any immunity for this applicant."},
+    {"position": 4, "target_id": "at-d3a8f76f09003c1f2e1b21e0", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "procedural_rule", "attribution": "current_court", "evidence": "Paragraph 24 states Rule 303(3) substitution on Attorney General motion when the Court is satisfied of inability or unwillingness after naming under Rule 303(2).", "scope_review": "Qualification: substitution is permissive and conditional, not automatic. The no-motion fact in this case is separate from the rule."},
+    {"position": 5, "target_id": "at-d539ff9328a73bb8ffbb82cd", "decision": "agree", "severity": "low", "outcome": "positive", "authority_unit_count": 2, "kinds": ["procedural_rule", "statutory_hook"], "attribution": "current_court", "evidence": "Paragraph 108 separately states notice/relevant-document access for a summoned interviewee and, if applicable, ability to invoke Canada Evidence Act section 5 protection.", "scope_review": "Qualification: relevant-document, summoned-person and if-applicable limits are essential. The Charter section 13 statement is tentative (`no longer seems really necessary`) and creates no blanket right to refuse questions. The primary spans are adjacent and non-overlapping."},
+    {"position": 6, "target_id": "at-da684466af6b7841e1098b51", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "holding", "attribution": "current_court", "evidence": "Paragraph 93 declines a definitive jurisdiction/reasonableness opinion and refuses to base allowance on that contentious issue.", "scope_review": "Qualification: the preceding inclination to agree with the applicant is not a final lack-of-jurisdiction holding. Procedural fairness, not jurisdiction merits, is determinative here."},
+    {"position": 7, "target_id": "at-dc72e90c34d89d936cac1c43", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "statutory_hook", "attribution": "current_court", "evidence": "Paragraph 103 states subsection 70(2)'s informal/expeditious procedure and retained Part II Inquiries Act commissioner powers.", "scope_review": "Qualification: procedural flexibility and broad inquiry powers do not exempt the Commission from fairness obligations discussed in the surrounding analysis."},
+    {"position": 8, "target_id": "at-dc744de9dbcd9a3cc38eb32e", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "holding", "attribution": "current_court", "evidence": "Paragraph 169 identifies as determinative the final report approval without applicant comment on final fraud conclusions and analysis.", "scope_review": "Qualification: this is an alleged-fraud, case-specific omission. It does not announce that every administrative draft in every process must be disclosed."},
+    {"position": 9, "target_id": "at-dd5c27c6731b40e09175035c", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "statutory_hook", "attribution": "current_court", "evidence": "Paragraph 98 says section 72 legislatively recognizes submissions when a person's appointment or proposed appointment is at issue.", "scope_review": "Qualification: the appointment-at-issue condition is indispensable. The provision is not stated as a general submissions entitlement for every investigation or third-party sanction."},
+    {"position": 10, "target_id": "at-ddda333f10704998d2b8ac59", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "procedural_history_only", "evidence": "Paragraph 158 recounts a revised factual-report comment request, deadline and perceived transition to analysis/conclusions.", "scope_review": "It establishes neither a generally lawful deadline nor that factual-report comments cured nondisclosure of final analysis."}
+  ],
+  "boundaries": {"semantic_gold": false, "model_silver": true, "r5_pass": false, "plan10_allowed": false, "note": "Only frozen fourteenth10 decisions are accepted; mutable overall progress is outside scope."}
+}

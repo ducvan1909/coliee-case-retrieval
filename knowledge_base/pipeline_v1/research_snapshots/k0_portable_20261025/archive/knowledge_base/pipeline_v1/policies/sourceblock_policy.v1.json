@@ -1,0 +1,52 @@
+{
+  "policy_version": "sourceblock-policy-v1",
+  "parser_version": "sourceblock-rules-v1.3",
+  "schema_version": "source-block-v1",
+  "offset_unit": "unicode_codepoint",
+  "span_interval": "half_open",
+  "coverage_policy": "leaf blocks partition decoded source exactly; separator whitespace attaches to the preceding block, except leading/all-whitespace source becomes a whitespace block",
+  "paragraph_marker": {
+    "pattern": "line-start bracketed integer with 1-3 digits",
+    "bracket_year_range_excluded": [1800, 2099],
+    "sequence_continuity_required": false
+  },
+  "heading_candidate": {
+    "semantic_labeling": false,
+    "max_chars": 120,
+    "max_words": 15,
+    "uppercase_ratio": 0.9,
+    "terminal_sentence_punctuation_rejected": true
+  },
+  "long_block_review_chars": 5000,
+  "block_types": [
+    "numbered_paragraph",
+    "unnumbered_paragraph",
+    "independent_line",
+    "list_item",
+    "quotation_block",
+    "footnote",
+    "table_or_form",
+    "editorial",
+    "heading_candidate",
+    "whitespace",
+    "unknown"
+  ],
+  "nested_span_types": [
+    "citation_year",
+    "citation_candidate",
+    "list_marker",
+    "quotation_candidate"
+  ],
+  "relations_materialized": [],
+  "adjacency": "derived from order; no edge storage",
+  "forbidden_outputs": [
+    "SentenceAtom",
+    "AnalysisRegion",
+    "LegalUnit",
+    "AuthorityUnit",
+    "Issue",
+    "retrieval",
+    "LLM"
+  ]
+}
+

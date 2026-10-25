@@ -1,0 +1,57 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-6.1-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {"batch_id": "p09-r4-099980-final7-sol-v1", "case_id": "099980", "target_count": 7, "outside_batch_reviewed": false, "canonical_state_modified": false, "global_progress_or_r4_manifest_hash_locked": false, "r4_coverage_artifact_hash_locked": true},
+  "verdict": "pass_with_qualifications",
+  "summary": {"agree": 7, "disagree": 0, "insufficient": 0, "severity_counts": {"none": 4, "low": 3, "moderate": 0, "high": 0, "severe": 0}, "accepted_authority_units": 5, "accepted_hard_negatives": 4, "accepted_unresolved": 0, "required_canonical_changes": 0, "severe_findings": []},
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-final7-sol-v1.json",
+    "frozen_batch_sha256": "346f17e0d97eed5f93fb1ea4a3c750b49549ce9b62a13c00e07107e78c511eb2",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "coverage_ref": "outputs/plan09_au_gold_v1/r4_coverage_completion.json",
+    "coverage_sha256": "43589294d6b273aa777f1be49f364fda51aab1555462155cc3d4031c61b2868a",
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-final7-01-gpt61sol-v1.json", "e48ea521c27e3de64a230b07f3780a12983454a5013e66eefa741f24deb94ef9", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-final7-02-gpt61sol-v1.json", "8e263b7bb90a98e1bdd04adaa525c50937805f96de10adb0cf34fac31d0444ec", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-final7-03-gpt61sol-v1.json", "616ff5cccc78d0d23100ed6c773ff1fad80052f5ffa71de07885ed93db7a6729", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-final7-04-gpt61sol-v1.json", "f6886f8563a8c26258b4acc669562d0b9795ed7c741361dea6d14f65fb0608ce", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-final7-05-gpt61sol-v1.json", "916cd28bc2caed6751f4b4d6e42d1077e7eca72bbefac5e46d0147121a9770f6", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-final7-06-gpt61sol-v1.json", "60dcd9b256a0b8920bf9f9ae1a0fd7bbc3092eae5943132ca7dac22b478c1b82", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-final7-07-gpt61sol-v1.json", "114719541d990fa3371601a314700706c428238b3e92d9678b36b331dfeba061", "903964f2b8a6da32dd144614d70a94ae236f63c0c83ee9a5d9b8e9617b78be38"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "multi_au_primary_evidence_spans_pairwise_non_overlapping": true,
+    "final7_exactly_equals_before_progress_missing_ids": true,
+    "coverage_transition": {"before_reviewed": 362, "before_missing": 7, "after_reviewed": 369, "after_missing": 0},
+    "coverage_expected_equals_reviewed": true,
+    "coverage_expected_target_count": 369,
+    "coverage_reviewed_target_count": 369,
+    "coverage_canonical_duplicate_target_count": 0,
+    "coverage_exact_expected_case_target_set_verified": true,
+    "coverage_all_cases_complete": true,
+    "qualification": "R4 coverage artifact is hash-locked for this audit; mutable global progress and manifest are not. Coverage completion includes unresolved model reviews and is not R5 semantic acceptance."
+  },
+  "items": [
+    {"position": 1, "target_id": "at-ee2e12aeef17269d91410e7e", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "procedural_rule", "attribution": "cited_court", "evidence": "Paragraph 100 attributes greater procedural protection under former PSEA subsections 6(2)/(3) to a cited Court.", "scope_review": "Qualification: the former scheme was similar to current sections 66/67 but differently worded. This does not create a universal hearing entitlement for section 69 fraud investigations."},
+    {"position": 2, "target_id": "at-f71923e1a0ac847eaf65fdcc", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "editorial", "evidence": "Paragraph 198 praises individual counsel and directs criticism to the institutional client.", "scope_review": "It creates no legal immunity, counsel-liability standard or general client-instruction rule."},
+    {"position": 3, "target_id": "at-f84bcbf2e61c72f291935ac4", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "procedural_history_only", "evidence": "Paragraph 18 records another Commission decision, report and order that did not personally affect this applicant.", "scope_review": "The procedural history is not current-court validation of that order or a fraud/sanction rule."},
+    {"position": 4, "target_id": "at-f9b94a5e5fb3e05554f4c167", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "party_argument_only", "evidence": "Paragraph 30 presents the applicant's notice, evidence, fairness and jurisdiction arguments, including an explicit if-the-Court-accepts condition.", "scope_review": "No proposition is adopted within this target; later court conclusions must not be imported backward."},
+    {"position": 5, "target_id": "at-f9be712086516d8fe612b889", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "statutory_hook", "attribution": "commission_correspondence", "evidence": "The investigator's June 10 letter describes regulation 19 discretion to disclose investigation personal information, a public-interest/privacy balance and consultation if disclosure is contemplated.", "scope_review": "Qualification: the speaker is Commission correspondence, not the current court. Disclosure is discretionary; balancing and contemplated-disclosure conditions are essential. The passage proves neither actual publication nor a court fraud finding."},
+    {"position": 6, "target_id": "at-fefd2e4233313a501663cb35", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "procedural_history_only", "evidence": "Paragraph 140 records factual-report transmittal and expressly declines to determine whether the candidate's mother should have been contacted.", "scope_review": "It supplies no universal duty or no-duty to interview relatives and no final relevance ruling."},
+    {"position": 7, "target_id": "at-ffb5c4acb13eda43b742abd3", "decision": "agree", "severity": "low", "outcome": "positive", "authority_unit_count": 3, "kinds": ["statutory_hook", "statutory_hook", "statutory_hook"], "attribution": "current_court", "evidence": "Paragraph 82 separately assigns PSDPA duties to the responsible Minister, Treasury Board and chief executives.", "scope_review": "Qualification: actor and scope must remain distinct: Minister encourages a disclosure-conducive environment; Treasury Board creates the sector-wide code; each chief executive creates a consistent code for its responsible portion. The three primary spans are adjacent and pairwise non-overlapping."}
+  ],
+  "boundaries": {"semantic_gold": false, "model_silver": true, "r4_coverage_complete": true, "r5_pass": false, "plan10_allowed": false, "note": "Final7 closes mechanical R4 coverage only. Independent R5 final audit remains required."}
+}

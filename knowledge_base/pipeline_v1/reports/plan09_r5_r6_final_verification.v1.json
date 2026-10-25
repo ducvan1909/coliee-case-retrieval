@@ -1,0 +1,58 @@
+{
+  "artifact_type": "Plan09R5R6FinalVerification",
+  "revision": 1,
+  "date": "2026-10-06",
+  "status": "PASS",
+  "counts": {
+    "reviewed_target_count": 369,
+    "missing_target_count": 0,
+    "authority_unit_count": 188,
+    "hard_negative_count": 186,
+    "unresolved_target_count": 8,
+    "canonical_duplicate_target_count": 0
+  },
+  "coverage_hashes_verified": 417,
+  "legacy_missing_sidecars_disclosed": 17,
+  "focused_tests": {
+    "run": 15,
+    "passed": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 87.174
+  },
+  "full_plan09_tests": {
+    "run": 89,
+    "passed": 89,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 463.329
+  },
+  "artifact_bindings": [
+    {
+      "ref": "outputs/plan09_au_gold_v1/r5_acceptance.v1.json",
+      "sha256": "6de0f4124593c65976b28e805288691fa5bc391bbd9411f17ea5ee098c8cc6d1"
+    },
+    {
+      "ref": "outputs/plan09_au_gold_v1/r6_use_decision.v1.json",
+      "sha256": "b0d1a4446e4692bc789536541a4d158f76f0a1f820aa1e7a76f9d0a230d8c878"
+    },
+    {
+      "ref": "reports/plan09_model_silver_progress.r5_r6.v2.json",
+      "sha256": "b8914d5b2dda5a063ede9af88b96055ab390b5d662d3369afbae3e07f5fae160"
+    },
+    {
+      "ref": "reports/plan09_r5_coordinator_tests.v1.json",
+      "sha256": "9b990aec659096ff789e81cfebde66f22593c1515a332f3f16102ef2c94d4b03"
+    }
+  ],
+  "git_diff_check": "PASS",
+  "plan10_allowed": true,
+  "plan10_allowed_scope": "baseline_development_only",
+  "plan10_execution_authorized": false,
+  "plan10_executed": false,
+  "evaluation_against": "model_silver",
+  "semantic_gold": false,
+  "human_gold": false
+}

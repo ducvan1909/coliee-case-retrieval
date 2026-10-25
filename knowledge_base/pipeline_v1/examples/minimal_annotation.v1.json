@@ -1,0 +1,94 @@
+{
+  "schema_version": "p2-annotation-v1",
+  "case_id": "013009",
+  "source_sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+  "source_blocks": [
+    {
+      "block_id": "sb-013009-0000",
+      "span": {
+        "case_id": "013009",
+        "source_sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+        "start_char": 100,
+        "end_char": 240
+      },
+      "ordinal": 0,
+      "block_type": "paragraph",
+      "annotation_status": "candidate",
+      "marker_text": null,
+      "errors": {
+        "false_heading_candidate": false,
+        "marker_confusion": false,
+        "quote_or_list_continuation": false,
+        "protected_span_split": false,
+        "notes": []
+      }
+    }
+  ],
+  "authority_units": [
+    {
+      "au_id": "au-013009-0000",
+      "proposition_span": {
+        "case_id": "013009",
+        "source_sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+        "start_char": 120,
+        "end_char": 180
+      },
+      "evidence_spans": [
+        {
+          "case_id": "013009",
+          "source_sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+          "start_char": 120,
+          "end_char": 220
+        }
+      ],
+      "kind": "rule",
+      "attributions": [
+        {
+          "evidence_span": {
+            "case_id": "013009",
+            "source_sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+            "start_char": 120,
+            "end_char": 180
+          },
+          "role": "authority",
+          "speaker": "cited_authority",
+          "status": "needs_adjudication",
+          "notes": "Fixture cấu trúc, không phải nhãn thật."
+        }
+      ],
+      "condition_spans": [
+        {
+          "case_id": "013009",
+          "source_sha256": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+          "start_char": 180,
+          "end_char": 220
+        }
+      ],
+      "exception_spans": [],
+      "limit_spans": [],
+      "annotation_status": "needs_adjudication",
+      "duplicate_of": null,
+      "context_obligation_ids": ["co-013009-0000"],
+      "notes": ["Fixture schema only; offsets are not adjudicated labels."]
+    }
+  ],
+  "context_obligations": [
+    {
+      "obligation_id": "co-013009-0000",
+      "target_kind": "authority_unit",
+      "target_id": "au-013009-0000",
+      "obligation_type": "current_court_response",
+      "requested_context": {
+        "direction": "after",
+        "max_blocks": 2
+      },
+      "reason": "Cần witness riêng cho phản hồi của tòa hiện tại.",
+      "producer": "human_annotation_fixture",
+      "run_id": "plan01-fixture",
+      "status": "pending",
+      "resolution_spans": []
+    }
+  ],
+  "annotator_notes": ["Không dùng fixture này như gold semantic."]
+}
+

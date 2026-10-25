@@ -1,0 +1,63 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-6.1-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {"batch_id": "p09-r4-099980-eleventh10-sol-v1", "case_id": "099980", "target_count": 10, "outside_batch_reviewed": false, "canonical_state_modified": false, "global_progress_or_r4_manifest_hash_locked": false},
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 6, "low": 4, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 3,
+    "accepted_hard_negatives": 6,
+    "accepted_unresolved": 1,
+    "required_canonical_changes": 0,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-eleventh10-sol-v1.json",
+    "frozen_batch_sha256": "03cee1d416041c6a4a047ccb866ecb64dd43d3455209e2f9efa5d05877f8d1f8",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-eleventh10-01-gpt61sol-v1.json", "3bc0bbc9dddfbc3698a6a7cb047e598a888efe4f48117a142c159c8b1ac8bc59", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-eleventh10-02-gpt61sol-v1.json", "2a8467895d1cb773e13d1ab585aa043e64d51af7e2f77f54f91ac7eee07648cf", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-eleventh10-03-gpt61sol-v1.json", "ad68bdb90c2f809831c2199b12108c7dcf2af2e6cd6e74ee49a8cbbe03cde312", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-eleventh10-04-gpt61sol-v1.json", "f581cb7b31c5fd85947f4525c6a849f22d9eee211ca3b095e71fa6afd9cf450c", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-eleventh10-05-gpt61sol-v1.json", "6e30b253ee6dfe1f55b977ab9d840501c1602cd5a54efcc2e394437dcaa80432", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-eleventh10-06-gpt61sol-v1.json", "c0416fc1ee959bcf032014fd7eea6fbabe9e3db34107e76c7d80f1edd8036ed8", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-eleventh10-07-gpt61sol-v1.json", "c5746975a86953c8df81fbdb3369a23237b8bd1df83b99d8abeb6525f7b20528", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-eleventh10-08-gpt61sol-v1.json", "3399bc5145fc7ace09211553ee83d13968f8dfc4df0be9321285787ce8f0ef1d", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"],
+      ["p09-r4-099980-eleventh10-09-gpt61sol-v1.json", "e9b183cdf8febc8cfe33c63757de77214a4f116a889c03213b81ba5340fdb878", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-eleventh10-10-gpt61sol-v1.json", "a594c99947c70ad6f835cb74de1471cca335a1fb08ca334af24efb209d3579bb", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "duplicate_guard_evidence": "r4 checkpoint/rebuild paths reject duplicate ownership; current registry read found one owner per frozen target.",
+    "qualification": "Mutable global registry was read only for ownership and not hash-locked."
+  },
+  "items": [
+    {"position": 1, "target_id": "at-9da27af39832dc60e64122b4", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 32 presents the applicant's contested-fraud and no-practical-effect explanation in the argument sequence.", "scope_review": "It does not establish a court rule that fraud always requires an actual appointment effect; the next standard-of-review heading is excluded."},
+    {"position": 2, "target_id": "at-a41b1c3147bae9ad5c1f0e11", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "holding", "attribution": "current_court", "evidence": "Paragraph 183 says the Court decided, in the interests of justice, not to provide a final ruling on jurisdiction or reasonableness; paragraph 184 confirms no declaration would issue.", "scope_review": "Qualification: this is a reservation/non-decision holding for this dispute. Strong doubts are not a lack-of-jurisdiction holding, and the passage creates no universal bar on deciding those issues."},
+    {"position": 3, "target_id": "at-a7039ffbcf81acfdf39a03bc", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "editorial", "evidence": "Paragraph 50 quotes Rousseau's philosophical distinctions among forms of lying.", "scope_review": "The rhetoric is neither the PSEA definition nor an adopted court elements test for fraud."},
+    {"position": 4, "target_id": "at-a717d9e338c80464e87d585c", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 11 recounts DNR non-participation, PWGSC participation and employer submissions/support.", "scope_review": "The history creates no universal employer participation right or entitlement to receive reports."},
+    {"position": 5, "target_id": "at-a8d96590034d4f26937d6ac4", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "statutory_hook", "attribution": "current_court", "evidence": "Paragraph 1 states that PSEA-governed internal and external federal-public-service appointments rest on merit and non-partisanship.", "scope_review": "Qualification: the AU correctly stops before the separate private/public-sector honesty expectation. It is a PSEA staffing-values proposition, not a generalized fraud test or automatic finding."},
+    {"position": 6, "target_id": "at-aa407c31bddfef792959ec7e", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "fact_only", "evidence": "Paragraph 14 describes the written reference's quality, true authorship and corroborating e-mails.", "scope_review": "These evidentiary facts are not a current-court guilt holding or reusable fraud test."},
+    {"position": 7, "target_id": "at-aad011c3eeb3d5201e016a63", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "party_argument_only", "evidence": "Paragraph 168 expressly reports what the respondent emphasized in its memorandum about two comment opportunities.", "scope_review": "The court does not adopt those opportunities as satisfying fairness; paragraph 169 immediately identifies the omitted final-analysis opportunity."},
+    {"position": 8, "target_id": "at-affded0df7852c0f341cd3b6", "decision": "agree", "severity": "low", "outcome": "unresolved", "evidence": "Paragraph 163 says the conduct can create a double-standard impression and that one may wonder about reasonable apprehension of bias; paragraph 186 later refers to apprehensions one may have as a remedy factor.", "scope_review": "Qualification: the language is deliberately tentative and provides no complete bias threshold or settled bias finding. Unresolved is preferable to forcing either a holding or fact-only hard negative."},
+    {"position": 9, "target_id": "at-b0d26b01c226af7bf286f860", "decision": "agree", "severity": "none", "outcome": "hard_negative", "reason": "procedural_history_only", "evidence": "Paragraph 175 narrates the corrective-action phase and anticipated agency inflexibility after its own fraud finding.", "scope_review": "It neither confirms guilt judicially nor creates a universal rule that later submissions can never cure a defect; paragraph 176 owns the case-specific cure assessment."},
+    {"position": 10, "target_id": "at-b16418abd94e0e3822932535", "decision": "agree", "severity": "low", "outcome": "positive", "kind": "statutory_hook", "attribution": "current_court", "evidence": "Paragraph 81 allocates PSDPA disclosure/reprisal matters to the Public Sector Integrity Commissioner and protected-disclosure reprisal complaints to the Tribunal.", "scope_review": "Qualification: this describes the PSDPA framework only. It cannot be transferred to the PSEA Commission or treated as establishing a remedy available to this applicant."}
+  ],
+  "boundaries": {"semantic_gold": false, "model_silver": true, "r5_pass": false, "plan10_allowed": false, "note": "Only frozen eleventh10 decisions are accepted; mutable overall progress is outside scope."}
+}

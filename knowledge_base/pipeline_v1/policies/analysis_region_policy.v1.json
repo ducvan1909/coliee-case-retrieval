@@ -1,0 +1,31 @@
+{
+  "policy_version": "analysis-region-policy-v1.6",
+  "scheduler_version": "p2-offline-scheduler-v1.6",
+  "schema_version": "analysis-workload-map-v1",
+  "content_eligibility": {
+    "eligible_block_types": ["numbered_paragraph", "unnumbered_paragraph", "independent_line", "list_item", "quotation_block", "footnote", "table_or_form", "unknown"],
+    "excluded_roles": {
+      "heading_candidate": "structural_context_candidate_only",
+      "editorial": "audit_only_editorial",
+      "whitespace": "source_access_only"
+    }
+  },
+  "slice": {"max_chars": 2000, "boundary_source": "SentenceAtom", "cover": "SourceBlock.content_span", "oversized_atom_action": "preserve_with_stop_reason"},
+  "batch": {"max_target_items": 4, "max_target_chars": 6000, "max_requests_per_case": 1000, "grouping": "source_proximity"},
+  "region": {
+    "max_unique_source_chars": 9000,
+    "max_context_spans": 4,
+    "max_context_chars": 3000,
+    "local_neighbor_blocks_each_side": 1,
+    "context_priority": ["accepted_structural_relation", "context_hint", "local_neighbor"],
+    "allowed_structural_relation_types": ["continuation"],
+    "allowed_structural_relation_statuses": ["observed"],
+    "allowed_hint_statuses": ["accepted_by_contract", "candidate", "unresolved"]
+  },
+  "request_caps": {"max_input_tokens": 2500, "max_output_tokens": 1200, "max_au_candidates": 32, "max_context_expansions": 0, "max_repairs": 0},
+  "token_estimator": {"estimator_id": "utf8-char-ceil-v1", "chars_per_token": 4, "quality_claim": "pilot estimate only; not provider tokenization"},
+  "arms": ["P2a", "P2b"],
+  "pilot_assumption": "Caps are conservative KOS-5 pilot values and are not proven optimal. Coverage outranks caps; targets are preserved with stop reasons.",
+  "forbidden_skip_signals": ["citation", "marker", "AU cue", "NER", "rhetorical role", "topic"],
+  "forbidden_outputs": ["ContextObligation", "CoverageLedger", "AuthorityUnit", "Issue", "NoticeNeed", "retrieval", "LLM"]
+}

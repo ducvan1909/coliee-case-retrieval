@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "model_requests_planned": 10,
+  "reserved_input_and_output_tokens": 24613,
+  "inference": 0
+}

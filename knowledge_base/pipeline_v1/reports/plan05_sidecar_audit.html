@@ -1,0 +1,1049 @@
+<!doctype html><meta charset='utf-8'><title>Plan 05 sidecar audit</title>
+<style>body{font:14px system-ui;max-width:1200px;margin:auto}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:4px}code{white-space:pre-wrap}</style>
+<h1>Plan 05 sidecar audit</h1><p>Previews are runtime exact-source views, not materialized artifact text.</p>
+<h2>013009</h2><table><tr><th>worker</th><th>type</th><th>status</th><th>span</th><th>preview</th></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[1,22)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[464,467)</td><td><code>[1]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[692,695)</td><td><code>[2]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1036,1039)</td><td><code>[3]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1206,1209)</td><td><code>[4]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[1211,1217)</td><td><code>I find</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[1346,1409)</td><td><code>&quot;FAMILY OR PERSONAL TIES THAT WOULD CREATE HARDSHIP IF SEVERED&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[1346,1409)</td><td><code>&quot;FAMILY OR PERSONAL TIES THAT WOULD CREATE HARDSHIP IF SEVERED&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[1859,1926)</td><td><code>&quot;unable to endure the pain of separation and the sense of security&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[1859,1926)</td><td><code>&quot;unable to endure the pain of separation and the sense of security&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[2385,2388)</td><td><code>[5]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4217,4220)</td><td><code>[6]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[4577,4702)</td><td><code>&quot;the most recent submissions provided are silent with regard to the applicant&#x27;s relationship with his brother and his family&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[4577,4702)</td><td><code>&quot;the most recent submissions provided are silent with regard to the applicant&#x27;s relationship with his brother and his family&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4870,4873)</td><td><code>[7]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[5678,5681)</td><td><code>[8]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[6186,6296)</td><td><code>&quot;now being considered for promotion to the position of Production Manager for our Automatic Bagel Line Plant.&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[6186,6296)</td><td><code>&quot;now being considered for promotion to the position of Production Manager for our Automatic Bagel Line Plant.&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[6327,6344)</td><td><code>&quot;progressed well&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[6327,6344)</td><td><code>&quot;progressed well&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6385,6388)</td><td><code>[9]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[6448,6520)</td><td><code>&quot;outgoing individual who does his work in a steady and reliable manner,&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[6448,6520)</td><td><code>&quot;outgoing individual who does his work in a steady and reliable manner,&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[6535,6573)</td><td><code>&quot;integral part of our production team&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[6535,6573)</td><td><code>&quot;integral part of our production team&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[6598,6677)</td><td><code>&quot;continually impressed by his abilities as well as his work habits and ethics.&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[6598,6677)</td><td><code>&quot;continually impressed by his abilities as well as his work habits and ethics.&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[6703,6728)</td><td><code>&quot;an asset to our company&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[6703,6728)</td><td><code>&quot;an asset to our company&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7231,7235)</td><td><code>[10]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7260,7425)</td><td><code>&quot;[t] he applicant has provided letters and petitions from his friends, co-workers and church associates attesting to his value and the high regard of his commun</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7260,7425)</td><td><code>&quot;[t] he applicant has provided letters and petitions from his friends, co-workers and church associates attesting to his value and the high regard of his commun</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7454,7600)</td><td><code>&quot;I note that these documents do not indicate that the signers of these letters are aware of the applicant&#x27;s current charges for impaired driving.&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7454,7600)</td><td><code>&quot;I note that these documents do not indicate that the signers of these letters are aware of the applicant&#x27;s current charges for impaired driving.&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7602,7606)</td><td><code>[11]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7964,7968)</td><td><code>[12]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8138,8159)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[8164,8172)</td><td><code>para. 50</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8457,8478)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[8516,8523)</td><td><code>para.11</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8527,8548)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8587,8608)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8646,8667)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[8695,8699)</td><td><code>[14]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8700,8721)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[8795,8816)</td><td><code>the applicant submits</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8848,8869)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8908,8929)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[9161,9182)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[9291,9312)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[9318,9327)</td><td><code>paras. 15</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[10547,10551)</td><td><code>[15]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[10798,10819)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[11268,11272)</td><td><code>[16]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[11649,11656)</td><td><code>para. 8</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[11660,11681)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[12192,12221)</td><td><code>&quot;good members of the society&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[12192,12221)</td><td><code>&quot;good members of the society&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12224,12228)</td><td><code>[17]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[12230,12236)</td><td><code>I find</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12407,12411)</td><td><code>[18]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12477,12481)</td><td><code>[19]</code></td></tr>
+</table>
+<h2>013948</h2><table><tr><th>worker</th><th>type</th><th>status</th><th>span</th><th>preview</th></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14,17)</td><td><code>[1]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[199,220)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>reporter_citation</td><td>candidate</td><td>[223,237)</td><td><code>230 F.T.R. 110</code></td></tr>
+<tr><td>citation_reference_rule</td><td>neutral_citation</td><td>candidate</td><td>[239,250)</td><td><code>2003 FCT 45</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[277,298)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>reporter_citation</td><td>candidate</td><td>[301,313)</td><td><code>72 F.T.R. 49</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[328,331)</td><td><code>[2]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[641,661)</td><td><code>&quot;Convention refugee&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[641,661)</td><td><code>&quot;Convention refugee&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[792,795)</td><td><code>[3]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1045,1048)</td><td><code>[4]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1314,1317)</td><td><code>[5]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1581,1584)</td><td><code>[6]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1880,1883)</td><td><code>[7]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1980,1983)</td><td><code>[8]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[2160,2163)</td><td><code>[9]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[2184,2203)</td><td><code>the Board concluded</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[2232,2252)</td><td><code>&quot;Convention refugee&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[2232,2252)</td><td><code>&quot;Convention refugee&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[3075,3079)</td><td><code>[10]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[3500,3504)</td><td><code>[11]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[3880,3884)</td><td><code>[12]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4016,4020)</td><td><code>[13]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4124,4128)</td><td><code>[14]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4511,4515)</td><td><code>[15]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4934,4938)</td><td><code>[16]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[5078,5301)</td><td><code>&quot;(3) Refugee protection may not result from an application for protection if the person\r\n. . . . .\r\n(c) made a claim to refugee protection that was rejected</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[5078,5301)</td><td><code>&quot;(3) Refugee protection may not result from an application for protection if the person\r\n. . . . .\r\n(c) made a claim to refugee protection that was rejected</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[5178,5181)</td><td><code>(c)</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[5303,5307)</td><td><code>[17]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[5539,5543)</td><td><code>[18]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[5860,5864)</td><td><code>[19]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[5918,5921)</td><td><code>(1)</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[6068,6071)</td><td><code>(2)</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6216,6220)</td><td><code>[20]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[6370,6391)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[6424,6445)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[6455,6476)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[6488,6491)</td><td><code>(1)</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6635,6639)</td><td><code>[21]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6868,6872)</td><td><code>[22]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7218,7222)</td><td><code>[23]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7569,7573)</td><td><code>[24]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7858,7862)</td><td><code>[25]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7922,7969)</td><td><code>&quot;Applicant not described in s. 97 of the Act\r\n&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7922,7969)</td><td><code>&quot;Applicant not described in s. 97 of the Act\r\n&quot;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[7950,7955)</td><td><code>s. 97</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[8144,8147)</td><td><code>(a)</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[8270,8273)</td><td><code>(b)</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[8302,8305)</td><td><code>&quot;\r\n</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[8302,8305)</td><td><code>&quot;\r\n</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[8305,8309)</td><td><code>[26]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[8517,8521)</td><td><code>[27]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[8683,8687)</td><td><code>[28]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[8985,9915)</td><td><code>&quot;The PRRA officer must follow the following process:\r\n- Should the risk assessment be negative, the PRRA officer will make the final decision to reject the ap</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[8985,9915)</td><td><code>&quot;The PRRA officer must follow the following process:\r\n- Should the risk assessment be negative, the PRRA officer will make the final decision to reject the ap</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[9039,9040)</td><td><code>-</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[9170,9171)</td><td><code>-</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[9917,9921)</td><td><code>[29]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[10237,10241)</td><td><code>[30]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[10619,10623)</td><td><code>[31]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[10962,10966)</td><td><code>[32]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[11175,11179)</td><td><code>[33]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[11277,11359)</td><td><code>&quot;did not explain why he is wanted or why he is subject to mistreatment in the DRC&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[11277,11359)</td><td><code>&quot;did not explain why he is wanted or why he is subject to mistreatment in the DRC&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[11454,11458)</td><td><code>[34]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[11947,11951)</td><td><code>[35]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12086,12090)</td><td><code>[36]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[12235,12242)</td><td><code>&quot;could&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[12235,12242)</td><td><code>&quot;could&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[12362,12383)</td><td><code>&quot;Convention refugees&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[12362,12383)</td><td><code>&quot;Convention refugees&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12476,12480)</td><td><code>[37]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[12717,12747)</td><td><code>&quot;person in need of protection&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[12717,12747)</td><td><code>&quot;person in need of protection&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12757,12761)</td><td><code>[38]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[12813,12832)</td><td><code>the Board concluded</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[13026,13030)</td><td><code>[39]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[13166,13186)</td><td><code>&quot;Convention refugee&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[13166,13186)</td><td><code>&quot;Convention refugee&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[13198,13230)</td><td><code>&quot;a person in need of protection&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[13198,13230)</td><td><code>&quot;a person in need of protection&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[13233,13237)</td><td><code>[40]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[13311,13442)</td><td><code>&quot;It is implicit in this conclusion that the panel is of the opinion the applicant is in danger of being persecuted for this reason&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[13311,13442)</td><td><code>&quot;It is implicit in this conclusion that the panel is of the opinion the applicant is in danger of being persecuted for this reason&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[13780,13784)</td><td><code>[41]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14021,14025)</td><td><code>[42]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14267,14271)</td><td><code>[43]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14500,14521)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>neutral_citation</td><td>candidate</td><td>[14524,14536)</td><td><code>2005 FC 1647</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14557,14561)</td><td><code>[44]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14709,14713)</td><td><code>[45]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14920,14924)</td><td><code>[46]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15222,15226)</td><td><code>[47]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15429,15433)</td><td><code>[48]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[15574,15714)</td><td><code>&quot;In his PRRA application, the applicant did not specify how or why he is subject to a risk in the DRC and did not refer to the IRB decision&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[15574,15714)</td><td><code>&quot;In his PRRA application, the applicant did not specify how or why he is subject to a risk in the DRC and did not refer to the IRB decision&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15785,15789)</td><td><code>[49]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[16129,16133)</td><td><code>[50]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[16329,16333)</td><td><code>[51]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[16565,16569)</td><td><code>[52]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[16985,16989)</td><td><code>[53]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[17351,17355)</td><td><code>[54]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[17741,17745)</td><td><code>[55]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[17892,17896)</td><td><code>[56]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[18170,18174)</td><td><code>[57]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[18408,18412)</td><td><code>[58]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[18636,18640)</td><td><code>[59]</code></td></tr>
+</table>
+<h2>011904</h2><table><tr><th>worker</th><th>type</th><th>status</th><th>span</th><th>preview</th></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[1,22)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[452,455)</td><td><code>[1]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[757,777)</td><td><code>the Board determined</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[867,898)</td><td><code>&quot;persons in need of protection&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[867,898)</td><td><code>&quot;persons in need of protection&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[936,939)</td><td><code>[2]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1403,1406)</td><td><code>[3]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1854,1857)</td><td><code>[4]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[2075,2078)</td><td><code>[5]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[2425,2447)</td><td><code>&quot;clear and convincing&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[2425,2447)</td><td><code>&quot;clear and convincing&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[2513,2516)</td><td><code>[6]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[3230,3233)</td><td><code>[7]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[3958,3961)</td><td><code>[8]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[3964,3985)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[3987,3993)</td><td><code>[2005]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[4018,4026)</td><td><code>para. 11</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4331,4334)</td><td><code>[9]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[4413,4434)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[4930,4938)</td><td><code>para. 51</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[4954,4962)</td><td><code>para. 62</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[5394,5398)</td><td><code>[10]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[5565,5586)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[5644,5665)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[5670,5677)</td><td><code>para. 6</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[5787,6038)</td><td><code>&quot;the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] whether the decision falls within a r</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[5787,6038)</td><td><code>&quot;the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] whether the decision falls within a r</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[6041,6062)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[6075,6083)</td><td><code>para. 47</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6101,6105)</td><td><code>[11]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6318,6322)</td><td><code>[12]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[6551,6573)</td><td><code>The respondent submits</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6763,6767)</td><td><code>[13]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[6785,6820)</td><td><code>&quot;clear and convincing confirmation&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[6785,6820)</td><td><code>&quot;clear and convincing confirmation&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[6985,7006)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[7017,7025)</td><td><code>para. 50</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[7167,7188)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[7199,7206)</td><td><code>para. 5</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[7210,7231)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[7233,7239)</td><td><code>[2007]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[7264,7272)</td><td><code>para. 57</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7276,7280)</td><td><code>[14]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[7308,7329)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[7342,7350)</td><td><code>para. 54</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7390,7617)</td><td><code>&quot;[t] he presumption of state protection described in\r\nWard\r\n, therefore, applies equally to cases where an individual claims to fear persecution by non-stat</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7390,7617)</td><td><code>&quot;[t] he presumption of state protection described in\r\nWard\r\n, therefore, applies equally to cases where an individual claims to fear persecution by non-stat</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7773,7777)</td><td><code>[15]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[7924,7945)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8246,8267)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8307,8328)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[8341,8349)</td><td><code>para. 57</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[8352,8356)</td><td><code>[16]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[8761,8769)</td><td><code>para. 49</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8775,8796)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[8809,8817)</td><td><code>para. 18</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[9255,9281)</td><td><code>&quot;exceptional circumstance&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[9255,9281)</td><td><code>&quot;exceptional circumstance&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[9333,9337)</td><td><code>[17]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[9444,9465)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[9467,9473)</td><td><code>[2006]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[9498,9505)</td><td><code>para. 6</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[9546,9703)</td><td><code>&quot;Mexico is a functioning democracy, and a member of the NAFTA, with democratic institutions. Therefore, the presumption of state protection is a strong one.&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[9546,9703)</td><td><code>&quot;Mexico is a functioning democracy, and a member of the NAFTA, with democratic institutions. Therefore, the presumption of state protection is a strong one.&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[9716,9737)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[9739,9745)</td><td><code>[2007]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[9770,9778)</td><td><code>para. 14</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[9782,9803)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[9805,9811)</td><td><code>[2006]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[9836,9844)</td><td><code>para. 18</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[9912,9916)</td><td><code>[18]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[10058,10079)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[10081,10087)</td><td><code>[2007]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[10113,10121)</td><td><code>para. 28</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[10333,10337)</td><td><code>[19]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[10354,10375)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[10377,10383)</td><td><code>[2008]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[10408,10417)</td><td><code>paras. 20</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[10655,10675)</td><td><code>&quot;democracy spectrum&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[10655,10675)</td><td><code>&quot;democracy spectrum&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[10876,10897)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[10902,10911)</td><td><code>paras. 46</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[11273,11294)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[11375,11395)</td><td><code>&quot;democracy spectrum&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[11375,11395)</td><td><code>&quot;democracy spectrum&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[11681,11685)</td><td><code>[20]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[11687,11693)</td><td><code>I find</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12280,12301)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[12303,12309)</td><td><code>[2007]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[12335,12343)</td><td><code>para. 21</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12347,12368)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[12370,12376)</td><td><code>[2002]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[12402,12410)</td><td><code>para. 18</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12414,12418)</td><td><code>[21]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12609,12613)</td><td><code>[22]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[12707,12814)</td><td><code>&quot;seek counselling, legal advice, or assistance from human rights agencies if the police are unable to help&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[12707,12814)</td><td><code>&quot;seek counselling, legal advice, or assistance from human rights agencies if the police are unable to help&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12819,12840)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[12842,12848)</td><td><code>[2003]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[12873,12881)</td><td><code>para. 21</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12885,12906)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[12908,12914)</td><td><code>[2002]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[12936,12945)</td><td><code>paras. 23</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12952,12956)</td><td><code>[23]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13146,13167)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[13169,13175)</td><td><code>[2003]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[13200,13207)</td><td><code>para. 5</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13211,13232)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[13234,13240)</td><td><code>[2002]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13258,13279)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[13290,13298)</td><td><code>para. 29</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[13302,13306)</td><td><code>[24]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[13761,13765)</td><td><code>[25]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[14209,14348)</td><td><code>&quot;Mexico: Situation of Witness to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[14209,14348)</td><td><code>&quot;Mexico: Situation of Witness to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14352,14356)</td><td><code>[26]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14585,14606)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[14608,14614)</td><td><code>[2007]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[14640,14648)</td><td><code>para. 16</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14652,14673)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[14675,14681)</td><td><code>[2007]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[14706,14714)</td><td><code>para. 15</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14718,14739)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[14741,14747)</td><td><code>[2006]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[14772,14780)</td><td><code>para. 34</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14784,14805)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[14816,14824)</td><td><code>para. 15</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14828,14832)</td><td><code>[27]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15205,15209)</td><td><code>[28]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[15395,15416)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[15418,15424)</td><td><code>[2006]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[15450,15458)</td><td><code>para. 44</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[15462,15483)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[15485,15491)</td><td><code>[2004]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[15515,15522)</td><td><code>para. 9</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[15526,15547)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[15558,15566)</td><td><code>para. 15</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15570,15574)</td><td><code>[29]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[15643,15718)</td><td><code>&quot;Mexico: Domestic Violence and Other Issues Related to the Status of Women&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[15643,15718)</td><td><code>&quot;Mexico: Domestic Violence and Other Issues Related to the Status of Women&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[16417,16610)</td><td><code>&quot;existing shelters established for victims of violence are saturated and that the assistance that can be received is temporary and does not generally respond to</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[16417,16610)</td><td><code>&quot;existing shelters established for victims of violence are saturated and that the assistance that can be received is temporary and does not generally respond to</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[16734,16864)</td><td><code>&quot;despite the progress made in the legislative field, the existing legislation on spousal abuse has not yet had a decisive impact.&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[16734,16864)</td><td><code>&quot;despite the progress made in the legislative field, the existing legislation on spousal abuse has not yet had a decisive impact.&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[16866,16870)</td><td><code>[30]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[17550,17554)</td><td><code>[31]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[17581,17722)</td><td><code>&quot;Mexico: Situation of Witnesses to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[17581,17722)</td><td><code>&quot;Mexico: Situation of Witnesses to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[17794,17831)</td><td><code>&quot;Effectiveness of protection efforts&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[17794,17831)</td><td><code>&quot;Effectiveness of protection efforts&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[18310,18314)</td><td><code>[32]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[18409,18500)</td><td><code>&quot;Integration of the Human Rights of Women and a Gender Perspective: Violence Against Women&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[18409,18500)</td><td><code>&quot;Integration of the Human Rights of Women and a Gender Perspective: Violence Against Women&quot;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[19177,19185)</td><td><code>para. 63</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[19306,19321)</td><td><code>&quot;due diligence&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[19306,19321)</td><td><code>&quot;due diligence&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[19535,19539)</td><td><code>[33]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[20334,20338)</td><td><code>[34]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[20495,20499)</td><td><code>[35]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[20662,20666)</td><td><code>[36]</code></td></tr>
+</table>
+<h2>045155</h2><table><tr><th>worker</th><th>type</th><th>status</th><th>span</th><th>preview</th></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[2,23)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[26,47)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[56,77)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[85,106)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[139,160)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[177,183)</td><td><code>[2000]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[185,206)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[219,240)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[584,592)</td><td><code>&quot;Secret&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[584,592)</td><td><code>&quot;Secret&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[921,942)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[1063,1084)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[1396,1404)</td><td><code>&quot;Secret&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[1396,1404)</td><td><code>&quot;Secret&quot;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[1818,1823)</td><td><code>s. 27</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[2084,2105)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[2266,2287)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[3181,3202)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[3396,3417)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[3547,3568)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[3703,3724)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[3866,3887)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[4035,4056)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>reporter_citation</td><td>candidate</td><td>[4139,4152)</td><td><code>153 F.T.R. 84</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[4171,4178)</td><td><code>para. 8</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[4188,4209)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[4231,4239)</td><td><code>para. 13</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[4249,4270)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[4308,4316)</td><td><code>para. 15</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[4332,4353)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[4457,4464)</td><td><code>para. 5</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[4468,4489)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[4616,4637)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[4822,4843)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[5040,5061)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[5064,5085)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[5189,5210)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[5214,5218)</td><td><code> [1]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[5780,5790)</td><td><code>&quot;R.C.M.P.&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[5780,5790)</td><td><code>&quot;R.C.M.P.&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[6053,6074)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[6079,6607)</td><td><code>&quot;Nous vous rappellons donc que votre dossier de la sécurité préventive porte la mention &#x27;secret&#x27; et qu&#x27;un document du Service Canadien de Renseignement de Sécur</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[6079,6607)</td><td><code>&quot;Nous vous rappellons donc que votre dossier de la sécurité préventive porte la mention &#x27;secret&#x27; et qu&#x27;un document du Service Canadien de Renseignement de Sécur</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[6524,6545)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[6580,6601)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[7119,7140)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7147,7151)</td><td><code> [2]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[7886,7907)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7912,8516)</td><td><code>&quot;Notre position demeure donc présentement la même et tel que mentionné précédemment, bien que les raisons de transfèrement invoquées par le sujet pourrait s&#x27;avé</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7912,8516)</td><td><code>&quot;Notre position demeure donc présentement la même et tel que mentionné précédemment, bien que les raisons de transfèrement invoquées par le sujet pourrait s&#x27;avé</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8433,8454)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8489,8510)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[8995,9016)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[9023,9027)</td><td><code> [3]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[9262,9283)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[9288,10173)</td><td><code>&quot;Vous demandez un transfèrement à l&#x27;établissement CFF afin de participer au Programme Cuisine, pour vous rapprocher de votre famille et pour bénéficier de soins</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[9288,10173)</td><td><code>&quot;Vous demandez un transfèrement à l&#x27;établissement CFF afin de participer au Programme Cuisine, pour vous rapprocher de votre famille et pour bénéficier de soins</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[10146,10167)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[10531,10552)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[10587,10608)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[10613,11472)</td><td><code>&quot;You have asked for a transfer to the CFF Institution in order to participate in the kitchen program, to be nearer to your family, and to get the benefit of med</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[10613,11472)</td><td><code>&quot;You have asked for a transfer to the CFF Institution in order to participate in the kitchen program, to be nearer to your family, and to get the benefit of med</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[11445,11466)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[11663,11684)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[11691,11695)</td><td><code> [4]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[11798,11819)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[11823,11825)</td><td><code> -</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[11874,11895)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[11954,11975)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[11979,11981)</td><td><code> -</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12036,12057)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12109,12130)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[12134,12136)</td><td><code> -</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12214,12235)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12310,12331)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[12335,12337)</td><td><code> -</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12419,12440)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12516,12537)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12541,12545)</td><td><code> [5]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[12694,12707)</td><td><code>&quot; \r\n Act \r\n &quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[12694,12707)</td><td><code>&quot; \r\n Act \r\n &quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[12737,12758)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[12763,13215)</td><td><code>&quot;27(1) Where an offender is entitled by this Part or the regulations to make representations in relation to a decision to be taken by the Service about the offe</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[12763,13215)</td><td><code>&quot;27(1) Where an offender is entitled by this Part or the regulations to make representations in relation to a decision to be taken by the Service about the offe</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13188,13209)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13597,13618)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[13623,14256)</td><td><code>&quot;(3) Except in relation to decisions on disciplinary offences, where the Commissioner has reasonable grounds to believe that disclosure of information under sub</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[13623,14256)</td><td><code>&quot;(3) Except in relation to decisions on disciplinary offences, where the Commissioner has reasonable grounds to believe that disclosure of information under sub</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13820,13841)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[13845,13849)</td><td><code> (a)</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13877,13898)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[13902,13906)</td><td><code> (b)</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13943,13964)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[13968,13972)</td><td><code> (c)</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14015,14036)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14228,14249)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14359,14380)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[14385,14830)</td><td><code>&quot;27(1) Sous réserve du paragraphe (3), la personne ou l&#x27;organisme chargé de rendre, au nom du Service, une décision au sujet d&#x27;un délinquant doit, lorsque celui</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[14385,14830)</td><td><code>&quot;27(1) Sous réserve du paragraphe (3), la personne ou l&#x27;organisme chargé de rendre, au nom du Service, une décision au sujet d&#x27;un délinquant doit, lorsque celui</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[14805,14826)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[14831,15136)</td><td><code>&quot;(2) Sous réserve du paragraphe (3), cette personne ou cet organisme doit, dès que sa décision est rendue, faire connaître au délinquant qui y a droit au titre </code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[14831,15136)</td><td><code>&quot;(2) Sous réserve du paragraphe (3), cette personne ou cet organisme doit, dès que sa décision est rendue, faire connaître au délinquant qui y a droit au titre </code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[15111,15132)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[15137,15540)</td><td><code>&quot;(3) Sauf dans le cas des infractions disciplinaires, le commissaire peut autoriser, dans la mesure jugée strictement nécessaire toutefois, le refus de communiq</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[15137,15540)</td><td><code>&quot;(3) Sauf dans le cas des infractions disciplinaires, le commissaire peut autoriser, dans la mesure jugée strictement nécessaire toutefois, le refus de communiq</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[15512,15533)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15540,15544)</td><td><code> [6]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[15904,15925)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15929,15933)</td><td><code> [7]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[16714,16735)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[16739,16743)</td><td><code> [8]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[17016,17022)</td><td><code>[1997]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>reporter_citation</td><td>candidate</td><td>[17039,17052)</td><td><code>153 F.T.R. 84</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[17100,17121)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>reporter_citation</td><td>candidate</td><td>[17124,17137)</td><td><code>148 F.T.R. 81</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[17725,17746)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[17750,17754)</td><td><code> [9]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[17830,17851)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>reporter_citation</td><td>candidate</td><td>[17854,17867)</td><td><code>108 F.T.R. 93</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[18362,18383)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[18480,18501)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[18505,18526)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[18530,18535)</td><td><code> [10]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[19632,19638)</td><td><code>I find</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[19706,19727)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[19731,19736)</td><td><code> [11]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[20473,20494)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[20498,20503)</td><td><code> [12]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[21011,21032)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[21036,21041)</td><td><code> [13]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[21046,21052)</td><td><code>I find</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[21380,21401)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[21535,21556)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[21561,22308)</td><td><code>&quot;There is, in my view, simply no doubt that the appellant was not treated with the fairness to which he was entitled. The purpose of requiring that notice be gi</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[21561,22308)</td><td><code>&quot;There is, in my view, simply no doubt that the appellant was not treated with the fairness to which he was entitled. The purpose of requiring that notice be gi</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[22280,22301)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[22308,22313)</td><td><code> [14]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[22845,22866)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[22972,22993)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[22997,23002)</td><td><code> [15]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[23070,23197)</td><td><code>&quot;that the Service use the least restrictive measures consistent with the protection of the public, staff members and offenders&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[23070,23197)</td><td><code>&quot;that the Service use the least restrictive measures consistent with the protection of the public, staff members and offenders&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[23212,23240)</td><td><code>&quot;least restrictive measures&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[23212,23240)</td><td><code>&quot;least restrictive measures&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[23623,23644)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[23648,23653)</td><td><code> [16]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[23891,23912)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[23916,23921)</td><td><code> [17]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[23952,23958)</td><td><code>I find</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[24022,24043)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[24047,24052)</td><td><code> [18]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[24117,24138)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[24143,24556)</td><td><code>&quot;15. Where an inmate submits a request for a transfer referred to in section 29 of the Act, the Commissioner or a staff member designated in accordance with par</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[24143,24556)</td><td><code>&quot;15. Where an inmate submits a request for a transfer referred to in section 29 of the Act, the Commissioner or a staff member designated in accordance with par</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[24528,24549)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[24659,24680)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[24685,25041)</td><td><code>&quot;15. Lorsque le détenu présente une demande de transfèrement visé à l&#x27;article 29 de la Loi, le commissaire ou l&#x27;agent désigné selon l&#x27;alinéa 5(1)b) doit, dans l</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[24685,25041)</td><td><code>&quot;15. Lorsque le détenu présente une demande de transfèrement visé à l&#x27;article 29 de la Loi, le commissaire ou l&#x27;agent désigné selon l&#x27;alinéa 5(1)b) doit, dans l</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[25013,25034)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[25041,25046)</td><td><code> [19]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[25106,25127)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[25132,25309)</td><td><code>&quot;(2) The Service shall give each inmate reasons, in writing, for assigning a particular security classification or for changing that classification. &lt;FRAGMENT_S</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[25132,25309)</td><td><code>&quot;(2) The Service shall give each inmate reasons, in writing, for assigning a particular security classification or for changing that classification. &lt;FRAGMENT_S</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[25281,25302)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[25412,25433)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>review</td><td>[25438,25613)</td><td><code>&quot;(2) Le Service doit donner, par écrit, à chaque détenu les motifs à l&#x27;appui de l&#x27;assignation d&#x27;une cote de sécurité ou du changement de celle-ci. &lt;FRAGMENT_SUP</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>review</td><td>[25438,25613)</td><td><code>&quot;(2) Le Service doit donner, par écrit, à chaque détenu les motifs à l&#x27;appui de l&#x27;assignation d&#x27;une cote de sécurité ou du changement de celle-ci. &lt;FRAGMENT_SUP</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[25585,25606)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[25613,25618)</td><td><code> [20]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[25693,25714)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[25718,25723)</td><td><code> [21]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[25934,26038)</td><td><code>&quot;all the information that was considered in the taking of the decision or a summary of that information&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[25934,26038)</td><td><code>&quot;all the information that was considered in the taking of the decision or a summary of that information&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[26042,26121)</td><td><code>&quot;les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[26042,26121)</td><td><code>&quot;les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[26710,26731)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[26735,26740)</td><td><code> [22]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[26848,26869)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[26874,27346)</td><td><code>&quot;Un autre registre d&#x27;intervention complété par Nancy Chow (suite à deux requêtes du détenu) rappelle au sujet que son dossier de sécurité préventive porte la me</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[26874,27346)</td><td><code>&quot;Un autre registre d&#x27;intervention complété par Nancy Chow (suite à deux requêtes du détenu) rappelle au sujet que son dossier de sécurité préventive porte la me</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[27263,27284)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[27319,27340)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[27714,27735)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[27742,27747)</td><td><code> [23]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[28199,28220)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[28224,28229)</td><td><code> [24]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[29243,29264)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[29268,29273)</td><td><code> [25]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[30036,30057)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[30061,30066)</td><td><code> [26]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[30390,30411)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[30415,30420)</td><td><code> [27]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[30440,30446)</td><td><code>I find</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[30788,30809)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[30821,30842)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[31089,31110)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[31357,31378)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[31435,31456)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[31483,31504)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[31541,31562)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[31578,31599)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[31934,31955)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[31968,31989)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[32018,32039)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+</table>
+<h2>099980</h2><table><tr><th>worker</th><th>type</th><th>status</th><th>span</th><th>preview</th></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[17,20)</td><td><code>[1]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[542,545)</td><td><code>[2]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1028,1031)</td><td><code>[3]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1505,1508)</td><td><code>[4]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[1931,1934)</td><td><code>[5]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[2366,2369)</td><td><code>[6]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[2899,2902)</td><td><code>[7]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[3060,3079)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[3060,3079)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[3334,3337)</td><td><code>[8]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[3809,3812)</td><td><code>[9]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4257,4261)</td><td><code>[10]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[4691,4695)</td><td><code>[11]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[5162,5166)</td><td><code>[12]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[5693,5697)</td><td><code>[13]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6326,6330)</td><td><code>[14]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[6832,6836)</td><td><code>[15]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[7066,7070)</td><td><code>[16]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7194,7206)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7194,7206)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7500,7512)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7500,7512)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7585,7597)</td><td><code>&quot;supervised&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7585,7597)</td><td><code>&quot;supervised&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[7781,7794)</td><td><code>&quot;supervisors&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[7781,7794)</td><td><code>&quot;supervisors&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[8269,8273)</td><td><code>[17]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[8812,8844)</td><td><code>&quot;any other relevant information&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[8812,8844)</td><td><code>&quot;any other relevant information&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[8921,8925)</td><td><code>[18]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[9434,9438)</td><td><code>[19]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[10007,10014)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[10007,10014)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[10116,10157)</td><td><code>&quot;who gave a false reference for Ms. Seck&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[10116,10157)</td><td><code>&quot;who gave a false reference for Ms. Seck&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[10160,10164)</td><td><code>[20]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[10802,10806)</td><td><code>[21]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[11132,11136)</td><td><code>[22]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[11305,11326)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[11810,11814)</td><td><code>[24]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12310,12314)</td><td><code>[25]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[12949,12953)</td><td><code>[26]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13316,13337)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[13374,13378)</td><td><code>[27]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[13522,13543)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[13918,13922)</td><td><code>[28]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14276,14280)</td><td><code>[29]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[14815,14819)</td><td><code>[30]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[14828,14849)</td><td><code>the applicant submits</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[15433,15452)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[15433,15452)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15480,15484)</td><td><code>[31]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[15501,15522)</td><td><code>the applicant submits</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[15888,15900)</td><td><code>&quot;supervised&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[15888,15900)</td><td><code>&quot;supervised&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[15943,15947)</td><td><code>[32]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[16049,16072)</td><td><code>&quot;communication problem&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[16049,16072)</td><td><code>&quot;communication problem&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[16133,16152)</td><td><code>&quot;false information&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[16133,16152)</td><td><code>&quot;false information&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[16383,16387)</td><td><code>[33]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[16461,16482)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[16885,16889)</td><td><code>[34]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[17090,17111)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[17113,17119)</td><td><code>[2009]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[17135,17156)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[17411,17415)</td><td><code>[35]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[17990,17994)</td><td><code>[36]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[18433,18437)</td><td><code>[37]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[18597,18609)</td><td><code>&quot;aggressive&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[18597,18609)</td><td><code>&quot;aggressive&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[18616,18626)</td><td><code>&quot;forceful&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[18616,18626)</td><td><code>&quot;forceful&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[18673,18689)</td><td><code>&quot;very defensive&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[18673,18689)</td><td><code>&quot;very defensive&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[18707,18728)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[18765,18833)</td><td><code>&quot;too late to question the finding of guilt issued by the Commission&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[18765,18833)</td><td><code>&quot;too late to question the finding of guilt issued by the Commission&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[18867,18937)</td><td><code>&quot;were indeed within the Commission&#x27;s jurisdiction and were reasonable&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[18867,18937)</td><td><code>&quot;were indeed within the Commission&#x27;s jurisdiction and were reasonable&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[18940,18961)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[18989,18993)</td><td><code>[38]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[19234,19255)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[19275,19460)</td><td><code>&quot;To allow an administrative board the opportunity to justify its action and indeed to vindicate itself would produce a spectacle not ordinarily contemplated in </code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[19275,19460)</td><td><code>&quot;To allow an administrative board the opportunity to justify its action and indeed to vindicate itself would produce a spectacle not ordinarily contemplated in </code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[19462,19466)</td><td><code>[39]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[19550,19564)</td><td><code>&quot;instructions&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[19550,19564)</td><td><code>&quot;instructions&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[19594,19598)</td><td><code>[40]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[20108,20112)</td><td><code>[41]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[20170,20191)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[20448,20459)</td><td><code>&quot;spectacle&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[20448,20459)</td><td><code>&quot;spectacle&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[20688,20692)</td><td><code>[42]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[20894,20915)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[21574,21578)</td><td><code>[43]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[22318,22322)</td><td><code>[44]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[22608,22629)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[22644,22864)</td><td><code>&quot;[w]hat is or is not a question of jurisdiction as opposed to a question of law only, touching the manner in which a statutory tribunal exercises its authority,</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[22644,22864)</td><td><code>&quot;[w]hat is or is not a question of jurisdiction as opposed to a question of law only, touching the manner in which a statutory tribunal exercises its authority,</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[22866,22870)</td><td><code>[45]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[23116,23135)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[23116,23135)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[23363,23367)</td><td><code>[46]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[23847,23851)</td><td><code>[47]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[23919,23940)</td><td><code>the applicant submits</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[24067,24086)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[24067,24086)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[24348,24375)</td><td><code>&quot;in an appointment process&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[24348,24375)</td><td><code>&quot;in an appointment process&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[24459,24463)</td><td><code>[48]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[24817,24820)</td><td><code>(a)</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[24898,24901)</td><td><code>(b)</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[25297,25301)</td><td><code>[49]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[25736,25740)</td><td><code>[50]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[26099,26103)</td><td><code>[51]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[26161,26168)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[26161,26168)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[26359,26363)</td><td><code>[52]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[26466,26473)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[26466,26473)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[26762,26766)</td><td><code>[53]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[26820,26832)</td><td><code>&quot;\r\nfraude\r\n&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[26820,26832)</td><td><code>&quot;\r\nfraude\r\n&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[26831,26854)</td><td><code>&quot; is an [translation] &quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[26831,26854)</td><td><code>&quot; is an [translation] &quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[26853,26909)</td><td><code>&quot;[a]ction made in bad faith with the intent to deceive.&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[26853,26909)</td><td><code>&quot;[a]ction made in bad faith with the intent to deceive.&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[26908,27254)</td><td><code>&quot; As you can see, the French and English definitions are similar. First, fraud involves deceiving others in the aim of gaining some advantage. Second, there mus</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[26908,27254)</td><td><code>&quot; As you can see, the French and English definitions are similar. First, fraud involves deceiving others in the aim of gaining some advantage. Second, there mus</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[27253,27260)</td><td><code>&quot;error&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[27253,27260)</td><td><code>&quot;error&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[27422,27426)</td><td><code>[54]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[28035,28039)</td><td><code>[55]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[28044,28051)</td><td><code>&quot;error&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[28044,28051)</td><td><code>&quot;error&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[28078,28085)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[28078,28085)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[28237,28258)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[28400,28419)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[28400,28419)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[28480,28484)</td><td><code>[56]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[28513,28534)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[28970,28974)</td><td><code>[57]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[29096,29117)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[29427,29431)</td><td><code>[58]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[29604,29622)</td><td><code>&quot;false references&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[29604,29622)</td><td><code>&quot;false references&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[31681,31685)</td><td><code>[59]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[32223,32227)</td><td><code>[60]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[32425,32436)</td><td><code>&quot;technical&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[32425,32436)</td><td><code>&quot;technical&quot;</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[32483,32489)</td><td><code>I find</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[32718,32762)</td><td><code>&quot;defensible in respect of the facts and law&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[32718,32762)</td><td><code>&quot;defensible in respect of the facts and law&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[32765,32786)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[32808,32812)</td><td><code>[61]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[33046,33064)</td><td><code>&quot;false references&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[33046,33064)</td><td><code>&quot;false references&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[33602,33606)</td><td><code>[62]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[33628,33648)</td><td><code>the applicant argues</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[34392,34415)</td><td><code>&quot;the intent to deceive&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[34392,34415)</td><td><code>&quot;the intent to deceive&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[34431,34435)</td><td><code>[63]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[34500,34507)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[34500,34507)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[34853,34857)</td><td><code>[64]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[35369,35373)</td><td><code>[65]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[35481,35548)</td><td><code>&quot;reviewed the information provided in accordance with the [Policy]&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[35481,35548)</td><td><code>&quot;reviewed the information provided in accordance with the [Policy]&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[35677,35678)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[35782,35783)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[36045,36046)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[36231,36232)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[36497,36498)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[36706,36707)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[36777,36778)</td><td><code>•</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[36849,36853)</td><td><code>[66]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[37106,37179)</td><td><code>&quot;jurisdiction report-2009-EXT-00049.7408 (EA) &amp; 2009-SVC-00118.8305 (EA)&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[37106,37179)</td><td><code>&quot;jurisdiction report-2009-EXT-00049.7408 (EA) &amp; 2009-SVC-00118.8305 (EA)&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[37261,37265)</td><td><code>[67]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[37277,37294)</td><td><code>&quot;the information&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[37277,37294)</td><td><code>&quot;the information&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[37779,37783)</td><td><code>[68]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[38347,38352)</td><td><code>s. 69</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[38478,38482)</td><td><code>[69]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[38714,38718)</td><td><code>[70]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[38997,39001)</td><td><code>[71]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[39228,39243)</td><td><code>the Court found</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[39388,39392)</td><td><code>[72]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[40073,40131)</td><td><code>&quot;take any corrective action that it considers appropriate&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[40073,40131)</td><td><code>&quot;take any corrective action that it considers appropriate&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[40953,40957)</td><td><code>[73]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[41152,41173)</td><td><code>The applicant submits</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[41292,41297)</td><td><code>&quot;and&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[41292,41297)</td><td><code>&quot;and&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[41306,41310)</td><td><code>&quot;or&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[41306,41310)</td><td><code>&quot;or&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[41629,41633)</td><td><code>[74]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[41930,41949)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[41930,41949)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[42529,42533)</td><td><code>[75]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[42836,42840)</td><td><code>[76]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[42872,42893)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[42979,43000)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[43450,43454)</td><td><code>[77]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[43643,43681)</td><td><code>&quot;an investigation under 69 of the Act&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[43643,43681)</td><td><code>&quot;an investigation under 69 of the Act&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[44128,44132)</td><td><code>[78]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[44602,44606)</td><td><code>[79]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[44899,44993)</td><td><code>&quot;the single biggest change to public service human resources management in more than 35 years&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[44899,44993)</td><td><code>&quot;the single biggest change to public service human resources management in more than 35 years&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[45050,45054)</td><td><code>[80]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[45598,45602)</td><td><code>[81]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[46318,46322)</td><td><code>[82]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[47114,47118)</td><td><code>[83]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[47810,47814)</td><td><code>[84]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[48522,48541)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[48522,48541)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[48576,48580)</td><td><code>[85]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[49420,49424)</td><td><code>[86]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[49864,49871)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[49864,49871)</td><td><code>&quot;fraud&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[50122,50126)</td><td><code>[87]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[50671,50718)</td><td><code>&quot;ensuring the integrity of the staffing system&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[50671,50718)</td><td><code>&quot;ensuring the integrity of the staffing system&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[52342,52346)</td><td><code>[88]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[52506,52519)</td><td><code>&quot;information&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[52506,52519)</td><td><code>&quot;information&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[53108,53112)</td><td><code>[89]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[53908,53929)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[53931,53937)</td><td><code>[2012]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[54159,54163)</td><td><code>[90]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[54257,54277)</td><td><code>&quot;corrective actions&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[54257,54277)</td><td><code>&quot;corrective actions&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[54811,54815)</td><td><code>[91]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[54817,54837)</td><td><code>The applicant argues</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[55025,55030)</td><td><code>&quot;and&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[55025,55030)</td><td><code>&quot;and&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[55460,55464)</td><td><code>[92]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[55496,55515)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[55496,55515)</td><td><code>&quot;corrective action&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[55709,55714)</td><td><code>&quot;and&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[55709,55714)</td><td><code>&quot;and&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[55767,55771)</td><td><code>&quot;or&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[55767,55771)</td><td><code>&quot;or&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[55793,55797)</td><td><code>&quot;or&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[55793,55797)</td><td><code>&quot;or&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[55867,55872)</td><td><code>&quot;and&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[55867,55872)</td><td><code>&quot;and&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[56160,56164)</td><td><code>[93]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[56763,56767)</td><td><code>[94]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[57489,57493)</td><td><code>[95]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[57789,57810)</td><td><code>the respondent argues</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[58238,58242)</td><td><code>[96]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[58403,58424)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[58426,58432)</td><td><code>[2006]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[58447,58468)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[58837,58841)</td><td><code>[97]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[59009,59030)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[59362,59366)</td><td><code>[98]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[60059,60063)</td><td><code>[99]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[60435,60448)</td><td><code>&quot;investigate&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[60435,60448)</td><td><code>&quot;investigate&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[60466,60471)</td><td><code>[100]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[60476,60497)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[60659,60690)</td><td><code>&quot;greater procedural protection&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[60659,60690)</td><td><code>&quot;greater procedural protection&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[60939,60944)</td><td><code>[101]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[61500,61505)</td><td><code>[102]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[61611,61616)</td><td><code>[103]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[61970,61975)</td><td><code>[104]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[62378,62383)</td><td><code>[105]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[62948,62953)</td><td><code>[106]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[63053,63304)</td><td><code>&quot;[i]n serving Parliament and Canadians, [the Commission is] guided by and proudly adhere[s] to the following values:\r\n• Integrity in our actions;\r\n• Fairnes</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[63053,63304)</td><td><code>&quot;[i]n serving Parliament and Canadians, [the Commission is] guided by and proudly adhere[s] to the following values:\r\n• Integrity in our actions;\r\n• Fairnes</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[63171,63172)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[63200,63201)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[63230,63231)</td><td><code>•</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_list</td><td>observed</td><td>[63267,63268)</td><td><code>•</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[63306,63311)</td><td><code>[107]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[64080,64085)</td><td><code>[108]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[64636,64642)</td><td><code>[2005]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[64708,64713)</td><td><code>[109]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[65103,65108)</td><td><code>[110]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[65281,65301)</td><td><code>&quot;reasonable grounds&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[65281,65301)</td><td><code>&quot;reasonable grounds&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[65377,65388)</td><td><code>&quot;satisfied&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[65377,65388)</td><td><code>&quot;satisfied&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[65439,65460)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[65690,65711)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[65716,65721)</td><td><code>[111]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[65810,65831)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[66102,66107)</td><td><code>[112]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[66685,66690)</td><td><code>s. 36</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[66924,66944)</td><td><code>&quot;if it is satisfied&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[66924,66944)</td><td><code>&quot;if it is satisfied&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[67023,67086)</td><td><code>&quot;it is satisfied that the complaint has not been substantiated&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[67023,67086)</td><td><code>&quot;it is satisfied that the complaint has not been substantiated&quot;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[67194,67199)</td><td><code>s. 39</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[67491,67496)</td><td><code>s. 69</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[67522,67530)</td><td><code>s. 36(3)</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[67547,67555)</td><td><code>s. 44(3)</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[67618,67623)</td><td><code>s. 64</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[67957,67965)</td><td><code>s. 36(3)</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[68069,68074)</td><td><code>s. 39</code></td></tr>
+<tr><td>citation_reference_rule</td><td>section_reference</td><td>candidate</td><td>[68545,68553)</td><td><code>s. 36(3)</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[68582,68592)</td><td><code>I conclude</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[69006,69011)</td><td><code>[113]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[69067,69088)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[69090,69096)</td><td><code>[2009]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[69113,69134)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[69902,69907)</td><td><code>[114]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[70047,70052)</td><td><code>[115]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[70399,70404)</td><td><code>[116]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[70772,70777)</td><td><code>[117]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[71013,71018)</td><td><code>[118]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[71150,71182)</td><td><code>&quot;any other relevant information&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[71150,71182)</td><td><code>&quot;any other relevant information&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[71727,71732)</td><td><code>[119]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[71749,71781)</td><td><code>&quot;any other relevant information&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[71749,71781)</td><td><code>&quot;any other relevant information&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[72224,72229)</td><td><code>[120]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[72424,72669)</td><td><code>&quot;A witness who testifies in any proceedings has the right not to have any incriminating evidence so given used to incriminate that witness in any other proceedi</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[72424,72669)</td><td><code>&quot;A witness who testifies in any proceedings has the right not to have any incriminating evidence so given used to incriminate that witness in any other proceedi</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[72672,72677)</td><td><code>[121]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[73710,73715)</td><td><code>[122]</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[73893,73899)</td><td><code>[1987]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[73929,73950)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[73954,73959)</td><td><code>[123]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[74305,74352)</td><td><code>&quot;An honorable reputation is a second patrimony&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[74305,74352)</td><td><code>&quot;An honorable reputation is a second patrimony&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[74486,74491)</td><td><code>[124]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[75081,75086)</td><td><code>[125]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[75368,75385)</td><td><code>&quot;guilty of fraud&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[75368,75385)</td><td><code>&quot;guilty of fraud&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[75575,75600)</td><td><code>&quot;to have committed fraud&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[75575,75600)</td><td><code>&quot;to have committed fraud&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[75872,75877)</td><td><code>[126]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[76027,76058)</td><td><code>&quot;greater procedural protection&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[76027,76058)</td><td><code>&quot;greater procedural protection&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[76230,76251)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[76255,76260)</td><td><code>[127]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[76317,76323)</td><td><code>I find</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[76860,76865)</td><td><code>[128]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[77192,77197)</td><td><code>[129]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[77248,77254)</td><td><code>I find</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[77451,77456)</td><td><code>[130]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[78105,78110)</td><td><code>[131]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[78247,78258)</td><td><code>&quot;supervise&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[78247,78258)</td><td><code>&quot;supervise&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[78322,78334)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[78322,78334)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[78399,78409)</td><td><code>&quot;managers&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[78399,78409)</td><td><code>&quot;managers&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[78585,78590)</td><td><code>[132]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[79055,79060)</td><td><code>[133]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[79198,79240)</td><td><code>&quot;the Commission never changed its mandate&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[79198,79240)</td><td><code>&quot;the Commission never changed its mandate&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[79628,79633)</td><td><code>[134]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[80351,80356)</td><td><code>[135]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[80996,81001)</td><td><code>[136]</code></td></tr>
+<tr><td>marker_rule</td><td>suppression_marker</td><td>observed</td><td>[81352,81373)</td><td><code>&lt;FRAGMENT_SUPPRESSED&gt;</code></td></tr>
+<tr><td>citation_reference_rule</td><td>citation_year</td><td>candidate</td><td>[81375,81381)</td><td><code>[2012]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[81448,81453)</td><td><code>[137]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[81869,81874)</td><td><code>[138]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[81945,81968)</td><td><code>&quot;individual interviews&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[81945,81968)</td><td><code>&quot;individual interviews&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[82499,82504)</td><td><code>[139]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[83298,83303)</td><td><code>[140]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[83364,83380)</td><td><code>&quot;factual report&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[83364,83380)</td><td><code>&quot;factual report&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[83817,83822)</td><td><code>[141]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[83834,83864)</td><td><code>&quot;Purpose of the Investigation&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[83834,83864)</td><td><code>&quot;Purpose of the Investigation&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[84464,84469)</td><td><code>[142]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[84481,84512)</td><td><code>&quot;Purpose of the Factual Report&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[84481,84512)</td><td><code>&quot;Purpose of the Factual Report&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[84741,84746)</td><td><code>[143]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[85316,85321)</td><td><code>[144]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[85892,85897)</td><td><code>[145]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[86223,86242)</td><td><code>&quot;details to follow&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[86223,86242)</td><td><code>&quot;details to follow&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[86245,86250)</td><td><code>[146]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[86775,86780)</td><td><code>[147]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[87481,87486)</td><td><code>[148]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[87886,87891)</td><td><code>[149]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[89113,89118)</td><td><code>[150]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[89943,89948)</td><td><code>[151]</code></td></tr>
+<tr><td>speaker_cue_rule</td><td>speaker_cue</td><td>candidate</td><td>[90413,90434)</td><td><code>the respondent argues</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[90726,90731)</td><td><code>[152]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[91374,91379)</td><td><code>[153]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[91716,91721)</td><td><code>[154]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[92056,92069)</td><td><code>&quot;supervisors&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[92056,92069)</td><td><code>&quot;supervisors&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[92153,92158)</td><td><code>[155]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[92563,92575)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[92563,92575)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[92666,92671)</td><td><code>[156]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[93235,93240)</td><td><code>[157]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[93860,93865)</td><td><code>[158]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[94086,94110)</td><td><code>&quot;revised factual report&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[94086,94110)</td><td><code>&quot;revised factual report&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[94299,94325)</td><td><code>&quot;analysis and conclusions&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[94299,94325)</td><td><code>&quot;analysis and conclusions&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[94334,94339)</td><td><code>[159]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[95030,95035)</td><td><code>[160]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[95235,95247)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[95235,95247)</td><td><code>&quot;supervisor&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[95295,95307)</td><td><code>&quot;supervised&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[95295,95307)</td><td><code>&quot;supervised&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[95532,95537)</td><td><code>[161]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[95787,95792)</td><td><code>[162]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[98117,98122)</td><td><code>[163]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[98699,98716)</td><td><code>&quot;double standard&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[98699,98716)</td><td><code>&quot;double standard&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[98861,98866)</td><td><code>[164]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[99495,99500)</td><td><code>[165]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[99770,99775)</td><td><code>[166]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[100405,100410)</td><td><code>[167]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[100916,100921)</td><td><code>[168]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[101021,101123)</td><td><code>&quot;[t]he investigator gave the applicant the opportunity to make comments on the revised factual report&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[101021,101123)</td><td><code>&quot;[t]he investigator gave the applicant the opportunity to make comments on the revised factual report&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[101173,101307)</td><td><code>&quot;[t]he investigator gave the applicant the opportunity, on June 28, 2010, to make submissions against the proposed corrective actions&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[101173,101307)</td><td><code>&quot;[t]he investigator gave the applicant the opportunity, on June 28, 2010, to make submissions against the proposed corrective actions&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[101310,101315)</td><td><code>[169]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[101647,101652)</td><td><code>[170]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[102393,102406)</td><td><code>&quot;Protected B&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[102393,102406)</td><td><code>&quot;Protected B&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[103490,103495)</td><td><code>[171]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[103845,103852)</td><td><code>&quot;final&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[103845,103852)</td><td><code>&quot;final&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[104079,104084)</td><td><code>[172]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[104755,104760)</td><td><code>[173]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[105376,105381)</td><td><code>[174]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[105460,105465)</td><td><code>[175]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[105831,105836)</td><td><code>[176]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[106174,106179)</td><td><code>[177]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[106847,106852)</td><td><code>[178]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[108314,108319)</td><td><code>[179]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[108944,108969)</td><td><code>&quot;frivolous and vexatious&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[108944,108969)</td><td><code>&quot;frivolous and vexatious&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[109079,109084)</td><td><code>[180]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[109513,109518)</td><td><code>[181]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[109775,109790)</td><td><code>&quot;truth-telling&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[109775,109790)</td><td><code>&quot;truth-telling&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[110047,110058)</td><td><code>&quot;strongest&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[110047,110058)</td><td><code>&quot;strongest&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[110096,110106)</td><td><code>&quot;sharpest&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[110096,110106)</td><td><code>&quot;sharpest&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[110172,110177)</td><td><code>[182]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[110472,110480)</td><td><code>&quot;repair&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[110472,110480)</td><td><code>&quot;repair&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[110521,110529)</td><td><code>&quot;repair&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[110521,110529)</td><td><code>&quot;repair&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[110538,110546)</td><td><code>&quot;excuse&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[110538,110546)</td><td><code>&quot;excuse&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[110569,110574)</td><td><code>[183]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[111284,111289)</td><td><code>[184]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[111621,111641)</td><td><code>&quot;corrective actions&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[111621,111641)</td><td><code>&quot;corrective actions&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[111811,111816)</td><td><code>[185]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[112433,112438)</td><td><code>[186]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[113243,113248)</td><td><code>[187]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[113513,113518)</td><td><code>[188]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[113899,113904)</td><td><code>[189]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[114444,114449)</td><td><code>[190]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[115300,115305)</td><td><code>[191]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[115800,115805)</td><td><code>[192]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[116052,116084)</td><td><code>&quot;any other relevant information&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[116052,116084)</td><td><code>&quot;any other relevant information&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[116260,116265)</td><td><code>[193]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[116415,116424)</td><td><code>&quot;victory&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[116415,116424)</td><td><code>&quot;victory&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[116469,116486)</td><td><code>&quot;Pyrrhic victory&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[116469,116486)</td><td><code>&quot;Pyrrhic victory&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[116779,116784)</td><td><code>[194]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[117375,117380)</td><td><code>[195]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[117659,117671)</td><td><code>&quot;witch hunt&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[117659,117671)</td><td><code>&quot;witch hunt&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[117889,117908)</td><td><code>&quot;collateral damage&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[117889,117908)</td><td><code>&quot;collateral damage&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[118170,118188)</td><td><code>&quot;innocent victims&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[118170,118188)</td><td><code>&quot;innocent victims&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[118252,118257)</td><td><code>[196]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[118302,118312)</td><td><code>&quot;innocent&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[118302,118312)</td><td><code>&quot;innocent&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[118519,118523)</td><td><code>&quot;no&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[118519,118523)</td><td><code>&quot;no&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[118819,118824)</td><td><code>[197]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[119437,119442)</td><td><code>[198]</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[119653,119662)</td><td><code>&quot;clients&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[119653,119662)</td><td><code>&quot;clients&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[120015,120032)</td><td><code>&quot;the institution&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[120015,120032)</td><td><code>&quot;the institution&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[120047,120055)</td><td><code>&quot;client&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[120047,120055)</td><td><code>&quot;client&quot;</code></td></tr>
+<tr><td>nested_structure_inheritance</td><td>nested_quote</td><td>observed</td><td>[120061,120072)</td><td><code>&quot;instructs&quot;</code></td></tr>
+<tr><td>quote_balance_rule</td><td>quote_balance</td><td>observed</td><td>[120061,120072)</td><td><code>&quot;instructs&quot;</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[120087,120092)</td><td><code>[199]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[120757,120762)</td><td><code>[200]</code></td></tr>
+<tr><td>marker_rule</td><td>paragraph_marker</td><td>observed</td><td>[121453,121458)</td><td><code>[201]</code></td></tr>
+</table>

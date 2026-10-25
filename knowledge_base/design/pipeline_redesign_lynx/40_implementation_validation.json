@@ -1,0 +1,17 @@
+{
+  "status": "checks_pass_controls_gate_failed",
+  "date": "2026-10-24",
+  "K0_code_and_checkpoint_unchanged": true,
+  "file_links_pass": true,
+  "new_module_sha256": "d0179ce46bade8250ffab073788ae9ef0412d6bd3af542124cf0e3805a3a0daf",
+  "tests_passed": 34,
+  "new_independent_tests_passed": 9,
+  "control_gate": "failed",
+  "corpus_requests": 0,
+  "full_pipeline39_implemented": false,
+  "files": {
+    "knowledge_base\\design\\pipeline_redesign_lynx\\39_kos_authoring_improved.md": "d1aba32133ef579dcae3f3e0bfc726d63b6561c34adc7f9552a184167f7b6464",
+    "knowledge_base\\design\\pipeline_redesign_lynx\\40_kos_controls_implementation.md": "d904dee039f2c7d70593826e62f6617e3737f35b02e4f22a109c3c8db85889fb",
+    "knowledge_base\\design\\pipeline_redesign_lynx\\README.md": "eccf49918b0338b7a196ca69990acaa479b78cb9cb976bd5592d416ef4a8b5e7"
+  }
+}

@@ -1,0 +1,643 @@
+{
+  "status": "semantic_review_pending",
+  "rows": [
+    {
+      "name": "positive_notice",
+      "expected": {
+        "group": "positive",
+        "AU_count": 1,
+        "concepts": [
+          "applicant",
+          "notice",
+          "respond",
+          "emergency"
+        ]
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 921,
+        "output_tokens": 65,
+        "total_tokens": 986
+      },
+      "latency_ms": 8813.0,
+      "model_output": {
+        "aus": [
+          {
+            "claim": "An applicant must receive notice and an opportunity to respond before an adverse decision.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e21"
+            ],
+            "limits": "Except in an emergency."
+          }
+        ],
+        "empty_reason": null,
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [
+          {
+            "au_id": "k0au-17094c5d14686a35d95526c0",
+            "case_id": "fictional-positive_notice",
+            "source_hash": "470bcebf681345c86d4beede32dfef193bbd16ed3cace868a8ab1121b8dc5f09",
+            "claim": "An applicant must receive notice and an opportunity to respond before an adverse decision.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e21"
+            ],
+            "evidence": [
+              {
+                "case_id": "fictional-positive_notice",
+                "source_hash": "470bcebf681345c86d4beede32dfef193bbd16ed3cace868a8ab1121b8dc5f09",
+                "start_char": 0,
+                "end_char": 138,
+                "quote": "Under a fictional rule, an applicant must receive notice and an opportunity to respond before an adverse decision, except in an emergency."
+              }
+            ],
+            "limits": "Except in an emergency.",
+            "replace_id": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        ],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r21"
+        ],
+        "delivered_scope_ids": [
+          "r21"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "read_scope_ids": [
+          "r21"
+        ],
+        "unresolved_scope_ids": [],
+        "empty_reason": null,
+        "work_scope_complete": true,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "has_au",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 1
+    },
+    {
+      "name": "positive_refund",
+      "expected": {
+        "group": "positive",
+        "AU_count": 1,
+        "concepts": [
+          "board",
+          "refund",
+          "seven",
+          "fraud"
+        ]
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 918,
+        "output_tokens": 61,
+        "total_tokens": 979
+      },
+      "latency_ms": 7734.0,
+      "model_output": {
+        "aus": [
+          {
+            "claim": "The board must refund a deposit within seven days.",
+            "kind": "holding",
+            "evidence_ids": [
+              "e22"
+            ],
+            "limits": "Unless the applicant obtained the deposit by fraud."
+          }
+        ],
+        "empty_reason": null,
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [
+          {
+            "au_id": "k0au-3a45a9c8d285263494105ade",
+            "case_id": "fictional-positive_refund",
+            "source_hash": "013b982fbbd07e211f907efb684d67ac4d1070c421903add1a26f0b84ef7968e",
+            "claim": "The board must refund a deposit within seven days.",
+            "kind": "holding",
+            "evidence_ids": [
+              "e22"
+            ],
+            "evidence": [
+              {
+                "case_id": "fictional-positive_refund",
+                "source_hash": "013b982fbbd07e211f907efb684d67ac4d1070c421903add1a26f0b84ef7968e",
+                "start_char": 0,
+                "end_char": 116,
+                "quote": "Under a fictional rule, the board must refund a deposit within seven days unless the applicant obtained it by fraud."
+              }
+            ],
+            "limits": "Unless the applicant obtained the deposit by fraud.",
+            "replace_id": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        ],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r22"
+        ],
+        "delivered_scope_ids": [
+          "r22"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "read_scope_ids": [
+          "r22"
+        ],
+        "unresolved_scope_ids": [],
+        "empty_reason": null,
+        "work_scope_complete": true,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "has_au",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 1
+    },
+    {
+      "name": "positive_multi",
+      "expected": {
+        "group": "positive",
+        "AU_count": 2,
+        "concepts": [
+          "inspector",
+          "record",
+          "registry",
+          "confidential"
+        ]
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 924,
+        "output_tokens": 84,
+        "total_tokens": 1008
+      },
+      "latency_ms": 9266.0,
+      "model_output": {
+        "aus": [
+          {
+            "claim": "An inspector must maintain an inspection record.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "limits": null
+          },
+          {
+            "claim": "A registry must protect the confidentiality of personal data.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "limits": null
+          }
+        ],
+        "empty_reason": null,
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [
+          {
+            "au_id": "k0au-3eabd4de33d6bbe6e4640639",
+            "case_id": "fictional-positive_multi",
+            "source_hash": "04768d90c910f20baf92e067dfebb1bcf5fb5e2b736e85b3a84f2dc22f1d555a",
+            "claim": "An inspector must maintain an inspection record.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "evidence": [
+              {
+                "case_id": "fictional-positive_multi",
+                "source_hash": "04768d90c910f20baf92e067dfebb1bcf5fb5e2b736e85b3a84f2dc22f1d555a",
+                "start_char": 0,
+                "end_char": 153,
+                "quote": "Under a fictional rule, an inspector must keep an inspection record. Under a separate rule, a registry must protect the confidentiality of personal data."
+              }
+            ],
+            "limits": null,
+            "replace_id": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          },
+          {
+            "au_id": "k0au-b259ee08e080cee3cbca7db5",
+            "case_id": "fictional-positive_multi",
+            "source_hash": "04768d90c910f20baf92e067dfebb1bcf5fb5e2b736e85b3a84f2dc22f1d555a",
+            "claim": "A registry must protect the confidentiality of personal data.",
+            "kind": "procedural_rule",
+            "evidence_ids": [
+              "e23"
+            ],
+            "evidence": [
+              {
+                "case_id": "fictional-positive_multi",
+                "source_hash": "04768d90c910f20baf92e067dfebb1bcf5fb5e2b736e85b3a84f2dc22f1d555a",
+                "start_char": 0,
+                "end_char": 153,
+                "quote": "Under a fictional rule, an inspector must keep an inspection record. Under a separate rule, a registry must protect the confidentiality of personal data."
+              }
+            ],
+            "limits": null,
+            "replace_id": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        ],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r23"
+        ],
+        "delivered_scope_ids": [
+          "r23"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "read_scope_ids": [
+          "r23"
+        ],
+        "unresolved_scope_ids": [],
+        "empty_reason": null,
+        "work_scope_complete": true,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "has_au",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 2
+    },
+    {
+      "name": "negative_facts",
+      "expected": {
+        "group": "negative",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 918,
+        "output_tokens": 28,
+        "total_tokens": 946
+      },
+      "latency_ms": 5610.0,
+      "model_output": {
+        "aus": [],
+        "empty_reason": "no_independent_legal_point",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r24"
+        ],
+        "delivered_scope_ids": [
+          "r24"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "read_scope_ids": [
+          "r24"
+        ],
+        "unresolved_scope_ids": [],
+        "empty_reason": "no_independent_legal_point",
+        "work_scope_complete": true,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "no_au_candidate",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 0
+    },
+    {
+      "name": "negative_party",
+      "expected": {
+        "group": "negative",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 928,
+        "output_tokens": 28,
+        "total_tokens": 956
+      },
+      "latency_ms": 7422.0,
+      "model_output": {
+        "aus": [],
+        "empty_reason": "no_independent_legal_point",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r25"
+        ],
+        "delivered_scope_ids": [
+          "r25"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "read_scope_ids": [
+          "r25"
+        ],
+        "unresolved_scope_ids": [],
+        "empty_reason": "no_independent_legal_point",
+        "work_scope_complete": true,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "no_au_candidate",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 0
+    },
+    {
+      "name": "negative_citation",
+      "expected": {
+        "group": "negative",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 914,
+        "output_tokens": 27,
+        "total_tokens": 941
+      },
+      "latency_ms": 4812.0,
+      "model_output": {
+        "aus": [],
+        "empty_reason": "citation_without_substance",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r26"
+        ],
+        "delivered_scope_ids": [
+          "r26"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        },
+        "read_scope_ids": [
+          "r26"
+        ],
+        "unresolved_scope_ids": [],
+        "empty_reason": "citation_without_substance",
+        "work_scope_complete": true,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "no_au_candidate",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 0
+    },
+    {
+      "name": "uncertain_test",
+      "expected": {
+        "group": "uncertain",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 915,
+        "output_tokens": 25,
+        "total_tokens": 940
+      },
+      "latency_ms": 5969.0,
+      "model_output": {
+        "aus": [],
+        "empty_reason": "insufficient_context",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [],
+        "delivered_scope_ids": [
+          "r27"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        },
+        "read_scope_ids": [
+          "r27"
+        ],
+        "unresolved_scope_ids": [
+          "r27"
+        ],
+        "empty_reason": "insufficient_context",
+        "work_scope_complete": false,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "uncertain",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 0
+    },
+    {
+      "name": "uncertain_voice",
+      "expected": {
+        "group": "uncertain",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 925,
+        "output_tokens": 25,
+        "total_tokens": 950
+      },
+      "latency_ms": 4844.0,
+      "model_output": {
+        "aus": [],
+        "empty_reason": "insufficient_context",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [],
+        "delivered_scope_ids": [
+          "r28"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        },
+        "read_scope_ids": [
+          "r28"
+        ],
+        "unresolved_scope_ids": [
+          "r28"
+        ],
+        "empty_reason": "insufficient_context",
+        "work_scope_complete": false,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "uncertain",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 0
+    },
+    {
+      "name": "uncertain_exception",
+      "expected": {
+        "group": "uncertain",
+        "AU_count": 0,
+        "concepts": []
+      },
+      "status": "structural_control_pass",
+      "protocol_valid": true,
+      "semantic_quality": "semantic_review_pending",
+      "usage": {
+        "input_tokens": 917,
+        "output_tokens": 25,
+        "total_tokens": 942
+      },
+      "latency_ms": 4672.0,
+      "model_output": {
+        "aus": [],
+        "empty_reason": "insufficient_context",
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [],
+        "delivered_scope_ids": [
+          "r29"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "needs_context"
+        },
+        "read_scope_ids": [
+          "r29"
+        ],
+        "unresolved_scope_ids": [
+          "r29"
+        ],
+        "empty_reason": "insufficient_context",
+        "work_scope_complete": false,
+        "assessment_basis": "author_self_report",
+        "assessment_result": "uncertain",
+        "semantic_quality": "not_assessed"
+      },
+      "AU_count": 0
+    }
+  ],
+  "protocol_valid_count": 9,
+  "structural_control_pass_count": 9,
+  "semantic_quality": "semantic_review_pending",
+  "semantic_pass": false,
+  "corpus_dispatch_allowed": false,
+  "K1_allowed": false,
+  "POST_attempts": 9,
+  "actual_usage": {
+    "input_tokens": 8280,
+    "output_tokens": 368,
+    "total_tokens": 8648
+  },
+  "reserved_tokens": 22806,
+  "known_usage_count": 9,
+  "planned_reserved_tokens": 22806,
+  "unknown_usage_count": 0,
+  "budget_violation": false,
+  "binding_sha256": "6faed4fbe7f8cf9db4638b19b33a34570546d0e22a534127fd880830e95d5d84",
+  "manifest_sha256": "f3238a451c6843e4bf9e757e952f13250e6beb2f64c4f61b1485d02dac6a5ee7",
+  "generation_code_sha256": "279b1be0208e232bb42f51b2d6b890a8791a5cb676d36cb2eff8f8c3eb386f7d",
+  "reporter_sha256": "1a5f77b79f50f1b57e7660c2a4fc1557213e4a311caffdb0dc0e9b559d6f9804",
+  "evidence_record_sha256": {
+    "live\\intents\\29dafb54529e27c29651ef8fe73b59fa43998d72d0f62acf7992a8b32c5555a6.json": "8297e42318f1907a9215201189abc94e29d9a2f5eed04c343628b1c94f11d8dc",
+    "live\\intents\\305e0cc597bd55ded7fb4858517f5bd64abdf2022c3fd62a71f9629bcb04817d.json": "28c34beb059209c470c1c77d699697d0363fbf177b04c9c36a74a77c8308a43d",
+    "live\\intents\\3303431a940a91f8c7da8687f35573a6aed969149c2252cbdebe304319c0f0b3.json": "d1026d4c35d72e5d76a5ca9803453d67e403be369d01348a99b16f90c02e5919",
+    "live\\intents\\385d4dd4fe9b82c7d6ed822bb2fc62c6a3dba15d350a8b102a5ed36da575660f.json": "66c7b3f08243dce3e237f04dd78ef75b38e5312223891dc8122d544485e60ff2",
+    "live\\intents\\5d93d98354ad703d8d94302c49b8b08408589642c0781159bbd5461b0e25bc77.json": "2904336ed2b7a499f0c78af8eaa77264a282675978406f4e733e31336f466694",
+    "live\\intents\\64e8806ccd4dcf631197769a67c022b6f31ad0d81217aaa32357a0127eb1a6e5.json": "15d24f794a68c98b8eacb036b9673deb8340a233d5c90ba12932027188033c5c",
+    "live\\intents\\8b7a647359402ca31a5c1123b400dcdf9d8570d3a07fa6b28fba9805019e2473.json": "d9cde67d3e2065515fcadaea5941dfc5d52a575d821d5305d62f284514a16394",
+    "live\\intents\\9d82dcd713f42a911a3c82fb4049cb2644c6fe40a529aa1f45f5eaa565fca330.json": "fa52301fc75d50622ca654883d526a474c434084753d8d9599cf7995b372a20a",
+    "live\\intents\\cded4bdd39737ad8167eb9b4762e131afd2a5579fa0da15ef5fb3cfc51faacf9.json": "28c56f3d8f793fabe26e23a65ab7e4f51e5081ec377719511a795e47c9495194",
+    "live\\receipts\\29dafb54529e27c29651ef8fe73b59fa43998d72d0f62acf7992a8b32c5555a6\\1792900439148844700.json": "f6c2043a570b8748cb11a12e3c6ad1e6b05579738cc2a9b0117b27db79626a22",
+    "live\\receipts\\305e0cc597bd55ded7fb4858517f5bd64abdf2022c3fd62a71f9629bcb04817d\\1792900489597207000.json": "e8ccb091a5889ed6d413fe4588ffbd141bfe233fe7af70b954324d693e6248b8",
+    "live\\receipts\\3303431a940a91f8c7da8687f35573a6aed969149c2252cbdebe304319c0f0b3\\1792900456161709000.json": "fa87aea50050616d6090c5d8396e58dbf3c80d373526dd15ecec19c4f2d083e7",
+    "live\\receipts\\385d4dd4fe9b82c7d6ed822bb2fc62c6a3dba15d350a8b102a5ed36da575660f\\1792900469223587700.json": "5ee47b59db5a3988b8db36febf0d27dc98e855688ee4a415d74a273d7b9ef509",
+    "live\\receipts\\5d93d98354ad703d8d94302c49b8b08408589642c0781159bbd5461b0e25bc77\\1792900446885304100.json": "e6be7408489169057bdd60fbb70ca12b1c1311e16a530f216a1d2d3c8700b53b",
+    "live\\receipts\\64e8806ccd4dcf631197769a67c022b6f31ad0d81217aaa32357a0127eb1a6e5\\1792900480029334500.json": "771db19aa9d34a2cb221d041c3c411859c7d1b2d38400e9dcb84bb042fcd2f37",
+    "live\\receipts\\8b7a647359402ca31a5c1123b400dcdf9d8570d3a07fa6b28fba9805019e2473\\1792900461782815500.json": "a3bfb5b0f942cbe9ad0eeb21ad384f3300ef6d05caa3dad7792fc1c5bd28a29b",
+    "live\\receipts\\9d82dcd713f42a911a3c82fb4049cb2644c6fe40a529aa1f45f5eaa565fca330\\1792900474047754900.json": "607808eef37ca199f679591403fcb0f2c4ad2ec9cda39886270cf3db21165c31",
+    "live\\receipts\\cded4bdd39737ad8167eb9b4762e131afd2a5579fa0da15ef5fb3cfc51faacf9\\1792900484893050100.json": "464f495aeb393863c3b243acb51f12507e65ea2da3249cf6934bc9fd66f7c196"
+  },
+  "offline": true,
+  "sha256": "cc14ee0b55264b9a6544d7110d566cf55e6f3ccc9e1dbe29345a90b6ff18d3f5"
+}

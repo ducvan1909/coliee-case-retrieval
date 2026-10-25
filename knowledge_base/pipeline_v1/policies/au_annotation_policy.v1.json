@@ -1,0 +1,23 @@
+{
+  "policy_version":"au-annotation-policy-v1",
+  "guideline_version":"au-annotation-guideline-v1",
+  "packet_schema_version":"au-annotation-packet-v1",
+  "submission_schema_version":"au-annotator-submission-v1",
+  "au_schema_version":"authority-unit-human-v1",
+  "disagreement_schema_version":"au-disagreement-v1",
+  "adjudication_schema_version":"au-adjudication-v1",
+  "gold_schema_version":"locked-au-gold-v1",
+  "model_proposal_schema_version":"terra-au-proposal-v1",
+  "silver_schema_version":"locked-au-silver-v1",
+  "terra_prompt_version":"terra-au-annotation-prompt-v1",
+  "scoring_version":"au-scoring-v1",
+  "few_shot_policy_version":"au-few-shot-selection-v1",
+  "allowed_kinds":["holding","standard_of_review","statutory_hook","procedural_rule","fact_pattern_rule","foreign_law","other","unresolved_kind"],
+  "hard_negative_reasons":["party_argument_only","fact_only","procedural_history_only","citation_without_proposition","editorial","insufficient_context","other"],
+  "overlap_policy":"exact duplicate proposition spans forbidden; partial overlap requires distinct_supported disposition and human note",
+  "gold_rule":"two blind human submissions plus named human adjudication; documented named-human override remains adjudicated and is never model-derived",
+  "forbidden_provenance":["model","llm","codex","kos","old_pipeline","weak_label","self_training"],
+  "heldout_label_materialization":false
+  ,"annotation_states":["unassigned","independently_annotated","disagreement","pending_adjudication","adjudicated","locked"]
+  ,"state_transitions":{"unassigned":["independently_annotated"],"independently_annotated":["disagreement","pending_adjudication"],"disagreement":["pending_adjudication"],"pending_adjudication":["adjudicated"],"adjudicated":["locked"],"locked":[]}
+}

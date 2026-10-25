@@ -1,0 +1,113 @@
+{
+  "normalized": {
+    "aus": [],
+    "au_errors": [],
+    "warnings": [],
+    "assessed_scope_ids": [],
+    "delivered_scope_ids": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "needs_context"
+    },
+    "read_scope_ids": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "unresolved_scope_ids": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "empty_reason": "insufficient_context",
+    "work_scope_complete": false,
+    "assessment_basis": "author_self_report",
+    "assessment_result": "uncertain",
+    "semantic_quality": "not_assessed"
+  },
+  "usage": {
+    "input_tokens": 1461,
+    "output_tokens": 27,
+    "total_tokens": 1488
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[],\"empty_reason\":\"insufficient_context\",\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"needs_context\"}}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792923234,
+    "id": "aa3222c157d94163b53089148539827b",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 27,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 1461,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1488
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "81e2a260bf1c75f40dd7e4c9c7ccd32dd80673c3aa3226c791429daa33fc330b",
+    "payload_sha256": "81e2a260bf1c75f40dd7e4c9c7ccd32dd80673c3aa3226c791429daa33fc330b",
+    "polls": 2,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792923226.6032624,
+    "job_status": "completed",
+    "latency_ms": 10150.898,
+    "finished_at_unix": 1792923236.754113,
+    "server_timing": {
+      "created_at": "2026-10-25T10:13:52.194578+00:00",
+      "started_at": "2026-10-25T10:13:53.072417+00:00",
+      "finished_at": "2026-10-25T10:13:54.892139+00:00",
+      "inference_seconds": 1.1792047579999974
+    }
+  },
+  "model_output": {
+    "aus": [],
+    "empty_reason": "insufficient_context",
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "needs_context"
+    }
+  },
+  "status": "verified",
+  "latency_ms": 10151.142,
+  "request_id": "k0v2-b21f7447919d04e2ca8f5e6b",
+  "payload_sha256": "81e2a260bf1c75f40dd7e4c9c7ccd32dd80673c3aa3226c791429daa33fc330b",
+  "receipt_sha256": "d12fe3777bf4299f47e5058bc052fd62dadc04c41c5cb38ad439ad5aa2a9e993"
+}

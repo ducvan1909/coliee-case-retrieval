@@ -1,0 +1,156 @@
+{
+  "artifact_type": "Plan09R4IndependentSemanticAudit",
+  "report_revision": 1,
+  "supersedes": null,
+  "audit_date": "2026-10-06",
+  "reviewer": {"model": "gpt-5.6-sol", "reasoning_effort": "low", "independent_of_producer": true},
+  "scope": {"batch_id": "p09-r4-099980-seventh10-sol-v1", "case_id": "099980", "target_count": 10, "outside_batch_reviewed": false, "canonical_state_modified": false, "global_progress_or_r4_manifest_hash_locked": false},
+  "verdict": "pass_with_qualifications",
+  "summary": {
+    "agree": 10,
+    "disagree": 0,
+    "insufficient": 0,
+    "severity_counts": {"none": 6, "low": 4, "moderate": 0, "high": 0, "severe": 0},
+    "accepted_authority_units": 4,
+    "accepted_hard_negatives": 5,
+    "accepted_unresolved": 1,
+    "required_canonical_changes": 0,
+    "severe_findings": []
+  },
+  "snapshot": {
+    "frozen_batch_ref": "outputs/plan09_au_gold_v1/r4_batches/p09-r4-099980-seventh10-sol-v1.json",
+    "frozen_batch_sha256": "a00cca309741c8ec38c855c772ce175cdf6b9452f1eae4a2fbd27053e2836a29",
+    "raw_source_ref": "data/task1_train_files_2026/cases/099980.txt",
+    "raw_source_sha256": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+    "source_hash_declared_matches_computed": true,
+    "checkpoint_tuple_fields": ["proposal_file", "proposal_sha256", "validation_sidecar_sha256"],
+    "checkpoint_sha256": [
+      ["p09-r4-099980-seventh10-01-gpt61sol-v1.json", "355171daa223f002efc44e5404567c5412b6d694746e00efcf38c90601b73399", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-seventh10-02-gpt61sol-v1.json", "7c947bf2e3599ea27f0170bbccfc71bd5d3b59047c34947e90a594c383a24313", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-seventh10-03-gpt61sol-v1.json", "d8167aad57222616bdae2d3411184f2049c6221a0674e41742b63da42546dbf2", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-seventh10-04-gpt61sol-v1.json", "a5c943a2175c4ccec7fabad9c742269799ca84ce799fb461f8812affd64b41e6", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-seventh10-05-gpt61sol-v1.json", "3206430d732f81104c560d4eb4d624bc5345f5bb510edfc42e72851772db4a56", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-seventh10-06-gpt61sol-v1.json", "0e62192f17580035a9174e5d170133ffb228c232527c94899400185acc977de6", "b7eccd02cc3428c47d844a599dc0e5be7971b2b6403d126a519053fb20ad5f9c"],
+      ["p09-r4-099980-seventh10-07-gpt61sol-v1.json", "e00cb0e0d69b23d9dbc0e8f791a95b95e7a7324ba94e3208764a43c4ab8b5cfc", "708dcb8b0f0fd734f24940fea1aca2e6195190bfd8573af26510491352c012bc"],
+      ["p09-r4-099980-seventh10-08-gpt61sol-v1.json", "88c0a4c49eacdf39f9a11eac154487f9ee8ed6a309fbf5d28bcce5a7a969c11a", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-seventh10-09-gpt61sol-v1.json", "428a6dd63529d05c98b3c4432d1940a2fdbfb5710c2d72cb1f0ab6ce7659674d", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"],
+      ["p09-r4-099980-seventh10-10-gpt61sol-v1.json", "3cc81184484c51be9166ea09ba72a03fd41fb68cdb961780b2cd31774eeee513", "a8d651f4b76b1bf246e53c75c2eb3bb78688d350cf9be25d25801dbd24a731ac"]
+    ]
+  },
+  "technical_validation": {
+    "all_validate_model_proposal_calls_passed": true,
+    "all_sidecars_exactly_equal_recomputed_checks": true,
+    "all_target_ids_match_frozen_order": true,
+    "all_producers_exactly_gpt_6_1_sol_low": true,
+    "all_prompt_versions_exactly_r4_au_annotation_prompt_v1": true,
+    "all_selected_targets_have_exactly_one_checkpoint_owner_in_current_registry_read": true,
+    "duplicate_guard_evidence": "r4.checkpoint and r4.rebuild_manifest reject duplicate case/target ownership with checkpoint_duplicate_target; current registry read found one owner per target.",
+    "qualification": "Mutable global registry was read only for ownership and deliberately not hash-locked."
+  },
+  "items": [
+    {
+      "position": 1,
+      "target_id": "at-630e5b3107f31ec30d483195",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 137 compares notice/representation treatment of the candidate and applicant and reports the investigator's control over approach.",
+      "scope_review": "These are case facts. The distinct paragraph-136 fairness conclusion is not imported as this target's proposition."
+    },
+    {
+      "position": 2,
+      "target_id": "at-67a28257657db209f376306f",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 177 attributes fairness, remedy, innocence and supervision propositions to former counsel or the applicant.",
+      "scope_review": "The court's word `eloquently` does not adopt each proposition."
+    },
+    {
+      "position": 3,
+      "target_id": "at-681c23ac14ba9fb3033bec0a",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "commission_policy",
+      "evidence": "Paragraph 49 reports that the Commission Policy describes investigation decisions as discretionary and case-by-case.",
+      "scope_review": "Qualification: this is administrative-policy content, not statute or current-court holding. Paragraph 65's required consideration factors materially constrain how the proposition may be consumed; the exact paragraph-65 cross-reference is present. It must not become unrestricted discretion."
+    },
+    {
+      "position": 4,
+      "target_id": "at-69b26fc821f7b89ea6c8ff88",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 31 expressly frames no personal gain and the evidence contrasts as the applicant's alternative unreasonableness argument.",
+      "scope_review": "No court holding makes personal gain universally necessary for fraud."
+    },
+    {
+      "position": 5,
+      "target_id": "at-6a766cf8a9d8a233e4056107",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "party_argument_only",
+      "evidence": "Paragraph 47 juxtaposes applicant and respondent jurisdiction/reasonableness positions.",
+      "scope_review": "Neither position is adopted within the target."
+    },
+    {
+      "position": 6,
+      "target_id": "at-6b416be133c2ad82afda7242",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "hard_negative",
+      "reason": "fact_only",
+      "evidence": "Paragraph 129 is a case-specific credibility finding and acceptance of uncontradicted affidavit allegations.",
+      "scope_review": "It states no general credibility or procedural-fairness rule."
+    },
+    {
+      "position": 7,
+      "target_id": "at-6dccd1f10e05f9a2f1159ec6",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "unresolved",
+      "evidence": "Paragraph 86 mixes reported Seck 1 reasoning, respondent submissions, Commission position and the present court's doubt about stakeholder consistency.",
+      "scope_review": "Qualification: some subspans could be individually negative, but the mixed target includes current-court analytical doubt and no final jurisdiction ruling. Paragraphs 93 and 183-184 reserve the issue. Unresolved avoids both false adoption and false whole-span fact/party labeling."
+    },
+    {
+      "position": 8,
+      "target_id": "at-706534560fc7a1f24d660294",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 113 directly states that the two judgments relied on by the respondent do not apply in this case.",
+      "scope_review": "Qualification: citation names are suppressed and the holding is only this-case inapplicability. Paragraphs 100-113 are necessary to avoid confusing preceding nested cited-court text with the current court or generalizing to all CHRC precedent; that context is recorded."
+    },
+    {
+      "position": 9,
+      "target_id": "at-73614cc48a493ce944b21023",
+      "decision": "agree",
+      "severity": "low",
+      "outcome": "positive",
+      "kind": "procedural_rule",
+      "attribution": "current_court",
+      "evidence": "Paragraph 63 says that before assessing reasonableness of this fraud finding, one should first be satisfied that the Commission has jurisdiction over third parties.",
+      "scope_review": "Qualification: this is an analytical sequencing statement, not a finding that jurisdiction exists or is absent and not a universal standard-of-review rule. The before-assessment/third-party limits and later reservation context are exact."
+    },
+    {
+      "position": 10,
+      "target_id": "at-754e1b56d19dc114d5bbceca",
+      "decision": "agree",
+      "severity": "none",
+      "outcome": "positive",
+      "kind": "holding",
+      "attribution": "current_court",
+      "evidence": "Paragraph 184 expressly makes no jurisdiction/reasonableness declaration and limits illegality/nullity relief to this applicant's affected fraud finding and corrective actions.",
+      "scope_review": "Exclusive-benefit, affected-scope and no-declaration qualifications are all exact; the claim does not invalidate outcomes for other public servants."
+    }
+  ],
+  "boundaries": {"semantic_gold": false, "model_silver": true, "r5_pass": false, "plan10_allowed": false, "note": "Only the frozen seventh10 model-silver decisions are independently accepted; mutable overall R4 progress is outside scope."}
+}

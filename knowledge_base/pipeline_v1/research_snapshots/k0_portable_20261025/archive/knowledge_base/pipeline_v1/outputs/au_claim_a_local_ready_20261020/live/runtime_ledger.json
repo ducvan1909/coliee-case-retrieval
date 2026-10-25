@@ -1,0 +1,2016 @@
+{
+  "identity": "7375d2b2de9ce068e58e702500b388c8d0ad86fcd172c9b713c01cdec6ca2954",
+  "binding": {
+    "workload_sha256": "1eab617aa7ee56d9594738c5b3bdfeae8723b8c9633a6b550eecc17addc2b9d9",
+    "code_sha256": "835036d4692b10ed7546ad4b930abad2dcf4d6637e106d1af6ace4b6538dfa93",
+    "selected_target_ids": [
+      "act-c0ed7ba27278c298e3f9806f",
+      "act-b81273b7291bcd4577a91687",
+      "act-936031965b08be61d8d765cc",
+      "act-26e0f0e181977f9ba0c27362",
+      "act-80bdb6c502b053d3d914f453",
+      "act-7a05789ca8a61373b9c6d93c",
+      "act-1b96649d1cc24edf6febb043",
+      "act-44a15a9ba2f89eeea686ba72",
+      "act-b8525d8b98810bf91984a946",
+      "act-ea26d42af4a55d267c0f0517",
+      "act-c0dbce2da157944020f9c77d",
+      "act-38b0180ca1eb9a9c2d62e7fc",
+      "act-6d8f91680f2a2f2b18bc1802",
+      "act-cbff3a7eb4d28f50b1e0d656",
+      "act-6e9917a5d050d2111093d183",
+      "act-c195f34a1c15faced768c5e1"
+    ],
+    "mode": "execute",
+    "run_profile": {
+      "model": "Qwen/Qwen3.5-9B",
+      "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/chat/completions",
+      "enable_thinking": false,
+      "transport": "jobs",
+      "string_decoder": "host_validated",
+      "jobs_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+      "expected_model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "endpoint_verification": "historical_parent_operator_verification; no_live_check",
+      "runtime_revision_setting_present": false,
+      "timeout": 600,
+      "job_wait_seconds": 1800,
+      "job_poll_seconds": 2
+    },
+    "budget": {
+      "max_requests": 32,
+      "max_provider_attempts": 100,
+      "max_total_input_tokens": 800000,
+      "max_total_output_tokens": 80000
+    },
+    "concurrency": 2
+  },
+  "jobs": {
+    "auc-c9381cfc3da5ec9284eecaeb": {
+      "job": {
+        "request_id": "auc-c9381cfc3da5ec9284eecaeb",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-c0ed7ba27278c298e3f9806f",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-d3ba9f7cb194fe3c6ab339af",
+              "source_atom_id": "sa-9cbdbc116bfc5590fc237c26",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 5394,
+              "end_char": 5680,
+              "quote": "[10]\r\nIn a recent decision, Madam Justice Eleanor Dawson, examined the standard of review applicable to findings regarding state protection and concluded that in light of <FRAGMENT_SUPPRESSED> , above, the standard remains that of reasonableness (\r\n <FRAGMENT_SUPPRESSED>  at para. 6). ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-d306032f01d093e60d75e775",
+              "source_atom_id": "sa-106d3c19c3d92959becd16ee",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 5680,
+              "end_char": 5910,
+              "quote": "Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-a38bdac66a583d74e8256d0d",
+              "source_atom_id": "sa-1fc6dee1806a0f52ebc101e4",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 5910,
+              "end_char": 6087,
+              "quote": "whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law\" ( <FRAGMENT_SUPPRESSED> , above, at para. 47).\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[10]\\r\\nIn a recent decision, Madam Justice Eleanor Dawson, examined the standard of review applicable to findings regarding state protection and concluded that in light of <FRAGMENT_SUPPRESSED> , above, the standard remains that of reasonableness (\\r\\n <FRAGMENT_SUPPRESSED>  at para. 6). \"}, {\"id\": \"s2\", \"text\": \"Thus, pursuant to the reasonableness standard, the analysis of the Board's decision will be concerned with \\\"the existence of justification, transparency and intelligibility within the decision-making process [and also with] [...] \"}, {\"id\": \"s3\", \"text\": \"whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law\\\" ( <FRAGMENT_SUPPRESSED> , above, at para. 47).\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d"
+      },
+      "status": "verified",
+      "receipt_sha256": "9cabe30ef2789e206354e3e839a222fd6bd82fe20a7d170ad7032b8f8e07da68"
+    },
+    "auc-fbf2b9ad792df64588a39027": {
+      "job": {
+        "request_id": "auc-fbf2b9ad792df64588a39027",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-b81273b7291bcd4577a91687",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-9368668d19de6103cfd7383e",
+              "source_atom_id": "sa-e3f63af2a8e8a16a6aa63565",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 6763,
+              "end_char": 7028,
+              "quote": "[13]\r\nIt is true that \"clear and convincing confirmation\" of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 50). ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-e73a1b8538ba83c0221d0cbb",
+              "source_atom_id": "sa-a573b3edb9661a7669efd305",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 7028,
+              "end_char": 7276,
+              "quote": "In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available (\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 5;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 584 (QL), at para. 57).\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[13]\\r\\nIt is true that \\\"clear and convincing confirmation\\\" of a state's inability to protect must be put forth by an applicant, and that absent such proof, it is to be presumed that a state can protect its own citizens (\\r\\n <FRAGMENT_SUPPRESSED>  (QL), at para. 50). \"}, {\"id\": \"s2\", \"text\": \"In this context, the more democratic a state is, the more the individual must have done to exhaust all avenues of protection available (\\r\\n <FRAGMENT_SUPPRESSED>  (QL), at para. 5;\\r\\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 584 (QL), at para. 57).\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b"
+      },
+      "status": "verified",
+      "receipt_sha256": "3bae3163317ea753cd96d2208e023fee7ca6cd263c6ba05d715965996477f2a7"
+    },
+    "auc-74098902e4c9cb8d2c968b5c": {
+      "job": {
+        "request_id": "auc-74098902e4c9cb8d2c968b5c",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-936031965b08be61d8d765cc",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-37945bb85e5aca0c3b3cadea",
+              "source_atom_id": "sa-829bb3592645e909d680ef1e",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 7276,
+              "end_char": 7618,
+              "quote": "[14]\r\nIn the recent decision of <FRAGMENT_SUPPRESSED> , above, at para. 54 the Federal Court of Appeal noted that \"[t] he presumption of state protection described in\r\nWard\r\n, therefore, applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\" ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-8b5d5fbf0615d805ac48d7e9",
+              "source_atom_id": "sa-4833840360398855dfb81048",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 7618,
+              "end_char": 7773,
+              "quote": "Thus, the existence of state persecuting agents does not serve to automatically rebut the presumption that a state is capable of protecting its citizens.\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[14]\\r\\nIn the recent decision of <FRAGMENT_SUPPRESSED> , above, at para. 54 the Federal Court of Appeal noted that \\\"[t] he presumption of state protection described in\\r\\nWard\\r\\n, therefore, applies equally to cases where an individual claims to fear persecution by non-state entities and to cases where the state is alleged to be a persecutor.\\\" \"}, {\"id\": \"s2\", \"text\": \"Thus, the existence of state persecuting agents does not serve to automatically rebut the presumption that a state is capable of protecting its citizens.\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e"
+      },
+      "status": "verified",
+      "receipt_sha256": "515172db7cd3b5ed86aa12e719523b680c85aa5d5ef03b8fb69b532693894684"
+    },
+    "auc-621f4ef0ea66a5e3734aeb5d": {
+      "job": {
+        "request_id": "auc-621f4ef0ea66a5e3734aeb5d",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-26e0f0e181977f9ba0c27362",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-6966a5274da52d954f051a3b",
+              "source_atom_id": "sa-d065c2d084d20ec20434c1e8",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 8352,
+              "end_char": 8589,
+              "quote": "[16]\r\nWhile the burden placed on claimants from developed democratic states is a high one, I remain of the view that this burden does not require that they put themselves in danger in order to exhaust all possible avenues of protection. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-a17af57635f3c5b866f0fbd5",
+              "source_atom_id": "sa-8ef2f9f222d9d4b59eb3fea8",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 8589,
+              "end_char": 8772,
+              "quote": "Indeed, as Justice LaForest indicated, an individual will be required to seek state protection where it would be objectively unreasonable not to do so (\r\nWard\r\n, above, at para. 49). ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-94728432f88ff01a99a2588f",
+              "source_atom_id": "sa-19cc11a9d08ae428915a7b43",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 8772,
+              "end_char": 8841,
+              "quote": "In <FRAGMENT_SUPPRESSED> , above, at para. 18, I stated that:\r\n[...] ",
+              "role": "target_body"
+            },
+            "s4": {
+              "ref_id": "t-066ed057fba7df07a907db57",
+              "source_atom_id": "sa-4abdd3ae8e2d4356f11548e2",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 8841,
+              "end_char": 9116,
+              "quote": "notwithstanding that not every member of the [police] was implicated in the applicant's persecution, seeking help from the [police], - asking, in effect, the [police] to protect the applicant from itself - would have in all likelihood placed the applicant in greater peril.\r\n",
+              "role": "target_body"
+            },
+            "s5": {
+              "ref_id": "t-8c0ad2000e26827aa8f3eb06",
+              "source_atom_id": "sa-0ffa98c5e51d476c29f5c885",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 9116,
+              "end_char": 9333,
+              "quote": "Indeed, in my opinion, the requirement of having to place oneself in danger in order to exhaust all protection avenues would constitute an \"exceptional circumstance\" referred to by the Federal Court of Appeal above.\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[16]\\r\\nWhile the burden placed on claimants from developed democratic states is a high one, I remain of the view that this burden does not require that they put themselves in danger in order to exhaust all possible avenues of protection. \"}, {\"id\": \"s2\", \"text\": \"Indeed, as Justice LaForest indicated, an individual will be required to seek state protection where it would be objectively unreasonable not to do so (\\r\\nWard\\r\\n, above, at para. 49). \"}, {\"id\": \"s3\", \"text\": \"In <FRAGMENT_SUPPRESSED> , above, at para. 18, I stated that:\\r\\n[...] \"}, {\"id\": \"s4\", \"text\": \"notwithstanding that not every member of the [police] was implicated in the applicant's persecution, seeking help from the [police], - asking, in effect, the [police] to protect the applicant from itself - would have in all likelihood placed the applicant in greater peril.\\r\\n\"}, {\"id\": \"s5\", \"text\": \"Indeed, in my opinion, the requirement of having to place oneself in danger in order to exhaust all protection avenues would constitute an \\\"exceptional circumstance\\\" referred to by the Federal Court of Appeal above.\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\" | \"\\\"s4\\\"\" | \"\\\"s5\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412"
+      },
+      "status": "invalid",
+      "receipt_sha256": "b619a169be5de87a352051fdb0cbc2283762fe09364709d1aacf07a6783f7106"
+    },
+    "auc-71c67f3f267d7f4ad1d3ecc6": {
+      "job": {
+        "request_id": "auc-71c67f3f267d7f4ad1d3ecc6",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-80bdb6c502b053d3d914f453",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-6fe2b3ca03a63fbbe4375fc0",
+              "source_atom_id": "sa-956dd8e8336b624288f51c83",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 11681,
+              "end_char": 11795,
+              "quote": "[20]\r\nI find Madam Justice Gauthier's approach to the presumption of state protection in Mexico to be persuasive. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-db2e4b8a07cc5fc6ca1d5b52",
+              "source_atom_id": "sa-9b96ac47fc33b9c822d6a1d6",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 11795,
+              "end_char": 11930,
+              "quote": "While Mexico is a democracy and generally willing to protect its citizens, its governance and corruption problems are well documented. ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-15d5d8717965cc718bb21db8",
+              "source_atom_id": "sa-06e72330a02dc5539cabd080",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 11930,
+              "end_char": 12101,
+              "quote": "Accordingly, decision-makers must engage in a full assessment of the evidence placed before them suggesting that Mexico, while willing to protect, may be unable to do so. ",
+              "role": "target_body"
+            },
+            "s4": {
+              "ref_id": "t-1881b88b4242fdce83b22cb9",
+              "source_atom_id": "sa-91b6b28744aaa6cc3a325fca",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 12101,
+              "end_char": 12414,
+              "quote": "This assessment should include the context of the country of origin in general, all the steps that the applicants did in fact take, and their interaction with the authorities (\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1563 (QL), at para. 21;\r\n <FRAGMENT_SUPPRESSED>  [2002] F.C.J. No. 1331 (QL), at para. 18).\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[20]\\r\\nI find Madam Justice Gauthier's approach to the presumption of state protection in Mexico to be persuasive. \"}, {\"id\": \"s2\", \"text\": \"While Mexico is a democracy and generally willing to protect its citizens, its governance and corruption problems are well documented. \"}, {\"id\": \"s3\", \"text\": \"Accordingly, decision-makers must engage in a full assessment of the evidence placed before them suggesting that Mexico, while willing to protect, may be unable to do so. \"}, {\"id\": \"s4\", \"text\": \"This assessment should include the context of the country of origin in general, all the steps that the applicants did in fact take, and their interaction with the authorities (\\r\\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1563 (QL), at para. 21;\\r\\n <FRAGMENT_SUPPRESSED>  [2002] F.C.J. No. 1331 (QL), at para. 18).\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\" | \"\\\"s4\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46"
+      },
+      "status": "verified",
+      "receipt_sha256": "eb898cac59aa86a480a9a6c47ff058c6d3622193a175c630f114bbfd7e6cb37e"
+    },
+    "auc-758b5e76f2fb10e427b4e0a8": {
+      "job": {
+        "request_id": "auc-758b5e76f2fb10e427b4e0a8",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-7a05789ca8a61373b9c6d93c",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-e7cb0f142bb99621385d0970",
+              "source_atom_id": "sa-40b54e1601f621c354b34b0f",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 13761,
+              "end_char": 14076,
+              "quote": "[25]\r\nI am of the view that these alternate institutions do not constitute avenues of protection\r\nper se\r\n; unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-996a27e08fd5d3b8978fa260",
+              "source_atom_id": "sa-79f4c18e0e98a07c1192a102",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 14076,
+              "end_char": 14352,
+              "quote": "For example, the documentary evidence explicitly states that the National Human Rights Commission has no legal power of enforcement (\"Mexico: Situation of Witness to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation\").\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[25]\\r\\nI am of the view that these alternate institutions do not constitute avenues of protection\\r\\nper se\\r\\n; unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate. \"}, {\"id\": \"s2\", \"text\": \"For example, the documentary evidence explicitly states that the National Human Rights Commission has no legal power of enforcement (\\\"Mexico: Situation of Witness to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation\\\").\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001"
+      },
+      "status": "verified",
+      "receipt_sha256": "ab00e0161d8104825f8bc393cab8116d7d7dd7d73eee7ea46c3c0a70252dcde8"
+    },
+    "auc-abaf5e85ca1d1342856b6e5d": {
+      "job": {
+        "request_id": "auc-abaf5e85ca1d1342856b6e5d",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-1b96649d1cc24edf6febb043",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-f6c17d96804a802f8627f0b1",
+              "source_atom_id": "sa-d1ed2b861933bcf0cb95791c",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 14352,
+              "end_char": 14467,
+              "quote": "[26]\r\nThe Board's decision points to many efforts being made by the state to protect women from domestic violence. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-8cc8df18ee2225077351172b",
+              "source_atom_id": "sa-dbcbbd60e95345975131d8f2",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 14467,
+              "end_char": 14828,
+              "quote": "However, what was important was for the Board to be satisfied that the protection offered in Mexico was effective (\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1733 (QL), at para. 16;\r\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 118 (QL), at para. 15;\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 439 (QL), at para. 34;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[26]\\r\\nThe Board's decision points to many efforts being made by the state to protect women from domestic violence. \"}, {\"id\": \"s2\", \"text\": \"However, what was important was for the Board to be satisfied that the protection offered in Mexico was effective (\\r\\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 1733 (QL), at para. 16;\\r\\n <FRAGMENT_SUPPRESSED>  [2007] F.C.J. No. 118 (QL), at para. 15;\\r\\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 439 (QL), at para. 34;\\r\\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f"
+      },
+      "status": "verified",
+      "receipt_sha256": "d5f7ed1887c563e3bc43a8121028c027b9dbe3785dbcdc5bff989251c8b08661"
+    },
+    "auc-9b69d0acdd3de1ca6e7bace2": {
+      "job": {
+        "request_id": "auc-9b69d0acdd3de1ca6e7bace2",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-44a15a9ba2f89eeea686ba72",
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-99df97cda98799560b76d1b6",
+              "source_atom_id": "sa-5be76c608e894d63178532f0",
+              "case_id": "011904",
+              "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+              "start_char": 15205,
+              "end_char": 15570,
+              "quote": "[28]\r\nThis Court has consistently held that where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy (\r\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 1224 (QL), at para. 44;\r\n <FRAGMENT_SUPPRESSED>  [2004] F.C.J. No. 43 (QL), at para. 9;\r\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[28]\\r\\nThis Court has consistently held that where there is contradictory evidence before the Board, it must provide reasons why it did not consider this evidence relevant or trustworthy (\\r\\n <FRAGMENT_SUPPRESSED>  [2006] F.C.J. No. 1224 (QL), at para. 44;\\r\\n <FRAGMENT_SUPPRESSED>  [2004] F.C.J. No. 43 (QL), at para. 9;\\r\\n <FRAGMENT_SUPPRESSED>  (QL), at para. 15).\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605"
+      },
+      "status": "verified",
+      "receipt_sha256": "8bd43323d7c1fd4317f2fe521227b279b105cd23daa7d1a6136f6193f172a7aa"
+    },
+    "auc-80a33967561523720d8bfd47": {
+      "job": {
+        "request_id": "auc-80a33967561523720d8bfd47",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-b8525d8b98810bf91984a946",
+        "case_id": "045155",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-473b95a0f4a5bb649d539da4",
+              "source_atom_id": "sa-bea9467a9bf0b1b26a3adb31",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 16739,
+              "end_char": 16910,
+              "quote": " [8] \r\n  The respondent raises as a preliminary point that the applicant has not exhausted his internal remedies and therefore his application to this Court is premature. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-c730a2fa9df10ee922d881cf",
+              "source_atom_id": "sa-a2ffed99217dbe40e37d7e4d",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 16910,
+              "end_char": 17386,
+              "quote": "There is authority in this Court in the form of  \r\n Fortin v. Établissement de Donnacona (Directeur) \r\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \r\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \r\n Act \r\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-ca77e01497443a6faedb057e",
+              "source_atom_id": "sa-b5796c6a3324c4bce683a9a5",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 17386,
+              "end_char": 17460,
+              "quote": "Both of these cases set out the case law which supports that proposition. ",
+              "role": "target_body"
+            },
+            "s4": {
+              "ref_id": "t-f09a1b5215afdce61fd6c40b",
+              "source_atom_id": "sa-19c7acbf69d26be2fe5c9ec0",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 17460,
+              "end_char": 17604,
+              "quote": "The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court. ",
+              "role": "target_body"
+            },
+            "s5": {
+              "ref_id": "t-8d63f8c1a41b18ce8d9638bf",
+              "source_atom_id": "sa-3ea3dbea1b044bab2a379ee1",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 17604,
+              "end_char": 17725,
+              "quote": "One might add that judicial resources should not be occupied dealing with problems for which another forum is provided.  ",
+              "role": "target_body"
+            },
+            "s6": {
+              "ref_id": "t-08bd896cbc1954b093cdc8a5",
+              "source_atom_id": "sa-01a3d5bfeb2aae49c6406153",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 17725,
+              "end_char": 17750,
+              "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \" [8] \\r\\n  The respondent raises as a preliminary point that the applicant has not exhausted his internal remedies and therefore his application to this Court is premature. \"}, {\"id\": \"s2\", \"text\": \"There is authority in this Court in the form of  \\r\\n Fortin v. Établissement de Donnacona (Directeur) \\r\\n , [1997] F.C.J. No. 138; 153 F.T.R. 84 (T.D.), a decision of Teitelbaum, J., and  \\r\\n  <FRAGMENT_SUPPRESSED> ; 148 F.T.R. 81 (T.D.), a decision of Rosthstein, J. (as he then was), that the internal grievance procedure provided by the  \\r\\n Act \\r\\n  is, in general terms, an adequate alternate remedy which must be exhausted before initiating proceedings in the Federal Court. \"}, {\"id\": \"s3\", \"text\": \"Both of these cases set out the case law which supports that proposition. \"}, {\"id\": \"s4\", \"text\": \"The underlying rationale is that the statutory remedy is deprived of any relevance if it can simply be bypassed in favour of the Federal Court. \"}, {\"id\": \"s5\", \"text\": \"One might add that judicial resources should not be occupied dealing with problems for which another forum is provided.  \"}, {\"id\": \"s6\", \"text\": \"<FRAGMENT_SUPPRESSED>  \\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\" | \"\\\"s4\\\"\" | \"\\\"s5\\\"\" | \"\\\"s6\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124"
+      },
+      "status": "verified",
+      "receipt_sha256": "6fa6589e1711c0feee6182d542122c08c192dbc018df2245010220a79b34c77e"
+    },
+    "auc-990fae8ff57520393d90ac04": {
+      "job": {
+        "request_id": "auc-990fae8ff57520393d90ac04",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-ea26d42af4a55d267c0f0517",
+        "case_id": "045155",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-3e8089ca0a78103539fcfd4b",
+              "source_atom_id": "sa-647b37cf5ecaab42987401b7",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 17750,
+              "end_char": 17830,
+              "quote": " [9] \r\n  There are exceptions to this general rule as there are to all others.  ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-700fe830c8c6dc754a9cc49e",
+              "source_atom_id": "sa-8b9610cfc09005afdd012d92",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 17830,
+              "end_char": 18015,
+              "quote": "<FRAGMENT_SUPPRESSED> ; 108 F.T.R. 93 (T.D.), MacKay, J., held that an early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue. ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-7281f79d9d02a4e10e010345",
+              "source_atom_id": "sa-5001aef3233c28fc7fa2364d",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 18015,
+              "end_char": 18256,
+              "quote": "MacKay, J., relied in part upon section 81 of the  \r\n Regulations \r\n  made under the  \r\n Act \r\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. ",
+              "role": "target_body"
+            },
+            "s4": {
+              "ref_id": "t-8a67ac89bc34d14a624dea45",
+              "source_atom_id": "sa-587bfad2e79b907f94535da4",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 18256,
+              "end_char": 18362,
+              "quote": "In his view, this provision confirmed that a party had a right to proceed in one forum or the other.  \r\n  ",
+              "role": "target_body"
+            },
+            "s5": {
+              "ref_id": "t-9b97036c66b1da29f6b0b9fd",
+              "source_atom_id": "sa-18cf5de385a2027c50f9dda9",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 18362,
+              "end_char": 18478,
+              "quote": "<FRAGMENT_SUPPRESSED> , which may have turned on its particular facts, was not referred to in  \r\n Fortin \r\n  and  \r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \" [9] \\r\\n  There are exceptions to this general rule as there are to all others.  \"}, {\"id\": \"s2\", \"text\": \"<FRAGMENT_SUPPRESSED> ; 108 F.T.R. 93 (T.D.), MacKay, J., held that an early application for judicial review was appropriate where the lawful authority of the Commissioner is in issue. \"}, {\"id\": \"s3\", \"text\": \"MacKay, J., relied in part upon section 81 of the  \\r\\n Regulations \\r\\n  made under the  \\r\\n Act \\r\\n  which provides that where an application for judicial review is made, the grievance procedure is stayed until the judicial review is completed. \"}, {\"id\": \"s4\", \"text\": \"In his view, this provision confirmed that a party had a right to proceed in one forum or the other.  \\r\\n  \"}, {\"id\": \"s5\", \"text\": \"<FRAGMENT_SUPPRESSED> , which may have turned on its particular facts, was not referred to in  \\r\\n Fortin \\r\\n  and  \\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\" | \"\\\"s4\\\"\" | \"\\\"s5\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e"
+      },
+      "status": "verified",
+      "receipt_sha256": "3d8e593de03804f568a4915c68805cec2ce8311140be1ca36ec20f88544fa4f4"
+    },
+    "auc-1213243ce69f183fa3cc043b": {
+      "job": {
+        "request_id": "auc-1213243ce69f183fa3cc043b",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-c0dbce2da157944020f9c77d",
+        "case_id": "045155",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-20aaebba7ede708372d84551",
+              "source_atom_id": "sa-cca80123e4bc02758f18fb10",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 18530,
+              "end_char": 18635,
+              "quote": " [10] \r\n  The policy reasons for requiring applicants to exhaust their internal remedies are compelling. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-184df07b62c01c783ab4015c",
+              "source_atom_id": "sa-305e1cc15287eec9e0944977",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 18635,
+              "end_char": 18845,
+              "quote": "To hold otherwise is to undermine the legitimacy of alternate remedies by assigning them to a secondary position when there are many reasons why they should occupy a primary role in the resolution of disputes. ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-cd70ad9a759db2a8d6ce5b73",
+              "source_atom_id": "sa-1aa8ec67412ef8e4816b1af5",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 18845,
+              "end_char": 19093,
+              "quote": "In the context of correctional facilities, one could identity timeliness, familiarity with a unique environment, adequate procedural safeguards and economy as reasons for which internal remedies ought to be exhausted before approaching this Court. ",
+              "role": "target_body"
+            },
+            "s4": {
+              "ref_id": "t-2f6b5ac77243ec97e3477253",
+              "source_atom_id": "sa-a1b8365a3d372598ea3c25e6",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 19093,
+              "end_char": 19179,
+              "quote": "However, there will be circumstances in which the internal remedies are not adequate. ",
+              "role": "target_body"
+            },
+            "s5": {
+              "ref_id": "t-ebcac8cd5d1cb725eb0bceff",
+              "source_atom_id": "sa-9dd90ec251769370d77d6d16",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 19179,
+              "end_char": 19368,
+              "quote": "In this case, there is evidence, in the memorandum of Nancy Chow, suggesting that the Correctional Service has had the applicant's security classification dictated to it by another agency. ",
+              "role": "target_body"
+            },
+            "s6": {
+              "ref_id": "t-d68372ecc66a0e9d946833d7",
+              "source_atom_id": "sa-dbde0efb00c60d61d225fad9",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 19368,
+              "end_char": 19543,
+              "quote": "A grievance which puts such an issue into question cannot credibly be adjudicated by the Correctional Service since it is the Correctional Service itself which is implicated. ",
+              "role": "target_body"
+            },
+            "s7": {
+              "ref_id": "t-c5b54dc6ac3888faa8c2c5e4",
+              "source_atom_id": "sa-7f2adb24f0491176961fba7e",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 19543,
+              "end_char": 19706,
+              "quote": "For that reason, while upholding the general rule as to exhaustion of internal remedies, I find that the facts of this case constitute an exception to that rule.  ",
+              "role": "target_body"
+            },
+            "s8": {
+              "ref_id": "t-8d80e37d48282d487413af80",
+              "source_atom_id": "sa-faca99eeebde38a87388d99d",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 19706,
+              "end_char": 19731,
+              "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \" [10] \\r\\n  The policy reasons for requiring applicants to exhaust their internal remedies are compelling. \"}, {\"id\": \"s2\", \"text\": \"To hold otherwise is to undermine the legitimacy of alternate remedies by assigning them to a secondary position when there are many reasons why they should occupy a primary role in the resolution of disputes. \"}, {\"id\": \"s3\", \"text\": \"In the context of correctional facilities, one could identity timeliness, familiarity with a unique environment, adequate procedural safeguards and economy as reasons for which internal remedies ought to be exhausted before approaching this Court. \"}, {\"id\": \"s4\", \"text\": \"However, there will be circumstances in which the internal remedies are not adequate. \"}, {\"id\": \"s5\", \"text\": \"In this case, there is evidence, in the memorandum of Nancy Chow, suggesting that the Correctional Service has had the applicant's security classification dictated to it by another agency. \"}, {\"id\": \"s6\", \"text\": \"A grievance which puts such an issue into question cannot credibly be adjudicated by the Correctional Service since it is the Correctional Service itself which is implicated. \"}, {\"id\": \"s7\", \"text\": \"For that reason, while upholding the general rule as to exhaustion of internal remedies, I find that the facts of this case constitute an exception to that rule.  \"}, {\"id\": \"s8\", \"text\": \"<FRAGMENT_SUPPRESSED>  \\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\" | \"\\\"s4\\\"\" | \"\\\"s5\\\"\" | \"\\\"s6\\\"\" | \"\\\"s7\\\"\" | \"\\\"s8\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b"
+      },
+      "status": "verified",
+      "receipt_sha256": "d5f16b79836c87c72ed5b9bd0f024c33f11783602e74c64ac37ca7e0cbae819e"
+    },
+    "auc-a9d02f74a3d246e3af135acb": {
+      "job": {
+        "request_id": "auc-a9d02f74a3d246e3af135acb",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-38b0180ca1eb9a9c2d62e7fc",
+        "case_id": "045155",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-fa6d5887320cba9a8eaadcf8",
+              "source_atom_id": "sa-08a5633aaa8b1dd78e6c4b0c",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 22308,
+              "end_char": 22388,
+              "quote": " [14] \r\n  This is not a discipline case but the effect is essentially the same. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-9b5bce95f87dc370f7804c5b",
+              "source_atom_id": "sa-1fbe4ff33119f382ac1ca94e",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 22388,
+              "end_char": 22560,
+              "quote": "The refusal to reclassify and transfer the applicant is based upon an allegation which has not been shared with him and to which he has not had the opportunity to respond. ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-8231158cfebbe619239bc8f4",
+              "source_atom_id": "sa-8adece9bdc8040ed5b5a41d3",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 22560,
+              "end_char": 22738,
+              "quote": "The evidentiary record is clear that the only obstacle in the way of the applicant's reclassification is the undisclosed information on the applicant's preventive security file. ",
+              "role": "target_body"
+            },
+            "s4": {
+              "ref_id": "t-261ac908b7de0af298e1c856",
+              "source_atom_id": "sa-80c8c5501629394f5dd4a274",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 22738,
+              "end_char": 22972,
+              "quote": "It is true that the refusals in question here do nothing more than maintain the status quo whereas in  \r\n  <FRAGMENT_SUPPRESSED> , and other cases to the same effect, the information is being used to restrict the applicant's rights.  ",
+              "role": "target_body"
+            },
+            "s5": {
+              "ref_id": "t-cc0e64683caa1603d13e40c1",
+              "source_atom_id": "sa-291d5063cee12ac8cf5c0f08",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 22972,
+              "end_char": 22997,
+              "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \" [14] \\r\\n  This is not a discipline case but the effect is essentially the same. \"}, {\"id\": \"s2\", \"text\": \"The refusal to reclassify and transfer the applicant is based upon an allegation which has not been shared with him and to which he has not had the opportunity to respond. \"}, {\"id\": \"s3\", \"text\": \"The evidentiary record is clear that the only obstacle in the way of the applicant's reclassification is the undisclosed information on the applicant's preventive security file. \"}, {\"id\": \"s4\", \"text\": \"It is true that the refusals in question here do nothing more than maintain the status quo whereas in  \\r\\n  <FRAGMENT_SUPPRESSED> , and other cases to the same effect, the information is being used to restrict the applicant's rights.  \"}, {\"id\": \"s5\", \"text\": \"<FRAGMENT_SUPPRESSED>  \\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\" | \"\\\"s4\\\"\" | \"\\\"s5\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "b170cf60b12fba3fd7afec20dce7df406b63a5155fb309907f6890d704f56644"
+      },
+      "status": "invalid",
+      "receipt_sha256": "c241daeeae2e1babeb69422d018bb09a2c9df52a8bcd28a8c0091c224d31d8f1"
+    },
+    "auc-261bfde61316f67bda3c4a76": {
+      "job": {
+        "request_id": "auc-261bfde61316f67bda3c4a76",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-6d8f91680f2a2f2b18bc1802",
+        "case_id": "045155",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-58e5b578ae1065ee0de96215",
+              "source_atom_id": "sa-1847457dc4fe88861156dc8d",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 25718,
+              "end_char": 25878,
+              "quote": " [21] \r\n  The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-4a0350fa6f125599f3a6a0fd",
+              "source_atom_id": "sa-6054c506c8121cf8e99e4fdf",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 25878,
+              "end_char": 26170,
+              "quote": "As a result, subsection 27(2) requires that he be given \"all the information that was considered in the taking of the decision or a summary of that information\" or \"les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci\", subject only to the terms of subsection 27(3). ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-a0b2f21afb51d35ef4723e4b",
+              "source_atom_id": "sa-554d950ed92f560082fa96af",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 26170,
+              "end_char": 26314,
+              "quote": "Since the applicant has not received the information relied upon or a summary of that information, subsection 27(2) has not been complied with. ",
+              "role": "target_body"
+            },
+            "s4": {
+              "ref_id": "t-00b76dd7c51463ddbe047b9f",
+              "source_atom_id": "sa-feda95b70b8a416b859d46dc",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 26314,
+              "end_char": 26447,
+              "quote": "Subsection 27(3) provides a means whereby information may be withheld but it must be authorized by the Commissioner or his delegate. ",
+              "role": "target_body"
+            },
+            "s5": {
+              "ref_id": "t-0f0355e6fad176996048584e",
+              "source_atom_id": "sa-073704d205a9a13652d3c789",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 26447,
+              "end_char": 26710,
+              "quote": "The respondent argued that since the report prepared for the Warden by the Case Management Team referred to subsection 27(3) and since the Warden adopted their recommendation, the Warden, as the Commissioner's delegate, had effectively invoked subsection 27(3).  ",
+              "role": "target_body"
+            },
+            "s6": {
+              "ref_id": "t-86209b8b0559ecf55e146830",
+              "source_atom_id": "sa-b74d1928cea1b9049fe351ab",
+              "case_id": "045155",
+              "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+              "start_char": 26710,
+              "end_char": 26735,
+              "quote": "<FRAGMENT_SUPPRESSED>  \r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \" [21] \\r\\n  The refusal of a transfer request and a classification decision are both decisions in respect of which the applicant was entitled to written reasons. \"}, {\"id\": \"s2\", \"text\": \"As a result, subsection 27(2) requires that he be given \\\"all the information that was considered in the taking of the decision or a summary of that information\\\" or \\\"les renseignements pris en compte dans la décision, ou un sommaire de ceux-ci\\\", subject only to the terms of subsection 27(3). \"}, {\"id\": \"s3\", \"text\": \"Since the applicant has not received the information relied upon or a summary of that information, subsection 27(2) has not been complied with. \"}, {\"id\": \"s4\", \"text\": \"Subsection 27(3) provides a means whereby information may be withheld but it must be authorized by the Commissioner or his delegate. \"}, {\"id\": \"s5\", \"text\": \"The respondent argued that since the report prepared for the Warden by the Case Management Team referred to subsection 27(3) and since the Warden adopted their recommendation, the Warden, as the Commissioner's delegate, had effectively invoked subsection 27(3).  \"}, {\"id\": \"s6\", \"text\": \"<FRAGMENT_SUPPRESSED>  \\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\" | \"\\\"s4\\\"\" | \"\\\"s5\\\"\" | \"\\\"s6\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "ee100dc98f94b99d9f30af8b6f8241c06d960434ecdf818dc1b77ef04a0b1b91"
+      },
+      "status": "verified",
+      "receipt_sha256": "6398e58b2f2dff611515172fb9472f67f699898d73ebdfcdc09e4aa9fb097312"
+    },
+    "auc-043529c252d9ca960e652a7d": {
+      "job": {
+        "request_id": "auc-043529c252d9ca960e652a7d",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-cbff3a7eb4d28f50b1e0d656",
+        "case_id": "099980",
+        "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-a5d2de0a06fa80742620901b",
+              "source_atom_id": "sa-b598fb22e77bc43dd35f7ac1",
+              "case_id": "099980",
+              "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+              "start_char": 56160,
+              "end_char": 56482,
+              "quote": "[93]\r\nHowever, there is no need to express a definitive opinion on the issue of jurisdiction or reasonableness today or to base the judgment of the Court allowing the application for judicial review on such a contentious aspect that might soon be argued before the Federal Court of Appeal as part of the appeal in Seck 1. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-790c01a88146daa0d105c05b",
+              "source_atom_id": "sa-c3941a8caa558ac016eadac0",
+              "case_id": "099980",
+              "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+              "start_char": 56482,
+              "end_char": 56725,
+              "quote": "In fact, the issue of procedural fairness seems determinative to me; as explained below, there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[93]\\r\\nHowever, there is no need to express a definitive opinion on the issue of jurisdiction or reasonableness today or to base the judgment of the Court allowing the application for judicial review on such a contentious aspect that might soon be argued before the Federal Court of Appeal as part of the appeal in Seck 1. \"}, {\"id\": \"s2\", \"text\": \"In fact, the issue of procedural fairness seems determinative to me; as explained below, there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c"
+      },
+      "status": "verified",
+      "receipt_sha256": "1076ee21e8095139974ab741f5f9afd7b86aa45b448bd71b030a46c92e1095dc"
+    },
+    "auc-55b6b038d76f4d7ba263f01b": {
+      "job": {
+        "request_id": "auc-55b6b038d76f4d7ba263f01b",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-6e9917a5d050d2111093d183",
+        "case_id": "099980",
+        "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-761ffc5ef53a68ac14c314dc",
+              "source_atom_id": "sa-3fe4ac2ec95f35c65b26bf99",
+              "case_id": "099980",
+              "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+              "start_char": 58238,
+              "end_char": 58472,
+              "quote": "[96]\r\nIt is appropriate for the standard of correctness to guide the analysis of the Court with respect to the alleged breach of the rules of procedural fairness:\r\n <FRAGMENT_SUPPRESSED>  [2006] FCJ No 1261 ( <FRAGMENT_SUPPRESSED> ). ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-c5933e061efbb05cabf77e8e",
+              "source_atom_id": "sa-cbe645091271897c3334dc6f",
+              "case_id": "099980",
+              "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+              "start_char": 58472,
+              "end_char": 58837,
+              "quote": "As we know, issues of procedural fairness are resolved on a case-by-case basis, which means that today, the Court is not bound by the findings of fact the Court made on this issue in\r\nSeck 1 first instance\r\n, at paragraphs 17 to 20, especially since the facts differ substantially because the applicant was never formally informed that she was suspected of fraud.\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[96]\\r\\nIt is appropriate for the standard of correctness to guide the analysis of the Court with respect to the alleged breach of the rules of procedural fairness:\\r\\n <FRAGMENT_SUPPRESSED>  [2006] FCJ No 1261 ( <FRAGMENT_SUPPRESSED> ). \"}, {\"id\": \"s2\", \"text\": \"As we know, issues of procedural fairness are resolved on a case-by-case basis, which means that today, the Court is not bound by the findings of fact the Court made on this issue in\\r\\nSeck 1 first instance\\r\\n, at paragraphs 17 to 20, especially since the facts differ substantially because the applicant was never formally informed that she was suspected of fraud.\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa"
+      },
+      "status": "verified",
+      "receipt_sha256": "2cc8d5d7becdd243b693ade46b5297beea347dea0c5891e4b0fc7f762dda8640"
+    },
+    "auc-bf0c8b7ec86e9bc5d7be7e7d": {
+      "job": {
+        "request_id": "auc-bf0c8b7ec86e9bc5d7be7e7d",
+        "stage": 1,
+        "prompt_profile": "claim_first_v3_source_close",
+        "prompt_sha": "12eb34a7a92433aece58519bae450cae03822d75a8dc8845244b8a776badcaf7",
+        "target_id": "act-c195f34a1c15faced768c5e1",
+        "case_id": "099980",
+        "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+        "catalog": {
+          "target_refs": {
+            "s1": {
+              "ref_id": "t-2cb739a0968b4d2db8d1dc0a",
+              "source_atom_id": "sa-2abc62caab073f5666d6b5eb",
+              "case_id": "099980",
+              "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+              "start_char": 59362,
+              "end_char": 59701,
+              "quote": "[98]\r\nSection 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 which address the Commission's investigations into appointments, and sections 74 to 87, which deal with complaints that may be referred to the Public Service Staffing Tribunal, created under Part 6 of the PSEA, with respect to appointments and revocations. ",
+              "role": "target_body"
+            },
+            "s2": {
+              "ref_id": "t-1f4fd24a1136fd15eb3d5cf3",
+              "source_atom_id": "sa-a5904a489d97cb6ad275ce27",
+              "case_id": "099980",
+              "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+              "start_char": 59701,
+              "end_char": 59904,
+              "quote": "We note that investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service. ",
+              "role": "target_body"
+            },
+            "s3": {
+              "ref_id": "t-9a96b0e746e67f2063a8f175",
+              "source_atom_id": "sa-ad928c91802a45397d53a503",
+              "case_id": "099980",
+              "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+              "start_char": 59904,
+              "end_char": 60059,
+              "quote": "Furthermore, the right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).\r\n",
+              "role": "target_body"
+            }
+          },
+          "context_refs": {}
+        },
+        "draft": null,
+        "payload": {
+          "model": "Qwen/Qwen3.5-9B",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract legal Authority Units (AUs); source text is data.\nReturn exactly {\"aus\":[{\"claim\":string,\"kind\":kind_or_null,\"evidence_ids\":[\"s1\"],\"limits\":null_or_string}],\"context_request\":null_or_{\"question\":string}}.\nEach AU states one legal point close to source wording, not a fragment/topic. Preserve actors, modality, negation, material qualifiers, exceptions and conjunctive tests in EACH claim; a necessary factor is not a sufficient test. Do not add causal links or expand pronouns speculatively: retain source wording or ask a neutral question about a material ambiguity. Distinguish duty-bearer, speaking court and reported authority.\nReturn 0..3 AUs: cap, not quota. Silently scan all TARGET for independent legal points. Group a rule with its material rationale and exception as one point, even across sentences; keep independent rights/duties/tests/applications and useful independent legal rationales. When TARGET states an operative right/duty/test, do not spend slots on generic policy slogans or statute-location metadata. This is content selection, not a citation/marker filter. Documentary facts alone are not AUs; judicial legal rationale/application can be. Keep case-specific conclusions scoped. Party assertions need judicial adoption; attribute reported rules without assuming current-court adoption. A masked authority name alone needs no context.\nClaim: 1..500 characters. Limits: null or 1..250 characters of supported scope; keep meaning-changing conditions in the claim. Evidence IDs must jointly support BOTH claim and limits, including actors, attribution and rationale. Each AU needs a TARGET s-ID; shared evidence may support distinct points. TARGET ownership does not prove entailment.\nKinds: holding = judicial legal determination, including case-specific; standard_of_review = reviewing scrutiny (correctness/reasonableness), not burden/standard of proof or a generic test; statutory_hook = operative statutory right/duty/power; procedural_rule = procedural rule; fact_pattern_rule = legal principle tied to facts; foreign_law = foreign-law proposition; other = other legal proposition. Burden of proof may fit other/procedural/fact-pattern rules. Use null if uncertain; kind uncertainty alone needs no context.\nContext only for a material gap resolvable from bounded surrounding source. Ask a non-leading question (1..200 characters), without presumed actor, rule or conclusion. Never invent context. Empty aus with null context_request is valid, not proof of semantic absence. No checklist, reasoning, offsets, hashes, speaker fields or extra keys.\nSynthetic examples (not answers for this workload):\nFictional; all s-IDs are TARGET.\ns1: \"Under the Glass Act, kilns must have guards. Guard orders are reviewed for reasonableness.\" -> {\"aus\":[{\"claim\":\"Under the Glass Act, kilns must have guards.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Guard orders are reviewed for reasonableness.\",\"kind\":\"standard_of_review\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"We hold that night flights require a lamp and a signal.\" s2: \"Both avert collisions; rescue flights are exempt.\" -> {\"aus\":[{\"claim\":\"Night flights require a lamp and a signal to avert collisions; rescue flights are exempt.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\",\"s2\"],\"limits\":null}],\"context_request\":null}\ns1: \"The log lists three torn sails. Counsel seeks payment.\" -> {\"aus\":[],\"context_request\":null}\ns1: \"An unnamed prior court held that this damaged sundial could not be sold as new.\" -> {\"aus\":[{\"claim\":\"An unnamed prior court held that this damaged sundial could not be sold as new.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":null}],\"context_request\":null}\ns1: \"It may not issue the permit unless both conditions are met.\" -> {\"aus\":[],\"context_request\":{\"question\":\"What does 'it' refer to, and what are the two conditions in the surrounding passage?\"}}\n\nUse only TARGET. No surrounding CONTEXT is supplied.\nINPUT:\n{\"TARGET\": [{\"id\": \"s1\", \"text\": \"[98]\\r\\nSection 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 which address the Commission's investigations into appointments, and sections 74 to 87, which deal with complaints that may be referred to the Public Service Staffing Tribunal, created under Part 6 of the PSEA, with respect to appointments and revocations. \"}, {\"id\": \"s2\", \"text\": \"We note that investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service. \"}, {\"id\": \"s3\", \"text\": \"Furthermore, the right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).\\r\\n\"}]}"
+            }
+          ],
+          "temperature": 0,
+          "max_tokens": 800,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "ebnf": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"context_request\\\":\" context \"}\"\naus ::= \"[\" (au (\",\" au){0,2})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable-text \"}\"\ncontext ::= \"null\" | \"{\" \"\\\"question\\\":\" text \"}\"\nkind ::= \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\" | \"null\"\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"s1\\\"\" | \"\\\"s2\\\"\" | \"\\\"s3\\\"\"\nnullable-text ::= \"null\" | text\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n"
+        },
+        "payload_sha256": "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569"
+      },
+      "status": "verified",
+      "receipt_sha256": "b3df9af9a31366e1488e54ff9f513a3fa5f20bf678e4fb054baed30106e52702"
+    }
+  },
+  "attempts": [
+    {
+      "ordinal": 1,
+      "job_id": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+      "payload_sha256": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+      "reserved_input_tokens": 4566,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495888.8708777,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1789.26
+    },
+    {
+      "ordinal": 2,
+      "job_id": "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d",
+      "payload_sha256": "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d",
+      "reserved_input_tokens": 4768,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495888.8731322,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 2461.866
+    },
+    {
+      "ordinal": 3,
+      "job_id": "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e",
+      "payload_sha256": "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e",
+      "reserved_input_tokens": 4548,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495910.144526,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1468.805
+    },
+    {
+      "ordinal": 4,
+      "job_id": "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412",
+      "payload_sha256": "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412",
+      "reserved_input_tokens": 5114,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495928.8210933,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 3423.584
+    },
+    {
+      "ordinal": 5,
+      "job_id": "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46",
+      "payload_sha256": "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46",
+      "reserved_input_tokens": 4834,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495940.648378,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1370.873
+    },
+    {
+      "ordinal": 6,
+      "job_id": "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001",
+      "payload_sha256": "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001",
+      "reserved_input_tokens": 4642,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495967.1808293,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1535.2
+    },
+    {
+      "ordinal": 7,
+      "job_id": "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f",
+      "payload_sha256": "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f",
+      "reserved_input_tokens": 4529,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495979.3831186,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1564.35
+    },
+    {
+      "ordinal": 8,
+      "job_id": "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605",
+      "payload_sha256": "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605",
+      "reserved_input_tokens": 4390,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495989.9169676,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1521.919
+    },
+    {
+      "ordinal": 9,
+      "job_id": "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124",
+      "payload_sha256": "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124",
+      "reserved_input_tokens": 5171,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792495993.4564276,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1350.244
+    },
+    {
+      "ordinal": 10,
+      "job_id": "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e",
+      "payload_sha256": "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e",
+      "reserved_input_tokens": 4865,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792496003.32703,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1292.598
+    },
+    {
+      "ordinal": 11,
+      "job_id": "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b",
+      "payload_sha256": "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b",
+      "reserved_input_tokens": 5402,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792496020.546871,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1620.006
+    },
+    {
+      "ordinal": 12,
+      "job_id": "b170cf60b12fba3fd7afec20dce7df406b63a5155fb309907f6890d704f56644",
+      "payload_sha256": "b170cf60b12fba3fd7afec20dce7df406b63a5155fb309907f6890d704f56644",
+      "reserved_input_tokens": 4814,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792496030.5413756,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1710.123
+    },
+    {
+      "ordinal": 13,
+      "job_id": "ee100dc98f94b99d9f30af8b6f8241c06d960434ecdf818dc1b77ef04a0b1b91",
+      "payload_sha256": "ee100dc98f94b99d9f30af8b6f8241c06d960434ecdf818dc1b77ef04a0b1b91",
+      "reserved_input_tokens": 5171,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792496042.2998903,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1320.625
+    },
+    {
+      "ordinal": 14,
+      "job_id": "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c",
+      "payload_sha256": "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c",
+      "reserved_input_tokens": 4610,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792496050.798381,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1401.871
+    },
+    {
+      "ordinal": 15,
+      "job_id": "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa",
+      "payload_sha256": "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa",
+      "reserved_input_tokens": 4650,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792496066.9616487,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1449.218
+    },
+    {
+      "ordinal": 16,
+      "job_id": "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569",
+      "payload_sha256": "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569",
+      "reserved_input_tokens": 4768,
+      "reserved_output_tokens": 800,
+      "usage": null,
+      "usage_state": "unknown",
+      "acknowledgement": "received",
+      "started_at_unix": 1792496075.823545,
+      "phase": "extraction",
+      "input_estimate_method": "full_prompt_utf8_bytes; not exact tokens",
+      "latency_ms": 1691.724
+    }
+  ],
+  "provider_attempts": 16,
+  "get_polls": 319,
+  "reserved_input_tokens": 76842,
+  "reserved_output_tokens": 12800,
+  "ledger_sha256": "98a201e3aef0eb46d1c2e8a9d451b11c0fb97afd15020ceb18c17865776b5045",
+  "job_recovery": {
+    "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b": {
+      "last_absence_proof": {
+        "job_id": "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495884.6885402
+            },
+            "observed_at_unix": 1792495885.297252,
+            "observed_monotonic": 31997.0444652
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495887.9646204
+            },
+            "observed_at_unix": 1792495888.870128,
+            "observed_monotonic": 32000.6170061
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d": {
+      "last_absence_proof": {
+        "job_id": "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495884.8179672
+            },
+            "observed_at_unix": 1792495885.4235182,
+            "observed_monotonic": 31997.1701647
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495888.0202188
+            },
+            "observed_at_unix": 1792495888.8731322,
+            "observed_monotonic": 32000.6198489
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e": {
+      "last_absence_proof": {
+        "job_id": "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495906.3264203
+            },
+            "observed_at_unix": 1792495906.9407005,
+            "observed_monotonic": 32018.6874263
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495909.5529413
+            },
+            "observed_at_unix": 1792495910.144526,
+            "observed_monotonic": 32021.8914295
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412": {
+      "last_absence_proof": {
+        "job_id": "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495924.9900277
+            },
+            "observed_at_unix": 1792495925.5963514,
+            "observed_monotonic": 32037.3435696
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495928.2036464
+            },
+            "observed_at_unix": 1792495928.8210933,
+            "observed_monotonic": 32040.5679737
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46": {
+      "last_absence_proof": {
+        "job_id": "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495936.7470605
+            },
+            "observed_at_unix": 1792495937.3548155,
+            "observed_monotonic": 32049.1017306
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495940.0104349
+            },
+            "observed_at_unix": 1792495940.6476173,
+            "observed_monotonic": 32052.3947069
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001": {
+      "last_absence_proof": {
+        "job_id": "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495963.2892835
+            },
+            "observed_at_unix": 1792495963.9138348,
+            "observed_monotonic": 32075.6607523
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495966.5340433
+            },
+            "observed_at_unix": 1792495967.1808293,
+            "observed_monotonic": 32078.9278114
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f": {
+      "last_absence_proof": {
+        "job_id": "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495975.481809
+            },
+            "observed_at_unix": 1792495976.1177015,
+            "observed_monotonic": 32087.8647211
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495978.742528
+            },
+            "observed_at_unix": 1792495979.3831186,
+            "observed_monotonic": 32091.1300436
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605": {
+      "last_absence_proof": {
+        "job_id": "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495986.0486522
+            },
+            "observed_at_unix": 1792495986.6709924,
+            "observed_monotonic": 32098.4179135
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495989.2808924
+            },
+            "observed_at_unix": 1792495989.9162078,
+            "observed_monotonic": 32101.6633031
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124": {
+      "last_absence_proof": {
+        "job_id": "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495989.5654268
+            },
+            "observed_at_unix": 1792495990.195484,
+            "observed_monotonic": 32101.9427718
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495992.8053381
+            },
+            "observed_at_unix": 1792495993.4564276,
+            "observed_monotonic": 32105.2031973
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e": {
+      "last_absence_proof": {
+        "job_id": "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792495999.4145112
+            },
+            "observed_at_unix": 1792496000.0554698,
+            "observed_monotonic": 32111.802556
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496002.692978
+            },
+            "observed_at_unix": 1792496003.32703,
+            "observed_monotonic": 32115.0738361
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b": {
+      "last_absence_proof": {
+        "job_id": "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496015.683883
+            },
+            "observed_at_unix": 1792496016.2825158,
+            "observed_monotonic": 32128.0293565
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496018.9226668
+            },
+            "observed_at_unix": 1792496020.546871,
+            "observed_monotonic": 32132.293394
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "b170cf60b12fba3fd7afec20dce7df406b63a5155fb309907f6890d704f56644": {
+      "last_absence_proof": {
+        "job_id": "b170cf60b12fba3fd7afec20dce7df406b63a5155fb309907f6890d704f56644",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/b170cf60b12fba3fd7afec20dce7df406b63a5155fb309907f6890d704f56644",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496026.6970596
+            },
+            "observed_at_unix": 1792496027.314367,
+            "observed_monotonic": 32139.0615975
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/b170cf60b12fba3fd7afec20dce7df406b63a5155fb309907f6890d704f56644",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496029.9177625
+            },
+            "observed_at_unix": 1792496030.5413756,
+            "observed_monotonic": 32142.2881227
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "ee100dc98f94b99d9f30af8b6f8241c06d960434ecdf818dc1b77ef04a0b1b91": {
+      "last_absence_proof": {
+        "job_id": "ee100dc98f94b99d9f30af8b6f8241c06d960434ecdf818dc1b77ef04a0b1b91",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/ee100dc98f94b99d9f30af8b6f8241c06d960434ecdf818dc1b77ef04a0b1b91",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496038.397039
+            },
+            "observed_at_unix": 1792496039.0152597,
+            "observed_monotonic": 32150.7624365
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/ee100dc98f94b99d9f30af8b6f8241c06d960434ecdf818dc1b77ef04a0b1b91",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496041.6717641
+            },
+            "observed_at_unix": 1792496042.2998903,
+            "observed_monotonic": 32154.0465728
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c": {
+      "last_absence_proof": {
+        "job_id": "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496046.9586792
+            },
+            "observed_at_unix": 1792496047.5679517,
+            "observed_monotonic": 32159.3147553
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496050.1754596
+            },
+            "observed_at_unix": 1792496050.798381,
+            "observed_monotonic": 32162.54522
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa": {
+      "last_absence_proof": {
+        "job_id": "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496063.0723743
+            },
+            "observed_at_unix": 1792496063.6991816,
+            "observed_monotonic": 32175.4461233
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496066.325382
+            },
+            "observed_at_unix": 1792496066.9616487,
+            "observed_monotonic": 32178.7081604
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    },
+    "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569": {
+      "last_absence_proof": {
+        "job_id": "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569",
+        "gateway_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs",
+        "observations": [
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496071.8670776
+            },
+            "observed_at_unix": 1792496072.5222986,
+            "observed_monotonic": 32184.2692933
+          },
+          {
+            "job_url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/v1/jobs/fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569",
+            "http_status": 404,
+            "detail": "Unknown job",
+            "health": {
+              "url": "https://khanhnguqua123--coliee-qwen35-9b-l40s-server.us-west.modal.direct/health",
+              "http_status": 200,
+              "ready": true,
+              "observed_at_unix": 1792496075.1725485
+            },
+            "observed_at_unix": 1792496075.8230393,
+            "observed_monotonic": 32187.5698134
+          }
+        ],
+        "backoff_seconds": 2.0
+      },
+      "retry_used": false
+    }
+  },
+  "observed_jobs": {
+    "d3daa9a1ed31cd9c9ef638e8b8a73a2ef25836217cec8b5a697f0db03018040b": "completed",
+    "a4e0b84288487492dfef483fe338aadad18d37bdcc8944f47977e5c13c0d5c8d": "completed",
+    "1a58f95b6ebd4a605819b1bdef69fcf58609c61bab432d5ecb05e63771ebd48e": "completed",
+    "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412": "completed",
+    "413159826b4c01d8087aca8bb75148777ff248b8445572c4548cc8ea0b386d46": "completed",
+    "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001": "completed",
+    "cc1047c0df0c31205cc602c26d1288da075787990e2872496c3e7e591229d08f": "completed",
+    "aba19102d46589c003347326abbf89f5f762e82f581aec45dc857368f30c3605": "completed",
+    "0dd3fb58999e5b321aa2bfffaf3760442b53d64bac39d434eb49c3a2e9ed4124": "completed",
+    "8a9f0e61732fef8c9591b881e09f2fcb07a0067baffcd5380b298f7ade11904e": "completed",
+    "dc9d16d0445921010bd6bc68656345ce679df910a77435f5d4625065e8e8068b": "completed",
+    "b170cf60b12fba3fd7afec20dce7df406b63a5155fb309907f6890d704f56644": "completed",
+    "ee100dc98f94b99d9f30af8b6f8241c06d960434ecdf818dc1b77ef04a0b1b91": "completed",
+    "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c": "completed",
+    "7cb1f9d0d453e285cb4cf13095e96666a548328cec912afd137662e8caa6a4fa": "completed",
+    "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569": "completed"
+  }
+}

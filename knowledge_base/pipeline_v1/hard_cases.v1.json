@@ -1,0 +1,115 @@
+{
+  "catalog_version": "p2-hard-cases-v1",
+  "status": "annotation_queue_not_gold",
+  "rules": [
+    "candidate cases are pointers for adjudication, not accepted labels",
+    "audit/model/KOS outputs may locate a candidate but cannot establish semantic truth"
+  ],
+  "situations": [
+    {
+      "situation_id": "struct-false-heading",
+      "class": "structure",
+      "description": "Dòng ngắn hoặc heading bị nhận nhầm, gồm heading được giữ như nội dung uncertain.",
+      "candidate_cases": ["099980"],
+      "basis": "V15 audit",
+      "required_labels": ["SourceBlock.block_type", "SourceBlock.errors.false_heading_candidate"]
+    },
+    {
+      "situation_id": "struct-bracket-year-vs-marker",
+      "class": "structure",
+      "description": "Bracket year/citation có thể bị nhầm với paragraph marker.",
+      "candidate_cases": [],
+      "basis": "mandatory experiment scenario; exact example still to adjudicate",
+      "required_labels": ["SourceBlock.block_type", "SourceBlock.errors.marker_confusion"]
+    },
+    {
+      "situation_id": "struct-long-multi-proposition",
+      "class": "structure",
+      "description": "Paragraph rất dài chứa nhiều proposition nhưng vẫn là một source block canonical.",
+      "candidate_cases": ["099980"],
+      "basis": "long sparse-AU calibration case; exact spans still to adjudicate",
+      "required_labels": ["SourceBlock", "AuthorityUnit.proposition_span"]
+    },
+    {
+      "situation_id": "struct-open-quote-list",
+      "class": "structure",
+      "description": "Quotation hoặc list continuation chưa đóng qua ranh giới dòng/block.",
+      "candidate_cases": [],
+      "basis": "mandatory experiment scenario; exact example still to adjudicate",
+      "required_labels": ["SourceBlock.errors.quote_or_list_continuation"]
+    },
+    {
+      "situation_id": "au-cross-block",
+      "class": "au_context",
+      "description": "Một AU cần evidence chạy qua hai SourceBlock.",
+      "candidate_cases": ["013948", "045155"],
+      "basis": "condition/treatment failures in V13 audit; mapping remains candidate",
+      "required_labels": ["AuthorityUnit.evidence_spans", "ContextObligation"]
+    },
+    {
+      "situation_id": "au-condition-neighbor",
+      "class": "au_context",
+      "description": "Condition hoặc exception nằm ở block trước/sau proposition.",
+      "candidate_cases": ["013948"],
+      "basis": "prior review reports a missing essential condition",
+      "required_labels": ["AuthorityUnit.condition_spans", "AuthorityUnit.exception_spans"]
+    },
+    {
+      "situation_id": "au-party-vs-court",
+      "class": "attribution",
+      "description": "Party statement nằm gần court finding và dễ bị gán current_court.",
+      "candidate_cases": ["013948", "045155"],
+      "basis": "V13 attribution/treatment audit",
+      "required_labels": ["AuthorityUnit.attributions"]
+    },
+    {
+      "situation_id": "au-distant-court-response",
+      "class": "attribution",
+      "description": "Current-court response nằm xa authority proposition.",
+      "candidate_cases": ["045155", "013009"],
+      "basis": "missing response witness and stable-witness fixture",
+      "required_labels": ["AuthorityUnit.attributions", "ContextObligation"]
+    },
+    {
+      "situation_id": "au-no-citation",
+      "class": "au_selection",
+      "description": "Đoạn không có citation nhưng có thể chứa AU.",
+      "candidate_cases": ["099980"],
+      "basis": "mandatory scenario plus sparse-opportunity audit; exact span unconfirmed",
+      "required_labels": ["AuthorityUnit"]
+    },
+    {
+      "situation_id": "au-long-case-sparse",
+      "class": "coverage",
+      "description": "Án dài nhưng ít AU; không được dùng early stop như bằng chứng no-AU.",
+      "candidate_cases": ["099980"],
+      "basis": "V13–V15 observed omission/over-selection",
+      "required_labels": ["AuthorityUnit", "ContextObligation"]
+    },
+    {
+      "situation_id": "au-schema-valid-omission",
+      "class": "coverage",
+      "description": "Output hợp schema hoặc completed nhưng bỏ target/AU.",
+      "candidate_cases": ["099980", "011904"],
+      "basis": "V13 empty completion and prior lost accepted AU",
+      "required_labels": ["AuthorityUnit.annotation_status", "ContextObligation.status"]
+    },
+    {
+      "situation_id": "au-duplicate-fragment",
+      "class": "au_quality",
+      "description": "Hai AU gần trùng hoặc một fragment bị materialize như AU độc lập.",
+      "candidate_cases": ["013948"],
+      "basis": "V13 final audit",
+      "required_labels": ["AuthorityUnit.duplicate_of", "AuthorityUnit.annotation_status"]
+    },
+    {
+      "situation_id": "ops-source-mutation-resume",
+      "class": "operations",
+      "description": "Source đổi một phần rồi resume; cache/output phụ thuộc phải bị invalidated.",
+      "candidate_cases": ["013009"],
+      "basis": "mandatory experiment scenario; synthetic mutation test required later",
+      "required_labels": ["SpanRef.source_sha256"]
+    }
+  ]
+}
+

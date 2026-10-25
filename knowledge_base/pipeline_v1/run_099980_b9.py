@@ -1,0 +1,20 @@
+"""Checkpoint Plan 09 model-silver batch terra-b89b3fdbb5d80eee8db3099b."""
+from __future__ import annotations
+from pathlib import Path
+from knowledge_base.pipeline_v1.au_gold.build import checkpoint_model_proposal
+from knowledge_base.pipeline_v1.au_gold.core import AnnotationError,atomic_write,exact_span,load_json,model_review_trace
+from knowledge_base.pipeline_v1.source_contract import open_source
+P=Path("knowledge_base/pipeline_v1");ROOT=P/"outputs/plan09_au_gold_v1";CASE_ID="099980";BATCH_ID="terra-b89b3fdbb5d80eee8db3099b";PROPOSAL_ID="terra-099980-b89b3fdbb5d80eee8db3099b"
+def main():
+ m=load_json(ROOT/"au_annotation_build_manifest.json");row=next(x for x in m["cases"] if x["case_id"]==CASE_ID);p=load_json(ROOT/row["packet_ref"]);pol=load_json(P/"policies/au_annotation_policy.v1.json");src=open_source(m["source_store"],CASE_ID,p["source_hash"]);b=next(x for x in load_json(ROOT/"terra_annotation_batches.json")["batches"] if x["batch_id"]==BATCH_ID);ts={x["target_id"]:x for x in p["tasks"]};owned=set()
+ for rec in load_json(ROOT/"terra_proposal_manifest.json")["proposals"]:owned.update(x["target_id"] for x in load_json(ROOT/rec["proposal_ref"])["target_reviews"])
+ if set(b["target_ids"])&owned:raise AnnotationError("batch target already has canonical owner")
+ pv={"source_type":"model","producer_id":"model:gpt-5.6-terra","prompt_version":pol["terra_prompt_version"]};d={"at-85c073e43bfd14f821227a49":("the Commission's breach of the rules of procedural fairness is flagrant and is sufficient in itself to set aside the impugned decision","A flagrant procedural-fairness breach is sufficient to set aside the impugned decision; remittal or simple set-aside is discretionary.","holding"),"at-a8cfb98e77e749981499f203":("make referring the applicant's case back to the Commission not in the best interests of justice.","Given the identified injustice, bias concerns, delay, and lack of safeguards, remitting the case to the Commission was not in the interests of justice.","holding")};rs=[]
+ for tid in b["target_ids"]:
+  t=ts[tid];z=t["target_span"];reviewed=exact_span(src,CASE_ID,p["source_hash"],z["start_char"],z["end_char"])
+  if tid in d:
+   q,c,k=d[tid];a=src.index(q,z["start_char"],z["end_char"]);e=exact_span(src,CASE_ID,p["source_hash"],a,a+len(q));u={"au_id":"terra-"+tid,"owner_target_id":tid,"owner_block_id":t["owner_block_id"],"claim_text":c,"kind":k,"other_kind":None,"evidence_spans":[e],"attributions":[{"role":"proposition","speaker":"current_court","evidence_span":e}],"condition_spans":[],"exception_spans":[],"limit_spans":[],"cross_block_refs":[],"overlap_disposition":"none","duplicate_of":None,"status":"model_proposed","provenance":pv,"notes":[],"uncertainty":"low","unresolved_reasons":[]};r={"target_id":tid,"review_complete":True,"reviewed_span":reviewed,"authority_units":[u],"hard_negative":None,"notes":[],"model_outcome":"positive","unresolved_reasons":[]}
+  else:r={"target_id":tid,"review_complete":True,"reviewed_span":reviewed,"authority_units":[],"hard_negative":{"reason":"party_argument_only","reviewed_span":reviewed,"provenance":pv,"notes":["Full-target/context review: party cost agreement or cost claim only; no court costs determination in this span."]},"notes":[],"model_outcome":"hard_negative","unresolved_reasons":[]}
+  r["review_trace"]=model_review_trace(t,src,p["source_hash"],r);r["review_trace"]["region_id"]=b["region_id"];r["review_trace"]["region_fingerprint"]=b["region_fingerprint"];rs.append(r)
+ q={"artifact_type":"TerraAUProposal","schema_version":"terra-au-proposal-v1","proposal_id":PROPOSAL_ID,"packet_id":p["packet_id"],"case_id":CASE_ID,"source_hash":p["source_hash"],"producer":{"source_type":"model","producer_id":"model:gpt-5.6-terra","model":"gpt-5.6-terra","reasoning_effort":"low"},"prompt_version":pol["terra_prompt_version"],"batch_id":BATCH_ID,"status":"model_proposed","target_reviews":rs};atomic_write(ROOT/"stage_099980_b9.json",q);print(checkpoint_model_proposal(proposal=q,output_root=ROOT,source_store=m["source_store"],policy=pol))
+if __name__=="__main__":main()

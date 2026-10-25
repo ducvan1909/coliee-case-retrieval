@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coliee:knowledge-base:pipeline-v1:sentence-atom-map-v1",
+  "title": "Pipeline V1 SentenceAtom map",
+  "$comment": "Canonical IDs are SHA-256 prefixes over named-field JSON payloads. Text is never materialized in this artifact.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "schema_version", "case_id", "source_hash", "sourceblock_map_cache_key", "sourceblock_parser_version", "sourceblock_policy_sha256", "segmenter_version", "policy_sha256", "cache_key", "source_char_length", "parent_block_refs", "atoms", "protected_spans", "slice_plans", "segmenter_events"],
+  "properties": {
+    "artifact_type": {"const": "SentenceAtomMap"},
+    "schema_version": {"const": "sentence-atom-map-v1"},
+    "case_id": {"$ref": "#/$defs/caseId"},
+    "source_hash": {"$ref": "#/$defs/sha256"},
+    "sourceblock_map_cache_key": {"$ref": "#/$defs/sha256"},
+    "sourceblock_parser_version": {"type": "string", "minLength": 1},
+    "sourceblock_policy_sha256": {"$ref": "#/$defs/sha256"},
+    "segmenter_version": {"type": "string", "minLength": 1},
+    "policy_sha256": {"$ref": "#/$defs/sha256"},
+    "cache_key": {"$ref": "#/$defs/sha256"},
+    "source_char_length": {"type": "integer", "minimum": 0},
+    "parent_block_refs": {"type": "array", "items": {"$ref": "#/$defs/parentBlockRef"}},
+    "atoms": {"type": "array", "items": {"$ref": "#/$defs/atom"}},
+    "protected_spans": {"type": "array", "items": {"$ref": "#/$defs/protectedSpan"}},
+    "slice_plans": {"type": "array", "items": {"$ref": "#/$defs/slicePlan"}},
+    "segmenter_events": {"type": "array", "items": {"$ref": "#/$defs/event"}}
+  },
+  "$defs": {
+    "caseId": {"type": "string", "pattern": "^[0-9]{6}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "spanRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["case_id", "source_hash", "start_char", "end_char"],
+      "properties": {
+        "case_id": {"$ref": "#/$defs/caseId"}, "source_hash": {"$ref": "#/$defs/sha256"},
+        "start_char": {"type": "integer", "minimum": 0}, "end_char": {"type": "integer", "minimum": 0}
+      }
+    },
+    "parentBlockRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "block_id", "block_order", "span", "content_span", "marker_span", "parser_version", "policy_sha256"],
+      "properties": {
+        "record_type": {"const": "SentenceAtomParentBlockRef"},
+        "block_id": {"type": "string", "pattern": "^sb-[0-9a-f]{24}$"},
+        "block_order": {"type": "integer", "minimum": 0},
+        "span": {"$ref": "#/$defs/spanRef"}, "content_span": {"$ref": "#/$defs/spanRef"},
+        "marker_span": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/spanRef"}]},
+        "parser_version": {"type": "string", "minLength": 1}, "policy_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "atom": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "atom_id", "case_id", "source_hash", "parent_block_id", "parent_block_order", "order_in_block", "global_order", "span", "segmenter_version", "policy_sha256", "protected_span_refs"],
+      "properties": {
+        "record_type": {"const": "SentenceAtom"}, "atom_id": {"type": "string", "pattern": "^sa-[0-9a-f]{24}$"},
+        "case_id": {"$ref": "#/$defs/caseId"}, "source_hash": {"$ref": "#/$defs/sha256"},
+        "parent_block_id": {"type": "string", "pattern": "^sb-[0-9a-f]{24}$"},
+        "parent_block_order": {"type": "integer", "minimum": 0}, "order_in_block": {"type": "integer", "minimum": 0},
+        "global_order": {"type": "integer", "minimum": 0}, "span": {"$ref": "#/$defs/spanRef"},
+        "segmenter_version": {"type": "string", "minLength": 1}, "policy_sha256": {"$ref": "#/$defs/sha256"},
+        "protected_span_refs": {"type": "array", "items": {"type": "string", "pattern": "^ps-[0-9a-f]{24}$"}, "uniqueItems": true}
+      }
+    },
+    "protectedSpan": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "protected_span_id", "case_id", "source_hash", "parent_block_id", "parent_block_order", "span_type", "protection_mode", "boundary_forbidden", "span", "producer_version", "policy_sha256", "reason_code"],
+      "properties": {
+        "record_type": {"const": "ProtectedSpan"}, "protected_span_id": {"type": "string", "pattern": "^ps-[0-9a-f]{24}$"},
+        "case_id": {"$ref": "#/$defs/caseId"}, "source_hash": {"$ref": "#/$defs/sha256"},
+        "parent_block_id": {"type": "string", "pattern": "^sb-[0-9a-f]{24}$"}, "parent_block_order": {"type": "integer", "minimum": 0},
+        "span_type": {"enum": ["abbreviation", "initial", "reporter_citation", "case_name", "decimal_reference", "section_reference", "citation_year", "paragraph_marker", "list_marker", "balanced_quotation", "unbalanced_quotation", "newline_layout"]},
+        "protection_mode": {"enum": ["boundary_forbidden", "context_only"]}, "boundary_forbidden": {"type": "boolean"},
+        "span": {"$ref": "#/$defs/spanRef"}, "producer_version": {"type": "string", "minLength": 1},
+        "policy_sha256": {"$ref": "#/$defs/sha256"}, "reason_code": {"type": "string", "minLength": 1}
+      }
+    },
+    "slice": {
+      "type": "object", "additionalProperties": false,
+      "required": ["slice_id", "slice_order", "parent_block_id", "span", "first_atom_id", "last_atom_id"],
+      "properties": {
+        "slice_id": {"type": "string", "pattern": "^sl-[0-9a-f]{24}$"}, "slice_order": {"type": "integer", "minimum": 0},
+        "parent_block_id": {"type": "string", "pattern": "^sb-[0-9a-f]{24}$"}, "span": {"$ref": "#/$defs/spanRef"},
+        "first_atom_id": {"type": "string", "pattern": "^sa-[0-9a-f]{24}$"}, "last_atom_id": {"type": "string", "pattern": "^sa-[0-9a-f]{24}$"}
+      }
+    },
+    "slicePlan": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "plan_id", "parent_block_id", "parent_block_order", "parent_span", "slice_policy_version", "max_chars", "model_specific", "slices"],
+      "properties": {
+        "record_type": {"const": "DerivedSlicePlan"}, "plan_id": {"type": "string", "pattern": "^sp-[0-9a-f]{24}$"},
+        "parent_block_id": {"type": "string", "pattern": "^sb-[0-9a-f]{24}$"}, "parent_block_order": {"type": "integer", "minimum": 0},
+        "parent_span": {"$ref": "#/$defs/spanRef"}, "slice_policy_version": {"type": "string", "minLength": 1},
+        "max_chars": {"type": "integer", "minimum": 1}, "model_specific": {"const": false},
+        "slices": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/slice"}}
+      }
+    },
+    "event": {
+      "type": "object", "additionalProperties": false,
+      "required": ["event_id", "event_type", "severity", "case_id", "source_hash", "parent_block_id", "span", "message_code", "message"],
+      "properties": {
+        "event_id": {"type": "string", "pattern": "^se-[0-9a-f]{20}$"},
+        "event_type": {"enum": ["unbalanced_quotation", "oversized_atom", "slice_exceeds_cap"]},
+        "severity": {"enum": ["review", "error"]}, "case_id": {"$ref": "#/$defs/caseId"}, "source_hash": {"$ref": "#/$defs/sha256"},
+        "parent_block_id": {"type": "string", "pattern": "^sb-[0-9a-f]{24}$"}, "span": {"$ref": "#/$defs/spanRef"},
+        "message_code": {"type": "string", "minLength": 1}, "message": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

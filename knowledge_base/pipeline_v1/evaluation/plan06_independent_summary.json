@@ -1,0 +1,51 @@
+{
+  "evaluation_version": "pipeline-v1-independent-evaluation-v1",
+  "plan": "06",
+  "status": "pass",
+  "generated_at": "2026-10-04T09:23:16+07:00",
+  "scope": "Plan 06 deterministic ContextHint maps, rules, query API, metrics, manifest, ledgers, cache, and KOS-5 audit",
+  "runs": {
+    "plan06_cli": "pass",
+    "original_plan01_plan06_tests": {"total": 70, "passed": 70, "failed": 0},
+    "independent_plan01_plan06_tests": {"total": 45, "passed": 45, "failed": 0},
+    "independent_plan06_tests": {"total": 7, "passed": 7, "failed": 0},
+    "current_artifacts": {"expected": 5, "reused": 5},
+    "context_hint_maps_before": 20,
+    "context_hint_maps_after": 20,
+    "historical_maps_changed_or_missing": 0
+  },
+  "recomputed_counts": {
+    "targets": 431,
+    "hints": 28,
+    "targets_with_hints": 25,
+    "pre_policy_count": 28,
+    "post_policy_count": 28,
+    "hint_types": {"open_quote": 10, "open_list": 0, "dependent_lead_in": 5, "reference_to_previous": 2, "citation_continuation": 0, "quote_continuation": 10, "speaker_continuity_candidate": 1},
+    "hint_status": {"accepted_by_contract": 20, "candidate": 8, "unresolved": 0},
+    "unique_related_chars": 9632,
+    "proposed_related_chars": 10610,
+    "repeated_proposed_chars": 978,
+    "reverse_quote_boundary_pairs": 10,
+    "maximum_related_block_chars": 1715
+  },
+  "findings": [
+    {
+      "id": "P06-F01",
+      "severity": "medium",
+      "status": "fixed_verified",
+      "title": "Build manifest and ledgers did not validate stored totals and artifact references",
+      "verification": "Strict schemas plus read validation now open five safe immutable maps, recompute case and global metrics, reconcile both ledgers, and reject corrupt cache before reuse"
+    }
+  ],
+  "open_findings": [],
+  "sample_concerns": [
+    "10 bidirectional open_quote and quote_continuation pairs propose reverse context at the same boundaries",
+    "978 proposed chars are repeated across hints",
+    "largest related block is 1715 chars and long quote chains may over-expand P2b context",
+    "KOS-5 contains no open_list or citation_continuation outputs, so those rules have synthetic contract evidence only"
+  ],
+  "metrics_not_reported": ["precision", "recall", "F1"],
+  "metrics_reason": "No adjudicated ContextHint gold exists",
+  "plan07_started": false,
+  "advance_condition": "Satisfied for Plan 06 only; Plan 07 remains outside this evaluation"
+}

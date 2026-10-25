@@ -1,0 +1,45 @@
+{
+  "report_version": "plan08-execution-validation-v1",
+  "status": "pass",
+  "scope": "offline KOS-5 protocol/cache/resume validation only; no model, LLM, AU/no-AU, ContextObligation, repair, or retrieval",
+  "inputs": {
+    "plan07_report": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\reports\\plan07_analysis_region_validation.latest.json",
+    "execution_policy": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\policies\\execution_policy.v1.json"
+  },
+  "outputs": {
+    "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan08_execution_v1",
+    "build_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan08_execution_v1\\execution_suite_manifest.json",
+    "current_pointer": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\plan08_execution_v1\\current.json"
+  },
+  "summary": {
+    "primary_target_count": 369,
+    "request_inventory_count": 96,
+    "scenario_count": 7,
+    "elapsed_seconds": 22.048474000010174,
+    "archived_build_id": "e61ea9eb91545f4c82df905ba4d7fecfa33966b565f8e5b518b7dc1dd5a117be",
+    "current_build_id": "e61ea9eb91545f4c82df905ba4d7fecfa33966b565f8e5b518b7dc1dd5a117be",
+    "history_count": 1
+  },
+  "gates": {
+    "plan07_build_ready": true,
+    "exact_kos5": true,
+    "ledger_target_exactly_once": true,
+    "exact_resume_zero_provider_calls": true,
+    "interrupt_resume_keeps_valid_work": true,
+    "transient_only_bounded_retry": true,
+    "permanent_and_protocol_not_retried": true,
+    "partial_atomic_reject": true,
+    "budget_not_verified": true,
+    "source_invalidation_local": true,
+    "restored_fingerprint_stable": true,
+    "arm_isolation": true,
+    "snapshot_canonical_jsonl_reconciled": true,
+    "current_pointer_valid": true,
+    "immutable_history_valid": true
+  },
+  "limitations": [
+    "All provider outcomes and latency are deterministic mock data.",
+    "mock_protocol_verified proves only identifier/shape coverage, not semantic correctness.",
+    "P2a is the operational arm; P2b is tested only for cache isolation."
+  ]
+}

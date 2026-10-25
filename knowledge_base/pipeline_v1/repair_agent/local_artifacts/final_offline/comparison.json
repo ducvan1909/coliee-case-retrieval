@@ -1,0 +1,62 @@
+{
+  "aggregate_attempts": 7,
+  "aggregate_charged_or_reserved_tokens": 37406,
+  "artifact_type": "RepairComparison",
+  "budget_scope": "each arm has its own 8-attempt/20000-token cap",
+  "mock_usage_is_provider_usage": false,
+  "reports": [
+    {
+      "arm": "R0",
+      "cost_summary": {
+        "billing_usd": null,
+        "charged_or_reserved_tokens": 0,
+        "latency_kind": "local_mock",
+        "latency_ms": 0,
+        "mock_attempts": 0,
+        "provider_total_tokens_known": 0,
+        "provider_usage_unknown_attempts": 0,
+        "reasoning_usage": "included only if provider reports; otherwise unknown",
+        "source_attempt_definition": "adapter invocations; HTTP submits/polls/recovery are separate transport events",
+        "source_model_attempts": 0
+      },
+      "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\repair_agent\\local_artifacts\\final_offline\\R0\\dc32ea5436af75bb4ad533837b0215391700de333c4b209d8540e3c2691d4216",
+      "status": "complete"
+    },
+    {
+      "arm": "R1",
+      "cost_summary": {
+        "billing_usd": null,
+        "charged_or_reserved_tokens": 19832,
+        "latency_kind": "local_mock",
+        "latency_ms": 0,
+        "mock_attempts": 4,
+        "provider_total_tokens_known": 0,
+        "provider_usage_unknown_attempts": 0,
+        "reasoning_usage": "included only if provider reports; otherwise unknown",
+        "source_attempt_definition": "adapter invocations; HTTP submits/polls/recovery are separate transport events",
+        "source_model_attempts": 4
+      },
+      "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\repair_agent\\local_artifacts\\final_offline\\R1\\73612632dce9ca1b989a7dcdb7a6bf9bb5cf8a937d2f41fe17cc334de2820645",
+      "status": "complete"
+    },
+    {
+      "arm": "R2",
+      "cost_summary": {
+        "billing_usd": null,
+        "charged_or_reserved_tokens": 17574,
+        "latency_kind": "local_mock",
+        "latency_ms": 0,
+        "mock_attempts": 3,
+        "provider_total_tokens_known": 0,
+        "provider_usage_unknown_attempts": 0,
+        "reasoning_usage": "included only if provider reports; otherwise unknown",
+        "source_attempt_definition": "adapter invocations; HTTP submits/polls/recovery are separate transport events",
+        "source_model_attempts": 3
+      },
+      "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\repair_agent\\local_artifacts\\final_offline\\R2\\feae49c88d202f6550b12b5d7047be3cd1afa5ea8320c4ee6dfd88a75976e6ec",
+      "status": "incomplete"
+    }
+  ],
+  "semantic_metrics": null,
+  "semantic_status": "independent_review_required"
+}

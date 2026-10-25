@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coliee:knowledge-base:pipeline-v1:source-contract-v1",
+  "title": "Pipeline V1 CaseSource and SpanRef contract",
+  "oneOf": [
+    {"$ref": "#/$defs/caseSource"},
+    {"$ref": "#/$defs/spanRef"}
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "caseId": {"type": "string", "pattern": "^[0-9]{6}$"},
+    "spanRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case_id", "source_hash", "start_char", "end_char"],
+      "properties": {
+        "case_id": {"$ref": "#/$defs/caseId"},
+        "source_hash": {"$ref": "#/$defs/sha256"},
+        "start_char": {"type": "integer", "minimum": 0},
+        "end_char": {"type": "integer", "minimum": 0}
+      }
+    },
+    "caseSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "contract_version", "case_id", "source_version", "source_hash", "text_ref", "byte_length", "char_length", "encoding", "offset_unit", "metadata"],
+      "properties": {
+        "record_type": {"const": "CaseSource"},
+        "contract_version": {"const": "case-source-v1"},
+        "case_id": {"$ref": "#/$defs/caseId"},
+        "source_version": {"type": "string", "pattern": "^src-[0-9a-f]{16}$"},
+        "source_hash": {"$ref": "#/$defs/sha256"},
+        "text_ref": {"type": "string", "minLength": 1},
+        "byte_length": {"type": "integer", "minimum": 0},
+        "char_length": {"type": "integer", "minimum": 0},
+        "encoding": {"const": "utf-8-sig"},
+        "offset_unit": {"const": "unicode_codepoint"},
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["corpus_split", "kos_role", "input_source_path"]
+        }
+      }
+    }
+  }
+}
+

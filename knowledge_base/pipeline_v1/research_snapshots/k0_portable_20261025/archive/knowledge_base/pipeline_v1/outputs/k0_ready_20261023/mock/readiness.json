@@ -1,0 +1,12 @@
+{
+  "status": "not_needed",
+  "ready": null,
+  "http_status": null,
+  "error_class": null,
+  "count": 0,
+  "elapsed_ms": 0,
+  "warmup_count": 0,
+  "warmup_elapsed_ms": 0,
+  "deadline_seconds": 600,
+  "retrieval_deadline_seconds": 30
+}

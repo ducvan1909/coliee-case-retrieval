@@ -1,0 +1,175 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-c11b1f2ef3bd70bc552b2378",
+        "claim": "Section 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 addressing the Commission's investigations into appointments, and sections 74 to 87 dealing with complaints referred to the Public Service Staffing Tribunal regarding appointments and revocations.",
+        "kind": "statutory_hook",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-2cb739a0968b4d2db8d1dc0a",
+            "case_id": "099980",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 59362,
+            "end_char": 59701,
+            "quote": "[98]\r\nSection 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 which address the Commission's investigations into appointments, and sections 74 to 87, which deal with complaints that may be referred to the Public Service Staffing Tribunal, created under Part 6 of the PSEA, with respect to appointments and revocations. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-a59f0c902873797a8bd992af",
+        "claim": "Investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service.",
+        "kind": "fact_pattern_rule",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-1f4fd24a1136fd15eb3d5cf3",
+            "case_id": "099980",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 59701,
+            "end_char": 59904,
+            "quote": "We note that investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-4c055d59b38d8b84806334bc",
+        "claim": "The right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).",
+        "kind": "statutory_hook",
+        "evidence_ids": [
+          "s3"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-9a96b0e746e67f2063a8f175",
+            "case_id": "099980",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 59904,
+            "end_char": 60059,
+            "quote": "Furthermore, the right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).\r\n",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1076,
+    "output_tokens": 185,
+    "total_tokens": 1261
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"Section 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 addressing the Commission's investigations into appointments, and sections 74 to 87 dealing with complaints referred to the Public Service Staffing Tribunal regarding appointments and revocations.\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s1\"],\"limits\":null},{\"claim\":\"Investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service.\",\"kind\":\"fact_pattern_rule\",\"evidence_ids\":[\"s2\"],\"limits\":null},{\"claim\":\"The right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).\",\"kind\":\"statutory_hook\",\"evidence_ids\":[\"s3\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792496097,
+    "id": "77b6a9bcf0414c6ab6848952551387c2",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 185,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 185,
+      "prompt_tokens": 1076,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1261
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569",
+    "payload_sha256": "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569",
+    "polls": 8,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792496070.6235142,
+    "job_status": "completed",
+    "latency_ms": 31002.486,
+    "finished_at_unix": 1792496101.6260457,
+    "server_timing": {
+      "created_at": "2026-10-20T11:34:35.146261+00:00",
+      "started_at": "2026-10-20T11:34:40.007439+00:00",
+      "finished_at": "2026-10-20T11:34:57.519493+00:00",
+      "inference_seconds": 16.82011206100003
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "Section 69 is found in Part 5 of the PSEA, which includes sections 66 to 73 addressing the Commission's investigations into appointments, and sections 74 to 87 dealing with complaints referred to the Public Service Staffing Tribunal regarding appointments and revocations.",
+        "kind": "statutory_hook",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "Investigations conducted by the Commission into appointments represent an important supervisory tool that helps manage the staffing system and ensure the impartiality of the public service.",
+        "kind": "fact_pattern_rule",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null
+      },
+      {
+        "claim": "The right to make submissions is legislatively recognized when the appointment or proposed appointment of a person is at issue (section 72).",
+        "kind": "statutory_hook",
+        "evidence_ids": [
+          "s3"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 31002.764,
+  "request_id": "auc-bf0c8b7ec86e9bc5d7be7e7d",
+  "payload_sha256": "fd3639ac917f8786582b083da8b9db8107494bf36bde7683a685661f11cf9569",
+  "receipt_sha256": "b3df9af9a31366e1488e54ff9f513a3fa5f20bf678e4fb054baed30106e52702"
+}

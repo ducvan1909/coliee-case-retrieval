@@ -1,0 +1,20 @@
+{
+  "status": "local_mock_pass",
+  "protected_files_checked": 102,
+  "protected_files_unchanged": true,
+  "code_sha256": "3e40d831247abbf258d1f5fc90f6818dccee64c899faed87e4cf2ac5a494ba41",
+  "workload_sha256": "659b61e51049f6a4e895c1a0ba63ab31be5001f900f991d9c782d326f747138b",
+  "cases": 3,
+  "scopes": 16,
+  "evidence_parts": 58,
+  "mock_POST_attempts": 3,
+  "reserved_input_tokens": 8190,
+  "reserved_output_tokens": 2400,
+  "provider_requests": 0,
+  "resume_without_duplicate_POST": "pass",
+  "bounded_invocation_resume": "pass",
+  "semantic_quality": "not_assessed",
+  "grammar_compile": "not_checked",
+  "tests_passed": 47,
+  "test_command": ".venv/Scripts/python.exe -m unittest tests.test_k0_authoring tests.test_k0_token_budget tests.test_au_claim tests.test_au_claim_soft -q"
+}

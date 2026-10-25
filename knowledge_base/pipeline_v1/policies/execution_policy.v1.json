@@ -1,0 +1,19 @@
+{
+  "policy_version": "execution-policy-v1",
+  "runner_version": "offline-mock-runner-v1",
+  "schema_version": "execution-run-snapshot-v1",
+  "region_arm": "P2a",
+  "task_id": "protocol-coverage-mock-v1",
+  "provider": {"provider_id": "deterministic-mock-provider-v1", "settings_version": "mock-settings-v1", "base_latency_ms": 5},
+  "request_schema_version": "processed-ids-response-v1",
+  "retry": {"max_transient_retries": 2, "retryable_outcomes": ["transient_failure"], "non_retryable_outcomes": ["permanent_failure", "protocol_failure", "timeout"]},
+  "partial_response_policy": "atomic_batch_reject_all",
+  "resume_in_progress_policy": "recover_to_pending_then_replay_uncommitted_request",
+  "coverage_states": ["pending", "in_progress", "mock_protocol_verified", "unresolved", "error", "budget_exhausted"],
+  "terminal_states": ["mock_protocol_verified", "unresolved", "error", "budget_exhausted"],
+  "successful_terminal_state": "mock_protocol_verified",
+  "protocol_only": true,
+  "identity_excludes": ["wall_clock", "elapsed_time", "host"],
+  "forbidden_semantic_states": ["complete", "processed", "no_au", "accepted", "rejected"],
+  "forbidden_outputs": ["ContextObligation", "AuthorityUnit", "Issue", "NoticeNeed", "retrieval", "LLM"]
+}

@@ -1,0 +1,336 @@
+{
+  "adapter": {
+    "kind": "mock",
+    "script_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "arm": "R0",
+  "artifact_type": "RepairArmRun",
+  "attempts": [],
+  "cost_summary": {
+    "billing_usd": null,
+    "charged_or_reserved_tokens": 0,
+    "latency_ms": 0,
+    "mock_attempts": 0,
+    "provider_total_tokens_known": 0,
+    "provider_usage_unknown_attempts": 0,
+    "reasoning_usage": "included only if provider reports; otherwise unknown",
+    "source_attempt_definition": "adapter invocations; HTTP submits/polls/recovery are separate transport events",
+    "source_model_attempts": 0
+  },
+  "live_decoder": "unverified",
+  "manifest_sha256": "9f29caab9c131487cf1e7ccde7405de075581d7fbea6b3ddce513a40dfea5224",
+  "model": "Qwen/Qwen3.5-9B",
+  "output_root": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\repair_agent\\local_artifacts\\offline\\R0\\6f323a43035bc2353a5212a11eb9e09cdcd80c3829519317b2a32c68d6b7e6f9",
+  "policy": {
+    "concurrency": 1,
+    "expansion_chars": 1200,
+    "expansions": 1,
+    "input_tokens": 6000,
+    "model_turns": 2,
+    "output_tokens": 1200,
+    "source_model_attempts": 8,
+    "tool_calls": 8,
+    "total_tokens": 20000
+  },
+  "prompt_sha256": "863c9797b949ae806ad1508922c9d405adcb01f5a29e176977fb9bd06144a8ef",
+  "run_key": "6f323a43035bc2353a5212a11eb9e09cdcd80c3829519317b2a32c68d6b7e6f9",
+  "selected_task_ids": [
+    "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28",
+    "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf",
+    "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba",
+    "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c"
+  ],
+  "semantic_metrics": null,
+  "semantic_status": "semantic_review_pending",
+  "source_workload_case_ids": [
+    "011904",
+    "013009",
+    "013948",
+    "045155",
+    "099980"
+  ],
+  "status": "complete",
+  "task_case_ids": [
+    "011904",
+    "013948",
+    "045155",
+    "099980"
+  ],
+  "task_selection_sha256": "442874f649195e835fa7337f2c08cad82fd07e533f137fdaebf5bc4a09bd39e1",
+  "task_workload": "v6 output subset; not full KOS-5",
+  "tasks": [
+    {
+      "baseline": [
+        {
+          "aliases": [
+            {
+              "arm": "P2a",
+              "au_index": 0,
+              "request_id": "hreq-a727aa74c07eabb4699b4866"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+            "evidence_ref_ids": [
+              "sa-007850dc291ad9f7016eb726"
+            ],
+            "kind": "holding",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "current_court"
+          },
+          "proposal_id": "proposal-602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89",
+          "proposal_sha256": "602f0677fa87d343a90f5cb6d140547bbb8744cb52681f882414dc810f821d89"
+        },
+        {
+          "aliases": [
+            {
+              "arm": "P2b",
+              "au_index": 0,
+              "request_id": "hreq-d3eb474820ddda6ab35005d2"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "The Board erred by failing to consider the abovementioned documents in its analysis of state protection.",
+            "evidence_ref_ids": [
+              "sa-007850dc291ad9f7016eb726",
+              "sa-40ee92e19a0796bee4e3ae3a",
+              "sa-50d4054365caa2b910a4b56d"
+            ],
+            "kind": "holding",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "current_court"
+          },
+          "proposal_id": "proposal-91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467",
+          "proposal_sha256": "91b4a424a3094605783fd37db56657905557d4253e15e744f38f8ec7cb761467"
+        }
+      ],
+      "fingerprint": "00ce7430634112706a97a40357ab03a1e8c0d0ff472f155c4d492689a4698931",
+      "model_turns": 0,
+      "session": {
+        "events": [],
+        "expanded_atom_ids": [],
+        "expansion_count": 0,
+        "obligations": [],
+        "read_atom_ids": [
+          "sa-0142393622b9ee99dee58e99",
+          "sa-5433c2e50e0685b09ced6884",
+          "sa-733129756c37f5139a260557",
+          "sa-131b8ab6f7c7244d874e780b",
+          "sa-f240bc26e6b75439ba8a170e",
+          "sa-97c9cc968bda1600cba78291",
+          "sa-603c7729b93df5970f11145f",
+          "sa-88d279cbd3b8fbf74def6924",
+          "sa-40ee92e19a0796bee4e3ae3a",
+          "sa-50d4054365caa2b910a4b56d",
+          "sa-007850dc291ad9f7016eb726",
+          "sa-7ab1cdeb280427048f9a62c3",
+          "sa-2d1296c34e4c0a35f4599968",
+          "sa-1025e2b047fd98cd648e6b87"
+        ],
+        "revision": null,
+        "tool_count": 0
+      },
+      "status": "baseline_no_repair",
+      "task_id": "task-83343db74c9a9ee637166927b44f04608cc2d732b5c52c54ef31b349ed578e28"
+    },
+    {
+      "baseline": [
+        {
+          "aliases": [
+            {
+              "arm": "P2a",
+              "au_index": 0,
+              "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+            },
+            {
+              "arm": "P2b",
+              "au_index": 0,
+              "request_id": "hreq-874c6ffa109dfa3f02e40224"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+            "evidence_ref_ids": [
+              "sa-dae5c70d9fa508f6d457c1ae"
+            ],
+            "kind": "statutory_hook",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "statute"
+          },
+          "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+          "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b"
+        },
+        {
+          "aliases": [
+            {
+              "arm": "P2a",
+              "au_index": 1,
+              "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "The condition precedent for applying subsections (1) to (3) of section 172 of the Regulations is that the applicant be described in section 97 of the Act.",
+            "evidence_ref_ids": [
+              "sa-dae5c70d9fa508f6d457c1ae",
+              "sa-f751735fdfbd3b9fd4bee03e"
+            ],
+            "kind": "statutory_hook",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "statute"
+          },
+          "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+          "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8"
+        },
+        {
+          "aliases": [
+            {
+              "arm": "P2a",
+              "au_index": 2,
+              "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+            },
+            {
+              "arm": "P2b",
+              "au_index": 2,
+              "request_id": "hreq-874c6ffa109dfa3f02e40224"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+            "evidence_ref_ids": [
+              "sa-dae5c70d9fa508f6d457c1ae",
+              "sa-f751735fdfbd3b9fd4bee03e"
+            ],
+            "kind": "statutory_hook",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "statute"
+          },
+          "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+          "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e"
+        },
+        {
+          "aliases": [
+            {
+              "arm": "P2b",
+              "au_index": 1,
+              "request_id": "hreq-874c6ffa109dfa3f02e40224"
+            }
+          ],
+          "proposal": {
+            "attribution_role": "proposition",
+            "claim": "The condition precedent for applying subsections 172(1) to (3) of the Regulations is that the applicant be described in section 97 of the Act.",
+            "evidence_ref_ids": [
+              "sa-dae5c70d9fa508f6d457c1ae",
+              "sa-f751735fdfbd3b9fd4bee03e"
+            ],
+            "kind": "statutory_hook",
+            "needs_context": [],
+            "other_kind": null,
+            "speaker": "statute"
+          },
+          "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+          "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422"
+        }
+      ],
+      "fingerprint": "168c8b8afc408af27d6e984a0615452de791f5a4d639db8e5d327560a500b48f",
+      "model_turns": 0,
+      "session": {
+        "events": [],
+        "expanded_atom_ids": [],
+        "expansion_count": 0,
+        "obligations": [],
+        "read_atom_ids": [
+          "sa-a050d3f31b5b5db053e48dbc",
+          "sa-dae5c70d9fa508f6d457c1ae",
+          "sa-f751735fdfbd3b9fd4bee03e",
+          "sa-ed437d5c5a3d23b5f6c0e005",
+          "sa-6ccf6f7017b833e2663b4c82",
+          "sa-8f588b3ab949f71b83338230",
+          "sa-0799b37ea4c2eff1308ec1df",
+          "sa-3dacdee768fa9c3b19146e83",
+          "sa-2189e0d2eab8d5971022a7f7"
+        ],
+        "revision": null,
+        "tool_count": 0
+      },
+      "status": "baseline_no_repair",
+      "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf"
+    },
+    {
+      "baseline": [],
+      "fingerprint": "3365c482472e04defc7c9a4a33d4f2d0eb467e9f0cab71280705dbe421970785",
+      "model_turns": 0,
+      "session": {
+        "events": [],
+        "expanded_atom_ids": [],
+        "expansion_count": 0,
+        "obligations": [],
+        "read_atom_ids": [
+          "sa-e42c0749bd11af1506c8f1a3",
+          "sa-5af3b45f02e88d5c1d29d54c",
+          "sa-5fc152780911a811b0f5b18e",
+          "sa-27e1913a42fe6a5489fd7e70",
+          "sa-e889c45a2cc328f6e4842d12",
+          "sa-072a6e5abec486fc50958627",
+          "sa-54c433ddc093142693ef3444",
+          "sa-86f6689db8ae4f6982553016",
+          "sa-dfe34e9fd0780bc394411475",
+          "sa-f1dbb932b0ae52207f6019b6",
+          "sa-05e997636cc3ad7262176858",
+          "sa-804f2d4a2848752965fd148f",
+          "sa-873800e9d8b6b64e6b00ec90",
+          "sa-27d5f1d91d6f493b0a0be739",
+          "sa-2977dca485bf00009143f914",
+          "sa-43cc26142f610d1fa13b7dc3",
+          "sa-ae76777cdeebd03a347f14e4",
+          "sa-050c601093e5ac180b12ae57"
+        ],
+        "revision": null,
+        "tool_count": 0
+      },
+      "status": "baseline_no_repair",
+      "task_id": "task-3bef40a912db85d5629e7b509dd436fbabb6654788798237993a2bb2e367cfba"
+    },
+    {
+      "baseline": [],
+      "fingerprint": "519871cdc3b7bba176837afc333a60ab536fc5b7226657dac022dbd5505dc202",
+      "model_turns": 0,
+      "session": {
+        "events": [],
+        "expanded_atom_ids": [],
+        "expansion_count": 0,
+        "obligations": [],
+        "read_atom_ids": [
+          "sa-48e5f512228ec516c73940b7",
+          "sa-51c40f6602c7f58ecde5b0a3",
+          "sa-73ddf76bb8339b307070e2d2",
+          "sa-9db48caaa225ff08e6c43c57",
+          "sa-52447a00d3d351b6c7c31ab8",
+          "sa-fbc1e8f193a623ee246a15d6",
+          "sa-1dc96bd55b1432b16b120531",
+          "sa-2a1d6f2e0f3cd9f7f1ccceab",
+          "sa-413c4a01bd4e2a2c8ff6de06",
+          "sa-93180edbf0020ec25d740607",
+          "sa-8c48e2cee2a543c3e8019dc4",
+          "sa-4bc0faffcf190303637a1fff",
+          "sa-e37b2a05064ecd5c909a6ce3",
+          "sa-2b5c232396fd98c87fdf901e",
+          "sa-fd6d43dcc9cabf6e82cec765"
+        ],
+        "revision": null,
+        "tool_count": 0
+      },
+      "status": "baseline_no_repair",
+      "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c"
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "artifact_type": "K0AuthoringRun",
+  "status": "complete",
+  "workload_sha256": "659b61e51049f6a4e895c1a0ba63ab31be5001f900f991d9c782d326f747138b",
+  "identity": "9ddbfba4e3bd3f8e5aaed34a2ba0331394b28c083dc262c493b7c9c9d283f983",
+  "mode": "mock",
+  "work_scope_complete": true,
+  "protocol_complete": true,
+  "case_source_assessment_complete": false,
+  "case_source_status": "partial",
+  "semantic_quality": "not_assessed",
+  "results": [
+    {
+      "case_id": "011904",
+      "state": {
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "turn": 1,
+        "active_scope_ids": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "r6",
+          "r7",
+          "r8"
+        ],
+        "drafts": {
+          "k0au-07864b0962b9f5107bf192d1": {
+            "au_id": "k0au-07864b0962b9f5107bf192d1",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "claim": "Synthetic legal point; mock is not semantic assessment.",
+            "kind": null,
+            "evidence_ids": [
+              "e1"
+            ],
+            "evidence": [
+              {
+                "case_id": "011904",
+                "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+                "start_char": 5394,
+                "end_char": 5680,
+                "quote": "[10]\r\nIn a recent decision, Madam Justice Eleanor Dawson, examined the standard of review applicable to findings regarding state protection and concluded that in light of <FRAGMENT_SUPPRESSED> , above, the standard remains that of reasonableness (\r\n <FRAGMENT_SUPPRESSED>  at para. 6). "
+              }
+            ],
+            "limits": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        },
+        "revisions": [],
+        "warnings": [],
+        "au_errors": [],
+        "read_ledger": {
+          "r1": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r2": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r3": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r4": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r5": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r6": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r7": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r8": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          }
+        },
+        "finished": true,
+        "stop_reason": "work_scope_complete",
+        "work_scope_complete": true,
+        "case_source_assessment_complete": false,
+        "case_status": "partial",
+        "tool_result": null
+      },
+      "work_scope_complete": true,
+      "case_source_assessment_complete": false,
+      "case_source_status": "partial",
+      "pause_reason": null,
+      "semantic_quality": "not_assessed"
+    },
+    {
+      "case_id": "045155",
+      "state": {
+        "case_id": "045155",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "turn": 1,
+        "active_scope_ids": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5"
+        ],
+        "drafts": {
+          "k0au-9e7ccaefb027b0492b4e8802": {
+            "au_id": "k0au-9e7ccaefb027b0492b4e8802",
+            "case_id": "045155",
+            "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+            "claim": "Synthetic legal point; mock is not semantic assessment.",
+            "kind": null,
+            "evidence_ids": [
+              "e1"
+            ],
+            "evidence": [
+              {
+                "case_id": "045155",
+                "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+                "start_char": 16739,
+                "end_char": 16910,
+                "quote": " [8] \r\n  The respondent raises as a preliminary point that the applicant has not exhausted his internal remedies and therefore his application to this Court is premature. "
+              }
+            ],
+            "limits": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        },
+        "revisions": [],
+        "warnings": [],
+        "au_errors": [],
+        "read_ledger": {
+          "r1": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r2": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r3": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r4": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r5": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          }
+        },
+        "finished": true,
+        "stop_reason": "work_scope_complete",
+        "work_scope_complete": true,
+        "case_source_assessment_complete": false,
+        "case_status": "partial",
+        "tool_result": null
+      },
+      "work_scope_complete": true,
+      "case_source_assessment_complete": false,
+      "case_source_status": "partial",
+      "pause_reason": null,
+      "semantic_quality": "not_assessed"
+    },
+    {
+      "case_id": "099980",
+      "state": {
+        "case_id": "099980",
+        "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+        "turn": 1,
+        "active_scope_ids": [
+          "r1",
+          "r2",
+          "r3"
+        ],
+        "drafts": {
+          "k0au-b1da7a368906ea970ad66436": {
+            "au_id": "k0au-b1da7a368906ea970ad66436",
+            "case_id": "099980",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "claim": "Synthetic legal point; mock is not semantic assessment.",
+            "kind": null,
+            "evidence_ids": [
+              "e1"
+            ],
+            "evidence": [
+              {
+                "case_id": "099980",
+                "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+                "start_char": 56160,
+                "end_char": 56482,
+                "quote": "[93]\r\nHowever, there is no need to express a definitive opinion on the issue of jurisdiction or reasonableness today or to base the judgment of the Court allowing the application for judicial review on such a contentious aspect that might soon be argued before the Federal Court of Appeal as part of the appeal in Seck 1. "
+              }
+            ],
+            "limits": null,
+            "quality_status": "grounded_draft",
+            "semantic_quality": "not_assessed"
+          }
+        },
+        "revisions": [],
+        "warnings": [],
+        "au_errors": [],
+        "read_ledger": {
+          "r1": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r2": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          },
+          "r3": {
+            "state": "assessed",
+            "delivered_count": 1,
+            "assessed": true
+          }
+        },
+        "finished": true,
+        "stop_reason": "work_scope_complete",
+        "work_scope_complete": true,
+        "case_source_assessment_complete": false,
+        "case_status": "partial",
+        "tool_result": null
+      },
+      "work_scope_complete": true,
+      "case_source_assessment_complete": false,
+      "case_source_status": "partial",
+      "pause_reason": null,
+      "semantic_quality": "not_assessed"
+    }
+  ],
+  "pauses": {},
+  "protocol_counts": {
+    "verified": 3,
+    "invalid": 0,
+    "failed": 0,
+    "reserved": 0,
+    "pending": 0
+  },
+  "logical_requests": 3,
+  "transport_POST_attempts": 3,
+  "provider_POST_attempts": 0,
+  "GET_polls": 16,
+  "network_executed": false,
+  "network_requests": 0,
+  "reserved_input_tokens": 8190,
+  "reserved_output_tokens": 2400,
+  "input_count_method": "max_rendered_chat_and_full_serialized_payload_Qwen_tokens_plus128_reserve",
+  "input_counter": {
+    "method": "max_rendered_chat_and_full_serialized_payload_Qwen_tokens_plus128_reserve",
+    "model": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "files": {
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8"
+    },
+    "versions": {
+      "tokenizers": "0.22.1",
+      "jinja2": "3.1.6"
+    },
+    "provider_usage": false
+  },
+  "reserved_input_utf8_bytes": null,
+  "known_provider_usage_observed_subtotal": null,
+  "unknown_provider_attempts": 0,
+  "total_provider_usage": null,
+  "usage_is_complete": false,
+  "grammar_compile": "not_checked",
+  "max_new_requests_this_invocation": null,
+  "client_latency_ms": 292.484,
+  "POST_ack_latency_ms": 4.543,
+  "elapsed_wall_ms": 1382.787,
+  "readiness": {
+    "status": "not_needed",
+    "ready": null,
+    "http_status": null,
+    "error_class": null,
+    "count": 0,
+    "elapsed_ms": 0,
+    "warmup_count": 0,
+    "warmup_elapsed_ms": 0,
+    "deadline_seconds": 600,
+    "retrieval_deadline_seconds": 30
+  }
+}

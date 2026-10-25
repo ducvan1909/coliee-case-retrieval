@@ -1,0 +1,15 @@
+{
+  "jobs": [
+    {
+      "name": "positive_only",
+      "grammar": "root ::= \"{\" \"\\\"aus\\\":\" aus \",\" \"\\\"assessed_scope_ids\\\":\" scopes \",\" \"\\\"next_action\\\":\" action \"}\"\naus ::= \"[\" (au (\",\" au){0,7})? \"]\"\nau ::= \"{\" \"\\\"claim\\\":\" text \",\" \"\\\"kind\\\":\" kind \",\" \"\\\"evidence_ids\\\":\" refs \",\" \"\\\"limits\\\":\" nullable (\",\\\"replace_id\\\":\" replacement)? \"}\"\nreplacement ::= \"null\"\nkind ::= \"null\" | \"\\\"holding\\\"\" | \"\\\"standard_of_review\\\"\" | \"\\\"statutory_hook\\\"\" | \"\\\"procedural_rule\\\"\" | \"\\\"fact_pattern_rule\\\"\" | \"\\\"foreign_law\\\"\" | \"\\\"other\\\"\"\nnullable ::= \"null\" | text\nrefs ::= \"[\" ref (\",\" ref)* \"]\"\nref ::= \"\\\"e1\\\"\"\nscopes ::= \"[\" (scope (\",\" scope)*)? \"]\"\nscope ::= \"\\\"r1\\\"\"\naction ::= \"{\" \"\\\"tool\\\":\" \"\\\"open_region\\\"\" \",\" \"\\\"scope_ids\\\":\" open-scopes \"}\" | \"{\" \"\\\"tool\\\":\" \"\\\"search_source\\\"\" \",\" \"\\\"query\\\":\" text \"}\" | \"{\" \"\\\"tool\\\":\" \"\\\"get_drafts\\\"\" \"}\" | \"{\" \"\\\"tool\\\":\" \"\\\"finish_case\\\"\" \",\" \"\\\"reason\\\":\" finish-reason \"}\"\nfinish-reason ::= \"\\\"work_scope_complete\\\"\" | \"\\\"needs_context\\\"\"\nopen-scopes ::= \"[\" scope (\",\" scope)* \"]\"\ntext ::= \"\\\"\" json-char* \"\\\"\"\njson-char ::= [\\x20-\\x21\\x23-\\x5b\\x5d-\\uD7FF\\uE000-\\U0010FFFF] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" scalar-hex) | \"\\\\u\" [dD] [89aAbB] hex hex \"\\\\u\" [dD] [c-fC-F] hex hex\nscalar-hex ::= [0-9a-cA-Ce-fE-F] hex hex hex | [dD] [0-7] hex hex\nhex ::= [0-9a-fA-F]\n",
+      "positive_examples": [
+        "{\"aus\":[{\"claim\":\"A fictional legal rule.\",\"kind\":null,\"evidence_ids\":[\"e1\"],\"limits\":null}],\"assessed_scope_ids\":[\"r1\"],\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"work_scope_complete\"}}",
+        "{\"aus\":[{\"claim\":\"A fictional legal rule.\",\"kind\":null,\"evidence_ids\":[\"e1\"],\"limits\":null},{\"claim\":\"An independent point.\",\"kind\":null,\"evidence_ids\":[\"e1\"],\"limits\":null}],\"assessed_scope_ids\":[\"r1\"],\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"work_scope_complete\"}}"
+      ],
+      "negative_examples": [
+        "{\"aus\":[{\"claim\":\"A fictional legal rule.\",\"kind\":null,\"evidence_ids\":[\"not-in-catalog\"],\"limits\":null}],\"assessed_scope_ids\":[\"r1\"],\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"work_scope_complete\"}}"
+      ]
+    }
+  ]
+}

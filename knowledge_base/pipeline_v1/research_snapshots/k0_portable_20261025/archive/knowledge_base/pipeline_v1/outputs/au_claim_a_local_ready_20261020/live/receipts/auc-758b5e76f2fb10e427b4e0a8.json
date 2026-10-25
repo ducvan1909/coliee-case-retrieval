@@ -1,0 +1,147 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-a555c6a0219fda9092d6ca46",
+        "claim": "Unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": "Alternate institutions do not constitute avenues of protection per se.",
+        "evidence": [
+          {
+            "ref_id": "t-e7cb0f142bb99621385d0970",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 13761,
+            "end_char": 14076,
+            "quote": "[25]\r\nI am of the view that these alternate institutions do not constitute avenues of protection\r\nper se\r\n; unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate. ",
+            "role": "target_body"
+          }
+        ]
+      },
+      {
+        "au_id": "au-d0669032d98d5448ff9ea294",
+        "claim": "The National Human Rights Commission has no legal power of enforcement.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-996a27e08fd5d3b8978fa260",
+            "case_id": "011904",
+            "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+            "start_char": 14076,
+            "end_char": 14352,
+            "quote": "For example, the documentary evidence explicitly states that the National Human Rights Commission has no legal power of enforcement (\"Mexico: Situation of Witness to Crime and Corruption, Women Victims of Violence and Victims of Discrimination Based on Sexual Orientation\").\r\n",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1031,
+    "output_tokens": 103,
+    "total_tokens": 1134
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"Unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":\"Alternate institutions do not constitute avenues of protection per se.\"},{\"claim\":\"The National Human Rights Commission has no legal power of enforcement.\",\"kind\":\"holding\",\"evidence_ids\":[\"s2\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792495981,
+    "id": "f54fd4f9de9c43e6b3fcd9a77cb49e7d",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 103,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 103,
+      "prompt_tokens": 1031,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1134
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001",
+    "payload_sha256": "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001",
+    "polls": 5,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495962.0227513,
+    "job_status": "completed",
+    "latency_ms": 22759.052,
+    "finished_at_unix": 1792495984.781738,
+    "server_timing": {
+      "created_at": "2026-10-20T11:32:46.498427+00:00",
+      "started_at": "2026-10-20T11:32:51.652102+00:00",
+      "finished_at": "2026-10-20T11:33:01.623115+00:00",
+      "inference_seconds": 8.674759747999985
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "Unless there is evidence to the contrary, the police force is the only institution mandated with the protection of a nation's citizens and in possession of enforcement powers commensurate with this mandate.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s1"
+        ],
+        "limits": "Alternate institutions do not constitute avenues of protection per se."
+      },
+      {
+        "claim": "The National Human Rights Commission has no legal power of enforcement.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 22759.27,
+  "request_id": "auc-758b5e76f2fb10e427b4e0a8",
+  "payload_sha256": "bcfb31e33fa8e158707b0ca4083c3b54a74b846cfad44cb2d01bf73274f04001",
+  "receipt_sha256": "ab00e0161d8104825f8bc393cab8116d7d7dd7d73eee7ea46c3c0a70252dcde8"
+}

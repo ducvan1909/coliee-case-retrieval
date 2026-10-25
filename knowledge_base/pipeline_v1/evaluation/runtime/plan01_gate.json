@@ -1,0 +1,415 @@
+{
+  "report_version": "plan01-validation-report-v1",
+  "generated_at_utc": "2026-10-03T08:34:40.530465+00:00",
+  "status": "pass",
+  "inputs": {
+    "kos_root": "G:\\Legal-AI\\kos_sample",
+    "selected_kos_manifest": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\selected_kos_manifest.v1.json",
+    "split_registry": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\manifests\\split_registry.v1.json",
+    "annotation_schema": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\contracts\\annotation_schema.v1.json",
+    "hard_case_catalog": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\hard_cases.v1.json"
+  },
+  "summary": {
+    "selected_cases": 5,
+    "selected_files": 61,
+    "selected_bytes": 69645,
+    "error_count": 0
+  },
+  "checks": {
+    "selected_kos_inputs": {
+      "status": "pass",
+      "cases": [
+        {
+          "case_id": "013009",
+          "kos_role": "query",
+          "case_path": "cases/013009",
+          "status": "pass",
+          "file_count": 27,
+          "total_bytes": 30679,
+          "tree_sha256": "f860cb388c8ea7c851566999f4c971f8b0e23d3dd1b46f69848ea9b578161485",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "a02343bed44942c7ad3ab1157bb93b1c2a2f9cc7ef056b4c7605036b9bec8328",
+              "byte_length": 2049
+            },
+            {
+              "path": "cite_sites/cs-013009-w0.md",
+              "sha256": "ee45297321d7686c1924ac68213d9b15a0073d2d491318e395b66ac33533f778",
+              "byte_length": 1135
+            },
+            {
+              "path": "cite_sites/cs-013009-w1.md",
+              "sha256": "9f8f2d7250a160f9496eac3bc8e158bd3e63d69d938130eb161661a89bde92bd",
+              "byte_length": 1186
+            },
+            {
+              "path": "cite_sites/cs-013009-w10.md",
+              "sha256": "4966bee02f6dcbb983620e43b1e0058e9b943adf9a44e579a260124e2b7d21d8",
+              "byte_length": 947
+            },
+            {
+              "path": "cite_sites/cs-013009-w11.md",
+              "sha256": "2e72e159eb373a58820c7da669ec441e7f8995de0f05874a4124792af4226e99",
+              "byte_length": 1190
+            },
+            {
+              "path": "cite_sites/cs-013009-w12.md",
+              "sha256": "f8aea2fb830b2ef54ab0c7aa7ac3fee2227e73daadd62000a524280c75a78f75",
+              "byte_length": 1182
+            },
+            {
+              "path": "cite_sites/cs-013009-w2.md",
+              "sha256": "c5fe66c4f91ffe55b9e71540923666760df2d0095c11ff05d5eba45a36c1edc5",
+              "byte_length": 1186
+            },
+            {
+              "path": "cite_sites/cs-013009-w3.md",
+              "sha256": "a8480d5a4bc1b365c5b986a9d5db5b6523cda999bf3d254de048a15f57e735f0",
+              "byte_length": 1156
+            },
+            {
+              "path": "cite_sites/cs-013009-w4.md",
+              "sha256": "5d264b4646b0cc22eee57a6892850ea071b2fbe5a8574fa72a2befafae2dbf6c",
+              "byte_length": 1109
+            },
+            {
+              "path": "cite_sites/cs-013009-w5.md",
+              "sha256": "35e6ef5e8738b461b26c82c804f692b9c8d0c34da02decd9343356a21bc40a8d",
+              "byte_length": 1077
+            },
+            {
+              "path": "cite_sites/cs-013009-w6.md",
+              "sha256": "dc8228c4685438aec6d8af6d78f0afe99c4ef62a2fc775df057e03e864cd6cb3",
+              "byte_length": 1054
+            },
+            {
+              "path": "cite_sites/cs-013009-w7.md",
+              "sha256": "aad065aef32d2fa6d316fa828de51cb4c7483063081b177e7e20e6133b46fa55",
+              "byte_length": 929
+            },
+            {
+              "path": "cite_sites/cs-013009-w8.md",
+              "sha256": "0d6215e5007062e24269766ff0d4c4d9f7d5eb2bba4b9eb3f05999a49b8933b5",
+              "byte_length": 1176
+            },
+            {
+              "path": "cite_sites/cs-013009-w9.md",
+              "sha256": "ec21d65e0147ab03ec75cd29f2cb86679f19701cfd8e17691720256d23f13b58",
+              "byte_length": 942
+            },
+            {
+              "path": "notice_needs/nn-013009-w0.md",
+              "sha256": "90db459c15d4dff3453a8d9ba9c6c3e698933b94415fc2bdc9e1d9d3c159160f",
+              "byte_length": 912
+            },
+            {
+              "path": "notice_needs/nn-013009-w1.md",
+              "sha256": "cbf49e2e7bbcf7a8c9af736dc19d3c399e42efb7d46c13c7d8d250cbba0cc4b9",
+              "byte_length": 1185
+            },
+            {
+              "path": "notice_needs/nn-013009-w10.md",
+              "sha256": "f354960cac2609ae792ad924ad22b87c183d9852a6adc0dbbccc10c13fd72792",
+              "byte_length": 1248
+            },
+            {
+              "path": "notice_needs/nn-013009-w11.md",
+              "sha256": "4f88e3d0171254898706a4b0dcd058a3f5c00a735e0c14e5098bda511c1ae193",
+              "byte_length": 1033
+            },
+            {
+              "path": "notice_needs/nn-013009-w12.md",
+              "sha256": "de0ac00da4d28c84977d4ad4ae2ee8d7c06beef9e0c178427bb27f61020d3256",
+              "byte_length": 974
+            },
+            {
+              "path": "notice_needs/nn-013009-w2.md",
+              "sha256": "dec06043bf837b5061c122f49308dc166145a87a9734a02d3325091898e8e91e",
+              "byte_length": 1019
+            },
+            {
+              "path": "notice_needs/nn-013009-w3.md",
+              "sha256": "96306ce28e4d8c8f9f4505934b0c876f1d64f4f6e3922be137b96bf921058066",
+              "byte_length": 961
+            },
+            {
+              "path": "notice_needs/nn-013009-w4.md",
+              "sha256": "9e6a6d43a2ecf3435e173417cfe831db0060971deff6b63cc09b9196fe5ab9a7",
+              "byte_length": 1034
+            },
+            {
+              "path": "notice_needs/nn-013009-w5.md",
+              "sha256": "d767dbaabf63c8c410c7c4d422dcaa1bbfe9b355dcbfd7e5cf71cf7d0ccae83d",
+              "byte_length": 1022
+            },
+            {
+              "path": "notice_needs/nn-013009-w6.md",
+              "sha256": "7d383642ebb187aebac3f526be6957f4a409c7fdda60babdd5ec9946b9e597fa",
+              "byte_length": 1404
+            },
+            {
+              "path": "notice_needs/nn-013009-w7.md",
+              "sha256": "820138d90e8733d5291dd2384042a2c3ca81c0ad9791881cbe7cc5ab914c0c27",
+              "byte_length": 1114
+            },
+            {
+              "path": "notice_needs/nn-013009-w8.md",
+              "sha256": "c8963e6f8f709b8f0014c6c6da718ff83bc7529ae20dfed430a42e69dd9a0111",
+              "byte_length": 1233
+            },
+            {
+              "path": "notice_needs/nn-013009-w9.md",
+              "sha256": "0deccc510211d0faaca18fe4d731df8e2083eff10e6665aa2fecf02224a26f11",
+              "byte_length": 1222
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "013948",
+          "kos_role": "query",
+          "case_path": "cases/013948",
+          "status": "pass",
+          "file_count": 13,
+          "total_bytes": 16673,
+          "tree_sha256": "43fab087a3049b32d995eb61f30d01ff4cc49274dad0d0c4d872fd2300541e12",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "8c77b2ddb914e379807342fd3c3bf39262a0f325abadb91aa0f6a5c904449c57",
+              "byte_length": 1697
+            },
+            {
+              "path": "cite_sites/cs-013948-w0.md",
+              "sha256": "e107ca439d89ab3a31a8537eef3c1d5541e42190d6eba22f71a0dfd86c267667",
+              "byte_length": 1226
+            },
+            {
+              "path": "cite_sites/cs-013948-w1.md",
+              "sha256": "51945efa620664b96ecee12f479299aa0ee3711356a639a483cd74f7181a2c11",
+              "byte_length": 1297
+            },
+            {
+              "path": "cite_sites/cs-013948-w2.md",
+              "sha256": "c0580b2ef1480d077de7f63b8f390ac9a92ad5813267df08accae517fbd67f9a",
+              "byte_length": 1649
+            },
+            {
+              "path": "cite_sites/cs-013948-w3.md",
+              "sha256": "94e4536cfefb2b43c4b014536a1b416bb8fb6dd39d505b7984b0704bbc747a99",
+              "byte_length": 1642
+            },
+            {
+              "path": "cite_sites/cs-013948-w4.md",
+              "sha256": "0daf1c13efb004ed9dbdca72ad1f267b4120a865e42b272030f8ac1c01961d1d",
+              "byte_length": 1657
+            },
+            {
+              "path": "cite_sites/cs-013948-w5.md",
+              "sha256": "97c8934136ede1a13259094c4b2c75b01dc3ec4025f5fe262f52392ba422ebbd",
+              "byte_length": 1571
+            },
+            {
+              "path": "notice_needs/nn-013948-w0.md",
+              "sha256": "7224a18f8a5c3d1e125110fc1785c937567b02db80a3a8f93c5eb132293f75be",
+              "byte_length": 1055
+            },
+            {
+              "path": "notice_needs/nn-013948-w1.md",
+              "sha256": "80505eef721bddd82cf4d2cb876c6520e5a7a4c29d9b48ffb7907d71b49c2ad0",
+              "byte_length": 922
+            },
+            {
+              "path": "notice_needs/nn-013948-w2.md",
+              "sha256": "93f585b24625b0de565f927ebfd27151bc81eca90f661a80020a0003cd76e477",
+              "byte_length": 990
+            },
+            {
+              "path": "notice_needs/nn-013948-w3.md",
+              "sha256": "d58760125eed08ace136112c640797d20c5a839fc210ff3010b247e3ffe4ad6a",
+              "byte_length": 956
+            },
+            {
+              "path": "notice_needs/nn-013948-w4.md",
+              "sha256": "effaf10645321e71a7e5b06329613ef9393d83ebfc9bbb67ffa8330114926ad9",
+              "byte_length": 1025
+            },
+            {
+              "path": "notice_needs/nn-013948-w5.md",
+              "sha256": "e570d5f039ed9ddd40d5d17d73dcfca3f944091b78b4dfc29cf35afb4f39f889",
+              "byte_length": 986
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "011904",
+          "kos_role": "candidate",
+          "case_path": "cases/011904",
+          "status": "pass",
+          "file_count": 9,
+          "total_bytes": 10662,
+          "tree_sha256": "28e4b13fdfdfa9fc978a00863bb864b0c02b4922703614abbf65ca492fbd6152",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "fa84f1b3329608c12a1cc06cf31481e72fbf565929361fe3358f1c73e2c30550",
+              "byte_length": 1404
+            },
+            {
+              "path": "authority_units/au-011904-clear-convincing.md",
+              "sha256": "07b4cf27478f2558e84c6af5d90432de3d7e53dc5087b4311e799359a8861d10",
+              "byte_length": 1093
+            },
+            {
+              "path": "authority_units/au-011904-contradictory-evidence.md",
+              "sha256": "70054a8ccfc929535639a6fa398cb255462415a82d6a749e6ce1595638b9207d",
+              "byte_length": 871
+            },
+            {
+              "path": "authority_units/au-011904-effective-protection.md",
+              "sha256": "2dc44d5918d51b0eb82b52760cfc822b2a0fae92e337cca89972a107984420ce",
+              "byte_length": 877
+            },
+            {
+              "path": "authority_units/au-011904-exhaustion-not-danger.md",
+              "sha256": "a980ffba76a776021a00605513fe8eca41c38eb3035ca4bcdb9bf3e0158979bb",
+              "byte_length": 1755
+            },
+            {
+              "path": "authority_units/au-011904-mexico-full-assessment.md",
+              "sha256": "c9c220b393825d15c5de21c9b50daf9cbad821a5fce2b9aefecd4c387dd2b534",
+              "byte_length": 1203
+            },
+            {
+              "path": "authority_units/au-011904-police-primary-avenue.md",
+              "sha256": "62e6a49c12fa19b7adbe2ffe08b3b5d428b53c2165ecaed69c050666f4e087d3",
+              "byte_length": 1189
+            },
+            {
+              "path": "authority_units/au-011904-presumption-state-persecutors.md",
+              "sha256": "3958382a5bdf3f560575a10415c327557699c2852c1760af3f8a52d1b94eb9ae",
+              "byte_length": 1126
+            },
+            {
+              "path": "authority_units/au-011904-sor-reasonableness.md",
+              "sha256": "999a49905cd61ba6645fff0cb8b15848f72cef1c168f41c8eda1b7426d3c6bb9",
+              "byte_length": 1144
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "045155",
+          "kos_role": "candidate",
+          "case_path": "cases/045155",
+          "status": "pass",
+          "file_count": 6,
+          "total_bytes": 6598,
+          "tree_sha256": "12c875a48410e6cbedf4b6b96a7966566fea3b7b4a3b24e441568705e3f8c33f",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "278b089b5ef76765b60b86352252bfec2762ec121e618c3d3a44a352fe7bcff7",
+              "byte_length": 1009
+            },
+            {
+              "path": "authority_units/au-045155-classification-reasons-s27.md",
+              "sha256": "dae0dbaa20f85fea05beb02a16785218b12654fa2ec69dda0d3556f45bbb697e",
+              "byte_length": 1104
+            },
+            {
+              "path": "authority_units/au-045155-exception-commissioner-authority.md",
+              "sha256": "87233d4aed0c15126acb8695d203bdebec548a2c05a1810a1645d4aa752497b5",
+              "byte_length": 1158
+            },
+            {
+              "path": "authority_units/au-045155-exhaust-grievance-general.md",
+              "sha256": "d9dc47a8faff0c3ffac5182064cd8e7706a0cb5a8997f4e050096f20da362352",
+              "byte_length": 1109
+            },
+            {
+              "path": "authority_units/au-045155-policy-reasons-exhaust.md",
+              "sha256": "ca682e36bc58058a4d8bec2b74869f90609d3a26dfab48261f9549ea2f262199",
+              "byte_length": 1087
+            },
+            {
+              "path": "authority_units/au-045155-undisclosed-allegation-unfair.md",
+              "sha256": "c9ff5432164c6556ac14c176532fc313d31cec07ba71f79ce4cc080f1a9fab3c",
+              "byte_length": 1131
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "099980",
+          "kos_role": "candidate",
+          "case_path": "cases/099980",
+          "status": "pass",
+          "file_count": 6,
+          "total_bytes": 5033,
+          "tree_sha256": "3cae09f8c9a3338efa1570f2f28b0c823f312832f81a06cac41451121303108d",
+          "files": [
+            {
+              "path": "CASE.md",
+              "sha256": "ab4e40174ebf55ce00a86dd62bde06e3231587133a0b8cc127a1ba7bbe175c31",
+              "byte_length": 829
+            },
+            {
+              "path": "authority_units/au-099980-investigations-impartiality-tool.md",
+              "sha256": "bca9c623cec574f1a1001e0333fc55f341cdb547d0201124f7782d19c7ce0153",
+              "byte_length": 773
+            },
+            {
+              "path": "authority_units/au-099980-pf-case-by-case.md",
+              "sha256": "35b2c3d243521b64b976a8ec2f56acf03378ba27ddc5f77702e0393f911ed1bd",
+              "byte_length": 902
+            },
+            {
+              "path": "authority_units/au-099980-pf-correctness.md",
+              "sha256": "dc3b6a737bd0a5c1ef8dc6297a037a3f85cef1a9aac4d197ed0a0789b855ef1d",
+              "byte_length": 674
+            },
+            {
+              "path": "authority_units/au-099980-pf-determinative.md",
+              "sha256": "33a741a072b6c1c5946407b0427643a9a52ab646c74992a84072e41626555669",
+              "byte_length": 1173
+            },
+            {
+              "path": "authority_units/au-099980-right-to-make-submissions.md",
+              "sha256": "dd0f469b26f5be72d9a6fdbd6e4dcb72be3167233feac474b5a8e53ddfc2993c",
+              "byte_length": 682
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    "split_registry": {
+      "status": "pass",
+      "counts": {
+        "calibration": 5,
+        "development": 20,
+        "holdout": 40
+      },
+      "overlaps": {
+        "calibration__development": [],
+        "calibration__holdout": [],
+        "development__holdout": []
+      },
+      "note": "KOS-only validation checks the locked registry; it does not resample the raw corpus."
+    },
+    "annotation_schema": {
+      "status": "pass",
+      "errors": []
+    },
+    "hard_case_catalog": {
+      "status": "pass",
+      "situation_count": 13,
+      "errors": []
+    }
+  },
+  "errors": [],
+  "scope_note": "PASS validates the selected KOS artifact inventory and contracts only; existing gold_noticed/gold_for_queries and materialized KOS labels are not evaluation gold; PASS does not establish semantic correctness, parser quality, or retrieval quality."
+}

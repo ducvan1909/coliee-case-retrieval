@@ -1,0 +1,44 @@
+{
+  "build_manifest_version": "source-store-build-v1",
+  "status": "pass",
+  "source_manifest_version": "calibration-source-manifest-v1",
+  "workload": "KOS-5",
+  "cases": [
+    {
+      "case_id": "013009",
+      "source_version": "src-fb67079c6df4e7f1",
+      "source_hash": "fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3",
+      "case_source_ref": "cases/013009/versions/fb67079c6df4e7f19a02eb9712124f191f15bc4b51a293b71af07aaa77a1f7a3/case_source.json"
+    },
+    {
+      "case_id": "013948",
+      "source_version": "src-1571876439f11252",
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "case_source_ref": "cases/013948/versions/1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352/case_source.json"
+    },
+    {
+      "case_id": "011904",
+      "source_version": "src-c2bc7c0944a5ee10",
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "case_source_ref": "cases/011904/versions/c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12/case_source.json"
+    },
+    {
+      "case_id": "045155",
+      "source_version": "src-93d2b91c8a6c01ef",
+      "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+      "case_source_ref": "cases/045155/versions/93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb/case_source.json"
+    },
+    {
+      "case_id": "099980",
+      "source_version": "src-49d56b1477fed32e",
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "case_source_ref": "cases/099980/versions/49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319/case_source.json"
+    }
+  ],
+  "cache_fingerprint_fields": [
+    "case_id",
+    "source_hash",
+    "SpanRef"
+  ],
+  "invalidation_contract": "source hash change invalidates dependency closure; old source retained"
+}

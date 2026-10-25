@@ -1,0 +1,25 @@
+{
+  "decisions": [],
+  "fingerprint": "0f757244207bc5c3b2fc01c7751b5715cb0e5a0aee59745dffa80274bafbf0d0",
+  "original_proposals": [],
+  "read_atom_ids": [
+    "sa-48e5f512228ec516c73940b7",
+    "sa-51c40f6602c7f58ecde5b0a3",
+    "sa-73ddf76bb8339b307070e2d2",
+    "sa-9db48caaa225ff08e6c43c57",
+    "sa-52447a00d3d351b6c7c31ab8",
+    "sa-fbc1e8f193a623ee246a15d6",
+    "sa-1dc96bd55b1432b16b120531",
+    "sa-2a1d6f2e0f3cd9f7f1ccceab",
+    "sa-413c4a01bd4e2a2c8ff6de06",
+    "sa-93180edbf0020ec25d740607",
+    "sa-8c48e2cee2a543c3e8019dc4",
+    "sa-4bc0faffcf190303637a1fff",
+    "sa-e37b2a05064ecd5c909a6ce3",
+    "sa-2b5c232396fd98c87fdf901e",
+    "sa-fd6d43dcc9cabf6e82cec765"
+  ],
+  "semantic_status": "semantic_review_pending",
+  "task_id": "task-c5dda38ec656257a8e3684d078a55301dda7d4c790604c35ef3d0b27ff6c5a3c",
+  "verified_replacements": []
+}

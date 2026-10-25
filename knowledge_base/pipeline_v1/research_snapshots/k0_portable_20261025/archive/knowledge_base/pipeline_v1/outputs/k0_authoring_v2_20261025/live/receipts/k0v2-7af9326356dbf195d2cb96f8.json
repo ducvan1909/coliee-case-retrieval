@@ -1,0 +1,126 @@
+{
+  "normalized": {
+    "aus": [],
+    "au_errors": [],
+    "warnings": [],
+    "assessed_scope_ids": [],
+    "delivered_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8"
+    ],
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "needs_context"
+    },
+    "read_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8"
+    ],
+    "unresolved_scope_ids": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8"
+    ],
+    "empty_reason": "insufficient_context",
+    "work_scope_complete": false,
+    "assessment_basis": "author_self_report",
+    "assessment_result": "uncertain",
+    "semantic_quality": "not_assessed"
+  },
+  "usage": {
+    "input_tokens": 2569,
+    "output_tokens": 27,
+    "total_tokens": 2596
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[],\"empty_reason\":\"insufficient_context\",\"next_action\":{\"tool\":\"finish_case\",\"reason\":\"needs_context\"}}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792923197,
+    "id": "26967dbebcec449b93edb2863369a3ec",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 27,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 2569,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 2596
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "40122d233251d3218978f068fee2425f36a2b27a414525bef8eb31dc7a7cd0b2",
+    "payload_sha256": "40122d233251d3218978f068fee2425f36a2b27a414525bef8eb31dc7a7cd0b2",
+    "polls": 2,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792923188.3876464,
+    "job_status": "completed",
+    "latency_ms": 11297.007,
+    "finished_at_unix": 1792923199.6844335,
+    "server_timing": {
+      "created_at": "2026-10-25T10:13:14.149765+00:00",
+      "started_at": "2026-10-25T10:13:15.843610+00:00",
+      "finished_at": "2026-10-25T10:13:17.481037+00:00",
+      "inference_seconds": 0.8554558499999985
+    }
+  },
+  "model_output": {
+    "aus": [],
+    "empty_reason": "insufficient_context",
+    "next_action": {
+      "tool": "finish_case",
+      "reason": "needs_context"
+    }
+  },
+  "status": "verified",
+  "latency_ms": 11297.296,
+  "request_id": "k0v2-7af9326356dbf195d2cb96f8",
+  "payload_sha256": "40122d233251d3218978f068fee2425f36a2b27a414525bef8eb31dc7a7cd0b2",
+  "receipt_sha256": "300dce743e13d81f2780f6a494f7368755033b42f55e20905e6eb3c59889f86c"
+}

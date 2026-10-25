@@ -1,0 +1,2037 @@
+{
+  "status": "pass",
+  "protocol_pass": true,
+  "semantic_quality_assessed": false,
+  "inference_requests": 0,
+  "remote_requests": 0,
+  "device": "cpu",
+  "vocab_size": 248320,
+  "stop_token_ids": [
+    248044,
+    248046
+  ],
+  "jobs": [
+    {
+      "name": "positive_only",
+      "grammar_sha256": "314d950bd2fc4eaf3a9e0bc934f9661582aea608baf1e5dd456d4dc47f02fd7a",
+      "status": "passed",
+      "positive_examples": [
+        {
+          "example_sha256": "f9c367fe8e8f8185bd4078ddd34169ad25677ee20345b2c2fc16ab846148edb7",
+          "expected_accept": true,
+          "accept_string": true,
+          "string_completed": true,
+          "passed": true,
+          "token_ids": [
+            4754,
+            11516,
+            64331,
+            7611,
+            3147,
+            32,
+            42140,
+            5598,
+            5728,
+            46292,
+            14868,
+            763,
+            2827,
+            1288,
+            68,
+            26590,
+            7824,
+            35580,
+            68,
+            16,
+            66550,
+            39721,
+            763,
+            2827,
+            92,
+            27573,
+            389,
+            21041,
+            22475,
+            7824,
+            35580,
+            81,
+            16,
+            66550,
+            3480,
+            7681,
+            21624,
+            13766,
+            3147,
+            29166,
+            18521,
+            2129,
+            19290,
+            3147,
+            1715,
+            22475,
+            26778,
+            29958
+          ],
+          "token_count": 48,
+          "tokens_checked": 48,
+          "first_failed_mask": null,
+          "first_failure": null,
+          "token_checks": [
+            {
+              "token_index": 0,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 4754,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 1,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 11516,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 2,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 64331,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 3,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7611,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 4,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3147,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 5,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 32,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 6,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 42140,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 7,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 5598,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 8,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 5728,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 9,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 46292,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 10,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 14868,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 11,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 763,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 12,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2827,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 13,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 1288,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 14,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 68,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 15,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 26590,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 16,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7824,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 17,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 35580,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 18,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 68,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 19,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 16,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 20,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 66550,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 21,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 39721,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 22,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 763,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 23,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2827,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 24,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 92,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 25,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 27573,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 26,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 389,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 27,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 21041,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 28,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 22475,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 29,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7824,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 30,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 35580,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 31,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 81,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 32,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 16,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 33,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 66550,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 34,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3480,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 35,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7681,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 36,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 21624,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 37,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 13766,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 38,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3147,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 39,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 29166,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 40,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 18521,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 41,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2129,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 42,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 19290,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 43,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3147,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 44,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 1715,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 45,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 22475,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 46,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 26778,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 47,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 29958,
+              "mask_allowed": true,
+              "accept_token": true
+            }
+          ],
+          "aus_boundary_checks": [
+            {
+              "character_offset": 8,
+              "prefix_accepted": true,
+              "next_character_acceptance": {
+                "{": true,
+                "]": true
+              },
+              "next_token_masks": {
+                "{": [
+                  {
+                    "token_id": 90,
+                    "allowed": true
+                  }
+                ],
+                "]": [
+                  {
+                    "token_id": 60,
+                    "allowed": true
+                  }
+                ]
+              }
+            }
+          ],
+          "final_eos": {
+            "token_index": 48,
+            "eos_expected": true,
+            "eos_mask_allowed": {
+              "248044": true,
+              "248046": true
+            },
+            "eos_accept_token": {
+              "248044": true,
+              "248046": true
+            }
+          },
+          "token_completed": true,
+          "replayed_all_tokens": true,
+          "elapsed_seconds": 1.318077,
+          "index": 0
+        },
+        {
+          "example_sha256": "84f8b6d2442738d681757ad5385429f5a6c6f011915c17ea7bd3f86c76f6ebf1",
+          "expected_accept": true,
+          "accept_string": true,
+          "string_completed": true,
+          "passed": true,
+          "token_ids": [
+            4754,
+            11516,
+            64331,
+            7611,
+            3147,
+            32,
+            42140,
+            5598,
+            5728,
+            46292,
+            14868,
+            763,
+            2827,
+            1288,
+            68,
+            26590,
+            7824,
+            35580,
+            68,
+            16,
+            66550,
+            39721,
+            763,
+            2827,
+            35607,
+            7611,
+            3147,
+            2014,
+            9209,
+            1406,
+            46292,
+            14868,
+            763,
+            2827,
+            1288,
+            68,
+            26590,
+            7824,
+            35580,
+            68,
+            16,
+            66550,
+            39721,
+            763,
+            2827,
+            92,
+            27573,
+            389,
+            21041,
+            22475,
+            7824,
+            35580,
+            81,
+            16,
+            66550,
+            3480,
+            7681,
+            21624,
+            13766,
+            3147,
+            29166,
+            18521,
+            2129,
+            19290,
+            3147,
+            1715,
+            22475,
+            26778,
+            29958
+          ],
+          "token_count": 69,
+          "tokens_checked": 69,
+          "first_failed_mask": null,
+          "first_failure": null,
+          "token_checks": [
+            {
+              "token_index": 0,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 4754,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 1,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 11516,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 2,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 64331,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 3,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7611,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 4,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3147,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 5,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 32,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 6,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 42140,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 7,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 5598,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 8,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 5728,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 9,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 46292,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 10,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 14868,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 11,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 763,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 12,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2827,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 13,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 1288,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 14,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 68,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 15,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 26590,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 16,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7824,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 17,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 35580,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 18,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 68,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 19,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 16,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 20,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 66550,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 21,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 39721,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 22,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 763,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 23,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2827,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 24,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 35607,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 25,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7611,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 26,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3147,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 27,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2014,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 28,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 9209,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 29,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 1406,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 30,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 46292,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 31,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 14868,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 32,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 763,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 33,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2827,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 34,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 1288,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 35,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 68,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 36,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 26590,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 37,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7824,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 38,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 35580,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 39,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 68,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 40,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 16,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 41,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 66550,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 42,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 39721,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 43,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 763,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 44,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2827,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 45,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 92,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 46,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 27573,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 47,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 389,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 48,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 21041,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 49,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 22475,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 50,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7824,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 51,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 35580,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 52,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 81,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 53,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 16,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 54,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 66550,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 55,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3480,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 56,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 7681,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 57,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 21624,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 58,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 13766,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 59,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3147,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 60,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 29166,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 61,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 18521,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 62,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 2129,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 63,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 19290,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 64,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 3147,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 65,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 1715,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 66,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 22475,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 67,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 26778,
+              "mask_allowed": true,
+              "accept_token": true
+            },
+            {
+              "token_index": 68,
+              "eos_expected": false,
+              "eos_mask_allowed": {
+                "248044": false,
+                "248046": false
+              },
+              "eos_accept_token": {
+                "248044": false,
+                "248046": false
+              },
+              "token_id": 29958,
+              "mask_allowed": true,
+              "accept_token": true
+            }
+          ],
+          "aus_boundary_checks": [
+            {
+              "character_offset": 8,
+              "prefix_accepted": true,
+              "next_character_acceptance": {
+                "{": true,
+                "]": true
+              },
+              "next_token_masks": {
+                "{": [
+                  {
+                    "token_id": 90,
+                    "allowed": true
+                  }
+                ],
+                "]": [
+                  {
+                    "token_id": 60,
+                    "allowed": true
+                  }
+                ]
+              }
+            }
+          ],
+          "final_eos": {
+            "token_index": 69,
+            "eos_expected": true,
+            "eos_mask_allowed": {
+              "248044": true,
+              "248046": true
+            },
+            "eos_accept_token": {
+              "248044": true,
+              "248046": true
+            }
+          },
+          "token_completed": true,
+          "replayed_all_tokens": true,
+          "elapsed_seconds": 1.863074,
+          "index": 1
+        }
+      ],
+      "negative_examples": [
+        {
+          "example_sha256": "03d45b82918f5d137cc74eff91a6629d7762c66708ce0a2bfcffd9a6709d9bd4",
+          "expected_accept": false,
+          "accept_string": false,
+          "string_completed": false,
+          "passed": true,
+          "rejected_as_string": true,
+          "elapsed_seconds": 9.7e-05,
+          "index": 0
+        }
+      ],
+      "compile_seconds": 0.108482,
+      "reused_compilation": false,
+      "passed": true,
+      "elapsed_seconds": 3.306532
+    }
+  ],
+  "elapsed_seconds": 21.822466,
+  "bundle_sha256": "84cc3a61c81563a0bd6ce37710eda17d6537fd703063f0c4331bb17df60987df",
+  "versions": {
+    "xgrammar": "0.2.1",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "numpy": "2.2.6"
+  },
+  "xgrammar_version": "0.2.1",
+  "python_version": "3.10.0",
+  "tokenizer_path": "G:\\Git\\coliee-case-retrieval\\knowledge_base\\pipeline_v1\\outputs\\grammar_diagnostic_deps\\tokenizer.json",
+  "tokenizer_sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+  "actual_stop_token_ids": [
+    248044,
+    248046
+  ],
+  "unique_grammars_compiled": 1
+}

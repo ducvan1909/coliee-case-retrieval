@@ -1,0 +1,272 @@
+{
+  "artifact_type": "K0AuthoringRunV2",
+  "status": "complete",
+  "workload_sha256": "8da3f88dc0c76ae15206cf6bfb78e004d0b8ec1348fe202a2450e27f927ad98e",
+  "identity": "6b292e234cd9eaf0d2a7bd3cc9904730bb600d64800ce80419d9bc42bec71f68",
+  "mode": "execute",
+  "work_scope_complete": false,
+  "protocol_complete": true,
+  "case_source_assessment_complete": false,
+  "case_source_status": "partial",
+  "semantic_quality": "not_assessed",
+  "results": [
+    {
+      "case_id": "011904",
+      "state": {
+        "case_id": "011904",
+        "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+        "turn": 1,
+        "active_scope_ids": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "r6",
+          "r7",
+          "r8"
+        ],
+        "drafts": {},
+        "revisions": [],
+        "warnings": [],
+        "au_errors": [],
+        "read_ledger": {
+          "r1": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r2": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r3": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r4": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r5": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r6": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r7": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r8": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          }
+        },
+        "finished": true,
+        "stop_reason": "needs_context",
+        "work_scope_complete": false,
+        "case_source_assessment_complete": false,
+        "case_status": "partial",
+        "tool_result": null
+      },
+      "work_scope_complete": false,
+      "case_source_assessment_complete": false,
+      "case_source_status": "partial",
+      "pause_reason": null,
+      "semantic_quality": "not_assessed"
+    },
+    {
+      "case_id": "045155",
+      "state": {
+        "case_id": "045155",
+        "source_hash": "93d2b91c8a6c01ef4c8d7fd08543035b0d0a400e103c668c828407f99ee2d6eb",
+        "turn": 1,
+        "active_scope_ids": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5"
+        ],
+        "drafts": {},
+        "revisions": [],
+        "warnings": [],
+        "au_errors": [],
+        "read_ledger": {
+          "r1": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r2": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r3": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r4": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r5": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          }
+        },
+        "finished": true,
+        "stop_reason": "needs_context",
+        "work_scope_complete": false,
+        "case_source_assessment_complete": false,
+        "case_status": "partial",
+        "tool_result": null
+      },
+      "work_scope_complete": false,
+      "case_source_assessment_complete": false,
+      "case_source_status": "partial",
+      "pause_reason": null,
+      "semantic_quality": "not_assessed"
+    },
+    {
+      "case_id": "099980",
+      "state": {
+        "case_id": "099980",
+        "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+        "turn": 1,
+        "active_scope_ids": [
+          "r1",
+          "r2",
+          "r3"
+        ],
+        "drafts": {},
+        "revisions": [],
+        "warnings": [],
+        "au_errors": [],
+        "read_ledger": {
+          "r1": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r2": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          },
+          "r3": {
+            "state": "unresolved",
+            "delivered_count": 1,
+            "assessed": false,
+            "assessment_result": "uncertain"
+          }
+        },
+        "finished": true,
+        "stop_reason": "needs_context",
+        "work_scope_complete": false,
+        "case_source_assessment_complete": false,
+        "case_status": "partial",
+        "tool_result": null
+      },
+      "work_scope_complete": false,
+      "case_source_assessment_complete": false,
+      "case_source_status": "partial",
+      "pause_reason": null,
+      "semantic_quality": "not_assessed"
+    }
+  ],
+  "pauses": {},
+  "protocol_counts": {
+    "verified": 3,
+    "invalid": 0,
+    "failed": 0,
+    "reserved": 0,
+    "pending": 0
+  },
+  "logical_requests": 3,
+  "transport_POST_attempts": 3,
+  "provider_POST_attempts": 3,
+  "GET_polls": 133,
+  "network_executed": true,
+  "network_requests": 136,
+  "reserved_input_tokens": 9735,
+  "reserved_output_tokens": 2400,
+  "input_count_method": "max_rendered_chat_and_full_serialized_payload_Qwen_tokens_plus128_reserve",
+  "input_counter": {
+    "method": "max_rendered_chat_and_full_serialized_payload_Qwen_tokens_plus128_reserve",
+    "model": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "files": {
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8"
+    },
+    "versions": {
+      "tokenizers": "0.22.1",
+      "jinja2": "3.1.6"
+    },
+    "provider_usage": false
+  },
+  "reserved_input_utf8_bytes": null,
+  "known_provider_usage_observed_subtotal": {
+    "input_tokens": 6421,
+    "output_tokens": 81,
+    "total_tokens": 6502
+  },
+  "unknown_provider_attempts": 0,
+  "total_provider_usage": {
+    "input_tokens": 6421,
+    "output_tokens": 81,
+    "total_tokens": 6502
+  },
+  "usage_is_complete": true,
+  "grammar_compile": "not_checked",
+  "max_new_requests_this_invocation": 12,
+  "client_latency_ms": 31714.917999999998,
+  "POST_ack_latency_ms": 4875.175,
+  "elapsed_wall_ms": 24616.5,
+  "readiness": {
+    "status": "ready",
+    "ready": true,
+    "http_status": 200,
+    "error_class": null,
+    "count": 9,
+    "elapsed_ms": 21644.007,
+    "warmup_count": 1,
+    "warmup_elapsed_ms": 718.43,
+    "deadline_seconds": 600,
+    "retrieval_deadline_seconds": 30
+  },
+  "execution_complete": true,
+  "semantic_pass": false,
+  "K1_allowed": false,
+  "corpus_dispatch_allowed": false
+}

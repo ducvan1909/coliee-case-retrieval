@@ -1,0 +1,66 @@
+{
+  "artifact_type": "Plan09RemediationIndependentEvaluation",
+  "evaluation_date": "2026-10-05",
+  "overall_status": "partial_remediation",
+  "gates": {
+    "P09-R1": "pass_after_gate_fix",
+    "P09-R2": "pass",
+    "P09-R3": "fail_incomplete"
+  },
+  "code_defects": [
+    {
+      "id": "P09-RF01",
+      "severity": "high",
+      "status": "fixed_verified",
+      "component": "semantic severe-finding silver-lock gate",
+      "description": "A fabricated closed status and arbitrary independent_review_ref could bypass the quarantine gate without a validated final amendment or existing review record."
+    }
+  ],
+  "risk_queue": {
+    "item_count": 49,
+    "unique_target_count": 49,
+    "pending_model_review_count": 49,
+    "holding_current_court_reporting_risk_count": 27,
+    "reproducible": true,
+    "labels_changed": false
+  },
+  "effective_progress": {
+    "reviewed_target_count": 212,
+    "missing_target_count": 157,
+    "authority_unit_count": 98,
+    "hard_negative_count": 112,
+    "unresolved_target_count": 2,
+    "quarantined_target_count": 1,
+    "open_severe_finding_count": 1,
+    "amendment_count": 1,
+    "plan10_allowed": false
+  },
+  "p09_s01": {
+    "original_proposal_immutable": true,
+    "effective_outcome": "unresolved",
+    "effective_authority_unit_count": 0,
+    "effective_hard_negative": false,
+    "finding_status": "quarantined_pending_review",
+    "closed": false
+  },
+  "tests": {
+    "independent_remediation": {
+      "passed": 4,
+      "failed": 0,
+      "elapsed_seconds": 2.508
+    },
+    "plan09_related": {
+      "passed": 18,
+      "failed": 0,
+      "elapsed_seconds": 5.766
+    },
+    "pipeline_regression": {
+      "passed": 111,
+      "failed": 0,
+      "elapsed_seconds": 90.555
+    }
+  },
+  "semantic_labels_modified": false,
+  "semantic_gold": false,
+  "evaluation_against": "model_silver"
+}

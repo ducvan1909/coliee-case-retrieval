@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coliee:repair-revision-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "decisions"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "proposal_id",
+          "action",
+          "reason",
+          "replacements",
+          "primary_proposition"
+        ],
+        "properties": {
+          "proposal_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "action": {
+            "enum": [
+              "keep",
+              "replace",
+              "reject",
+              "unresolved"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "replacements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "au",
+                "primary_proposition"
+              ],
+              "properties": {
+                "au": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "other_kind",
+                    "claim",
+                    "evidence_ref_ids",
+                    "speaker",
+                    "attribution_role",
+                    "needs_context"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "holding",
+                        "standard_of_review",
+                        "statutory_hook",
+                        "procedural_rule",
+                        "fact_pattern_rule",
+                        "foreign_law",
+                        "other",
+                        "unresolved_kind"
+                      ]
+                    },
+                    "other_kind": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "maxLength": 160
+                    },
+                    "claim": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 300
+                    },
+                    "evidence_ref_ids": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 3,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128
+                      }
+                    },
+                    "speaker": {
+                      "enum": [
+                        "current_court",
+                        "cited_authority",
+                        "party",
+                        "statute",
+                        "editor",
+                        "mixed",
+                        "unknown"
+                      ]
+                    },
+                    "attribution_role": {
+                      "enum": [
+                        "proposition",
+                        "authority",
+                        "current_court_response",
+                        "condition",
+                        "exception",
+                        "limit",
+                        "other"
+                      ]
+                    },
+                    "needs_context": {
+                      "type": "array",
+                      "maxItems": 6,
+                      "uniqueItems": true,
+                      "items": {
+                        "enum": [
+                          "attribution",
+                          "condition",
+                          "exception",
+                          "limit",
+                          "current_court_response",
+                          "cross_block_context"
+                        ]
+                      }
+                    }
+                  },
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "kind": {
+                            "const": "other"
+                          }
+                        }
+                      },
+                      "then": {
+                        "properties": {
+                          "other_kind": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      },
+                      "else": {
+                        "properties": {
+                          "other_kind": {
+                            "const": null
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "primary_proposition": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "atom_id",
+                    "quote"
+                  ],
+                  "properties": {
+                    "atom_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            },
+            "maxItems": 3
+          },
+          "primary_proposition": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "atom_id",
+                  "quote"
+                ],
+                "properties": {
+                  "atom_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "quote": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "action": {
+                  "const": "replace"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "replacements": {
+                  "minItems": 1
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "replacements": {
+                  "maxItems": 0
+                }
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 12
+    },
+    "semantic_status": {
+      "const": "semantic_review_pending"
+    },
+    "original_proposals": {
+      "type": "array"
+    },
+    "verified_replacements": {
+      "type": "array"
+    },
+    "read_atom_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "stage": 1,
+  "normalized": {
+    "aus": [
+      {
+        "au_id": "au-dce2b78026e3db8dda4b1d6a",
+        "claim": "The issue of procedural fairness is determinative, as there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null,
+        "evidence": [
+          {
+            "ref_id": "t-790c01a88146daa0d105c05b",
+            "case_id": "099980",
+            "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+            "start_char": 56482,
+            "end_char": 56725,
+            "quote": "In fact, the issue of procedural fairness seems determinative to me; as explained below, there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.\r\n",
+            "role": "target_body"
+          }
+        ]
+      }
+    ],
+    "context_request": null,
+    "needs_context": false,
+    "exact_duplicates_removed": 0,
+    "shared_evidence_pairs": [],
+    "semantic_quality": "not_assessed",
+    "semantic_status": "unknown"
+  },
+  "usage": {
+    "input_tokens": 1034,
+    "output_tokens": 67,
+    "total_tokens": 1101
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"The issue of procedural fairness is determinative, as there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.\",\"kind\":\"holding\",\"evidence_ids\":[\"s2\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792496066,
+    "id": "c4739aac272046eaa9e449db47bc657b",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 67,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 67,
+      "prompt_tokens": 1034,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1101
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c",
+    "payload_sha256": "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c",
+    "polls": 6,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792496045.7109797,
+    "job_status": "completed",
+    "latency_ms": 24898.424,
+    "finished_at_unix": 1792496070.6093264,
+    "server_timing": {
+      "created_at": "2026-10-20T11:34:10.137295+00:00",
+      "started_at": "2026-10-20T11:34:19.871321+00:00",
+      "finished_at": "2026-10-20T11:34:26.309946+00:00",
+      "inference_seconds": 5.820270853000011
+    }
+  },
+  "model_output": {
+    "aus": [
+      {
+        "claim": "The issue of procedural fairness is determinative, as there appears to be a flagrant breach by the Commission, more specifically by its investigator, of the duty to act fairly with respect to the applicant.",
+        "kind": "holding",
+        "evidence_ids": [
+          "s2"
+        ],
+        "limits": null
+      }
+    ],
+    "context_request": null
+  },
+  "status": "verified",
+  "latency_ms": 24898.684,
+  "request_id": "auc-043529c252d9ca960e652a7d",
+  "payload_sha256": "24b5d0a1058bf38cd7eebbc84d15c8a80b8e802a87d5f2b085e2515ccceda75c",
+  "receipt_sha256": "1076ee21e8095139974ab741f5f9afd7b86aa45b448bd71b030a46c92e1095dc"
+}

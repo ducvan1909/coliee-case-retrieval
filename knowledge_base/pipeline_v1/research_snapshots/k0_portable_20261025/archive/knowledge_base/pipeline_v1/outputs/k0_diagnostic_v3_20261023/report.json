@@ -1,0 +1,113 @@
+{
+  "status": "complete",
+  "rows": [
+    {
+      "name": "synthetic_grammar",
+      "usage": {
+        "input_tokens": 142,
+        "output_tokens": 30,
+        "total_tokens": 172
+      },
+      "status": "valid",
+      "finish_reason": "stop",
+      "model_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r1"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r1"
+        ],
+        "delivered_scope_ids": [
+          "r1"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "AU_count": 0,
+      "one_AU_control_pass": false
+    },
+    {
+      "name": "synthetic_plain",
+      "usage": {
+        "input_tokens": 142,
+        "output_tokens": 119,
+        "total_tokens": 261
+      },
+      "status": "invalid",
+      "finish_reason": "stop",
+      "error_type": "TargetContextError"
+    },
+    {
+      "name": "real_one_turn",
+      "usage": {
+        "input_tokens": 2194,
+        "output_tokens": 50,
+        "total_tokens": 2244
+      },
+      "status": "valid",
+      "finish_reason": "stop",
+      "model_output": {
+        "aus": [],
+        "assessed_scope_ids": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "r6",
+          "r7",
+          "r8"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "normalized": {
+        "aus": [],
+        "au_errors": [],
+        "warnings": [],
+        "assessed_scope_ids": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "r6",
+          "r7",
+          "r8"
+        ],
+        "delivered_scope_ids": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "r6",
+          "r7",
+          "r8"
+        ],
+        "next_action": {
+          "tool": "finish_case",
+          "reason": "work_scope_complete"
+        }
+      },
+      "AU_count": 0
+    }
+  ],
+  "POST_attempts": 3,
+  "semantic_quality": "not_assessed",
+  "reservation": 6824
+}

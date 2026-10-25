@@ -1,0 +1,14 @@
+{
+  "ordinal": 2,
+  "job_id": "07a34e66858d9291441c346f8855d4ff38840d561d78578cceb3df7da3cd1b7c",
+  "payload_sha256": "07a34e66858d9291441c346f8855d4ff38840d561d78578cceb3df7da3cd1b7c",
+  "reserved_input_tokens": 3332,
+  "reserved_output_tokens": 800,
+  "usage": null,
+  "usage_state": "unknown",
+  "acknowledgement": "received",
+  "started_at_unix": 1792747291.215439,
+  "phase": "authoring",
+  "input_estimate_method": "max_rendered_chat_and_full_serialized_payload_Qwen_tokens_plus128_reserve",
+  "latency_ms": 2061.224
+}

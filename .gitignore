@@ -4,6 +4,12 @@ legal_unit/samples/
 legal_unit/samples_validation/
 legal_unit/outputs/
 
+# Generated research runs; curated immutable handoff snapshots are kept under
+# knowledge_base/pipeline_v1/research_snapshots/ and remain trackable.
+/outputs/
+/$out/
+/research_bundle/k0_portable_runs/
+
 # Python bytecode and caches
 __pycache__/
 *.py[cod]

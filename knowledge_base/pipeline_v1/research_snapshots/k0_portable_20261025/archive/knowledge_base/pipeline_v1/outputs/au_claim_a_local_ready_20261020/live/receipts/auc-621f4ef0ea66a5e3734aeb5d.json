@@ -1,0 +1,78 @@
+{
+  "stage": 1,
+  "normalized": null,
+  "usage": {
+    "input_tokens": 1174,
+    "output_tokens": 236,
+    "total_tokens": 1410
+  },
+  "usage_state": "provider",
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": 248046,
+        "message": {
+          "content": "{\"aus\":[{\"claim\":\"The burden on claimants from developed democratic states does not require them to put themselves in danger to exhaust all possible avenues of protection.\",\"kind\":\"holding\",\"evidence_ids\":[\"s1\"],\"limits\":\"This exception applies notwithstanding that seeking help from the police might have placed the applicant in greater peril if not every member of the police was implicated in the persecution, as such a requirement would constitute an 'exceptional circumstance'.\\n\\nThe requirement to seek state protection applies only where it would be objectively unreasonable not to do so.\\n\\nThis standard is derived from the view that the burden is high but does not mandate self-endangerment.\"},{\"claim\":\"An individual will be required to seek state protection where it would be objectively unreasonable not to do so.\",\"kind\":\"holding\",\"evidence_ids\":[\"s2\"],\"limits\":null},{\"claim\":\"Seeking help from the police to protect the applicant from itself would have in all likelihood placed the applicant in greater peril, notwithstanding that not every member of the police was implicated in the applicant's persecution.\",\"kind\":\"fact_pattern_rule\",\"evidence_ids\":[\"s4\"],\"limits\":null}],\"context_request\":null}",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": null
+        }
+      }
+    ],
+    "created": 1792495958,
+    "id": "2e2147ef348940bab75723430b8403cb",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 236,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "Qwen/Qwen3.5-9B",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 236,
+      "prompt_tokens": 1174,
+      "prompt_tokens_details": {
+        "cached_tokens": 832
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 1410
+    }
+  },
+  "transport_trace": {
+    "transport": "jobs",
+    "job_id": "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412",
+    "payload_sha256": "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412",
+    "polls": 10,
+    "submit_attempts": 1,
+    "events": [
+      {
+        "method": "GET",
+        "http_status": 404
+      }
+    ],
+    "started_at_unix": 1792495923.7046344,
+    "job_status": "completed",
+    "latency_ms": 38307.612,
+    "finished_at_unix": 1792495962.012444,
+    "server_timing": {
+      "created_at": "2026-10-20T11:32:08.144705+00:00",
+      "started_at": "2026-10-20T11:32:12.589974+00:00",
+      "finished_at": "2026-10-20T11:32:38.431975+00:00",
+      "inference_seconds": 25.045484790000017
+    }
+  },
+  "error": "output_protocol_validation",
+  "status": "invalid",
+  "latency_ms": 38307.799,
+  "request_id": "auc-621f4ef0ea66a5e3734aeb5d",
+  "payload_sha256": "c1797fa864781fdc3a4917aeeb21cb7bf62549b33b14aa1719498af222d3f412",
+  "receipt_sha256": "b619a169be5de87a352051fdb0cbc2283762fe09364709d1aacf07a6783f7106"
+}

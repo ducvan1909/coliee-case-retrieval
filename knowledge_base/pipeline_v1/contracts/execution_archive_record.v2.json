@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","title":"Plan 08 immutable archive record","type":"object","additionalProperties":false,
+  "required":["artifact_type","record_version","build_id","manifest_ref","manifest_sha256","payload_inventory","provenance"],
+  "properties":{
+    "artifact_type":{"const":"ExecutionBuildArchiveRecord"},"record_version":{"const":"plan08-archive-record-v2"},"build_id":{"type":"string","pattern":"^[0-9a-f]{64}$"},"manifest_ref":{"const":"execution_suite_manifest.json"},"manifest_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "payload_inventory":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["path","sha256","byte_length","artifact_type"],"properties":{"path":{"type":"string","minLength":1,"pattern":"^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"},"sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},"byte_length":{"type":"integer","minimum":0},"artifact_type":{"enum":["execution_run_snapshot","attempt_log_projection","mock_cache_entry","execution_suite_manifest","dependency_invalidation_probe","archived_current_pointer"]}}}},
+    "provenance":{"type":"object","additionalProperties":false,"required":["mode","tamper_detection_begins_at_migration","preinventory_evidence_ref"],"properties":{"mode":{"enum":["native-payload-inventory-v2","legacy-payload-inventory-migration-v1"]},"tamper_detection_begins_at_migration":{"type":"boolean"},"preinventory_evidence_ref":{"type":["string","null"]}}}
+  }
+}

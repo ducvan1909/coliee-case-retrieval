@@ -1,0 +1,356 @@
+{
+  "events": [
+    {
+      "arguments": {
+        "decisions": [
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          },
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          },
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          },
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          }
+        ],
+        "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf"
+      },
+      "name": "submit_revision",
+      "ok": true,
+      "result": {
+        "decisions": [
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          },
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          },
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          },
+          {
+            "action": "unresolved",
+            "primary_proposition": null,
+            "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+            "reason": "Mock has no semantic verdict",
+            "replacements": []
+          }
+        ],
+        "original_proposals": [
+          {
+            "aliases": [
+              {
+                "arm": "P2a",
+                "au_index": 0,
+                "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+              },
+              {
+                "arm": "P2b",
+                "au_index": 0,
+                "request_id": "hreq-874c6ffa109dfa3f02e40224"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+            "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b"
+          },
+          {
+            "aliases": [
+              {
+                "arm": "P2a",
+                "au_index": 1,
+                "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "The condition precedent for applying subsections (1) to (3) of section 172 of the Regulations is that the applicant be described in section 97 of the Act.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+            "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8"
+          },
+          {
+            "aliases": [
+              {
+                "arm": "P2a",
+                "au_index": 2,
+                "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+              },
+              {
+                "arm": "P2b",
+                "au_index": 2,
+                "request_id": "hreq-874c6ffa109dfa3f02e40224"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+            "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e"
+          },
+          {
+            "aliases": [
+              {
+                "arm": "P2b",
+                "au_index": 1,
+                "request_id": "hreq-874c6ffa109dfa3f02e40224"
+              }
+            ],
+            "proposal": {
+              "attribution_role": "proposition",
+              "claim": "The condition precedent for applying subsections 172(1) to (3) of the Regulations is that the applicant be described in section 97 of the Act.",
+              "evidence_ref_ids": [
+                "sa-dae5c70d9fa508f6d457c1ae",
+                "sa-f751735fdfbd3b9fd4bee03e"
+              ],
+              "kind": "statutory_hook",
+              "needs_context": [],
+              "other_kind": null,
+              "speaker": "statute"
+            },
+            "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+            "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422"
+          }
+        ],
+        "read_atom_ids": [
+          "sa-a050d3f31b5b5db053e48dbc",
+          "sa-dae5c70d9fa508f6d457c1ae",
+          "sa-f751735fdfbd3b9fd4bee03e",
+          "sa-ed437d5c5a3d23b5f6c0e005",
+          "sa-6ccf6f7017b833e2663b4c82",
+          "sa-8f588b3ab949f71b83338230",
+          "sa-0799b37ea4c2eff1308ec1df",
+          "sa-3dacdee768fa9c3b19146e83",
+          "sa-2189e0d2eab8d5971022a7f7"
+        ],
+        "semantic_status": "semantic_review_pending",
+        "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf",
+        "verified_replacements": []
+      },
+      "sequence": 1
+    }
+  ],
+  "expanded_atom_ids": [],
+  "expansion_count": 0,
+  "obligations": [],
+  "read_atom_ids": [
+    "sa-a050d3f31b5b5db053e48dbc",
+    "sa-dae5c70d9fa508f6d457c1ae",
+    "sa-f751735fdfbd3b9fd4bee03e",
+    "sa-ed437d5c5a3d23b5f6c0e005",
+    "sa-6ccf6f7017b833e2663b4c82",
+    "sa-8f588b3ab949f71b83338230",
+    "sa-0799b37ea4c2eff1308ec1df",
+    "sa-3dacdee768fa9c3b19146e83",
+    "sa-2189e0d2eab8d5971022a7f7"
+  ],
+  "revision": {
+    "decisions": [
+      {
+        "action": "unresolved",
+        "primary_proposition": null,
+        "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+        "reason": "Mock has no semantic verdict",
+        "replacements": []
+      },
+      {
+        "action": "unresolved",
+        "primary_proposition": null,
+        "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+        "reason": "Mock has no semantic verdict",
+        "replacements": []
+      },
+      {
+        "action": "unresolved",
+        "primary_proposition": null,
+        "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+        "reason": "Mock has no semantic verdict",
+        "replacements": []
+      },
+      {
+        "action": "unresolved",
+        "primary_proposition": null,
+        "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+        "reason": "Mock has no semantic verdict",
+        "replacements": []
+      }
+    ],
+    "fingerprint": "92f215c7de9e77196ccaa559dcf8eaffefc5ede970adbabd578c188e82680353",
+    "original_proposals": [
+      {
+        "aliases": [
+          {
+            "arm": "P2a",
+            "au_index": 0,
+            "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+          },
+          {
+            "arm": "P2b",
+            "au_index": 0,
+            "request_id": "hreq-874c6ffa109dfa3f02e40224"
+          }
+        ],
+        "proposal": {
+          "attribution_role": "proposition",
+          "claim": "If the Minister decides the applicant is not described in section 97 of the Act, no written assessment on the basis of factors in section 113(d)(i) or (ii) need be made and the application is rejected.",
+          "evidence_ref_ids": [
+            "sa-dae5c70d9fa508f6d457c1ae"
+          ],
+          "kind": "statutory_hook",
+          "needs_context": [],
+          "other_kind": null,
+          "speaker": "statute"
+        },
+        "proposal_id": "proposal-3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b",
+        "proposal_sha256": "3714d7089471fc43c2bbe098b143391a8b65bf02b14f6e8ebb476e28e83de87b"
+      },
+      {
+        "aliases": [
+          {
+            "arm": "P2a",
+            "au_index": 1,
+            "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+          }
+        ],
+        "proposal": {
+          "attribution_role": "proposition",
+          "claim": "The condition precedent for applying subsections (1) to (3) of section 172 of the Regulations is that the applicant be described in section 97 of the Act.",
+          "evidence_ref_ids": [
+            "sa-dae5c70d9fa508f6d457c1ae",
+            "sa-f751735fdfbd3b9fd4bee03e"
+          ],
+          "kind": "statutory_hook",
+          "needs_context": [],
+          "other_kind": null,
+          "speaker": "statute"
+        },
+        "proposal_id": "proposal-8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8",
+        "proposal_sha256": "8593a1b9fc94f8db46013da10cf097c7048e35f94278c69552a8ca3c3d4a3fe8"
+      },
+      {
+        "aliases": [
+          {
+            "arm": "P2a",
+            "au_index": 2,
+            "request_id": "hreq-aa6d732a5bb79c4d314fa455"
+          },
+          {
+            "arm": "P2b",
+            "au_index": 2,
+            "request_id": "hreq-874c6ffa109dfa3f02e40224"
+          }
+        ],
+        "proposal": {
+          "attribution_role": "proposition",
+          "claim": "When the risk assessment is negative, subsections 172(1) to (3) of the Regulations respecting a written assessment do not apply.",
+          "evidence_ref_ids": [
+            "sa-dae5c70d9fa508f6d457c1ae",
+            "sa-f751735fdfbd3b9fd4bee03e"
+          ],
+          "kind": "statutory_hook",
+          "needs_context": [],
+          "other_kind": null,
+          "speaker": "statute"
+        },
+        "proposal_id": "proposal-8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e",
+        "proposal_sha256": "8927357120585a7a6afd61e406f28e2468ef75825f090e67ff8d6162810fc38e"
+      },
+      {
+        "aliases": [
+          {
+            "arm": "P2b",
+            "au_index": 1,
+            "request_id": "hreq-874c6ffa109dfa3f02e40224"
+          }
+        ],
+        "proposal": {
+          "attribution_role": "proposition",
+          "claim": "The condition precedent for applying subsections 172(1) to (3) of the Regulations is that the applicant be described in section 97 of the Act.",
+          "evidence_ref_ids": [
+            "sa-dae5c70d9fa508f6d457c1ae",
+            "sa-f751735fdfbd3b9fd4bee03e"
+          ],
+          "kind": "statutory_hook",
+          "needs_context": [],
+          "other_kind": null,
+          "speaker": "statute"
+        },
+        "proposal_id": "proposal-54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422",
+        "proposal_sha256": "54820c7270df3eca3b8cc9394b5c06d613eb2b0930d52329ca11f8ccdb8be422"
+      }
+    ],
+    "read_atom_ids": [
+      "sa-a050d3f31b5b5db053e48dbc",
+      "sa-dae5c70d9fa508f6d457c1ae",
+      "sa-f751735fdfbd3b9fd4bee03e",
+      "sa-ed437d5c5a3d23b5f6c0e005",
+      "sa-6ccf6f7017b833e2663b4c82",
+      "sa-8f588b3ab949f71b83338230",
+      "sa-0799b37ea4c2eff1308ec1df",
+      "sa-3dacdee768fa9c3b19146e83",
+      "sa-2189e0d2eab8d5971022a7f7"
+    ],
+    "semantic_status": "semantic_review_pending",
+    "task_id": "task-e41317db5f76d4d912f5d88552aa85a491812133ad56d70cff55af7f475123cf",
+    "verified_replacements": []
+  },
+  "tool_count": 1
+}
