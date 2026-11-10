@@ -1,0 +1,74 @@
+{
+  "schema_version": "ag-m3-opt-v2-review-findings-1",
+  "generated_at_utc": "2026-11-08T04:06:30Z",
+  "verdicts": {
+    "local_correctness": "PASS",
+    "real_compatibility": "PASS",
+    "gpu_benchmark": "PASS_COMPLETED_WITH_DOCUMENTED_PILOT_LIMITS",
+    "search_latency": "PASS_COMPONENTS_AND_WALLTIME_MEASURED",
+    "full_readiness": "NOT_READY_BY_DESIGN_SCOPE"
+  },
+  "prior_v1_findings_adjudication": [
+    {
+      "v1_id": "F-M3OPT-01",
+      "status": "RESOLVED_IN_V2",
+      "summary": "Unified V2 Modal app (coliee-pipeline-v2-embed-m3-opt-v2) handles both document and query embeddings, guarded by a mandatory real compatibility preflight (8 document checks + 3 query checks against baseline vectors/app)."
+    },
+    {
+      "v1_id": "F-M3OPT-02",
+      "status": "RESOLVED_IN_V2",
+      "summary": "PersistentBM25.create() strips 'text' before storing documents.metadata, streams postings in bounded 512-row batches (one Counter in RAM at a time), and batches metadata retrieval via get_many(..., 256). SQLite size dropped from 138,936,320 to 93,270,016 bytes (-32.87%) and case BM25 search dropped from ~0.31s to 0.0225s (~13.8x faster)."
+    },
+    {
+      "v1_id": "F-M3OPT-03",
+      "status": "RESOLVED_IN_V2",
+      "summary": "FastSession.__init__() no longer preloads all passage metadata or scans all vector norms/finiteness on open (full vector scan is reserved for verify(full_db=True)). Local CLI commands (build, verify, open, --help) neither parse .env nor import modal, and verify/open do not write operation files to the runtime directory."
+    },
+    {
+      "v1_id": "F-M3OPT-04",
+      "status": "RESOLVED_IN_V2",
+      "summary": "PersistentBM25 resolves relative paths via Path(path).resolve() before constructing readonly file URIs."
+    },
+    {
+      "v1_id": "F-M3OPT-05",
+      "status": "RESOLVED_IN_V2",
+      "summary": "Benchmark sampling now uses 4 locally dense contiguous windows of 64 passages each (256 unique IDs, 33,801 input tokens/pass) shared across candidate batch sizes [16, 32, 64] over 3 counterbalanced crossover repeats, with 128 isolated as a separate memory stress test. Padding ratios are bounded at 1.028 (bs=16), 1.056 (bs=32), and 1.121 (bs=64), revealing batch_size=64 as the fastest observed warm client candidate (23.00 docs/s)."
+    },
+    {
+      "v1_id": "F-M3OPT-06",
+      "status": "RESOLVED_IN_V2",
+      "summary": "Timings are cleanly separated across subprocess walltime (6.34-6.59s), internal full_cli_seconds (6.15-6.38s), session_initialization_seconds (0.56-0.61s), warm_session_request_seconds_including_RPC (2.90-5.53s), client_rpc_seconds (2.11-4.40s), remote_total_seconds (0.055-0.305s), and local_vector_reuse_seconds (0.174-0.264s, mean 0.208s)."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-M3OPTV2-01",
+      "category": "measurement_observation",
+      "severity": "low",
+      "blocking": false,
+      "title": "PyTorch CUDA caching allocator retains peak_reserved_bytes (20.56 GB) from stress-128 across subsequent warm benchmark calls on the same container",
+      "files_and_symbols": [
+        "pipeline_v2/deployments/modal_opt_v2/engine.py::Engine.encode",
+        "pipeline_v2/optimization_v2/benchmark.py::benchmark_index"
+      ],
+      "evidence": "In Engine.encode() (line 57), torch.cuda.reset_peak_memory_stats() resets peak counters before each forward pass, while torch.cuda.empty_cache() is only called on OutOfMemoryError (line 77). Because stress-128 succeeded without OOM and reserved 20,560,478,208 bytes (86.79% of 23.69 GB L4 VRAM), PyTorch's caching allocator held onto that 20.56 GB reserved pool during all 84 subsequent warm calls for batch sizes 16, 32, and 64. Consequently, reserved_headroom_fraction is reported as 0.13208 (13.21%) for all three candidate sizes [16, 32, 64] in benchmark_result.json, whereas their true isolated reserved VRAM from stress-16/32/64 was 9.36 GB (60.49% headroom), 10.96 GB (53.74% headroom), and 14.16 GB (40.23% headroom).",
+      "impact": "Does not affect eligibility or winner selection (which gates on allocated_headroom_fraction >= 0.10, where 16/32/64 accurately report 63.36%, 61.00%, and 56.22% headroom), nor does it cause any OOM. However, readers inspecting reserved_headroom_fraction on warm calls should use the pre-128 stress-16/32/64 receipts for per-batch-size reserved memory.",
+      "recommended_fix": "Optional for future benchmarks: call torch.cuda.empty_cache() before torch.cuda.reset_peak_memory_stats() in stress/benchmark mode, or compute per-candidate reserved_headroom_fraction from that candidate's own stress call when warm calls follow a larger stress batch."
+    },
+    {
+      "id": "F-M3OPTV2-02",
+      "category": "documented_limit",
+      "severity": "info",
+      "blocking": false,
+      "title": "Full-corpus (415,693 passages / 7,708 cases) runner, COLIEE gold evaluation, and M4 agent remain intentionally out of pilot scope",
+      "files_and_symbols": [
+        "pipeline_v2/configs/m3.json",
+        "pipeline_v2/configs/m3_opt_v2.json",
+        "pipeline_v2/optimization_v2/index.py::build_index"
+      ],
+      "evidence": "As documented in docs/M3_OPTIMIZATION_V2.md, m3.json remains locked to mode='pilot_only' (1,024 passages, 916 cases), and benchmark_result.json / search_benchmark.json explicitly record full_corpus_executed=false and status='PASS_components_measured_not_full_corpus_quality'.",
+      "impact": "The V2 architecture fixes (text-free SQLite metadata, streamed postings, lazy mmap/metadata session init, unified V2 Modal app with compatibility gate, and dense-window benchmark) are verified on the 1,024-passage pilot, but full-corpus index build/embedding and COLIEE F1 evaluation require their dedicated next-phase runner.",
+      "recommended_fix": "Keep pilot artifacts frozen; proceed to full-corpus runner design when scheduled by the project plan."
+    }
+  ]
+}

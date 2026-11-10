@@ -1,0 +1,93 @@
+{
+  "schema_version": "m2-passages-ag-review-findings-v1",
+  "target_bundle": "pipeline_v2/artifacts/m2_passages_20261106_v1",
+  "target_bundle_seal_sha256": "0ed42d51023adaf47c1205fa925f18f31b7aacb58b0c8e44c7d23288d123dda6",
+  "overall_verdict": "ready_with_documented_limits",
+  "production_defects_count": 0,
+  "production_defects": [],
+  "documented_design_limits": [
+    {
+      "id": "M2-PASSAGES-LIMIT-001",
+      "category": "documented_design_limit",
+      "severity": "info",
+      "title": "Standalone headings (48,990 units / 481,721 bytes) and whitespace (514,659 units / 1,540,929 bytes) are not standalone passage embeddings",
+      "source_scope": "All 7,708 train cases (M1 structural partition vs M2 navigation/passage parents)",
+      "profile_sha256": "430ad6fe1c9c5541c29335fbd8d9150f11d59c571cc48d5b1cca13018096deb7",
+      "expected": "100% of navigation content units (382,343 paragraph + unnumbered units = 223,375,957 bytes, 99.1026% of raw corpus bytes) are indexed into passages; standalone M1 headings and whitespace remain source-addressable and are preserved inside raw open_context envelopes without being claimed as standalone embeddings.",
+      "actual": "Verified exact byte partition equality across all 7,708 cases: 223,375,957 (parent bytes) + 481,721 (48,990 heading units) + 1,540,929 (514,659 whitespace units) == 225,398,607 (total raw corpus bytes). Explicitly declared in case JSON field excluded_structural_views.",
+      "reproduction_command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/independent_corpus_audit.py"
+    },
+    {
+      "id": "M2-PASSAGES-LIMIT-002",
+      "category": "documented_design_limit",
+      "severity": "info",
+      "title": "Split parent boundaries use whitespace/codepoint cuts, not certified sentence or legal-semantic boundaries",
+      "source_scope": "9,856 split parents (43,206 split child passages across 7,708 cases)",
+      "profile_sha256": "430ad6fe1c9c5541c29335fbd8d9150f11d59c571cc48d5b1cca13018096deb7",
+      "expected": "Long parents (>448 full-input tokens) are split using tokenizer offset proposals snapped to whitespace (or codepoint fallback for unbroken strings) with boundary_method='whitespace_or_codepoint_fallback_not_sentence_verified', and full parent + neighbors are recovered on PassageReader.open_context.",
+      "actual": "All 43,206 split children carry boundary_method='whitespace_or_codepoint_fallback_not_sentence_verified' (word_boundary_splits=0 across corpus; codepoint fallback verified on synthetic 9,000-char unbroken string). Manual review of 35 sampled split-parent regions confirms cuts frequently occur mid-sentence at whitespace near 320 tokens, while open_context recovers the complete parent and adjacent context.",
+      "reproduction_command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/adjudicate_passages_regions.py"
+    },
+    {
+      "id": "M2-PASSAGES-LIMIT-003",
+      "category": "documented_design_limit",
+      "severity": "info",
+      "title": "Local profile (320 soft target / 128 content overlap / 448 hard cap) is a provisional within-parent overlap variant, not retrieval-quality optimized",
+      "source_scope": "pipeline_v2/configs/m2_passages.json",
+      "profile_sha256": "430ad6fe1c9c5541c29335fbd8d9150f11d59c571cc48d5b1cca13018096deb7",
+      "expected": "Parents <=448 full tokens stay intact (even when >320); parents >448 split with measured content-only overlap <=128. Overlap is not counted as independent case evidence or certified as retrieval-optimal prior to M3 evaluation.",
+      "actual": "9,742 parents with 320 < full_input_tokens <= 448 remain intact (split_count=1). Across 33,350 non-first split children, content-only overlap ranges from 90 to 128 tokens (mean 127.29; 22,275 at 128; 11,075 at 90..127 due to whitespace snapping), adding 4,244,972 overlap content tokens (+8.38% total full-input token expansion vs unsplit parents).",
+      "reproduction_command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/independent_corpus_audit.py"
+    },
+    {
+      "id": "M2-PASSAGES-LIMIT-004",
+      "category": "documented_design_limit",
+      "severity": "info",
+      "title": "Local token validation does not certify Modal embedding endpoint compatibility or M4 agent delivery budgeting",
+      "source_scope": "pipeline_v2/configs/qwen3_embedding_4b_tokenizer.lock.json and PassageReader.open_context",
+      "profile_sha256": "430ad6fe1c9c5541c29335fbd8d9150f11d59c571cc48d5b1cca13018096deb7",
+      "expected": "manifest.json and summary.json must keep dense_runtime='not_ready', embedding_runtime='not_ready', indexes='not_ready', runtime_compatibility='pending_endpoint_preflight', and open_context must set diagnostic_only=True and M4_delivery_recorded=False.",
+      "actual": "All readiness flags and per-passage embedding_view metadata truthfully mark endpoint compatibility as pending preflight and M4 delivery as unrecorded.",
+      "reproduction_command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/tamper_tokenizer_and_cli_tests.py"
+    },
+    {
+      "id": "M2-PASSAGES-LIMIT-005",
+      "category": "documented_design_limit",
+      "severity": "info",
+      "title": "Paragraph ownership (current_case/quoted/unknown) and language regions remain structural observations, not semantic truth",
+      "source_scope": "All 415,693 passages (384,419 unknown, 1,278 quoted, 29,996 unnumbered/None, 14,289 French region)",
+      "profile_sha256": "430ad6fe1c9c5541c29335fbd8d9150f11d59c571cc48d5b1cca13018096deb7",
+      "expected": "M2 propagates M1/navigation role, language_region, uncertainties, and role_evidence_refs verbatim without filtering, dropping, or merging unknown/quoted/French/unnumbered/no-preview units.",
+      "actual": "100% of navigation units (including 267 units without preview, 13,189 French parents, quoted and unknown units) are preserved without filtering or merging.",
+      "reproduction_command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/independent_corpus_audit.py"
+    }
+  ],
+  "review_script_retries_not_production_bugs": [
+    {
+      "id": "REVIEW-SCRIPT-RETRY-001",
+      "script": "pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/independent_corpus_audit.py",
+      "attempt": 1,
+      "cause": "Review script accessed read_json(m0_dir / 'inventory.json')['cases'] instead of ['sources'], raising KeyError: 'cases' after 8.9s.",
+      "resolution": "Updated key lookup in independent_corpus_audit.py to ['sources'] and reran to completion (exit 0, 569.320s). Production code and artifacts were not modified."
+    }
+  ],
+  "prior_acquisition_and_validation_attempts_accounted": [
+    {
+      "artifact": "pipeline_v2/reviews/m2_tokenizer_acquisition_v1.json",
+      "status": "FAIL",
+      "elapsed_seconds": 6.216414,
+      "explanation": "Initial tokenizer acquisition gate stopped intentionally when non-null post_processor was observed in tokenizer.json (after 1 sandbox-refused metadata request, 1 approved metadata request, and 6 HTTP 200 file downloads)."
+    },
+    {
+      "artifact": "pipeline_v2/reviews/m2_tokenizer_acquisition_v2.json",
+      "status": "PASS",
+      "elapsed_seconds": 0.789671,
+      "explanation": "Local hash verification of the 6 downloaded tokenizer assets and formal lock of the TemplateProcessing <|endoftext|> (151643) postprocessor."
+    },
+    {
+      "artifact": "pipeline_v2/reviews/m2_passages_validation_v1/middle_child_result.json (prior_attempt)",
+      "status": "FAIL",
+      "explanation": "Initial tester middle-child checker assumed next_context always existed at source end (041666.txt/p000417); checker was updated to assert next_absence_reason=='source_boundary' and add interior parent p000153 without changing production."
+    }
+  ]
+}

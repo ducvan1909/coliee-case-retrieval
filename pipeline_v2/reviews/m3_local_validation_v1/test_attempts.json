@@ -1,0 +1,55 @@
+{
+  "final_frozen_snapshot": {
+    "implementation_sha256": "ade771e2d328b974d12421b5fa48b2b90632b10eb8422166f82b9f960d9add63",
+    "targeted_m3": {
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_retrieval_core pipeline_v2.tests.test_m3_cache pipeline_v2.tests.test_m3_corpus pipeline_v2.tests.test_m3_qdrant pipeline_v2.tests.test_m3_runtime pipeline_v2.tests.test_m3_pilot pipeline_v2.tests.test_m3_resume pipeline_v2.tests.test_m3_profile pipeline_v2.tests.test_m3_preflight -v",
+      "result": "PASS",
+      "tests": 39
+    },
+    "full_pipeline_v2_tests": {
+      "command": ".venv/Scripts/python.exe -m unittest discover -s pipeline_v2/tests -v",
+      "result": "PASS",
+      "tests": 104,
+      "elapsed_seconds": 16.186
+    }
+  },
+  "red_test_findings_fixed_before_final_run": [
+    {
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_qdrant.M3QdrantTests.test_upsert_rejects_bad_vector_shape_and_nonfinite_values_before_http -v",
+      "initial_result": "FAIL",
+      "failed_subcases": 3,
+      "finding": "Qdrant upsert sent wrong-shape, nonfinite, and non-unit vectors before validating them.",
+      "final_result": "PASS"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_pilot.M3PilotTests.test_dense_verification_rejects_duplicate_point_ids_even_when_count_and_scores_match -v",
+      "initial_result": "FAIL",
+      "failed_tests": 1,
+      "finding": "Dense reference verification accepted duplicate top result IDs.",
+      "final_result": "PASS"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_resume -v",
+      "initial_result": "ERROR",
+      "failed_tests": 1,
+      "finding": "Run-lock contention could leak sqlite3.OperationalError during lock setup.",
+      "final_result": "PASS"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_runtime.M3RuntimeTests.test_runtime_token_padding_and_latency_receipts_are_validated -v",
+      "initial_result": "FAIL",
+      "failed_subcases": 4,
+      "finding": "Remote padded-token count and latency were accepted without validating their values.",
+      "final_result": "PASS"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_pilot.M3PilotTests.test_case_and_passage_bm25_both_use_the_frozen_profile_parameters -v",
+      "initial_result": "ERROR",
+      "failed_tests": 1,
+      "finding": "The test fixture initially omitted the new preflight/cache verification fixture state; the production guard was working as intended.",
+      "final_result": "PASS_AFTER_FIXTURE_UPDATE",
+      "production_defect": false
+    }
+  ],
+  "not_run": ["Modal deployment", "model weight download", "embedding inference", "Docker/Qdrant server", "full corpus indexing", "gold/labels/evaluator"]
+}

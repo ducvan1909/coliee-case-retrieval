@@ -1,0 +1,48 @@
+{
+  "schema_version": "ag-m3-opt-local-test-attempts-1",
+  "generated_at_utc": "2026-11-08T02:05:00Z",
+  "modal_calls_executed_by_reviewer": 0,
+  "production_files_modified_by_reviewer": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "purpose": "Run existing M3 optimization unit tests",
+      "command": ".venv\\Scripts\\python.exe -m unittest pipeline_v2.tests.test_m3_opt_benchmark pipeline_v2.tests.test_m3_opt_lexical_batching pipeline_v2.tests.test_m3_opt_runtime pipeline_v2.tests.test_m3_opt_session -v",
+      "exit_code": 0,
+      "elapsed_seconds": 0.751,
+      "classification": "pass"
+    },
+    {
+      "attempt": 2,
+      "purpose": "Initial run of independent audit script (checker import resolution before aligning with pipeline_v2.optimization.common and pipeline_v2.passages.store)",
+      "command": ".venv\\Scripts\\python.exe -m pipeline_v2.reviews.m3_opt_ag_review_v1.audit_m3_opt_independent",
+      "exit_code": 1,
+      "classification": "checker_error",
+      "resolution": "Aligned imports and field names with pipeline_v2/optimization/common.py, pipeline_v2/optimization/benchmark.py, and pipeline_v2/retrieval/cache.py; also fixed checker navigation bundle path from m2_navigation_20261105_v1 to m2_navigation_20261106_v3 per m2_passages_20261106_v1/manifest.json."
+    },
+    {
+      "attempt": 3,
+      "purpose": "Full execution of independent audit and metric recomputation across baseline snapshot, index v2, 65 GPU benchmark receipts, 3 search benchmark receipts, and 415,693 full-corpus passages",
+      "command": ".venv\\Scripts\\python.exe -m pipeline_v2.reviews.m3_opt_ag_review_v1.audit_m3_opt_independent",
+      "exit_code": 0,
+      "elapsed_seconds": 36.0,
+      "classification": "pass"
+    },
+    {
+      "attempt": 4,
+      "purpose": "Run independent AG unit test suite with fault injection on temporary/in-memory copies",
+      "command": ".venv\\Scripts\\python.exe -m unittest pipeline_v2.reviews.m3_opt_ag_review_v1.test_m3_opt_independent_ag -v",
+      "exit_code": 0,
+      "elapsed_seconds": 6.154,
+      "classification": "pass"
+    },
+    {
+      "attempt": 5,
+      "purpose": "Probe PersistentBM25 with relative path",
+      "command": ".venv\\Scripts\\python.exe -c \"from pathlib import Path; from pipeline_v2.optimization.index import PersistentBM25; PersistentBM25(Path('pipeline_v2/artifacts/m3_opt_index_20261107_v2/lexical.sqlite3'), readonly=True)\"",
+      "exit_code": 1,
+      "classification": "production_defect",
+      "resolution": "Recorded as F-M3OPT-04: PersistentBM25.__init__() calls self.path.as_uri() without .resolve(), raising ValueError on relative paths."
+    }
+  ]
+}

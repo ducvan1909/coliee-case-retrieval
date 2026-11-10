@@ -1,0 +1,468 @@
+{
+  "schema_version": "m2-ag-review-findings-v1",
+  "bundle_under_review": "pipeline_v2/artifacts/m2_navigation_20261105_v1",
+  "bundle_sha256_seal": "e237cf60760c38fa430f332e1085784d464587324b47c7b7dd4266304b97c7ee",
+  "overall_decision": "fixes_required_before_next_stage",
+  "summary": {
+    "protocol_and_provenance_defects": 0,
+    "confirmed_usability_defects": 3,
+    "usability_limitations_and_enhancements": 1,
+    "accepted_design_limitations": 1
+  },
+  "findings": [
+    {
+      "finding_id": "M2-FINDING-001",
+      "type": "confirmed_usability_defect",
+      "severity": "high",
+      "title": "Naive sentence-boundary regex clips 22.37% (85,518 / 382,286) of opening previews at judicial titles, initials, citations, and statutory abbreviations while falsely setting partial_sentence=false",
+      "code_location": {
+        "file": "pipeline_v2/navigation/core.py",
+        "lines": [
+          35,
+          36,
+          128
+        ],
+        "symbol": "_opening / _unit_previews"
+      },
+      "corpus_scope": {
+        "affected_opening_previews": 85518,
+        "total_opening_previews": 382286,
+        "rate": 0.22370162653092187,
+        "marked_partial_sentence_false": 85518,
+        "marked_partial_sentence_false_rate": 1.0,
+        "very_short_le_30_chars_with_more_text": 34974,
+        "very_short_le_30_chars_rate": 0.09148647870965717,
+        "very_short_le_15_chars_with_more_text": 21242,
+        "sampled_uniform_60_affected_regions": 21,
+        "sampled_risk_60_affected_regions": 22,
+        "sampled_regression_24_affected_regions": 8
+      },
+      "root_cause": "In pipeline_v2/navigation/core.py line 35, _opening() searches for the first punctuation match via re.search(r'[.!?](?=\\s|$)', text[pos:stop]). In Canadian Federal Court decisions, paragraphs and unnumbered blocks routinely open with or contain judicial titles ('Pinard, J.', 'Mandamin, J.', 'Teitelbaum, J.', 'O\\'Keefe, J.'), honorifics/initials ('Mr.', 'Ms.', 'Dr.', 'M.', 'John H.', 'Charlotte M.', 'A.', '1.'), statutory abbreviations ('s.', 'ss.', 'para.', 'paras.', 'art.'), or reporter citations ('F.C.', 'R.S.C.', 'P.C.'). The regex stops at the period after the abbreviation, producing a 2-to-30 character fragment that omits the entire legal proposition of the paragraph. In addition, line 128 computes partial_sentence as bool(b < end and text[b - 1] not in '.!?'), which evaluates to False whenever text[b - 1] == '.', falsely certifying 100% of these mid-sentence abbreviation clips as complete sentences.",
+      "evidence_examples": [
+        {
+          "sample_group": "uniform_random_20",
+          "case_id": "011922.txt",
+          "source_hash": "83f793e0bf5850c35df85b50bb702c780ba92e2e8251500c0861c3d3f75101a0",
+          "unit_id": "011922:83f793e0bf5850c3:632-897:20c8805023c2",
+          "handle": "p000005",
+          "preview_id": "p000005:v01",
+          "preview_span_bytes": [
+            637,
+            647
+          ],
+          "unit_span_bytes": [
+            632,
+            897
+          ],
+          "partial_sentence_reported": false,
+          "preview_raw_text": "Pinard, J.",
+          "unit_full_raw_text": "[1]\r\nPinard, J.\r\n: This is an application for judicial review of a decision of the Refugee Protection Division of the Immigration and Refugee Board (the \"IRB\") dated November 6, 2006, wherein the IRB found the applicants not to be \"Convention refugees\" or \"persons in need of protection\"."
+        },
+        {
+          "sample_group": "uniform_random_20",
+          "case_id": "081945.txt",
+          "source_hash": "063c8b2fd792a9b71c6161ec63e652a709da1dd7f54d2b4e5a9ac1120c2c9d2e",
+          "unit_id": "081945:063c8b2fd792a9b7:748-1155:20c8805023c2",
+          "handle": "p000005",
+          "preview_id": "p000005:v01",
+          "preview_span_bytes": [
+            760,
+            772
+          ],
+          "unit_span_bytes": [
+            748,
+            1155
+          ],
+          "partial_sentence_reported": false,
+          "preview_raw_text": "Mandamin, J.",
+          "unit_full_raw_text": "[1] \r\n   \r\n Mandamin, J. \r\n : Why Whyaye applies for judicial review of a decision of a Senior Immigration Officer (the Officer) made on October 25, 2010 refusing her inland application for permanent residence on Humanitarian and Compassionate (H&C) grounds made pursuant to subsection 25(1) of the  \r\n Immigration and Refugee Protection Act \r\n , S.C. 2001, c 27 (IRPA).  <FRAGMENT_SUPPRESSED>"
+        },
+        {
+          "sample_group": "uniform_random_20",
+          "case_id": "068193.txt",
+          "source_hash": "ef90c3305638c7c8531b530bd595050de11f74b41e58d270a3cf96f7077fa7a7",
+          "unit_id": "068193:ef90c3305638c7c8:17372-18236:20c8805023c2",
+          "handle": "p000025",
+          "preview_id": "p000025:v02",
+          "preview_span_bytes": [
+            17378,
+            17531
+          ],
+          "unit_span_bytes": [
+            17372,
+            18236
+          ],
+          "partial_sentence_reported": false,
+          "preview_raw_text": "After hearing the submissions of the parties and examining the release, the Court has come to the conclusion that the plaintiff has not complied with s.",
+          "unit_full_raw_text": "[25]\r\nAfter hearing the submissions of the parties and examining the release, the Court has come to the conclusion that the plaintiff has not complied with s. 5 of the  <FRAGMENT_SUPPRESSED>  that s. 5 of the\r\nRegulations\r\nstates that the release must be signed by the public servant, something that was not done by the plaintiff within the timeframe set out in the letter of offer..."
+        },
+        {
+          "sample_group": "uniform_random_20",
+          "case_id": "080359.txt",
+          "source_hash": "d928f1f5555b0d2c02c276dd3d9cf442815d6a6b891fc47a4d5c488f59002a79",
+          "unit_id": "080359:d928f1f5555b0d2c:81-178:20c8805023c2",
+          "handle": "u000002",
+          "preview_id": "u000002:v01",
+          "preview_span_bytes": [
+            81,
+            93
+          ],
+          "unit_span_bytes": [
+            81,
+            178
+          ],
+          "partial_sentence_reported": false,
+          "preview_raw_text": "Charlotte M.",
+          "unit_full_raw_text": "Charlotte M. Bell, for the applicant;\r\nJohn B. Edmond, for the respondent, Attorney General of Canada."
+        },
+        {
+          "sample_group": "risk_stratified_20",
+          "case_id": "051807.txt",
+          "source_hash": "cceab97ca4511b717bb91f892c0558ffb5afb882bc4e6bb00a8ae5c62d4de692",
+          "unit_id": "051807:cceab97ca4511b71:11325-11688:20c8805023c2",
+          "handle": "u000030",
+          "preview_id": "u000030:v01",
+          "preview_span_bytes": [
+            11325,
+            11327
+          ],
+          "unit_span_bytes": [
+            11325,
+            11688
+          ],
+          "partial_sentence_reported": false,
+          "preview_raw_text": "1.",
+          "unit_full_raw_text": "1. Did the Citizenship Judge err in finding that the applicant had not met the residence requirements of paragraph 5(1)(c) of the Citizenship Act...?"
+        }
+      ],
+      "reproduction_command": "& .venv/Scripts/python.exe -c \"from pathlib import Path; from pipeline_v2.navigation import M2NavigationStore; s = M2NavigationStore(Path('.'), Path('pipeline_v2/artifacts/m2_navigation_20261105_v1')); print(s.map('011922.txt', start_ord=1, end_ord=6)['units']); print(s.map('068193.txt', start_ord=25, end_ord=25)['units'])\"",
+      "agent_impact": "In M4 map views, the agent relies on unit previews to decide which paragraphs to open under a strict reading budget. When 22.37% of opening previews are truncated at 'Pinard, J.', 'Mr.', 's.', or '1.', the map view conceals the subject matter of the paragraph (especially paragraph [1] which states the nature of the judicial review and outcome, and numbered list items or statutory citations) and misleads any consumer inspecting partial_sentence=false.",
+      "minimal_fix_direction": "Update _opening() and partial_sentence detection in pipeline_v2/navigation/core.py to skip common legal/honorific/initial/enumeration abbreviations (e.g., ', J.', 'J.A.', 'Prothonotary', 'Mr.', 'Ms.', 'Mrs.', 'Dr.', 'M.', 'Mme.', 's.', 'ss.', 'para.', 'paras.', 'art.', 'v.', 'c.', 'No.', 'R.S.C.', 'S.C.', 'F.C.', 'F.T.R.', 'D.L.R.', single-letter initials '[A-Z]\\.', and list markers '^\\d+\\.' or '^[A-Za-z]\\.') and require a minimum substantive length (or continue to the next sentence boundary up to max_chars=240) when a period is followed by a colon, lowercase token, section number, or surname."
+    },
+    {
+      "finding_id": "M2-FINDING-002",
+      "type": "confirmed_usability_defect",
+      "severity": "high",
+      "title": "Anchor preview window starts at unit byte 0 (before opening[0]), preventing merge with opening in 31,352 units, emitting redundant substring previews in 56,996 units, and crowding out deeper anchors in 11,505 units",
+      "code_location": {
+        "file": "pipeline_v2/navigation/core.py",
+        "lines": [
+          103,
+          104,
+          105,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116
+        ],
+        "symbol": "_unit_previews"
+      },
+      "corpus_scope": {
+        "total_anchor_previews": 99640,
+        "units_with_overlapping_opening_and_anchor_previews": 56996,
+        "overlapping_rate_of_anchor_previews": 0.572019269369731,
+        "units_where_merge_blocked_solely_by_left_lt_opening_start": 31352,
+        "units_where_unmerged_duplicate_crowded_out_later_anchor": 11505,
+        "sampled_uniform_60_affected_regions": 10,
+        "sampled_risk_60_affected_regions": 8,
+        "sampled_regression_24_affected_regions": 3
+      },
+      "root_cause": "In pipeline_v2/navigation/core.py lines 103-116, _opening() skips the leading paragraph marker ('[15]\\r\\n') or placeholder-only lines so opening[0] > start. However, for any anchor near the beginning of the unit, line 104 computes left = max(start, a - radius), which reaches back to start (including '[15]\\r\\n'). Line 110 then checks 'not (overlapping[2] == \"opening\" and opening and lo < opening[0])', explicitly refusing to merge the anchor window with the opening window whenever left < opening[0]. Furthermore, line 113 ('overlapping[0] <= left and right <= overlapping[1]') only checks whether opening contains anchor, not whether anchor contains opening. Consequently, both previews are emitted in the 2-slot map budget (max_display=2): one with '[15]\\r\\n...' and one identical substring without '[15]\\r\\n', which consumes the second display slot and prevents any second or third anchor later in the paragraph from getting a preview.",
+      "evidence_examples": [
+        {
+          "sample_group": "uniform_random_20",
+          "case_id": "014101.txt",
+          "source_hash": "90cb23beac5091ebfb1b40e60d6df37470104ab052a5c6be9cccf8da36a40b50",
+          "unit_id": "014101:90cb23beac5091eb:5044-5908:20c8805023c2",
+          "handle": "p000008",
+          "preview_ids": [
+            "p000008:v01",
+            "p000008:v02"
+          ],
+          "preview_spans_bytes": [
+            [
+              5044,
+              5284
+            ],
+            [
+              5048,
+              5278
+            ]
+          ],
+          "crowded_out_anchor": {
+            "anchor_id": "p000008:a0003",
+            "span_bytes": [
+              5495,
+              5516
+            ],
+            "context_text": "As was stated by Lord Wilberforce in <FRAGMENT_SUPPRESSED> (H.L.), at page 208:"
+          },
+          "v01_text": "[8]\nIn the case of  <FRAGMENT_SUPPRESSED>  (F.C.T.D.) Gibson J., at page 171, stated that there was no doubt in his mind that visual perception of comparison of the design and the shapes here lead to the conclusion that there was confusing",
+          "v02_text": "In the case of  <FRAGMENT_SUPPRESSED>  (F.C.T.D.) Gibson J., at page 171, stated that there was no doubt in his mind that visual perception of comparison of the design and the shapes here lead to the conclusion that there was"
+        },
+        {
+          "sample_group": "uniform_random_20",
+          "case_id": "068193.txt",
+          "source_hash": "ef90c3305638c7c8531b530bd595050de11f74b41e58d270a3cf96f7077fa7a7",
+          "unit_id": "068193:ef90c3305638c7c8:17372-18236:20c8805023c2",
+          "handle": "p000025",
+          "preview_ids": [
+            "p000025:v01",
+            "p000025:v02"
+          ],
+          "preview_spans_bytes": [
+            [
+              17372,
+              17612
+            ],
+            [
+              17378,
+              17531
+            ]
+          ],
+          "crowded_out_anchor": {
+            "anchor_id": "p000025:a0002",
+            "span_bytes": [
+              17546,
+              17567
+            ]
+          },
+          "v01_text": "[25]\r\nAfter hearing the submissions of the parties and examining the release, the Court has come to the conclusion that the plaintiff has not complied with s. 5 of the  <FRAGMENT_SUPPRESSED>  that s. 5 of the\r\nRegulations\r\nstates that the r",
+          "v02_text": "After hearing the submissions of the parties and examining the release, the Court has come to the conclusion that the plaintiff has not complied with s."
+        },
+        {
+          "sample_group": "risk_stratified_20",
+          "case_id": "048208.txt",
+          "source_hash": "c75679c07aaaadd34830f7b6fda6e296075227b4498a73da020ded9c7f3869e6",
+          "unit_id": "048208:c75679c07aaaadd3:6298-7610:20c8805023c2",
+          "handle": "p000015",
+          "preview_ids": [
+            "p000015:v01",
+            "p000015:v02"
+          ],
+          "preview_spans_bytes": [
+            [
+              6298,
+              6446
+            ],
+            [
+              6305,
+              6402
+            ]
+          ],
+          "crowded_out_anchor": {
+            "anchor_id": "p000015:a0002",
+            "span_bytes": [
+              6517,
+              6538
+            ],
+            "context_text": "The nature of the assessment operation was clearly stated by the Chief Justice of Australia, Isaacs, A.C.J., in <FRAGMENT_SUPPRESSED> , at 277): 'An assessment is only the ascertainment and fixation of liability.'"
+          },
+          "v01_text": "[15]\r\n <FRAGMENT_SUPPRESSED>  notice of assessment; the one is an operation, the other a piece of paper. The nature of the assessment operation was ",
+          "v02_text": "<FRAGMENT_SUPPRESSED>  notice of assessment; the one is an operation, the other a piece of paper."
+        }
+      ],
+      "reproduction_command": "& .venv/Scripts/python.exe -c \"from pathlib import Path; from pipeline_v2.navigation import M2NavigationStore; s = M2NavigationStore(Path('.'), Path('pipeline_v2/artifacts/m2_navigation_20261105_v1')); print(s.map('014101.txt', start_ord=8, end_ord=8)['units']); print(s.map('048208.txt', start_ord=16, end_ord=16)['units'])\"",
+      "agent_impact": "Wastes 1 of the 2 map preview slots per unit on a near-duplicate substring in 56,996 units and actively hides a deeper citation/quote-cue anchor in 11,505 units (visible_anchor_count drops from 2+ to 1 even though the second preview slot was available).",
+      "minimal_fix_direction": "Clamp the anchor window start to content_start = opening[0] if opening else start (so anchor windows do not pull in the leading '[N]\\r\\n' marker or skipped placeholder lines), remove the 'not (overlapping[2] == \"opening\" and opening and lo < opening[0])' block, and check two-way containment or high overlap when merging/deduplicating opening and anchor windows so the second preview slot is preserved for distinct deeper anchors."
+    },
+    {
+      "finding_id": "M2-FINDING-003",
+      "type": "confirmed_usability_defect",
+      "severity": "medium",
+      "title": "Leading placeholder-only line filter in _opening() fails when line contains stray punctuation/brackets alongside <FRAGMENT_SUPPRESSED>",
+      "code_location": {
+        "file": "pipeline_v2/navigation/core.py",
+        "lines": [
+          26,
+          27
+        ],
+        "symbol": "_opening"
+      },
+      "corpus_scope": {
+        "affected_content_units": 932,
+        "total_content_units": 382343,
+        "rate": 0.0024376018391862805,
+        "sampled_uniform_60_affected_regions": 1,
+        "sampled_risk_60_affected_regions": 3,
+        "sampled_regression_24_affected_regions": 0
+      },
+      "root_cause": "In pipeline_v2/navigation/core.py lines 26-27, _opening() skips leading lines only when PLACEHOLDER.sub('', value).strip() is empty ('if value and not PLACEHOLDER.sub(\"\", value).strip(): cursor = line_end; continue'). In 932 content units across the corpus, header or body lines consist solely of <FRAGMENT_SUPPRESSED> tags plus stray punctuation such as ')', '.', ',', ';', or '[' (e.g., '<FRAGMENT_SUPPRESSED> )  <FRAGMENT_SUPPRESSED>' or '<FRAGMENT_SUPPRESSED>.'). Because PLACEHOLDER.sub('', value).strip() leaves ')' or '.', the line is treated as substantive opening text.",
+      "evidence_examples": [
+        {
+          "sample_group": "uniform_random_20",
+          "case_id": "081945.txt",
+          "source_hash": "063c8b2fd792a9b71c6161ec63e652a709da1dd7f54d2b4e5a9ac1120c2c9d2e",
+          "unit_id": "081945:063c8b2fd792a9b7:2-153:20c8805023c2",
+          "handle": "u000001",
+          "preview_id": "u000001:v02",
+          "preview_span_bytes": [
+            56,
+            153
+          ],
+          "unit_span_bytes": [
+            2,
+            153
+          ],
+          "preview_raw_text": "<FRAGMENT_SUPPRESSED> )  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>",
+          "unit_full_raw_text": "<FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>  \r\n \r\n  <FRAGMENT_SUPPRESSED> )  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>"
+        },
+        {
+          "sample_group": "risk_stratified_20",
+          "case_id": "015740.txt",
+          "source_hash": "2db4d8515e1944307ce61622673e1777ab80f92956161901b80e4f2160247c3b",
+          "unit_id": "015740:2db4d8515e194430:2-153:20c8805023c2",
+          "handle": "u000001",
+          "preview_id": "u000001:v02",
+          "preview_span_bytes": [
+            56,
+            153
+          ],
+          "unit_span_bytes": [
+            2,
+            153
+          ],
+          "preview_raw_text": "<FRAGMENT_SUPPRESSED> )  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>",
+          "unit_full_raw_text": "<FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>  \r\n \r\n  <FRAGMENT_SUPPRESSED> )  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>"
+        },
+        {
+          "sample_group": "risk_stratified_20",
+          "case_id": "001867.txt",
+          "source_hash": "4a47036c37b78ef12017e40bbb9b4f9e3c62d909ed18fc66fa82931a34d762e9",
+          "unit_id": "001867:4a47036c37b78ef1:26-130:20c8805023c2",
+          "handle": "u000001",
+          "preview_id": "u000001:v01",
+          "preview_span_bytes": [
+            26,
+            130
+          ],
+          "unit_span_bytes": [
+            26,
+            130
+          ],
+          "preview_raw_text": "<FRAGMENT_SUPPRESSED> ) \r\n \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED>  Court \r\n \r\n O'Keefe, J. \r\n \r\n June 15, 2005.",
+          "unit_full_raw_text": "<FRAGMENT_SUPPRESSED> ) \r\n \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED>  Court \r\n \r\n O'Keefe, J. \r\n \r\n June 15, 2005."
+        }
+      ],
+      "reproduction_command": "& .venv/Scripts/python.exe -c \"from pathlib import Path; from pipeline_v2.navigation import M2NavigationStore; s = M2NavigationStore(Path('.'), Path('pipeline_v2/artifacts/m2_navigation_20261105_v1')); print(s.map('081945.txt', start_ord=1, end_ord=1)['units']); print(s.map('001867.txt', start_ord=1, end_ord=1)['units'])\"",
+      "agent_impact": "In 932 units, _opening() starts on a line containing only suppressed placeholders and stray punctuation instead of advancing to the first line with alphanumeric words (or returning None when the entire unit has no alphanumeric content).",
+      "minimal_fix_direction": "Check whether any alphanumeric character (any(ch.isalnum() for ch in PLACEHOLDER.sub('', value))) remains on the line after stripping placeholders, rather than checking only .strip() != ''."
+    },
+    {
+      "finding_id": "M2-FINDING-004",
+      "type": "usability_limitation",
+      "severity": "low",
+      "title": "Hard codepoint-offset cuts in anchor preview windows slice adjacent <FRAGMENT_SUPPRESSED> tags and cap long quote cues at 120 chars when preceded by 120 chars of pre-anchor context",
+      "code_location": {
+        "file": "pipeline_v2/navigation/core.py",
+        "lines": [
+          104,
+          105
+        ],
+        "symbol": "_unit_previews"
+      },
+      "corpus_scope": {
+        "partial_anchor_visibility_records": 4656,
+        "partial_source_cue_visibility_records": 1164,
+        "multi_unit_source_anchors": 36,
+        "multi_content_unit_source_anchors": 21
+      },
+      "root_cause": "Lines 104-105 compute left = max(start, a - 120) and right = min(end, left + 240, b + 120). Because left and right are raw codepoint offsets, (1) when another <FRAGMENT_SUPPRESSED> tag lies near left + 240, right cuts through the middle of that tag (e.g. ending with '<FRAGMENT_S' or '<'), and (2) when a quote-introduction cue (a, b) is longer than 120 chars and occurs at least 120 chars into the unit, allocating 120 chars before 'a' leaves only 120 chars of the 240-char budget for the cue itself. Note that M2 honestly records visibility='partial', fully_visible=False, and source_cue_fully_visible=False in all such cases.",
+      "evidence_examples": [
+        {
+          "sample_group": "uniform_random_20",
+          "case_id": "081945.txt",
+          "source_hash": "063c8b2fd792a9b71c6161ec63e652a709da1dd7f54d2b4e5a9ac1120c2c9d2e",
+          "unit_id": "081945:063c8b2fd792a9b7:2-153:20c8805023c2",
+          "handle": "u000001",
+          "preview_id": "u000001:v01",
+          "preview_span_bytes": [
+            2,
+            143
+          ],
+          "preview_raw_text": "<FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>  \r\n \r\n  <FRAGMENT_SUPPRESSED> )  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>   <FRAGMENT_S"
+        },
+        {
+          "sample_group": "risk_stratified_20",
+          "case_id": "048208.txt",
+          "source_hash": "c75679c07aaaadd34830f7b6fda6e296075227b4498a73da020ded9c7f3869e6",
+          "unit_id": "048208:c75679c07aaaadd3:13-927:20c8805023c2",
+          "handle": "p000001",
+          "preview_id": "p000001:v02",
+          "preview_span_bytes": [
+            35,
+            275
+          ],
+          "anchor_id": "p000001:a0001",
+          "original_cue_span_bytes": [
+            155,
+            935
+          ],
+          "preview_raw_text": "s is an application by notice of motion to determine a preliminary question of law. On May 2, 1989, the Associate Chief Justice made an order pursuant to rule 474(1)(a) of the Federal Court Rules that the following question of law be set do"
+        }
+      ],
+      "reproduction_command": "& .venv/Scripts/python.exe -c \"from pathlib import Path; from pipeline_v2.navigation import M2NavigationStore; s = M2NavigationStore(Path('.'), Path('pipeline_v2/artifacts/m2_navigation_20261105_v1')); print(s.map('048208.txt', start_ord=1, end_ord=1)['units'])\"",
+      "agent_impact": "Minor readability noise when a preview ends mid-placeholder tag ('<FRAGMENT_S'), and partial visibility on long quote-introduction cues (mitigated by explicit visibility='partial' metadata and full parent/neighbor expansion via open()).",
+      "minimal_fix_direction": "When a > start and b - a > 120, reduce pre-anchor padding (e.g., 40-60 chars before 'a') so more of the quote cue is visible within the 240-char cap, while keeping exact raw substring invariants."
+    },
+    {
+      "finding_id": "M2-FINDING-005",
+      "type": "accepted_limitation",
+      "severity": "info",
+      "title": "Conservative paragraph_role ('unknown' on 355,736 / 356,973 paragraphs) and language_region preservation without heuristic voice guessing; deferred tokenizer/chunk readiness flags remain 'not_ready'",
+      "code_location": {
+        "file": "pipeline_v2/navigation/core.py",
+        "lines": [
+          224,
+          298,
+          360,
+          369
+        ],
+        "symbol": "build_case_navigation_Artifacts"
+      },
+      "corpus_scope": {
+        "paragraph_role_unknown": 355736,
+        "paragraph_role_quoted": 1237,
+        "total_paragraphs": 356973,
+        "french_content_units": 13189,
+        "units_without_preview_marker_only": 55,
+        "token_count_null_rate": 1.0
+      },
+      "root_cause": "By design of M1 and M2 contracts, only paragraphs immediately following an observed local quote-introduction cue (1,237 paragraphs) receive paragraph_role='quoted' with quote_extent_beyond_this_unit_unresolved; all other 355,736 paragraphs retain paragraph_role='unknown' with paragraph_ownership_unresolved rather than guessing judicial vs party-submission voice. Similarly, 55 marker-only paragraphs (e.g., '[2]' in 000841.txt p000007) have preview_absence_reason='no_meaningful_opening_or_anchor', and token_count is null across all units until embedding/agent tokenizers are locked.",
+      "evidence_examples": [
+        {
+          "sample_group": "risk_stratified_20",
+          "case_id": "000841.txt",
+          "source_hash": "b8bd76cadf5b607b30ad1f8adf126dbeef288e1b0aa9699872bcd8c26d3c2853",
+          "unit_id": "000841:b8bd76cadf5b607b:1089-1092:20c8805023c2",
+          "handle": "p000007",
+          "unit_span_bytes": [
+            1089,
+            1092
+          ],
+          "preview_absence_reason": "no_meaningful_opening_or_anchor",
+          "unit_full_raw_text": "[2]"
+        },
+        {
+          "sample_group": "regression_exposed_8",
+          "case_id": "023047.txt",
+          "source_hash": "06d7aa9c415ddaa2fc4fb422c6cc997149411b40814bfab7d3478b1b32b86091",
+          "unit_id": "023047:06d7aa9c415ddaa2:14308-14998:20c8805023c2",
+          "handle": "p000038",
+          "language_region": "fr:2",
+          "paragraph_role": "unknown",
+          "unit_span_bytes": [
+            14308,
+            14998
+          ]
+        }
+      ],
+      "reproduction_command": "& .venv/Scripts/python.exe -c \"from pathlib import Path; from pipeline_v2.navigation import M2NavigationStore; s = M2NavigationStore(Path('.'), Path('pipeline_v2/artifacts/m2_navigation_20261105_v1')); print(s.open('000841.txt', 'p000007', expand='neighbors'))\"",
+      "agent_impact": "Safe by contract: when an agent calls open(handle, expand='neighbors'), the parent plus previous/next units and intervening headings resolve whether a paragraph is a party submission, statutory block quote, or judicial holding without risking false role attribution in the index.",
+      "minimal_fix_direction": "None required in M2; keep conservative provenance and uncertainty flags as designed."
+    }
+  ]
+}

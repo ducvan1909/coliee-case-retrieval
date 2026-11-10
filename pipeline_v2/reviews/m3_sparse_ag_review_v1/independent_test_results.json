@@ -1,0 +1,18 @@
+{
+  "schema_version": "ag-m3-sparse-independent-tests-1",
+  "test_file": "pipeline_v2/reviews/m3_sparse_ag_review_v1/test_m3_sparse_independent_ag.py",
+  "tests_run": 6,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "status": "PASS",
+  "elapsed_seconds": 26.71064320000005,
+  "test_methods": [
+    "test_01_float64_formula_channel_idf_analyzer_and_oov",
+    "test_02_exclusion_before_topk_representative_selection_and_tie_order",
+    "test_03_array_scoring_only_metadata_on_retained_hits_and_block_invariance",
+    "test_04_fault_injections_on_temp_copies",
+    "test_05_session_guard_sticky_invalidation_and_hybrid_fusion_invariants",
+    "test_06_cli_isolation_and_error_handling_without_env"
+  ]
+}

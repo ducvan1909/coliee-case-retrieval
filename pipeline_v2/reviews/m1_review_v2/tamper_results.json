@@ -1,0 +1,12 @@
+{
+  "all_pass": true,
+  "tests": {
+    "1_clean_open": "PASS",
+    "2_source_drift": "PASS",
+    "3_unresealed_tamper": "PASS",
+    "4_resealed_unit_alteration": "PASS",
+    "5_resealed_registry_tamper": "PASS",
+    "6_resealed_profile_tamper": "PASS",
+    "7_interior_codepoint_rejection": "PASS"
+  }
+}

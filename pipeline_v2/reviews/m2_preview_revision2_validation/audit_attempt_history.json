@@ -1,0 +1,46 @@
+{
+  "purpose": "Preserve audit attempts and checker corrections; bundle artifacts were not modified.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_validation/independent_preview_audit.py --root . --old pipeline_v2/artifacts/m2_navigation_20261105_v1 --new pipeline_v2/artifacts/m2_navigation_20261106_v2 --output pipeline_v2/reviews/m2_preview_revision2_validation/full_corpus_audit.json",
+      "exit_code": 1,
+      "result": "Failed immediately before corpus iteration: script referenced obsolete fixed path pipeline_v2/m1_20261105_v1/source_registry.json instead of resolving the M1 bundle from the pinned M2 manifest.",
+      "correction": "Removed fixed path; resolve M1 bundle only from the pinned manifest."
+    },
+    {
+      "attempt": 2,
+      "exit_code": 0,
+      "elapsed_seconds": 57.484,
+      "result": "PASS, 7,708 cases, 382,343 navigation units, 454,275 previews, error_count 0.",
+      "checker_issue": "A diagnostic treated any clipped preview ending in an alphanumeric character as mid-token without checking the raw following character; it counted 292,722 cases. This was an invalid diagnostic and is not used as a result.",
+      "correction": "Use explicit word/tag boundary flags, verify those flags against raw neighboring Unicode characters and protected-tag spans, and preserve the nine tag-boundary contexts.",
+      "invalid_snapshot": "audit_attempt_001_invalid_midtoken_counter.json"
+    },
+    {
+      "attempt": 3,
+      "exit_code": 0,
+      "elapsed_seconds": 55.153,
+      "result": "PASS, 7,708 cases, 382,343 navigation units, 454,275 previews, error_count 0; 245 word_boundary_clipped flags and 9 tag_boundary_clipped flags.",
+      "checker_issue": "Counts were still metadata-only and had not been independently verified against raw adjacent characters/tag spans.",
+      "snapshot": "audit_attempt_002_flags_only.json"
+    },
+    {
+      "attempt": 4,
+      "exit_code": 0,
+      "elapsed_seconds": 56.355,
+      "result": "PASS, 7,708 cases, 382,343 navigation units, 454,275 previews, error_count 0; 245 word-boundary and 9 tag-boundary metadata flags independently matched raw neighboring-character and protected-tag predicates; contained_preview_pair_count 0.",
+      "confirmed_preview_edge_defect": "All nine flagged tags were 21-codepoint FRAGMENT placeholders in long-cue tail windows. A synthetic long-cue tail regression reproduced safe boundary advancement being rejected; source and code-path review identified candidate <= focus-start as the cause. This v2 bundle remains sealed as a checkpoint and is not the final target.",
+      "snapshot": "m2_navigation_20261106_v2_audit_checkpoint.json",
+      "follow_up": "Production fix and 9-case raw regression added; final bundle/audit will target v3."
+    },
+    {
+      "attempt": 5,
+      "exit_code": 0,
+      "elapsed_seconds": 58.171,
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_validation/independent_preview_audit.py --root . --old pipeline_v2/artifacts/m2_navigation_20261105_v1 --new pipeline_v2/artifacts/m2_navigation_20261106_v3 --output pipeline_v2/reviews/m2_preview_revision2_validation/m2_navigation_20261106_v3_full_corpus_audit.json",
+      "result": "PASS, 7,708 cases, 382,343 navigation units, 454,275 previews, error_count 0; all preview word/tag clipping flags matched raw predicates; no contained preview pairs; all nine v2 tag cases are clear in v3.",
+      "snapshot": "m2_navigation_20261106_v3_full_corpus_audit.json"
+    }
+  ]
+}

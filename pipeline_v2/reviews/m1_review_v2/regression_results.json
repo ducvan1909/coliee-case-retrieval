@@ -1,0 +1,135 @@
+{
+  "all_pass": true,
+  "cases": {
+    "000758.txt": {
+      "case_id": "000758.txt",
+      "raw_sha256": "0f5dc268d22acb28c3d7095503161066457fcc00d1944bbf224d21d878a8282e",
+      "raw_bytes": 48895,
+      "v1_paragraphs_count": 35,
+      "v2_paragraphs_count": 72,
+      "v2_headings_count": 6,
+      "v2_sidecars_count": 0,
+      "checks": {
+        "no_swallowing_p35_to_p37": true,
+        "all_markers_present": true,
+        "summary_heading_detected": true
+      },
+      "pass": true
+    },
+    "050936.txt": {
+      "case_id": "050936.txt",
+      "raw_sha256": "d61772efef97457085b172c39a0dbc1cc4c7c96a8550b0664979916977e3e65e",
+      "raw_bytes": 54503,
+      "v1_paragraphs_count": 61,
+      "v2_paragraphs_count": 117,
+      "v2_headings_count": 10,
+      "v2_sidecars_count": 1,
+      "checks": {
+        "q1_role_quoted": true,
+        "markers_30_31_54_present": true,
+        "p31_language_not_corrupted": true
+      },
+      "pass": true
+    },
+    "000432.txt": {
+      "case_id": "000432.txt",
+      "raw_sha256": "ba5beb528d715237dda43813b59b0759ff2c1f480fbf4cac05b582e29388110a",
+      "raw_bytes": 59286,
+      "v1_paragraphs_count": 48,
+      "v2_paragraphs_count": 95,
+      "v2_headings_count": 7,
+      "v2_sidecars_count": 0,
+      "checks": {
+        "french_paragraphs_preserved_no_swallow": true,
+        "french_paragraphs_count": 47,
+        "french_marker_2_independent_unit": true,
+        "language_transition_at_26_not_2": true
+      },
+      "pass": true
+    },
+    "014069.txt": {
+      "case_id": "014069.txt",
+      "raw_sha256": "4707db807452e037208fb1fccc9d433a8300ce7af86b179f11bff70a7406203d",
+      "raw_bytes": 86439,
+      "v1_paragraphs_count": 69,
+      "v2_paragraphs_count": 146,
+      "v2_headings_count": 30,
+      "v2_sidecars_count": 0,
+      "checks": {
+        "french_markers_preserved": 68
+      },
+      "pass": true
+    },
+    "046028.txt": {
+      "case_id": "046028.txt",
+      "raw_sha256": "103e31cc6e144258b731d13d60a6b0cbd41df6c873d3306c198104930f535243",
+      "raw_bytes": 21601,
+      "v1_paragraphs_count": 6,
+      "v2_paragraphs_count": 33,
+      "v2_headings_count": 7,
+      "v2_sidecars_count": 0,
+      "checks": {
+        "p6_does_not_swallow_p8": true,
+        "p34_present": true
+      },
+      "pass": true
+    },
+    "061295.txt": {
+      "case_id": "061295.txt",
+      "raw_sha256": "2342dbe5792ef49a1a604e07df32aead2cf02c51c4d522e8dee9d4bd87f0d5f9",
+      "raw_bytes": 19189,
+      "v1_paragraphs_count": 19,
+      "v2_paragraphs_count": 26,
+      "v2_headings_count": 10,
+      "v2_sidecars_count": 3,
+      "checks": {
+        "quotation_links_found": [
+          [
+            13,
+            17
+          ],
+          [
+            14,
+            10
+          ],
+          [
+            12,
+            9
+          ]
+        ],
+        "expected_pairs_subset": true
+      },
+      "pass": true
+    },
+    "067620.txt": {
+      "case_id": "067620.txt",
+      "raw_sha256": "27f27749125392e1466f4f6d9b4ea86cebd84db6c76762e56ced7a941b1447eb",
+      "raw_bytes": 15077,
+      "v1_paragraphs_count": 36,
+      "v2_paragraphs_count": 36,
+      "v2_headings_count": 5,
+      "v2_sidecars_count": 0,
+      "checks": {
+        "repeated_ones_count": 2,
+        "distinct_language_regions": [
+          "fr:1",
+          "en:0"
+        ]
+      },
+      "pass": true
+    },
+    "062436.txt": {
+      "case_id": "062436.txt",
+      "raw_sha256": "e38152542271182906ba5c3ca868ffa0c215b09e9da3eaa37f1745bd23194284",
+      "raw_bytes": 42455,
+      "v1_paragraphs_count": 73,
+      "v2_paragraphs_count": 73,
+      "v2_headings_count": 13,
+      "v2_sidecars_count": 1,
+      "checks": {
+        "the_respondent_heading": true
+      },
+      "pass": true
+    }
+  }
+}

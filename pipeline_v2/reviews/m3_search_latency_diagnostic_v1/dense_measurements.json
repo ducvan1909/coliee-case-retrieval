@@ -1,0 +1,1276 @@
+{
+  "schema_version": "m3-dense-local-diagnostic-1",
+  "generated_at_utc": "2026-11-09T13:30:53Z",
+  "qdrant_server": {
+    "title": "qdrant - vector search engine",
+    "version": "1.20.0",
+    "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+    "exact_point_count": 415693,
+    "collection_vector_config": {
+      "size": 2560,
+      "distance": "Cosine",
+      "on_disk": true
+    }
+  },
+  "timeout_configuration": {
+    "qdrant_url_query_param_timeout_seconds": 120,
+    "requests_http_connect_timeout_seconds": 10.0,
+    "requests_http_read_timeout_seconds": 130.0,
+    "distinction": "URL ?timeout=120 controls Qdrant's internal Rust search operation timeout (default 60s if omitted); requests timeout=(10, 130) controls Python client socket connect/read timeout."
+  },
+  "crossover_schedules": [
+    [
+      {
+        "vector_id": "V02",
+        "limit": 256
+      },
+      {
+        "vector_id": "V03",
+        "limit": 256
+      },
+      {
+        "vector_id": "V03",
+        "limit": 4096
+      },
+      {
+        "vector_id": "V02",
+        "limit": 4096
+      },
+      {
+        "vector_id": "V01",
+        "limit": 256
+      },
+      {
+        "vector_id": "V01",
+        "limit": 4096
+      }
+    ],
+    [
+      {
+        "vector_id": "V03",
+        "limit": 256
+      },
+      {
+        "vector_id": "V03",
+        "limit": 4096
+      },
+      {
+        "vector_id": "V01",
+        "limit": 256
+      },
+      {
+        "vector_id": "V01",
+        "limit": 4096
+      },
+      {
+        "vector_id": "V02",
+        "limit": 256
+      },
+      {
+        "vector_id": "V02",
+        "limit": 4096
+      }
+    ],
+    [
+      {
+        "vector_id": "V02",
+        "limit": 256
+      },
+      {
+        "vector_id": "V03",
+        "limit": 256
+      },
+      {
+        "vector_id": "V03",
+        "limit": 4096
+      },
+      {
+        "vector_id": "V02",
+        "limit": 4096
+      },
+      {
+        "vector_id": "V01",
+        "limit": 4096
+      },
+      {
+        "vector_id": "V01",
+        "limit": 256
+      }
+    ]
+  ],
+  "summary_by_vector_and_limit": [
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "limit": 256,
+      "first_observed_status": "ok",
+      "first_observed_client_seconds": 81.800435,
+      "first_observed_server_seconds": 81.717385,
+      "warm_repeats_count": 3,
+      "warm_client_median_seconds": 1.032635,
+      "warm_client_min_seconds": 0.76169,
+      "warm_client_max_seconds": 1.313713,
+      "warm_server_median_seconds": 1.008613,
+      "warm_server_min_seconds": 0.746255,
+      "warm_server_max_seconds": 1.300745,
+      "returned_points": 256,
+      "unique_cases": 256,
+      "all_hits_distinct_shards": 194,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 26
+    },
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "limit": 4096,
+      "first_observed_status": "ok",
+      "first_observed_client_seconds": 2.770957,
+      "first_observed_server_seconds": 2.636935,
+      "warm_repeats_count": 3,
+      "warm_client_median_seconds": 1.151328,
+      "warm_client_min_seconds": 0.91822,
+      "warm_client_max_seconds": 1.198793,
+      "warm_server_median_seconds": 1.022836,
+      "warm_server_min_seconds": 0.832767,
+      "warm_server_max_seconds": 1.077258,
+      "returned_points": 4096,
+      "unique_cases": 3945,
+      "all_hits_distinct_shards": 1469,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 446
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "limit": 256,
+      "first_observed_status": "ok",
+      "first_observed_client_seconds": 0.937975,
+      "first_observed_server_seconds": 0.927867,
+      "warm_repeats_count": 3,
+      "warm_client_median_seconds": 0.935905,
+      "warm_client_min_seconds": 0.744334,
+      "warm_client_max_seconds": 1.1778,
+      "warm_server_median_seconds": 0.910941,
+      "warm_server_min_seconds": 0.72512,
+      "warm_server_max_seconds": 1.167313,
+      "returned_points": 256,
+      "unique_cases": 170,
+      "all_hits_distinct_shards": 244,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 4
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "limit": 4096,
+      "first_observed_status": "ok",
+      "first_observed_client_seconds": 1.907005,
+      "first_observed_server_seconds": 1.856058,
+      "warm_repeats_count": 3,
+      "warm_client_median_seconds": 0.965663,
+      "warm_client_min_seconds": 0.484295,
+      "warm_client_max_seconds": 1.378207,
+      "warm_server_median_seconds": 0.880366,
+      "warm_server_min_seconds": 0.368345,
+      "warm_server_max_seconds": 1.328955,
+      "returned_points": 4096,
+      "unique_cases": 1169,
+      "all_hits_distinct_shards": 2882,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 60
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "limit": 256,
+      "first_observed_status": "ok",
+      "first_observed_client_seconds": 1.384141,
+      "first_observed_server_seconds": 1.3754,
+      "warm_repeats_count": 3,
+      "warm_client_median_seconds": 0.798539,
+      "warm_client_min_seconds": 0.574689,
+      "warm_client_max_seconds": 1.066871,
+      "warm_server_median_seconds": 0.780252,
+      "warm_server_min_seconds": 0.547748,
+      "warm_server_max_seconds": 1.055479,
+      "returned_points": 256,
+      "unique_cases": 97,
+      "all_hits_distinct_shards": 237,
+      "top100_unique_cases_distinct_shards": 94,
+      "exact_score_ties_count": 1
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "limit": 4096,
+      "first_observed_status": "ok",
+      "first_observed_client_seconds": 2.297596,
+      "first_observed_server_seconds": 2.170497,
+      "warm_repeats_count": 3,
+      "warm_client_median_seconds": 1.00735,
+      "warm_client_min_seconds": 0.431915,
+      "warm_client_max_seconds": 1.332467,
+      "warm_server_median_seconds": 0.916539,
+      "warm_server_min_seconds": 0.353665,
+      "warm_server_max_seconds": 1.232885,
+      "returned_points": 4096,
+      "unique_cases": 274,
+      "all_hits_distinct_shards": 2627,
+      "top100_unique_cases_distinct_shards": 97,
+      "exact_score_ties_count": 34
+    }
+  ],
+  "stability_checks": [
+    {
+      "vector_id": "V01",
+      "limit": 256,
+      "successful_runs": 4,
+      "top100_unique_case_lead_ids_identical_across_all_runs": true
+    },
+    {
+      "vector_id": "V01",
+      "limit": 4096,
+      "successful_runs": 4,
+      "top100_unique_case_lead_ids_identical_across_all_runs": true
+    },
+    {
+      "vector_id": "V02",
+      "limit": 256,
+      "successful_runs": 4,
+      "top100_unique_case_lead_ids_identical_across_all_runs": true
+    },
+    {
+      "vector_id": "V02",
+      "limit": 4096,
+      "successful_runs": 4,
+      "top100_unique_case_lead_ids_identical_across_all_runs": true
+    },
+    {
+      "vector_id": "V03",
+      "limit": 256,
+      "successful_runs": 4,
+      "top100_unique_case_lead_ids_identical_across_all_runs": true
+    },
+    {
+      "vector_id": "V03",
+      "limit": 4096,
+      "successful_runs": 4,
+      "top100_unique_case_lead_ids_identical_across_all_runs": true
+    }
+  ],
+  "real_shard_verification_measurements": [
+    {
+      "vector_id": "V01",
+      "verified_leads_count": 100,
+      "distinct_shards_loaded": 89,
+      "first_pass_disk_and_sha256_seconds": 4.031342,
+      "warm_lru_cache_pass_seconds": 0.000517
+    },
+    {
+      "vector_id": "V02",
+      "verified_leads_count": 100,
+      "distinct_shards_loaded": 98,
+      "first_pass_disk_and_sha256_seconds": 3.921677,
+      "warm_lru_cache_pass_seconds": 0.000652
+    },
+    {
+      "vector_id": "V03",
+      "verified_leads_count": 97,
+      "distinct_shards_loaded": 94,
+      "first_pass_disk_and_sha256_seconds": 3.799279,
+      "warm_lru_cache_pass_seconds": 0.000617
+    }
+  ],
+  "all_runs": [
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 81.800435,
+      "qdrant_server_reported_seconds": 81.717385,
+      "http_and_deserialization_overhead_seconds": 0.08305,
+      "returned_points": 256,
+      "unique_cases": 256,
+      "all_hits_distinct_shards": 194,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 26,
+      "top5_passage_ids": [
+        "028038:aab66011801ad648f44052cd",
+        "045665:d9e2d67576f26583d4574ba3",
+        "040375:5b43d8dbe7e34d6bdf25a4cd",
+        "015880:069a28ede916f75de3ba7955",
+        "038425:dcc22aa226414669fec17d31"
+      ],
+      "top5_scores": [
+        0.9767849,
+        0.8982623,
+        0.8968495,
+        0.89658,
+        0.8960629
+      ],
+      "pass_kind": "first_observed",
+      "repeat_index": 0,
+      "run_sequence_number": 1
+    },
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 2.770957,
+      "qdrant_server_reported_seconds": 2.636935,
+      "http_and_deserialization_overhead_seconds": 0.134022,
+      "returned_points": 4096,
+      "unique_cases": 3945,
+      "all_hits_distinct_shards": 1469,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 446,
+      "top5_passage_ids": [
+        "028038:aab66011801ad648f44052cd",
+        "045665:d9e2d67576f26583d4574ba3",
+        "040375:5b43d8dbe7e34d6bdf25a4cd",
+        "015880:069a28ede916f75de3ba7955",
+        "038425:dcc22aa226414669fec17d31"
+      ],
+      "top5_scores": [
+        0.9767849,
+        0.8982623,
+        0.8968495,
+        0.89658,
+        0.8960629
+      ],
+      "pass_kind": "first_observed",
+      "repeat_index": 0,
+      "run_sequence_number": 2
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.937975,
+      "qdrant_server_reported_seconds": 0.927867,
+      "http_and_deserialization_overhead_seconds": 0.010108,
+      "returned_points": 256,
+      "unique_cases": 170,
+      "all_hits_distinct_shards": 244,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 4,
+      "top5_passage_ids": [
+        "037505:c3808b078e8361c12c83b096",
+        "093983:0791876864585fee035071eb",
+        "037505:33c017bf0192ea70bb006aa4",
+        "093983:3d12c28d029553dce24e1fb2",
+        "093983:b36bcdca261585a93d37341f"
+      ],
+      "top5_scores": [
+        0.7732587,
+        0.7699673,
+        0.7658879,
+        0.7658316,
+        0.7241987
+      ],
+      "pass_kind": "first_observed",
+      "repeat_index": 0,
+      "run_sequence_number": 3
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.907005,
+      "qdrant_server_reported_seconds": 1.856058,
+      "http_and_deserialization_overhead_seconds": 0.050947,
+      "returned_points": 4096,
+      "unique_cases": 1169,
+      "all_hits_distinct_shards": 2882,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 60,
+      "top5_passage_ids": [
+        "037505:c3808b078e8361c12c83b096",
+        "093983:0791876864585fee035071eb",
+        "037505:33c017bf0192ea70bb006aa4",
+        "093983:3d12c28d029553dce24e1fb2",
+        "093983:b36bcdca261585a93d37341f"
+      ],
+      "top5_scores": [
+        0.7732587,
+        0.7699673,
+        0.7658879,
+        0.7658316,
+        0.7241987
+      ],
+      "pass_kind": "first_observed",
+      "repeat_index": 0,
+      "run_sequence_number": 4
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.384141,
+      "qdrant_server_reported_seconds": 1.3754,
+      "http_and_deserialization_overhead_seconds": 0.008741,
+      "returned_points": 256,
+      "unique_cases": 97,
+      "all_hits_distinct_shards": 237,
+      "top100_unique_cases_distinct_shards": 94,
+      "exact_score_ties_count": 1,
+      "top5_passage_ids": [
+        "074684:50f47f0e70b098fd9c086f5f",
+        "074684:81bf5304c18c8434df5322d1",
+        "093486:4f721fbb5c5aab83e47d9bfe",
+        "054557:ab324e0f38917f6dcf0d1b6b",
+        "034625:b456baed1b9bf682b7e1d3f6"
+      ],
+      "top5_scores": [
+        0.5593242,
+        0.5448888,
+        0.5434741,
+        0.5374113,
+        0.5273132
+      ],
+      "pass_kind": "first_observed",
+      "repeat_index": 0,
+      "run_sequence_number": 5
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 2.297596,
+      "qdrant_server_reported_seconds": 2.170497,
+      "http_and_deserialization_overhead_seconds": 0.127098,
+      "returned_points": 4096,
+      "unique_cases": 274,
+      "all_hits_distinct_shards": 2627,
+      "top100_unique_cases_distinct_shards": 97,
+      "exact_score_ties_count": 34,
+      "top5_passage_ids": [
+        "074684:50f47f0e70b098fd9c086f5f",
+        "074684:81bf5304c18c8434df5322d1",
+        "093486:4f721fbb5c5aab83e47d9bfe",
+        "054557:ab324e0f38917f6dcf0d1b6b",
+        "034625:b456baed1b9bf682b7e1d3f6"
+      ],
+      "top5_scores": [
+        0.5593242,
+        0.5448888,
+        0.5434741,
+        0.5374113,
+        0.5273132
+      ],
+      "pass_kind": "first_observed",
+      "repeat_index": 0,
+      "run_sequence_number": 6
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.1778,
+      "qdrant_server_reported_seconds": 1.167313,
+      "http_and_deserialization_overhead_seconds": 0.010487,
+      "returned_points": 256,
+      "unique_cases": 170,
+      "all_hits_distinct_shards": 244,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 4,
+      "top5_passage_ids": [
+        "037505:c3808b078e8361c12c83b096",
+        "093983:0791876864585fee035071eb",
+        "037505:33c017bf0192ea70bb006aa4",
+        "093983:3d12c28d029553dce24e1fb2",
+        "093983:b36bcdca261585a93d37341f"
+      ],
+      "top5_scores": [
+        0.7732587,
+        0.7699673,
+        0.7658879,
+        0.7658316,
+        0.7241987
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 1,
+      "run_sequence_number": 7
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.066871,
+      "qdrant_server_reported_seconds": 1.055479,
+      "http_and_deserialization_overhead_seconds": 0.011392,
+      "returned_points": 256,
+      "unique_cases": 97,
+      "all_hits_distinct_shards": 237,
+      "top100_unique_cases_distinct_shards": 94,
+      "exact_score_ties_count": 1,
+      "top5_passage_ids": [
+        "074684:50f47f0e70b098fd9c086f5f",
+        "074684:81bf5304c18c8434df5322d1",
+        "093486:4f721fbb5c5aab83e47d9bfe",
+        "054557:ab324e0f38917f6dcf0d1b6b",
+        "034625:b456baed1b9bf682b7e1d3f6"
+      ],
+      "top5_scores": [
+        0.5593242,
+        0.5448888,
+        0.5434741,
+        0.5374113,
+        0.5273132
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 1,
+      "run_sequence_number": 8
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.332467,
+      "qdrant_server_reported_seconds": 1.232885,
+      "http_and_deserialization_overhead_seconds": 0.099582,
+      "returned_points": 4096,
+      "unique_cases": 274,
+      "all_hits_distinct_shards": 2627,
+      "top100_unique_cases_distinct_shards": 97,
+      "exact_score_ties_count": 34,
+      "top5_passage_ids": [
+        "074684:50f47f0e70b098fd9c086f5f",
+        "074684:81bf5304c18c8434df5322d1",
+        "093486:4f721fbb5c5aab83e47d9bfe",
+        "054557:ab324e0f38917f6dcf0d1b6b",
+        "034625:b456baed1b9bf682b7e1d3f6"
+      ],
+      "top5_scores": [
+        0.5593242,
+        0.5448888,
+        0.5434741,
+        0.5374113,
+        0.5273132
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 1,
+      "run_sequence_number": 9
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.378207,
+      "qdrant_server_reported_seconds": 1.328955,
+      "http_and_deserialization_overhead_seconds": 0.049252,
+      "returned_points": 4096,
+      "unique_cases": 1169,
+      "all_hits_distinct_shards": 2882,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 60,
+      "top5_passage_ids": [
+        "037505:c3808b078e8361c12c83b096",
+        "093983:0791876864585fee035071eb",
+        "037505:33c017bf0192ea70bb006aa4",
+        "093983:3d12c28d029553dce24e1fb2",
+        "093983:b36bcdca261585a93d37341f"
+      ],
+      "top5_scores": [
+        0.7732587,
+        0.7699673,
+        0.7658879,
+        0.7658316,
+        0.7241987
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 1,
+      "run_sequence_number": 10
+    },
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.313713,
+      "qdrant_server_reported_seconds": 1.300745,
+      "http_and_deserialization_overhead_seconds": 0.012968,
+      "returned_points": 256,
+      "unique_cases": 256,
+      "all_hits_distinct_shards": 194,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 26,
+      "top5_passage_ids": [
+        "028038:aab66011801ad648f44052cd",
+        "045665:d9e2d67576f26583d4574ba3",
+        "040375:5b43d8dbe7e34d6bdf25a4cd",
+        "015880:069a28ede916f75de3ba7955",
+        "038425:dcc22aa226414669fec17d31"
+      ],
+      "top5_scores": [
+        0.9767849,
+        0.8982623,
+        0.8968495,
+        0.89658,
+        0.8960629
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 1,
+      "run_sequence_number": 11
+    },
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.151328,
+      "qdrant_server_reported_seconds": 1.077258,
+      "http_and_deserialization_overhead_seconds": 0.07407,
+      "returned_points": 4096,
+      "unique_cases": 3945,
+      "all_hits_distinct_shards": 1469,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 446,
+      "top5_passage_ids": [
+        "028038:aab66011801ad648f44052cd",
+        "045665:d9e2d67576f26583d4574ba3",
+        "040375:5b43d8dbe7e34d6bdf25a4cd",
+        "015880:069a28ede916f75de3ba7955",
+        "038425:dcc22aa226414669fec17d31"
+      ],
+      "top5_scores": [
+        0.9767849,
+        0.8982623,
+        0.8968495,
+        0.89658,
+        0.8960629
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 1,
+      "run_sequence_number": 12
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.798539,
+      "qdrant_server_reported_seconds": 0.780252,
+      "http_and_deserialization_overhead_seconds": 0.018287,
+      "returned_points": 256,
+      "unique_cases": 97,
+      "all_hits_distinct_shards": 237,
+      "top100_unique_cases_distinct_shards": 94,
+      "exact_score_ties_count": 1,
+      "top5_passage_ids": [
+        "074684:50f47f0e70b098fd9c086f5f",
+        "074684:81bf5304c18c8434df5322d1",
+        "093486:4f721fbb5c5aab83e47d9bfe",
+        "054557:ab324e0f38917f6dcf0d1b6b",
+        "034625:b456baed1b9bf682b7e1d3f6"
+      ],
+      "top5_scores": [
+        0.5593242,
+        0.5448888,
+        0.5434741,
+        0.5374113,
+        0.5273132
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 2,
+      "run_sequence_number": 13
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.00735,
+      "qdrant_server_reported_seconds": 0.916539,
+      "http_and_deserialization_overhead_seconds": 0.090812,
+      "returned_points": 4096,
+      "unique_cases": 274,
+      "all_hits_distinct_shards": 2627,
+      "top100_unique_cases_distinct_shards": 97,
+      "exact_score_ties_count": 34,
+      "top5_passage_ids": [
+        "074684:50f47f0e70b098fd9c086f5f",
+        "074684:81bf5304c18c8434df5322d1",
+        "093486:4f721fbb5c5aab83e47d9bfe",
+        "054557:ab324e0f38917f6dcf0d1b6b",
+        "034625:b456baed1b9bf682b7e1d3f6"
+      ],
+      "top5_scores": [
+        0.5593242,
+        0.5448888,
+        0.5434741,
+        0.5374113,
+        0.5273132
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 2,
+      "run_sequence_number": 14
+    },
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.032635,
+      "qdrant_server_reported_seconds": 1.008613,
+      "http_and_deserialization_overhead_seconds": 0.024022,
+      "returned_points": 256,
+      "unique_cases": 256,
+      "all_hits_distinct_shards": 194,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 26,
+      "top5_passage_ids": [
+        "028038:aab66011801ad648f44052cd",
+        "045665:d9e2d67576f26583d4574ba3",
+        "040375:5b43d8dbe7e34d6bdf25a4cd",
+        "015880:069a28ede916f75de3ba7955",
+        "038425:dcc22aa226414669fec17d31"
+      ],
+      "top5_scores": [
+        0.9767849,
+        0.8982623,
+        0.8968495,
+        0.89658,
+        0.8960629
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 2,
+      "run_sequence_number": 15
+    },
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.91822,
+      "qdrant_server_reported_seconds": 0.832767,
+      "http_and_deserialization_overhead_seconds": 0.085453,
+      "returned_points": 4096,
+      "unique_cases": 3945,
+      "all_hits_distinct_shards": 1469,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 446,
+      "top5_passage_ids": [
+        "028038:aab66011801ad648f44052cd",
+        "045665:d9e2d67576f26583d4574ba3",
+        "040375:5b43d8dbe7e34d6bdf25a4cd",
+        "015880:069a28ede916f75de3ba7955",
+        "038425:dcc22aa226414669fec17d31"
+      ],
+      "top5_scores": [
+        0.9767849,
+        0.8982623,
+        0.8968495,
+        0.89658,
+        0.8960629
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 2,
+      "run_sequence_number": 16
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.935905,
+      "qdrant_server_reported_seconds": 0.910941,
+      "http_and_deserialization_overhead_seconds": 0.024964,
+      "returned_points": 256,
+      "unique_cases": 170,
+      "all_hits_distinct_shards": 244,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 4,
+      "top5_passage_ids": [
+        "037505:c3808b078e8361c12c83b096",
+        "093983:0791876864585fee035071eb",
+        "037505:33c017bf0192ea70bb006aa4",
+        "093983:3d12c28d029553dce24e1fb2",
+        "093983:b36bcdca261585a93d37341f"
+      ],
+      "top5_scores": [
+        0.7732587,
+        0.7699673,
+        0.7658879,
+        0.7658316,
+        0.7241987
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 2,
+      "run_sequence_number": 17
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.965663,
+      "qdrant_server_reported_seconds": 0.880366,
+      "http_and_deserialization_overhead_seconds": 0.085297,
+      "returned_points": 4096,
+      "unique_cases": 1169,
+      "all_hits_distinct_shards": 2882,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 60,
+      "top5_passage_ids": [
+        "037505:c3808b078e8361c12c83b096",
+        "093983:0791876864585fee035071eb",
+        "037505:33c017bf0192ea70bb006aa4",
+        "093983:3d12c28d029553dce24e1fb2",
+        "093983:b36bcdca261585a93d37341f"
+      ],
+      "top5_scores": [
+        0.7732587,
+        0.7699673,
+        0.7658879,
+        0.7658316,
+        0.7241987
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 2,
+      "run_sequence_number": 18
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.744334,
+      "qdrant_server_reported_seconds": 0.72512,
+      "http_and_deserialization_overhead_seconds": 0.019214,
+      "returned_points": 256,
+      "unique_cases": 170,
+      "all_hits_distinct_shards": 244,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 4,
+      "top5_passage_ids": [
+        "037505:c3808b078e8361c12c83b096",
+        "093983:0791876864585fee035071eb",
+        "037505:33c017bf0192ea70bb006aa4",
+        "093983:3d12c28d029553dce24e1fb2",
+        "093983:b36bcdca261585a93d37341f"
+      ],
+      "top5_scores": [
+        0.7732587,
+        0.7699673,
+        0.7658879,
+        0.7658316,
+        0.7241987
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 3,
+      "run_sequence_number": 19
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.574689,
+      "qdrant_server_reported_seconds": 0.547748,
+      "http_and_deserialization_overhead_seconds": 0.026941,
+      "returned_points": 256,
+      "unique_cases": 97,
+      "all_hits_distinct_shards": 237,
+      "top100_unique_cases_distinct_shards": 94,
+      "exact_score_ties_count": 1,
+      "top5_passage_ids": [
+        "074684:50f47f0e70b098fd9c086f5f",
+        "074684:81bf5304c18c8434df5322d1",
+        "093486:4f721fbb5c5aab83e47d9bfe",
+        "054557:ab324e0f38917f6dcf0d1b6b",
+        "034625:b456baed1b9bf682b7e1d3f6"
+      ],
+      "top5_scores": [
+        0.5593242,
+        0.5448888,
+        0.5434741,
+        0.5374113,
+        0.5273132
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 3,
+      "run_sequence_number": 20
+    },
+    {
+      "vector_id": "V03",
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "exclude_case": "000713.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.431915,
+      "qdrant_server_reported_seconds": 0.353665,
+      "http_and_deserialization_overhead_seconds": 0.078249,
+      "returned_points": 4096,
+      "unique_cases": 274,
+      "all_hits_distinct_shards": 2627,
+      "top100_unique_cases_distinct_shards": 97,
+      "exact_score_ties_count": 34,
+      "top5_passage_ids": [
+        "074684:50f47f0e70b098fd9c086f5f",
+        "074684:81bf5304c18c8434df5322d1",
+        "093486:4f721fbb5c5aab83e47d9bfe",
+        "054557:ab324e0f38917f6dcf0d1b6b",
+        "034625:b456baed1b9bf682b7e1d3f6"
+      ],
+      "top5_scores": [
+        0.5593242,
+        0.5448888,
+        0.5434741,
+        0.5374113,
+        0.5273132
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 3,
+      "run_sequence_number": 21
+    },
+    {
+      "vector_id": "V02",
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "exclude_case": "041666.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.484295,
+      "qdrant_server_reported_seconds": 0.368345,
+      "http_and_deserialization_overhead_seconds": 0.11595,
+      "returned_points": 4096,
+      "unique_cases": 1169,
+      "all_hits_distinct_shards": 2882,
+      "top100_unique_cases_distinct_shards": 98,
+      "exact_score_ties_count": 60,
+      "top5_passage_ids": [
+        "037505:c3808b078e8361c12c83b096",
+        "093983:0791876864585fee035071eb",
+        "037505:33c017bf0192ea70bb006aa4",
+        "093983:3d12c28d029553dce24e1fb2",
+        "093983:b36bcdca261585a93d37341f"
+      ],
+      "top5_scores": [
+        0.7732587,
+        0.7699673,
+        0.7658879,
+        0.7658316,
+        0.7241987
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 3,
+      "run_sequence_number": 22
+    },
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "exact": true,
+      "limit": 4096,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 1.198793,
+      "qdrant_server_reported_seconds": 1.022836,
+      "http_and_deserialization_overhead_seconds": 0.175957,
+      "returned_points": 4096,
+      "unique_cases": 3945,
+      "all_hits_distinct_shards": 1469,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 446,
+      "top5_passage_ids": [
+        "028038:aab66011801ad648f44052cd",
+        "045665:d9e2d67576f26583d4574ba3",
+        "040375:5b43d8dbe7e34d6bdf25a4cd",
+        "015880:069a28ede916f75de3ba7955",
+        "038425:dcc22aa226414669fec17d31"
+      ],
+      "top5_scores": [
+        0.9767849,
+        0.8982623,
+        0.8968495,
+        0.89658,
+        0.8960629
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 3,
+      "run_sequence_number": 23
+    },
+    {
+      "vector_id": "V01",
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "exclude_case": "095448.txt",
+      "exact": true,
+      "limit": 256,
+      "with_payload": true,
+      "with_vector": false,
+      "server_timeout_seconds": 120,
+      "http_timeout_seconds": [
+        10.0,
+        130.0
+      ],
+      "status": "ok",
+      "http_status_code": 200,
+      "client_walltime_seconds": 0.76169,
+      "qdrant_server_reported_seconds": 0.746255,
+      "http_and_deserialization_overhead_seconds": 0.015435,
+      "returned_points": 256,
+      "unique_cases": 256,
+      "all_hits_distinct_shards": 194,
+      "top100_unique_cases_distinct_shards": 89,
+      "exact_score_ties_count": 26,
+      "top5_passage_ids": [
+        "028038:aab66011801ad648f44052cd",
+        "045665:d9e2d67576f26583d4574ba3",
+        "040375:5b43d8dbe7e34d6bdf25a4cd",
+        "015880:069a28ede916f75de3ba7955",
+        "038425:dcc22aa226414669fec17d31"
+      ],
+      "top5_scores": [
+        0.9767849,
+        0.8982623,
+        0.8968495,
+        0.89658,
+        0.8960629
+      ],
+      "pass_kind": "warm_repeat",
+      "repeat_index": 3,
+      "run_sequence_number": 24
+    }
+  ]
+}

@@ -1,0 +1,353 @@
+{
+  "embedding_fingerprint": "d945329fa49e2f4b4f83d530df03fb4897babd5345562cbeaebd3b21499649bf",
+  "l2_norm_deviation": {
+    "max": 1.1920928955078125e-07,
+    "mean": 2.1711457520723343e-08
+  },
+  "latency_and_throughput": {
+    "effective_remote_gpu_passages_per_second": 14.145275518658252,
+    "effective_remote_gpu_tokens_per_second_input": 1835.0594098878107,
+    "effective_remote_gpu_tokens_per_second_padded": 4676.339678496426,
+    "pilot_batch0_client_elapsed_seconds": 135.70792529999744,
+    "pilot_batch0_cold_model_load_seconds": 17.300702445,
+    "pilot_batch0_remote_elapsed_seconds": 1.9201771629999982,
+    "preflight_batch_client_elapsed_seconds": 74.08391589999519,
+    "preflight_batch_remote_elapsed_seconds": 0.9296894300000034,
+    "preflight_cold_model_load_seconds": 43.729727431,
+    "search_query_client_elapsed_seconds": [
+      4.317846300000383,
+      4.436984200001461,
+      4.714822499998263
+    ],
+    "search_query_remote_elapsed_seconds": [
+      0.10409635199999911,
+      0.06317910199999233,
+      0.06591081300001633
+    ],
+    "total_document_remote_gpu_seconds": 72.39166169999999,
+    "warm_batch_client_elapsed_seconds": {
+      "max": 5.527603300004557,
+      "mean": 1.6912671015873904,
+      "median": 1.5368616999985534,
+      "min": 1.000117700001283,
+      "sum": 106.5498274000056
+    },
+    "warm_batch_remote_elapsed_seconds": {
+      "max": 1.5435009810000082,
+      "mean": 1.1185949926507934,
+      "median": 1.0896362400000044,
+      "min": 0.5628935350000006,
+      "sum": 70.47148453699998
+    },
+    "warm_batches_count": 63
+  },
+  "m2_seal_sha256": "0ed42d51023adaf47c1205fa925f18f31b7aacb58b0c8e44c7d23288d123dda6",
+  "opened_search_hits": [
+    {
+      "case_id": "008522.txt",
+      "channel": "dense_passage",
+      "component_kinds": [
+        "previous_context",
+        "parent",
+        "next_context"
+      ],
+      "context_envelope_span_bytes": [
+        8432,
+        9541
+      ],
+      "hit_span_bytes": [
+        8955,
+        9129
+      ],
+      "passage_id": "008522:e35e6861cb1b7e51d43e3851",
+      "requested_handle": "p000037",
+      "search_label": "q1_standard_of_review"
+    },
+    {
+      "case_id": "000447.txt",
+      "channel": "passage_bm25",
+      "component_kinds": [
+        "previous_context",
+        "parent",
+        "next_context"
+      ],
+      "context_envelope_span_bytes": [
+        9516,
+        10286
+      ],
+      "hit_span_bytes": [
+        9928,
+        10051
+      ],
+      "passage_id": "000447:ef6699dc3552227474523d45",
+      "requested_handle": "p000017",
+      "search_label": "q1_standard_of_review"
+    },
+    {
+      "case_id": "008522.txt",
+      "channel": "dense_passage",
+      "component_kinds": [
+        "previous_context",
+        "parent",
+        "next_context"
+      ],
+      "context_envelope_span_bytes": [
+        8432,
+        9541
+      ],
+      "hit_span_bytes": [
+        8955,
+        9129
+      ],
+      "passage_id": "008522:e35e6861cb1b7e51d43e3851",
+      "requested_handle": "p000037",
+      "search_label": "q2_exclude_079659"
+    },
+    {
+      "case_id": "000447.txt",
+      "channel": "passage_bm25",
+      "component_kinds": [
+        "previous_context",
+        "parent",
+        "next_context"
+      ],
+      "context_envelope_span_bytes": [
+        9516,
+        10286
+      ],
+      "hit_span_bytes": [
+        9928,
+        10051
+      ],
+      "passage_id": "000447:ef6699dc3552227474523d45",
+      "requested_handle": "p000017",
+      "search_label": "q2_exclude_079659"
+    },
+    {
+      "case_id": "048242.txt",
+      "channel": "dense_passage",
+      "component_kinds": [
+        "previous_context",
+        "parent",
+        "next_context"
+      ],
+      "context_envelope_span_bytes": [
+        12556,
+        14087
+      ],
+      "hit_span_bytes": [
+        12929,
+        13520
+      ],
+      "passage_id": "048242:108e8f947a524d072825986d",
+      "requested_handle": "p000023",
+      "search_label": "q3_bilingual_negation_citation"
+    },
+    {
+      "case_id": "027247.txt",
+      "channel": "passage_bm25",
+      "component_kinds": [
+        "previous_context",
+        "parent",
+        "next_context"
+      ],
+      "context_envelope_span_bytes": [
+        2800,
+        8038
+      ],
+      "hit_span_bytes": [
+        5662,
+        6703
+      ],
+      "passage_id": "027247:941b009c4949b7c127fa52ad",
+      "requested_handle": "p000015",
+      "search_label": "q3_bilingual_negation_citation"
+    }
+  ],
+  "operation_receipts": [
+    {
+      "command": "preflight",
+      "file": "1793962725382565100_da49813e2fc74affa1c3dc4c38696739_preflight.json",
+      "local_elapsed_seconds": 116.32089590000396,
+      "status": "PASS"
+    },
+    {
+      "command": "open",
+      "file": "1793963821010981300_d5235e5dc20a477289723b7d521b8f02_open.json",
+      "local_elapsed_seconds": 35.28271700000187,
+      "status": "error"
+    },
+    {
+      "command": "run",
+      "file": "1793964144166993900_83f95f5e3749475d93a04515cf15f234_run.json",
+      "local_elapsed_seconds": 167.67629360000137,
+      "status": "stopped_at_batch_boundary"
+    },
+    {
+      "command": "run",
+      "file": "1793964308154191100_3d42ec77de6b4c0496c7fecff8641a31_run.json",
+      "local_elapsed_seconds": 145.39836359999754,
+      "status": "vectors_ingested_verified_not_full_pilot_acceptance"
+    },
+    {
+      "command": "search",
+      "file": "1793964391091781300_26c5ed60b820449fa6fa83bcb1000374_search.json",
+      "local_elapsed_seconds": 67.33135770000081,
+      "status": "real_remote_model_and_local_Qdrant"
+    },
+    {
+      "command": "search",
+      "file": "1793964473872372300_231e47f659f0413c8cee055fde08f0bd_search.json",
+      "local_elapsed_seconds": 66.32612149999477,
+      "status": "real_remote_model_and_local_Qdrant"
+    },
+    {
+      "command": "search",
+      "file": "1793964552307428500_a055251a108a4d289a4c386a30c571f3_search.json",
+      "local_elapsed_seconds": 66.1687998999987,
+      "status": "real_remote_model_and_local_Qdrant"
+    },
+    {
+      "command": "verify",
+      "file": "1793964638608101800_2a515c82b4704527a88d88e1e608425d_verify.json",
+      "local_elapsed_seconds": 35.43429850000393,
+      "status": "PASS_local_DB_reference_scope_only"
+    },
+    {
+      "command": "verify",
+      "file": "1793964716979472000_05fd4bb5a17f424bba708bd0de4a7f5c_verify.json",
+      "local_elapsed_seconds": 33.98264770000242,
+      "status": "PASS_local_DB_reference_scope_only"
+    },
+    {
+      "command": "literal",
+      "file": "1793964767958865300_f127a1fdd3bf4fe3b9c1f02c08bbe7f9_literal.json",
+      "local_elapsed_seconds": 59.11255999999412,
+      "status": "whole_raw_selected_pilot_cases"
+    },
+    {
+      "command": "open",
+      "file": "1793964800402846600_9d946249be8e4d48aff39611139c1a98_open.json",
+      "local_elapsed_seconds": 32.03729149999708,
+      "status": null
+    }
+  ],
+  "passages_verified": 1024,
+  "qdrant_verification": {
+    "dense_probes": [
+      {
+        "exact_top1_score": 0.48585084080696106,
+        "excluded_case_id": "000031.txt",
+        "probe_index": 0,
+        "query_passage_id": "000031:018547a62831b1cdec3cb655",
+        "top1_passage_id": "021842:84396fec74b4042aa3e5dd98",
+        "top1_score": 0.4858509
+      },
+      {
+        "exact_top1_score": 0.846365213394165,
+        "excluded_case_id": "000866.txt",
+        "probe_index": 17,
+        "query_passage_id": "000866:fad893b09b460eca9925dfbb",
+        "top1_passage_id": "004078:f23915599e6ede0f7a428545",
+        "top1_score": 0.8463651
+      },
+      {
+        "exact_top1_score": 0.5891119241714478,
+        "excluded_case_id": "010548.txt",
+        "probe_index": 128,
+        "query_passage_id": "010548:761f964b06819bd5772decb2",
+        "top1_passage_id": "027172:eaec4e9ebd95d60bb6869e9d",
+        "top1_score": 0.58911204
+      },
+      {
+        "exact_top1_score": 0.5138531923294067,
+        "excluded_case_id": "022362.txt",
+        "probe_index": 256,
+        "query_passage_id": "022362:6055e53a5a7d12a9304892a0",
+        "top1_passage_id": "048154:cf56eb38af4c718b3fcc6e48",
+        "top1_score": 0.51385313
+      },
+      {
+        "exact_top1_score": 0.4177204966545105,
+        "excluded_case_id": "033743.txt",
+        "probe_index": 384,
+        "query_passage_id": "033743:4c162ed71368e5b2045e3d69",
+        "top1_passage_id": "031928:44b8dfa18303064c34b62b97",
+        "top1_score": 0.41772056
+      },
+      {
+        "exact_top1_score": 0.3834392726421356,
+        "excluded_case_id": "044179.txt",
+        "probe_index": 512,
+        "query_passage_id": "044179:5dc7c84542fa1897916cf192",
+        "top1_passage_id": "006318:2c086ef75a3012fe5ee5ef59",
+        "top1_score": 0.38343927
+      },
+      {
+        "exact_top1_score": 0.5697430372238159,
+        "excluded_case_id": "057060.txt",
+        "probe_index": 640,
+        "query_passage_id": "057060:650cd1069e2a120aee38f693",
+        "top1_passage_id": "046857:8bb9ee8602c0df3366a29593",
+        "top1_score": 0.56974304
+      },
+      {
+        "exact_top1_score": 0.5517221689224243,
+        "excluded_case_id": "068875.txt",
+        "probe_index": 768,
+        "query_passage_id": "068875:5ad3eaaa8d7ff11d8e9e0be7",
+        "top1_passage_id": "080780:4b156f5706db3c78f83ea1f6",
+        "top1_score": 0.55172217
+      },
+      {
+        "exact_top1_score": 0.575689435005188,
+        "excluded_case_id": "084531.txt",
+        "probe_index": 896,
+        "query_passage_id": "084531:f6ba2a43209b20e649a02e9d",
+        "top1_passage_id": "085230:d87a771fb173223453d6713d",
+        "top1_score": 0.5756895
+      },
+      {
+        "exact_top1_score": 0.5667534470558167,
+        "excluded_case_id": "099838.txt",
+        "probe_index": 1023,
+        "query_passage_id": "099838:f4606a32e2be416805619300",
+        "top1_passage_id": "060204:0d787d459794ad9741a90b38",
+        "top1_score": 0.5667535
+      }
+    ],
+    "max_dense_query_vs_numpy_score_diff": 1.539891052448894e-07,
+    "max_primary_vs_cache_abs_diff": 0.0,
+    "max_restored_vs_primary_abs_diff": 0.0,
+    "primary_collection": "coliee_m3_pilot_99e66b7f9bbf4be4",
+    "primary_points": 1024,
+    "restored_collection": "coliee_m3_pilot_99e66b7f9bbf4be4_restore",
+    "restored_points": 1024
+  },
+  "run_dir": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+  "shards_verified": 64,
+  "status": "PASS",
+  "usage_accounting": {
+    "ag_incremental_input_tokens": 132961,
+    "ag_incremental_padded_tokens": 338646,
+    "ag_incremental_requests": 67,
+    "baseline_preflight_input_tokens": 988,
+    "baseline_preflight_padded_tokens": 2305,
+    "baseline_preflight_requests": 6,
+    "batch_0_reembedded_on_resume": false,
+    "failed_attempts": 0,
+    "pilot_document_batch_requests": 64,
+    "pilot_document_input_tokens": 132843,
+    "pilot_document_padded_tokens": 338528,
+    "pilot_document_padding_overhead_tokens": 205685,
+    "retries": 0,
+    "search_query_input_tokens": 118,
+    "search_query_padded_tokens": 118,
+    "search_query_requests": 3,
+    "total_known_input_tokens_including_preflight": 133949,
+    "total_padded_tokens_including_preflight": 340951,
+    "total_requests_including_preflight": 73,
+    "unknown_token_attempts": 0
+  },
+  "vector_dimensions": 2560
+}

@@ -1,0 +1,160 @@
+{
+  "case_id": "011904",
+  "source_path": "data/task1_train_files_2026/cases/011904.txt",
+  "sha256": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+  "characters": 20847,
+  "bytes": 20848,
+  "offset_policy": "Unicode codepoint, half-open, UTF-8-sig, no newline translation",
+  "reader": "current Codex chat; no claim of runtime model change",
+  "prior_exposure": "This chat has already discussed historical examples from this case. This is a transparent process demonstration, not a blind or held-out evaluation.",
+  "external_inference_requests": 0,
+  "chat_token_usage": "not exposed; unknown, not zero",
+  "paragraph_markers": [
+    {
+      "printed_paragraph": 1,
+      "start": 452
+    },
+    {
+      "printed_paragraph": 2,
+      "start": 936
+    },
+    {
+      "printed_paragraph": 3,
+      "start": 1403
+    },
+    {
+      "printed_paragraph": 4,
+      "start": 1854
+    },
+    {
+      "printed_paragraph": 5,
+      "start": 2075
+    },
+    {
+      "printed_paragraph": 6,
+      "start": 2513
+    },
+    {
+      "printed_paragraph": 7,
+      "start": 3230
+    },
+    {
+      "printed_paragraph": 8,
+      "start": 3958
+    },
+    {
+      "printed_paragraph": 9,
+      "start": 4331
+    },
+    {
+      "printed_paragraph": 10,
+      "start": 5394
+    },
+    {
+      "printed_paragraph": 11,
+      "start": 6101
+    },
+    {
+      "printed_paragraph": 12,
+      "start": 6318
+    },
+    {
+      "printed_paragraph": 13,
+      "start": 6763
+    },
+    {
+      "printed_paragraph": 14,
+      "start": 7276
+    },
+    {
+      "printed_paragraph": 15,
+      "start": 7773
+    },
+    {
+      "printed_paragraph": 16,
+      "start": 8352
+    },
+    {
+      "printed_paragraph": 17,
+      "start": 9333
+    },
+    {
+      "printed_paragraph": 18,
+      "start": 9912
+    },
+    {
+      "printed_paragraph": 19,
+      "start": 10333
+    },
+    {
+      "printed_paragraph": 20,
+      "start": 11681
+    },
+    {
+      "printed_paragraph": 21,
+      "start": 12414
+    },
+    {
+      "printed_paragraph": 22,
+      "start": 12609
+    },
+    {
+      "printed_paragraph": 23,
+      "start": 12952
+    },
+    {
+      "printed_paragraph": 24,
+      "start": 13302
+    },
+    {
+      "printed_paragraph": 25,
+      "start": 13761
+    },
+    {
+      "printed_paragraph": 26,
+      "start": 14352
+    },
+    {
+      "printed_paragraph": 27,
+      "start": 14828
+    },
+    {
+      "printed_paragraph": 28,
+      "start": 15205
+    },
+    {
+      "printed_paragraph": 29,
+      "start": 15570
+    },
+    {
+      "printed_paragraph": 30,
+      "start": 16866
+    },
+    {
+      "printed_paragraph": 31,
+      "start": 17550
+    },
+    {
+      "printed_paragraph": 32,
+      "start": 18310
+    },
+    {
+      "printed_paragraph": 33,
+      "start": 19535
+    },
+    {
+      "printed_paragraph": 34,
+      "start": 20334
+    },
+    {
+      "printed_paragraph": 35,
+      "start": 20495
+    },
+    {
+      "printed_paragraph": 36,
+      "start": 20662
+    }
+  ],
+  "scope": "one-case manual Codex reading trial; no KOS AU/Issue/gold access during reading; no Modal",
+  "bootstrap": "AGENTS.md, file size and proposal first12 lines inspected before automatic reading log; no source body read in bootstrap."
+}

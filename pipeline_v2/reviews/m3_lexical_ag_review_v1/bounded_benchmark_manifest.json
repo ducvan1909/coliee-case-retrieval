@@ -1,0 +1,45 @@
+{
+  "schema_version": "ag-m3-lexical-bounded-benchmark-manifest-1",
+  "locked_before_execution_at_utc": "2026-11-09T16:17:00Z",
+  "purpose": "Strictly bounded supplementary measurement to (1) measure actual FastBM25 Python heap and OS WorkingSet/PrivateUsage vs PRAGMA cache_size/mmap_size, (2) decompose FastBM25 vs scalar stage timings (postings_fetch vs mapping_and_scoring vs top_selection vs metadata vs guard) on the locked 8 exposed queries under matched warm cache state, (3) verify full-corpus unique_cases=True (limit=100) parity and metadata speedup on all 8 queries, and (4) verify standalone no-env CLI search and revalidate.",
+  "upstream_workload_manifest": "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/workload_manifest.json",
+  "frozen_profile_path": "pipeline_v2/configs/m3_lexical.json",
+  "frozen_full_run": "pipeline_v2/artifacts/m3_full_train_20261108_v1",
+  "query_ids": ["Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08"],
+  "channels": ["case", "passage"],
+  "protocol": {
+    "part_a_memory_and_pragma_audit": {
+      "pass_1": "tracemalloc enabled: measure Python heap current and peak bytes of FastBM25 preload (ids, ordinals, case_codes, cases int32, norm float64)",
+      "pass_2": "tracemalloc disabled: measure Windows GetProcessMemoryInfo (WorkingSetSize, PeakWorkingSetSize, PrivateUsage) before open, after FastBM25 preload, after Q01 case search, after Q01 passage search (limit=4096), and after Q01 passage search (limit=100, unique_cases=True)"
+    },
+    "part_b_session_and_cli_verification": {
+      "in_process": [
+        "LexicalSession(ROOT) open (initialization_seconds, preload_seconds, single guard() latency)",
+        "session.revalidate() latency and status"
+      ],
+      "standalone_cli_no_env": [
+        ".venv/Scripts/python.exe -m pipeline_v2.m3_lexical revalidate",
+        ".venv/Scripts/python.exe -m pipeline_v2.m3_lexical search --channel passage --query \"standard of review\" --query-case 000002.txt --limit 100 --unique-cases"
+      ]
+    },
+    "part_c_stage_decomposed_8_query_comparison": {
+      "queries_count": 8,
+      "channels_count": 2,
+      "per_query_channel_sequence": [
+        "1. Warmup postings scan for query terms on the shared SQLite connection so postings pages are in identical cache state",
+        "2. Timed FastBM25/LexicalSession search (limit=4096, unique_cases=False) with full stage breakdown (guard, postings_fetch, mapping_and_scoring, top_selection, metadata)",
+        "3. Timed stage-instrumented scalar reference (fetchmany=4096, Python float64 accumulation, sort[:4096]) sharing the same PRAGMAs and warm cache state",
+        "4. Timed FastBM25/LexicalSession search (limit=100, unique_cases=True) with full stage breakdown and exact parity check against independent rank_cases oracle over all positive hits"
+      ],
+      "counterbalanced_ab_order_seed": 20261109,
+      "ab_order_rule": "Alternate step 2 (vectorized_4096) and step 3 (scalar_4096) by query ordinal parity (even ordinal: vectorized then scalar; odd ordinal: scalar then vectorized) so exactly 4/8 queries run vectorized first and 4/8 run scalar first after warmup."
+    }
+  },
+  "constraints": {
+    "read_only_sqlite": true,
+    "access_gold_or_labels": false,
+    "access_env_or_credentials": false,
+    "call_modal_or_qdrant": false,
+    "mutate_production_or_seals": false
+  }
+}

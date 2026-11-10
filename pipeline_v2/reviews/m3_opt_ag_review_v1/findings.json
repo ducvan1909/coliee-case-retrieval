@@ -1,0 +1,108 @@
+{
+  "schema_version": "ag-m3-opt-review-findings-1",
+  "generated_at_utc": "2026-11-08T02:02:00Z",
+  "verdicts": {
+    "correctness": "PASS_WITH_NONBLOCKING_DEFECTS",
+    "performance_evidence": "QUALIFIED_PASS_WITH_MEASUREMENT_GAPS",
+    "ready_for_full_run": "NOT_READY"
+  },
+  "recommended_default_batch_size": {
+    "pilot_and_current_default": 32,
+    "full_corpus_expected_optimal": "64_or_32_pending_zero_padding_modal_arbitration",
+    "rationale": "On the 256-doc quantile benchmark, batch_size=32 is the clear end-to-end client winner (19.88 docs/s vs 16.35 docs/s for bs=16 and 17.63 docs/s for bs=64) with 60.97% allocated VRAM headroom (55.21% reserved headroom) and max cosine deviation 0.000377 <= 0.001. However, remote/GPU throughput peaked at batch_size=16 (34.14 remote docs/s vs 28.90 for bs=32) solely because the 256-doc quantile sample inflated padding from 10.40% (bs=16) to 20.04% (bs=32), 33.23% (bs=64), and 52.72% (bs=128). On the full 415,693-passage corpus sorted by length, padding is <=0.052% even at bs=128. Therefore, batch_size=32 is safe and recommended immediately as the conservative default, while a bounded constant-length/full-pilot-bucket Modal arbitration on [16, 32, 64] can confirm whether batch_size=64 outperforms batch_size=32 when coarse-subsample padding is removed."
+  },
+  "findings": [
+    {
+      "id": "F-M3OPT-01",
+      "category": "production_defect",
+      "severity": "medium",
+      "title": "FastSession.search() and m3_opt.search_benchmark() invoke baseline ModalEmbedder (pilot app) instead of OptModalEmbedder (opt app)",
+      "files_and_symbols": [
+        "pipeline_v2/optimization/index.py::FastSession.search",
+        "pipeline_v2/m3_opt.py::search_benchmark"
+      ],
+      "evidence": "FastSession.search() (line 262) and search_benchmark() (line 84) instantiate ModalEmbedder(self.base['profile']), targeting 'coliee-pipeline-v2-embed-m3-pilot-v1' (engine sha256 1ec94f4d..., scaledown_window=60s) instead of 'coliee-pipeline-v2-embed-m3-opt-v1' (engine sha256 b0971725..., scaledown_window=120s). In m3_opt_search_benchmark_20261107_v1/ledger.sqlite3, all 3 query embedding calls ran on the baseline pilot app, triggering an unnecessary 2114.83s L4 cold-start/queue wait on benchmark-query-0 and leaving the query path of deployments/modal_opt/engine.py untested on Modal.",
+      "impact": "Operational inconsistency between document optimization runtime and query runtime; extra container cold-start wait when both apps are used; modal_opt query encoding path is unexercised in remote receipts.",
+      "recommended_fix": "If query embedding is intended to stay pinned to the baseline app to match baseline_manifest['embedding_fingerprint'], document this explicitly in m3_opt.json and search_benchmark.json; otherwise, route query embedding through OptModalEmbedder with explicit query compatibility validation against the baseline vector space."
+    },
+    {
+      "id": "F-M3OPT-02",
+      "category": "production_defect",
+      "severity": "medium",
+      "title": "PersistentBM25 stores full raw document/passage text inside documents.metadata in lexical.sqlite3 and parses full JSON blobs per hit during search",
+      "files_and_symbols": [
+        "pipeline_v2/optimization/index.py::PersistentBM25.create",
+        "pipeline_v2/optimization/index.py::PersistentBM25.search"
+      ],
+      "evidence": "In PersistentBM25.create() (line 47), json.dumps(d) serializes the entire dict d including d['text'] into documents.metadata. In m3_opt_index_20261107_v2/lexical.sqlite3 (138.94 MB for 916 cases and 1,024 passages), documents.metadata stores 43.81 MB of raw case text and 2.24 MB of passage text. During PersistentBM25.search() (lines 71-74), up to limit=1024 individual SELECT metadata queries read and json.loads() these full-text JSON blobs on every search only to strip 'text' in Python ({k:v for k,v in d.items() if k!='text'}). This makes SQLite case BM25 search 60-80x slower than in-memory BM25 on the 916-case pilot (0.29-0.33s vs 0.004s).",
+      "impact": "Violates the design goal of not duplicating raw text inside index metadata; inflates lexical.sqlite3 size; degrades case BM25 query latency; and at full-corpus scale (7,708 cases + 415,693 passages) will cause multi-GB RAM spikes during PersistentBM25.create() and multi-GB SQLite bloat.",
+      "recommended_fix": "Strip 'text' before inserting into documents.metadata in PersistentBM25.create() (e.g. {k:v for k,v in d.items() if k != 'text'}), stream document tokenization in batches instead of materializing all frequencies in RAM, and fetch top-k metadata in a single batched query or without raw text."
+    },
+    {
+      "id": "F-M3OPT-03",
+      "category": "production_defect",
+      "severity": "medium",
+      "title": "FastSession.__init__() eagerly loads all passage metadata/text into RAM and scans all mmap'd vectors on every startup; CLI mutates <index_dir>_runtime on verify/open and loads .env unconditionally",
+      "files_and_symbols": [
+        "pipeline_v2/optimization/index.py::FastSession.__init__",
+        "pipeline_v2/m3_opt.py::main"
+      ],
+      "evidence": "FastSession.__init__() (lines 184-189) calls self.lexical.documents('passage') (loading all passages into RAM) and validate_vectors(self.vectors, ...) (which calls np.asarray and computes norms/finiteness over the entire vectors.npy file even after validate_seal() already verified the SHA-256 of vectors.npy). In addition, m3_opt.py (lines 32-36, 52-55) parses .env and updates os.environ even for local commands ('build', 'verify', 'open') and writes operation receipts to <index_dir>_runtime/operations/ on read-only 'verify' and 'open' commands.",
+      "impact": "On the 1,024-passage pilot (10.49 MB vectors.npy), full vector validation takes only ~15ms, but on the 415,693-passage full corpus (4.26 GB vectors.npy + 415k passage dicts), FastSession.__init__() will read >5 GB of data on every CLI invocation, defeating the purpose of mmap_mode='r' and SQLite indexing.",
+      "recommended_fix": "Once validate_seal() verifies the cryptographic SHA-256 of vectors.npy and lexical.sqlite3, check only shape/dtype on init (reserving full vector scan for verify(full_db=True)), look up passage metadata by passage_id from SQLite only for the top scan_cap dense hits, only load .env for commands that contact Modal, and avoid writing runtime operation files on read-only 'verify'/'open' commands."
+    },
+    {
+      "id": "F-M3OPT-04",
+      "category": "production_defect",
+      "severity": "low",
+      "title": "PersistentBM25.__init__() crashes with ValueError when passed a relative path with readonly=True",
+      "files_and_symbols": [
+        "pipeline_v2/optimization/index.py::PersistentBM25.__init__"
+      ],
+      "evidence": "In PersistentBM25.__init__() (lines 25-26), self.path = Path(path) is not resolved before calling self.path.as_uri() + '?mode=ro'. Passing a relative path (either directly or via PersistentBM25.create('relative/path.sqlite3', ...)) raises ValueError: relative path can't be expressed as a file URI.",
+      "impact": "Direct callers of PersistentBM25 or PersistentBM25.create with relative paths fail immediately.",
+      "recommended_fix": "Use self.path = Path(path).resolve() in PersistentBM25.__init__() and PersistentBM25.create()."
+    },
+    {
+      "id": "F-M3OPT-05",
+      "category": "measurement_gap",
+      "severity": "high",
+      "title": "256-document quantile subsampling in GPU benchmark inflates large-batch padding (up to 52.72%), inverting remote GPU throughput vs client RPC throughput",
+      "files_and_symbols": [
+        "pipeline_v2/optimization/benchmark.py::representative",
+        "pipeline_v2/optimization/benchmark.py::benchmark_index",
+        "pipeline_v2/artifacts/m3_opt_gpu_benchmark_20261107_v1/benchmark_result.json"
+      ],
+      "evidence": "Because representative(passages, 256) selects 256 quantiles spanning [4..448] tokens, larger batch sizes group wide token-length ranges together. Across 2 warm repeats (66,576 real input tokens), padded tokens are 74,304 (10.40% padding at bs=16), 83,264 (20.04% at bs=32), 99,712 (33.23% at bs=64), and 140,800 (52.72% at bs=128). GPU CUDA throughput on padded tokens is nearly invariant (5,130 / 4,816 / 4,556 / 4,434 padded_tokens/s), so the coarse-sample padding bloat caused remote_documents_per_second to drop monotonically from 34.14 (bs=16) -> 28.90 (bs=32) -> 22.94 (bs=64) -> 15.90 (bs=128). Conversely, client end_to_end_documents_per_second peaked at bs=32 (19.88 docs/s vs 16.35 at bs=16) because halving Modal RPC calls from 32 to 16 saved 8.28s of network/serialization overhead (~0.51s/call). On the full 415,693-passage corpus sorted by length, padding is 0.0064% (bs=16), 0.0132% (bs=32), 0.0257% (bs=64), and 0.0516% (bs=128).",
+      "impact": "The 256-doc quantile benchmark accurately measures VRAM stress and client RPC overhead (~0.50-0.84s/call for bs=16..64), but significantly underestimates remote GPU throughput at bs=32, 64, and 128 on full-corpus length-sorted buckets.",
+      "recommended_fix": "Use batch_size=32 as the immediate safe default (best measured client end-to-end throughput and >60% allocated VRAM headroom), or run a bounded dense-bucket Modal arbitration on [16, 32, 64] using contiguous length-sorted buckets from the 1,024-passage pilot where within-batch padding is <3-5%."
+    },
+    {
+      "id": "F-M3OPT-06",
+      "category": "measurement_gap",
+      "severity": "medium",
+      "title": "Search benchmark times in-process FastSession.search_vector() (0.99-1.63s) rather than full cold/warm CLI invocations compared against baseline 66-67s CLI time",
+      "files_and_symbols": [
+        "pipeline_v2/m3_opt.py::search_benchmark",
+        "pipeline_v2/artifacts/m3_opt_search_benchmark_20261107_v1/search_benchmark.json"
+      ],
+      "evidence": "search_benchmark.json records baseline_original_search_cli_seconds=[67.331, 66.326, 66.169] (which included full Python CLI startup, M1/M2 verification, BM25 rebuild, remote query embedding, Qdrant scroll verification, and search) alongside local_seconds=[0.990..1.626s] (which measures only in-process session.search_vector() after FastSession.__init__() and after remote query embedding). A separate single warm CLI run in m3_opt_index_20261107_v2_runtime/operations/1794067162583804700_b93c98744ef74764be50dbbdcfeb5022_search.json recorded cli_seconds=3.249s (with 1.119s local search and ~0.95s warm query embedding).",
+      "impact": "Claiming a ~60x end-to-end speedup directly from 66.6s / 1.09s conflates full CLI + remote query time with in-process local search time. True warm end-to-end CLI speedup on the 1,024-passage pilot is ~20.5x (66.6s -> 3.25s), and local retrieval path speedup is ~55-60x (~65s local rebuild/scroll -> ~1.09s).",
+      "recommended_fix": "Report local retrieval time (1.09s mean) and warm end-to-end CLI time (3.25s) separately from cold Modal container startup wait."
+    },
+    {
+      "id": "F-M3OPT-07",
+      "category": "documented_limit",
+      "severity": "medium",
+      "title": "Full-corpus (415,693 passages) runner, streaming index build, and fusion scan_cap scaling are not yet implemented",
+      "files_and_symbols": [
+        "pipeline_v2/configs/m3.json",
+        "pipeline_v2/configs/m3_opt.json",
+        "pipeline_v2/optimization/index.py::build_index"
+      ],
+      "evidence": "m3.json is frozen at mode='pilot_only', pilot_size=1024, batch_size=16, fusion.scan_cap=1024. build_index() in optimization/index.py only builds from the accepted 1,024-passage baseline run (source_scope='selected_pilot_only'). Neither m3.py nor m3_opt.py implements full-corpus length-sorted sharded embedding or full-corpus index construction.",
+      "impact": "Cannot execute full-corpus embedding (415,693 passages) until a dedicated full-corpus runner/profile and the memory/SQLite scaling fixes in F-M3OPT-02 and F-M3OPT-03 are implemented.",
+      "recommended_fix": "Fix F-M3OPT-01 through F-M3OPT-04 first, keep pilot artifacts immutable, and implement a dedicated full-corpus runner/config with streaming lexical index creation and lazy metadata/vector loading before any 415,693-passage run."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Local orchestration and tests; model torch/transformers run only on Modal.
+numpy==2.4.4
+modal==1.5.3
+requests==2.33.1
+tokenizers==0.22.2

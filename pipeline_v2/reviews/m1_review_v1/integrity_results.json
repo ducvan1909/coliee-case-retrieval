@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "elapsed_seconds": 49.391,
+  "total_sources_checked": 7708,
+  "total_bytes_checked": 225398607,
+  "total_units_checked": 798552,
+  "total_sidecars_checked": 72487,
+  "unit_counts": {
+    "paragraph": 284373,
+    "whitespace": 441059,
+    "heading": 45074,
+    "unnumbered": 28046,
+    "sidecars": 72487
+  },
+  "uncertainty_counts": {
+    "structure_unknown": 28046,
+    "contains_quoted_marker_candidates": 3857,
+    "nested_marker_hierarchy_unverified": 3857,
+    "heading_candidate": 4246,
+    "possible_quotation_at_outer_sequence": 332,
+    "translation_boundary_observed": 70,
+    "initial_marker_not_one": 7,
+    "numbering_reset_language_unknown": 62
+  },
+  "sources_with_uncertainties": 6133,
+  "errors_count": 0,
+  "errors_sample": [],
+  "warnings_count": 0,
+  "warnings_sample": []
+}

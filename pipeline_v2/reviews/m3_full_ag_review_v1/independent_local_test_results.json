@@ -1,0 +1,107 @@
+{
+  "independent_unit_tests": {
+    "total": 7,
+    "failures": 0,
+    "errors": 0,
+    "status": "PASS",
+    "log": "test_01_crash_after_upsert_before_progress_resumes_without_reinference_or_reupsert (__main__.IndependentFullSuite.test_01_crash_after_upsert_before_progress_resumes_without_reinference_or_reupsert)\nCrash after DB upsert but before writing progress.json: resume skips both inference and upsert. ... ok\ntest_02_max_batches_skips_already_matching_batches_and_advances_window (__main__.IndependentFullSuite.test_02_max_batches_skips_already_matching_batches_and_advances_window)\n--max-batches counts only batches needing inference/upsert in this invocation. ... ok\ntest_03_orphan_npz_rejected_by_readonly_verify_but_recovered_by_explicit_resume (__main__.IndependentFullSuite.test_03_orphan_npz_rejected_by_readonly_verify_but_recovered_by_explicit_resume)\nOrphan .npz without .json fails in ReadonlyCache (verify), but recovers in FullCache during run resume. ... ok\ntest_04_execution_identity_blocks_mock_adoption_and_missing_state_adoption (__main__.IndependentFullSuite.test_04_execution_identity_blocks_mock_adoption_and_missing_state_adoption)\nSimulated run cannot be resumed as real_modal, and pre-existing ledger/vectors without execution_state.json fail. ... ok\ntest_05_run_lock_prevents_concurrent_writers (__main__.IndependentFullSuite.test_05_run_lock_prevents_concurrent_writers)\nSecond writer attempting to acquire run_lock on the same directory fails immediately. ... ok\ntest_06_local_cli_commands_never_read_env_or_import_modal (__main__.IndependentFullSuite.test_06_local_cli_commands_never_read_env_or_import_modal)\nstatus, verify, open, plan, and --help do not read .env or import modal. ... ok\ntest_07_qdrant_short_response_wrong_vector_wrong_payload_and_ensure_cycle (__main__.IndependentFullSuite.test_07_qdrant_short_response_wrong_vector_wrong_payload_and_ensure_cycle)\nTest FullQdrant.matches and ensure pagination cycle / payload / vector checks. ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.317s\n\nOK\n"
+  },
+  "independent_full_plan_audit": {
+    "status": "PASS",
+    "elapsed_seconds": 143.42507230000047,
+    "implementation_fingerprint": "e4b8b358697c67073134fe5c5929e770d5c9c1e0b30f2cd98fc686b1227e3503",
+    "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+    "cases": 7708,
+    "cases_with_passages": 7708,
+    "passages": 415693,
+    "batches": 6496,
+    "last_batch_size": 13,
+    "input_tokens": 55346360,
+    "padded_tokens": 55360576,
+    "padding_ratio": 1.0002568551933677,
+    "sqlite_bytes": 4357505024,
+    "text_leaks_in_metadata": 0,
+    "verified_samples": [
+      {
+        "ordinal": 0,
+        "batch": 0,
+        "passage_id": "000085:00efa99cedd2445cfc3eeba9",
+        "full_input_tokens": 2,
+        "span_bytes": [
+          6992,
+          6993
+        ],
+        "exact_input_sha256": "e7ac0786668e0ff0f02b62bd04f45ff636fd82db63b1104601c975dc005f3a67"
+      },
+      {
+        "ordinal": 63,
+        "batch": 0,
+        "passage_id": "014381:faa6956c92495ad981138939",
+        "full_input_tokens": 2,
+        "span_bytes": [
+          5716,
+          5717
+        ],
+        "exact_input_sha256": "e7ac0786668e0ff0f02b62bd04f45ff636fd82db63b1104601c975dc005f3a67"
+      },
+      {
+        "ordinal": 64,
+        "batch": 1,
+        "passage_id": "015046:e82e2ace6da95ce4b34dc8bd",
+        "full_input_tokens": 2,
+        "span_bytes": [
+          9231,
+          9240
+        ],
+        "exact_input_sha256": "2c64c030d49520800e7bd1180d30a9d9054f3d89cc9264cba47592683fdde267"
+      },
+      {
+        "ordinal": 200000,
+        "batch": 3125,
+        "passage_id": "079200:164b3858c5efad196cd01c1d",
+        "full_input_tokens": 102,
+        "span_bytes": [
+          7308,
+          7814
+        ],
+        "exact_input_sha256": "bf7346c814e94f8111048b6bfcf06195ca1ee7c4b50d393f30749c4448bf39a3"
+      },
+      {
+        "ordinal": 415679,
+        "batch": 6494,
+        "passage_id": "062825:505eb9fb8822715276b0a369",
+        "full_input_tokens": 448,
+        "span_bytes": [
+          46610,
+          48630
+        ],
+        "exact_input_sha256": "d4673dbf8f85cd72ebc3fd6e5f1d042f07904f5e2ee4a210676e5d637e732ffb"
+      },
+      {
+        "ordinal": 415680,
+        "batch": 6495,
+        "passage_id": "065232:2fce3ef5bbf78ffbd85a1552",
+        "full_input_tokens": 448,
+        "span_bytes": [
+          21329,
+          23320
+        ],
+        "exact_input_sha256": "669ada58d4c54adff0678d7058ca7ffbcf16e188a01eda9be7999082230dc694"
+      },
+      {
+        "ordinal": 415692,
+        "batch": 6495,
+        "passage_id": "093968:d6d04284a534b2ec9db49cdd",
+        "full_input_tokens": 448,
+        "span_bytes": [
+          17191,
+          19040
+        ],
+        "exact_input_sha256": "49b5911298b231d3c6f3f86fad4a9c2f95f86a0488c34adaafa0a8d8b6cb5e1c"
+      }
+    ],
+    "bm25_smoke_top1_case": "038962.txt",
+    "bm25_smoke_top1_passage": "013611:38197021e23194138bae9a61",
+    "open_full_smoke_passage": "000085:00efa99cedd2445cfc3eeba9"
+  }
+}

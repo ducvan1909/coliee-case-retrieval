@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "bundle": "E:\\Git\\coliee-case-retrieval\\pipeline_v2\\artifacts\\m2_passages_20261106_v1",
+  "errors_count": 0,
+  "errors": [],
+  "counts": {
+    "total_raw_bytes": 225398607,
+    "unindexed_whitespace_units": 514659,
+    "unindexed_whitespace_bytes": 1540929,
+    "unindexed_heading_units": 48990,
+    "unindexed_heading_bytes": 481721,
+    "unsplit_parent_full_tokens": 51068038,
+    "unsplit_parent_content_tokens": 50685695,
+    "passages": 415693,
+    "full_input_tokens": 55346360,
+    "passage_content_tokens": 54930667,
+    "passage_special_tokens": 415693,
+    "overlap_tokens": 4244972,
+    "max_full_input_tokens": 448,
+    "word_boundary_splits": 0,
+    "role_unknown": 384419,
+    "kind_paragraph": 385697,
+    "parents": 382343,
+    "indexed_parent_bytes": 223375957,
+    "intact_parents_gt_320_le_448": 9742,
+    "split_parents": 9856,
+    "overlap_children_lt_128": 11075,
+    "role_None": 29996,
+    "kind_unnumbered": 29996,
+    "sources": 7708,
+    "overlap_children_eq_128": 22275,
+    "parents_without_preview_covered": 267,
+    "role_quoted": 1278,
+    "french_parents_covered": 13189,
+    "french_passages": 14289
+  },
+  "token_histogram_bins_64": {
+    "token_bin_0": 104446,
+    "token_bin_128": 75233,
+    "token_bin_192": 31693,
+    "token_bin_256": 21988,
+    "token_bin_320": 34623,
+    "token_bin_384": 3565,
+    "token_bin_448": 37,
+    "token_bin_64": 144108
+  },
+  "full_input_token_distribution": {
+    "count": 415693,
+    "min": 2,
+    "p25": 63,
+    "median": 106,
+    "mean": 133.1424,
+    "p75": 177,
+    "p95": 321,
+    "p99": 376,
+    "max": 448,
+    "passages_at_exact_448_cap": 37,
+    "passages_at_448_examples": [
+      {
+        "case_id": "004916.txt",
+        "passage_id": "004916:f2183345f6a9fb3a6925cf37",
+        "parent_handle": "p000001",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "006798.txt",
+        "passage_id": "006798:6257fc628199bae567f6e2ec",
+        "parent_handle": "p000028",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "006842.txt",
+        "passage_id": "006842:fd20c4c2a06811f5a09d580a",
+        "parent_handle": "p000027",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "007483.txt",
+        "passage_id": "007483:85387c3b3f1d09ea9e23d398",
+        "parent_handle": "p000058",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "009186.txt",
+        "passage_id": "009186:a10216bdfe7e55fc6770e66d",
+        "parent_handle": "p000051",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "011919.txt",
+        "passage_id": "011919:7c26ef189fc005e3172d3de2",
+        "parent_handle": "p000025",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "013670.txt",
+        "passage_id": "013670:0830ea22419a22770f44f667",
+        "parent_handle": "p000023",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "017130.txt",
+        "passage_id": "017130:533d21bf9cd17a7123107276",
+        "parent_handle": "p000014",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "017190.txt",
+        "passage_id": "017190:86a9683b6fdce4e002f2d9cf",
+        "parent_handle": "p000044",
+        "split_order": 0,
+        "split_count": 1
+      },
+      {
+        "case_id": "019900.txt",
+        "passage_id": "019900:2ec5015e5b5aed23a5e97cf2",
+        "parent_handle": "p000011",
+        "split_order": 0,
+        "split_count": 1
+      }
+    ]
+  },
+  "overlap_content_token_distribution_non_first_children": {
+    "non_first_children_count": 33350,
+    "min": 90,
+    "p25": 127,
+    "median": 128,
+    "mean": 127.2855,
+    "p75": 128,
+    "p95": 128,
+    "max": 128,
+    "children_at_exact_128": 22275,
+    "children_below_128": 11075
+  },
+  "overhead_accounting": {
+    "unsplit_parent_content_tokens": 50685695,
+    "unsplit_parent_full_tokens": 51068038,
+    "passage_content_tokens": 54930667,
+    "passage_special_tokens_151643": 415693,
+    "overlap_content_tokens": 4244972,
+    "net_content_token_identities_ verified": true,
+    "token_expansion_ratio_full_vs_unsplit_full": 1.083777,
+    "overlap_share_of_full_input_tokens": 0.076698
+  },
+  "byte_partition_reconciliation": {
+    "total_raw_corpus_bytes": 225398607,
+    "indexed_parent_bytes": 223375957,
+    "unindexed_heading_units": 48990,
+    "unindexed_heading_bytes": 481721,
+    "unindexed_whitespace_units": 514659,
+    "unindexed_whitespace_bytes": 1540929,
+    "exact_byte_sum_matches_raw": true
+  },
+  "elapsed_seconds": 569.3201,
+  "model_requests": 0,
+  "inference_tokens": 0
+}

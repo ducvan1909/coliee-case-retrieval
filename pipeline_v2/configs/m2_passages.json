@@ -1,0 +1,15 @@
+{
+  "schema_version": "pipeline-v2-m2-passages-profile-1",
+  "tokenizer_lock": "pipeline_v2/configs/qwen3_embedding_4b_tokenizer.lock.json",
+  "policy_version": "raw-parent-whitespace-overlap-1",
+  "target_tokens": 320,
+  "overlap_tokens": 128,
+  "max_input_tokens": 448,
+  "variant": "within_parent_overlap_128_not_nonoverlap_baseline",
+  "document_template": "{body}",
+  "add_special_tokens": true,
+  "truncation": false,
+  "merge_parents": false,
+  "semantic_inference": false,
+  "pagination_max_limit": 100
+}

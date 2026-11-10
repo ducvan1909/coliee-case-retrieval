@@ -1,0 +1,35 @@
+[
+  {
+    "phase": "before_session",
+    "peak_working_set": 45576192,
+    "working_set": 45576192,
+    "private_usage": 437862400
+  },
+  {
+    "phase": "session_opened",
+    "peak_working_set": 541003776,
+    "working_set": 539328512,
+    "private_usage": 543444992
+  },
+  {
+    "phase": "query_complete",
+    "query_case": "095448.txt",
+    "peak_working_set": 548102144,
+    "working_set": 222048256,
+    "private_usage": 633782272
+  },
+  {
+    "phase": "query_complete",
+    "query_case": "041666.txt",
+    "peak_working_set": 548102144,
+    "working_set": 270082048,
+    "private_usage": 641789952
+  },
+  {
+    "phase": "query_complete",
+    "query_case": "000713.txt",
+    "peak_working_set": 548102144,
+    "working_set": 302747648,
+    "private_usage": 644878336
+  }
+]

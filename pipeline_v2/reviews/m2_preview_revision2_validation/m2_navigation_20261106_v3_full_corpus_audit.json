@@ -1,0 +1,334 @@
+{
+  "status": "PASS",
+  "old_bundle": "E:\\Git\\coliee-case-retrieval\\pipeline_v2\\artifacts\\m2_navigation_20261105_v1",
+  "new_bundle": "E:\\Git\\coliee-case-retrieval\\pipeline_v2\\artifacts\\m2_navigation_20261106_v3",
+  "counts": {
+    "cases": 7708,
+    "navigation_units": 382343,
+    "previews": 454275,
+    "max_preview_chars": 240,
+    "word_boundary_clipped": 0,
+    "tag_boundary_clipped": 0,
+    "sentence_status_unverified": 454275,
+    "units_with_previews": 382076
+  },
+  "error_count": 0,
+  "errors": [],
+  "contained_preview_pair_count": 0,
+  "errors_truncated": false,
+  "short_opening_diagnostics": [
+    {
+      "case_id": "007777.txt",
+      "unit_id": "007777:d5b5d2f03b442586:2-355:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 90
+    },
+    {
+      "case_id": "014803.txt",
+      "unit_id": "014803:4feef9b656f3a279:2-339:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 88
+    },
+    {
+      "case_id": "016528.txt",
+      "unit_id": "016528:f6c4fd0f527fff34:2-337:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 91
+    },
+    {
+      "case_id": "028057.txt",
+      "unit_id": "028057:ccde7bb28b2776cf:14033-14361:20c8805023c2",
+      "preview_id": "p000045:v01",
+      "preview_chars": 89
+    },
+    {
+      "case_id": "040347.txt",
+      "unit_id": "040347:f46553ecb0c15e73:2-341:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 91
+    },
+    {
+      "case_id": "081901.txt",
+      "unit_id": "081901:e7f73ebad6285215:2-342:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 91
+    }
+  ],
+  "short_opening_diagnostic_count": 6,
+  "same_handle_raw_source_examples": [
+    {
+      "case_id": "011922.txt",
+      "handle": "p000005",
+      "unit_id": "011922:ae50db46d34a0ba0:625-1316:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            637,
+            647
+          ],
+          "text_prefix": "Pinard, J."
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            637,
+            874
+          ],
+          "text_prefix": "Pinard, J. \r\n : On March 14, 2011, Luftar Hysa (the \"applicant\") filed the present appeal, under subsection 14(5) of the"
+        }
+      ]
+    },
+    {
+      "case_id": "014101.txt",
+      "handle": "p000001",
+      "unit_id": "014101:190e664505334bec:0-297:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            5,
+            15
+          ],
+          "text_prefix": "Pinard, J."
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            5,
+            240
+          ],
+          "text_prefix": "Pinard, J.\r\n: This is an application pursuant to s. 44 of the\r\nAccess to Information Act\r\n, R.S.C. 1985, c. A-1 (the \"\r\n"
+        }
+      ]
+    },
+    {
+      "case_id": "015740.txt",
+      "handle": "p000005",
+      "unit_id": "015740:2db4d8515e194430:4257-4775:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            4269,
+            4279
+          ],
+          "text_prefix": "Mosley, J."
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            4634,
+            4775
+          ],
+          "text_prefix": "d of protection, pursuant to sections 96 and 97 of the IRPA. For the reasons that follow, this application is allowed.  "
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            4269,
+            4507
+          ],
+          "text_prefix": "Mosley, J. \r\n : This is an application for judicial review pursuant to section 72 of the  \r\n Immigration and Refugee Pro"
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            4636,
+            4775
+          ],
+          "text_prefix": "of protection, pursuant to sections 96 and 97 of the IRPA. For the reasons that follow, this application is allowed.  <F"
+        }
+      ]
+    },
+    {
+      "case_id": "048208.txt",
+      "handle": "p000001",
+      "unit_id": "048208:c75679c07aaaadd3:13-927:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            18,
+            28
+          ],
+          "text_prefix": "Cullen, J."
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            35,
+            275
+          ],
+          "text_prefix": "s is an application by notice of motion to determine a preliminary question of law. On May 2, 1989, the Associate Chief "
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            18,
+            258
+          ],
+          "text_prefix": "Cullen, J.\r\n: This is an application by notice of motion to determine a preliminary question of law. On May 2, 1989, the"
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            689,
+            927
+          ],
+          "text_prefix": "of the said Act, namely, s. 74(5)?\"\r\nIn support of this application, an agreed statement of facts and an agreed book of "
+        }
+      ]
+    },
+    {
+      "case_id": "051807.txt",
+      "handle": "p000001",
+      "unit_id": "051807:cceab97ca4511b71:0-421:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            5,
+            16
+          ],
+          "text_prefix": "O'Keefe, J."
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            5,
+            243
+          ],
+          "text_prefix": "O'Keefe, J.\r\n: This is an appeal under s. 21 of the\r\nFederal Court Act\r\n, R.S.C. 1985, c. F-7, and s. 14(5) of the\r\nCiti"
+        }
+      ]
+    },
+    {
+      "case_id": "068193.txt",
+      "handle": "p000001",
+      "unit_id": "068193:e74a2760a29e6ac5:14-2295:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            19,
+            33
+          ],
+          "text_prefix": "Teitelbaum, J."
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            582,
+            822
+          ],
+          "text_prefix": "of Health is under a duty to comply with section 7(1) of the\r\nPatented Medicines (Notice of Compliance) Regulations\r\n(\" "
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            19,
+            250
+          ],
+          "text_prefix": "Teitelbaum, J.\r\n: This is an application for judicial review pursuant to s. 18 of the\r\nFederal Court Act\r\n. The applican"
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            582,
+            817
+          ],
+          "text_prefix": "of Health is under a duty to comply with section 7(1) of the\r\nPatented Medicines (Notice of Compliance) Regulations\r\n(\" "
+        }
+      ]
+    },
+    {
+      "case_id": "080359.txt",
+      "handle": "p000005",
+      "unit_id": "080359:ca5cc56b2ff54a35:408-845:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            413,
+            423
+          ],
+          "text_prefix": "Phelan, J."
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            413,
+            647
+          ],
+          "text_prefix": "Phelan, J.\r\n: Mr. Faria applied for citizenship although he had only been in Canada a total of 504 days over the period "
+        }
+      ]
+    },
+    {
+      "case_id": "081945.txt",
+      "handle": "p000005",
+      "unit_id": "081945:a4de6b0c9511c0fa:748-1070:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            760,
+            772
+          ],
+          "text_prefix": "Mandamin, J."
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            929,
+            1070
+          ],
+          "text_prefix": "ting Ms. Shalini Kumar's application for a permanent residence visa in Canada as a member of the skilled worker class.  "
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            760,
+            999
+          ],
+          "text_prefix": "Mandamin, J. \r\n : The Applicants seek judicial review of the decision of P. Purcell, Second Secretary, Immigration, (the"
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            934,
+            1070
+          ],
+          "text_prefix": "Ms. Shalini Kumar's application for a permanent residence visa in Canada as a member of the skilled worker class.  <FRAG"
+        }
+      ]
+    }
+  ],
+  "boundary_clip_flag_diagnostics": [],
+  "boundary_clip_flag_count": 0,
+  "raw_verified_tag_boundary_clip_cases": [],
+  "raw_verified_tag_boundary_clip_count": 0,
+  "elapsed_seconds": 58.171,
+  "limitations": [
+    "This audit checks structure, provenance, selection bounds, and sentence-status claims only.",
+    "Short-opening and word/tag-boundary clipping counts are diagnostics, not semantic error rates.",
+    "It does not assess legal relevance, quote ownership, or whether an opening is a good summary."
+  ]
+}

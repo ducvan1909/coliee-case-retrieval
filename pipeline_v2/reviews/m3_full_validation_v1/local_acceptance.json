@@ -1,0 +1,38 @@
+{
+  "status": "PASS_local_plan_and_tests_remote_not_run",
+  "implementation_sha256": "e4b8b358697c67073134fe5c5929e770d5c9c1e0b30f2cd98fc686b1227e3503",
+  "profile_sha256": "448a14cf545769cd0eb4c34db790b168f7b63b68e0d429c7e2d555c12d6caa84",
+  "old_code_profiles_unchanged": true,
+  "test_result": "30/30 PASS fixtures_and_mocks",
+  "plan_command": {
+    "command": "python -m pipeline_v2.m3_full --env-file DOES_NOT_EXIST plan --output pipeline_v2/artifacts/m3_full_train_20261108_v1",
+    "exit_code": 0,
+    "wall_seconds": 1177.8243303,
+    "modal_executed": false
+  },
+  "real_plan_audit": {
+    "status": "PASS_local_plan_only",
+    "raw_cases_verified": 7708,
+    "passages_verified": 415693,
+    "batches": 6496,
+    "last_batch_size": 13,
+    "input_tokens": 55346360,
+    "padded_tokens": 55360576,
+    "padding_ratio": 1.0002568551933677,
+    "sqlite_bytes": 4357505024,
+    "elapsed_seconds": 193.67004000000088,
+    "model_requests": 0,
+    "DB_accessed": false,
+    "labels_accessed": false,
+    "vectors_ingested": false
+  },
+  "model_requests_executed_by_main": 0,
+  "Modal_operations_executed_by_main": false,
+  "Qdrant_accessed_by_main": false,
+  "full_vectors_ingested": false,
+  "full_DB_verified": false,
+  "full_hybrid_search_ready": false,
+  "COLIEE_quality_evaluated": false,
+  "AG_next": "local_review_then_real_canary2_resume_full_verify",
+  "plan_dir": "pipeline_v2/artifacts/m3_full_train_20261108_v1"
+}

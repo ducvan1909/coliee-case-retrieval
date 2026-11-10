@@ -1,0 +1,32 @@
+{
+  "audit_script": "pipeline_v2/reviews/m3_local_validation_v1/audit_real_plan.py",
+  "attempts": [
+    {
+      "attempt": 1,
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_local_validation_v1/audit_real_plan.py",
+      "status": "failed_checker_setup",
+      "error_type": "KeyError",
+      "error": "navigation_bundle",
+      "cause": "The independent checker initially looked for navigation_bundle in m3.json; the user-selection path is in m3_user_selection.json.",
+      "production_or_plan_defect": false
+    },
+    {
+      "attempt": 2,
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_local_validation_v1/audit_real_plan.py",
+      "status": "PASS_initial_audit_then_strengthened_seal_chain_checks",
+      "result": "pipeline_v2/reviews/m3_local_validation_v1/real_m2_plan_audit.json",
+      "elapsed_seconds": 7.5
+    },
+    {
+      "attempt": 3,
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_local_validation_v1/audit_real_plan.py",
+      "status": "PASS_final_audit",
+      "result": "pipeline_v2/reviews/m3_local_validation_v1/real_m2_plan_audit.json",
+      "elapsed_seconds": 8.6,
+      "additional_checks": ["M2 manifest seal entry", "M2 to navigation seal chain"]
+    }
+  ],
+  "model_requests": 0,
+  "labels_accessed": false,
+  "test_sources_accessed": false
+}

@@ -30,13 +30,13 @@ Hãy đánh giá vấn đề độc lập. Không mặc định quan điểm ho�
 
 ## Quy ước dự án
 
-- Repo triển khai: `G:/Git/coliee-case-retrieval`; `G:/Legal-AI` chủ yếu là nguồn tham khảo/KOS. Kiểm tra đúng checkout trước khi sửa.
-- Giữ phạm vi từng plan trong `knowledge_base/pipeline_v1`; không tự mở sang plan tiếp theo, toàn corpus hoặc đổi reranker.
-- Giữ nguồn, hash, offsets và provenance. Không sửa artifact V13–V15 hay báo cáo lịch sử để làm kết quả mới trông tốt hơn.
-- Protocol/schema/offset PASS không chứng minh AU đúng ngữ nghĩa. `model_silver` không phải human gold; KOS là tham khảo, không tự coi là gold.
+- Repo triển khai là checkout chứa file này. Kiểm tra `git rev-parse --show-toplevel` và đọc `CODEX_HANDOFF.md` trước khi sửa trên máy mới.
+- Pipeline hiện hành nằm trong `pipeline_v2/`, kế hoạch ở `pipeline_v2/docs/plan/`, trạng thái ở `pipeline_v2/docs/PROGRESS.md`. Giữ phạm vi mốc được giao, không tự mở sang mốc tiếp theo hoặc đổi model/chunk/reranker.
+- Giữ nguồn, hash, offsets và provenance. Không sửa snapshot đã seal hay báo cáo lịch sử để làm kết quả mới trông tốt hơn.
+- Protocol/schema/offset PASS không chứng minh liên kết viện dẫn đúng ngữ nghĩa hoặc chất lượng COLIEE. Nhãn suy luận từ model phải phân biệt với gold chuẩn.
 - Báo token/request/latency cả run lỗi và retry. Không coi dừng sớm hoặc thiếu evidence là tiết kiệm.
 - Dùng `.venv/Scripts/python.exe` cho kiểm tra local. Chỉ chạy test phù hợp thay đổi.
-- Chỉ gọi inference trả phí, deploy Modal hoặc mở rộng workload khi thuộc phạm vi người dùng đã cho phép; phân biệt kiểm tra local và thực thi remote.
+- Theo yêu cầu hiện hành, Codex chuẩn bị code và lệnh Modal, người dùng hoặc AG chạy. Không tự gọi inference/deploy Modal. Kiểm local và đọc Qdrant local được thực hiện trong phạm vi đã giao. Khi người dùng thay đổi cách phân công, ghi rõ authorization mới.
 - Không in/lưu credential vào báo cáo hay commit; `.env` chỉ dùng local.
 
 ## Hiệu lực cấu hình

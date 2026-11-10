@@ -1,0 +1,76 @@
+{
+  "schema_version": "pipeline-v2-m3-ag-review-findings-1",
+  "review_dir": "pipeline_v2/reviews/m3_ag_review_v1",
+  "run_dir": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+  "verdicts": {
+    "code_review": "pass_with_documented_limits",
+    "real_pilot_execution": "pass_with_documented_limits"
+  },
+  "blocking_defects": [],
+  "production_defects": [],
+  "documented_limits_and_non_blocking_observations": [
+    {
+      "id": "M3-OBS-01",
+      "severity": "info_documented_limit",
+      "component": "pipeline_v2/retrieval/pilot.py",
+      "code_sha256": "d2c3cebf651b0e81f8240fbaf05d90c33ddc41649a1f1e8a8d5eb64cc9a87bea",
+      "summary": "Pilot-only scope and on-the-fly BM25/raw verification during search",
+      "details": "search_pilot rebuilds passage and whole-case BM25 in memory over the 916 selected pilot cases and verifies all 1,024 Qdrant points on each CLI call (~66-67s local wall time per search vs ~0.06-0.10s remote GPU query embedding). This is intentional and safe for the 1,024-passage pilot, but full-corpus indexing (415,693 passages / 7,708 cases) will require persistent lexical indexing and non-exhaustive per-query DB health checks.",
+      "action_required_for_pilot": "none"
+    },
+    {
+      "id": "M3-OBS-02",
+      "severity": "info_documented_limit",
+      "component": "pipeline_v2/configs/m3.json",
+      "code_sha256": "ea18ae1f7201a7578d7a318085a1d5c5be464a4e946ba64afbb9839bfb60de00",
+      "summary": "Fixed batching padding overhead on ungrouped passage order",
+      "details": "Batching 1,024 passages in deterministic manifest passage_id order (batch_size=16) consumed 132,843 real input tokens and 338,528 padded tokens (205,685 padding tokens, ~2.55x padded/input ratio). Length-bucketing before batching could reduce padding compute in full-corpus runs if singleton-vs-batch cosine tolerance remains within 0.001.",
+      "action_required_for_pilot": "none"
+    },
+    {
+      "id": "M3-OBS-03",
+      "severity": "info_documented_limit",
+      "component": "scope_boundary",
+      "code_sha256": "ade771e2d328b974d12421b5fa48b2b90632b10eb8422166f82b9f960d9add63",
+      "summary": "Operational pilot PASS does not certify retrieval quality, legal semantics, or M4 agent delivery",
+      "details": "Labels/gold were never accessed (labels_accessed=false, test_sources_accessed=false). Context opening via m3 open is strictly diagnostic (diagnostic_only=true, M4_delivery_recorded=false). COLIEE Task 1 F1, speaker/holding ownership semantics, and full-corpus readiness remain outside M3 pilot scope.",
+      "action_required_for_pilot": "none"
+    }
+  ],
+  "ag_checker_self_corrections": [
+    {
+      "attempt_file": "pipeline_v2/reviews/m3_ag_review_v1/local_test_attempts.json",
+      "attempts_before_pass": 2,
+      "final_attempt": 3,
+      "explanation": "Attempt 1 failed in AG's own test script because test_02 requested sample size=16 across 18 synthetic risk strata and test_08 accessed opened['parent'] instead of opened['components']. Attempt 2 failed because test_02 called common.write_json without replace=True when overwriting a temp manifest.sha256.json. Attempt 3 passed 9/9. Production code was never modified."
+    }
+  ],
+  "fingerprints_and_hashes": {
+    "m3_implementation_aggregate_sha256": "ade771e2d328b974d12421b5fa48b2b90632b10eb8422166f82b9f960d9add63",
+    "implementation_files": {
+      "pipeline_v2/deployments/modal/engine.py": "1ec94f4dcd666bd3a368bb36b59b62ec524bcc1d6ccd543f70c3aeda11b3e19c",
+      "pipeline_v2/deployments/modal/qwen3_embed.py": "a93350fb45b914e2cf6e64c4b87a053cd1766d0c9293a9be560729a3e1740633",
+      "pipeline_v2/m3.py": "20a338b562a0b918f59efd80be44d3855fd530786c0efa00133cbfb9dadd00f7",
+      "pipeline_v2/retrieval/__init__.py": "500a0e5966957f75abaaa2fec71954162c067d54ee9a50fdc0e3e7a289455225",
+      "pipeline_v2/retrieval/bm25.py": "92ec81469a8574c4724e890daada3983cdd40a22915f31cc48b3e37e85f6cfa5",
+      "pipeline_v2/retrieval/cache.py": "f79f6b510708737472621c62fdd215556eb923846f0fb91452ede2cbb3579759",
+      "pipeline_v2/retrieval/common.py": "ea18ae1f7201a7578d7a318085a1d5c5be464a4e946ba64afbb9839bfb60de00",
+      "pipeline_v2/retrieval/corpus.py": "b02a3680602f186aee56c7f301612a3a35d75f56d921a52fdfcb7baed1155e72",
+      "pipeline_v2/retrieval/pilot.py": "d2c3cebf651b0e81f8240fbaf05d90c33ddc41649a1f1e8a8d5eb64cc9a87bea",
+      "pipeline_v2/retrieval/qdrant.py": "daf48cc546053ada9938051e8262f3a18d97889987a7725db4da39d37cbf6e51",
+      "pipeline_v2/retrieval/runtime.py": "4a2eebd1d88b1f9e3c0ebdaca52cc1064989bdf52664867cadb7e01174d569e1"
+    },
+    "deploy_modal_helper_sha256": "bb42e06aa7302594b088285beb29120bdf035f1a10de602642712b5679a299a0",
+    "embedding_fingerprint": "d945329fa49e2f4b4f83d530df03fb4897babd5345562cbeaebd3b21499649bf",
+    "pilot_manifest_sha256": "2069968b6735e291afc81c7eb615121fc4da1c86dce566f46ebe5bfddadd18db",
+    "accepted_m2_seal_sha256": "0ed42d51023adaf47c1205fa925f18f31b7aacb58b0c8e44c7d23288d123dda6",
+    "navigation_seal_sha256": "43ca58589704e94754be3ed6b343ffa73f806a0c757c752abffa1fdb4942234c",
+    "tokenizer_lock_sha256": "2ce6b78aefd3415e1a06ab1fc5fe3e88b3a565e175227b7ee055054db3382dd8",
+    "tokenizer_fingerprint": "1588b3e70f144e9ced344f840fdd68ab75034ecb8f8bb573a74dcd0bcaa29885",
+    "model": "Qwen/Qwen3-Embedding-4B",
+    "model_revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+    "qdrant_image": "qdrant/qdrant:v1.20.0",
+    "qdrant_image_digest": "qdrant/qdrant@sha256:9bfc89f9914fc14876a88c05270685921a55b8877b254a98bcc1cc2f0a424cd2",
+    "qdrant_server_commit": "222b2e44ab1c3f17e8246396ead6558e45041df7"
+  }
+}

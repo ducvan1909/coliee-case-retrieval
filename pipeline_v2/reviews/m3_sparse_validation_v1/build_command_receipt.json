@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "wall_seconds": 258.6669227,
+  "command": "python -m pipeline_v2.m3_sparse build --output pipeline_v2/artifacts/m3_sparse_20261110_v1",
+  "model_requests": 0
+}

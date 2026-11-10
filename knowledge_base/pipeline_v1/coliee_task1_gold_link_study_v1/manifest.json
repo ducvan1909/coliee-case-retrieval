@@ -1,0 +1,5069 @@
+{
+  "study_id": "coliee_task1_gold_link_study_v1",
+  "created_at_utc": "2026-11-04T14:24:29Z",
+  "execution_time_seconds": 34.242,
+  "source_artifacts": {
+    "previous_study_manifest_path": "knowledge_base/pipeline_v1/coliee_task1_label_rule_study_v1/study_manifest.json",
+    "previous_study_manifest_sha256": "eff660dc0e541681134bb813573d8e8127ab674b3351ef2f4b963ff7d016da7f",
+    "clean_train_labels_path": "data/task1_train_files_2026/clean_task1_train_labels_2026.json",
+    "clean_train_labels_sha256": "4051ea64cc65153237fc7837329b994b12ba2e4ad8bf197eb8c4f166dbd914e3",
+    "cases_dir": "data/task1_train_files_2026/cases",
+    "total_corpus_cases": 7708
+  },
+  "selection_protocol": {
+    "discovery_query_count": 20,
+    "discovery_queries_source": "knowledge_base/pipeline_v1/coliee_task1_label_rule_study_v1/study_manifest.json::discovery_queries",
+    "gold_selection_rule": "All gold candidates listed in clean_task1_train_labels_2026.json for the 20 discovery queries (excluding self if any). Unrestricted by BM25 top-k.",
+    "non_gold_selection_rule": "Top 3 candidates per query by fixed BM25 lexical ranking over all 7,708 cases after excluding the query itself and all gold candidates for that query.",
+    "non_gold_per_query": 3,
+    "bm25_parameters": {
+      "k1": 1.5,
+      "b": 0.75,
+      "tokenizer_regex": "\\b[a-zA-Z]{3,}\\b",
+      "lowercase": true,
+      "stopwords_count": 119,
+      "idf_formula": "math.log((N - df + 0.5) / (df + 0.5) + 1.0)",
+      "query_term_weight": "binary_presence_1.0",
+      "self_exclusion": true,
+      "tie_breaker": "candidate_id_ascending",
+      "corpus_N": 7708,
+      "vocab_size": 91810,
+      "avgdl": 2116.957764
+    },
+    "blind_shuffle_seed": 20261105,
+    "blind_review_queue_path": "knowledge_base/pipeline_v1/coliee_task1_gold_link_study_v1/blind_review_queue.json",
+    "blind_review_queue_sha256": "32f5ea8f9001aef977ede6a53b794289cf0334270cf9f0b92a16a5638a893f7b",
+    "isolation_note": "Subagent reviewers receive pair assignments from blind_review_queue.json without gold/non-gold membership labels. Main orchestrator holds manifest.json for phase orchestration and final metric computation; therefore isolation is subagent-level blind (not double-blind at orchestrator level)."
+  },
+  "summary_counts": {
+    "query_count": 20,
+    "total_gold_pairs": 108,
+    "gold_pairs_in_bm25_top30": 31,
+    "gold_pairs_outside_bm25_top30": 77,
+    "missing_gold_files_count": 0,
+    "total_non_gold_pairs": 60,
+    "total_analyzed_pairs": 168,
+    "unique_case_files_involved": 187
+  },
+  "discovery_queries": [
+    "072410.txt",
+    "060604.txt",
+    "018451.txt",
+    "028684.txt",
+    "033339.txt",
+    "045562.txt",
+    "055901.txt",
+    "001548.txt",
+    "020040.txt",
+    "035114.txt",
+    "000418.txt",
+    "062436.txt",
+    "085192.txt",
+    "050424.txt",
+    "055546.txt",
+    "079849.txt",
+    "095431.txt",
+    "059103.txt",
+    "067620.txt",
+    "098780.txt"
+  ],
+  "queries": {
+    "072410.txt": {
+      "query_id": "072410.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 5,
+      "gold_in_bm25_top30_count": 3,
+      "gold_outside_bm25_top30_count": 2,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "072410.txt__062352.txt",
+          "query_id": "072410.txt",
+          "candidate_id": "062352.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 8,
+          "bm25_in_top30": true,
+          "bm25_score": 1269.846558
+        },
+        {
+          "pair_id": "072410.txt__012856.txt",
+          "query_id": "072410.txt",
+          "candidate_id": "012856.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3383,
+          "bm25_in_top30": false,
+          "bm25_score": 523.324463
+        },
+        {
+          "pair_id": "072410.txt__053305.txt",
+          "query_id": "072410.txt",
+          "candidate_id": "053305.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 2240.216797
+        },
+        {
+          "pair_id": "072410.txt__026449.txt",
+          "query_id": "072410.txt",
+          "candidate_id": "026449.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 799,
+          "bm25_in_top30": false,
+          "bm25_score": 765.958313
+        },
+        {
+          "pair_id": "072410.txt__031711.txt",
+          "query_id": "072410.txt",
+          "candidate_id": "031711.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 2237.915527
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "072410.txt__022346.txt",
+          "query_id": "072410.txt",
+          "candidate_id": "022346.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 1361.291138,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "072410.txt__006766.txt",
+          "query_id": "072410.txt",
+          "candidate_id": "006766.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4,
+          "bm25_in_top30": true,
+          "bm25_score": 1327.471313,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "072410.txt__020300.txt",
+          "query_id": "072410.txt",
+          "candidate_id": "020300.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 5,
+          "bm25_in_top30": true,
+          "bm25_score": 1298.094727,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "060604.txt": {
+      "query_id": "060604.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 1,
+      "gold_in_bm25_top30_count": 0,
+      "gold_outside_bm25_top30_count": 1,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "060604.txt__023135.txt",
+          "query_id": "060604.txt",
+          "candidate_id": "023135.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 6835,
+          "bm25_in_top30": false,
+          "bm25_score": 138.187195
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "060604.txt__004154.txt",
+          "query_id": "060604.txt",
+          "candidate_id": "004154.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 732.400757,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "060604.txt__029178.txt",
+          "query_id": "060604.txt",
+          "candidate_id": "029178.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 719.071289,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "060604.txt__058429.txt",
+          "query_id": "060604.txt",
+          "candidate_id": "058429.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 716.067017,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "018451.txt": {
+      "query_id": "018451.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 9,
+      "gold_in_bm25_top30_count": 3,
+      "gold_outside_bm25_top30_count": 6,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "018451.txt__086565.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "086565.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 61,
+          "bm25_in_top30": false,
+          "bm25_score": 407.698151
+        },
+        {
+          "pair_id": "018451.txt__015803.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "015803.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 244,
+          "bm25_in_top30": false,
+          "bm25_score": 305.687378
+        },
+        {
+          "pair_id": "018451.txt__021565.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "021565.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 18,
+          "bm25_in_top30": true,
+          "bm25_score": 490.300476
+        },
+        {
+          "pair_id": "018451.txt__046052.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "046052.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 73,
+          "bm25_in_top30": false,
+          "bm25_score": 395.036255
+        },
+        {
+          "pair_id": "018451.txt__002078.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "002078.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 124,
+          "bm25_in_top30": false,
+          "bm25_score": 346.47345
+        },
+        {
+          "pair_id": "018451.txt__004508.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "004508.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 97,
+          "bm25_in_top30": false,
+          "bm25_score": 368.264069
+        },
+        {
+          "pair_id": "018451.txt__066938.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "066938.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 13,
+          "bm25_in_top30": true,
+          "bm25_score": 528.761841
+        },
+        {
+          "pair_id": "018451.txt__065518.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "065518.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 100,
+          "bm25_in_top30": false,
+          "bm25_score": 363.531067
+        },
+        {
+          "pair_id": "018451.txt__082418.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "082418.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 822.822205
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "018451.txt__050344.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "050344.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 642.665039,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "018451.txt__081643.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "081643.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 592.775391,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "018451.txt__050167.txt",
+          "query_id": "018451.txt",
+          "candidate_id": "050167.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4,
+          "bm25_in_top30": true,
+          "bm25_score": 572.239502,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "028684.txt": {
+      "query_id": "028684.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 10,
+      "gold_in_bm25_top30_count": 4,
+      "gold_outside_bm25_top30_count": 6,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "028684.txt__045009.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "045009.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 12,
+          "bm25_in_top30": true,
+          "bm25_score": 325.840485
+        },
+        {
+          "pair_id": "028684.txt__072289.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "072289.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 28,
+          "bm25_in_top30": true,
+          "bm25_score": 301.628021
+        },
+        {
+          "pair_id": "028684.txt__053294.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "053294.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1477,
+          "bm25_in_top30": false,
+          "bm25_score": 187.258194
+        },
+        {
+          "pair_id": "028684.txt__033010.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "033010.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 187,
+          "bm25_in_top30": false,
+          "bm25_score": 247.91571
+        },
+        {
+          "pair_id": "028684.txt__005698.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "005698.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 537,
+          "bm25_in_top30": false,
+          "bm25_score": 220.853424
+        },
+        {
+          "pair_id": "028684.txt__076296.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "076296.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 48,
+          "bm25_in_top30": false,
+          "bm25_score": 281.033142
+        },
+        {
+          "pair_id": "028684.txt__052931.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "052931.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 96,
+          "bm25_in_top30": false,
+          "bm25_score": 261.688904
+        },
+        {
+          "pair_id": "028684.txt__060582.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "060582.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 17,
+          "bm25_in_top30": true,
+          "bm25_score": 317.188507
+        },
+        {
+          "pair_id": "028684.txt__023310.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "023310.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 5,
+          "bm25_in_top30": true,
+          "bm25_score": 406.996399
+        },
+        {
+          "pair_id": "028684.txt__033125.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "033125.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 321,
+          "bm25_in_top30": false,
+          "bm25_score": 234.523315
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "028684.txt__022855.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "022855.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 1153.402466,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "028684.txt__024224.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "024224.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 1106.027954,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "028684.txt__095429.txt",
+          "query_id": "028684.txt",
+          "candidate_id": "095429.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 424.333862,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "033339.txt": {
+      "query_id": "033339.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 6,
+      "gold_in_bm25_top30_count": 2,
+      "gold_outside_bm25_top30_count": 4,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "033339.txt__085832.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "085832.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 509,
+          "bm25_in_top30": false,
+          "bm25_score": 338.918213
+        },
+        {
+          "pair_id": "033339.txt__072887.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "072887.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 95,
+          "bm25_in_top30": false,
+          "bm25_score": 413.55249
+        },
+        {
+          "pair_id": "033339.txt__006815.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "006815.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 52,
+          "bm25_in_top30": false,
+          "bm25_score": 444.555969
+        },
+        {
+          "pair_id": "033339.txt__069590.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "069590.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2547,
+          "bm25_in_top30": false,
+          "bm25_score": 250.982147
+        },
+        {
+          "pair_id": "033339.txt__001542.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "001542.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 5,
+          "bm25_in_top30": true,
+          "bm25_score": 603.09613
+        },
+        {
+          "pair_id": "033339.txt__099110.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "099110.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 9,
+          "bm25_in_top30": true,
+          "bm25_score": 540.387512
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "033339.txt__078078.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "078078.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 2202.999512,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "033339.txt__004624.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "004624.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 678.231934,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "033339.txt__095985.txt",
+          "query_id": "033339.txt",
+          "candidate_id": "095985.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 665.3349,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "045562.txt": {
+      "query_id": "045562.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 2,
+      "gold_in_bm25_top30_count": 0,
+      "gold_outside_bm25_top30_count": 2,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "045562.txt__067618.txt",
+          "query_id": "045562.txt",
+          "candidate_id": "067618.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 76,
+          "bm25_in_top30": false,
+          "bm25_score": 469.993683
+        },
+        {
+          "pair_id": "045562.txt__014660.txt",
+          "query_id": "045562.txt",
+          "candidate_id": "014660.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 89,
+          "bm25_in_top30": false,
+          "bm25_score": 463.341248
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "045562.txt__077064.txt",
+          "query_id": "045562.txt",
+          "candidate_id": "077064.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 632.717651,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "045562.txt__060581.txt",
+          "query_id": "045562.txt",
+          "candidate_id": "060581.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 619.153015,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "045562.txt__077389.txt",
+          "query_id": "045562.txt",
+          "candidate_id": "077389.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 594.079834,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "055901.txt": {
+      "query_id": "055901.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 3,
+      "gold_in_bm25_top30_count": 0,
+      "gold_outside_bm25_top30_count": 3,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "055901.txt__044411.txt",
+          "query_id": "055901.txt",
+          "candidate_id": "044411.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 119,
+          "bm25_in_top30": false,
+          "bm25_score": 455.552673
+        },
+        {
+          "pair_id": "055901.txt__028575.txt",
+          "query_id": "055901.txt",
+          "candidate_id": "028575.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 206,
+          "bm25_in_top30": false,
+          "bm25_score": 429.577881
+        },
+        {
+          "pair_id": "055901.txt__024803.txt",
+          "query_id": "055901.txt",
+          "candidate_id": "024803.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 171,
+          "bm25_in_top30": false,
+          "bm25_score": 438.271057
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "055901.txt__050502.txt",
+          "query_id": "055901.txt",
+          "candidate_id": "050502.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 635.894287,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "055901.txt__032986.txt",
+          "query_id": "055901.txt",
+          "candidate_id": "032986.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 625.515198,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "055901.txt__031324.txt",
+          "query_id": "055901.txt",
+          "candidate_id": "031324.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 618.750549,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "001548.txt": {
+      "query_id": "001548.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 6,
+      "gold_in_bm25_top30_count": 0,
+      "gold_outside_bm25_top30_count": 6,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "001548.txt__032519.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "032519.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 659,
+          "bm25_in_top30": false,
+          "bm25_score": 454.066254
+        },
+        {
+          "pair_id": "001548.txt__053182.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "053182.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 683,
+          "bm25_in_top30": false,
+          "bm25_score": 445.949921
+        },
+        {
+          "pair_id": "001548.txt__015537.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "015537.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1610,
+          "bm25_in_top30": false,
+          "bm25_score": 294.617401
+        },
+        {
+          "pair_id": "001548.txt__008723.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "008723.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 805,
+          "bm25_in_top30": false,
+          "bm25_score": 406.94693
+        },
+        {
+          "pair_id": "001548.txt__003305.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "003305.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 751,
+          "bm25_in_top30": false,
+          "bm25_score": 422.363129
+        },
+        {
+          "pair_id": "001548.txt__026984.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "026984.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2381,
+          "bm25_in_top30": false,
+          "bm25_score": 255.331924
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "001548.txt__025305.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "025305.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 779.090515,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "001548.txt__050969.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "050969.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 779.078918,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "001548.txt__028159.txt",
+          "query_id": "001548.txt",
+          "candidate_id": "028159.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 760.6073,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "020040.txt": {
+      "query_id": "020040.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 1,
+      "gold_in_bm25_top30_count": 1,
+      "gold_outside_bm25_top30_count": 0,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "020040.txt__018381.txt",
+          "query_id": "020040.txt",
+          "candidate_id": "018381.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 8,
+          "bm25_in_top30": true,
+          "bm25_score": 621.088867
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "020040.txt__098147.txt",
+          "query_id": "020040.txt",
+          "candidate_id": "098147.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 666.768433,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "020040.txt__002842.txt",
+          "query_id": "020040.txt",
+          "candidate_id": "002842.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 663.596252,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "020040.txt__032077.txt",
+          "query_id": "020040.txt",
+          "candidate_id": "032077.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 652.691528,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "035114.txt": {
+      "query_id": "035114.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 5,
+      "gold_in_bm25_top30_count": 0,
+      "gold_outside_bm25_top30_count": 5,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "035114.txt__000356.txt",
+          "query_id": "035114.txt",
+          "candidate_id": "000356.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 32,
+          "bm25_in_top30": false,
+          "bm25_score": 649.997253
+        },
+        {
+          "pair_id": "035114.txt__020645.txt",
+          "query_id": "035114.txt",
+          "candidate_id": "020645.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 47,
+          "bm25_in_top30": false,
+          "bm25_score": 543.967651
+        },
+        {
+          "pair_id": "035114.txt__055038.txt",
+          "query_id": "035114.txt",
+          "candidate_id": "055038.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 72,
+          "bm25_in_top30": false,
+          "bm25_score": 436.295227
+        },
+        {
+          "pair_id": "035114.txt__096158.txt",
+          "query_id": "035114.txt",
+          "candidate_id": "096158.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 41,
+          "bm25_in_top30": false,
+          "bm25_score": 603.356445
+        },
+        {
+          "pair_id": "035114.txt__028540.txt",
+          "query_id": "035114.txt",
+          "candidate_id": "028540.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 40,
+          "bm25_in_top30": false,
+          "bm25_score": 605.422791
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "035114.txt__021078.txt",
+          "query_id": "035114.txt",
+          "candidate_id": "021078.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 927.506409,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "035114.txt__093174.txt",
+          "query_id": "035114.txt",
+          "candidate_id": "093174.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 915.531677,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "035114.txt__004154.txt",
+          "query_id": "035114.txt",
+          "candidate_id": "004154.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 883.052124,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "000418.txt": {
+      "query_id": "000418.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 11,
+      "gold_in_bm25_top30_count": 1,
+      "gold_outside_bm25_top30_count": 10,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "000418.txt__039109.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "039109.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 96,
+          "bm25_in_top30": false,
+          "bm25_score": 411.376709
+        },
+        {
+          "pair_id": "000418.txt__038483.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "038483.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2364,
+          "bm25_in_top30": false,
+          "bm25_score": 269.017609
+        },
+        {
+          "pair_id": "000418.txt__025649.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "025649.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1297,
+          "bm25_in_top30": false,
+          "bm25_score": 302.602142
+        },
+        {
+          "pair_id": "000418.txt__006944.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "006944.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 11,
+          "bm25_in_top30": true,
+          "bm25_score": 492.872803
+        },
+        {
+          "pair_id": "000418.txt__048645.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "048645.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3927,
+          "bm25_in_top30": false,
+          "bm25_score": 230.511322
+        },
+        {
+          "pair_id": "000418.txt__070677.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "070677.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2187,
+          "bm25_in_top30": false,
+          "bm25_score": 274.691895
+        },
+        {
+          "pair_id": "000418.txt__096512.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "096512.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 79,
+          "bm25_in_top30": false,
+          "bm25_score": 417.178406
+        },
+        {
+          "pair_id": "000418.txt__054431.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "054431.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 495,
+          "bm25_in_top30": false,
+          "bm25_score": 348.433502
+        },
+        {
+          "pair_id": "000418.txt__060904.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "060904.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 855,
+          "bm25_in_top30": false,
+          "bm25_score": 324.073853
+        },
+        {
+          "pair_id": "000418.txt__008976.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "008976.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 5440,
+          "bm25_in_top30": false,
+          "bm25_score": 190.440353
+        },
+        {
+          "pair_id": "000418.txt__091141.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "091141.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1649,
+          "bm25_in_top30": false,
+          "bm25_score": 290.81012
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "000418.txt__012587.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "012587.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 1466.085815,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "000418.txt__018749.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "018749.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 577.715637,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "000418.txt__036981.txt",
+          "query_id": "000418.txt",
+          "candidate_id": "036981.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 521.550354,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "062436.txt": {
+      "query_id": "062436.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 18,
+      "gold_in_bm25_top30_count": 1,
+      "gold_outside_bm25_top30_count": 17,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "062436.txt__040348.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "040348.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4046,
+          "bm25_in_top30": false,
+          "bm25_score": 278.951294
+        },
+        {
+          "pair_id": "062436.txt__004608.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "004608.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 168,
+          "bm25_in_top30": false,
+          "bm25_score": 518.547729
+        },
+        {
+          "pair_id": "062436.txt__005464.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "005464.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 783,
+          "bm25_in_top30": false,
+          "bm25_score": 426.447906
+        },
+        {
+          "pair_id": "062436.txt__093166.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "093166.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 617,
+          "bm25_in_top30": false,
+          "bm25_score": 441.364929
+        },
+        {
+          "pair_id": "062436.txt__058208.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "058208.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 53,
+          "bm25_in_top30": false,
+          "bm25_score": 574.518005
+        },
+        {
+          "pair_id": "062436.txt__048319.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "048319.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 915,
+          "bm25_in_top30": false,
+          "bm25_score": 414.625244
+        },
+        {
+          "pair_id": "062436.txt__060474.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "060474.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 398,
+          "bm25_in_top30": false,
+          "bm25_score": 465.584747
+        },
+        {
+          "pair_id": "062436.txt__088055.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "088055.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4,
+          "bm25_in_top30": true,
+          "bm25_score": 683.338684
+        },
+        {
+          "pair_id": "062436.txt__085026.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "085026.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 935,
+          "bm25_in_top30": false,
+          "bm25_score": 413.567383
+        },
+        {
+          "pair_id": "062436.txt__016458.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "016458.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1793,
+          "bm25_in_top30": false,
+          "bm25_score": 363.234558
+        },
+        {
+          "pair_id": "062436.txt__053331.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "053331.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 174,
+          "bm25_in_top30": false,
+          "bm25_score": 517.513062
+        },
+        {
+          "pair_id": "062436.txt__087186.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "087186.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1675,
+          "bm25_in_top30": false,
+          "bm25_score": 369.22345
+        },
+        {
+          "pair_id": "062436.txt__038682.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "038682.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 158,
+          "bm25_in_top30": false,
+          "bm25_score": 522.237549
+        },
+        {
+          "pair_id": "062436.txt__092894.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "092894.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3431,
+          "bm25_in_top30": false,
+          "bm25_score": 300.939484
+        },
+        {
+          "pair_id": "062436.txt__081928.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "081928.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1383,
+          "bm25_in_top30": false,
+          "bm25_score": 384.713898
+        },
+        {
+          "pair_id": "062436.txt__081228.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "081228.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4427,
+          "bm25_in_top30": false,
+          "bm25_score": 265.468506
+        },
+        {
+          "pair_id": "062436.txt__094500.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "094500.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 492,
+          "bm25_in_top30": false,
+          "bm25_score": 454.520966
+        },
+        {
+          "pair_id": "062436.txt__009539.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "009539.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 6679,
+          "bm25_in_top30": false,
+          "bm25_score": 179.909409
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "062436.txt__098047.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "098047.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 1726.3479,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "062436.txt__028184.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "028184.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 740.959778,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "062436.txt__071670.txt",
+          "query_id": "062436.txt",
+          "candidate_id": "071670.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 687.024048,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "085192.txt": {
+      "query_id": "085192.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 3,
+      "gold_in_bm25_top30_count": 2,
+      "gold_outside_bm25_top30_count": 1,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "085192.txt__047149.txt",
+          "query_id": "085192.txt",
+          "candidate_id": "047149.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 725.047607
+        },
+        {
+          "pair_id": "085192.txt__097447.txt",
+          "query_id": "085192.txt",
+          "candidate_id": "097447.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 837,
+          "bm25_in_top30": false,
+          "bm25_score": 357.026276
+        },
+        {
+          "pair_id": "085192.txt__033358.txt",
+          "query_id": "085192.txt",
+          "candidate_id": "033358.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 27,
+          "bm25_in_top30": true,
+          "bm25_score": 507.712402
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "085192.txt__011379.txt",
+          "query_id": "085192.txt",
+          "candidate_id": "011379.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 644.084229,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "085192.txt__055641.txt",
+          "query_id": "085192.txt",
+          "candidate_id": "055641.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 584.832764,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "085192.txt__056421.txt",
+          "query_id": "085192.txt",
+          "candidate_id": "056421.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4,
+          "bm25_in_top30": true,
+          "bm25_score": 556.870422,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "050424.txt": {
+      "query_id": "050424.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 2,
+      "gold_in_bm25_top30_count": 1,
+      "gold_outside_bm25_top30_count": 1,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "050424.txt__078624.txt",
+          "query_id": "050424.txt",
+          "candidate_id": "078624.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 16,
+          "bm25_in_top30": true,
+          "bm25_score": 943.972412
+        },
+        {
+          "pair_id": "050424.txt__026367.txt",
+          "query_id": "050424.txt",
+          "candidate_id": "026367.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 511,
+          "bm25_in_top30": false,
+          "bm25_score": 652.089783
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "050424.txt__045064.txt",
+          "query_id": "050424.txt",
+          "candidate_id": "045064.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 1353.20459,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "050424.txt__057368.txt",
+          "query_id": "050424.txt",
+          "candidate_id": "057368.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 1226.495483,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "050424.txt__004633.txt",
+          "query_id": "050424.txt",
+          "candidate_id": "004633.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 1149.437256,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "055546.txt": {
+      "query_id": "055546.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 1,
+      "gold_in_bm25_top30_count": 1,
+      "gold_outside_bm25_top30_count": 0,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "055546.txt__021610.txt",
+          "query_id": "055546.txt",
+          "candidate_id": "021610.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 6,
+          "bm25_in_top30": true,
+          "bm25_score": 611.262451
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "055546.txt__004691.txt",
+          "query_id": "055546.txt",
+          "candidate_id": "004691.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 1737.527832,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "055546.txt__035275.txt",
+          "query_id": "055546.txt",
+          "candidate_id": "035275.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 1688.557983,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "055546.txt__041666.txt",
+          "query_id": "055546.txt",
+          "candidate_id": "041666.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 635.94043,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "079849.txt": {
+      "query_id": "079849.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 2,
+      "gold_in_bm25_top30_count": 0,
+      "gold_outside_bm25_top30_count": 2,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "079849.txt__050912.txt",
+          "query_id": "079849.txt",
+          "candidate_id": "050912.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1618,
+          "bm25_in_top30": false,
+          "bm25_score": 283.280701
+        },
+        {
+          "pair_id": "079849.txt__001281.txt",
+          "query_id": "079849.txt",
+          "candidate_id": "001281.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3924,
+          "bm25_in_top30": false,
+          "bm25_score": 219.023102
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "079849.txt__014234.txt",
+          "query_id": "079849.txt",
+          "candidate_id": "014234.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 1746.877075,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "079849.txt__007722.txt",
+          "query_id": "079849.txt",
+          "candidate_id": "007722.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 738.554626,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "079849.txt__075551.txt",
+          "query_id": "079849.txt",
+          "candidate_id": "075551.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 581.063599,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "095431.txt": {
+      "query_id": "095431.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 13,
+      "gold_in_bm25_top30_count": 4,
+      "gold_outside_bm25_top30_count": 9,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "095431.txt__065661.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "065661.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4997,
+          "bm25_in_top30": false,
+          "bm25_score": 137.74588
+        },
+        {
+          "pair_id": "095431.txt__077140.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "077140.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2964,
+          "bm25_in_top30": false,
+          "bm25_score": 173.021896
+        },
+        {
+          "pair_id": "095431.txt__067644.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "067644.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 71,
+          "bm25_in_top30": false,
+          "bm25_score": 332.02417
+        },
+        {
+          "pair_id": "095431.txt__035585.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "035585.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 119,
+          "bm25_in_top30": false,
+          "bm25_score": 291.575714
+        },
+        {
+          "pair_id": "095431.txt__071209.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "071209.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 65,
+          "bm25_in_top30": false,
+          "bm25_score": 343.38208
+        },
+        {
+          "pair_id": "095431.txt__061295.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "061295.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 14,
+          "bm25_in_top30": true,
+          "bm25_score": 406.307343
+        },
+        {
+          "pair_id": "095431.txt__068174.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "068174.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 57,
+          "bm25_in_top30": false,
+          "bm25_score": 349.570007
+        },
+        {
+          "pair_id": "095431.txt__093357.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "093357.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 12,
+          "bm25_in_top30": true,
+          "bm25_score": 412.152802
+        },
+        {
+          "pair_id": "095431.txt__090567.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "090567.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 201,
+          "bm25_in_top30": false,
+          "bm25_score": 255.347336
+        },
+        {
+          "pair_id": "095431.txt__035205.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "035205.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 166,
+          "bm25_in_top30": false,
+          "bm25_score": 262.835968
+        },
+        {
+          "pair_id": "095431.txt__053158.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "053158.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 15,
+          "bm25_in_top30": true,
+          "bm25_score": 405.030212
+        },
+        {
+          "pair_id": "095431.txt__079981.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "079981.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 17,
+          "bm25_in_top30": true,
+          "bm25_score": 400.09549
+        },
+        {
+          "pair_id": "095431.txt__052370.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "052370.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 58,
+          "bm25_in_top30": false,
+          "bm25_score": 349.490936
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "095431.txt__032566.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "032566.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 1086.811157,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "095431.txt__096053.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "096053.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 937.216187,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "095431.txt__027823.txt",
+          "query_id": "095431.txt",
+          "candidate_id": "027823.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 476.02417,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "059103.txt": {
+      "query_id": "059103.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 3,
+      "gold_in_bm25_top30_count": 3,
+      "gold_outside_bm25_top30_count": 0,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "059103.txt__074686.txt",
+          "query_id": "059103.txt",
+          "candidate_id": "074686.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 421.724121
+        },
+        {
+          "pair_id": "059103.txt__028968.txt",
+          "query_id": "059103.txt",
+          "candidate_id": "028968.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 7,
+          "bm25_in_top30": true,
+          "bm25_score": 393.406708
+        },
+        {
+          "pair_id": "059103.txt__017268.txt",
+          "query_id": "059103.txt",
+          "candidate_id": "017268.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 429.460999
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "059103.txt__038059.txt",
+          "query_id": "059103.txt",
+          "candidate_id": "038059.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 453.633606,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "059103.txt__046310.txt",
+          "query_id": "059103.txt",
+          "candidate_id": "046310.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4,
+          "bm25_in_top30": true,
+          "bm25_score": 412.360046,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "059103.txt__048772.txt",
+          "query_id": "059103.txt",
+          "candidate_id": "048772.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 5,
+          "bm25_in_top30": true,
+          "bm25_score": 397.88739,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "067620.txt": {
+      "query_id": "067620.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 5,
+      "gold_in_bm25_top30_count": 3,
+      "gold_outside_bm25_top30_count": 2,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "067620.txt__023347.txt",
+          "query_id": "067620.txt",
+          "candidate_id": "023347.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 799,
+          "bm25_in_top30": false,
+          "bm25_score": 305.512207
+        },
+        {
+          "pair_id": "067620.txt__079174.txt",
+          "query_id": "067620.txt",
+          "candidate_id": "079174.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 11,
+          "bm25_in_top30": true,
+          "bm25_score": 562.082825
+        },
+        {
+          "pair_id": "067620.txt__017265.txt",
+          "query_id": "067620.txt",
+          "candidate_id": "017265.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1884,
+          "bm25_in_top30": false,
+          "bm25_score": 183.64209
+        },
+        {
+          "pair_id": "067620.txt__059901.txt",
+          "query_id": "067620.txt",
+          "candidate_id": "059901.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 6,
+          "bm25_in_top30": true,
+          "bm25_score": 586.393982
+        },
+        {
+          "pair_id": "067620.txt__067205.txt",
+          "query_id": "067620.txt",
+          "candidate_id": "067205.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 614.730103
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "067620.txt__008522.txt",
+          "query_id": "067620.txt",
+          "candidate_id": "008522.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 635.016113,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "067620.txt__065999.txt",
+          "query_id": "067620.txt",
+          "candidate_id": "065999.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 602.271606,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "067620.txt__091680.txt",
+          "query_id": "067620.txt",
+          "candidate_id": "091680.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4,
+          "bm25_in_top30": true,
+          "bm25_score": 595.559509,
+          "non_gold_selection_order": 3
+        }
+      ]
+    },
+    "098780.txt": {
+      "query_id": "098780.txt",
+      "query_exists_in_corpus": true,
+      "gold_count": 2,
+      "gold_in_bm25_top30_count": 2,
+      "gold_outside_bm25_top30_count": 0,
+      "non_gold_count": 3,
+      "gold_candidates": [
+        {
+          "pair_id": "098780.txt__041848.txt",
+          "query_id": "098780.txt",
+          "candidate_id": "041848.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 11,
+          "bm25_in_top30": true,
+          "bm25_score": 515.702332
+        },
+        {
+          "pair_id": "098780.txt__086040.txt",
+          "query_id": "098780.txt",
+          "candidate_id": "086040.txt",
+          "cohort": "gold",
+          "is_gold": true,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 4,
+          "bm25_in_top30": true,
+          "bm25_score": 587.792053
+        }
+      ],
+      "non_gold_candidates": [
+        {
+          "pair_id": "098780.txt__047327.txt",
+          "query_id": "098780.txt",
+          "candidate_id": "047327.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 1,
+          "bm25_in_top30": true,
+          "bm25_score": 671.172302,
+          "non_gold_selection_order": 1
+        },
+        {
+          "pair_id": "098780.txt__048566.txt",
+          "query_id": "098780.txt",
+          "candidate_id": "048566.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 2,
+          "bm25_in_top30": true,
+          "bm25_score": 629.282532,
+          "non_gold_selection_order": 2
+        },
+        {
+          "pair_id": "098780.txt__007685.txt",
+          "query_id": "098780.txt",
+          "candidate_id": "007685.txt",
+          "cohort": "non_gold",
+          "is_gold": false,
+          "exists_in_corpus": true,
+          "bm25_full_rank": 3,
+          "bm25_in_top30": true,
+          "bm25_score": 591.266174,
+          "non_gold_selection_order": 3
+        }
+      ]
+    }
+  },
+  "gold_pairs": [
+    {
+      "pair_id": "072410.txt__062352.txt",
+      "query_id": "072410.txt",
+      "candidate_id": "062352.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 8,
+      "bm25_in_top30": true,
+      "bm25_score": 1269.846558
+    },
+    {
+      "pair_id": "072410.txt__012856.txt",
+      "query_id": "072410.txt",
+      "candidate_id": "012856.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3383,
+      "bm25_in_top30": false,
+      "bm25_score": 523.324463
+    },
+    {
+      "pair_id": "072410.txt__053305.txt",
+      "query_id": "072410.txt",
+      "candidate_id": "053305.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 2240.216797
+    },
+    {
+      "pair_id": "072410.txt__026449.txt",
+      "query_id": "072410.txt",
+      "candidate_id": "026449.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 799,
+      "bm25_in_top30": false,
+      "bm25_score": 765.958313
+    },
+    {
+      "pair_id": "072410.txt__031711.txt",
+      "query_id": "072410.txt",
+      "candidate_id": "031711.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 2237.915527
+    },
+    {
+      "pair_id": "060604.txt__023135.txt",
+      "query_id": "060604.txt",
+      "candidate_id": "023135.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 6835,
+      "bm25_in_top30": false,
+      "bm25_score": 138.187195
+    },
+    {
+      "pair_id": "018451.txt__086565.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "086565.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 61,
+      "bm25_in_top30": false,
+      "bm25_score": 407.698151
+    },
+    {
+      "pair_id": "018451.txt__015803.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "015803.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 244,
+      "bm25_in_top30": false,
+      "bm25_score": 305.687378
+    },
+    {
+      "pair_id": "018451.txt__021565.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "021565.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 18,
+      "bm25_in_top30": true,
+      "bm25_score": 490.300476
+    },
+    {
+      "pair_id": "018451.txt__046052.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "046052.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 73,
+      "bm25_in_top30": false,
+      "bm25_score": 395.036255
+    },
+    {
+      "pair_id": "018451.txt__002078.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "002078.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 124,
+      "bm25_in_top30": false,
+      "bm25_score": 346.47345
+    },
+    {
+      "pair_id": "018451.txt__004508.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "004508.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 97,
+      "bm25_in_top30": false,
+      "bm25_score": 368.264069
+    },
+    {
+      "pair_id": "018451.txt__066938.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "066938.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 13,
+      "bm25_in_top30": true,
+      "bm25_score": 528.761841
+    },
+    {
+      "pair_id": "018451.txt__065518.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "065518.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 100,
+      "bm25_in_top30": false,
+      "bm25_score": 363.531067
+    },
+    {
+      "pair_id": "018451.txt__082418.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "082418.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 822.822205
+    },
+    {
+      "pair_id": "028684.txt__045009.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "045009.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 12,
+      "bm25_in_top30": true,
+      "bm25_score": 325.840485
+    },
+    {
+      "pair_id": "028684.txt__072289.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "072289.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 28,
+      "bm25_in_top30": true,
+      "bm25_score": 301.628021
+    },
+    {
+      "pair_id": "028684.txt__053294.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "053294.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1477,
+      "bm25_in_top30": false,
+      "bm25_score": 187.258194
+    },
+    {
+      "pair_id": "028684.txt__033010.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "033010.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 187,
+      "bm25_in_top30": false,
+      "bm25_score": 247.91571
+    },
+    {
+      "pair_id": "028684.txt__005698.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "005698.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 537,
+      "bm25_in_top30": false,
+      "bm25_score": 220.853424
+    },
+    {
+      "pair_id": "028684.txt__076296.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "076296.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 48,
+      "bm25_in_top30": false,
+      "bm25_score": 281.033142
+    },
+    {
+      "pair_id": "028684.txt__052931.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "052931.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 96,
+      "bm25_in_top30": false,
+      "bm25_score": 261.688904
+    },
+    {
+      "pair_id": "028684.txt__060582.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "060582.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 17,
+      "bm25_in_top30": true,
+      "bm25_score": 317.188507
+    },
+    {
+      "pair_id": "028684.txt__023310.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "023310.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 5,
+      "bm25_in_top30": true,
+      "bm25_score": 406.996399
+    },
+    {
+      "pair_id": "028684.txt__033125.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "033125.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 321,
+      "bm25_in_top30": false,
+      "bm25_score": 234.523315
+    },
+    {
+      "pair_id": "033339.txt__085832.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "085832.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 509,
+      "bm25_in_top30": false,
+      "bm25_score": 338.918213
+    },
+    {
+      "pair_id": "033339.txt__072887.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "072887.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 95,
+      "bm25_in_top30": false,
+      "bm25_score": 413.55249
+    },
+    {
+      "pair_id": "033339.txt__006815.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "006815.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 52,
+      "bm25_in_top30": false,
+      "bm25_score": 444.555969
+    },
+    {
+      "pair_id": "033339.txt__069590.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "069590.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2547,
+      "bm25_in_top30": false,
+      "bm25_score": 250.982147
+    },
+    {
+      "pair_id": "033339.txt__001542.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "001542.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 5,
+      "bm25_in_top30": true,
+      "bm25_score": 603.09613
+    },
+    {
+      "pair_id": "033339.txt__099110.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "099110.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 9,
+      "bm25_in_top30": true,
+      "bm25_score": 540.387512
+    },
+    {
+      "pair_id": "045562.txt__067618.txt",
+      "query_id": "045562.txt",
+      "candidate_id": "067618.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 76,
+      "bm25_in_top30": false,
+      "bm25_score": 469.993683
+    },
+    {
+      "pair_id": "045562.txt__014660.txt",
+      "query_id": "045562.txt",
+      "candidate_id": "014660.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 89,
+      "bm25_in_top30": false,
+      "bm25_score": 463.341248
+    },
+    {
+      "pair_id": "055901.txt__044411.txt",
+      "query_id": "055901.txt",
+      "candidate_id": "044411.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 119,
+      "bm25_in_top30": false,
+      "bm25_score": 455.552673
+    },
+    {
+      "pair_id": "055901.txt__028575.txt",
+      "query_id": "055901.txt",
+      "candidate_id": "028575.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 206,
+      "bm25_in_top30": false,
+      "bm25_score": 429.577881
+    },
+    {
+      "pair_id": "055901.txt__024803.txt",
+      "query_id": "055901.txt",
+      "candidate_id": "024803.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 171,
+      "bm25_in_top30": false,
+      "bm25_score": 438.271057
+    },
+    {
+      "pair_id": "001548.txt__032519.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "032519.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 659,
+      "bm25_in_top30": false,
+      "bm25_score": 454.066254
+    },
+    {
+      "pair_id": "001548.txt__053182.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "053182.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 683,
+      "bm25_in_top30": false,
+      "bm25_score": 445.949921
+    },
+    {
+      "pair_id": "001548.txt__015537.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "015537.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1610,
+      "bm25_in_top30": false,
+      "bm25_score": 294.617401
+    },
+    {
+      "pair_id": "001548.txt__008723.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "008723.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 805,
+      "bm25_in_top30": false,
+      "bm25_score": 406.94693
+    },
+    {
+      "pair_id": "001548.txt__003305.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "003305.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 751,
+      "bm25_in_top30": false,
+      "bm25_score": 422.363129
+    },
+    {
+      "pair_id": "001548.txt__026984.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "026984.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2381,
+      "bm25_in_top30": false,
+      "bm25_score": 255.331924
+    },
+    {
+      "pair_id": "020040.txt__018381.txt",
+      "query_id": "020040.txt",
+      "candidate_id": "018381.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 8,
+      "bm25_in_top30": true,
+      "bm25_score": 621.088867
+    },
+    {
+      "pair_id": "035114.txt__000356.txt",
+      "query_id": "035114.txt",
+      "candidate_id": "000356.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 32,
+      "bm25_in_top30": false,
+      "bm25_score": 649.997253
+    },
+    {
+      "pair_id": "035114.txt__020645.txt",
+      "query_id": "035114.txt",
+      "candidate_id": "020645.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 47,
+      "bm25_in_top30": false,
+      "bm25_score": 543.967651
+    },
+    {
+      "pair_id": "035114.txt__055038.txt",
+      "query_id": "035114.txt",
+      "candidate_id": "055038.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 72,
+      "bm25_in_top30": false,
+      "bm25_score": 436.295227
+    },
+    {
+      "pair_id": "035114.txt__096158.txt",
+      "query_id": "035114.txt",
+      "candidate_id": "096158.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 41,
+      "bm25_in_top30": false,
+      "bm25_score": 603.356445
+    },
+    {
+      "pair_id": "035114.txt__028540.txt",
+      "query_id": "035114.txt",
+      "candidate_id": "028540.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 40,
+      "bm25_in_top30": false,
+      "bm25_score": 605.422791
+    },
+    {
+      "pair_id": "000418.txt__039109.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "039109.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 96,
+      "bm25_in_top30": false,
+      "bm25_score": 411.376709
+    },
+    {
+      "pair_id": "000418.txt__038483.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "038483.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2364,
+      "bm25_in_top30": false,
+      "bm25_score": 269.017609
+    },
+    {
+      "pair_id": "000418.txt__025649.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "025649.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1297,
+      "bm25_in_top30": false,
+      "bm25_score": 302.602142
+    },
+    {
+      "pair_id": "000418.txt__006944.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "006944.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 11,
+      "bm25_in_top30": true,
+      "bm25_score": 492.872803
+    },
+    {
+      "pair_id": "000418.txt__048645.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "048645.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3927,
+      "bm25_in_top30": false,
+      "bm25_score": 230.511322
+    },
+    {
+      "pair_id": "000418.txt__070677.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "070677.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2187,
+      "bm25_in_top30": false,
+      "bm25_score": 274.691895
+    },
+    {
+      "pair_id": "000418.txt__096512.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "096512.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 79,
+      "bm25_in_top30": false,
+      "bm25_score": 417.178406
+    },
+    {
+      "pair_id": "000418.txt__054431.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "054431.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 495,
+      "bm25_in_top30": false,
+      "bm25_score": 348.433502
+    },
+    {
+      "pair_id": "000418.txt__060904.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "060904.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 855,
+      "bm25_in_top30": false,
+      "bm25_score": 324.073853
+    },
+    {
+      "pair_id": "000418.txt__008976.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "008976.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 5440,
+      "bm25_in_top30": false,
+      "bm25_score": 190.440353
+    },
+    {
+      "pair_id": "000418.txt__091141.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "091141.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1649,
+      "bm25_in_top30": false,
+      "bm25_score": 290.81012
+    },
+    {
+      "pair_id": "062436.txt__040348.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "040348.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4046,
+      "bm25_in_top30": false,
+      "bm25_score": 278.951294
+    },
+    {
+      "pair_id": "062436.txt__004608.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "004608.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 168,
+      "bm25_in_top30": false,
+      "bm25_score": 518.547729
+    },
+    {
+      "pair_id": "062436.txt__005464.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "005464.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 783,
+      "bm25_in_top30": false,
+      "bm25_score": 426.447906
+    },
+    {
+      "pair_id": "062436.txt__093166.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "093166.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 617,
+      "bm25_in_top30": false,
+      "bm25_score": 441.364929
+    },
+    {
+      "pair_id": "062436.txt__058208.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "058208.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 53,
+      "bm25_in_top30": false,
+      "bm25_score": 574.518005
+    },
+    {
+      "pair_id": "062436.txt__048319.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "048319.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 915,
+      "bm25_in_top30": false,
+      "bm25_score": 414.625244
+    },
+    {
+      "pair_id": "062436.txt__060474.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "060474.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 398,
+      "bm25_in_top30": false,
+      "bm25_score": 465.584747
+    },
+    {
+      "pair_id": "062436.txt__088055.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "088055.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4,
+      "bm25_in_top30": true,
+      "bm25_score": 683.338684
+    },
+    {
+      "pair_id": "062436.txt__085026.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "085026.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 935,
+      "bm25_in_top30": false,
+      "bm25_score": 413.567383
+    },
+    {
+      "pair_id": "062436.txt__016458.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "016458.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1793,
+      "bm25_in_top30": false,
+      "bm25_score": 363.234558
+    },
+    {
+      "pair_id": "062436.txt__053331.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "053331.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 174,
+      "bm25_in_top30": false,
+      "bm25_score": 517.513062
+    },
+    {
+      "pair_id": "062436.txt__087186.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "087186.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1675,
+      "bm25_in_top30": false,
+      "bm25_score": 369.22345
+    },
+    {
+      "pair_id": "062436.txt__038682.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "038682.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 158,
+      "bm25_in_top30": false,
+      "bm25_score": 522.237549
+    },
+    {
+      "pair_id": "062436.txt__092894.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "092894.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3431,
+      "bm25_in_top30": false,
+      "bm25_score": 300.939484
+    },
+    {
+      "pair_id": "062436.txt__081928.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "081928.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1383,
+      "bm25_in_top30": false,
+      "bm25_score": 384.713898
+    },
+    {
+      "pair_id": "062436.txt__081228.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "081228.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4427,
+      "bm25_in_top30": false,
+      "bm25_score": 265.468506
+    },
+    {
+      "pair_id": "062436.txt__094500.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "094500.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 492,
+      "bm25_in_top30": false,
+      "bm25_score": 454.520966
+    },
+    {
+      "pair_id": "062436.txt__009539.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "009539.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 6679,
+      "bm25_in_top30": false,
+      "bm25_score": 179.909409
+    },
+    {
+      "pair_id": "085192.txt__047149.txt",
+      "query_id": "085192.txt",
+      "candidate_id": "047149.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 725.047607
+    },
+    {
+      "pair_id": "085192.txt__097447.txt",
+      "query_id": "085192.txt",
+      "candidate_id": "097447.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 837,
+      "bm25_in_top30": false,
+      "bm25_score": 357.026276
+    },
+    {
+      "pair_id": "085192.txt__033358.txt",
+      "query_id": "085192.txt",
+      "candidate_id": "033358.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 27,
+      "bm25_in_top30": true,
+      "bm25_score": 507.712402
+    },
+    {
+      "pair_id": "050424.txt__078624.txt",
+      "query_id": "050424.txt",
+      "candidate_id": "078624.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 16,
+      "bm25_in_top30": true,
+      "bm25_score": 943.972412
+    },
+    {
+      "pair_id": "050424.txt__026367.txt",
+      "query_id": "050424.txt",
+      "candidate_id": "026367.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 511,
+      "bm25_in_top30": false,
+      "bm25_score": 652.089783
+    },
+    {
+      "pair_id": "055546.txt__021610.txt",
+      "query_id": "055546.txt",
+      "candidate_id": "021610.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 6,
+      "bm25_in_top30": true,
+      "bm25_score": 611.262451
+    },
+    {
+      "pair_id": "079849.txt__050912.txt",
+      "query_id": "079849.txt",
+      "candidate_id": "050912.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1618,
+      "bm25_in_top30": false,
+      "bm25_score": 283.280701
+    },
+    {
+      "pair_id": "079849.txt__001281.txt",
+      "query_id": "079849.txt",
+      "candidate_id": "001281.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3924,
+      "bm25_in_top30": false,
+      "bm25_score": 219.023102
+    },
+    {
+      "pair_id": "095431.txt__065661.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "065661.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4997,
+      "bm25_in_top30": false,
+      "bm25_score": 137.74588
+    },
+    {
+      "pair_id": "095431.txt__077140.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "077140.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2964,
+      "bm25_in_top30": false,
+      "bm25_score": 173.021896
+    },
+    {
+      "pair_id": "095431.txt__067644.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "067644.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 71,
+      "bm25_in_top30": false,
+      "bm25_score": 332.02417
+    },
+    {
+      "pair_id": "095431.txt__035585.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "035585.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 119,
+      "bm25_in_top30": false,
+      "bm25_score": 291.575714
+    },
+    {
+      "pair_id": "095431.txt__071209.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "071209.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 65,
+      "bm25_in_top30": false,
+      "bm25_score": 343.38208
+    },
+    {
+      "pair_id": "095431.txt__061295.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "061295.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 14,
+      "bm25_in_top30": true,
+      "bm25_score": 406.307343
+    },
+    {
+      "pair_id": "095431.txt__068174.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "068174.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 57,
+      "bm25_in_top30": false,
+      "bm25_score": 349.570007
+    },
+    {
+      "pair_id": "095431.txt__093357.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "093357.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 12,
+      "bm25_in_top30": true,
+      "bm25_score": 412.152802
+    },
+    {
+      "pair_id": "095431.txt__090567.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "090567.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 201,
+      "bm25_in_top30": false,
+      "bm25_score": 255.347336
+    },
+    {
+      "pair_id": "095431.txt__035205.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "035205.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 166,
+      "bm25_in_top30": false,
+      "bm25_score": 262.835968
+    },
+    {
+      "pair_id": "095431.txt__053158.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "053158.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 15,
+      "bm25_in_top30": true,
+      "bm25_score": 405.030212
+    },
+    {
+      "pair_id": "095431.txt__079981.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "079981.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 17,
+      "bm25_in_top30": true,
+      "bm25_score": 400.09549
+    },
+    {
+      "pair_id": "095431.txt__052370.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "052370.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 58,
+      "bm25_in_top30": false,
+      "bm25_score": 349.490936
+    },
+    {
+      "pair_id": "059103.txt__074686.txt",
+      "query_id": "059103.txt",
+      "candidate_id": "074686.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 421.724121
+    },
+    {
+      "pair_id": "059103.txt__028968.txt",
+      "query_id": "059103.txt",
+      "candidate_id": "028968.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 7,
+      "bm25_in_top30": true,
+      "bm25_score": 393.406708
+    },
+    {
+      "pair_id": "059103.txt__017268.txt",
+      "query_id": "059103.txt",
+      "candidate_id": "017268.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 429.460999
+    },
+    {
+      "pair_id": "067620.txt__023347.txt",
+      "query_id": "067620.txt",
+      "candidate_id": "023347.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 799,
+      "bm25_in_top30": false,
+      "bm25_score": 305.512207
+    },
+    {
+      "pair_id": "067620.txt__079174.txt",
+      "query_id": "067620.txt",
+      "candidate_id": "079174.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 11,
+      "bm25_in_top30": true,
+      "bm25_score": 562.082825
+    },
+    {
+      "pair_id": "067620.txt__017265.txt",
+      "query_id": "067620.txt",
+      "candidate_id": "017265.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1884,
+      "bm25_in_top30": false,
+      "bm25_score": 183.64209
+    },
+    {
+      "pair_id": "067620.txt__059901.txt",
+      "query_id": "067620.txt",
+      "candidate_id": "059901.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 6,
+      "bm25_in_top30": true,
+      "bm25_score": 586.393982
+    },
+    {
+      "pair_id": "067620.txt__067205.txt",
+      "query_id": "067620.txt",
+      "candidate_id": "067205.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 614.730103
+    },
+    {
+      "pair_id": "098780.txt__041848.txt",
+      "query_id": "098780.txt",
+      "candidate_id": "041848.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 11,
+      "bm25_in_top30": true,
+      "bm25_score": 515.702332
+    },
+    {
+      "pair_id": "098780.txt__086040.txt",
+      "query_id": "098780.txt",
+      "candidate_id": "086040.txt",
+      "cohort": "gold",
+      "is_gold": true,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4,
+      "bm25_in_top30": true,
+      "bm25_score": 587.792053
+    }
+  ],
+  "non_gold_pairs": [
+    {
+      "pair_id": "072410.txt__022346.txt",
+      "query_id": "072410.txt",
+      "candidate_id": "022346.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 1361.291138,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "072410.txt__006766.txt",
+      "query_id": "072410.txt",
+      "candidate_id": "006766.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4,
+      "bm25_in_top30": true,
+      "bm25_score": 1327.471313,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "072410.txt__020300.txt",
+      "query_id": "072410.txt",
+      "candidate_id": "020300.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 5,
+      "bm25_in_top30": true,
+      "bm25_score": 1298.094727,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "060604.txt__004154.txt",
+      "query_id": "060604.txt",
+      "candidate_id": "004154.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 732.400757,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "060604.txt__029178.txt",
+      "query_id": "060604.txt",
+      "candidate_id": "029178.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 719.071289,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "060604.txt__058429.txt",
+      "query_id": "060604.txt",
+      "candidate_id": "058429.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 716.067017,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "018451.txt__050344.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "050344.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 642.665039,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "018451.txt__081643.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "081643.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 592.775391,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "018451.txt__050167.txt",
+      "query_id": "018451.txt",
+      "candidate_id": "050167.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4,
+      "bm25_in_top30": true,
+      "bm25_score": 572.239502,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "028684.txt__022855.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "022855.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 1153.402466,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "028684.txt__024224.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "024224.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 1106.027954,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "028684.txt__095429.txt",
+      "query_id": "028684.txt",
+      "candidate_id": "095429.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 424.333862,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "033339.txt__078078.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "078078.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 2202.999512,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "033339.txt__004624.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "004624.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 678.231934,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "033339.txt__095985.txt",
+      "query_id": "033339.txt",
+      "candidate_id": "095985.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 665.3349,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "045562.txt__077064.txt",
+      "query_id": "045562.txt",
+      "candidate_id": "077064.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 632.717651,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "045562.txt__060581.txt",
+      "query_id": "045562.txt",
+      "candidate_id": "060581.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 619.153015,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "045562.txt__077389.txt",
+      "query_id": "045562.txt",
+      "candidate_id": "077389.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 594.079834,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "055901.txt__050502.txt",
+      "query_id": "055901.txt",
+      "candidate_id": "050502.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 635.894287,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "055901.txt__032986.txt",
+      "query_id": "055901.txt",
+      "candidate_id": "032986.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 625.515198,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "055901.txt__031324.txt",
+      "query_id": "055901.txt",
+      "candidate_id": "031324.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 618.750549,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "001548.txt__025305.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "025305.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 779.090515,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "001548.txt__050969.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "050969.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 779.078918,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "001548.txt__028159.txt",
+      "query_id": "001548.txt",
+      "candidate_id": "028159.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 760.6073,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "020040.txt__098147.txt",
+      "query_id": "020040.txt",
+      "candidate_id": "098147.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 666.768433,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "020040.txt__002842.txt",
+      "query_id": "020040.txt",
+      "candidate_id": "002842.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 663.596252,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "020040.txt__032077.txt",
+      "query_id": "020040.txt",
+      "candidate_id": "032077.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 652.691528,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "035114.txt__021078.txt",
+      "query_id": "035114.txt",
+      "candidate_id": "021078.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 927.506409,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "035114.txt__093174.txt",
+      "query_id": "035114.txt",
+      "candidate_id": "093174.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 915.531677,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "035114.txt__004154.txt",
+      "query_id": "035114.txt",
+      "candidate_id": "004154.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 883.052124,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "000418.txt__012587.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "012587.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 1466.085815,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "000418.txt__018749.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "018749.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 577.715637,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "000418.txt__036981.txt",
+      "query_id": "000418.txt",
+      "candidate_id": "036981.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 521.550354,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "062436.txt__098047.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "098047.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 1726.3479,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "062436.txt__028184.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "028184.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 740.959778,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "062436.txt__071670.txt",
+      "query_id": "062436.txt",
+      "candidate_id": "071670.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 687.024048,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "085192.txt__011379.txt",
+      "query_id": "085192.txt",
+      "candidate_id": "011379.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 644.084229,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "085192.txt__055641.txt",
+      "query_id": "085192.txt",
+      "candidate_id": "055641.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 584.832764,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "085192.txt__056421.txt",
+      "query_id": "085192.txt",
+      "candidate_id": "056421.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4,
+      "bm25_in_top30": true,
+      "bm25_score": 556.870422,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "050424.txt__045064.txt",
+      "query_id": "050424.txt",
+      "candidate_id": "045064.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 1353.20459,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "050424.txt__057368.txt",
+      "query_id": "050424.txt",
+      "candidate_id": "057368.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 1226.495483,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "050424.txt__004633.txt",
+      "query_id": "050424.txt",
+      "candidate_id": "004633.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 1149.437256,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "055546.txt__004691.txt",
+      "query_id": "055546.txt",
+      "candidate_id": "004691.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 1737.527832,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "055546.txt__035275.txt",
+      "query_id": "055546.txt",
+      "candidate_id": "035275.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 1688.557983,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "055546.txt__041666.txt",
+      "query_id": "055546.txt",
+      "candidate_id": "041666.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 635.94043,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "079849.txt__014234.txt",
+      "query_id": "079849.txt",
+      "candidate_id": "014234.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 1746.877075,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "079849.txt__007722.txt",
+      "query_id": "079849.txt",
+      "candidate_id": "007722.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 738.554626,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "079849.txt__075551.txt",
+      "query_id": "079849.txt",
+      "candidate_id": "075551.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 581.063599,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "095431.txt__032566.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "032566.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 1086.811157,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "095431.txt__096053.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "096053.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 937.216187,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "095431.txt__027823.txt",
+      "query_id": "095431.txt",
+      "candidate_id": "027823.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 476.02417,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "059103.txt__038059.txt",
+      "query_id": "059103.txt",
+      "candidate_id": "038059.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 453.633606,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "059103.txt__046310.txt",
+      "query_id": "059103.txt",
+      "candidate_id": "046310.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4,
+      "bm25_in_top30": true,
+      "bm25_score": 412.360046,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "059103.txt__048772.txt",
+      "query_id": "059103.txt",
+      "candidate_id": "048772.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 5,
+      "bm25_in_top30": true,
+      "bm25_score": 397.88739,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "067620.txt__008522.txt",
+      "query_id": "067620.txt",
+      "candidate_id": "008522.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 635.016113,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "067620.txt__065999.txt",
+      "query_id": "067620.txt",
+      "candidate_id": "065999.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 602.271606,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "067620.txt__091680.txt",
+      "query_id": "067620.txt",
+      "candidate_id": "091680.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 4,
+      "bm25_in_top30": true,
+      "bm25_score": 595.559509,
+      "non_gold_selection_order": 3
+    },
+    {
+      "pair_id": "098780.txt__047327.txt",
+      "query_id": "098780.txt",
+      "candidate_id": "047327.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 1,
+      "bm25_in_top30": true,
+      "bm25_score": 671.172302,
+      "non_gold_selection_order": 1
+    },
+    {
+      "pair_id": "098780.txt__048566.txt",
+      "query_id": "098780.txt",
+      "candidate_id": "048566.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 2,
+      "bm25_in_top30": true,
+      "bm25_score": 629.282532,
+      "non_gold_selection_order": 2
+    },
+    {
+      "pair_id": "098780.txt__007685.txt",
+      "query_id": "098780.txt",
+      "candidate_id": "007685.txt",
+      "cohort": "non_gold",
+      "is_gold": false,
+      "exists_in_corpus": true,
+      "bm25_full_rank": 3,
+      "bm25_in_top30": true,
+      "bm25_score": 591.266174,
+      "non_gold_selection_order": 3
+    }
+  ],
+  "file_Registry": {
+    "000356.txt": {
+      "exists": true,
+      "byte_length": 33722,
+      "sha256": "13f58e2167de255f9b76a66c89f66533aec72d09cd742d22a06da763fdb93813"
+    },
+    "000418.txt": {
+      "exists": true,
+      "byte_length": 30991,
+      "sha256": "c0b92ccd074a45bfaf9d70610fef9b70926e199366159b8f36a340d8b4b1d552"
+    },
+    "001281.txt": {
+      "exists": true,
+      "byte_length": 7619,
+      "sha256": "36107775517da34e9591a9dbef44f09624d05b89614fbc0c1d030fab7c8ecbbf"
+    },
+    "001542.txt": {
+      "exists": true,
+      "byte_length": 20437,
+      "sha256": "ae51253741d4bf1387d81b541d015ce262e54929cc77dfc1264391addcfee98d"
+    },
+    "001548.txt": {
+      "exists": true,
+      "byte_length": 26892,
+      "sha256": "a6d3620cddc1795a442bd6fa7e246685d6fe128ae914bd80e248cbcb7d49ee63"
+    },
+    "002078.txt": {
+      "exists": true,
+      "byte_length": 5582,
+      "sha256": "455eb1384f9122522cbba7f866c7e3ea5fe355e30359d40398ad51282751a77e"
+    },
+    "002842.txt": {
+      "exists": true,
+      "byte_length": 73033,
+      "sha256": "7d17af06c7ff12aeeef6f135a887bbd61889c9ec9061d54f8153abd3c09d64ce"
+    },
+    "003305.txt": {
+      "exists": true,
+      "byte_length": 25532,
+      "sha256": "749ddbc9b3ef10cf7f89a13d2deec8c44e0d7e17a0aec02a20e517a940a46095"
+    },
+    "004154.txt": {
+      "exists": true,
+      "byte_length": 70648,
+      "sha256": "c3565995135e4db54ae56d260d63f0a4d4ef7f57a515def687d3ae080e61931f"
+    },
+    "004508.txt": {
+      "exists": true,
+      "byte_length": 14831,
+      "sha256": "225f455e2338eea8952ff186dfdb7d5fc754bdfad07aa173ea0d087a674cf778"
+    },
+    "004608.txt": {
+      "exists": true,
+      "byte_length": 21653,
+      "sha256": "00912b743ad09c6de364b12738ddae8a6c92233ae8f8b4a899ba53b08185ebd3"
+    },
+    "004624.txt": {
+      "exists": true,
+      "byte_length": 26973,
+      "sha256": "e4b3914188169a9f8a3ac4fd6aa0c988a735ef1b95c19f2449a8de0248145595"
+    },
+    "004633.txt": {
+      "exists": true,
+      "byte_length": 58933,
+      "sha256": "950c448f784573ec1cd60b83826afe97276e145cb39994d8ed14df626d6b9660"
+    },
+    "004691.txt": {
+      "exists": true,
+      "byte_length": 43048,
+      "sha256": "ffad862feb47ba7f7de4f4e97319d2f0d067ec388ef8ad69a24c3ecba557dacd"
+    },
+    "005464.txt": {
+      "exists": true,
+      "byte_length": 19516,
+      "sha256": "e483e90a27e0b3f7da09e89e6b043455ab36fd0f28b7c8847f7d510c7613c2a8"
+    },
+    "005698.txt": {
+      "exists": true,
+      "byte_length": 14031,
+      "sha256": "663c498a3b86a0384d78077c42a5824378f61afa4b38da81d6db125e8171d83a"
+    },
+    "006766.txt": {
+      "exists": true,
+      "byte_length": 102166,
+      "sha256": "8f6106cf2ccc67f859e1a1ef524b85417474d5fb49fb84a55eb6c15c46043162"
+    },
+    "006815.txt": {
+      "exists": true,
+      "byte_length": 11138,
+      "sha256": "04d192691fd2bab8928a7c05d7754d9470922f5f9395e7c34d1c7bd159f61503"
+    },
+    "006944.txt": {
+      "exists": true,
+      "byte_length": 40510,
+      "sha256": "4350ff774e7a8948ec8646e8153968ab7f71b065f5c9aafc4a19d14258ae658e"
+    },
+    "007685.txt": {
+      "exists": true,
+      "byte_length": 312733,
+      "sha256": "ce7ef3c8c4eb0d665da57f740abf40b3718dbff0bb9a5618b16e050dc0753c69"
+    },
+    "007722.txt": {
+      "exists": true,
+      "byte_length": 23103,
+      "sha256": "48745a88efb194a8a17e9f1e4c946d01ab783556efeafc1e5eab429a36455d1e"
+    },
+    "008522.txt": {
+      "exists": true,
+      "byte_length": 59833,
+      "sha256": "a69cc0012c6073fe879a9fcf634786b4a27f53f70900adcfcf01cd7a3e68b502"
+    },
+    "008723.txt": {
+      "exists": true,
+      "byte_length": 21015,
+      "sha256": "37b9912f87a5bc97e976f451e419b9b02bec58397ff6c44c897398290f274a5b"
+    },
+    "008976.txt": {
+      "exists": true,
+      "byte_length": 15650,
+      "sha256": "2729011139f302a3b9e3bbd9d11d0e49024cdd3ca890b8c710386cf84c599d9c"
+    },
+    "009539.txt": {
+      "exists": true,
+      "byte_length": 4751,
+      "sha256": "6a24aad0893e7fc88c4c4075fa0f57bff36196f1cca52e91b5749c24ae6ca7cc"
+    },
+    "011379.txt": {
+      "exists": true,
+      "byte_length": 38123,
+      "sha256": "e04d19f2fc4146bbcf2805a85a6e83102c39397be193b4eb9b6b2520c7c911ee"
+    },
+    "012587.txt": {
+      "exists": true,
+      "byte_length": 22789,
+      "sha256": "dd418744befd5e39412359e5bcd7a5dd9c6ac57188d31a4d1c6c356d85ba30b9"
+    },
+    "012856.txt": {
+      "exists": true,
+      "byte_length": 19536,
+      "sha256": "c3b9d2ad35a47c32afc5a291b866e491f4155a7fb16faf0d1353348deb528d9e"
+    },
+    "014234.txt": {
+      "exists": true,
+      "byte_length": 22067,
+      "sha256": "01fb3626b8cf2723e7829c561e09d3b4caa62a70cddd4d186e7aa029af1a1265"
+    },
+    "014660.txt": {
+      "exists": true,
+      "byte_length": 49435,
+      "sha256": "fc60000a434cb07757653a620e096c0cd1d31f2c3c011868f8fb77ddc6407f71"
+    },
+    "015537.txt": {
+      "exists": true,
+      "byte_length": 17085,
+      "sha256": "f34bd01a9c44f3943289a555a299f4d03075861bbcbd3a97f65ca3ed9b194b54"
+    },
+    "015803.txt": {
+      "exists": true,
+      "byte_length": 11984,
+      "sha256": "c171b05cf21b77e296d571a80ea82ab171bc5a4ee017f80018523c4d47063f48"
+    },
+    "016458.txt": {
+      "exists": true,
+      "byte_length": 18229,
+      "sha256": "c0a99f14de4ac3804f745b5143e14a56797584590a43a5fdedb08674ed9678b8"
+    },
+    "017265.txt": {
+      "exists": true,
+      "byte_length": 12286,
+      "sha256": "166049fb55ac2fd002f3a36e72e3c8f7eadf161742bf63f62a018c03b18cc076"
+    },
+    "017268.txt": {
+      "exists": true,
+      "byte_length": 36863,
+      "sha256": "899218e989e68499b72da8f3821019a037c4999641d9bb06aede89bc77d96abb"
+    },
+    "018381.txt": {
+      "exists": true,
+      "byte_length": 31358,
+      "sha256": "e8ede5c7f81eaf7bc97bea4b304165baf81e9d8d1459190955effcccdfbeaa30"
+    },
+    "018451.txt": {
+      "exists": true,
+      "byte_length": 18615,
+      "sha256": "b5aaf456872b99785a5281b536bf2e6d1dc8aebf2e9ad06d43c2a536a538d1ed"
+    },
+    "018749.txt": {
+      "exists": true,
+      "byte_length": 102170,
+      "sha256": "0ed079b930cf18531a182477f5f828436fe6ff957a0f056b823b0a65fe860ca8"
+    },
+    "020040.txt": {
+      "exists": true,
+      "byte_length": 56416,
+      "sha256": "4f6ff515333eac66c170b587e5d838138fb463080479c8589fd0bab2a1642d5c"
+    },
+    "020300.txt": {
+      "exists": true,
+      "byte_length": 153882,
+      "sha256": "1d5070bc0e5558d1177768e95844735313dcefb8af7c5434e485b8323b01753a"
+    },
+    "020645.txt": {
+      "exists": true,
+      "byte_length": 27442,
+      "sha256": "d77ab68f9fd1cd0eb4efe3742253b1b0e4b255f97dae94e42db1984b56ee3df2"
+    },
+    "021078.txt": {
+      "exists": true,
+      "byte_length": 35408,
+      "sha256": "02c17f570a149d554acb7b157977b7251ff9807eb3f33d71ba793e6526533c27"
+    },
+    "021565.txt": {
+      "exists": true,
+      "byte_length": 11766,
+      "sha256": "75bfdb199d84b30be284da646ababad1736938819e4984145a5a582f09421e3b"
+    },
+    "021610.txt": {
+      "exists": true,
+      "byte_length": 43635,
+      "sha256": "cb6eba104db6735cf12c89a75e81acc70813fee4c57391b55ec29d7377d535f7"
+    },
+    "022346.txt": {
+      "exists": true,
+      "byte_length": 147663,
+      "sha256": "1b5e185dca1e280c02dee4c684ba992ed4db761fd4995bde8cc8b70ee595f1c4"
+    },
+    "022855.txt": {
+      "exists": true,
+      "byte_length": 12332,
+      "sha256": "db94d446f02fa6580196fe50d432db2960d99c65060454f470961611c2f1f782"
+    },
+    "023135.txt": {
+      "exists": true,
+      "byte_length": 6518,
+      "sha256": "70c6980f57159cc6e5e4f76f65b2fb63eb505b18587364b44704fcfebc9ce3c5"
+    },
+    "023310.txt": {
+      "exists": true,
+      "byte_length": 37398,
+      "sha256": "15ccc33a7fbd9ffeec1e3a9b69eeda3d48f774f787e5171cd4a3bdad98a6efc9"
+    },
+    "023347.txt": {
+      "exists": true,
+      "byte_length": 26825,
+      "sha256": "7688e4cd058f33aa7efce84e329b984352da7c985adc172ac79cb0f15edfa387"
+    },
+    "024224.txt": {
+      "exists": true,
+      "byte_length": 17246,
+      "sha256": "176ad5e23eca76ce4028de15c84b377e80ab1115b460309f0b98b1726b955eb7"
+    },
+    "024803.txt": {
+      "exists": true,
+      "byte_length": 58546,
+      "sha256": "843c61705600c2b31bd4d958fccd57b8da9e7f62b8d5bb7fcd4b12861157b2fb"
+    },
+    "025305.txt": {
+      "exists": true,
+      "byte_length": 71613,
+      "sha256": "2aff93adf473117458a628228748c47e1de67793b3459d71b9831d770573188b"
+    },
+    "025649.txt": {
+      "exists": true,
+      "byte_length": 28779,
+      "sha256": "470c4346f538f867dc6dc9470420e0745eaffea8fd47997a89573da3b3f76198"
+    },
+    "026367.txt": {
+      "exists": true,
+      "byte_length": 30645,
+      "sha256": "c8949b6d0f1024b120b81c0d3e7eb34e9c739664c139dbb0b5a0ed9a8e07bd21"
+    },
+    "026449.txt": {
+      "exists": true,
+      "byte_length": 33498,
+      "sha256": "072451226b4ab7877f37e750c42b2fa018937d22e7af1a0d04df427a2480fb62"
+    },
+    "026984.txt": {
+      "exists": true,
+      "byte_length": 14373,
+      "sha256": "6846085399472f8f4008ee6fadd57f83cdc125b2e4d139c580a1cdadc0d0c61f"
+    },
+    "027823.txt": {
+      "exists": true,
+      "byte_length": 22556,
+      "sha256": "533c68f1864c862a180850e9d846979cbea5c228ae41db1103bc369a8d4c0f5f"
+    },
+    "028159.txt": {
+      "exists": true,
+      "byte_length": 72129,
+      "sha256": "dca5704503807bc88f2c729861571fe6b1a5e1fd082a1cf592cfa7e72e13f610"
+    },
+    "028184.txt": {
+      "exists": true,
+      "byte_length": 47897,
+      "sha256": "1dbe75d1594aa8bbf42d360d7c2c06173b35e4649a4c51cdcbcc5a225e69be88"
+    },
+    "028540.txt": {
+      "exists": true,
+      "byte_length": 18983,
+      "sha256": "626b0a53f81ec39e56a1dda91fdccd2bf21df2db1807290c6a6ef020ddb52bb3"
+    },
+    "028575.txt": {
+      "exists": true,
+      "byte_length": 20413,
+      "sha256": "baf17c3333ba80893065190b00ff40cc4c017c20058e54aa28a4293ee68d432d"
+    },
+    "028684.txt": {
+      "exists": true,
+      "byte_length": 12025,
+      "sha256": "7c2599ca185e115c80a6420c767a68b0f3d492dbca11f79267431289809f76ad"
+    },
+    "028968.txt": {
+      "exists": true,
+      "byte_length": 35702,
+      "sha256": "28c45993c8d8818a63ee7b59f3cca1e0e246ba516704559a240317f1dffd1eab"
+    },
+    "029178.txt": {
+      "exists": true,
+      "byte_length": 87484,
+      "sha256": "803eaea25d96f933163db366d2cf5f65ceccc7bc1a6d459fc5934c3675e15546"
+    },
+    "031324.txt": {
+      "exists": true,
+      "byte_length": 41853,
+      "sha256": "4e029e3d91667a222f23902d4fb6b2e8032c5e4df087a78ba458ac24ce54c970"
+    },
+    "031711.txt": {
+      "exists": true,
+      "byte_length": 89863,
+      "sha256": "9b76cf79ee07e80205ed87e988111bafe6c17875fcd49584e836cd653d3981a1"
+    },
+    "032077.txt": {
+      "exists": true,
+      "byte_length": 243370,
+      "sha256": "ee23c48bf605eb244bee7c6d9d05a675392e1e933cd035eff182238f0468a155"
+    },
+    "032519.txt": {
+      "exists": true,
+      "byte_length": 32302,
+      "sha256": "f7acbbc5eecb098f52cf620b64c6c7bc05ad4bb465a822e558b388dea334f6c9"
+    },
+    "032566.txt": {
+      "exists": true,
+      "byte_length": 19639,
+      "sha256": "6a02381e91d19dc6613efa6c1ea66a504f426398e9afdb573482afba356ba774"
+    },
+    "032986.txt": {
+      "exists": true,
+      "byte_length": 80416,
+      "sha256": "4550f1b73cff35d910afcb803c2c29059e7d239f07c29add442c2135a08122cd"
+    },
+    "033010.txt": {
+      "exists": true,
+      "byte_length": 14763,
+      "sha256": "ce804b89183b11785fc40993a9600306cf2e427abe0263f2d26a84e2bdef384c"
+    },
+    "033125.txt": {
+      "exists": true,
+      "byte_length": 24297,
+      "sha256": "860f7d5610a4d687ea1f03561b5a029db472df169f87aa83ecfbe97e7bd77280"
+    },
+    "033339.txt": {
+      "exists": true,
+      "byte_length": 20890,
+      "sha256": "bae403bf09b9906c981d889bc8e0afceedd4958bc481fb89dd4bf5d0a123562b"
+    },
+    "033358.txt": {
+      "exists": true,
+      "byte_length": 40544,
+      "sha256": "1d3aefab3d1b07113b8d8973dc69cb007b053b65fdaa8aad4ef0ba64110a3cca"
+    },
+    "035114.txt": {
+      "exists": true,
+      "byte_length": 25650,
+      "sha256": "9c43724b5a5bc68872825c3d1bb4dce913800333ae9fbf9a16f0a82d1ff3c833"
+    },
+    "035205.txt": {
+      "exists": true,
+      "byte_length": 33656,
+      "sha256": "0afe31266be69b3d870b0fe985bcedcd6912023692a5ea312375b0f4ab2f73ab"
+    },
+    "035275.txt": {
+      "exists": true,
+      "byte_length": 33250,
+      "sha256": "efc0320758287bb1713e0940a09425254c818d3fd664e6abbc815bca86d12a96"
+    },
+    "035585.txt": {
+      "exists": true,
+      "byte_length": 34416,
+      "sha256": "42ddd01dae4e339dd87d22b0d5e61f7189dae996086a0f381b208dd945a0f1cb"
+    },
+    "036981.txt": {
+      "exists": true,
+      "byte_length": 97126,
+      "sha256": "70b522a8619c37ab078a75957309f634e61745528f14ed7dae3ed0979fcf2daa"
+    },
+    "038059.txt": {
+      "exists": true,
+      "byte_length": 49593,
+      "sha256": "9ee54949d116a298d49ba900c8d2d61eedc395d48db2c1800926b2517e06d1e5"
+    },
+    "038483.txt": {
+      "exists": true,
+      "byte_length": 22693,
+      "sha256": "8ed8380dee1a9492a76f7da772108c2b843ccb48bec0e77446395e0154aefaa1"
+    },
+    "038682.txt": {
+      "exists": true,
+      "byte_length": 24407,
+      "sha256": "4e64ccc173276ddf07de8e8c97dc4abbc0e7b917f884090ad20e52b56a5ababa"
+    },
+    "039109.txt": {
+      "exists": true,
+      "byte_length": 18825,
+      "sha256": "cfa73a3741192b261ee619796119371f20b20cfb91b987d9db79ba873632dca6"
+    },
+    "040348.txt": {
+      "exists": true,
+      "byte_length": 15841,
+      "sha256": "b2b42b5297124909edfcb243da1b4a7dbaeb9c0291bf9fc5ba9b167774d2e48f"
+    },
+    "041666.txt": {
+      "exists": true,
+      "byte_length": 318510,
+      "sha256": "e90c1fe477b77b425cdb9d9eefb672f76135e68874affe695a6a6c05f11f4438"
+    },
+    "041848.txt": {
+      "exists": true,
+      "byte_length": 39127,
+      "sha256": "a83b65a082a61ec298670225cb4f5c49a06f5c2b7580b74ff936d8f628fc768a"
+    },
+    "044411.txt": {
+      "exists": true,
+      "byte_length": 16489,
+      "sha256": "6676e2efcb4f35145acfdba63ea68e5854cffcda4c574719a25dc8d55edc04cc"
+    },
+    "045009.txt": {
+      "exists": true,
+      "byte_length": 70801,
+      "sha256": "e08ba04ca5a5dd12c72f4bdafa29477a740e0ad956ee0f1f8dfd9dd1f08a75ce"
+    },
+    "045064.txt": {
+      "exists": true,
+      "byte_length": 282829,
+      "sha256": "4fddcdb2a99eb02ed056b0cdd85c86ac42f6e0ab3aa2eb5ff8a6d38d9a766499"
+    },
+    "045562.txt": {
+      "exists": true,
+      "byte_length": 20353,
+      "sha256": "657c9e4d216ccd22ff83df5da855699b06d4bff5c4890774e53fd9c7295d7c9d"
+    },
+    "046052.txt": {
+      "exists": true,
+      "byte_length": 16380,
+      "sha256": "333d4ae6ff1a6a0a7f78c5b5cae1cf7a285c02d5c5297aca0fd39c658c32773c"
+    },
+    "046310.txt": {
+      "exists": true,
+      "byte_length": 28463,
+      "sha256": "5a3e64d823e5af56acf1da60ded20786ba00ca75e09edda75986ab17a6fc925d"
+    },
+    "047149.txt": {
+      "exists": true,
+      "byte_length": 40787,
+      "sha256": "3ba5a87b0bb4297bd566c6ad76e930243c1b63f5218ab9ae48fca461d4936858"
+    },
+    "047327.txt": {
+      "exists": true,
+      "byte_length": 50306,
+      "sha256": "ab5f993120eff4abd79513455999e9a60d2df395533785e3b781738ac6a97641"
+    },
+    "048319.txt": {
+      "exists": true,
+      "byte_length": 33851,
+      "sha256": "9d9d086bc80ed3625064c4500c4564c23976e0000ea4aa03e9bd0250b24e12c1"
+    },
+    "048566.txt": {
+      "exists": true,
+      "byte_length": 52489,
+      "sha256": "366a9350545e4cea76da18b3f081ab14f68cdf13d02e0047dacb4ffcdf978ecb"
+    },
+    "048645.txt": {
+      "exists": true,
+      "byte_length": 30717,
+      "sha256": "9d5b07fe40af3374f2d069f72f7d733ef1a4960b9a223853f25246c47d6fd9d2"
+    },
+    "048772.txt": {
+      "exists": true,
+      "byte_length": 43465,
+      "sha256": "88fbc31ccc1160da7c0bc065972e336aaf03af9525e699b859f15fd76e431694"
+    },
+    "050167.txt": {
+      "exists": true,
+      "byte_length": 98105,
+      "sha256": "d1ded79d2844996b9604e17d9d4ba88022097b6dc952e30b5341d6238ba9463a"
+    },
+    "050344.txt": {
+      "exists": true,
+      "byte_length": 101786,
+      "sha256": "bde67fca6e932880732fc02882985903109412308930b44de47e3f62d9c9d3ef"
+    },
+    "050424.txt": {
+      "exists": true,
+      "byte_length": 55916,
+      "sha256": "266b0b0dcea5f88d25060240aeca47abbf63c89b50ae672eddbbe9225100de36"
+    },
+    "050502.txt": {
+      "exists": true,
+      "byte_length": 81893,
+      "sha256": "da7cebdb66e0d1a1b5286587f7cd6b3b37e4a56e7dda4bd454ad14b115e685da"
+    },
+    "050912.txt": {
+      "exists": true,
+      "byte_length": 18696,
+      "sha256": "4ca9a1c191fbfe0f2e447068bb55b7035a405be5490b52c441d8374b7e002251"
+    },
+    "050969.txt": {
+      "exists": true,
+      "byte_length": 100774,
+      "sha256": "c0983f72fb9942466d34ac01bd70f446da70a1ee8edd5b285e6e1ceb5514ed36"
+    },
+    "052370.txt": {
+      "exists": true,
+      "byte_length": 24457,
+      "sha256": "f8be8774e993537ade8cfaf21efbdb266ae9dd5a82de6ffb62048473f07a3909"
+    },
+    "052931.txt": {
+      "exists": true,
+      "byte_length": 11114,
+      "sha256": "f790f7bfb981a95f273933a66f07a5702a92b86841eea4b5bd15fa0766b0dc2c"
+    },
+    "053158.txt": {
+      "exists": true,
+      "byte_length": 39092,
+      "sha256": "6675d81bff6a934d99bc8f4068089de80cebb1799151ecc9be08a647dfe3b195"
+    },
+    "053182.txt": {
+      "exists": true,
+      "byte_length": 24727,
+      "sha256": "2fe9b69553148d90270137a388d1e49923775d2433e61389925ef5d21b3c00e0"
+    },
+    "053294.txt": {
+      "exists": true,
+      "byte_length": 55450,
+      "sha256": "5e8c2165e26d77da24a8cc4cd667091332d4e41da9bdc648e0affc7c08ac82d1"
+    },
+    "053305.txt": {
+      "exists": true,
+      "byte_length": 84229,
+      "sha256": "39924910a6ff8925947a356c4a2d02aea77a4296666cda556f20c1b05b7b275b"
+    },
+    "053331.txt": {
+      "exists": true,
+      "byte_length": 25464,
+      "sha256": "9f1af435647ef1e328ffdbc7c7f8ff9a9c8697ab68ccebcce2b825d4dcbd612a"
+    },
+    "054431.txt": {
+      "exists": true,
+      "byte_length": 35729,
+      "sha256": "37c2dfa9ade2e59b8a5e5f0b5bbee1681904f11055deb72d1b62b4e52b40e96e"
+    },
+    "055038.txt": {
+      "exists": true,
+      "byte_length": 11077,
+      "sha256": "926b76001153cf78e5c07ce6816fd33c6c8068abd7a9bdde2547c01965af6ce0"
+    },
+    "055546.txt": {
+      "exists": true,
+      "byte_length": 35768,
+      "sha256": "1cb5b7a1388b6e04c2bafe0835a40bb02698ad1c9675c1cfe4f799c99826704e"
+    },
+    "055641.txt": {
+      "exists": true,
+      "byte_length": 455390,
+      "sha256": "316dc9ef79268f0e1d094f2a46f3fb79154789992cccb5bc355840bb97a53583"
+    },
+    "055901.txt": {
+      "exists": true,
+      "byte_length": 27905,
+      "sha256": "adb582a07e87d9d45882289da0ebddb12a2d831998c9c50a3aa449dcad4c39b2"
+    },
+    "056421.txt": {
+      "exists": true,
+      "byte_length": 82280,
+      "sha256": "394f6583fadf99f6b038f06a2b702566974b5d621d68f7de4c0b3e4722746fa2"
+    },
+    "057368.txt": {
+      "exists": true,
+      "byte_length": 686244,
+      "sha256": "9d55cfd53595c75cc4f4940df037d40c6807c3408b20959ca39ca0c2cb104388"
+    },
+    "058208.txt": {
+      "exists": true,
+      "byte_length": 31260,
+      "sha256": "f1c0bcf139dc240800837bab7cef8eb37fe99937713392deb7c0a6ee4af02241"
+    },
+    "058429.txt": {
+      "exists": true,
+      "byte_length": 43289,
+      "sha256": "3b097e4d5cdcfaa984dfb37230fef043537208b28247efd15c5757ec2bdf9e1f"
+    },
+    "059103.txt": {
+      "exists": true,
+      "byte_length": 17973,
+      "sha256": "b6b4ec6ca5f28e879deb9f49ed7461ae70a885a6ae900aa75f06f8482fdc809c"
+    },
+    "059901.txt": {
+      "exists": true,
+      "byte_length": 62288,
+      "sha256": "7065e4e7338ff409e8e08979bf7802146179027277e8d47a6df0c2a3ebaece31"
+    },
+    "060474.txt": {
+      "exists": true,
+      "byte_length": 23931,
+      "sha256": "fd37df51b79768cc4f0a87b1c8af07767aae117b6ecd17cca7e30d7134e9009d"
+    },
+    "060581.txt": {
+      "exists": true,
+      "byte_length": 272216,
+      "sha256": "ed822e0c2fd7dbb371d1262e265508ac8084b4970b6ca8b57d1f33ede1a4e6eb"
+    },
+    "060582.txt": {
+      "exists": true,
+      "byte_length": 67711,
+      "sha256": "01908174ce36306a8e8ca73ed80518f6a15aa6d51c94b7fe36372d4e257cbfe4"
+    },
+    "060604.txt": {
+      "exists": true,
+      "byte_length": 21031,
+      "sha256": "a5bc3adb0b9994309a9f2dd882686849b7e4af635f0c0a5bba2ad2e22df2c753"
+    },
+    "060904.txt": {
+      "exists": true,
+      "byte_length": 27214,
+      "sha256": "535825e5434770682687876ffac8fcc399736625904d5e280e6ecc1b4ec8791c"
+    },
+    "061295.txt": {
+      "exists": true,
+      "byte_length": 19189,
+      "sha256": "2342dbe5792ef49a1a604e07df32aead2cf02c51c4d522e8dee9d4bd87f0d5f9"
+    },
+    "062352.txt": {
+      "exists": true,
+      "byte_length": 62732,
+      "sha256": "d8cbe4d77acc3324b8208bb7c8448ff3ba68ac87022ca5be78a7046441fb6b8e"
+    },
+    "062436.txt": {
+      "exists": true,
+      "byte_length": 42455,
+      "sha256": "e38152542271182906ba5c3ca868ffa0c215b09e9da3eaa37f1745bd23194284"
+    },
+    "065518.txt": {
+      "exists": true,
+      "byte_length": 19351,
+      "sha256": "27db022348db79c17f4947f6249e2c632e5d7a230d9916405d412bbafded95e3"
+    },
+    "065661.txt": {
+      "exists": true,
+      "byte_length": 9436,
+      "sha256": "0c548edfbb1752b72b77b97662b65b8ae0c94478897d14bdfe6fc714bdb24835"
+    },
+    "065999.txt": {
+      "exists": true,
+      "byte_length": 44584,
+      "sha256": "6a66831a8472aadc702bf52cfa704eb99d8304a47b2ce3fb63ff7fe7b0726f61"
+    },
+    "066938.txt": {
+      "exists": true,
+      "byte_length": 46377,
+      "sha256": "74b3bc5c46baf08cc113ddecc18e28f35642850b3acb36711af2bd5ab5086023"
+    },
+    "067205.txt": {
+      "exists": true,
+      "byte_length": 60630,
+      "sha256": "233a1743fe411b984a2cb2eac38442de646c5879f63fd2a2bc3797bf6618c055"
+    },
+    "067618.txt": {
+      "exists": true,
+      "byte_length": 36363,
+      "sha256": "75af02adfcb7f45286391e7d56d284783a12c717ab2a285d7b892a49d69d0da8"
+    },
+    "067620.txt": {
+      "exists": true,
+      "byte_length": 15077,
+      "sha256": "27f27749125392e1466f4f6d9b4ea86cebd84db6c76762e56ced7a941b1447eb"
+    },
+    "067644.txt": {
+      "exists": true,
+      "byte_length": 22285,
+      "sha256": "112e19deed53ad6ca6bc380be63a8c09974e869e7dba68f7993db1907b5242d8"
+    },
+    "068174.txt": {
+      "exists": true,
+      "byte_length": 23109,
+      "sha256": "5c57b653545603c6f5429f9965a1d9465cd88fdd2457ddc33aa0e104e64d3a25"
+    },
+    "069590.txt": {
+      "exists": true,
+      "byte_length": 4832,
+      "sha256": "254d8fcdcfd66ff5ca05172d4339bbe7c68e4244c4528c035f2d16a1ab308bf5"
+    },
+    "070677.txt": {
+      "exists": true,
+      "byte_length": 21799,
+      "sha256": "4a76faa6776f9210beca91d43b99a49e0e89a63ed96c4d852c0412e13aa17114"
+    },
+    "071209.txt": {
+      "exists": true,
+      "byte_length": 14660,
+      "sha256": "62730f5b51de383170217a72e2a077edb3ed6d317b8b900e85c44e076fefdf37"
+    },
+    "071670.txt": {
+      "exists": true,
+      "byte_length": 42541,
+      "sha256": "06663f8fa2c24c95cf308cfe7f078c5657fc804676666f4761b301ad3a2c244f"
+    },
+    "072289.txt": {
+      "exists": true,
+      "byte_length": 39742,
+      "sha256": "cf02b068b7459969b648c581a5ca9408923301337bbcbdcacfdac3358969b253"
+    },
+    "072410.txt": {
+      "exists": true,
+      "byte_length": 107001,
+      "sha256": "4b158ee33c42a18baa6d1f75a30e4e433049af40f91e656197078c0ef34f4c3c"
+    },
+    "072887.txt": {
+      "exists": true,
+      "byte_length": 15722,
+      "sha256": "b3e32304a94a79c102cdffb3778fdb85b65a0cad060f16aed12d2929d33b8b39"
+    },
+    "074686.txt": {
+      "exists": true,
+      "byte_length": 21138,
+      "sha256": "f6d5b3c7793af95263309b2070ba1d2b806f585ddd260b1f81c70486efd75ff2"
+    },
+    "075551.txt": {
+      "exists": true,
+      "byte_length": 75019,
+      "sha256": "68e72e620c591716afbd032d4678443e85a7a946f9c1a039081118f6307a55c7"
+    },
+    "076296.txt": {
+      "exists": true,
+      "byte_length": 22768,
+      "sha256": "b9eca618eaf18c3fb3afeed5f98722ce24859d15229731cf930151273b3bf0d2"
+    },
+    "077064.txt": {
+      "exists": true,
+      "byte_length": 267119,
+      "sha256": "36a25f3b0ee4c8958f1ec738a4c065b35d225450e84b0a6a0aa261be983c8d20"
+    },
+    "077140.txt": {
+      "exists": true,
+      "byte_length": 9844,
+      "sha256": "2cf468bbab11269eba16d8023da35bb9e191502228b3d5dcbb01df69cab89d6f"
+    },
+    "077389.txt": {
+      "exists": true,
+      "byte_length": 95039,
+      "sha256": "fc9eb2f3bc9fa4a88932d9563dadc05bd3ab08d39acff6f397c267ca2ec732cb"
+    },
+    "078078.txt": {
+      "exists": true,
+      "byte_length": 27234,
+      "sha256": "21e0953729019b678097982e3a19078593c3a5bdb8e9e11870bc9bd2c9b41727"
+    },
+    "078624.txt": {
+      "exists": true,
+      "byte_length": 27926,
+      "sha256": "c5bed30ecbbcf14f286bf22712183b151b83e16c02d47d235c30b83f2a5bd904"
+    },
+    "079174.txt": {
+      "exists": true,
+      "byte_length": 45928,
+      "sha256": "a040a4a9612dc952af1940aae1a71b800b30e034d9a925606c3dc05d392ddb63"
+    },
+    "079849.txt": {
+      "exists": true,
+      "byte_length": 28230,
+      "sha256": "69ebeb0495bfc82679c78c34ec2a6e3889a700680b093a2f82f60b75dda4854e"
+    },
+    "079981.txt": {
+      "exists": true,
+      "byte_length": 30226,
+      "sha256": "b83b94b89c5279da8a9d715addeaf5d67ae6a73d526e3f71a942a7cd19211a9f"
+    },
+    "081228.txt": {
+      "exists": true,
+      "byte_length": 31423,
+      "sha256": "5984754943773d6f554bf604ad61384462aeb9fcfee94c84dd19b4cb4b160dca"
+    },
+    "081643.txt": {
+      "exists": true,
+      "byte_length": 105325,
+      "sha256": "55813ab44c49960d8d5a416d6695d54ba87df47c5e007017f89a065679e3ab41"
+    },
+    "081928.txt": {
+      "exists": true,
+      "byte_length": 38551,
+      "sha256": "cdcecec21728ebdf13ee756a8652745f41af486d02f07df980813ac7652235a3"
+    },
+    "082418.txt": {
+      "exists": true,
+      "byte_length": 45703,
+      "sha256": "ae21d56a0df40e2b4443be99d8374aa2fbf2fb38f947d67cff8cbcec7a04b64a"
+    },
+    "085026.txt": {
+      "exists": true,
+      "byte_length": 17126,
+      "sha256": "a6815c7aa62eb9740874a6ebe3e70f0763d5515b1476ea77cc56abadec3e9bc5"
+    },
+    "085192.txt": {
+      "exists": true,
+      "byte_length": 29416,
+      "sha256": "66ab1ff88df8212bb3bcfcda2f0c0b7fe59f503fdf4b606e3829be001e9dc92c"
+    },
+    "085832.txt": {
+      "exists": true,
+      "byte_length": 8918,
+      "sha256": "1263840f44c6968d67b2de1007f3c3858b7858acfb5e5e0314428ccaa7b976b5"
+    },
+    "086040.txt": {
+      "exists": true,
+      "byte_length": 28422,
+      "sha256": "66ba150fc1070076a412c60d3a9223ca5d53e79a14ee25dedb80967ae36256c9"
+    },
+    "086565.txt": {
+      "exists": true,
+      "byte_length": 19543,
+      "sha256": "b803b1648efc375c988640dec33f8b30bdfa76e8c720da09c4731faf5d87f993"
+    },
+    "087186.txt": {
+      "exists": true,
+      "byte_length": 15692,
+      "sha256": "c1d4a381394d49e5b1aa76c4fa4d9f76d2f6fa8ce57014bc7ae4e446b94185c7"
+    },
+    "088055.txt": {
+      "exists": true,
+      "byte_length": 30528,
+      "sha256": "3b9a3ae49449cd75680ab47a6868f70c77d7e61c44c62cc0bf46627acedff9dc"
+    },
+    "090567.txt": {
+      "exists": true,
+      "byte_length": 23884,
+      "sha256": "401741929f1c4b570404569c3875e8832e95181bb9719978e94e7d8a3cc52f14"
+    },
+    "091141.txt": {
+      "exists": true,
+      "byte_length": 25711,
+      "sha256": "4b526d9b2b3cc86722d5c63af740412edbbabb4f05e8cabc197bda139c636a21"
+    },
+    "091680.txt": {
+      "exists": true,
+      "byte_length": 56579,
+      "sha256": "f77eae0791a2c18a9b0b0d1d8d88dad91fc6ed1e5aca1775432ae0dfe5981da1"
+    },
+    "092894.txt": {
+      "exists": true,
+      "byte_length": 49586,
+      "sha256": "212cdf148e411b7c4c757c9b68256e6918d436bdbda4a76664c93d20c3fc1d1e"
+    },
+    "093166.txt": {
+      "exists": true,
+      "byte_length": 32011,
+      "sha256": "114d1e63bc07a9586f0d35cd7f1c7a3c4c094244abd40373d936ced4a762caf2"
+    },
+    "093174.txt": {
+      "exists": true,
+      "byte_length": 46755,
+      "sha256": "3d5776aadbc144bdce0d4524d2b620e5293fd7673e9347b94a8b1383fcddb367"
+    },
+    "093357.txt": {
+      "exists": true,
+      "byte_length": 51034,
+      "sha256": "9a88d91403c9191f0206b96f09735ec28d3aaf4ccec628cc104ca55029e04e7f"
+    },
+    "094500.txt": {
+      "exists": true,
+      "byte_length": 16648,
+      "sha256": "44d12942bece31698d01435e3b026836151a4b5aa4e3eaf8bfbc29dca53315b0"
+    },
+    "095429.txt": {
+      "exists": true,
+      "byte_length": 39894,
+      "sha256": "480f8449276ecc4da7f39a0f8856c38a08207aaddba2230d084cc8ed6e65b8ad"
+    },
+    "095431.txt": {
+      "exists": true,
+      "byte_length": 17015,
+      "sha256": "c356dd21073065314159e56fac9b01c1e6c04ad795bc938ffe8124fd7c91e1ec"
+    },
+    "095985.txt": {
+      "exists": true,
+      "byte_length": 36019,
+      "sha256": "d43a83d01908979a502c899952c8c4ed21d07bc546fbf6261b6607d7ded14a34"
+    },
+    "096053.txt": {
+      "exists": true,
+      "byte_length": 13412,
+      "sha256": "a259778c907fe6d41a30477948b2b2799d56e699359d5a3f9ca47e97dfa570fd"
+    },
+    "096158.txt": {
+      "exists": true,
+      "byte_length": 29680,
+      "sha256": "7162e1544aa44be254d64e4c19657dff9149461ce0c19d14240cb560828671a8"
+    },
+    "096512.txt": {
+      "exists": true,
+      "byte_length": 21605,
+      "sha256": "19ca48c6e48ddb6295e8e55745fc96f20e79d6c53f01ac9b3c637ba5336fa9bf"
+    },
+    "097447.txt": {
+      "exists": true,
+      "byte_length": 32044,
+      "sha256": "a3a9e58007d7699207f8340e79e58747049f5965568471ab8bfae29edd8326ba"
+    },
+    "098047.txt": {
+      "exists": true,
+      "byte_length": 43034,
+      "sha256": "ee136cb11a7edcc262b3d2147a1efb5fa414cb121c02d12fb6e8749b0f63773c"
+    },
+    "098147.txt": {
+      "exists": true,
+      "byte_length": 53664,
+      "sha256": "e727e6826c10706046835198700a494216ea086793137971f8de43b5cc685dca"
+    },
+    "098780.txt": {
+      "exists": true,
+      "byte_length": 28938,
+      "sha256": "9c47f5b153709ffe6189b315718524eacd760253859cbaf2a562427b7d3d7fad"
+    },
+    "099110.txt": {
+      "exists": true,
+      "byte_length": 11468,
+      "sha256": "d0ed1e76058da176ff0bc1f675dcd5b80bc58e32b4c29680aa98b84be139d215"
+    }
+  }
+}

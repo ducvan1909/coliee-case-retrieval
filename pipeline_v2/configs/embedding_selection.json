@@ -1,0 +1,40 @@
+{
+  "schema_version": "pipeline-v2-embedding-selection-1",
+  "selection_status": "confirmed_by_user",
+  "model_id": "Qwen/Qwen3-Embedding-4B",
+  "tokenizer_id": "Qwen/Qwen3-Embedding-4B",
+  "hosting": "self_hosted_modal",
+  "source": "explicit_user_selection",
+  "official_model_card": "https://huggingface.co/Qwen/Qwen3-Embedding-4B",
+  "model_revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+  "tokenizer_revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+  "runtime": {
+    "gpu": null,
+    "engine": null,
+    "engine_version": null,
+    "precision": null,
+    "endpoint": null,
+    "effective_input_limit": null
+  },
+  "encoding": {
+    "dimensions": null,
+    "pooling": null,
+    "normalization": null,
+    "similarity": null,
+    "query_instruction": null,
+    "document_template": "{body}"
+  },
+  "readiness": {
+    "model_choice": "ready",
+    "pinned_tokenizer": "ready",
+    "token_validated_chunks": "ready",
+    "embedding_runtime": "not_ready"
+  },
+  "execution": {
+    "weights_downloaded_in_this_step": false,
+    "modal_deployed_in_this_step": false,
+    "inference_executed_in_this_step": false
+  },
+  "existing_navigation_profile": "pipeline_v2/configs/m2.json",
+  "existing_navigation_profile_policy": "retain_immutable_profile_and_bundle; consume_navigation_in_a_separate_token_chunk_stage"
+}

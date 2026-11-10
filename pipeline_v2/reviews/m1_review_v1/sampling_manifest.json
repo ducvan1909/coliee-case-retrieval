@@ -1,0 +1,233 @@
+{
+  "schema_version": "pipeline-v2-m1-review-sampling-1",
+  "seed": 20261105,
+  "eligibility": {
+    "total_sources": 7708,
+    "excluded_discovery_queries_count": 10,
+    "excluded_holdout_queries_count": 10,
+    "excluded_exposed_fixtures_count": 3,
+    "excluded_case_ids": [
+      "004157.txt",
+      "013909.txt",
+      "017984.txt",
+      "021095.txt",
+      "023005.txt",
+      "023045.txt",
+      "024409.txt",
+      "034625.txt",
+      "038078.txt",
+      "038786.txt",
+      "039403.txt",
+      "042885.txt",
+      "052702.txt",
+      "054233.txt",
+      "059126.txt",
+      "061295.txt",
+      "062436.txt",
+      "067620.txt",
+      "078522.txt",
+      "079470.txt",
+      "081689.txt",
+      "086750.txt",
+      "090579.txt"
+    ],
+    "eligible_count": 7685
+  },
+  "random_sample": [
+    {
+      "case_id": "008932.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 21,
+        "unnumbered_ratio": 0.0,
+        "total_bytes": 13896
+      }
+    },
+    {
+      "case_id": "011913.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 25,
+        "unnumbered_ratio": 0.005,
+        "total_bytes": 45228
+      }
+    },
+    {
+      "case_id": "014069.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 77,
+        "unnumbered_ratio": 0.5513,
+        "total_bytes": 86439
+      }
+    },
+    {
+      "case_id": "015710.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 0,
+        "unnumbered_ratio": 0.0,
+        "total_bytes": 28559
+      }
+    },
+    {
+      "case_id": "038761.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 12,
+        "unnumbered_ratio": 0.0,
+        "total_bytes": 12790
+      }
+    },
+    {
+      "case_id": "059632.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 0,
+        "unnumbered_ratio": 0.0,
+        "total_bytes": 16682
+      }
+    },
+    {
+      "case_id": "060581.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 168,
+        "unnumbered_ratio": 0.0067,
+        "total_bytes": 272216
+      }
+    },
+    {
+      "case_id": "062793.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 0,
+        "unnumbered_ratio": 0.0231,
+        "total_bytes": 73153
+      }
+    },
+    {
+      "case_id": "068113.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 0,
+        "unnumbered_ratio": 0.0177,
+        "total_bytes": 23095
+      }
+    },
+    {
+      "case_id": "080279.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 0,
+        "unnumbered_ratio": 0.0,
+        "total_bytes": 24855
+      }
+    },
+    {
+      "case_id": "081898.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 0,
+        "unnumbered_ratio": 0.1009,
+        "total_bytes": 47652
+      }
+    },
+    {
+      "case_id": "087799.txt",
+      "selection_method": "uniform_random",
+      "seed": 20261105,
+      "metrics": {
+        "sidecars": 27,
+        "unnumbered_ratio": 0.0,
+        "total_bytes": 35701
+      }
+    }
+  ],
+  "risk_sample": [
+    {
+      "case_id": "007685.txt",
+      "group": "risk_a_high_quote_markers",
+      "metric": "sidecars=630",
+      "rationale": "High quote-marker count; test if outer paragraphs are swallowed as nested sidecars."
+    },
+    {
+      "case_id": "020897.txt",
+      "group": "risk_a_high_quote_markers",
+      "metric": "sidecars=300",
+      "rationale": "High quote-marker count; test if outer paragraphs are swallowed as nested sidecars."
+    },
+    {
+      "case_id": "078607.txt",
+      "group": "risk_a_high_quote_markers",
+      "metric": "sidecars=602",
+      "rationale": "High quote-marker count; test if outer paragraphs are swallowed as nested sidecars."
+    },
+    {
+      "case_id": "038799.txt",
+      "group": "risk_b_reset_or_bilingual",
+      "metric": "uncertainties=translation_boundary_observed",
+      "rationale": "Numbering reset or bilingual transition; test if [1] reset separates EN/FR or misattributes language."
+    },
+    {
+      "case_id": "050936.txt",
+      "group": "risk_b_reset_or_bilingual",
+      "metric": "uncertainties=numbering_reset_language_unknown,translation_boundary_observed",
+      "rationale": "Numbering reset or bilingual transition; test if [1] reset separates EN/FR or misattributes language."
+    },
+    {
+      "case_id": "057925.txt",
+      "group": "risk_b_reset_or_bilingual",
+      "metric": "uncertainties=translation_boundary_observed",
+      "rationale": "Numbering reset or bilingual transition; test if [1] reset separates EN/FR or misattributes language."
+    },
+    {
+      "case_id": "046028.txt",
+      "group": "risk_c_high_unnumbered_ratio",
+      "metric": "unnumbered_ratio=85.12%",
+      "rationale": "High unnumbered bytes fraction; test whether unnumbered regions are valid headers/unstructured text or lost paragraphs."
+    },
+    {
+      "case_id": "066595.txt",
+      "group": "risk_c_high_unnumbered_ratio",
+      "metric": "unnumbered_ratio=81.72%",
+      "rationale": "High unnumbered bytes fraction; test whether unnumbered regions are valid headers/unstructured text or lost paragraphs."
+    },
+    {
+      "case_id": "068174.txt",
+      "group": "risk_c_high_unnumbered_ratio",
+      "metric": "unnumbered_ratio=85.46%",
+      "rationale": "High unnumbered bytes fraction; test whether unnumbered regions are valid headers/unstructured text or lost paragraphs."
+    },
+    {
+      "case_id": "019591.txt",
+      "group": "risk_d_heading_or_outer_quote",
+      "metric": "heading_candidates=17, outer_quote_risk=False",
+      "rationale": "Heading candidates or outer quote collision; test whether headings are true headings vs party names, and whether outer quotes collide."
+    },
+    {
+      "case_id": "042691.txt",
+      "group": "risk_d_heading_or_outer_quote",
+      "metric": "heading_candidates=15, outer_quote_risk=True",
+      "rationale": "Heading candidates or outer quote collision; test whether headings are true headings vs party names, and whether outer quotes collide."
+    },
+    {
+      "case_id": "077071.txt",
+      "group": "risk_d_heading_or_outer_quote",
+      "metric": "heading_candidates=23, outer_quote_risk=True",
+      "rationale": "Heading candidates or outer quote collision; test whether headings are true headings vs party names, and whether outer quotes collide."
+    }
+  ],
+  "total_reviewed_cases": 24
+}

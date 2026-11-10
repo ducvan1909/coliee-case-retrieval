@@ -1,0 +1,58 @@
+[
+  {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s pipeline_v2/tests -v",
+    "description": "Full test suite for M0 and M1",
+    "exit_code": 0,
+    "elapsed_seconds": 2.103,
+    "result_summary": "31/31 tests PASS (6 M0 tests, 25 M1 tests)."
+  },
+  {
+    "command": ".venv/Scripts/python.exe -m pipeline_v2.m1 validate --repo-root . --bundle pipeline_v2/artifacts/m1_20261105_v2",
+    "description": "Official M1 bundle validation across all 7,708 cases",
+    "exit_code": 0,
+    "elapsed_seconds": 219.671,
+    "result_summary": "PASS: valid=true, 7708 sources verified against raw bytes, seal, Utf8Map, partition, and summary."
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v2/scripts/full_integrity_scan.py",
+    "description": "Independent raw-byte and partition scanner across all 7,708 cases without production oracle",
+    "exit_code": 0,
+    "elapsed_seconds": 83.179,
+    "result_summary": "PASS: 7708 sources, 356999 raw line markers, 0 missing, 0 duplicate, 0 swallowed markers, 0 partition gaps/overlaps, 0 errors, 0 warnings."
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v2/scripts/metamorphic_tests.py",
+    "description": "Metamorphic tests on fixtures verifying independence of structure from numbering order/values",
+    "exit_code": 0,
+    "elapsed_seconds": 2.215,
+    "result_summary": "PASS: Invariance confirmed across descending, all-ones, and large-gap transformations on 8 fixtures. Non-leakage of quoted role verified."
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v2/scripts/regression_scan.py",
+    "description": "Regression scan on 8 exposed cases from Revision 1 review",
+    "exit_code": 0,
+    "elapsed_seconds": 1.154,
+    "result_summary": "PASS: All 8 regression cases verified. No swallowing in 000758/046028, no false reset in 050936, all French paragraphs preserved in 000432/014069."
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v2/scripts/tamper_fixture_tests.py",
+    "description": "Tamper resistance tests on isolated synthetic scratch fixtures",
+    "exit_code": 0,
+    "elapsed_seconds": 2.45,
+    "result_summary": "PASS: 7/7 tamper scenarios detected and rejected (source drift, unresealed tampering, resealed unit alteration, resealed registry tampering, resealed profile tampering, interior UTF-8 codepoint offsets)."
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v2/scripts/sampling_and_extraction.py",
+    "description": "Locked sampling manifest and extracted 69 raw context inspection regions",
+    "exit_code": 0,
+    "elapsed_seconds": 8.12,
+    "result_summary": "PASS: 32 cases sampled (8 regression, 12 random, 12 risk), 69 regions extracted with wide raw context."
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v2/scripts/inspect_regions.py",
+    "description": "Structural analysis of all 69 extracted regions",
+    "exit_code": 0,
+    "elapsed_seconds": 1.25,
+    "result_summary": "PASS: 69/69 regions evaluated. 0 structural partition failures, 0 swallowed markers."
+  }
+]

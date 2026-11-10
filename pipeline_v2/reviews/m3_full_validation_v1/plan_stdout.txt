@@ -1,0 +1,1 @@
+{"batches": 6496, "cases": 7708, "cli_timing_origin": "after_argument_parse_excludes_process_startup", "collection": "coliee_m3_full_ef2f4d6950a5b9fd", "elapsed_seconds": 1176.884365, "internal_cli_seconds": 1177.4091284000006, "model_requests": 0, "passages": 415693, "status": "planned_local_no_inference"}

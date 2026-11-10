@@ -1,2 +1,0 @@
-# Plan 10: validate provider responses against the versioned Draft 2020-12 schema.
-jsonschema>=4.0,<5

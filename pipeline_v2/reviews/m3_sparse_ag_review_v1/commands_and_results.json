@@ -1,0 +1,78 @@
+{
+  "schema_version": "ag-m3-sparse-commands-and-results-1",
+  "generated_at_utc": "2026-11-10T13:27:00Z",
+  "commands": [
+    {
+      "id": "CMD-01",
+      "description": "Execute existing M3 sparse, lexical reader, and hybrid unit/regression test suite (37 tests)",
+      "command": "& .venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_sparse_index pipeline_v2.tests.test_m3_lexical_reader pipeline_v2.tests.test_m3_hybrid_dense pipeline_v2.tests.test_m3_hybrid_fusion -v",
+      "exit_code": 0,
+      "wall_seconds": 2.146,
+      "status": "PASS",
+      "notes": "37/37 tests PASS (11 sparse index tests + 14 lexical reader tests + 12 hybrid dense/fusion tests). 0 model requests."
+    },
+    {
+      "id": "CMD-02-ATTEMPT-1",
+      "description": "First run of AG independent sparse test suite (failed in fixture setup before PersistentBM25.create fix)",
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.reviews.m3_sparse_ag_review_v1.test_m3_sparse_independent_ag",
+      "exit_code": 1,
+      "wall_seconds": 2.31,
+      "status": "HARNESS_SETUP_ERROR_FIXED",
+      "notes": "Called PersistentBM25(path) instead of PersistentBM25.create(path, channels) in test script helper build_fixture_db."
+    },
+    {
+      "id": "CMD-02-ATTEMPT-2",
+      "description": "Second run of AG independent sparse test suite (failed in fixture setup attribute name before PersistentBM25.create fix)",
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.reviews.m3_sparse_ag_review_v1.test_m3_sparse_independent_ag",
+      "exit_code": 1,
+      "wall_seconds": 1.15,
+      "status": "HARNESS_SETUP_ERROR_FIXED",
+      "notes": "Updated helper build_fixture_db to call PersistentBM25.create(path, {'case': cases, 'passage': passages})."
+    },
+    {
+      "id": "CMD-02",
+      "description": "Execute AG independent sparse & hybrid test suite (6 test groups including 11 fault injections on temporary copies)",
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.reviews.m3_sparse_ag_review_v1.test_m3_sparse_independent_ag",
+      "exit_code": 0,
+      "wall_seconds": 26.71,
+      "status": "PASS",
+      "notes": "6/6 test groups PASS. Verified float64 vs float32 oracle, channel-specific IDF, exclusion before top-K, unique_cases tie-breaking, SQLSpyConnection zero-postings-SQL proof, 11 resealed/temp fault injections, sticky session guard invalidation, and clean-env CLI execution. Saved to independent_test_results.json."
+    },
+    {
+      "id": "CMD-03-ATTEMPT-1",
+      "description": "First run of full-corpus audit and recomputation script (failed on ledger column name input_tokens vs tokens)",
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.reviews.m3_sparse_ag_review_v1.audit_and_recompute_sparse",
+      "exit_code": 1,
+      "wall_seconds": 2.84,
+      "status": "HARNESS_QUERY_FIXED",
+      "notes": "Fixed SQLite column names on m3_full_train_20261108_v1/ledger.sqlite3 attempts table (id, batch, phase, status, requests, tokens, elapsed, error)."
+    },
+    {
+      "id": "CMD-03-ATTEMPT-2",
+      "description": "Second run of full-corpus audit and recomputation script (failed at step 5 on dense_reference.json path)",
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.reviews.m3_sparse_ag_review_v1.audit_and_recompute_sparse",
+      "exit_code": 1,
+      "wall_seconds": 1673.12,
+      "status": "HARNESS_PATH_FIXED",
+      "notes": "Steps 1-4 completed; step 5 referenced dense_exact_reference.json instead of m3_hybrid_validation_v1/dense_reference.json. Fixed path and reused locked SQLite FastBM25 warm reference from m3_lexical_ag_review_v1/bounded_benchmark_results.json."
+    },
+    {
+      "id": "CMD-03",
+      "description": "Execute full-corpus sparse audit, array invariant check, subprocess memory probes, 8-query stage benchmark, and 3-query hybrid recomputation",
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.reviews.m3_sparse_ag_review_v1.audit_and_recompute_sparse",
+      "exit_code": 0,
+      "wall_seconds": 313.094,
+      "status": "PASS",
+      "notes": "All 5 audit stages PASS. Output saved to pipeline_v2/reviews/m3_sparse_ag_review_v1/recomputed_metrics.json."
+    },
+    {
+      "id": "CMD-04",
+      "description": "Execute live standalone CLI smoke test of m3_sparse search on full corpus",
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.m3_sparse search --channel passage --query \"standard of review\" --query-case 095448.txt --limit 5 --unique-cases",
+      "exit_code": 0,
+      "wall_seconds": 41.82,
+      "status": "PASS",
+      "notes": "internal_cli_seconds=39.416s, session_initialization_seconds=38.698s, timings.total_seconds=0.0743s (array_scoring_seconds=0.0139s, top_selection_seconds=0.0522s, metadata_seconds=0.0069s). Top hit: 031313:96cbfd326f4e974ad73ef2e6 (score=11.123129439932185), query_case 095448.txt excluded, model_requests=0."
+    }
+  ]
+}

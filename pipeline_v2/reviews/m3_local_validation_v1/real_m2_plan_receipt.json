@@ -1,0 +1,17 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "pipeline_v2.m3",
+    "plan",
+    "--repo-root",
+    ".",
+    "--output",
+    "pipeline_v2/artifacts/m3_pilot_20261106_v1"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 241.27376100000038,
+  "stdout": "{\"collection\": \"coliee_m3_pilot_b17f1139deec3e67\", \"local_elapsed_seconds\": 240.65964969999914, \"passages\": 1024, \"run_dir\": \"E:\\\\Git\\\\coliee-case-retrieval\\\\pipeline_v2\\\\artifacts\\\\m3_pilot_20261106_v1\", \"status\": \"planned_not_executed\"}\n",
+  "stderr": "",
+  "remote_requests": 0
+}

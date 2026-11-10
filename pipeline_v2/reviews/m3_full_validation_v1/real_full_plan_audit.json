@@ -1,0 +1,16 @@
+{
+  "status": "PASS_local_plan_only",
+  "raw_cases_verified": 7708,
+  "passages_verified": 415693,
+  "batches": 6496,
+  "last_batch_size": 13,
+  "input_tokens": 55346360,
+  "padded_tokens": 55360576,
+  "padding_ratio": 1.0002568551933677,
+  "sqlite_bytes": 4357505024,
+  "elapsed_seconds": 193.67004000000088,
+  "model_requests": 0,
+  "DB_accessed": false,
+  "labels_accessed": false,
+  "vectors_ingested": false
+}

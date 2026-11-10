@@ -1,0 +1,20 @@
+{
+  "schema_version": "ag-m3-lexical-independent-tests-1",
+  "generated_at_utc": "2026-11-09T16:16:37Z",
+  "tests_run": 8,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "elapsed_seconds": 0.7824280000058934,
+  "test_methods": [
+    "test_01_formula_float64_precision_stopwords_unicode_negation_oov",
+    "test_02_no_sql_join_and_bounded_fetchmany_across_multi_chunk_terms",
+    "test_03_top_k_partition_boundary_ties_and_ordinal_tie_breaking",
+    "test_04_unique_cases_mode_selects_best_hit_channel_wide_without_vote_summing",
+    "test_05_metadata_batching_256_and_immutable_column_crosschecks",
+    "test_06_preload_and_postings_fault_injection_and_constructor_cleanup",
+    "test_07_session_lifecycle_cleanup_sticky_guard_revalidate_and_live_mutation_contract",
+    "test_08_cli_error_handling_and_env_isolation"
+  ]
+}

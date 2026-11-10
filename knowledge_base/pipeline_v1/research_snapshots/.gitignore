@@ -1,3 +1,0 @@
-# Origin paths are retained inside immutable archive snapshots. Permit these
-# nested output directories without tracking live outputs elsewhere in the repo.
-!**/outputs/

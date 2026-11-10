@@ -1,0 +1,88 @@
+{
+  "prior_review_dir": "E:\\Git\\coliee-case-retrieval\\pipeline_v2\\reviews\\m3_full_search_plan_ag_review_v1",
+  "file_inventory": {
+    "REPORT.md": {
+      "exists": true,
+      "size_bytes": 21992,
+      "sha256": "437ef4dc8fb28d18ac2b99b5eefb63c687785f6d089d2c31648f7a70ef4614fb"
+    },
+    "decision_matrix.md": {
+      "exists": true,
+      "size_bytes": 30304,
+      "sha256": "d743853f5828de41431fa851304bf4a484b3904fd0f70be27d04db6c66ab946b"
+    },
+    "findings.json": {
+      "exists": true,
+      "size_bytes": 19512,
+      "sha256": "5685a3668d7a8809e1cbb17bddd57a7a0c2f6cd8b6fa30a040b1f078a1792e6b"
+    },
+    "probe_plan_assumptions.py": {
+      "exists": true,
+      "size_bytes": 5661,
+      "sha256": "72c4e9bf5dec615679229bbef7ea8f39a753377c55a72f1ce67abf37fee733fa"
+    },
+    "probe_results.json": {
+      "exists": true,
+      "size_bytes": 3611,
+      "sha256": "b279b6ba805d734a16392addc6032e3daea2b96fb51e32ca4e52a84d9ca411df"
+    },
+    "probe_deep_dive.py": {
+      "exists": true,
+      "size_bytes": 8044,
+      "sha256": "528d7a6655b3fecbd8061ee957c8362118f15b4656166978e7efc8baeedf5dd9"
+    },
+    "probe_deep_dive_results.json": {
+      "exists": false,
+      "size_bytes": null,
+      "sha256": null
+    },
+    "probe_mmap_and_open.py": {
+      "exists": true,
+      "size_bytes": 4736,
+      "sha256": "eee585a4ca568bdc2917a61676b2b04e6b1e39520871dc5b503f078a245d2629"
+    },
+    "probe_mmap_and_open_results.json": {
+      "exists": true,
+      "size_bytes": 761,
+      "sha256": "0ffb73565ad92891911c18d5ac643027365400e7e9e0ba2c13c6c18d2f3eac1d"
+    },
+    "test_plan_counterexamples.py": {
+      "exists": true,
+      "size_bytes": 13956,
+      "sha256": "2d2988052d22bd624bfde77ea057bec9c70227ecbd793db041cfb55c1c577858"
+    },
+    "counterexample_results.json": {
+      "exists": true,
+      "size_bytes": 2962,
+      "sha256": "8138973eeb13d6ced1be1346945613dd8212a139fddd2856abdc20bd6a04c172"
+    }
+  },
+  "probe_deep_dive_results_json_exists": false,
+  "claimed_in_findings_json": [
+    "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_results.json",
+    "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_deep_dive_results.json",
+    "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_mmap_and_open_results.json",
+    "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/counterexample_results.json",
+    "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/test_plan_counterexamples.py"
+  ],
+  "root_cause_of_missing_probe_deep_dive_results": "probe_deep_dive.py printed steps 1 and 2 to stdout, then called nr.open_context('055641.txt', 'p000001') at line 178 before writing probe_deep_dive_results.json at line 189. In 055641.txt, handle 'p000001' does not exist (first numbered handle is 'p000351', as later recorded in probe_mmap_and_open_results.json), causing an unhandled exception before file write.",
+  "evidence_classification": {
+    "verified_persisted_measurements": [
+      "probe_results.json: SQLite EXPLAIN QUERY PLAN for schedule and postings JOIN documents",
+      "probe_results.json: ReadonlyCache single shard load = 10.875 ms",
+      "probe_results.json: Qdrant batch=0 vec0 exact=False (20, 256, 1024, 4096) and exact=True (timeout HTTP 500 at 60.167s on limit=20; 10.2438s at 256; 3.7133s at 1024; 3.4117s at 4096)",
+      "probe_results.json: Single-query BM25 case=4.5872s (limit 100) and passage=121.5137s (limit 4096) on 6-term English query",
+      "probe_mmap_and_open_results.json: default SQLite cache_size=-2000, mmap_size=0; with mmap=4GiB & cache=512MiB (still with JOIN documents) run1=86.571s, run2=63.6325s",
+      "probe_mmap_and_open_results.json: PassageReader open_context 0.2349s (small) and 2.4576s (055641.txt), NavigationReader 0.7341s, M2 5 parents and 13 windows > 64KiB",
+      "counterexample_results.json: 11/11 deterministic unit counterexamples (CE01..CE11)"
+    ],
+    "unpersisted_or_missing_artifact_claims": [
+      "probe_deep_dive_results.json does not exist on disk; numbers cited from it in REPORT.md/findings.json (104.22s vs 52.18s no-join, 2.42s/2.65s batch 5000 Qdrant, 2860 vs 97 shards) lacked a persisted JSON artifact."
+    ],
+    "extrapolations_and_unmeasured_estimates": [
+      "'~31.1s' shard verification I/O was a linear multiplication (2,860 shards * 10.875 ms/shard), not a timed end-to-end run.",
+      "'~25 MB' RAM for preloading (passage_id -> length) was an analytical estimate, not a measured heap/RSS delta.",
+      "5x adaptive BM25/Qdrant latency ('5-8 minutes' / '~13s') was an analytical multiplication of 1-pass latency by 5 expansion steps."
+    ]
+  }
+}

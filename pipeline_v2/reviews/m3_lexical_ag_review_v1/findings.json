@@ -1,0 +1,66 @@
+{
+  "schema_version": "ag-m3-lexical-review-findings-1",
+  "generated_at_utc": "2026-11-09T16:38:30Z",
+  "implementation_sha256": "3633aa881ef8ff7f739a87c5c174b00faff82f59f656466a70d3804f7c0856bf",
+  "verdicts": {
+    "correctness": "PASS",
+    "actual_full_workload_parity": "PASS",
+    "performance_cold_warm_and_resource_limits": "PASS_MEASURED_WITH_DOCUMENTED_IO_AND_RESOURCE_LIMITS",
+    "full_search_readiness": "READY_AS_LEXICAL_COMPONENT_PENDING_HYBRID_FULL_SEARCH"
+  },
+  "blocking_production_bugs": 0,
+  "checklist_verification": {
+    "bm25_float64_and_analyzer": "PASS — Uses frozen retrieval.bm25.analyze (re.findall(r'\\w+', text.casefold(), re.UNICODE)), sorted unique query terms, float64 precomputed norm and float64 accumulation, no stopword removal, exclusion before cap, exact 0.0 score diff vs pure-Python float64 oracle and PersistentBM25.",
+    "no_join_and_bounded_fetchmany": "PASS — SQL in term loop is strictly 'SELECT id,tf FROM postings WHERE kind=? AND term=?' with no JOIN documents; postings are streamed via cursor.fetchmany(fetch_size) (4096 default, 64..16384 bounds) and never fetchall().",
+    "numpy_indexed_accumulation_and_reset": "PASS — PRIMARY KEY(kind,term,id) guarantees unique document ordinals within every fetchmany block for a given term, making scores[indices] += ... exact across multiple chunks and multiple terms; scores = np.zeros(n, dtype=np.float64) resets fresh on every query.",
+    "top_k_partition_and_unique_case_mode": "PASS — _top() partitions positive scores at n_pos - limit, keeps all strictly greater elements plus the first (limit - len(above)) boundary ties in ascending ordinal (sorted ID) order, then orders via np.lexsort((positive, -scores[positive])). unique_cases=True scans all positive hits in rank order across the entire channel before applying limit, without summing sibling passage scores.",
+    "batched_metadata_and_snapshot_guards": "PASS — get_many() fetches only selected IDs in 256-ID batches and cross-checks absence of 'text', exact ID match, and exact case_id code match against preloaded immutable columns. Constructor failures in FastBM25 and LexicalSession cleanly close open SQLite handles. guard() stickily invalidates on lexical/full code, profile, or manifest/seal digest drift; revalidate() runs full load_plan check explicitly outside hot queries.",
+    "pragmas_ram_and_cli_isolation": "PASS — Actual SQLite PRAGMAs verified (query_only=1, cache_size=-131072 [128 MiB], mmap_size=536870912 [512 MiB]). FastBM25 preload uses 65.07 MiB Python heap (tracemalloc) and +225.77 MiB OS PrivateUsage (+227.59 MiB WorkingSet), demonstrating empirically that mmap_mib=512 is a virtual address mapping limit rather than resident RAM, and cache_mib=128 is not a hard process RAM cap. Standalone CLI m3_lexical works without MODAL_*/QDRANT_* env vars and never imports modal or qdrant."
+  },
+  "findings": [
+    {
+      "id": "F-M3LEX-01",
+      "category": "performance_observation",
+      "severity": "low",
+      "blocking": false,
+      "title": "LexicalSession.search() runs self.guard() twice per query (~87 ms total file-hashing overhead) outside timings.total_seconds",
+      "files_and_symbols": [
+        "pipeline_v2/full_search/lexical.py::LexicalSession.guard",
+        "pipeline_v2/full_search/lexical.py::LexicalSession.search",
+        "pipeline_v2/full_search/lexical.py::FastBM25.search_detailed"
+      ],
+      "evidence": "In LexicalSession.search() (lines 264 and 268), self.guard() is called both before and after self.reader.search_detailed(). Each guard() call invokes full_code() and implementation(), reading and SHA-256 hashing ~38 Python/JSON files on disk (~47.7 ms per call, ~87.1 ms median per session.search() call). Because result['timings']['total_seconds'] is measured inside FastBM25.search_detailed(), it excludes this ~87 ms guard overhead. On the fast 'case' channel (where Q01 unique_cases=100 search_detailed takes 35.9 ms), the double guard() accounts for 70.7% of outer session.search() walltime (86.5 ms out of 122.4 ms).",
+      "impact": "No correctness issue. On 'passage' queries (~2s to ~24s), 87 ms is < 5% of latency, and it partially explains why outer session.search() timings in benchmark_actual.py were ~90 ms higher than pure scoring on 'case' queries.",
+      "recommended_fix": "Optional for future combined full-search session: record guard_seconds explicitly in session.search() telemetry, or run the code/profile file-digest check once per top-level hybrid search request rather than twice per lexical channel."
+    },
+    {
+      "id": "F-M3LEX-02",
+      "category": "performance_observation",
+      "severity": "low",
+      "blocking": false,
+      "title": "Execution-order asymmetry (5/8 cold first runs) and 4,096-row metadata B-tree lookups explain the apparent scalar vs vectorized gap in actual_benchmark.json",
+      "files_and_symbols": [
+        "pipeline_v2/reviews/m3_lexical_validation_v1/benchmark_actual.py::main",
+        "pipeline_v2/full_search/lexical.py::FastBM25.get_many",
+        "pipeline_v2/full_search/lexical.py::FastBM25.search_detailed"
+      ],
+      "evidence": "In benchmark_actual.py, random.Random(20261109 + ordinal).shuffle(['scalar', 'vectorized']) placed 'vectorized' first (cold on that query's postings) in 5/8 queries (Q01, Q04, Q05, Q06, Q08) and 'scalar' first in only 3/8 queries (Q02, Q03, Q07). Splitting actual_benchmark.json by position shows whichever method ran 2nd was much faster than 1st (case: 0.206s 2nd vs 2.100s 1st; passage: 14.150s 2nd vs 20.817s 1st), and on the 3 queries where scalar ran 1st, vectorized was faster (case: 0.231s vs 2.253s; passage: 16.232s vs 21.706s). Furthermore, stage decomposition on matched warm cache proves NumPy scoring + top-K selection is 2.35x faster than scalar Python scoring + sort on passage (median 0.678s vs 1.586s; top-K partition alone is 43.7x-61.5x faster: 9.1 ms vs 454 ms), while fetching 4,096 passage metadata rows in get_many() adds 0.723s median (up to 1.468s on Q02 when documents B-tree pages fault from disk). Switching to unique_cases=True, limit=100 cuts passage metadata_seconds from 722.6 ms median to 4.68 ms (154x faster median, up to 306x on Q06).",
+      "impact": "Confirms that FastBM25's NumPy scoring and top-K partition genuinely accelerate CPU scoring/ranking by 2.35x on passage and 1.55x on case, and that using unique_cases=True (limit=100) eliminates the 4,096-row metadata lookup penalty.",
+      "recommended_fix": "When integrating FastBM25 into M3 hybrid full search, invoke passage BM25 with unique_cases=True, limit=100 (or defer metadata retrieval until after RRF fusion of the top 100 unique cases) so get_many() never fetches 4,096 raw passage metadata rows."
+    },
+    {
+      "id": "F-M3LEX-03",
+      "category": "resource_and_io_limit",
+      "severity": "info",
+      "blocking": false,
+      "title": "SQLite postings fetch I/O outside the 512 MiB mmap window dominates passage latency (83%-92% of query time) on the 11.6 GiB host",
+      "files_and_symbols": [
+        "pipeline_v2/configs/m3_lexical.json",
+        "pipeline_v2/full_search/lexical.py::FastBM25.__init__"
+      ],
+      "evidence": "Because lexical.sqlite3 is 4,058.2 MiB (4,357,505,024 bytes), mmap_mib=512 maps only the first 12.6% of the file; the remaining 87.4% (~3.55 GiB, where most passage postings reside) is read via ReadFile into SQLite's 128 MiB page cache and OS standby cache. Even on a single SQLite connection after warming, postings_fetch_seconds accounts for 83%-92% of passage query time (median 8.23s out of 9.92s at limit=4096, and 1.42s-20.67s across Q01..Q08; Q04 unique_cases=100 spiked to 42.92s when OS standby pages were evicted).",
+      "impact": "As correctly stated in docs/M3_LEXICAL.md and BENCHMARK_PROTOCOL.md, cache_mib=128 / mmap_mib=512 is a conservative initial profile rather than a proven optimum. On a host with ~3.1 GiB free physical RAM that must also run Qdrant (vmmemWSL), SQLite postings I/O remains the dominant latency factor for long multi-stopword queries.",
+      "recommended_fix": "Proceed to the planned combined full-search session test (case_bm25 + passage_bm25 + dense Qdrant) and profile cache_mib/mmap_mib under joint memory pressure before locking full-search runtime settings."
+    }
+  ]
+}

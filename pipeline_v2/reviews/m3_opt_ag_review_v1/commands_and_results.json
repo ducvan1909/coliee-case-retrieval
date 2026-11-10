@@ -1,0 +1,31 @@
+{
+  "schema_version": "ag-m3-opt-commands-and-results-1",
+  "generated_at_utc": "2026-11-08T02:05:30Z",
+  "commands": [
+    {
+      "command": ".venv\\Scripts\\python.exe -m unittest pipeline_v2.tests.test_m3_opt_benchmark pipeline_v2.tests.test_m3_opt_lexical_batching pipeline_v2.tests.test_m3_opt_runtime pipeline_v2.tests.test_m3_opt_session -v",
+      "exit_code": 0,
+      "elapsed_seconds": 0.751,
+      "summary": "All 21 existing unit tests in pipeline_v2/tests/test_m3_opt_*.py passed."
+    },
+    {
+      "command": ".venv\\Scripts\\python.exe -m pipeline_v2.reviews.m3_opt_ag_review_v1.audit_m3_opt_independent",
+      "exit_code": 0,
+      "elapsed_seconds": 36.0,
+      "summary": "Independently verified all code/profile/embedding/upstream SHA-256 fingerprints, 147 baseline snapshot files, 64 baseline .npz shards vs vectors.npy (0.0 diff), 916 raw cases + 1,024 M2 passages vs PersistentBM25 (100% ID/rank/metadata match, max score diff 3.55e-15), length-bucketing padding math on 256 / 1,024 / 415,693 passages, 65 SQLite attempts in GPU benchmark ledger, and 3 SQLite attempts + 9 local search runs in search benchmark ledger."
+    },
+    {
+      "command": ".venv\\Scripts\\python.exe -m unittest pipeline_v2.reviews.m3_opt_ag_review_v1.test_m3_opt_independent_ag -v",
+      "exit_code": 0,
+      "elapsed_seconds": 6.154,
+      "summary": "All 7 independent AG review unit tests (including fault injection for score drift, duplicate dense hits, query-case leakage, post-init raw source drift, seal tampering, unknown token accounting on failed requests, and GPU memory hierarchy validation) passed."
+    }
+  ],
+  "recommended_modal_commands_for_user": [
+    {
+      "goal": "Optional bounded dense-bucket Modal arbitration on [16, 32, 64] to measure remote GPU throughput without 256-doc quantile padding distortion (ONLY after Codex fixes F-M3OPT-05 / adds dense-bucket or full-1024 pilot benchmark mode)",
+      "when_needed": "Only if the user wants to arbitrate whether batch_size=64 beats batch_size=32 on full-corpus dense length buckets (~0.03% padding) before launching the 415,693-passage run. Otherwise batch_size=32 can be used directly as the safe default.",
+      "command": ".venv\\Scripts\\python.exe -m pipeline_v2.m3_opt --env-file pipeline_v2/.env benchmark --index-dir pipeline_v2/artifacts/m3_opt_index_20261107_v2 --output pipeline_v2/artifacts/m3_opt_gpu_benchmark_dense_v2"
+    }
+  ]
+}

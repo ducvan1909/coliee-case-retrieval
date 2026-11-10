@@ -1,0 +1,30 @@
+{
+  "baseline_code": {
+    "pipeline_v2/m3.py": "20a338b562a0b918f59efd80be44d3855fd530786c0efa00133cbfb9dadd00f7",
+    "pipeline_v2/retrieval/__init__.py": "500a0e5966957f75abaaa2fec71954162c067d54ee9a50fdc0e3e7a289455225",
+    "pipeline_v2/retrieval/bm25.py": "92ec81469a8574c4724e890daada3983cdd40a22915f31cc48b3e37e85f6cfa5",
+    "pipeline_v2/retrieval/cache.py": "f79f6b510708737472621c62fdd215556eb923846f0fb91452ede2cbb3579759",
+    "pipeline_v2/retrieval/common.py": "ea18ae1f7201a7578d7a318085a1d5c5be464a4e946ba64afbb9839bfb60de00",
+    "pipeline_v2/retrieval/corpus.py": "b02a3680602f186aee56c7f301612a3a35d75f56d921a52fdfcb7baed1155e72",
+    "pipeline_v2/retrieval/pilot.py": "d2c3cebf651b0e81f8240fbaf05d90c33ddc41649a1f1e8a8d5eb64cc9a87bea",
+    "pipeline_v2/retrieval/qdrant.py": "daf48cc546053ada9938051e8262f3a18d97889987a7725db4da39d37cbf6e51",
+    "pipeline_v2/retrieval/runtime.py": "4a2eebd1d88b1f9e3c0ebdaca52cc1064989bdf52664867cadb7e01174d569e1",
+    "pipeline_v2/deployments/modal/engine.py": "1ec94f4dcd666bd3a368bb36b59b62ec524bcc1d6ccd543f70c3aeda11b3e19c",
+    "pipeline_v2/deployments/modal/qwen3_embed.py": "a93350fb45b914e2cf6e64c4b87a053cd1766d0c9293a9be560729a3e1740633"
+  },
+  "optimization_v1_code": {
+    "pipeline_v2/m3_opt.py": "c3c188c780738eb1958833283339bcad2e22427a9ba1737d5d86ee0ae343d9ca",
+    "pipeline_v2/optimization/__init__.py": "50577ddb95c74099497aff2be431e908fb8b069ef7e541c218a6185e77ba7886",
+    "pipeline_v2/optimization/batching.py": "4cba08dbe95d362f7ff3707a8e5e3817af2bb84e474f0b9f5fe21e054d4ba618",
+    "pipeline_v2/optimization/benchmark.py": "d7486cf9056086817d4124f5ced7b0ef51b94a222e61165c3db668431ab623ec",
+    "pipeline_v2/optimization/common.py": "24e02102a5544fb6b26339877e7f6ff0e2ab12dde0011d60e56ecea36bb01013",
+    "pipeline_v2/optimization/index.py": "fd42e0151498a38286af5c7094e8c8fdc9ec904b5047f9e409e542871cb3147a",
+    "pipeline_v2/optimization/runtime.py": "461407abfc96a526772f2dfe2b148ea06608726509c69558d8aa0e819b49e67f",
+    "pipeline_v2/deployments/modal_opt/engine.py": "b097172506ddf4704ee62067acf43dc4fdfe0e85c0a7ac37359c942c4938c9e1",
+    "pipeline_v2/deployments/modal_opt/qwen3_embed.py": "39ea6e578865655a646b7d90e90da5dd8a4fd3ad419cf17758c0a39245e84cab"
+  },
+  "baseline_profile_sha256": "3a0f65a4cd100842423ed8683f87d4d0594e095118e5ffabfdef1bee3a252ef7",
+  "optimization_v1_profile_sha256": "f81170ba13d5e0e2f188b7af0b031a09084165e9dcd92a3cf56383810001b798",
+  "scope": "old_code_profiles_must_remain_unchanged",
+  "modal_operations_executed": false
+}

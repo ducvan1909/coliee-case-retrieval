@@ -1,0 +1,91 @@
+{
+  "schema_version": "pipeline-v2-review-sampling-manifest-1",
+  "seed": 20261105,
+  "universe_size": 7708,
+  "exclusions": {
+    "m0_discovery_queries": [
+      "017984.txt",
+      "090579.txt",
+      "021095.txt",
+      "078522.txt",
+      "013909.txt",
+      "052702.txt",
+      "079470.txt",
+      "081689.txt",
+      "023005.txt",
+      "054233.txt"
+    ],
+    "m0_holdout_queries": [
+      "038078.txt",
+      "023045.txt",
+      "086750.txt",
+      "059126.txt",
+      "039403.txt",
+      "024409.txt",
+      "004157.txt",
+      "038786.txt",
+      "034625.txt",
+      "042885.txt"
+    ],
+    "regression_exposed_cases": [
+      "000758.txt",
+      "050936.txt",
+      "000432.txt",
+      "014069.txt",
+      "046028.txt",
+      "061295.txt",
+      "067620.txt",
+      "062436.txt"
+    ]
+  },
+  "eligible_pool_size": 7680,
+  "samples": {
+    "regression_exposed": [
+      "000758.txt",
+      "050936.txt",
+      "000432.txt",
+      "014069.txt",
+      "046028.txt",
+      "061295.txt",
+      "067620.txt",
+      "062436.txt"
+    ],
+    "uniform_random_12": [
+      "008976.txt",
+      "011922.txt",
+      "014101.txt",
+      "015732.txt",
+      "038777.txt",
+      "059675.txt",
+      "060604.txt",
+      "062913.txt",
+      "068193.txt",
+      "080359.txt",
+      "081945.txt",
+      "087842.txt"
+    ],
+    "structural_risk_12": {
+      "group_a_quotation_relations": [
+        "046523.txt",
+        "050107.txt",
+        "023783.txt"
+      ],
+      "group_b_translation_boundaries": [
+        "050969.txt",
+        "033536.txt",
+        "039093.txt"
+      ],
+      "group_c_headings": [
+        "080480.txt",
+        "039093.txt",
+        "067205.txt"
+      ],
+      "group_d_voice_cues": [
+        "068014.txt",
+        "076793.txt",
+        "019467.txt"
+      ]
+    }
+  },
+  "all_selected_cases_count": 32
+}

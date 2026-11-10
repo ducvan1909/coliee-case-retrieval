@@ -1,0 +1,111 @@
+{
+  "schema_version": "pipeline-v2-tokenizer-lock-1",
+  "model_id": "Qwen/Qwen3-Embedding-4B",
+  "tokenizer_id": "Qwen/Qwen3-Embedding-4B",
+  "revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+  "assets_dir": "pipeline_v2/vendor/qwen3_embedding_4b_tokenizer/5cf2132abc99cad020ac570b19d031efec650f2b",
+  "files": {
+    "tokenizer.json": {
+      "sha256": "83cdf8c3a34f68862319cb1810ee7b1e2c0a44e0864ae930194ddb76bb7feb8d",
+      "byte_length": 11422947
+    },
+    "tokenizer_config.json": {
+      "sha256": "2f58f4bbd7bbce15d683f525954ef3a92cd82f5e06415a9c513859bf8ab72436",
+      "byte_length": 7256
+    },
+    "vocab.json": {
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "byte_length": 2776833
+    },
+    "merges.txt": {
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "byte_length": 1671853
+    },
+    "config.json": {
+      "sha256": "78d2861cbbfd80eee05839200c5a3b7ed64c789f6c1cab4fbb84cc4eae33eaf5",
+      "byte_length": 727
+    },
+    "README.md": {
+      "sha256": "3c8dafc1e6529491fa8918cd96c62b90229b317fd83f2794cea20cda100d6122",
+      "byte_length": 17276
+    }
+  },
+  "package_versions": {
+    "tokenizers": "0.22.2"
+  },
+  "encoding": {
+    "add_special_tokens": true,
+    "truncation": false,
+    "padding": false,
+    "document_template": "{body}",
+    "document_instruction": null,
+    "chat_template_applied": false
+  },
+  "backend_post_processor": {
+    "type": "Sequence",
+    "processors": [
+      {
+        "type": "ByteLevel",
+        "add_prefix_space": false,
+        "trim_offsets": false,
+        "use_regex": false
+      },
+      {
+        "type": "TemplateProcessing",
+        "single": [
+          {
+            "Sequence": {
+              "id": "A",
+              "type_id": 0
+            }
+          },
+          {
+            "SpecialToken": {
+              "id": "<|endoftext|>",
+              "type_id": 0
+            }
+          }
+        ],
+        "pair": [
+          {
+            "Sequence": {
+              "id": "A",
+              "type_id": 0
+            }
+          },
+          {
+            "Sequence": {
+              "id": "B",
+              "type_id": 0
+            }
+          },
+          {
+            "SpecialToken": {
+              "id": "<|endoftext|>",
+              "type_id": 0
+            }
+          }
+        ],
+        "special_tokens": {
+          "<|endoftext|>": {
+            "id": "<|endoftext|>",
+            "ids": [
+              151643
+            ],
+            "tokens": [
+              "<|endoftext|>"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "special_tokens_added_per_document": 1,
+  "tokenizer_class_observed": "Qwen2Tokenizer",
+  "published_context_limit": 32768,
+  "config_max_position_embeddings": 40960,
+  "tokenizer_config_model_max_length": 131072,
+  "runtime_endpoint_limit": null,
+  "weights_downloaded": false,
+  "inference_executed": false
+}

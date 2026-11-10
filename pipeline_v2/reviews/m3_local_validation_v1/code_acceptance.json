@@ -1,0 +1,26 @@
+{
+  "status": "code_ready_for_independent_review_remote_unvalidated",
+  "implementation_sha256": "ade771e2d328b974d12421b5fa48b2b90632b10eb8422166f82b9f960d9add63",
+  "local_test_suite": {
+    "total": 104,
+    "passed": 104,
+    "elapsed_seconds": 16.186,
+    "evidence": "M3_LOCAL_TEST_REPORT.md from independent tester"
+  },
+  "m3_tests": {
+    "total": 39,
+    "passed": 39
+  },
+  "real_m2_plan": "PASS",
+  "independent_selected_plan_audit": "PASS",
+  "pilot_documents": 1024,
+  "source_cases": 916,
+  "model_requests": 0,
+  "modal_deployed": false,
+  "docker_started": false,
+  "real_pilot_executed": false,
+  "full_corpus_executed": false,
+  "production_owner": "Codex_current_chat",
+  "AG_production_edits_allowed": false,
+  "development_chat_tokens": null
+}

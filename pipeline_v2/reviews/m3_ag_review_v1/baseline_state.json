@@ -1,0 +1,97 @@
+{
+  "cached_vector_files": [],
+  "collection": "coliee_m3_pilot_99e66b7f9bbf4be4",
+  "embedding_fingerprint": "d945329fa49e2f4b4f83d530df03fb4897babd5345562cbeaebd3b21499649bf",
+  "ledger_attempts": [
+    {
+      "batch": "preflight-batch",
+      "elapsed_seconds": 74.08391589999519,
+      "error": null,
+      "id": 1,
+      "input_tokens": 475,
+      "phase": "document",
+      "requests": 1,
+      "started": 1793962646.2309546,
+      "status": "success"
+    },
+    {
+      "batch": "preflight-single-0",
+      "elapsed_seconds": 1.0074333999946248,
+      "error": null,
+      "id": 2,
+      "input_tokens": 2,
+      "phase": "document",
+      "requests": 1,
+      "started": 1793962720.3244073,
+      "status": "success"
+    },
+    {
+      "batch": "preflight-single-1",
+      "elapsed_seconds": 1.0550546999947983,
+      "error": null,
+      "id": 3,
+      "input_tokens": 14,
+      "phase": "document",
+      "requests": 1,
+      "started": 1793962721.3448348,
+      "status": "success"
+    },
+    {
+      "batch": "preflight-single-2",
+      "elapsed_seconds": 1.0415751000036835,
+      "error": null,
+      "id": 4,
+      "input_tokens": 11,
+      "phase": "document",
+      "requests": 1,
+      "started": 1793962722.4110136,
+      "status": "success"
+    },
+    {
+      "batch": "preflight-single-3",
+      "elapsed_seconds": 0.7909882999956608,
+      "error": null,
+      "id": 5,
+      "input_tokens": 448,
+      "phase": "document",
+      "requests": 1,
+      "started": 1793962723.4617245,
+      "status": "success"
+    },
+    {
+      "batch": "preflight-query",
+      "elapsed_seconds": 1.0379511999999522,
+      "error": null,
+      "id": 6,
+      "input_tokens": 38,
+      "phase": "query",
+      "requests": 1,
+      "started": 1793962724.2618973,
+      "status": "success"
+    }
+  ],
+  "ledger_attempts_count": 6,
+  "ledger_known_input_tokens": 988,
+  "ledger_unknown_token_attempts": 0,
+  "manifest_seal": {
+    "sha256": "2069968b6735e291afc81c7eb615121fc4da1c86dce566f46ebe5bfddadd18db"
+  },
+  "manifest_sha256": "2069968b6735e291afc81c7eb615121fc4da1c86dce566f46ebe5bfddadd18db",
+  "operation_receipt_files": [
+    "1793962725382565100_da49813e2fc74affa1c3dc4c38696739_preflight.json"
+  ],
+  "preflight_gpu": "NVIDIA L4",
+  "preflight_max_batch_cosine_deviation": 0.0003707408905029297,
+  "preflight_status": "PASS",
+  "progress_exists": false,
+  "qdrant_collections": [
+    {
+      "name": "coliee_m3_pilot_99e66b7f9bbf4be4"
+    }
+  ],
+  "qdrant_pilot_collection_points_count": 0,
+  "qdrant_pilot_collection_status": "green",
+  "run_dir": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+  "run_result_exists": false,
+  "verification_exists": false
+}

@@ -1,0 +1,21 @@
+{
+  "optimization_v2_implementation": {
+    "pipeline_v2/m3_opt_v2.py": "47e58e4bde13b7ce7e44b8f027b0c31239ac5bd71aabebd4a7536d4c0332a90e",
+    "pipeline_v2/optimization_v2/__init__.py": "ae4903cd669bac14717761080f24969dddfed9416dcc9d0b7f3bef5ba9c0822b",
+    "pipeline_v2/optimization_v2/benchmark.py": "2cffe1a5babf1e196b1f52acc68447c03c3ccd25c6392d22ee1db168f0f47364",
+    "pipeline_v2/optimization_v2/common.py": "ba2b3bc7cc89ff528eb9989e5098029acc411465c3ac6b34c998712023ae6970",
+    "pipeline_v2/optimization_v2/index.py": "d2587d56c8d0418e509580822c2bf88c889398c9914e23ac239b42877dc85e8c",
+    "pipeline_v2/optimization_v2/runtime.py": "e24ff55f76e2529cdc5dacbf5cc1f26b2cc461f35f78101da91e779e4a9cd64e",
+    "pipeline_v2/deployments/modal_opt_v2/engine.py": "c2c580bf1f32a9437aaae4dfdf1d7d3f08674ed1f26a3c24ee55a34bbfc14501",
+    "pipeline_v2/deployments/modal_opt_v2/qwen3_embed.py": "4a08b2e0d8c14cfd6671bb04045c4cbd4be2d4a184fc01c1f0a73edec3acc101",
+    "pipeline_v2/optimization/index.py": "fd42e0151498a38286af5c7094e8c8fdc9ec904b5047f9e409e542871cb3147a",
+    "pipeline_v2/optimization/common.py": "24e02102a5544fb6b26339877e7f6ff0e2ab12dde0011d60e56ecea36bb01013"
+  },
+  "optimization_v2_aggregate": "e2e554dd44bbd99ab93b61ca893094fe9dd47e0cd8604e5898e8b169bf931cf3",
+  "profile_hashes": {
+    "pipeline_v2/configs/m3.json": "3a0f65a4cd100842423ed8683f87d4d0594e095118e5ffabfdef1bee3a252ef7",
+    "pipeline_v2/configs/m3_opt.json": "f81170ba13d5e0e2f188b7af0b031a09084165e9dcd92a3cf56383810001b798",
+    "pipeline_v2/configs/m3_opt_v2.json": "1751e20a35d289fa7aa8842a546875d676ace751c8a5dc65f5a544889f293f20"
+  },
+  "modal_executed_by_main": false
+}

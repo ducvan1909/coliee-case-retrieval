@@ -1,0 +1,19 @@
+{
+  "schema_version":"pipeline-v2-m3-opt-1",
+  "baseline_run":"pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+  "baseline_code_sha256":"ade771e2d328b974d12421b5fa48b2b90632b10eb8422166f82b9f960d9add63",
+  "embedding":{
+    "model":"Qwen/Qwen3-Embedding-4B",
+    "revision":"5cf2132abc99cad020ac570b19d031efec650f2b",
+    "dimensions":2560,"max_tokens":448,"max_batch_size":128,
+    "weights_dtype":"bfloat16","output_dtype":"float32",
+    "pooling":"last_nonpadding_token","normalization":"l2",
+    "document_template":"{body}","add_special_tokens":true,"truncation":false,
+    "query_instruction":"Given a passage from a court decision, retrieve passages from other court decisions that could be sources cited or relied on in that passage.",
+    "torch":"2.8.0","transformers":"4.57.1","tokenizers":"0.22.2",
+    "modal_app":"coliee-pipeline-v2-embed-m3-opt-v1","modal_class":"Embedder",
+    "modal_volume":"coliee-pipeline-v2-qwen3-4b-cache-v1","gpu":"L4","scaledown_window_seconds":120
+  },
+  "benchmark":{"batch_sizes":[16,32,64,128],"representative_size":256,"repeats":2,"parity_cosine_atol":0.001},
+  "search":{"source_guard":"full_raw_hash_per_query_no_structure_reparse","query_limit_max":100,"score_atol":0.0001}
+}

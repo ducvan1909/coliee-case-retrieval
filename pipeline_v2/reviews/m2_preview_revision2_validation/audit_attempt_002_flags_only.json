@@ -1,0 +1,1033 @@
+{
+  "status": "PASS",
+  "old_bundle": "E:\\Git\\coliee-case-retrieval\\pipeline_v2\\artifacts\\m2_navigation_20261105_v1",
+  "new_bundle": "E:\\Git\\coliee-case-retrieval\\pipeline_v2\\artifacts\\m2_navigation_20261106_v2",
+  "counts": {
+    "cases": 7708,
+    "navigation_units": 382343,
+    "previews": 454275,
+    "max_preview_chars": 240,
+    "word_boundary_clipped": 245,
+    "tag_boundary_clipped": 9,
+    "sentence_status_unverified": 454275,
+    "units_with_previews": 382076
+  },
+  "error_count": 0,
+  "errors": [],
+  "contained_preview_pair_count": 0,
+  "errors_truncated": false,
+  "short_opening_diagnostics": [
+    {
+      "case_id": "007777.txt",
+      "unit_id": "007777:d5b5d2f03b442586:2-355:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 90
+    },
+    {
+      "case_id": "014803.txt",
+      "unit_id": "014803:4feef9b656f3a279:2-339:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 88
+    },
+    {
+      "case_id": "016528.txt",
+      "unit_id": "016528:f6c4fd0f527fff34:2-337:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 91
+    },
+    {
+      "case_id": "028057.txt",
+      "unit_id": "028057:ccde7bb28b2776cf:14033-14361:20c8805023c2",
+      "preview_id": "p000045:v01",
+      "preview_chars": 89
+    },
+    {
+      "case_id": "040347.txt",
+      "unit_id": "040347:f46553ecb0c15e73:2-341:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 91
+    },
+    {
+      "case_id": "081901.txt",
+      "unit_id": "081901:e7f73ebad6285215:2-342:20c8805023c2",
+      "preview_id": "u000001:v01",
+      "preview_chars": 91
+    }
+  ],
+  "short_opening_diagnostic_count": 6,
+  "same_handle_raw_source_examples": [
+    {
+      "case_id": "011922.txt",
+      "handle": "p000005",
+      "unit_id": "011922:ae50db46d34a0ba0:625-1316:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            637,
+            647
+          ],
+          "text_prefix": "Pinard, J."
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            637,
+            874
+          ],
+          "text_prefix": "Pinard, J. \r\n : On March 14, 2011, Luftar Hysa (the \"applicant\") filed the present appeal, under subsection 14(5) of the"
+        }
+      ]
+    },
+    {
+      "case_id": "014101.txt",
+      "handle": "p000001",
+      "unit_id": "014101:190e664505334bec:0-297:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            5,
+            15
+          ],
+          "text_prefix": "Pinard, J."
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            5,
+            240
+          ],
+          "text_prefix": "Pinard, J.\r\n: This is an application pursuant to s. 44 of the\r\nAccess to Information Act\r\n, R.S.C. 1985, c. A-1 (the \"\r\n"
+        }
+      ]
+    },
+    {
+      "case_id": "015740.txt",
+      "handle": "p000005",
+      "unit_id": "015740:2db4d8515e194430:4257-4775:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            4269,
+            4279
+          ],
+          "text_prefix": "Mosley, J."
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            4634,
+            4775
+          ],
+          "text_prefix": "d of protection, pursuant to sections 96 and 97 of the IRPA. For the reasons that follow, this application is allowed.  "
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            4269,
+            4507
+          ],
+          "text_prefix": "Mosley, J. \r\n : This is an application for judicial review pursuant to section 72 of the  \r\n Immigration and Refugee Pro"
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            4636,
+            4775
+          ],
+          "text_prefix": "of protection, pursuant to sections 96 and 97 of the IRPA. For the reasons that follow, this application is allowed.  <F"
+        }
+      ]
+    },
+    {
+      "case_id": "048208.txt",
+      "handle": "p000001",
+      "unit_id": "048208:c75679c07aaaadd3:13-927:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            18,
+            28
+          ],
+          "text_prefix": "Cullen, J."
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            35,
+            275
+          ],
+          "text_prefix": "s is an application by notice of motion to determine a preliminary question of law. On May 2, 1989, the Associate Chief "
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            18,
+            258
+          ],
+          "text_prefix": "Cullen, J.\r\n: This is an application by notice of motion to determine a preliminary question of law. On May 2, 1989, the"
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            687,
+            927
+          ],
+          "text_prefix": "n of the said Act, namely, s. 74(5)?\"\r\nIn support of this application, an agreed statement of facts and an agreed book o"
+        }
+      ]
+    },
+    {
+      "case_id": "051807.txt",
+      "handle": "p000001",
+      "unit_id": "051807:cceab97ca4511b71:0-421:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            5,
+            16
+          ],
+          "text_prefix": "O'Keefe, J."
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            5,
+            243
+          ],
+          "text_prefix": "O'Keefe, J.\r\n: This is an appeal under s. 21 of the\r\nFederal Court Act\r\n, R.S.C. 1985, c. F-7, and s. 14(5) of the\r\nCiti"
+        }
+      ]
+    },
+    {
+      "case_id": "068193.txt",
+      "handle": "p000001",
+      "unit_id": "068193:e74a2760a29e6ac5:14-2295:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            19,
+            33
+          ],
+          "text_prefix": "Teitelbaum, J."
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            582,
+            822
+          ],
+          "text_prefix": "of Health is under a duty to comply with section 7(1) of the\r\nPatented Medicines (Notice of Compliance) Regulations\r\n(\" "
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            19,
+            250
+          ],
+          "text_prefix": "Teitelbaum, J.\r\n: This is an application for judicial review pursuant to s. 18 of the\r\nFederal Court Act\r\n. The applican"
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            582,
+            817
+          ],
+          "text_prefix": "of Health is under a duty to comply with section 7(1) of the\r\nPatented Medicines (Notice of Compliance) Regulations\r\n(\" "
+        }
+      ]
+    },
+    {
+      "case_id": "080359.txt",
+      "handle": "p000005",
+      "unit_id": "080359:ca5cc56b2ff54a35:408-845:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            413,
+            423
+          ],
+          "text_prefix": "Phelan, J."
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            413,
+            647
+          ],
+          "text_prefix": "Phelan, J.\r\n: Mr. Faria applied for citizenship although he had only been in Canada a total of 504 days over the period "
+        }
+      ]
+    },
+    {
+      "case_id": "081945.txt",
+      "handle": "p000005",
+      "unit_id": "081945:a4de6b0c9511c0fa:748-1070:20c8805023c2",
+      "before": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            760,
+            772
+          ],
+          "text_prefix": "Mandamin, J."
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            929,
+            1070
+          ],
+          "text_prefix": "ting Ms. Shalini Kumar's application for a permanent residence visa in Canada as a member of the skilled worker class.  "
+        }
+      ],
+      "after": [
+        {
+          "kind": "opening",
+          "span_bytes": [
+            760,
+            999
+          ],
+          "text_prefix": "Mandamin, J. \r\n : The Applicants seek judicial review of the decision of P. Purcell, Second Secretary, Immigration, (the"
+        },
+        {
+          "kind": "anchor",
+          "span_bytes": [
+            934,
+            1070
+          ],
+          "text_prefix": "Ms. Shalini Kumar's application for a permanent residence visa in Canada as a member of the skilled worker class.  <FRAG"
+        }
+      ]
+    }
+  ],
+  "midtoken_end_diagnostics": [
+    {
+      "case_id": "000127.txt",
+      "preview_id": "p000018:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " and 20 of its decision:"
+    },
+    {
+      "case_id": "000140.txt",
+      "preview_id": "p000038:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "al. The Court held that:"
+    },
+    {
+      "case_id": "002114.txt",
+      "preview_id": "p000073:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "zed the risk they faced:"
+    },
+    {
+      "case_id": "002243.txt",
+      "preview_id": "p000115:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "n déclarant ce qui suit:"
+    },
+    {
+      "case_id": "003553.txt",
+      "preview_id": "p000013:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " respect at paragraph 9:"
+    },
+    {
+      "case_id": "003553.txt",
+      "preview_id": "p000018:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": ", 158 A.C.W.S. (3d) 879:"
+    },
+    {
+      "case_id": "003796.txt",
+      "preview_id": "p000019:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "t. Justice Pinard noted:"
+    },
+    {
+      "case_id": "003796.txt",
+      "preview_id": "p000026:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": ", Justice Mosley stated:"
+    },
+    {
+      "case_id": "003796.txt",
+      "preview_id": "p000038:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "sion was not reasonable:"
+    },
+    {
+      "case_id": "003950.txt",
+      "preview_id": "p000117:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " at paragraphs 85 to 90:"
+    },
+    {
+      "case_id": "004078.txt",
+      "preview_id": "p000183:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "éclaré au paragraphe 22:"
+    },
+    {
+      "case_id": "004258.txt",
+      "preview_id": "p000031:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " Court of Appeal stated:"
+    },
+    {
+      "case_id": "004301.txt",
+      "preview_id": "p000076:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": true,
+      "ending": " 7, 8 and 13, she wrote:"
+    },
+    {
+      "case_id": "004810.txt",
+      "preview_id": "p000024:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "e summarized as follows:"
+    },
+    {
+      "case_id": "005036.txt",
+      "preview_id": "p000022:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "animous Court of Appeal:"
+    },
+    {
+      "case_id": "005113.txt",
+      "preview_id": "p000042:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ION_SUPPRESSED\r\n, above:"
+    },
+    {
+      "case_id": "005808.txt",
+      "preview_id": "p000018:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "rome stated at page 307:"
+    },
+    {
+      "case_id": "006063.txt",
+      "preview_id": "p000033:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": true,
+      "ending": "dence. The Court stated:"
+    },
+    {
+      "case_id": "006756.txt",
+      "preview_id": "p000035:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": ", Justice Hughes stated:"
+    },
+    {
+      "case_id": "006766.txt",
+      "preview_id": "p000097:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "peal, stated as follows:"
+    },
+    {
+      "case_id": "006801.txt",
+      "preview_id": "p000029:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ation au point d'entrée:"
+    },
+    {
+      "case_id": "007276.txt",
+      "preview_id": "p000081:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "nnaissance du demandeur:"
+    },
+    {
+      "case_id": "007627.txt",
+      "preview_id": "p000020:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " appeal, when he stated:"
+    },
+    {
+      "case_id": "008545.txt",
+      "preview_id": "p000034:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": true,
+      "ending": " Shore explains further:"
+    },
+    {
+      "case_id": "008723.txt",
+      "preview_id": "p000035:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "phs 21 and 22, he wrote:"
+    },
+    {
+      "case_id": "009042.txt",
+      "preview_id": "p000059:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "f of harm he must do so:"
+    },
+    {
+      "case_id": "009575.txt",
+      "preview_id": "p000013:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "10] F.C.J. No. 213 (QL):"
+    },
+    {
+      "case_id": "009667.txt",
+      "preview_id": "p000058:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " efforts are not enough:"
+    },
+    {
+      "case_id": "009667.txt",
+      "preview_id": "p000061:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "tion for the applicants:"
+    },
+    {
+      "case_id": "010354.txt",
+      "preview_id": "p000012:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "a. Justice Hughes noted:"
+    },
+    {
+      "case_id": "010526.txt",
+      "preview_id": "p000159:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "éclaré au paragraphe 22:"
+    },
+    {
+      "case_id": "011090.txt",
+      "preview_id": "p000161:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ED>  (QL), it is stated:"
+    },
+    {
+      "case_id": "011346.txt",
+      "preview_id": "p000040:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "stice de Montigny wrote:"
+    },
+    {
+      "case_id": "011379.txt",
+      "preview_id": "p000047:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "sages are at paras 8-10:"
+    },
+    {
+      "case_id": "011379.txt",
+      "preview_id": "p000058:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "out the test at para 32:"
+    },
+    {
+      "case_id": "011546.txt",
+      "preview_id": "p000031:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " <FRAGMENT_SUPPRESSED> :"
+    },
+    {
+      "case_id": "011699.txt",
+      "preview_id": "p000165:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ement, la Cour a conclu:"
+    },
+    {
+      "case_id": "012653.txt",
+      "preview_id": "p000013:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "9 and 20 of the Reasons:"
+    },
+    {
+      "case_id": "012985.txt",
+      "preview_id": "p000004:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "nds over or sit outside."
+    },
+    {
+      "case_id": "013122.txt",
+      "preview_id": "p000026:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": true,
+      "ending": "Country of Asylum class:"
+    },
+    {
+      "case_id": "015438.txt",
+      "preview_id": "p000011:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "\n \r\n GROUNDS FOR APPEAL:"
+    },
+    {
+      "case_id": "015781.txt",
+      "preview_id": "p000047:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ggery\".\r\nTHE MP REPORTS:"
+    },
+    {
+      "case_id": "016224.txt",
+      "preview_id": "p000014:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "he held in paragraph 10:"
+    },
+    {
+      "case_id": "016224.txt",
+      "preview_id": "p000023:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "stice Michel Shore held:"
+    },
+    {
+      "case_id": "016239.txt",
+      "preview_id": "p000029:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "SSED>  FTR 1 at para 17:"
+    },
+    {
+      "case_id": "016278.txt",
+      "preview_id": "p000084:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " <FRAGMENT_SUPPRESSED> :"
+    },
+    {
+      "case_id": "016309.txt",
+      "preview_id": "p000053:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ENT_SUPPRESSED> , above:"
+    },
+    {
+      "case_id": "016546.txt",
+      "preview_id": "p000080:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "at paragraphs 62 and 99:"
+    },
+    {
+      "case_id": "016720.txt",
+      "preview_id": "p000086:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "it plus loin à ce sujet:"
+    },
+    {
+      "case_id": "017025.txt",
+      "preview_id": "p000044:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "soning is impermissible:"
+    },
+    {
+      "case_id": "017699.txt",
+      "preview_id": "p000065:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " in China from Mr. Peng:"
+    },
+    {
+      "case_id": "017699.txt",
+      "preview_id": "p000073:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "\nCITATION_SUPPRESSED\r\n):"
+    },
+    {
+      "case_id": "017705.txt",
+      "preview_id": "p000045:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "A. held at paragraph 36:"
+    },
+    {
+      "case_id": "017738.txt",
+      "preview_id": "p000029:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " \r\nFRAGMENT_SUPPRESSED):"
+    },
+    {
+      "case_id": "019185.txt",
+      "preview_id": "p000102:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "citée, au paragraphe 35:"
+    },
+    {
+      "case_id": "019366.txt",
+      "preview_id": "p000001:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": ", c 27 (hereafter IRPA)."
+    },
+    {
+      "case_id": "019505.txt",
+      "preview_id": "p000016:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ttered their discretion:"
+    },
+    {
+      "case_id": "019505.txt",
+      "preview_id": "p000030:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " <FRAGMENT_SUPPRESSED> :"
+    },
+    {
+      "case_id": "019505.txt",
+      "preview_id": "p000040:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ENT_SUPPRESSED> , above:"
+    },
+    {
+      "case_id": "019505.txt",
+      "preview_id": "p000043:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " <FRAGMENT_SUPPRESSED> :"
+    },
+    {
+      "case_id": "019531.txt",
+      "preview_id": "p000010:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "e?\r\nSTATUTORY FRAMEWORK:"
+    },
+    {
+      "case_id": "019855.txt",
+      "preview_id": "p000016:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "of these classes either."
+    },
+    {
+      "case_id": "019896.txt",
+      "preview_id": "p000101:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "citée, au paragraphe 35:"
+    },
+    {
+      "case_id": "020278.txt",
+      "preview_id": "p000051:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "SED> [2010] FCJ No 1670:"
+    },
+    {
+      "case_id": "020278.txt",
+      "preview_id": "p000124:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ui de leurs allégations:"
+    },
+    {
+      "case_id": "020763.txt",
+      "preview_id": "p000116:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " explications suivantes:"
+    },
+    {
+      "case_id": "021092.txt",
+      "preview_id": "p000013:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " process\" and concluded:"
+    },
+    {
+      "case_id": "021918.txt",
+      "preview_id": "p000051:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " <FRAGMENT_SUPPRESSED> :"
+    },
+    {
+      "case_id": "022362.txt",
+      "preview_id": "p000034:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " observed the following:"
+    },
+    {
+      "case_id": "022477.txt",
+      "preview_id": "p000110:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ows at paragraphs 40-41:"
+    },
+    {
+      "case_id": "022477.txt",
+      "preview_id": "p000115:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ows at paragraphs 17-18:"
+    },
+    {
+      "case_id": "023744.txt",
+      "preview_id": "p000019:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "7(9)(\r\nd\r\n) of the IRPR:"
+    },
+    {
+      "case_id": "023783.txt",
+      "preview_id": "p000098:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ourt, stated as follows:"
+    },
+    {
+      "case_id": "023783.txt",
+      "preview_id": "p000104:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "hstein wrote as follows:"
+    },
+    {
+      "case_id": "023783.txt",
+      "preview_id": "p000118:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " They stated as follows:"
+    },
+    {
+      "case_id": "023874.txt",
+      "preview_id": "p000042:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": ". The Board's Arguments:"
+    },
+    {
+      "case_id": "024758.txt",
+      "preview_id": "p000053:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " interests of the child:"
+    },
+    {
+      "case_id": "025015.txt",
+      "preview_id": "p000027:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " <FRAGMENT_SUPPRESSED> :"
+    },
+    {
+      "case_id": "025015.txt",
+      "preview_id": "p000033:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": ". As Justice Evans held:"
+    },
+    {
+      "case_id": "025163.txt",
+      "preview_id": "p000023:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "t\r\n?\r\nFile No. T-454-08:"
+    },
+    {
+      "case_id": "025207.txt",
+      "preview_id": "p000047:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " the subject, he stated:"
+    },
+    {
+      "case_id": "025207.txt",
+      "preview_id": "p000065:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ustice Pelletier stated:"
+    },
+    {
+      "case_id": "025354.txt",
+      "preview_id": "p000041:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "e she stated at para 21:"
+    },
+    {
+      "case_id": "026294.txt",
+      "preview_id": "p000063:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "at paragraphs 41 and 44:"
+    },
+    {
+      "case_id": "027187.txt",
+      "preview_id": "p000017:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "enson\r\n21\r\nTotal:    347"
+    },
+    {
+      "case_id": "027316.txt",
+      "preview_id": "p000017:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "n\r\nREFERENCE_SUPPRESSED:"
+    },
+    {
+      "case_id": "027692.txt",
+      "preview_id": "p000073:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " constitute persecution:"
+    },
+    {
+      "case_id": "027892.txt",
+      "preview_id": "p000011:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " regard, the RPD stated:"
+    },
+    {
+      "case_id": "027892.txt",
+      "preview_id": "p000041:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": ", la SPR a conclu ainsi:"
+    },
+    {
+      "case_id": "028184.txt",
+      "preview_id": "p000069:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "n with H&C applications:"
+    },
+    {
+      "case_id": "029445.txt",
+      "preview_id": "p000053:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " performance\" (para 28):"
+    },
+    {
+      "case_id": "029445.txt",
+      "preview_id": "p000113:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "PRESSED>  and concluded:"
+    },
+    {
+      "case_id": "029445.txt",
+      "preview_id": "p000118:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "cumstance. Further that:"
+    },
+    {
+      "case_id": "030098.txt",
+      "preview_id": "p000101:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "at paragraphs 44 and 45:"
+    },
+    {
+      "case_id": "030546.txt",
+      "preview_id": "p000056:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "applicant is successful:"
+    },
+    {
+      "case_id": "030557.txt",
+      "preview_id": "p000018:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "tated at paras 43 to 45:"
+    },
+    {
+      "case_id": "030622.txt",
+      "preview_id": "p000084:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": "ion. Justice Evans held:"
+    },
+    {
+      "case_id": "030638.txt",
+      "preview_id": "p000019:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " <FRAGMENT_SUPPRESSED> :"
+    },
+    {
+      "case_id": "030868.txt",
+      "preview_id": "p000028:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": false,
+      "ending": " observed the following:"
+    },
+    {
+      "case_id": "031088.txt",
+      "preview_id": "p000063:v02",
+      "word_boundary_clipped": true,
+      "tag_boundary_clipped": true,
+      "ending": "nie wrote the following:"
+    }
+  ],
+  "midtoken_end_diagnostic_count": 245,
+  "elapsed_seconds": 55.153,
+  "limitations": [
+    "This audit checks structure, provenance, selection bounds, and sentence-status claims only.",
+    "Short-opening and mid-token-ending counts are diagnostic signals, not semantic error rates.",
+    "It does not assess legal relevance, quote ownership, or whether an opening is a good summary."
+  ]
+}

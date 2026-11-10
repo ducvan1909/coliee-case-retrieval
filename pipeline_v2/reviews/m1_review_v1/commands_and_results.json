@@ -1,0 +1,74 @@
+[
+  {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s pipeline_v2/tests -v",
+    "purpose": "Re-run existing test suite (M0 regression + M1 tests)",
+    "exit_code": 0,
+    "elapsed_seconds": 1.230,
+    "output_summary": "Ran 21 tests in 1.230s, all 21 tests PASS (6 M0 + 15 M1).",
+    "retries": 0,
+    "errors": null
+  },
+  {
+    "command": ".venv/Scripts/python.exe -m pipeline_v2.m1 validate --repo-root . --bundle pipeline_v2/artifacts/m1_20261105_v1",
+    "purpose": "Re-run official M1 bundle validator across 7,708 sources",
+    "exit_code": 0,
+    "elapsed_seconds": 102.064,
+    "output_summary": "{\"integrity\": \"ready\", \"local_elapsed_seconds\": 102.06437, \"source_count\": 7708, \"structure\": \"observed_conservative_with_unknowns_not_corpus_accuracy_verified\", \"valid\": true}",
+    "retries": 0,
+    "errors": null
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/integrity_check.py",
+    "purpose": "Independent full-corpus integrity checker without calling parser",
+    "exit_code": 0,
+    "elapsed_seconds": 49.391,
+    "output_summary": "Checked all 7,708 cases independently from raw disk bytes. Status: PASS. Errors: 0, Warnings: 0. Verified: UTF-8, CRLF, spans, partitions, char_byte_map, unit IDs, section refs, sidecar containment, metadata raw slices, summary counts.",
+    "retries": 0,
+    "errors": null
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/tamper_test.py",
+    "purpose": "Independent tamper resistance test in scratch workspace",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2,
+    "output_summary": "All tamper checks PASS: clean open (PASS), source drift detection (PASS), structure alteration detection (PASS), registry tamper detection (PASS).",
+    "retries": 1,
+    "errors": "Initial run had only 9 dummy cases, M0 cohort builder required >= 20. Adjusted to 40 cases."
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/sampling.py",
+    "purpose": "Generate sampling_manifest.json with locked seed 20261105 and exclusions",
+    "exit_code": 0,
+    "elapsed_seconds": 5.1,
+    "output_summary": "Total sources: 7,708. Excluded: 23 (10 discovery, 10 holdout, 3 fixtures). Eligible: 7,685. Selected: 12 uniform random + 12 risk-based (4 groups x 3) = 24 total cases.",
+    "retries": 1,
+    "errors": "Initial path resolution needed parents[4] instead of parents[3]."
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/inspect_samples.py",
+    "purpose": "Extract up to 3 context regions per sampled case based on locked rules",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8,
+    "output_summary": "Extracted 72 context regions (3 regions per case) across 24 cases.",
+    "retries": 0,
+    "errors": null
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/build_reviewed_regions.py",
+    "purpose": "Evaluate all 72 extracted regions and build reviewed_regions.json",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4,
+    "output_summary": "72 regions evaluated. Defects found in 16 regions, clean passes in 56 regions. Status: all resolved.",
+    "retries": 0,
+    "errors": null
+  },
+  {
+    "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/repro_findings.py",
+    "purpose": "Reproduce all confirmed findings with concrete evidence and commands",
+    "exit_code": 0,
+    "elapsed_seconds": 0.5,
+    "output_summary": "All 5 technical findings reproduced successfully with exact byte offsets and text context.",
+    "retries": 1,
+    "errors": "Added sys.path.insert(0, str(ROOT)) to repro_findings.py."
+  }
+]

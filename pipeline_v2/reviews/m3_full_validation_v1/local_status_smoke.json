@@ -1,0 +1,15 @@
+{
+  "command": "python -m pipeline_v2.m3_full --env-file DOES_NOT_EXIST status --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+  "exit_code": 0,
+  "result": {
+    "active_run_proven": false,
+    "batches": 6496,
+    "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+    "database_reverified": false,
+    "internal_cli_seconds": 31.17847570000231,
+    "model_requests": 0,
+    "passages": 415693,
+    "status": "planned"
+  },
+  "evidence": "Main observed actual CLI output; no env file present at requested path"
+}

@@ -1,0 +1,1655 @@
+{
+  "schema_version": "m2-preview-revision2-sampling-manifest-v1",
+  "seed": 20261106,
+  "locked_before_reading_raw": true,
+  "labels_accessed": false,
+  "total_corpus_cases": 7708,
+  "excluded_discovery_count": 10,
+  "excluded_holdout_count": 10,
+  "separate_regression_cases_count": 17,
+  "eligible_pool_count": 7671,
+  "uniform_random_20": [
+    "000777.txt",
+    "001201.txt",
+    "002348.txt",
+    "004252.txt",
+    "008003.txt",
+    "010465.txt",
+    "012505.txt",
+    "020000.txt",
+    "021926.txt",
+    "025667.txt",
+    "026294.txt",
+    "030557.txt",
+    "038541.txt",
+    "060945.txt",
+    "064754.txt",
+    "064772.txt",
+    "066994.txt",
+    "088672.txt",
+    "092703.txt",
+    "095636.txt"
+  ],
+  "risk_stratified_20": {
+    "risk_1_many_anchors": [
+      "014294.txt",
+      "035266.txt",
+      "081928.txt",
+      "088955.txt"
+    ],
+    "risk_2_long_or_cross_unit_cues": [
+      "041277.txt",
+      "051407.txt",
+      "068880.txt",
+      "075799.txt"
+    ],
+    "risk_3_clipped_or_short_opening_boundary": [
+      "004608.txt",
+      "029475.txt",
+      "043388.txt",
+      "070677.txt"
+    ],
+    "risk_4_units_without_preview": [
+      "002304.txt",
+      "017411.txt",
+      "019488.txt",
+      "076001.txt"
+    ],
+    "risk_5_repeated_markers_or_unnumbered": [
+      "011699.txt",
+      "039983.txt",
+      "041387.txt",
+      "063659.txt"
+    ]
+  },
+  "total_sampled_unique_cases": 40,
+  "overlap_between_uniform_and_risk": 0,
+  "overlap_with_discovery_or_holdout": 0,
+  "overlap_with_separate_regressions": 0,
+  "total_sampled_regions": 120,
+  "separate_regression_groups": {
+    "prompt_8_verbatim_regressions": [
+      "011922.txt",
+      "051807.txt",
+      "080359.txt",
+      "068193.txt",
+      "014101.txt",
+      "048208.txt",
+      "081945.txt",
+      "015740.txt"
+    ],
+    "v2_9_tag_clip_regressions": [
+      "004301.txt",
+      "006063.txt",
+      "008545.txt",
+      "013122.txt",
+      "031088.txt",
+      "059397.txt",
+      "071931.txt",
+      "093363.txt",
+      "095618.txt"
+    ]
+  },
+  "case_selections": [
+    {
+      "case_id": "000777.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "000777.txt",
+        "navigation_units": 146,
+        "max_unit_anchors": 4,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 2,
+        "unnumbered_units": 2,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 16
+      },
+      "selected_regions": [
+        {
+          "handle": "p000003",
+          "unit_id": "000777:c599a3595b2ea24c:2712-2943:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000023",
+          "unit_id": "000777:c599a3595b2ea24c:14929-14976:20c8805023c2",
+          "selection_reason": "slot2_unit_without_preview"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "000777:c599a3595b2ea24c:0-2648:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "001201.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "001201.txt",
+        "navigation_units": 39,
+        "max_unit_anchors": 5,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 0,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 5
+      },
+      "selected_regions": [
+        {
+          "handle": "p000001",
+          "unit_id": "001201:5a2ac00d2fa8a931:0-1128:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000019",
+          "unit_id": "001201:5a2ac00d2fa8a931:14361-14946:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000027",
+          "unit_id": "001201:5a2ac00d2fa8a931:22651-23531:20c8805023c2",
+          "selection_reason": "slot3_deep_paragraph_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "002348.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "002348.txt",
+        "navigation_units": 12,
+        "max_unit_anchors": 2,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 3
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "002348:434546149445f1c8:3502-4063:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "002348:434546149445f1c8:26-184:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000002",
+          "unit_id": "002348:434546149445f1c8:212-2694:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "004252.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "004252.txt",
+        "navigation_units": 29,
+        "max_unit_anchors": 4,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 4
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "004252:3e8d382ca320fe78:468-912:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000016",
+          "unit_id": "004252:3e8d382ca320fe78:6050-6488:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "004252:3e8d382ca320fe78:1-69:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "008003.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "008003.txt",
+        "navigation_units": 85,
+        "max_unit_anchors": 5,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 1,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 19
+      },
+      "selected_regions": [
+        {
+          "handle": "p000001",
+          "unit_id": "008003:459daac5b355649f:0-847:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000073",
+          "unit_id": "008003:459daac5b355649f:51844-52763:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000037",
+          "unit_id": "008003:459daac5b355649f:22277-22309:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "010465.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "010465.txt",
+        "navigation_units": 17,
+        "max_unit_anchors": 12,
+        "units_ge_4_anchors": 3,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 3
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "010465:44b162db4b4dd263:4056-4601:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "010465:44b162db4b4dd263:2-527:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000002",
+          "unit_id": "010465:44b162db4b4dd263:547-3204:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "012505.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "012505.txt",
+        "navigation_units": 24,
+        "max_unit_anchors": 2,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "012505:fb5a796f2a767fc9:669-1005:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000016",
+          "unit_id": "012505:fb5a796f2a767fc9:3704-4118:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "012505:fb5a796f2a767fc9:1-255:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "020000.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "020000.txt",
+        "navigation_units": 22,
+        "max_unit_anchors": 3,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 1
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "020000:05b00c82b3e84488:4235-4633:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "020000:05b00c82b3e84488:26-393:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000002",
+          "unit_id": "020000:05b00c82b3e84488:421-3502:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "021926.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "021926.txt",
+        "navigation_units": 14,
+        "max_unit_anchors": 2,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 3
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "021926:8c5e347ef2488cbf:457-1059:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000011",
+          "unit_id": "021926:8c5e347ef2488cbf:3554-4757:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "021926:8c5e347ef2488cbf:1-65:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "025667.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "025667.txt",
+        "navigation_units": 150,
+        "max_unit_anchors": 5,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 3,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 1,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 19
+      },
+      "selected_regions": [
+        {
+          "handle": "p000001",
+          "unit_id": "025667:735bc24d7694d72e:0-78:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000143",
+          "unit_id": "025667:735bc24d7694d72e:63116-63681:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000121",
+          "unit_id": "025667:735bc24d7694d72e:56520-56567:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "026294.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "026294.txt",
+        "navigation_units": 72,
+        "max_unit_anchors": 4,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 8,
+        "french_units": 0,
+        "repeated_marker_units": 7,
+        "non_monotonic_jumps": 9,
+        "long_cues": 3,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 848,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 5,
+        "max_cap_240_previews": 11
+      },
+      "selected_regions": [
+        {
+          "handle": "p000006",
+          "unit_id": "026294:15d4bfbf3124f18f:399-822:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000046",
+          "unit_id": "026294:15d4bfbf3124f18f:17246-18130:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000008",
+          "unit_id": "026294:15d4bfbf3124f18f:1224-1648:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "030557.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "030557.txt",
+        "navigation_units": 42,
+        "max_unit_anchors": 4,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 3,
+        "french_units": 0,
+        "repeated_marker_units": 1,
+        "non_monotonic_jumps": 7,
+        "long_cues": 1,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 438,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 3,
+        "max_cap_240_previews": 5
+      },
+      "selected_regions": [
+        {
+          "handle": "p000002",
+          "unit_id": "030557:dbb0ce84552b5659:26-562:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000014",
+          "unit_id": "030557:dbb0ce84552b5659:6006-6274:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000015",
+          "unit_id": "030557:dbb0ce84552b5659:6276-6752:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "038541.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "038541.txt",
+        "navigation_units": 28,
+        "max_unit_anchors": 2,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 0,
+        "french_units": 0,
+        "repeated_marker_units": 10,
+        "non_monotonic_jumps": 7,
+        "long_cues": 2,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 474,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 5,
+        "max_cap_240_previews": 7
+      },
+      "selected_regions": [
+        {
+          "handle": "p000001",
+          "unit_id": "038541:3f67ddda48ee05cf:0-572:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000016",
+          "unit_id": "038541:3f67ddda48ee05cf:9905-10279:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000009",
+          "unit_id": "038541:3f67ddda48ee05cf:4293-5261:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "060945.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "060945.txt",
+        "navigation_units": 42,
+        "max_unit_anchors": 38,
+        "units_ge_4_anchors": 8,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 8
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "060945:a06fabc8fe021907:4148-4400:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000011",
+          "unit_id": "060945:a06fabc8fe021907:6669-7903:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "060945:a06fabc8fe021907:2-159:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "064754.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "064754.txt",
+        "navigation_units": 63,
+        "max_unit_anchors": 3,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 5,
+        "french_units": 29,
+        "repeated_marker_units": 28,
+        "non_monotonic_jumps": 3,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 5
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "064754:995faa8c85ab4bc0:926-1336:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "064754:995faa8c85ab4bc0:26-462:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000006",
+          "unit_id": "064754:995faa8c85ab4bc0:1349-1499:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "064772.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "064772.txt",
+        "navigation_units": 54,
+        "max_unit_anchors": 7,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 0,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 2,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 8
+      },
+      "selected_regions": [
+        {
+          "handle": "p000001",
+          "unit_id": "064772:659265cddf88d5fb:0-255:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000012",
+          "unit_id": "064772:659265cddf88d5fb:8433-11801:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000037",
+          "unit_id": "064772:659265cddf88d5fb:31066-31447:20c8805023c2",
+          "selection_reason": "slot3_deep_paragraph_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "066994.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "066994.txt",
+        "navigation_units": 16,
+        "max_unit_anchors": 7,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 0,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 3
+      },
+      "selected_regions": [
+        {
+          "handle": "p000001",
+          "unit_id": "066994:154aad25ea3bf4bb:0-342:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000008",
+          "unit_id": "066994:154aad25ea3bf4bb:3795-4942:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000012",
+          "unit_id": "066994:154aad25ea3bf4bb:12236-12727:20c8805023c2",
+          "selection_reason": "slot3_deep_paragraph_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "088672.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "088672.txt",
+        "navigation_units": 33,
+        "max_unit_anchors": 1,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 2
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "088672:c9944c20be1242ee:1071-1437:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000010",
+          "unit_id": "088672:c9944c20be1242ee:2649-2879:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "088672:c9944c20be1242ee:0-662:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "092703.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "092703.txt",
+        "navigation_units": 15,
+        "max_unit_anchors": 1,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 5,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 2
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "092703:c482e791aaf64393:466-1004:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000013",
+          "unit_id": "092703:c482e791aaf64393:3364-4105:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "092703:c482e791aaf64393:1-71:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "095636.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "095636.txt",
+        "navigation_units": 86,
+        "max_unit_anchors": 18,
+        "units_ge_4_anchors": 1,
+        "units_without_preview": 0,
+        "unnumbered_units": 0,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 17
+      },
+      "selected_regions": [
+        {
+          "handle": "p000001",
+          "unit_id": "095636:6360ae812e761edb:0-679:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000086",
+          "unit_id": "095636:6360ae812e761edb:56757-62762:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000058",
+          "unit_id": "095636:6360ae812e761edb:36603-37845:20c8805023c2",
+          "selection_reason": "slot3_deep_paragraph_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "014294.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_1_many_anchors",
+      "metadata_summary": {
+        "case_id": "014294.txt",
+        "navigation_units": 44,
+        "max_unit_anchors": 87,
+        "units_ge_4_anchors": 8,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 4
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "014294:0b85190a75979648:5895-6250:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000044",
+          "unit_id": "014294:0b85190a75979648:22109-34097:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "014294:0b85190a75979648:2-163:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "035266.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_1_many_anchors",
+      "metadata_summary": {
+        "case_id": "035266.txt",
+        "navigation_units": 43,
+        "max_unit_anchors": 109,
+        "units_ge_4_anchors": 7,
+        "units_without_preview": 0,
+        "unnumbered_units": 9,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 5
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "035266:4a551281ff612a62:6241-6696:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000043",
+          "unit_id": "035266:4a551281ff612a62:25201-42675:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "035266:4a551281ff612a62:2-160:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "081928.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_1_many_anchors",
+      "metadata_summary": {
+        "case_id": "081928.txt",
+        "navigation_units": 47,
+        "max_unit_anchors": 70,
+        "units_ge_4_anchors": 9,
+        "units_without_preview": 0,
+        "unnumbered_units": 8,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 5
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "081928:cdcecec21728ebdf:7385-7822:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000047",
+          "unit_id": "081928:cdcecec21728ebdf:30258-38541:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "081928:cdcecec21728ebdf:2-153:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "088955.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_1_many_anchors",
+      "metadata_summary": {
+        "case_id": "088955.txt",
+        "navigation_units": 51,
+        "max_unit_anchors": 115,
+        "units_ge_4_anchors": 7,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 1,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 3
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "088955:865d8d69609747fe:762-1162:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000051",
+          "unit_id": "088955:865d8d69609747fe:18641-36439:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "088955:865d8d69609747fe:2-236:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "041277.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_2_long_or_cross_unit_cues",
+      "metadata_summary": {
+        "case_id": "041277.txt",
+        "navigation_units": 55,
+        "max_unit_anchors": 25,
+        "units_ge_4_anchors": 18,
+        "units_without_preview": 0,
+        "unnumbered_units": 7,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 2,
+        "long_cues": 1,
+        "cross_unit_cues": 1,
+        "max_cue_bytes": 757,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 2,
+        "max_cap_240_previews": 14
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "041277:8029e54db277b2bf:6452-6700:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000018",
+          "unit_id": "041277:8029e54db277b2bf:13445-14243:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "041277:8029e54db277b2bf:2-168:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "051407.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_2_long_or_cross_unit_cues",
+      "metadata_summary": {
+        "case_id": "051407.txt",
+        "navigation_units": 83,
+        "max_unit_anchors": 3,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 3,
+        "unnumbered_units": 9,
+        "french_units": 17,
+        "repeated_marker_units": 36,
+        "non_monotonic_jumps": 2,
+        "long_cues": 1,
+        "cross_unit_cues": 1,
+        "max_cue_bytes": 540,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 2,
+        "max_cap_240_previews": 12
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "051407:84aacf03f0789e2a:679-1225:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000007",
+          "unit_id": "051407:84aacf03f0789e2a:1304-1305:20c8805023c2",
+          "selection_reason": "slot2_unit_without_preview"
+        },
+        {
+          "handle": "p000006",
+          "unit_id": "051407:84aacf03f0789e2a:1227-1290:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "068880.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_2_long_or_cross_unit_cues",
+      "metadata_summary": {
+        "case_id": "068880.txt",
+        "navigation_units": 43,
+        "max_unit_anchors": 14,
+        "units_ge_4_anchors": 8,
+        "units_without_preview": 0,
+        "unnumbered_units": 7,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 1,
+        "cross_unit_cues": 1,
+        "max_cue_bytes": 740,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 2,
+        "max_cap_240_previews": 9
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "068880:9380b3cd0509e0fc:3031-3589:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000016",
+          "unit_id": "068880:9380b3cd0509e0fc:8986-9785:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "068880:9380b3cd0509e0fc:2-153:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "075799.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_2_long_or_cross_unit_cues",
+      "metadata_summary": {
+        "case_id": "075799.txt",
+        "navigation_units": 48,
+        "max_unit_anchors": 3,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 2,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 1,
+        "cross_unit_cues": 1,
+        "max_cue_bytes": 1168,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 2,
+        "max_cap_240_previews": 9
+      },
+      "selected_regions": [
+        {
+          "handle": "p000001",
+          "unit_id": "075799:5430f091486d976f:0-344:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000016",
+          "unit_id": "075799:5430f091486d976f:8091-9232:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "u000012",
+          "unit_id": "075799:5430f091486d976f:5613-5636:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "004608.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_3_clipped_or_short_opening_boundary",
+      "metadata_summary": {
+        "case_id": "004608.txt",
+        "navigation_units": 39,
+        "max_unit_anchors": 7,
+        "units_ge_4_anchors": 3,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 1,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 14
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "004608:00912b743ad09c6d:873-1304:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "004608:00912b743ad09c6d:2-237:20c8805023c2",
+          "selection_reason": "slot2_short_clean_opening_or_partial_cue_boundary"
+        },
+        {
+          "handle": "u000002",
+          "unit_id": "004608:00912b743ad09c6d:257-429:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "029475.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_3_clipped_or_short_opening_boundary",
+      "metadata_summary": {
+        "case_id": "029475.txt",
+        "navigation_units": 64,
+        "max_unit_anchors": 10,
+        "units_ge_4_anchors": 6,
+        "units_without_preview": 0,
+        "unnumbered_units": 5,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 1,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 15
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "029475:c793f8f58524b461:730-1403:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "029475:c793f8f58524b461:2-234:20c8805023c2",
+          "selection_reason": "slot2_short_clean_opening_or_partial_cue_boundary"
+        },
+        {
+          "handle": "u000002",
+          "unit_id": "029475:c793f8f58524b461:254-351:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "043388.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_3_clipped_or_short_opening_boundary",
+      "metadata_summary": {
+        "case_id": "043388.txt",
+        "navigation_units": 53,
+        "max_unit_anchors": 7,
+        "units_ge_4_anchors": 3,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 5,
+        "non_monotonic_jumps": 9,
+        "long_cues": 2,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 360,
+        "short_clean_openings": 1,
+        "partial_anchor_previews": 3,
+        "max_cap_240_previews": 6
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "043388:eea07a5862802e5f:736-1285:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "043388:eea07a5862802e5f:2-240:20c8805023c2",
+          "selection_reason": "slot2_short_clean_opening_or_partial_cue_boundary"
+        },
+        {
+          "handle": "p000007",
+          "unit_id": "043388:eea07a5862802e5f:1670-2103:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "070677.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_3_clipped_or_short_opening_boundary",
+      "metadata_summary": {
+        "case_id": "070677.txt",
+        "navigation_units": 53,
+        "max_unit_anchors": 7,
+        "units_ge_4_anchors": 5,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 0,
+        "repeated_marker_units": 2,
+        "non_monotonic_jumps": 2,
+        "long_cues": 1,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 479,
+        "short_clean_openings": 1,
+        "partial_anchor_previews": 2,
+        "max_cap_240_previews": 8
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "070677:4a76faa6776f9210:729-1177:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "070677:4a76faa6776f9210:2-235:20c8805023c2",
+          "selection_reason": "slot2_short_clean_opening_or_partial_cue_boundary"
+        },
+        {
+          "handle": "p000014",
+          "unit_id": "070677:4a76faa6776f9210:4150-4400:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "002304.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_4_units_without_preview",
+      "metadata_summary": {
+        "case_id": "002304.txt",
+        "navigation_units": 80,
+        "max_unit_anchors": 6,
+        "units_ge_4_anchors": 2,
+        "units_without_preview": 3,
+        "unnumbered_units": 10,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 9
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "002304:e69b1a9a9529cf95:527-1056:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000008",
+          "unit_id": "002304:e69b1a9a9529cf95:2042-2053:20c8805023c2",
+          "selection_reason": "slot2_unit_without_preview"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "002304:e69b1a9a9529cf95:1-67:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "017411.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_4_units_without_preview",
+      "metadata_summary": {
+        "case_id": "017411.txt",
+        "navigation_units": 37,
+        "max_unit_anchors": 3,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 4,
+        "unnumbered_units": 8,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 4
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "017411:7139d0556841afa9:461-862:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000007",
+          "unit_id": "017411:7139d0556841afa9:1075-1076:20c8805023c2",
+          "selection_reason": "slot2_unit_without_preview"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "017411:7139d0556841afa9:1-70:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "019488.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_4_units_without_preview",
+      "metadata_summary": {
+        "case_id": "019488.txt",
+        "navigation_units": 50,
+        "max_unit_anchors": 2,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 3,
+        "unnumbered_units": 8,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 7
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "019488:abe1a9ee355b9ee5:455-1044:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000006",
+          "unit_id": "019488:abe1a9ee355b9ee5:1058-1059:20c8805023c2",
+          "selection_reason": "slot2_unit_without_preview"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "019488:abe1a9ee355b9ee5:1-69:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "076001.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_4_units_without_preview",
+      "metadata_summary": {
+        "case_id": "076001.txt",
+        "navigation_units": 38,
+        "max_unit_anchors": 2,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 4,
+        "unnumbered_units": 8,
+        "french_units": 0,
+        "repeated_marker_units": 0,
+        "non_monotonic_jumps": 0,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 3
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "076001:55e08cd5b9da5605:3822-4018:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000008",
+          "unit_id": "076001:55e08cd5b9da5605:4345-4346:20c8805023c2",
+          "selection_reason": "slot2_unit_without_preview"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "076001:55e08cd5b9da5605:25-629:20c8805023c2",
+          "selection_reason": "slot3_unnumbered_unit_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "011699.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_5_repeated_markers_or_unnumbered",
+      "metadata_summary": {
+        "case_id": "011699.txt",
+        "navigation_units": 175,
+        "max_unit_anchors": 6,
+        "units_ge_4_anchors": 3,
+        "units_without_preview": 0,
+        "unnumbered_units": 6,
+        "french_units": 82,
+        "repeated_marker_units": 99,
+        "non_monotonic_jumps": 25,
+        "long_cues": 1,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 687,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 1,
+        "max_cap_240_previews": 31
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "011699:17906939c79419a0:935-1375:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000165",
+          "unit_id": "011699:17906939c79419a0:106909-109521:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000006",
+          "unit_id": "011699:17906939c79419a0:1389-1699:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_or_unnumbered_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "039983.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_5_repeated_markers_or_unnumbered",
+      "metadata_summary": {
+        "case_id": "039983.txt",
+        "navigation_units": 205,
+        "max_unit_anchors": 4,
+        "units_ge_4_anchors": 4,
+        "units_without_preview": 1,
+        "unnumbered_units": 16,
+        "french_units": 67,
+        "repeated_marker_units": 95,
+        "non_monotonic_jumps": 11,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 17
+      },
+      "selected_regions": [
+        {
+          "handle": "p000003",
+          "unit_id": "039983:e8a2c95028547024:77-541:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "039983:e8a2c95028547024:0-50:20c8805023c2",
+          "selection_reason": "slot2_unit_without_preview"
+        },
+        {
+          "handle": "p000004",
+          "unit_id": "039983:e8a2c95028547024:543-692:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_or_unnumbered_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "041387.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_5_repeated_markers_or_unnumbered",
+      "metadata_summary": {
+        "case_id": "041387.txt",
+        "navigation_units": 237,
+        "max_unit_anchors": 3,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 4,
+        "french_units": 116,
+        "repeated_marker_units": 117,
+        "non_monotonic_jumps": 7,
+        "long_cues": 0,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 0,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 0,
+        "max_cap_240_previews": 38
+      },
+      "selected_regions": [
+        {
+          "handle": "p000005",
+          "unit_id": "041387:df7203c90b9638c2:743-1239:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000044",
+          "unit_id": "041387:df7203c90b9638c2:26062-27140:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000006",
+          "unit_id": "041387:df7203c90b9638c2:1241-1996:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_or_unnumbered_neighbor_chain"
+        }
+      ]
+    },
+    {
+      "case_id": "063659.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_5_repeated_markers_or_unnumbered",
+      "metadata_summary": {
+        "case_id": "063659.txt",
+        "navigation_units": 207,
+        "max_unit_anchors": 2,
+        "units_ge_4_anchors": 0,
+        "units_without_preview": 0,
+        "unnumbered_units": 14,
+        "french_units": 47,
+        "repeated_marker_units": 107,
+        "non_monotonic_jumps": 43,
+        "long_cues": 1,
+        "cross_unit_cues": 0,
+        "max_cue_bytes": 360,
+        "short_clean_openings": 0,
+        "partial_anchor_previews": 2,
+        "max_cap_240_previews": 20
+      },
+      "selected_regions": [
+        {
+          "handle": "p000006",
+          "unit_id": "063659:ba2b01c8a910f00e:542-1180:20c8805023c2",
+          "selection_reason": "slot1_opening_marker1_or_first_unit"
+        },
+        {
+          "handle": "p000171",
+          "unit_id": "063659:ba2b01c8a910f00e:77634-78009:20c8805023c2",
+          "selection_reason": "slot2_anchor_or_cue_focus"
+        },
+        {
+          "handle": "p000007",
+          "unit_id": "063659:ba2b01c8a910f00e:1201-1676:20c8805023c2",
+          "selection_reason": "slot3_repeated_marker_or_unnumbered_neighbor_chain"
+        }
+      ]
+    }
+  ]
+}

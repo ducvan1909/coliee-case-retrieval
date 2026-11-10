@@ -1,0 +1,155 @@
+{
+  "schema_version": "pipeline-v2-m3-ag-commands-and-results-1",
+  "review_dir": "pipeline_v2/reviews/m3_ag_review_v1",
+  "run_dir": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+  "commands": [
+    {
+      "step": 1,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.deploy_modal check --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+      "exit_code": 0,
+      "remote_requests": 0,
+      "summary": "Verified local configuration, modal==1.5.3, sdk_profile auth mode, and frozen profile/code/manifest checksum match."
+    },
+    {
+      "step": 2,
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_ag_review_v1/capture_baseline.py",
+      "exit_code": 0,
+      "remote_requests": 0,
+      "output_file": "pipeline_v2/reviews/m3_ag_review_v1/baseline_state.json",
+      "summary": "Captured pre-run baseline: preflight PASS on NVIDIA L4, 6 requests, 988 known input tokens, 0 cached document batches, Qdrant collection coliee_m3_pilot_99e66b7f9bbf4be4 at 0 points."
+    },
+    {
+      "step": 3,
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_retrieval_core pipeline_v2.tests.test_m3_cache pipeline_v2.tests.test_m3_corpus pipeline_v2.tests.test_m3_qdrant pipeline_v2.tests.test_m3_runtime pipeline_v2.tests.test_m3_pilot pipeline_v2.tests.test_m3_resume pipeline_v2.tests.test_m3_profile pipeline_v2.tests.test_m3_preflight pipeline_v2.tests.test_modal_deploy_env -v",
+      "exit_code": 0,
+      "elapsed_seconds": 4.862,
+      "remote_requests": 0,
+      "summary": "Ran 51 targeted M3 + deploy_modal unit tests; 51/51 PASS."
+    },
+    {
+      "step": 4,
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_ag_review_v1/test_m3_independent_ag.py",
+      "exit_code": 0,
+      "elapsed_seconds": 74.0135573,
+      "remote_requests": 0,
+      "output_file": "pipeline_v2/reviews/m3_ag_review_v1/local_independent_test_results.json",
+      "attempts_file": "pipeline_v2/reviews/m3_ag_review_v1/local_test_attempts.json",
+      "summary": "Ran 9 independent AG local tests covering all 8 Section-3 invariants (including independent verification of all 1,024 selected passages and 916 raw case sources against sealed M2/navigation bundles and pinned tokenizer); 9/9 PASS on attempt 3 after fixing two AG test-script assumptions."
+    },
+    {
+      "step": 5,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.deploy_modal m3 run --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1 --stop-after-batches 1",
+      "exit_code": 0,
+      "elapsed_seconds": 167.6762936,
+      "remote_requests": 1,
+      "input_tokens": 2097,
+      "padded_tokens": 6352,
+      "remote_elapsed_seconds": 1.920177163,
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964144166993900_83f95f5e3749475d93a04515cf15f234_run.json",
+      "summary": "Executed batch 0 (documents-0, 16 passages) on NVIDIA L4 and stopped cleanly at batch boundary (status: stopped_at_batch_boundary, completed_batches: 1)."
+    },
+    {
+      "step": 6,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.deploy_modal m3 run --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+      "exit_code": 0,
+      "elapsed_seconds": 145.3983636,
+      "remote_requests": 63,
+      "input_tokens": 130746,
+      "padded_tokens": 332176,
+      "remote_elapsed_seconds": 70.471484537,
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964308154191100_3d42ec77de6b4c0496c7fecff8641a31_run.json",
+      "summary": "Resumed pilot run: reused committed batch 0 from local cache without re-embedding, embedded remaining 63 batches (documents-1..documents-63) on warm L4 container, upserted all 1,024 points to Qdrant, and verified DB membership/payloads/vectors (status: vectors_ingested_verified_not_full_pilot_acceptance)."
+    },
+    {
+      "step": 7,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.deploy_modal m3 search --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1 --query \"standard of review\" --limit 10",
+      "exit_code": 0,
+      "elapsed_seconds": 67.3313577,
+      "remote_requests": 1,
+      "input_tokens": 35,
+      "padded_tokens": 35,
+      "remote_elapsed_seconds": 0.104096352,
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964391091781300_26c5ed60b820449fa6fa83bcb1000374_search.json",
+      "summary": "Ran hybrid search (case_bm25, passage_bm25, dense_passage) for 'standard of review'; top case_bm25 hit was 079659.txt, top dense_passage hit was 008522:e35e6861cb1b7e51d43e3851, top passage_bm25 hit was 000447:ef6699dc3552227474523d45."
+    },
+    {
+      "step": 8,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.deploy_modal m3 search --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1 --query \"standard of review\" --query-case 079659.txt --limit 10",
+      "exit_code": 0,
+      "elapsed_seconds": 66.3261215,
+      "remote_requests": 1,
+      "input_tokens": 35,
+      "padded_tokens": 35,
+      "remote_elapsed_seconds": 0.063179102,
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964473872372300_231e47f659f0413c8cee055fde08f0bd_search.json",
+      "summary": "Ran hybrid search with --query-case 079659.txt; verified 079659.txt was excluded before cap across all 3 channels and fused RRF results."
+    },
+    {
+      "step": 9,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.deploy_modal m3 search --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1 --query \"décision n'est pas raisonnable under s. 97(1)\" --limit 10",
+      "exit_code": 0,
+      "elapsed_seconds": 66.1687999,
+      "remote_requests": 1,
+      "input_tokens": 48,
+      "padded_tokens": 48,
+      "remote_elapsed_seconds": 0.065910813,
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964552307428500_a055251a108a4d289a4c386a30c571f3_search.json",
+      "summary": "Ran hybrid search with French Unicode, negation, and statutory citation digits; verified analyzer token retention and 3-channel RRF fusion."
+    },
+    {
+      "step": 10,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.deploy_modal m3 verify --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1 --restore-test",
+      "exit_code": 0,
+      "elapsed_seconds": 35.4342985,
+      "remote_requests": 0,
+      "output_file": "pipeline_v2/reviews/m3_ag_review_v1/pre_restart_verification_with_restore.json",
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964638608101800_2a515c82b4704527a88d88e1e608425d_verify.json",
+      "summary": "Verified primary Qdrant collection (1,024 points), exact reference cosine checks (3/3 tie_aware PASS), created snapshot (25,849,344 bytes), restored to coliee_m3_pilot_99e66b7f9bbf4be4_restore, and verified restored collection (1,024 points PASS)."
+    },
+    {
+      "step": 11,
+      "command": "docker compose -p coliee-pipeline-v2 -f pipeline_v2/deployments/qdrant/compose.yaml stop && docker compose -p coliee-pipeline-v2 -f pipeline_v2/deployments/qdrant/compose.yaml start",
+      "exit_code": 0,
+      "remote_requests": 0,
+      "summary": "Stopped and restarted Qdrant service container coliee-pipeline-v2-qdrant (f185ac853749) without removing named volumes; confirmed both primary and _restore collections persisted."
+    },
+    {
+      "step": 12,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.deploy_modal m3 verify --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+      "exit_code": 0,
+      "elapsed_seconds": 33.9826477,
+      "remote_requests": 0,
+      "output_file": "pipeline_v2/reviews/m3_ag_review_v1/post_restart_verification.json",
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964716979472000_05fd4bb5a17f424bba708bd0de4a7f5c_verify.json",
+      "summary": "Verified primary Qdrant collection (1,024 points) and exact cosine reference (3/3 PASS) after container stop/start."
+    },
+    {
+      "step": 13,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3 literal --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1 --text \"Federal Court\" --ignore-case",
+      "exit_code": 0,
+      "elapsed_seconds": 59.11256,
+      "remote_requests": 0,
+      "output_file": "pipeline_v2/reviews/m3_ag_review_v1/literal_federal_court.json",
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964767958865300_f127a1fdd3bf4fe3b9c1f02c08bbe7f9_literal.json",
+      "summary": "Executed case-insensitive literal search across the 916 raw pilot cases; verified exact byte spans and raw text slices."
+    },
+    {
+      "step": 14,
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3 open --run-dir pipeline_v2/artifacts/m3_pilot_20261106_l4_v1 --passage-id \"000031:018547a62831b1cdec3cb655\"",
+      "exit_code": 0,
+      "elapsed_seconds": 32.0372915,
+      "remote_requests": 0,
+      "output_file": "pipeline_v2/reviews/m3_ag_review_v1/open_hit_1.json",
+      "operation_receipt": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1/operations/1793964800402846600_9d946249be8e4d48aff39611139c1a98_open.json",
+      "summary": "Opened M2 parent+neighbor reading context for pilot passage 000031:018547a62831b1cdec3cb655 via CLI."
+    },
+    {
+      "step": 15,
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_ag_review_v1/audit_real_pilot_execution.py",
+      "exit_code": 0,
+      "remote_requests": 0,
+      "output_file": "pipeline_v2/reviews/m3_ag_review_v1/pilot_execution_audit.json",
+      "summary": "Independently verified all 64 .npz/.json shards, ledger.sqlite3 attempts/tokens/latencies, post-restart primary and _restore Qdrant collections (0.0 float32 drift), 10 exact NumPy dense probes (max score diff 1.54e-7), RRF math, query-case exclusion, and raw context opening on top search hits."
+    }
+  ]
+}

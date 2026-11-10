@@ -1,0 +1,159 @@
+{
+  "schedule_lookup_plan": [
+    [
+      3,
+      0,
+      0,
+      "SEARCH schedule USING INDEX sqlite_autoindex_schedule_1 (passage_id=?)"
+    ]
+  ],
+  "postings_lookup_plan": [
+    [
+      5,
+      0,
+      0,
+      "SEARCH p USING INDEX sqlite_autoindex_postings_1 (kind=? AND term=?)"
+    ],
+    [
+      14,
+      0,
+      0,
+      "SEARCH d USING INDEX sqlite_autoindex_documents_1 (kind=? AND id=?)"
+    ]
+  ],
+  "readonly_cache_single_shard_ms": 10.875,
+  "qdrant_benchmark": [
+    {
+      "exact": false,
+      "limit": 20,
+      "seconds": 0.6113,
+      "returned_points": 20,
+      "unique_cases": 17,
+      "distinct_shards_touched": 4,
+      "exact_score_ties_in_top_k": 19,
+      "top5_scores": [
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001
+      ]
+    },
+    {
+      "exact": false,
+      "limit": 256,
+      "seconds": 0.6072,
+      "returned_points": 256,
+      "unique_cases": 164,
+      "distinct_shards_touched": 31,
+      "exact_score_ties_in_top_k": 221,
+      "top5_scores": [
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001
+      ]
+    },
+    {
+      "exact": false,
+      "limit": 1024,
+      "seconds": 2.3401,
+      "returned_points": 1024,
+      "unique_cases": 648,
+      "distinct_shards_touched": 83,
+      "exact_score_ties_in_top_k": 784,
+      "top5_scores": [
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001
+      ]
+    },
+    {
+      "exact": false,
+      "limit": 4096,
+      "seconds": 12.9014,
+      "returned_points": 4096,
+      "unique_cases": 1898,
+      "distinct_shards_touched": 183,
+      "exact_score_ties_in_top_k": 2459,
+      "top5_scores": [
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001
+      ]
+    },
+    {
+      "exact": true,
+      "limit": 20,
+      "seconds": 60.167,
+      "status_code": 500,
+      "error_body": {
+        "status": {
+          "error": "Service internal error: 1 of 1 read operations failed:\n  Timeout error: Operation 'Search' timed out after 59.999781103s"
+        },
+        "time": 60.035646623
+      }
+    },
+    {
+      "exact": true,
+      "limit": 256,
+      "seconds": 10.2438,
+      "returned_points": 256,
+      "unique_cases": 164,
+      "distinct_shards_touched": 31,
+      "exact_score_ties_in_top_k": 221,
+      "top5_scores": [
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001
+      ]
+    },
+    {
+      "exact": true,
+      "limit": 1024,
+      "seconds": 3.7133,
+      "returned_points": 1024,
+      "unique_cases": 649,
+      "distinct_shards_touched": 83,
+      "exact_score_ties_in_top_k": 784,
+      "top5_scores": [
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001
+      ]
+    },
+    {
+      "exact": true,
+      "limit": 4096,
+      "seconds": 3.4117,
+      "returned_points": 4096,
+      "unique_cases": 1898,
+      "distinct_shards_touched": 183,
+      "exact_score_ties_in_top_k": 2459,
+      "top5_scores": [
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001,
+        1.0000001
+      ]
+    }
+  ],
+  "bm25_benchmark": {
+    "case_limit_100_seconds": 4.5872,
+    "case_hits": 100,
+    "passage_limit_4096_seconds": 121.5137,
+    "passage_256_unique_cases": 239,
+    "passage_1024_unique_cases": 826,
+    "passage_4096_unique_cases": 2375
+  }
+}

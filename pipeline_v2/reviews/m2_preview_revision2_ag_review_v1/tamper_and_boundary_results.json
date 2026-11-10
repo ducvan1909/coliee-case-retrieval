@@ -1,0 +1,84 @@
+{
+  "schema_version": "m2-preview-revision2-tamper-boundary-v1",
+  "status": "PASS",
+  "total_tests": 5,
+  "passed_tests": 5,
+  "elapsed_seconds": 2.2652,
+  "results": [
+    {
+      "test": "reject_v1_bundle_under_v2_profile",
+      "passed": true,
+      "expected_error": "M2 profile/code/M1 provenance drift",
+      "elapsed_seconds": 0.1433
+    },
+    {
+      "test": "real_v3_reader_pagination_and_open_context",
+      "passed": true,
+      "details": {
+        "014101_total_units_paginated": 12,
+        "014101_expected_units": 12,
+        "014101_p000008_anchors_paginated": 3,
+        "048208_source_anchors_paginated": 2,
+        "open_context_exact_raw_slice": true,
+        "open_context_components": [
+          "previous_context",
+          "parent",
+          "next_context"
+        ],
+        "invalid_limit_101_rejected": true
+      },
+      "elapsed_seconds": 0.3305
+    },
+    {
+      "test": "overlong_word_and_tag_honest_clipping_fallback",
+      "passed": true,
+      "details": {
+        "overlong_word_len": 240,
+        "overlong_word_flag": true,
+        "overlong_tag_len": 240,
+        "overlong_tag_flag": true
+      },
+      "elapsed_seconds": 0.0008
+    },
+    {
+      "test": "isolated_fixture_tamper_reseal_and_drift_suite",
+      "passed": true,
+      "details": {
+        "unresealed_tamper_rejected": true,
+        "resealed_partial_sentence_tamper_rejected": true,
+        "resealed_contained_preview_tamper_rejected": true,
+        "raw_source_drift_rejected": true,
+        "profile_drift_rejected": true,
+        "m1_seal_drift_rejected": true
+      },
+      "elapsed_seconds": 0.4919
+    },
+    {
+      "test": "cli_subcommands_map_anchors_source_anchors_open",
+      "passed": true,
+      "details": [
+        {
+          "command": "map --repo-root E:\\Git\\coliee-case-retrieval --bundle pipeline_v2/artifacts/m2_navigation_20261106_v3 --case 011922.txt --offset 0 --limit 6",
+          "exit_code": 0,
+          "local_elapsed_seconds": 0.181012
+        },
+        {
+          "command": "anchors --repo-root E:\\Git\\coliee-case-retrieval --bundle pipeline_v2/artifacts/m2_navigation_20261106_v3 --case 014101.txt --handle p000008 --offset 0 --limit 10",
+          "exit_code": 0,
+          "local_elapsed_seconds": 0.191376
+        },
+        {
+          "command": "source-anchors --repo-root E:\\Git\\coliee-case-retrieval --bundle pipeline_v2/artifacts/m2_navigation_20261106_v3 --case 048208.txt --offset 0 --limit 10",
+          "exit_code": 0,
+          "local_elapsed_seconds": 0.212694
+        },
+        {
+          "command": "open --repo-root E:\\Git\\coliee-case-retrieval --bundle pipeline_v2/artifacts/m2_navigation_20261106_v3 --case 051807.txt --handle u000030",
+          "exit_code": 0,
+          "local_elapsed_seconds": 0.227397
+        }
+      ],
+      "elapsed_seconds": 1.2459
+    }
+  ]
+}

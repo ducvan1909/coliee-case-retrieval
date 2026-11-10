@@ -1,0 +1,654 @@
+{
+  "schema_version": "ag-m3-full-recomputed-metrics-1",
+  "generated_at_utc": "2026-11-09T10:50:56.632471+00:00",
+  "audit_elapsed_seconds": 73.41744820000167,
+  "fingerprints_and_immutability": {
+    "full_implementation_sha256": "e4b8b358697c67073134fe5c5929e770d5c9c1e0b30f2cd98fc686b1227e3503",
+    "v2_implementation_sha256": "e2e554dd44bbd99ab93b61ca893094fe9dd47e0cd8604e5898e8b169bf931cf3",
+    "v1_implementation_sha256": "126ff7504aed84f8d89b8d46560dea25c8ccf3a4d8aaa001d2789d83a9d98845",
+    "base_implementation_sha256": "ade771e2d328b974d12421b5fa48b2b90632b10eb8422166f82b9f960d9add63",
+    "embedding_fingerprint": "9105955758bda2eba37350535866f9b217e1b9650b1a3f081496a7c4a9965c49",
+    "profile_sha256": {
+      "pipeline_v2/configs/m3.json": "3a0f65a4cd100842423ed8683f87d4d0594e095118e5ffabfdef1bee3a252ef7",
+      "pipeline_v2/configs/m3_opt.json": "f81170ba13d5e0e2f188b7af0b031a09084165e9dcd92a3cf56383810001b798",
+      "pipeline_v2/configs/m3_opt_v2.json": "1751e20a35d289fa7aa8842a546875d676ace751c8a5dc65f5a544889f293f20",
+      "pipeline_v2/configs/m3_full.json": "448a14cf545769cd0eb4c34db790b168f7b63b68e0d429c7e2d555c12d6caa84"
+    },
+    "code_and_profiles_unchanged_before_vs_after": true,
+    "baseline_and_plan_seals_unchanged_before_vs_after": true,
+    "pilot_collections_unchanged": true
+  },
+  "schedule_and_corpus_scope": {
+    "total_batches": 6496,
+    "total_passages": 415693,
+    "last_batch_size": 13,
+    "total_input_tokens": 55346360,
+    "total_padded_tokens": 55360576,
+    "padding_ratio": 1.0002568551933677
+  },
+  "committed_vector_cache_audit": {
+    "expected_batches": 6496,
+    "json_sidecars_on_disk": 6496,
+    "npz_arrays_on_disk": 6496,
+    "metadata_verified_batches": 6496,
+    "metadata_verified_passages": 415693,
+    "orphan_json_files": [],
+    "orphan_npz_files": [],
+    "missing_shard_stems": [],
+    "unexpected_files_in_vectors_dir": [],
+    "total_json_sidecar_bytes": 43219233,
+    "total_npz_array_bytes": 4422922572,
+    "total_vectors_dir_bytes": 4466141805,
+    "raw_fp32_matrix_theoretical_bytes": 4256696320,
+    "spot_checked_npz_batches": [
+      {
+        "batch": 0,
+        "shard_stem": "d6e6ffff8c686500b3fae1f36ba523c2a9dbbca91dab4538617621860bb58976",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "1a1fc8696b7e6278991fd606453ba8127b86b17c53b2d65c63fd8a052ca12e11",
+        "min_l2_norm": 0.9999999403953552,
+        "max_l2_norm": 1.0000001192092896
+      },
+      {
+        "batch": 1,
+        "shard_stem": "0a5b6f1980d375ec8a44255c3d4573a22bdc41b0ec217e5b170560bd3003ca9b",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "d52e60c3ab9d55424a024d283977b9843abde0c438fa10759bdf7a785ea74dde",
+        "min_l2_norm": 0.9999999403953552,
+        "max_l2_norm": 1.0
+      },
+      {
+        "batch": 3125,
+        "shard_stem": "7b60652cc046d2c1ac08486fa1c7253e309cbe7ddf99f6f3497fc61f157e7b74",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "013f89684972f90e8b63c5e96ebf6337b1b00b055e4f31058e42ce3dc2793854",
+        "min_l2_norm": 0.9999999403953552,
+        "max_l2_norm": 1.0000001192092896
+      },
+      {
+        "batch": 4291,
+        "shard_stem": "275683101254d2628e32abb4e9577d8b254d54b846f30cadecf1b15fd0b4496d",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "e0c17ef3f53b8f0b834d21e6a28d1ce75d2d53af549983467033665c54132247",
+        "min_l2_norm": 0.9999999403953552,
+        "max_l2_norm": 1.0000001192092896
+      },
+      {
+        "batch": 4292,
+        "shard_stem": "fb1bbdbbcf5181247dac83a59fbead5f22db8faf2a69168c3adea4e3e95e84d1",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "3baa40a4bee35e40dd1254e426e83b2f8e5ab8499b798f72c2eba436ac702fb2",
+        "min_l2_norm": 0.9999998807907104,
+        "max_l2_norm": 1.0000001192092896
+      },
+      {
+        "batch": 5692,
+        "shard_stem": "dbd2f1fec1ff666dfa14215466f091f9de9549534fcede7985034ea2bc28d3f0",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "d13e7543c17b4a092059019407590d9a93d183262ba503ec228b67e2411b792c",
+        "min_l2_norm": 0.9999998807907104,
+        "max_l2_norm": 1.0000001192092896
+      },
+      {
+        "batch": 5693,
+        "shard_stem": "1372ddeb745b509377f0b534c24da925fd64319a3e0130907ceb52af6c585d14",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "228e62d99983bd8825b68be769d731a383781105eeac4e7e1c6fc4dd61929a73",
+        "min_l2_norm": 0.9999998807907104,
+        "max_l2_norm": 1.0000001192092896
+      },
+      {
+        "batch": 5694,
+        "shard_stem": "51226015b5df5e0aa756c7111cdaa74c2d5537ee0ef6e4b36c87ecfa5eb7c37a",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "9e85ba3c1c917b2334491b85128341a97b8f541afd6f36de675942ea1753c581",
+        "min_l2_norm": 0.9999998807907104,
+        "max_l2_norm": 1.0000001192092896
+      },
+      {
+        "batch": 6494,
+        "shard_stem": "10d5fa92fc006c6e7706c9ccf2e448b6d5d5a1930e66f552745d118286bf7d89",
+        "doc_count": 64,
+        "npz_bytes": 680952,
+        "array_sha256": "c45e63d862f27315c6d44f5d876bdd8ffc681fbd20c86f37f12c96ed5ee59d23",
+        "min_l2_norm": 0.9999998807907104,
+        "max_l2_norm": 1.0000001192092896
+      },
+      {
+        "batch": 6495,
+        "shard_stem": "08514955b5d5e864c2489dc5c9ffa9af4bf0e9ed40e699e2ae8ec8de5ea0c44f",
+        "doc_count": 13,
+        "npz_bytes": 139332,
+        "array_sha256": "33a7834d1471daea7ddd5ed90c9d7a53b732b6157d252f7dda22915f59a2e88b",
+        "min_l2_norm": 0.9999999403953552,
+        "max_l2_norm": 1.0000001192092896
+      }
+    ],
+    "full_6496_batch_npz_and_qdrant_verified_by_cli": {
+      "cli_timing_origin": "after_argument_parse_excludes_process_startup",
+      "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+      "execution_mode": "real_local_DB",
+      "internal_cli_seconds": 1525.0488638000024,
+      "method": "all_expected_unique_ids_payload_vectors_plus_exact_count_batched64",
+      "points": 415693,
+      "status": "PASS"
+    }
+  },
+  "ledger_and_requests_reconciliation": {
+    "full_batches_table": {
+      "row_count": 6496,
+      "min_batch": 0,
+      "max_batch": 6495,
+      "committed_eq_1": 6496,
+      "committed_ne_1": 0,
+      "distinct_committed_batches": 6496
+    },
+    "status_summary": {
+      "started": {
+        "attempts": 1,
+        "requests": 1,
+        "known_tokens": 0,
+        "unknown_token_attempts": 1,
+        "recorded_elapsed_seconds": 0.0,
+        "unknown_elapsed_attempts": 1
+      },
+      "success": {
+        "attempts": 6496,
+        "requests": 6496,
+        "known_tokens": 55346360,
+        "unknown_token_attempts": 0,
+        "recorded_elapsed_seconds": 16753.735510700142,
+        "unknown_elapsed_attempts": 0
+      }
+    },
+    "total_attempts": 6497,
+    "successful_requests": 6496,
+    "started_unknown_usage_requests": 1,
+    "error_or_oom_requests": 0,
+    "known_input_tokens": 55346360,
+    "known_padded_tokens": 55360576,
+    "padding_overhead_tokens": 14216,
+    "padding_ratio_padded_over_input": 1.0002568551933677,
+    "unknown_token_attempts": 1,
+    "unknown_elapsed_attempts": 1,
+    "started_attempt_preserved_not_zeroed": true,
+    "non_success_batch_history": [
+      {
+        "batch": "full-documents-4292",
+        "attempts_for_this_batch": [
+          {
+            "id": 4293,
+            "batch": "full-documents-4292",
+            "phase": "v2_document",
+            "started_utc": "2026-11-08T15:09:49.639323+00:00",
+            "elapsed": null,
+            "status": "started",
+            "requests": 1,
+            "tokens": null,
+            "error": null
+          },
+          {
+            "id": 4294,
+            "batch": "full-documents-4292",
+            "phase": "v2_document",
+            "started_utc": "2026-11-09T03:24:07.303857+00:00",
+            "elapsed": 24.52515289999974,
+            "status": "success",
+            "requests": 1,
+            "tokens": 9216,
+            "error": null
+          }
+        ]
+      }
+    ],
+    "timing_and_vram_summary": {
+      "recorded_client_request_elapsed_seconds": 16753.735510700142,
+      "recorded_remote_elapsed_seconds": 11943.900055056953,
+      "recorded_gpu_model_pool_seconds": 11588.594410396596,
+      "recorded_rpc_and_transfer_overhead_seconds": 4809.83545564319,
+      "mean_client_seconds_per_successful_batch": 2.579084900046204,
+      "mean_remote_seconds_per_successful_batch": 1.8386545651257624,
+      "mean_gpu_seconds_per_successful_batch": 1.783958499137407,
+      "effective_client_passages_per_second_on_success": 24.81195908425966,
+      "effective_remote_passages_per_second_on_success": 34.80379089609,
+      "effective_gpu_passages_per_second_on_success": 35.8708731429124,
+      "max_peak_allocated_bytes": 10382977024,
+      "max_peak_reserved_bytes": 23425187840,
+      "device_total_bytes": 23689363456,
+      "allocated_headroom_fraction_at_peak": 0.5617029962292964,
+      "reserved_headroom_fraction_at_peak": 0.011151655319513898,
+      "modal_container_instances": {
+        "0b76ef47-349d-4322-a486-81240baa5456": {
+          "count": 4292,
+          "first_attempt_id": 1,
+          "first_batch": 0,
+          "last_attempt_id": 4292,
+          "last_batch": 4291,
+          "model_load_seconds": 13.236342434
+        },
+        "72c80192-4e36-4fa5-b1de-567198d3f631": {
+          "count": 1402,
+          "first_attempt_id": 4294,
+          "first_batch": 4292,
+          "last_attempt_id": 5695,
+          "last_batch": 5693,
+          "model_load_seconds": 13.760551023000001
+        },
+        "c4f230f9-6781-4530-a2e3-0e31cf1e1194": {
+          "count": 802,
+          "first_attempt_id": 5696,
+          "first_batch": 5694,
+          "last_attempt_id": 6497,
+          "last_batch": 6495,
+          "model_load_seconds": 14.418846211
+        }
+      }
+    }
+  },
+  "invocations_reconciliation": [
+    {
+      "file": "1794141634555987500.json",
+      "finished_utc": "2026-11-08T12:40:34.555987+00:00",
+      "data": {
+        "batches_processed_this_run": 2,
+        "cached_batches": 0,
+        "elapsed_seconds": 714.7269305000009,
+        "execution_mode": "real_modal",
+        "last_batch": 1,
+        "new_inference_batches": 2,
+        "status": "stopped_at_batch_boundary",
+        "usage": {
+          "attempts": 2,
+          "development_chat_tokens": null,
+          "known_input_tokens": 256,
+          "model_requests": 2,
+          "recorded_request_elapsed_seconds": 711.6789907999992,
+          "status_counts": {
+            "success": 2
+          },
+          "unknown_elapsed_attempts": 0,
+          "unknown_token_attempts": 0
+        }
+      }
+    },
+    {
+      "file": "1794193822344405200.json",
+      "finished_utc": "2026-11-09T03:10:22.344405+00:00",
+      "data": {
+        "batches_processed_this_run": 0,
+        "cached_batches": 0,
+        "elapsed_seconds": 2.0733379999992394,
+        "error_type": "ConnectionError",
+        "execution_mode": "real_modal",
+        "new_inference_batches": 0,
+        "status": "failed_partial",
+        "usage": {
+          "attempts": 4293,
+          "development_chat_tokens": null,
+          "known_input_tokens": 21106341,
+          "model_requests": 4293,
+          "recorded_request_elapsed_seconds": 7633.862448000094,
+          "status_counts": {
+            "started": 1,
+            "success": 4292
+          },
+          "unknown_elapsed_attempts": 1,
+          "unknown_token_attempts": 1
+        }
+      }
+    },
+    {
+      "file": "1794200120094207300.json",
+      "finished_utc": "2026-11-09T04:55:20.094207+00:00",
+      "data": {
+        "batches_processed_this_run": 1401,
+        "cached_batches": 4292,
+        "elapsed_seconds": 6120.592245900001,
+        "error_type": "ConnectionError",
+        "execution_mode": "real_modal",
+        "last_batch": 5692,
+        "new_inference_batches": 1402,
+        "status": "failed_partial",
+        "usage": {
+          "attempts": 5695,
+          "development_chat_tokens": null,
+          "known_input_tokens": 38566129,
+          "model_requests": 5695,
+          "recorded_request_elapsed_seconds": 12200.891684400098,
+          "status_counts": {
+            "started": 1,
+            "success": 5694
+          },
+          "unknown_elapsed_attempts": 1,
+          "unknown_token_attempts": 1
+        }
+      }
+    },
+    {
+      "file": "1794210214184129800.json",
+      "finished_utc": "2026-11-09T07:43:34.184130+00:00",
+      "data": {
+        "batches_processed_this_run": 803,
+        "cached_batches": 5694,
+        "elapsed_seconds": 5906.175934499999,
+        "error_type": "KeyboardInterrupt",
+        "execution_mode": "real_modal",
+        "last_batch": 6495,
+        "new_inference_batches": 802,
+        "status": "interrupted_partial",
+        "usage": {
+          "attempts": 6497,
+          "development_chat_tokens": null,
+          "known_input_tokens": 55346360,
+          "model_requests": 6497,
+          "recorded_request_elapsed_seconds": 16753.735510700142,
+          "status_counts": {
+            "started": 1,
+            "success": 6496
+          },
+          "unknown_elapsed_attempts": 1,
+          "unknown_token_attempts": 1
+        }
+      }
+    },
+    {
+      "file": "1794214107749367800.json",
+      "finished_utc": "2026-11-09T08:48:27.749368+00:00",
+      "data": {
+        "batches_processed_this_run": 0,
+        "cached_batches": 6496,
+        "elapsed_seconds": 2489.992536599999,
+        "execution_mode": "real_modal",
+        "new_inference_batches": 0,
+        "status": "full_vectors_ingested_verified",
+        "usage": {
+          "attempts": 6497,
+          "development_chat_tokens": null,
+          "known_input_tokens": 55346360,
+          "model_requests": 6497,
+          "recorded_request_elapsed_seconds": 16753.735510700142,
+          "status_counts": {
+            "started": 1,
+            "success": 6496
+          },
+          "unknown_elapsed_attempts": 1,
+          "unknown_token_attempts": 1
+        },
+        "verification": {
+          "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+          "method": "all_expected_unique_ids_payload_vectors_plus_exact_count_batched64",
+          "points": 415693,
+          "status": "PASS"
+        }
+      }
+    }
+  ],
+  "cli_steps_executed_by_ag": {
+    "step1_status": {
+      "receipt": {
+        "exit_code": 0,
+        "step": "step1_status_before_canary",
+        "stderr_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step1_status_stderr.txt",
+        "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full status --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+        "wall_seconds": 25.6390687,
+        "stdout_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step1_status_stdout.json"
+      },
+      "stdout": {
+        "active_run_proven": false,
+        "batches": 6496,
+        "cli_timing_origin": "after_argument_parse_excludes_process_startup",
+        "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+        "database_reverified": false,
+        "internal_cli_seconds": 25.40948140000546,
+        "model_requests": 0,
+        "passages": 415693,
+        "status": "planned"
+      },
+      "stderr": ""
+    },
+    "step2_canary": {
+      "receipt": {
+        "exit_code": 0,
+        "step": "step2_canary_2_batches",
+        "stderr_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step2_canary_stderr.txt",
+        "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full run --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1 --max-batches 2",
+        "wall_seconds": 740.5136633999999,
+        "stdout_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step2_canary_stdout.json"
+      },
+      "stdout": {
+        "batches_processed_this_run": 2,
+        "cached_batches": 0,
+        "cli_timing_origin": "after_argument_parse_excludes_process_startup",
+        "elapsed_seconds": 714.7269305000009,
+        "execution_mode": "real_modal",
+        "internal_cli_seconds": 740.1975307999965,
+        "last_batch": 1,
+        "new_inference_batches": 2,
+        "status": "stopped_at_batch_boundary",
+        "usage": {
+          "attempts": 2,
+          "development_chat_tokens": null,
+          "known_input_tokens": 256,
+          "model_requests": 2,
+          "recorded_request_elapsed_seconds": 711.6789907999992,
+          "status_counts": {
+            "success": 2
+          },
+          "unknown_elapsed_attempts": 0,
+          "unknown_token_attempts": 0
+        }
+      },
+      "stderr": ""
+    },
+    "step3_status": {
+      "receipt": {
+        "exit_code": 0,
+        "step": "step3_status_after_canary",
+        "stderr_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step3_status_stderr.txt",
+        "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full status --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+        "wall_seconds": 25.4909561,
+        "stdout_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step3_status_stdout.json"
+      },
+      "stdout": {
+        "active_run_proven": false,
+        "batches": 6496,
+        "cli_timing_origin": "after_argument_parse_excludes_process_startup",
+        "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+        "database_reverified": false,
+        "internal_cli_seconds": 25.24928070000169,
+        "known_input_tokens": 256,
+        "last_run": {
+          "batches_processed_this_run": 2,
+          "cached_batches": 0,
+          "elapsed_seconds": 714.7269305000009,
+          "execution_mode": "real_modal",
+          "last_batch": 1,
+          "new_inference_batches": 2,
+          "status": "stopped_at_batch_boundary",
+          "usage": {
+            "attempts": 2,
+            "development_chat_tokens": null,
+            "known_input_tokens": 256,
+            "model_requests": 2,
+            "recorded_request_elapsed_seconds": 711.6789907999992,
+            "status_counts": {
+              "success": 2
+            },
+            "unknown_elapsed_attempts": 0,
+            "unknown_token_attempts": 0
+          }
+        },
+        "latest_checkpoint": {
+          "batches_processed_this_run": 2,
+          "cached_batches": 0,
+          "elapsed_seconds": 714.7269305000009,
+          "execution_mode": "real_modal",
+          "last_batch": 1,
+          "new_inference_batches": 2,
+          "status": "stopped_at_batch_boundary",
+          "usage": {
+            "attempts": 2,
+            "development_chat_tokens": null,
+            "known_input_tokens": 256,
+            "model_requests": 2,
+            "recorded_request_elapsed_seconds": 711.6789907999992,
+            "status_counts": {
+              "success": 2
+            },
+            "unknown_elapsed_attempts": 0,
+            "unknown_token_attempts": 0
+          }
+        },
+        "latest_checkpoint_file": "run_result.json",
+        "model_requests": 2,
+        "passages": 415693,
+        "status": "stopped_at_batch_boundary",
+        "status_counts": {
+          "success": 2
+        },
+        "unknown_token_attempts": 0
+      },
+      "stderr": ""
+    },
+    "step5_verify_attempt1": {
+      "receipt": {
+        "exit_code": 2,
+        "step": "step5_verify_full",
+        "stderr_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_stderr.txt",
+        "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full verify --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+        "wall_seconds": 1141.7010275999999,
+        "stdout_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_stdout.json"
+      },
+      "stdout": "",
+      "stderr": "python.exe : {\"status\": \"error\", \"error\": \"ReadTimeout\", \"internal_cli_seconds\": 1138.4432460999997}\r\nAt line:7 char:1\r\n+ & .venv/Scripts/python.exe -m pipeline_v2.m3_full verify --run-dir pi ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: ({\"status\": \"err....4432460999997}:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError"
+    },
+    "step5_verify": {
+      "receipt": {
+        "exit_code": 0,
+        "step": "step5_verify_full",
+        "attempt": 2,
+        "stderr_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_stderr.txt",
+        "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full verify --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+        "wall_seconds": 1525.5393316999998,
+        "stdout_file": "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_stdout.json"
+      },
+      "stdout": {
+        "cli_timing_origin": "after_argument_parse_excludes_process_startup",
+        "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+        "execution_mode": "real_local_DB",
+        "internal_cli_seconds": 1525.0488638000024,
+        "method": "all_expected_unique_ids_payload_vectors_plus_exact_count_batched64",
+        "points": 415693,
+        "status": "PASS"
+      },
+      "stderr": ""
+    }
+  },
+  "disk_space_before_and_after": {
+    "before": {
+      "cache_drive_E": {
+        "path": "E:/Git/coliee-case-retrieval/pipeline_v2/artifacts/m3_full_train_20261108_v1",
+        "total_bytes": 277021192192,
+        "used_bytes": 170227044352,
+        "free_bytes": 106794147840,
+        "free_gb": 99.46
+      },
+      "docker_wsl_host_drive_E": {
+        "wsl_base_path": "\\\\?\\E:\\Data\\Docker\\DockerDesktopWSL\\main",
+        "host_free_bytes": 106794147840,
+        "host_free_gb": 99.46,
+        "qdrant_container_mount": "/qdrant/storage (volume coliee_pipeline_v2_qdrant_storage_v1, 945G virtual avail on /dev/sdd backed by E:)"
+      },
+      "system_drive_C": {
+        "total_bytes": 179875868672,
+        "used_bytes": 175247966208,
+        "free_bytes": 4627902464,
+        "free_gb": 4.31
+      }
+    },
+    "after": {
+      "cache_drive_E": {
+        "path": "E:/Git/coliee-case-retrieval/pipeline_v2/artifacts/m3_full_train_20261108_v1",
+        "total_bytes": 277021192192,
+        "used_bytes": 231909449728,
+        "free_bytes": 45111742464,
+        "free_gb": 42.01
+      },
+      "docker_wsl_host_drive_E": {
+        "wsl_base_path": "\\\\?\\E:\\Data\\Docker\\DockerDesktopWSL\\main",
+        "host_free_bytes": 45111742464,
+        "host_free_gb": 42.01,
+        "qdrant_container_mount": "/qdrant/storage (volume coliee_pipeline_v2_qdrant_storage_v1, 945G virtual avail on /dev/sdd backed by E:)"
+      },
+      "system_drive_C": {
+        "total_bytes": 179875868672,
+        "used_bytes": 173775822848,
+        "free_bytes": 6100045824,
+        "free_gb": 5.68
+      }
+    },
+    "drive_E_bytes_consumed_delta": 61682405376,
+    "drive_E_gb_consumed_delta": 57.45
+  },
+  "run_directory_files": {
+    "execution_state.json": {
+      "bytes": 259,
+      "sha256": "d6aa8be7a2595b270e99a2f534a7e2a9de0395486dd577f4925717b27b9f3811"
+    },
+    "ledger.sqlite3": {
+      "bytes": 40001536,
+      "sha256": "3812f4d1c99a520d2bea5d7ca3c62e1618acc6e9bdf756b5357a456745e47200"
+    },
+    "lexical.sqlite3": {
+      "bytes": 4357505024,
+      "sha256": "6ad1f818618bd6d4d66e0b89c3b06a5bc033da4ac19c86030859fdf9b8bc03fa"
+    },
+    "manifest.json": {
+      "bytes": 622353,
+      "sha256": "7bdf2bb5dda4b324147f5332f4c4a0ed95b15a953b2d3c40fe9f184ca74d45b0"
+    },
+    "progress.json": {
+      "bytes": 416,
+      "sha256": "e04b960c85b92db43e7aad616a96ccc24b979337dc9bbef8ed7d55720e64eefe"
+    },
+    "run_lock.sqlite3": {
+      "bytes": 8192,
+      "sha256": "b61c7ee96fb5ac8212dacba1b5ba2a15cbea4150ec76594d0b3ec99032875720"
+    },
+    "run_result.json": {
+      "bytes": 627,
+      "sha256": "b3e7fe33df3d6c9bda6aaee443f81bab947b4b11527cc9dba0b64d1efc097a80"
+    },
+    "seal.json": {
+      "bytes": 226,
+      "sha256": "b6fe2a3b0d2677362c7da29f406ca2deb009b18c23a2782fed4cae7bd38de8ec"
+    }
+  },
+  "qdrant_collections_after": {
+    "version": "1.20.0",
+    "collections": {
+      "coliee_m3_full_ef2f4d6950a5b9fd": {
+        "exact_count": 415693
+      },
+      "coliee_m3_pilot_99e66b7f9bbf4be4": {
+        "exact_count": 1024
+      },
+      "coliee_m3_pilot_99e66b7f9bbf4be4_restore": {
+        "exact_count": 1024
+      }
+    }
+  },
+  "local_test_and_plan_audit_summary": {
+    "unit_tests_30": "30/30 PASS (12 full_corpus + 18 optimization_v2)",
+    "independent_fault_injection_tests": "PASS",
+    "independent_plan_audit": "PASS"
+  }
+}

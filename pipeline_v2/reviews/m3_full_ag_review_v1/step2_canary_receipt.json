@@ -1,0 +1,8 @@
+﻿{
+    "exit_code":  0,
+    "step":  "step2_canary_2_batches",
+    "stderr_file":  "pipeline_v2/reviews/m3_full_ag_review_v1/step2_canary_stderr.txt",
+    "command":  ".venv/Scripts/python.exe -m pipeline_v2.m3_full run --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1 --max-batches 2",
+    "wall_seconds":  740.51366339999993,
+    "stdout_file":  "pipeline_v2/reviews/m3_full_ag_review_v1/step2_canary_stdout.json"
+}

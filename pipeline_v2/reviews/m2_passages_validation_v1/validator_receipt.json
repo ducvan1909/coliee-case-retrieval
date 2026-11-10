@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "pipeline_v2.m2_passages",
+    "validate",
+    "--repo-root",
+    ".",
+    "--bundle",
+    "pipeline_v2/artifacts/m2_passages_20261106_v1"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 947.5604748000005,
+  "stdout": "{\"bundle\": \"E:\\\\Git\\\\coliee-case-retrieval\\\\pipeline_v2\\\\artifacts\\\\m2_passages_20261106_v1\", \"local_elapsed_seconds\": 947.305423, \"summary\": {\"counts\": {\"full_input_tokens\": 55346360, \"kind_paragraph\": 385697, \"kind_unnumbered\": 29996, \"max_full_input_tokens\": 448, \"overlap_tokens\": 4244972, \"parent_units\": 382343, \"passages\": 415693, \"role_None\": 29996, \"role_quoted\": 1278, \"role_unknown\": 384419, \"sources\": 7708, \"split_parents\": 9856, \"token_bin_0\": 104446, \"token_bin_128\": 75233, \"token_bin_192\": 31693, \"token_bin_256\": 21988, \"token_bin_320\": 34623, \"token_bin_384\": 3565, \"token_bin_448\": 37, \"token_bin_64\": 144108, \"word_boundary_splits\": 0}, \"limitations\": [\"provisional_overlapping_profile_not_quality_optimized\", \"ownership_language_not_semantically_verified\", \"whitespace_boundaries_not_sentence_verified\", \"endpoint_rendering_preflight_required\", \"M4_payload_budget_and_delivery_not_implemented\"], \"readiness\": {\"embedding_runtime\": \"not_ready\", \"indexes\": \"not_ready\", \"local_token_counts\": \"ready\", \"parent_context_mapping\": \"ready\", \"token_validated_passages\": \"ready\"}, \"schema_version\": \"pipeline-v2-m2-passages-summary-1\"}, \"valid\": true}\n",
+  "stderr": ""
+}

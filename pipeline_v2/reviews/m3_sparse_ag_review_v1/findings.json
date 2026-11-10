@@ -1,0 +1,87 @@
+{
+  "schema_version": "ag-m3-sparse-review-findings-1",
+  "generated_at_utc": "2026-11-10T13:26:00Z",
+  "sparse_implementation_sha256": "dd4eeb17401cbda28f9a14d7f9300fffde3765397e94e9bfe775385c7f2e5c7e",
+  "full_implementation_sha256": "e4b8b358697c67073134fe5c5929e770d5c9c1e0b30f2cd98fc686b1227e3503",
+  "lexical_implementation_sha256": "3633aa881ef8ff7f739a87c5c174b00faff82f59f656466a70d3804f7c0856bf",
+  "hybrid_implementation_sha256": "0a008897ab102f3cf0c72b0f4c6b6031c20e01949e6d4cd7682dcf1e3ac96eaf",
+  "verdicts": {
+    "correctness": "PASS",
+    "index_integrity": "PASS",
+    "actual_corpus_parity": "PASS",
+    "latency_and_ram": "PASS_MEASURED_WITH_MMAP_RESIDENCY_AND_GUARD_NOTES",
+    "hybrid_integration": "PASS_LOCAL_CACHED_VECTOR_VERIFIED_PENDING_REAL_MODAL_QUERY",
+    "remaining_m3_scope": "INCOMPLETE_PENDING_PHRASE_IDENTITY_CONTEXT_AND_REAL_MODAL_QUERY"
+  },
+  "blocking_production_bugs": 0,
+  "checklist_verification": {
+    "precomputed_float64_formula_and_channel_idf": "PASS — Builder computes idf = log(1 + (n - df + 0.5) / (df + 0.5)) and values = idf * tf * (k1 + 1) / (tf + k1 * (1 - b + b * length / (avg or 1))) in float64 separately for 'case' (n=7,708, avg=4747.4036) and 'passage' (n=415,693, avg=94.9769). Independent spot-check across 60 terms (1,593,478 postings) and all 16 full-corpus queries confirms max_abs_score_diff == 0.0 (0 ULP).",
+    "analyzer_sorted_unique_query_terms_and_oov": "PASS — Uses frozen retrieval.bm25.analyze (re.findall(r'\\w+', text.casefold(), re.UNICODE)) and iterates over sorted(set(analyze(query))). Retains stopwords and negation tokens; duplicate query terms are deduplicated; empty/whitespace/punctuation/OOV queries return [] with 0 SQLite queries executed.",
+    "exclusion_before_topk_representative_passage_and_ties": "PASS — Query-case exclusion zeroes scores[channel['cases'] == excluded] before positive_count, before unique_cases representative selection, and before _top() partition. In unique_cases=True, np.maximum.at selects the single best passage score per case (no sibling passage summation), and np.minimum.at over candidates where (scores > 0) & (scores == best[cases]) picks the lowest document ordinal (lexicographically smallest passage_id). Cross-case ties break by representative ordinal (which strictly preserves passage_id order).",
+    "per_term_unique_sorted_indices_and_offsets_coverage": "PASS — Verified across all 112,492 case terms (7,368,370 postings) and 113,404 passage terms (24,592,796 postings) in m3_sparse_20261110_v1: offsets (uint64) start at 0, strictly increase (min df = 1), and end at exact posting counts; indices (uint32) are strictly increasing within every term slice; values (float64) are finite and strictly positive; cases (uint32) map 1-to-1 to sorted catalog cases.",
+    "checksums_sqlite_binding_and_incomplete_build_rejection": "PASS — All 11 sealed files in m3_sparse_20261110_v1/seal.json (403,896,521 bytes / 385.186 MiB) match exact byte sizes and SHA-256 digests. database_sha256 matches sealed lexical.sqlite3 (6ad1f818...03fa). Fault-injection tests on temporary copies confirm rejection of missing seal.json, extra/missing seal entries, symlinked files, source DB drift, and resealed semantic array corruptions.",
+    "array_only_scoring_and_retained_metadata_only": "PASS — SQLSpyConnection verification proves SparseBM25.search_detailed() never queries SQLite 'postings' or 'terms' tables; it accumulates scores purely from read-only mmap arrays in 65,536-element views and queries 'SELECT id,metadata FROM documents' in 256-ID batches solely for the retained top-K hits (0 SQL queries on OOV/empty hits, 1 SQL query for limit<=256).",
+    "ram_breakdown_and_mmap_copy_analysis": "PASS — Subprocess probes confirm channel arrays are read-only np.memmap views (369.105 MiB total payload: 85.212 MiB case + 283.893 MiB passage) with no full-array copy branches during scoring. Python heap (tracemalloc) after SparseBM25.__init__ is 86.35 MiB current (110.36 MiB peak) for catalog JSON lists/dicts; clean OS PrivateUsage is 511.41 MiB (+97.25 MiB over 414.16 MiB baseline) and WorkingSetSize is 505.97 MiB right after init because eager per-term array validation faults mapped pages into resident RAM, which the OS later reclaims (WorkingSet drops to 211.76–288.72 MiB during hybrid queries).",
+    "historical_ingestion_ledger_and_prior_artifacts_preserved": "PASS — 39/39 prior code files match prior_state.json. In m3_full_train_20261108_v1/ledger.sqlite3, all 6,496 'success' attempts (55,346,360 known tokens, 16,753.736s) and the 1 interrupted attempt id=4293 (batch='full-documents-4292', status='started', tokens=null, elapsed=null) are preserved untouched."
+  },
+  "findings": [
+    {
+      "id": "F-M3SPARSE-01",
+      "category": "startup_and_memory_behavior",
+      "severity": "low",
+      "blocking": false,
+      "title": "SparseBM25.__init__() performs full SHA-256 hashing (~385 MiB) and eager 225,896-term slice validation on every open, faulting ~369 MiB of mmap pages into the OS WorkingSet",
+      "files_and_symbols": [
+        "pipeline_v2/sparse_bm25/index.py::SparseBM25.__init__",
+        "pipeline_v2/sparse_bm25/index.py::SparseSession.__init__"
+      ],
+      "evidence": "In SparseBM25.__init__() (lines 249-252 and 287-294), opening the reader hashes all 11 sealed files (403,896,521 bytes) and iterates over all 112,492 case terms and 113,404 passage terms in Python to check monotonicity and finiteness on every mmap slice. In our clean subprocess probe (validate_database=False), SparseBM25.__init__() took 8.07s (265,777 page faults) and brought OS WorkingSetSize to 505.97 MiB while PrivateUsage rose by only +97.25 MiB (from 414.16 MiB to 511.41 MiB; tracemalloc Python heap = 86.35 MiB). When opened via SparseSession(ROOT), load_plan() additionally hashes the 4.36 GB lexical.sqlite3 and 7,708 raw case files, taking ~35.25s-36.09s total session startup.",
+      "impact": "No correctness issue, and it guarantees fail-closed detection of even resealed semantic array corruption before serving queries. However, single-shot CLI invocations pay ~35s startup cost, and the eager scan initially faults all 369.1 MiB of read-only mapped array pages into the process working set until the OS reclaims cold pages (dropping working set to 212-289 MiB in hybrid runs).",
+      "recommended_fix": "Keep single-session reuse across queries (as documented in M3_SPARSE.md). In M4/M5 agent harness integration, instantiate SparseHybridSession once per evaluation run rather than per tool call."
+    },
+    {
+      "id": "F-M3SPARSE-02",
+      "category": "performance_observation",
+      "severity": "low",
+      "blocking": false,
+      "title": "File-digest guard() calls (~50.9 ms each) now exceed pure sparse BM25 scoring+selection+metadata time on both channels (~11.8 ms case, ~37.1 ms passage)",
+      "files_and_symbols": [
+        "pipeline_v2/sparse_bm25/index.py::SparseSession.guard",
+        "pipeline_v2/sparse_bm25/index.py::SparseSession.search",
+        "pipeline_v2/sparse_bm25/index.py::SparseHybridSession._guard",
+        "pipeline_v2/full_search/hybrid.py::HybridSession._search"
+      ],
+      "evidence": "Each SparseSession.guard() call hashes 42 code/config/manifest/seal files, taking 50.89 ms median. SparseSession.search() calls self.guard() twice (~101.8 ms overhead). Because SparseBM25.search_detailed() for unique_cases=True, limit=100 now takes only 11.82 ms median on 'case' (1.23 ms scoring + 9.25 ms top selection + 1.10 ms metadata) and 37.09 ms median on 'passage' (15.71 ms scoring + 17.67 ms top selection + 2.38 ms metadata), the double guard() accounts for ~89% of outer case search time (102 ms out of 116.7 ms) and ~73% of outer passage search time (102 ms out of 165.6 ms). In SparseHybridSession._search(), guard() is invoked 7 times total (3x via _guard() and 2x inside each of the two lexical.search() calls), adding ~356 ms of file hashing per hybrid query.",
+      "impact": "Even with ~356 ms of guard hashing, total BM25 time in hybrid search is only 0.41s-0.61s (down from 73.04s-337.55s in SQLite, a 177x-628x speedup). Thus it is non-blocking, but worth noting when interpreting stage timings.",
+      "recommended_fix": "Optional for M4 tool harness: run the 42-file code hash check once at the outer request boundary instead of 7 times per hybrid search."
+    },
+    {
+      "id": "F-M3SPARSE-03",
+      "category": "resource_and_lifecycle_observation",
+      "severity": "info",
+      "blocking": false,
+      "title": "SparseSession.revalidate() temporarily instantiates a second SparseSession before closing it, momentarily doubling catalog heap and mmap handles",
+      "files_and_symbols": [
+        "pipeline_v2/sparse_bm25/index.py::SparseSession.revalidate"
+      ],
+      "evidence": "In SparseSession.revalidate() (lines 412-421), the method executes `fresh = SparseSession(self.root, self.index_dir); fresh.close()` while `self.reader` is still open. During `fresh.__init__()`, a second copy of the Python catalog dicts/lists (~86.35 MiB heap) and a second set of read-only mmap handles are opened before `fresh.close()` releases them.",
+      "impact": "Harmless on the current host because mmap pages are shared by the OS page cache and the extra ~86 MiB heap is freed immediately upon `fresh.close()`, and `revalidate()` is never called on the hot search path.",
+      "recommended_fix": "None required for M3; if memory is tight in future multi-worker setups, close or reuse catalog structures during explicit revalidation."
+    },
+    {
+      "id": "F-M3SPARSE-04",
+      "category": "m3_scope_and_architecture",
+      "severity": "info",
+      "blocking": false,
+      "title": "Remaining M3 full-search scope items and dense exact search dominance after sparse BM25 optimization",
+      "files_and_symbols": [
+        "pipeline_v2/docs/PROGRESS.md",
+        "pipeline_v2/docs/plan/M3_FULL_SEARCH.md",
+        "pipeline_v2/full_search/hybrid.py::HybridSession._dense"
+      ],
+      "evidence": "With sparse BM25 reducing lexical retrieval in hybrid search to 0.41s-0.61s, total hybrid latency on cached vectors (7.37s-32.79s) is now 81%-96% dominated by Qdrant exact dense search (`dense_query_seconds`: 1.90s-26.59s) and cached vector shard verification (`dense_validation_seconds`: 4.07s-5.04s). Meanwhile, per PROGRESS.md and plan/M3_FULL_SEARCH.md, M3 still requires: (1) `search_case` / query-reading helpers (`case_map`/`case_anchors`), (2) `search_phrase` across raw-stream chunk boundaries with verified char-to-byte offset mapping, (3) `search_identity` for observable party/citation leads, (4) `open_source` context delivery & UTF-8 byte-interval pagination (reading sealed M2 JSON directly rather than re-tokenizing via `PassageReader._case()`), and (5) a single real query embedding verification via Modal (`m3_sparse search-hybrid` / `m3_hybrid search`) when authorized.",
+      "impact": "Clearly delineates what is accepted now (sparse BM25 index + local hybrid integration) versus what remains to close M3.",
+      "recommended_fix": "Proceed to implement the remaining M3 deterministic search/context modules (`search_case`, `search_phrase`, `search_identity`, `open_source`) and run the single real Modal query embedding check when ready."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "m2-preview-revision2-commands-and-results-v1",
+  "paid_api_or_llm_calls": 0,
+  "labels_or_test_data_accessed": false,
+  "commands": [
+    {
+      "step_order": 1,
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.m2 --help; & .venv/Scripts/python.exe -m unittest discover -s pipeline_v2/tests -v",
+      "purpose": "Verify CLI entrypoint and run full M0/M1/M2 unit test suite",
+      "exit_code": 0,
+      "elapsed_seconds": 3.811,
+      "status": "PASS",
+      "summary": "CLI help displayed (build, validate, map, open, anchors, source-anchors); 56 unit tests passed in 3.811s."
+    },
+    {
+      "step_order": 2,
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.m2 validate --repo-root . --bundle pipeline_v2/artifacts/m2_navigation_20261106_v3",
+      "purpose": "Run official M2 validator on target bundle m2_navigation_20261106_v3",
+      "exit_code": 0,
+      "elapsed_seconds": 394.295,
+      "status": "PASS",
+      "summary": "valid=True, 7,708 sources, 382,343 navigation units, 454,275 previews, 216,946 anchors, 1,237 source quote cues, 48,990 headings, 267 units without preview."
+    },
+    {
+      "step_order": 3,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_ag_review_v1/scripts/tamper_and_boundary_tests.py",
+      "purpose": "Run 1 of isolated tamper/drift/reseal, pagination, CLI, and overlong fallback tests",
+      "exit_code": 0,
+      "elapsed_seconds": 2.275,
+      "status": "FAILED_ASSERTION_FIXED_IN_RETRY",
+      "failure_and_retry_note": "Test 2 initially hardcoded 19 navigation units for 014101.txt whereas 014101.txt has 12 navigation units. Fixed Test 2 to compare paged unit_ids against the sidecar's actual navigation list."
+    },
+    {
+      "step_order": 4,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_ag_review_v1/scripts/tamper_and_boundary_tests.py",
+      "purpose": "Run 2 (after fixing Test 2 unit count check) of isolated tamper/drift/reseal, pagination, CLI, and overlong fallback tests",
+      "exit_code": 0,
+      "elapsed_seconds": 2.265,
+      "status": "PASS",
+      "summary": "5/5 tests passed (test_1_tamper_and_reseal_detection, test_2_navigation_reader_pagination_and_bounds, test_3_open_context_policies_and_intervening_headings, test_4_cli_subcommands, test_5_overlong_word_and_tag_fallback). Wrote tamper_and_boundary_results.json."
+    },
+    {
+      "step_order": 5,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_ag_review_v1/scripts/lock_sample_and_extract.py",
+      "purpose": "Run 1: Lock deterministic 40-case / 120-region sample (seed 20261106) and extract Step 1 map + Step 2 open_context views",
+      "exit_code": 0,
+      "elapsed_seconds": 49.311,
+      "status": "PASS",
+      "summary": "Locked 20 uniform random + 20 risk-stratified cases (0 overlap with M0 discovery/holdout or separate regressions) and extracted 120 regions."
+    },
+    {
+      "step_order": 6,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_ag_review_v1/scripts/independent_corpus_audit.py",
+      "purpose": "Run 1 of independent full-corpus audit across 7,708 cases",
+      "exit_code": 1,
+      "elapsed_seconds": 1.12,
+      "status": "FAILED_AND_RETRIED",
+      "failure_and_retry_note": "Failed with FileNotFoundError on m0_20261105_v2/source_registry.json because M0 stores its source registry in inventory.json. Updated script to read m0_20261105_v2/inventory.json and re-ran."
+    },
+    {
+      "step_order": 7,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_ag_review_v1/scripts/independent_corpus_audit.py",
+      "purpose": "Run 2 of independent full-corpus audit across 7,708 cases comparing M0, M1, v1, v2, v3, and raw bytes",
+      "exit_code": 0,
+      "elapsed_seconds": 144.602,
+      "status": "PASS",
+      "summary": "error_count=0 across 7,708 cases, 382,343 units, 454,275 previews. Wrote machine_audit_results.json."
+    },
+    {
+      "step_order": 8,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_ag_review_v1/scripts/lock_sample_and_extract.py; & .venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_ag_review_v1/scripts/adjudicate_regions.py",
+      "purpose": "Re-extract 120 sampled + 17 separate regression regions and run adjudication script (Run 1)",
+      "exit_code": 1,
+      "elapsed_seconds": 44.1,
+      "status": "FAILED_AND_RETRIED",
+      "failure_and_retry_note": "lock_sample_and_extract.py succeeded (43.82s), but adjudicate_regions.py raised KeyError: 'title' on item['sections'] because heading objects use key 'text'. Updated s['title'] -> s['text'] and re-ran adjudicate_regions.py."
+    },
+    {
+      "step_order": 9,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_preview_revision2_ag_review_v1/scripts/adjudicate_regions.py",
+      "purpose": "Run 2 of region adjudication script across 120 sampled regions + 17 separate regression regions",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03,
+      "status": "PASS",
+      "summary": "120/120 sampled regions PASS integrity (113 PASS usefulness, 7 NOT_APPLICABLE_NO_PREVIEW); 17/17 regression regions PASS integrity and usefulness. Wrote reviewed_regions.json."
+    }
+  ]
+}

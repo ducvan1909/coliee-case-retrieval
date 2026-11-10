@@ -1,0 +1,107 @@
+{
+  "schema_version": "m2-passages-ag-review-commands-and-results-v1",
+  "usage_accounting": {
+    "model_inference_requests": 0,
+    "model_inference_retries": 0,
+    "model_inference_tokens": 0,
+    "weights_downloaded": false,
+    "modal_deployed": false,
+    "labels_accessed": false,
+    "test_sources_accessed": false,
+    "development_chat_tokens": "unknown"
+  },
+  "historical_build_and_validation_receipts_verified": [
+    {
+      "name": "m2_tokenizer_acquisition_v1",
+      "receipt_path": "pipeline_v2/reviews/m2_tokenizer_acquisition_v1.json",
+      "status": "FAIL (expected gate stop on unreviewed postprocessor; 6 HTTP 200 asset downloads)",
+      "elapsed_seconds": 6.216414
+    },
+    {
+      "name": "m2_tokenizer_acquisition_v2",
+      "receipt_path": "pipeline_v2/reviews/m2_tokenizer_acquisition_v2.json",
+      "status": "PASS (local hash verification & postprocessor lock)",
+      "elapsed_seconds": 0.789671
+    },
+    {
+      "name": "m2_passages_20261106_v1_build",
+      "receipt_path": "pipeline_v2/artifacts/m2_passages_20261106_v1.build-receipt.json",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m2_passages build --repo-root . --navigation-bundle pipeline_v2/artifacts/m2_navigation_20261106_v3 --output pipeline_v2/artifacts/m2_passages_20261106_v1",
+      "exit_code": 0,
+      "local_elapsed_seconds": 921.59752,
+      "wrapper_elapsed_seconds": 921.791644
+    },
+    {
+      "name": "m2_passages_20261106_v1_validator",
+      "receipt_path": "pipeline_v2/reviews/m2_passages_validation_v1/validator_receipt.json",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m2_passages validate --repo-root . --bundle pipeline_v2/artifacts/m2_passages_20261106_v1",
+      "exit_code": 0,
+      "local_elapsed_seconds": 947.305423,
+      "wrapper_elapsed_seconds": 947.560475
+    },
+    {
+      "name": "m2_passages_validation_v1_middle_child",
+      "receipt_path": "pipeline_v2/reviews/m2_passages_validation_v1/middle_child_result.json",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.reviews.m2_passages_validation_v1.check_middle_child",
+      "exit_code": 0,
+      "elapsed_seconds": 16.509764
+    },
+    {
+      "name": "m2_passages_validation_v1_full_corpus_audit",
+      "receipt_path": "pipeline_v2/reviews/m2_passages_validation_v1/full_corpus_audit.json",
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_validation_v1/audit.py --bundle pipeline_v2/artifacts/m2_passages_20261106_v1 --output pipeline_v2/reviews/m2_passages_validation_v1/full_corpus_audit.json",
+      "exit_code": 0,
+      "elapsed_seconds": 450.473631
+    }
+  ],
+  "ag_review_executed_commands": [
+    {
+      "step": 1,
+      "command": "& .venv/Scripts/python.exe -m pipeline_v2.m2_passages --help; & .venv/Scripts/python.exe -m unittest discover -s pipeline_v2/tests -v; & .venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m2_passages_core pipeline_v2.tests.test_m2_passages_store -v",
+      "exit_code": 0,
+      "elapsed_seconds": 20.1,
+      "status": "PASS",
+      "notes": "CLI help verified; full unittest suite 65/65 PASS (10.504s); targeted M2 passages core+store 9/9 PASS (7.305s)."
+    },
+    {
+      "step": 2,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/tamper_tokenizer_and_cli_tests.py",
+      "exit_code": 0,
+      "elapsed_seconds": 39.901138,
+      "status": "PASS",
+      "notes": "5/5 test groups PASS: (1) bundle seal & 7,712-file universe, (2) unsealed/resealed tamper & 8 upstream drift vectors after PassageReader init, (3) tokenizer lock, <|endoftext|> 151643 postprocessor, Unicode/CRLF/BOM/special-token/9000-char unbroken fallback & impossible cap rejections, (4) CLI inspect/open/error exit code 2, (5) 5 real middle-child open_context scenarios."
+    },
+    {
+      "step": 3,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/independent_corpus_audit.py (Run 1)",
+      "exit_code": 1,
+      "elapsed_seconds": 8.9,
+      "status": "FAILED_REVIEW_SCRIPT_KEY_FIXED_IN_RETRY",
+      "notes": "Review script looked up m0 inventory['cases'] instead of inventory['sources'] (KeyError: 'cases'). Fixed script key to 'sources' without touching production."
+    },
+    {
+      "step": 4,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/lock_sample_and_extract_passages.py",
+      "exit_code": 0,
+      "elapsed_seconds": 148.558866,
+      "status": "PASS",
+      "notes": "Locked 40 unique cases (seed 20261106: 20 uniform random + 20 risk-stratified across 5 strata, 0 overlap with M0 discovery/holdout or 22 separate regression cases) and extracted 120 sampled regions + 6 separate regression regions with real PassageReader.open_context calls."
+    },
+    {
+      "step": 5,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/adjudicate_passages_regions.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.011463,
+      "status": "PASS",
+      "notes": "Adjudicated 120 sampled regions + 6 separate regression regions (126/126 mechanical_integrity PASS; concrete cut-boundary observations and unresolved semantic status recorded in reviewed_regions.json)."
+    },
+    {
+      "step": 6,
+      "command": "& .venv/Scripts/python.exe pipeline_v2/reviews/m2_passages_ag_review_v1/scripts/independent_corpus_audit.py (Run 2)",
+      "exit_code": 0,
+      "elapsed_seconds": 569.3201,
+      "status": "PASS",
+      "notes": "Independent full-corpus audit across all 7,708 sources (382,343 parents, 415,693 passages, 9,856 split parents, 55,346,360 full-input tokens, 4,244,972 content overlap tokens, 0 errors)."
+    }
+  ]
+}

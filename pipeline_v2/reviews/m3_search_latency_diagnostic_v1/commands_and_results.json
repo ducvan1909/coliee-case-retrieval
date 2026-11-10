@@ -1,0 +1,113 @@
+{
+  "schema_version": "m3-search-latency-commands-and-results-1",
+  "generated_at_utc": "2026-11-09T15:02:00Z",
+  "workspace_root": "E:/Git/coliee-case-retrieval",
+  "python_executable": "E:/Git/coliee-case-retrieval/.venv/Scripts/python.exe",
+  "review_directory": "pipeline_v2/reviews/m3_search_latency_diagnostic_v1",
+  "production_files_modified": [],
+  "modal_or_remote_calls": 0,
+  "gold_or_labels_accessed": false,
+  "prior_review_attempts_audited": [
+    {
+      "script": "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_plan_assumptions.py",
+      "output_artifact": "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_results.json",
+      "artifact_exists": true,
+      "status": "completed_with_logged_qdrant_60s_timeout_on_first_exact_query",
+      "notes": "Persisted EXPLAIN QUERY PLAN, single shard read (10.875ms), Qdrant batch 0 vec0 benchmarks (including 60.167s HTTP 500 timeout on exact=True limit=20 without ?timeout=120), and 1-query BM25 benchmark (case=4.5872s, passage=121.5137s)."
+    },
+    {
+      "script": "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_deep_dive.py",
+      "output_artifact": "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_deep_dive_results.json",
+      "artifact_exists": false,
+      "status": "failed_before_writing_output_artifact",
+      "notes": "Crashed at line 178 (`nr.open_context('055641.txt', 'p000001')`) because 055641.txt has first numbered paragraph handle 'p000351' (and 'u000001'), before reaching line 189 file write. Numbers from stdout were cited in prior REPORT.md/findings.json without a persisted artifact; therefore excluded from conclusions here and re-measured under controlled conditions."
+    },
+    {
+      "script": "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_mmap_and_open.py",
+      "output_artifact": "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/probe_mmap_and_open_results.json",
+      "artifact_exists": true,
+      "status": "completed",
+      "notes": "Fixed handle lookup to use `large_meta['parent_handle']` ('p000351'); persisted SQLite mmap/cache timings with JOIN still present (86.571s, 63.6325s), open_context latencies, and M2 64KiB window counts."
+    },
+    {
+      "script": "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/test_plan_counterexamples.py",
+      "output_artifact": "pipeline_v2/reviews/m3_full_search_plan_ag_review_v1/counterexample_results.json",
+      "artifact_exists": true,
+      "status": "completed",
+      "notes": "Persisted 11/11 deterministic unit counterexamples (CE01..CE11)."
+    }
+  ],
+  "diagnostic_commands_executed": [
+    {
+      "step_id": "CMD-01",
+      "command": "& \"e:\\Git\\coliee-case-retrieval\\.venv\\Scripts\\python.exe\" \"e:\\Git\\coliee-case-retrieval\\pipeline_v2\\reviews\\m3_search_latency_diagnostic_v1\\scripts\\01_inspect_env_and_lock_workload.py\"",
+      "exit_code": 0,
+      "elapsed_seconds": 5.8,
+      "status": "PASS",
+      "outputs": [
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/prior_evidence_audit.json",
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/workload_manifest.json",
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/environment_snapshot.json"
+      ],
+      "summary": "Audited prior evidence (confirmed probe_deep_dive_results.json missing), recorded system RAM (3.106 GiB free / 11.611 GiB total) and disk free (41.987 GiB on E:), and deterministically locked 8 raw train queries (Q01..Q08, seed=20261109, zero overlap with holdouts) and 3 cached dense vectors (V01..V03)."
+    },
+    {
+      "step_id": "CMD-02-ATTEMPT-1",
+      "command": "& \"e:\\Git\\coliee-case-retrieval\\.venv\\Scripts\\python.exe\" \"e:\\Git\\coliee-case-retrieval\\pipeline_v2\\reviews\\m3_search_latency_diagnostic_v1\\scripts\\02_inspect_sqlite_and_preload_ram.py\"",
+      "exit_code": 0,
+      "elapsed_seconds": 51.4,
+      "status": "PARTIAL_ISSUE_LOGGED",
+      "outputs": [
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/sqlite_and_preload_diagnostics.json"
+      ],
+      "summary": "Measured SQLite structure, EXPLAIN QUERY PLAN, tracemalloc heap deltas (44.95 MiB for passage_lengths, 79.84 MiB with un-interned case_ids), and 12/12 small fixture oracle checks, but Windows GetProcessMemoryInfo returned 0 bytes because GetCurrentProcess.restype was not set to wintypes.HANDLE on 64-bit Python."
+    },
+    {
+      "step_id": "CMD-02-ATTEMPT-2",
+      "command": "& \"e:\\Git\\coliee-case-retrieval\\.venv\\Scripts\\python.exe\" \"e:\\Git\\coliee-case-retrieval\\pipeline_v2\\reviews\\m3_search_latency_diagnostic_v1\\scripts\\02_inspect_sqlite_and_preload_ram.py\"",
+      "exit_code": 0,
+      "elapsed_seconds": 12.1,
+      "status": "PASS",
+      "outputs": [
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/sqlite_and_preload_diagnostics.json"
+      ],
+      "summary": "Fixed 64-bit HANDLE restype/argtypes for GetProcessMemoryInfo and verified working_set_bytes and private_usage_bytes alongside tracemalloc heap bytes."
+    },
+    {
+      "step_id": "CMD-03",
+      "command": "& \"e:\\Git\\coliee-case-retrieval\\.venv\\Scripts\\python.exe\" \"e:\\Git\\coliee-case-retrieval\\pipeline_v2\\reviews\\m3_search_latency_diagnostic_v1\\scripts\\03_benchmark_dense_local.py\"",
+      "exit_code": 0,
+      "elapsed_seconds": 131.6,
+      "status": "PASS",
+      "outputs": [
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/dense_measurements.json"
+      ],
+      "summary": "Executed 24 Qdrant exact=True queries (3 cached vectors V01..V03 x limits 256, 4096 x 1 first_observed + 3 warm crossover repeats) with explicit URL ?timeout=120 and HTTP timeout=(10.0, 130.0), plus empirical ReadonlyCache shard verification timing on top-100 unique-case leads. Zero timeouts/errors; first_observed V01 limit=256 took 81.800s (proving why default 60s server timeout fails when cold); warm medians were 0.80s-1.15s."
+    },
+    {
+      "step_id": "CMD-04",
+      "command": "& \"e:\\Git\\coliee-case-retrieval\\.venv\\Scripts\\python.exe\" \"e:\\Git\\coliee-case-retrieval\\pipeline_v2\\reviews\\m3_search_latency_diagnostic_v1\\scripts\\04_benchmark_bm25_controlled.py\"",
+      "exit_code": 0,
+      "elapsed_seconds": 5170.8,
+      "status": "PASS",
+      "outputs": [
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/bm25_measurements_checkpoint.json",
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/bm25_measurements.json"
+      ],
+      "summary": "Completed all 192 stage-instrumented BM25 runs (2 channels [case, passage] x 8 locked queries Q01..Q08 x 3 variants [A, B, C] x 4 passes [1 first_observed + 3 warm crossover repeats]), plus pure OS memory preload measurement without tracemalloc and unperturbed PersistentBM25.search parity checks. 100% exact ID/score/metadata match across A, B, and C (max_abs_score_diff = 0.0)."
+    },
+    {
+      "step_id": "CMD-05",
+      "command": "& \"e:\\Git\\coliee-case-retrieval\\.venv\\Scripts\\python.exe\" \"e:\\Git\\coliee-case-retrieval\\pipeline_v2\\reviews\\m3_search_latency_diagnostic_v1\\scripts\\05_analyze_and_generate_artifacts.py\"",
+      "exit_code": 0,
+      "elapsed_seconds": 3.9,
+      "status": "PASS",
+      "outputs": [
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/measurements.json",
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/measurements_summary.csv",
+        "pipeline_v2/reviews/m3_search_latency_diagnostic_v1/correctness_comparison.json"
+      ],
+      "summary": "Aggregated all per-query and across-query medians, ranges, stage shares, Pearson correlations with postings/terms, preload break-even query counts, and analytical single-channel cost bounds."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "channel": "case",
+      "query": "standard of review",
+      "excluded_case": null,
+      "hits": 916,
+      "reference_build_seconds": 2.870054999999411,
+      "reference_search_seconds": 0.006613900000047579,
+      "persistent_search_seconds": 0.23881689999961964,
+      "ranking_and_scores": "PASS"
+    },
+    {
+      "channel": "case",
+      "query": "standard of review",
+      "excluded_case": "079659.txt",
+      "hits": 915,
+      "reference_build_seconds": 2.870054999999411,
+      "reference_search_seconds": 0.00456430000031105,
+      "persistent_search_seconds": 0.23375390000001062,
+      "ranking_and_scores": "PASS"
+    },
+    {
+      "channel": "case",
+      "query": "d\u00e9cision n'est pas raisonnable under s. 97(1)",
+      "excluded_case": null,
+      "hits": 916,
+      "reference_build_seconds": 2.870054999999411,
+      "reference_search_seconds": 0.010267399999975169,
+      "persistent_search_seconds": 0.2556592000000819,
+      "ranking_and_scores": "PASS"
+    },
+    {
+      "channel": "passage",
+      "query": "standard of review",
+      "excluded_case": null,
+      "hits": 802,
+      "reference_build_seconds": 0.0751602999998795,
+      "reference_search_seconds": 0.01838439999937691,
+      "persistent_search_seconds": 0.07388829999945301,
+      "ranking_and_scores": "PASS"
+    },
+    {
+      "channel": "passage",
+      "query": "standard of review",
+      "excluded_case": "079659.txt",
+      "hits": 802,
+      "reference_build_seconds": 0.0751602999998795,
+      "reference_search_seconds": 0.005849899999702757,
+      "persistent_search_seconds": 0.06856400000015128,
+      "ranking_and_scores": "PASS"
+    },
+    {
+      "channel": "passage",
+      "query": "d\u00e9cision n'est pas raisonnable under s. 97(1)",
+      "excluded_case": null,
+      "hits": 628,
+      "reference_build_seconds": 0.0751602999998795,
+      "reference_search_seconds": 0.007345699999859789,
+      "persistent_search_seconds": 0.06998720000046887,
+      "ranking_and_scores": "PASS"
+    }
+  ],
+  "model_requests": 0,
+  "Qdrant_accessed": false,
+  "scope": "same_pilot_lexical_equivalence_not_whole_hybrid_latency"
+}

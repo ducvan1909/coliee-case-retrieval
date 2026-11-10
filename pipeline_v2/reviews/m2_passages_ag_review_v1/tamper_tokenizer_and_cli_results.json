@@ -1,0 +1,518 @@
+{
+  "test_1_bundle_seal_and_file_universe": {
+    "status": "PASS",
+    "sealed_entries": 7711,
+    "total_files_including_seal": 7712,
+    "total_bundle_bytes": 938891921,
+    "seal_sha256": "0ed42d51023adaf47c1205fa925f18f31b7aacb58b0c8e44c7d23288d123dda6",
+    "manifest_sha256": "8049baf26cdc1ccb60d9c1b821623babfdd5f507a8a8f761cc7ce996a76d1bb6",
+    "summary_sha256": "073e4490250b716e3da2604f2093d06c12312db71e480d3dd54252a42118b83f",
+    "registry_sha256": "65005305c8f667debe0a47eba4b7ccf8ab6eb8940e57775cb66c4cfa933a36c2",
+    "elapsed_seconds": 1.128549
+  },
+  "test_2_tamper_reseal_and_drift_after_reader_init": {
+    "status": "PASS",
+    "subchecks": {
+      "unsealed_source_tamper": {
+        "rejected": true,
+        "error": "Passage seal integrity failure"
+      },
+      "resealed_token_count_and_registry_tamper": {
+        "rejected": true,
+        "error": "Passage differs from exact source/tokenizer/profile"
+      },
+      "resealed_text_and_registry_tamper": {
+        "rejected": true,
+        "error": "Passage differs from exact source/tokenizer/profile"
+      },
+      "extra_unsealed_file_in_bundle": {
+        "rejected": true,
+        "error": "Unexpected/missing passage bundle files"
+      },
+      "raw_case_after_init": {
+        "rejected": true,
+        "error_type": "M1Error",
+        "error": "Source drift: 000001.txt"
+      },
+      "m2_passages_profile_after_init": {
+        "rejected": true,
+        "error_type": "PassageError",
+        "error": "Passage inputs drifted after reader construction"
+      },
+      "m2_navigation_profile_after_init": {
+        "rejected": true,
+        "error_type": "M2Error",
+        "error": "M2 profile/code/M1 provenance drift"
+      },
+      "m1_profile_after_init": {
+        "rejected": true,
+        "error_type": "M1Error",
+        "error": "M1 code/config/M0 provenance drift"
+      },
+      "tokenizer_lock_after_init": {
+        "rejected": true,
+        "error_type": "PassageError",
+        "error": "Tokenizer lock drift"
+      },
+      "tokenizer_asset_after_init": {
+        "rejected": true,
+        "error_type": "PassageError",
+        "error": "Tokenizer asset drift: tokenizer_config.json"
+      },
+      "m1_artifact_after_init": {
+        "rejected": true,
+        "error_type": "M1Error",
+        "error": "Artifact integrity failure: sources/000001.json"
+      },
+      "m2_nav_artifact_after_init": {
+        "rejected": true,
+        "error_type": "M2Error",
+        "error": "M2 artifact seal integrity failure"
+      }
+    },
+    "elapsed_seconds": 5.711612
+  },
+  "test_3_tokenizer_lock_postprocessor_and_edge_cases": {
+    "status": "PASS",
+    "sample_checks": [
+      {
+        "sample_prefix": "Simple ASCII sentence.",
+        "full_tokens": 5,
+        "content_tokens": 4,
+        "trailing_id": 151643
+      },
+      {
+        "sample_prefix": "﻿[1] Line one\r\nLine two\r\n",
+        "full_tokens": 11,
+        "content_tokens": 10,
+        "trailing_id": 151643
+      },
+      {
+        "sample_prefix": "Énoncé français avec accents: é,",
+        "full_tokens": 21,
+        "content_tokens": 20,
+        "trailing_id": 151643
+      },
+      {
+        "sample_prefix": "漢字テスト and emoji 🧑‍⚖️ multi-codep",
+        "full_tokens": 17,
+        "content_tokens": 16,
+        "trailing_id": 151643
+      },
+      {
+        "sample_prefix": "<|endoftext|> literal <|im_start",
+        "full_tokens": 13,
+        "content_tokens": 12,
+        "trailing_id": 151643
+      }
+    ],
+    "edge_results": {
+      "fitting_above_target_320_le_448": {
+        "num_slices": 1,
+        "max_full_tokens": 402,
+        "max_overlap_tokens": 0,
+        "word_boundary_splits": 0
+      },
+      "crlf_and_bom_long": {
+        "num_slices": 15,
+        "max_full_tokens": 321,
+        "max_overlap_tokens": 128,
+        "word_boundary_splits": 0
+      },
+      "unicode_cjk_emoji_zwj_long": {
+        "num_slices": 11,
+        "max_full_tokens": 374,
+        "max_overlap_tokens": 128,
+        "word_boundary_splits": 0
+      },
+      "unbroken_no_whitespace_9000_chars": {
+        "num_slices": 6,
+        "max_full_tokens": 321,
+        "max_overlap_tokens": 128,
+        "word_boundary_splits": 5
+      },
+      "whitespace_only_long": {
+        "num_slices": 10,
+        "max_full_tokens": 321,
+        "max_overlap_tokens": 0,
+        "word_boundary_splits": 0
+      },
+      "special_token_literals_long": {
+        "num_slices": 13,
+        "max_full_tokens": 321,
+        "max_overlap_tokens": 127,
+        "word_boundary_splits": 0
+      }
+    },
+    "impossible_checks": {
+      "overlap_ge_target": {
+        "rejected": true,
+        "error": "Invalid target/overlap/max token profile"
+      },
+      "target_gt_max": {
+        "rejected": true,
+        "error": "Invalid target/overlap/max token profile"
+      },
+      "empty_parent": {
+        "rejected": true,
+        "error": "Empty structural parent"
+      },
+      "single_codepoint_exceeds_cap_1": {
+        "rejected": true,
+        "error": "One Unicode codepoint exceeds full-input cap"
+      }
+    },
+    "elapsed_seconds": 1.069973
+  },
+  "test_4_cli_subcommands": {
+    "status": "PASS",
+    "inspect_total_passages_041666": 555,
+    "open_hit_passage_id": "041666:6aa38298330c0005b7207373",
+    "open_span_bytes": [
+      233500,
+      318510
+    ],
+    "error_exit_code_verified": 2,
+    "elapsed_seconds": 18.711856
+  },
+  "test_5_real_middle_child_open_context_scenarios": {
+    "status": "PASS",
+    "scenarios_verified": 5,
+    "scenarios": {
+      "end_of_source_largest_parent": {
+        "case_id": "041666.txt",
+        "parent_handle": "p000417",
+        "passage_id": "041666:6aa38298330c0005b7207373",
+        "split_order": 55,
+        "split_count": 110,
+        "hit_span_bytes": [
+          282037,
+          283127
+        ],
+        "parent_span_bytes": [
+          234305,
+          318510
+        ],
+        "opened_span_bytes": [
+          233500,
+          318510
+        ],
+        "components": [
+          {
+            "kind": "previous_context",
+            "handle": "p000416",
+            "observed_marker": 327,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              233500,
+              234293
+            ]
+          },
+          {
+            "kind": "parent",
+            "handle": "p000417",
+            "observed_marker": 328,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              234305,
+              318510
+            ]
+          }
+        ],
+        "intervening_headings_count": 1,
+        "intervening_headings": [
+          {
+            "heading_scope": "body",
+            "span_bytes": [
+              234295,
+              234303
+            ],
+            "text": "JUDGMENT",
+            "text_sha256": "98cfe42af93a7f38c8954b96ab0a8242a20965d71ae02d5f6b86536abae993ba",
+            "uncertainties": [
+              "heading_literal_observation"
+            ],
+            "unit_id": "041666:e90c1fe477b77b42:234295-234303:20c8805023c2"
+          }
+        ],
+        "neighbor_policy": "paragraph_order"
+      },
+      "interior_skipping_unnumbered_neighbors": {
+        "case_id": "041666.txt",
+        "parent_handle": "p000153",
+        "passage_id": "041666:3f296642490ce0314e005143",
+        "split_order": 1,
+        "split_count": 24,
+        "hit_span_bytes": [
+          50291,
+          51613
+        ],
+        "parent_span_bytes": [
+          49563,
+          67497
+        ],
+        "opened_span_bytes": [
+          49196,
+          67951
+        ],
+        "components": [
+          {
+            "kind": "previous_context",
+            "handle": "p000151",
+            "observed_marker": 83,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              49196,
+              49533
+            ]
+          },
+          {
+            "kind": "parent",
+            "handle": "p000153",
+            "observed_marker": 84,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              49563,
+              67497
+            ]
+          },
+          {
+            "kind": "next_context",
+            "handle": "p000155",
+            "observed_marker": 85,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              67557,
+              67951
+            ]
+          }
+        ],
+        "intervening_headings_count": 3,
+        "intervening_headings": [
+          {
+            "heading_scope": "body",
+            "span_bytes": [
+              49535,
+              49539
+            ],
+            "text": "VII.",
+            "text_sha256": "88748f6113547074307afd17e2fbd898887ca599eb1854556241c1a417ea59d1",
+            "uncertainties": [
+              "heading_literal_observation"
+            ],
+            "unit_id": "041666:e90c1fe477b77b42:49535-49539:20c8805023c2"
+          },
+          {
+            "heading_scope": "body",
+            "span_bytes": [
+              67499,
+              67504
+            ],
+            "text": "VIII.",
+            "text_sha256": "c088e4857fd8912879ed0d96c2ce4d2e555555c4b3b559fa71a34553304877be",
+            "uncertainties": [
+              "heading_literal_observation"
+            ],
+            "unit_id": "041666:e90c1fe477b77b42:67499-67504:20c8805023c2"
+          },
+          {
+            "heading_scope": "body",
+            "span_bytes": [
+              67506,
+              67514
+            ],
+            "text": "ANALYSIS",
+            "text_sha256": "15fd14555fced6b32930b9e8c62b5533f918c2f801af34dccb01ddbbf80c9941",
+            "uncertainties": [
+              "heading_literal_observation"
+            ],
+            "unit_id": "041666:e90c1fe477b77b42:67506-67514:20c8805023c2"
+          }
+        ],
+        "neighbor_policy": "paragraph_order"
+      },
+      "start_of_source_split_parent": {
+        "case_id": "000287.txt",
+        "parent_handle": "u000001",
+        "passage_id": "000287:0c56c7e263f36cbed6b46e84",
+        "split_order": 2,
+        "split_count": 5,
+        "hit_span_bytes": [
+          1169,
+          2194
+        ],
+        "parent_span_bytes": [
+          0,
+          3169
+        ],
+        "opened_span_bytes": [
+          0,
+          3533
+        ],
+        "components": [
+          {
+            "kind": "parent",
+            "handle": "u000001",
+            "observed_marker": null,
+            "unit_kind": "unnumbered",
+            "paragraph_role": null,
+            "span_bytes": [
+              0,
+              3169
+            ]
+          },
+          {
+            "kind": "next_context",
+            "handle": "p000002",
+            "observed_marker": 1,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              3171,
+              3533
+            ]
+          }
+        ],
+        "intervening_headings_count": 0,
+        "intervening_headings": [],
+        "neighbor_policy": "content_unit_order"
+      },
+      "jumping_or_quoted_marker_split_parent": {
+        "case_id": "000054.txt",
+        "parent_handle": "p000009",
+        "passage_id": "000054:90b705b4109e9f85d65f7c2d",
+        "split_order": 2,
+        "split_count": 4,
+        "hit_span_bytes": [
+          5662,
+          7287
+        ],
+        "parent_span_bytes": [
+          3898,
+          7456
+        ],
+        "opened_span_bytes": [
+          3349,
+          8282
+        ],
+        "components": [
+          {
+            "kind": "previous_context",
+            "handle": "p000008",
+            "observed_marker": 8,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              3349,
+              3896
+            ]
+          },
+          {
+            "kind": "parent",
+            "handle": "p000009",
+            "observed_marker": 9,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              3898,
+              7456
+            ]
+          },
+          {
+            "kind": "next_context",
+            "handle": "p000010",
+            "observed_marker": 11,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              7458,
+              8282
+            ]
+          }
+        ],
+        "intervening_headings_count": 0,
+        "intervening_headings": [],
+        "neighbor_policy": "paragraph_order"
+      },
+      "intervening_heading_split_parent": {
+        "case_id": "000002.txt",
+        "parent_handle": "p000042",
+        "passage_id": "000002:f3a85de463da7a5b691dc0ba",
+        "split_order": 1,
+        "split_count": 3,
+        "hit_span_bytes": [
+          20403,
+          21696
+        ],
+        "parent_span_bytes": [
+          19490,
+          22408
+        ],
+        "opened_span_bytes": [
+          19117,
+          24081
+        ],
+        "components": [
+          {
+            "kind": "previous_context",
+            "handle": "p000041",
+            "observed_marker": 41,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              19117,
+              19488
+            ]
+          },
+          {
+            "kind": "parent",
+            "handle": "p000042",
+            "observed_marker": 42,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              19490,
+              22408
+            ]
+          },
+          {
+            "kind": "next_context",
+            "handle": "p000044",
+            "observed_marker": 43,
+            "unit_kind": "paragraph",
+            "paragraph_role": "unknown",
+            "span_bytes": [
+              23505,
+              24081
+            ]
+          }
+        ],
+        "intervening_headings_count": 1,
+        "intervening_headings": [
+          {
+            "heading_scope": "body",
+            "span_bytes": [
+              22410,
+              22420
+            ],
+            "text": "CONCLUSION",
+            "text_sha256": "ab3a669d46b9e33d0ba5c8823fb0b2c43908f70ca2156e3135b74ca0aebeb85a",
+            "uncertainties": [
+              "heading_literal_observation"
+            ],
+            "unit_id": "000002:9f78092762066726:22410-22420:20c8805023c2"
+          }
+        ],
+        "neighbor_policy": "paragraph_order"
+      }
+    },
+    "elapsed_seconds": 13.134776
+  },
+  "overall_status": "PASS",
+  "total_elapsed_seconds": 39.901138
+}

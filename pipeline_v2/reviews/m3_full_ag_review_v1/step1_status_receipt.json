@@ -1,0 +1,8 @@
+﻿{
+    "exit_code":  0,
+    "step":  "step1_status_before_canary",
+    "stderr_file":  "pipeline_v2/reviews/m3_full_ag_review_v1/step1_status_stderr.txt",
+    "command":  ".venv/Scripts/python.exe -m pipeline_v2.m3_full status --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+    "wall_seconds":  25.6390687,
+    "stdout_file":  "pipeline_v2/reviews/m3_full_ag_review_v1/step1_status_stdout.json"
+}

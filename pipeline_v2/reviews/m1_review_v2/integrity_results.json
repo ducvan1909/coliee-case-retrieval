@@ -1,0 +1,29 @@
+{
+  "elapsed_seconds": 83.179,
+  "source_count": 7708,
+  "total_bytes": 225398607,
+  "raw_markers_total": 356999,
+  "paragraph_markers": 356973,
+  "citation_markers": 26,
+  "unit_counts": {
+    "paragraph": 356973,
+    "whitespace": 514659,
+    "heading": 48990,
+    "unnumbered": 25370,
+    "role_current_case": 0,
+    "role_quoted": 1237,
+    "role_unknown": 355736,
+    "sidecars": 1237
+  },
+  "uncertainty_counts": {
+    "paragraph_ownership_unresolved": 355736,
+    "heading_literal_observation": 48990,
+    "translation_boundary_observed": 2766,
+    "structure_unknown": 25370,
+    "quote_extent_beyond_this_unit_unresolved": 1237
+  },
+  "errors": [],
+  "error_count": 0,
+  "warnings": [],
+  "status": "PASS"
+}

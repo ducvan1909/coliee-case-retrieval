@@ -1,0 +1,9 @@
+{
+    "exit_code":  0,
+    "step":  "step5_verify_full",
+    "attempt":  2,
+    "stderr_file":  "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_stderr.txt",
+    "command":  ".venv/Scripts/python.exe -m pipeline_v2.m3_full verify --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+    "wall_seconds":  1525.5393316999998,
+    "stdout_file":  "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_stdout.json"
+}

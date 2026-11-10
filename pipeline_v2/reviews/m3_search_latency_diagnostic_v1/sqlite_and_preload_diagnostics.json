@@ -1,0 +1,361 @@
+{
+  "sqlite_structure": {
+    "sqlite_version": "3.42.0",
+    "db_file_size_bytes": 4357505024,
+    "db_file_size_gib": 4.0582,
+    "default_pragmas": {
+      "cache_size": -2000,
+      "mmap_size": 0,
+      "temp_store": 0,
+      "page_size": 4096,
+      "page_count": 1063844,
+      "freelist_count": 0,
+      "journal_mode": "delete",
+      "locking_mode": "normal",
+      "synchronous": 2,
+      "query_only": 1
+    },
+    "schema": [
+      {
+        "type": "index",
+        "name": "schedule_batch",
+        "tbl_name": "schedule",
+        "sql": "CREATE INDEX schedule_batch ON schedule(batch,ordinal)"
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_documents_1",
+        "tbl_name": "documents",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_postings_1",
+        "tbl_name": "postings",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_schedule_1",
+        "tbl_name": "schedule",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_stats_1",
+        "tbl_name": "stats",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_terms_1",
+        "tbl_name": "terms",
+        "sql": null
+      },
+      {
+        "type": "table",
+        "name": "documents",
+        "tbl_name": "documents",
+        "sql": "CREATE TABLE documents(kind TEXT,id TEXT,case_id TEXT,length INTEGER,metadata TEXT,PRIMARY KEY(kind,id))"
+      },
+      {
+        "type": "table",
+        "name": "postings",
+        "tbl_name": "postings",
+        "sql": "CREATE TABLE postings(kind TEXT,term TEXT,id TEXT,tf INTEGER,PRIMARY KEY(kind,term,id))"
+      },
+      {
+        "type": "table",
+        "name": "schedule",
+        "tbl_name": "schedule",
+        "sql": "CREATE TABLE schedule(ordinal INTEGER PRIMARY KEY,passage_id TEXT UNIQUE NOT NULL,batch INTEGER NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "stats",
+        "tbl_name": "stats",
+        "sql": "CREATE TABLE stats(kind TEXT PRIMARY KEY,n INTEGER,avg REAL,k1 REAL,b REAL)"
+      },
+      {
+        "type": "table",
+        "name": "terms",
+        "tbl_name": "terms",
+        "sql": "CREATE TABLE terms(kind TEXT,term TEXT,df INTEGER,PRIMARY KEY(kind,term))"
+      }
+    ],
+    "stats_table": {
+      "case": {
+        "n": 7708,
+        "avg": 4747.40360664245,
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "passage": {
+        "n": 415693,
+        "avg": 94.97694211834214,
+        "k1": 1.5,
+        "b": 0.75
+      }
+    },
+    "term_and_posting_totals": {
+      "case": {
+        "distinct_terms": 112492,
+        "sum_df_postings": 7368370,
+        "max_df": 7708
+      },
+      "passage": {
+        "distinct_terms": 113404,
+        "sum_df_postings": 24592796,
+        "max_df": 359820
+      }
+    },
+    "document_metadata_stats": {
+      "case": {
+        "row_count": 7708,
+        "total_metadata_bytes": 832464,
+        "avg_metadata_bytes": 108.0,
+        "max_metadata_bytes": 108
+      },
+      "passage": {
+        "row_count": 415693,
+        "total_metadata_bytes": 667359391,
+        "avg_metadata_bytes": 1605.41,
+        "max_metadata_bytes": 1816
+      }
+    },
+    "explain_query_plans": {
+      "A_postings_join_documents": [
+        [
+          5,
+          0,
+          0,
+          "SEARCH p USING INDEX sqlite_autoindex_postings_1 (kind=? AND term=?)"
+        ],
+        [
+          14,
+          0,
+          0,
+          "SEARCH d USING INDEX sqlite_autoindex_documents_1 (kind=? AND id=?)"
+        ]
+      ],
+      "BC_postings_no_join": [
+        [
+          3,
+          0,
+          0,
+          "SEARCH postings USING INDEX sqlite_autoindex_postings_1 (kind=? AND term=?)"
+        ]
+      ],
+      "terms_df_lookup": [
+        [
+          3,
+          0,
+          0,
+          "SEARCH terms USING INDEX sqlite_autoindex_terms_1 (kind=? AND term=?)"
+        ]
+      ],
+      "get_many_256": [
+        [
+          3,
+          0,
+          0,
+          "SEARCH documents USING INDEX sqlite_autoindex_documents_1 (kind=? AND id=?)"
+        ]
+      ],
+      "preload_documents_scan": [
+        [
+          3,
+          0,
+          0,
+          "SEARCH documents USING INDEX sqlite_autoindex_documents_1 (kind=?)"
+        ]
+      ]
+    }
+  },
+  "preload_measurements": {
+    "case_preload": {
+      "row_count": 7708,
+      "elapsed_seconds": 0.042064,
+      "tracemalloc_delta_bytes": 1457010,
+      "tracemalloc_delta_mib": 1.39,
+      "process_private_delta_mib": 3.715,
+      "process_working_set_delta_mib": 4.293
+    },
+    "passage_preload_with_explicit_case_id_dict": {
+      "row_count": 415693,
+      "elapsed_seconds": 5.955182,
+      "total_case_plus_passage_elapsed_seconds": 5.997246,
+      "passage_id_prefix_equals_case_id_for_all_415693_rows": true,
+      "tracemalloc_delta_bytes_over_baseline": 83720605,
+      "tracemalloc_delta_mib_over_baseline": 79.842,
+      "tracemalloc_peak_mib_during_load": 79.843,
+      "process_private_delta_mib": 176.367,
+      "process_working_set_delta_mib": 172.312,
+      "process_before": {
+        "working_set_bytes": 44097536,
+        "peak_working_set_bytes": 45043712,
+        "private_usage_bytes": 436727808,
+        "working_set_mib": 42.055,
+        "peak_working_set_mib": 42.957,
+        "private_usage_mib": 416.496
+      },
+      "process_after": {
+        "working_set_bytes": 224780288,
+        "peak_working_set_bytes": 224780288,
+        "private_usage_bytes": 621662208,
+        "working_set_mib": 214.367,
+        "peak_working_set_mib": 214.367,
+        "private_usage_mib": 592.863
+      }
+    },
+    "passage_preload_lengths_dict_only": {
+      "tracemalloc_delta_bytes_over_baseline": 47140661,
+      "tracemalloc_delta_mib_over_baseline": 44.957,
+      "process_private_delta_mib": 161.676,
+      "process_working_set_delta_mib": 157.644
+    }
+  },
+  "small_fixture_oracle_parity": {
+    "status": "PASS",
+    "numeric_tolerance_declared": {
+      "atol": 1e-12,
+      "rtol": 1e-12
+    },
+    "total_fixture_checks": 12,
+    "all_passed": true,
+    "checks": [
+      {
+        "channel": "case",
+        "query": "décision n'est pas 97(1) café",
+        "exclude_case": null,
+        "limit": 10,
+        "hits": 1,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "case",
+        "query": "judicial review reasonableness",
+        "exclude_case": "000001.txt",
+        "limit": 10,
+        "hits": 2,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "case",
+        "query": "tiebreak alpha",
+        "exclude_case": null,
+        "limit": 1,
+        "hits": 1,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "case",
+        "query": "tiebreak alpha",
+        "exclude_case": "000002.txt",
+        "limit": 1,
+        "hits": 1,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "case",
+        "query": "procedural fairness 2019",
+        "exclude_case": null,
+        "limit": 5,
+        "hits": 1,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "case",
+        "query": "nonexistentterm999",
+        "exclude_case": null,
+        "limit": 5,
+        "hits": 0,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "passage",
+        "query": "décision n'est pas 97(1) café",
+        "exclude_case": null,
+        "limit": 10,
+        "hits": 1,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "passage",
+        "query": "judicial review reasonableness",
+        "exclude_case": "000001.txt",
+        "limit": 10,
+        "hits": 0,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "passage",
+        "query": "tiebreak alpha",
+        "exclude_case": null,
+        "limit": 1,
+        "hits": 1,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "passage",
+        "query": "tiebreak alpha",
+        "exclude_case": "000002.txt",
+        "limit": 1,
+        "hits": 1,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "passage",
+        "query": "procedural fairness 2019",
+        "exclude_case": null,
+        "limit": 5,
+        "hits": 1,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      },
+      {
+        "channel": "passage",
+        "query": "nonexistentterm999",
+        "exclude_case": null,
+        "limit": 5,
+        "hits": 0,
+        "ids_match_oracle_A_B_C": true,
+        "max_score_diff_oracle_vs_A": 0.0,
+        "max_score_diff_A_vs_B": 0.0,
+        "max_score_diff_A_vs_C": 0.0
+      }
+    ]
+  }
+}

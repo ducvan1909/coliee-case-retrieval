@@ -1,0 +1,1524 @@
+{
+  "schema_version": "pipeline-v2-m1-reviewed-regions-1",
+  "total_regions": 72,
+  "total_cases": 24,
+  "summary": {
+    "defect_found_count": 16,
+    "clean_pass_count": 56,
+    "unresolved_count": 0
+  },
+  "regions": [
+    {
+      "case_id": "008932.txt",
+      "region_id": "008932_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "008932:ba4308904e4586f7:0-227:4e3be922f07d",
+      "span_bytes": [
+        0,
+        200
+      ],
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_preview": "[1]\r\nNadon, J.\r\n: This is an application by the defendant, pursuant to rule 419(1)(a) of the\r\nRules\r\nof this court, to strike out the plaintiff's Stat",
+      "before_preview": "",
+      "after_preview": "reasonable cause of action.\r\n[2]\r\nSpecifically, the defendant seeks to strike out the Statement of C",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "008932.txt",
+      "region_id": "008932_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "008932:ba4308904e4586f7:573-772:4e3be922f07d",
+      "span_bytes": [
+        573,
+        772
+      ],
+      "context_span_bytes": [
+        173,
+        1172
+      ],
+      "focus_preview": "[3]\r\nThe plaintiff argues that rule 419(1)(a) is not the appropriate channel for an attack on the court's jurisdiction. The plaintiff submits that suc",
+      "before_preview": "elief by way of an action, whereas he should have proceeded by way of a Motion for Judicial Review\".",
+      "after_preview": "[4]\r\nThere is abundant authority to the effect that the court's jurisdiction may be challenged by in",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "008932.txt",
+      "region_id": "008932_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "008932:ba4308904e4586f7:774-13896:4e3be922f07d",
+      "span_bytes": [
+        774,
+        974
+      ],
+      "context_span_bytes": [
+        374,
+        1374
+      ],
+      "focus_preview": "[4]\r\nThere is abundant authority to the effect that the court's jurisdiction may be challenged by invoking rule 419(1)(a). ( <FRAGMENT_SUPPRESSED>  C.",
+      "before_preview": "ourt's jurisdiction. The plaintiff submits that such an attack should be made by virtue of rule 401.",
+      "after_preview": "is fully entitled to raise the issue of jurisdiction by way of rule 419(1)(a) which reads as follows",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "011913.txt",
+      "region_id": "011913_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "011913:8ca5a4008d0dc09a:0-957:4e3be922f07d",
+      "span_bytes": [
+        0,
+        200
+      ],
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_preview": "[1]\r\nNoël, J.\r\n: This is an application for judicial review of a report of findings of the Office of the Privacy Commissioner of Canada [the \"OPC\"]. T",
+      "before_preview": "",
+      "after_preview": "the Applicant, a self-represented litigant, had made a complaint pursuant to section 11 of the\r\nPers",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "011913.txt",
+      "region_id": "011913_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "011913:8ca5a4008d0dc09a:7216-7902:4e3be922f07d",
+      "span_bytes": [
+        7216,
+        7416
+      ],
+      "context_span_bytes": [
+        6816,
+        7816
+      ],
+      "focus_preview": "[12]\r\nThe Applicant claims that he never signed any consent form authorizing Shepell to disclose personal information, and that he never made any thre",
+      "before_preview": "007, which was valid until the Applicant's withdrawal of his consent.\r\nIII.\r\nApplicant's Submissions",
+      "after_preview": "disclosed personal information to Telus, who then unlawfully disclosed his personal information to e",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "011913.txt",
+      "region_id": "011913_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "011913:8ca5a4008d0dc09a:11349-45228:4e3be922f07d",
+      "span_bytes": [
+        11349,
+        11549
+      ],
+      "context_span_bytes": [
+        10949,
+        11949
+      ],
+      "focus_preview": "[23]\r\nThe Privacy Commissioner has extensive investigative powers which require her to keep all information received during the course of an investiga",
+      "before_preview": "ts. She is an \"[...] administrative investigator not an adjudicator\" (see\r\n <FRAGMENT_SUPPRESSED> ).",
+      "after_preview": "PIPEDA). Her reports and findings may include recommendations that are not binding. The OPC may ask ",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "014069.txt",
+      "region_id": "014069_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "014069:4707db807452e037:830-1515:4e3be922f07d",
+      "span_bytes": [
+        830,
+        1030
+      ],
+      "context_span_bytes": [
+        430,
+        1430
+      ],
+      "focus_preview": "[1]\r\nShore, J.\r\n: The principal Applicant, her common-law spouse and his son seek refugee protection under sections 96 and 97 of the\r\nImmigration and ",
+      "before_preview": "ns no summary. Any footnotes found in this case will appear below end of document.\r\nI.\r\nIntroduction",
+      "after_preview": ". The principal Applicant fears persecution by paramilitaries in Colombia; her spouse and his son fe",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "014069.txt",
+      "region_id": "014069_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "014069:4707db807452e037:19395-20075:4e3be922f07d",
+      "span_bytes": [
+        19395,
+        19595
+      ],
+      "context_span_bytes": [
+        18995,
+        19995
+      ],
+      "focus_preview": "[35]\r\nThe Respondent submits that the risk of the principal Applicant's spouse and his son is generalized and outside the scope of paragraph 97(1)(b) ",
+      "before_preview": "e in Canada is insufficient to overcome failure to apply earlier in another country (at paras 53-4).",
+      "after_preview": "d not show that they had been targeted or faced prospective risk beyond that of Mexicans generally. ",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "014069.txt",
+      "region_id": "014069_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "014069:4707db807452e037:38053-39643:4e3be922f07d",
+      "span_bytes": [
+        38053,
+        38253
+      ],
+      "context_span_bytes": [
+        37653,
+        38653
+      ],
+      "focus_preview": "[69]\r\nTHIS COURT ORDERS that\r\n1. The principal Applicant's application for judicial review be granted and the matter be returned for a hearing anew (\r",
+      "before_preview": "e principal Applicant's spouse and his son's application for judicial review is dismissed.\r\nJUDGMENT",
+      "after_preview": "of the tribunal.\r\n2. The principal Applicant's spouse and his son's application for judicial review ",
+      "verdict": "defect_found",
+      "evaluation_notes": "French half of bilingual judgment swallowed into giant unnumbered block because French started at [2].",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "015710.txt",
+      "region_id": "015710_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "015710:05f880d3d7f23afd:0-404:4e3be922f07d",
+      "span_bytes": [
+        0,
+        200
+      ],
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_preview": "[1]\r\nZinn, J.\r\n: Mr. Dixon, an inmate in a federal penitentiary, asks how long must he wait to have an application for day parole considered by the Na",
+      "before_preview": "",
+      "after_preview": "n was rejected. He says it is six months; the Board says it is two years. For the reasons that follo",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "015710.txt",
+      "region_id": "015710_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "015710:05f880d3d7f23afd:15367-15869:4e3be922f07d",
+      "span_bytes": [
+        15367,
+        15567
+      ],
+      "context_span_bytes": [
+        14967,
+        15967
+      ],
+      "focus_preview": "[21]\r\nIn my view, the Applicant's interpretation more closely accords with the grammatical and ordinary sense of the words of the relevant statutory p",
+      "before_preview": "siderations support or challenge the previous analysis.\r\nGrammatical and Ordinary Sense of the Words",
+      "after_preview": "dent's interpretation requires a reading in of the concepts of an \"initial application\" and \"subsequ",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "015710.txt",
+      "region_id": "015710_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "015710:05f880d3d7f23afd:27958-28559:4e3be922f07d",
+      "span_bytes": [
+        27958,
+        28158
+      ],
+      "context_span_bytes": [
+        27558,
+        28558
+      ],
+      "focus_preview": "[41]\r\nTHIS COURT ORDERS AND ADJUDGES that:\r\n1. This application for judicial review is allowed with costs.\r\n2. The Applicant was entitled to have his ",
+      "before_preview": "six months.\r\n[40]\r\nAccordingly this application for judicial review is allowed with costs.\r\nJUDGMENT",
+      "after_preview": "tember 17, 2007, reviewed by the National Parole Board before March 17, 2008, pursuant to subsection",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "038761.txt",
+      "region_id": "038761_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "038761:6c72e3e5bc69c5df:0-468:4e3be922f07d",
+      "span_bytes": [
+        0,
+        200
+      ],
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_preview": "[1]\r\nBoivin, J.\r\n: This is an application pursuant to subsection 72(1) of the\r\nImmigration and Refugee Protection Act\r\n, SC 2001, c 27 [the Act] for j",
+      "before_preview": "",
+      "after_preview": "ugee Protection Division of the Immigration and Refugee Board (the Board) rendered on May 12, 2011, ",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "038761.txt",
+      "region_id": "038761_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "038761:6c72e3e5bc69c5df:2616-3053:4e3be922f07d",
+      "span_bytes": [
+        2616,
+        2816
+      ],
+      "context_span_bytes": [
+        2216,
+        3216
+      ],
+      "focus_preview": "[13]\r\nThe Supreme Court of Canada in\r\nR v GDB\r\n, 2000 SCC 22 at para 27, [2000] 1 SRC 520, instructed that incompetence is to be determined using the ",
+      "before_preview": "llowing issue: was the applicant denied a fair hearing due to the ineffective assistance of counsel?",
+      "after_preview": "tice Zinn's view that when incompetence of a counsel is alleged, \"caution is particularly relevant b",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "038761.txt",
+      "region_id": "038761_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "038761:6c72e3e5bc69c5df:6997-12790:4e3be922f07d",
+      "span_bytes": [
+        6997,
+        7197
+      ],
+      "context_span_bytes": [
+        6597,
+        7597
+      ],
+      "focus_preview": "[25]\r\nMoreover, the comments of Justice De Montigny in the case of\r\n <FRAGMENT_SUPPRESSED> [ 2007] FCJ No 680, are apposite:\r\n[18] This Court has made",
+      "before_preview": "ons of counsel that are alleged not to have been the result of reasonable professional judgment. ...",
+      "after_preview": "ise the incompetence of his lawyer unless that lawyer has had an opportunity to explain his conduct,",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "059632.txt",
+      "region_id": "059632_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "059632:8d36d51cf235ab2a:18-525:4e3be922f07d",
+      "span_bytes": [
+        18,
+        218
+      ],
+      "context_span_bytes": [
+        0,
+        618
+      ],
+      "focus_preview": "[1]\r\nStrayer, J.\r\n: This is an application for certiorari to quash a decision of the Public Service Commission delivered on July 10, 1989, which deter",
+      "before_preview": "Relief Requested",
+      "after_preview": "ment had not been prejudicially affected by the reclassification of certain positions in the Departm",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "059632.txt",
+      "region_id": "059632_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "059632:8d36d51cf235ab2a:6967-8300:4e3be922f07d",
+      "span_bytes": [
+        6967,
+        7167
+      ],
+      "context_span_bytes": [
+        6567,
+        7567
+      ],
+      "focus_preview": "[9]\r\nAt the outset one can assume that both are bound to respect the fundamental principle stated in s. 10 of the Act that:\r\n\"Appointments to or from ",
+      "before_preview": "ctive responsibilities under s. 21(1) of the Commission and of an appeal board are not well defined.",
+      "after_preview": "ion according to merit ...\"\r\nwhether they are made with or without competition. If one took literall",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "059632.txt",
+      "region_id": "059632_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "059632:8d36d51cf235ab2a:16180-16682:4e3be922f07d",
+      "span_bytes": [
+        16180,
+        16380
+      ],
+      "context_span_bytes": [
+        15780,
+        16682
+      ],
+      "focus_preview": "[17]\r\nThe application is therefore dismissed with costs.\r\nApplication dismissed.\r\nEditor: Elizabeth M.A. Turgeon/blk\r\nFootnotes\r\n1. R.S.C. 1985, c. P-",
+      "before_preview": "isdiction under that subsection. There is therefore no basis for quashing the decision.\r\nDisposition",
+      "after_preview": "le section in the previous Act which was in force when most of the relevant events occurred.\r\n2.  <F",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "060581.txt",
+      "region_id": "060581_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "060581:ed822e0c2fd7dbb3:1829-2312:4e3be922f07d",
+      "span_bytes": [
+        1829,
+        2029
+      ],
+      "context_span_bytes": [
+        1429,
+        2429
+      ],
+      "focus_preview": "[1]\r\nGibson, J.\r\n: These actions were com­menced by Statements of Claim each filed the 2nd of July, 1993. The actions involve allegations of infringem",
+      "before_preview": "SCRIPT\r\n203\r\nCOSTS\r\n204\r\nPAGE #\r\nSCHEDULE \"A\"\r\n83\r\nSCHEDULE \"B\"\r\n99\r\nSCHEDULE \"C\"\r\n105\r\nIntroduction",
+      "after_preview": "lleged in­fringements result from the photocopying policies and activities of the defendant in suppl",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "060581.txt",
+      "region_id": "060581_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "060581:ed822e0c2fd7dbb3:52758-54476:4e3be922f07d",
+      "span_bytes": [
+        52758,
+        52958
+      ],
+      "context_span_bytes": [
+        52358,
+        53358
+      ],
+      "focus_preview": "[20]\r\nAmong the exhibits filed on behalf of the defendant is the expert affidavit of Pro­fessor H. Patrick Glenn. Professor Glenn was a member of the ",
+      "before_preview": "3. He practiced in the field of civil litigation with a relatively small firm of lawyers in Toronto.",
+      "after_preview": "the time he swore his affidavit, a Professor of Law at McGill University, the director of McGill Uni",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "060581.txt",
+      "region_id": "060581_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "060581:ed822e0c2fd7dbb3:67220-272216:4e3be922f07d",
+      "span_bytes": [
+        67220,
+        67420
+      ],
+      "context_span_bytes": [
+        66820,
+        67820
+      ],
+      "focus_preview": "[38]\r\nFinally, counsel referred me to the certificates of registration of copyright in the specific judicial decisions before the court, namely\r\n <FRA",
+      "before_preview": "nc. when it was the publisher of the\r\nOntario Reports\r\non behalf of the defendant. [see footnote 17]",
+      "after_preview": "tected in itself by copyright. He argued that the evidence established that the creation of a headno",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "062793.txt",
+      "region_id": "062793_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "062793:b14b5313b90d0fd9:0-1390:4e3be922f07d",
+      "span_bytes": [
+        0,
+        200
+      ],
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_preview": "[1]\r\nMuldoon, J.\r\n: These proceedings began as an application pursuant to s. 18 of the Federal Court Act, R.S.C. 1970, (2nd Supp.), c. 10, directed ag",
+      "before_preview": "",
+      "after_preview": "eeking certiorari to quash Order-in-Council P.C. 1988-762 dated April 22, 1988. That decretal purpor",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "062793.txt",
+      "region_id": "062793_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "062793:b14b5313b90d0fd9:37952-38621:4e3be922f07d",
+      "span_bytes": [
+        37952,
+        38152
+      ],
+      "context_span_bytes": [
+        37552,
+        38552
+      ],
+      "focus_preview": "[31]\r\nThe question of whether, in times of\r\nno emergency\r\n, it is constitutionally legitimate for the Parliament of Canada to accord by ordinary legis",
+      "before_preview": "t is difficult to describe those powers in adjectives other than arbitrary, despotic and autocratic.",
+      "after_preview": "confined but otherwise absolute powers of unlimited duration, especially when there is no legislativ",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "062793.txt",
+      "region_id": "062793_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "062793:b14b5313b90d0fd9:72907-73153:4e3be922f07d",
+      "span_bytes": [
+        72907,
+        73107
+      ],
+      "context_span_bytes": [
+        72507,
+        73153
+      ],
+      "focus_preview": "[60]\r\nCounsel for the respective parties and the interveners were all in agreement about not awarding any costs of, or incidental to, these proceeding",
+      "before_preview": "to s. 64(1) of the N.T.P. & P. Act on the same subject but in a lawful manner, as prescribed herein.",
+      "after_preview": "r: Debra F. MacCausland/mja\r\n[End of document]",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "068113.txt",
+      "region_id": "068113_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "068113:53c0e400143cad5f:461-993:4e3be922f07d",
+      "span_bytes": [
+        461,
+        661
+      ],
+      "context_span_bytes": [
+        61,
+        1061
+      ],
+      "focus_preview": "[1]\r\nO'Keefe, J.\r\n: This is an application pursuant to subsection 72(1) of the\r\nImmigration and Refugee Protection Act\r\n, S.C. 2001, c. 27 (the Act) f",
+      "before_preview": ", therefore contains no summary. Any footnotes found in this case will appear below end of document.",
+      "after_preview": "otection Division of the Immigration and Refugee Board (the Board), dated January 7, 2010, wherein t",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "068113.txt",
+      "region_id": "068113_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "068113:53c0e400143cad5f:9552-9917:4e3be922f07d",
+      "span_bytes": [
+        9552,
+        9752
+      ],
+      "context_span_bytes": [
+        9152,
+        10152
+      ],
+      "focus_preview": "[28]\r\nThe respondent submits that in order to rebut the presumption that the state is capable of protecting its citizens, the applicant must provide c",
+      "before_preview": " finding that adequate state protection existed for the applicant.\r\nRespondent's Written Submissions",
+      "after_preview": "ity to protect him. The Board's finding of a high level of democracy in Israel creates a heavy burde",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "068113.txt",
+      "region_id": "068113_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "068113:53c0e400143cad5f:19126-23095:4e3be922f07d",
+      "span_bytes": [
+        19126,
+        19326
+      ],
+      "context_span_bytes": [
+        18726,
+        19726
+      ],
+      "focus_preview": "[55]\r\nIT IS ORDERED that\r\nthe application for judicial review is allowed, the decision of the Board is set aside and the matter is referred to a diffe",
+      "before_preview": " a proposed serious question of general importance for my consideration for certification.\r\nJUDGMENT",
+      "after_preview": "X\r\nRelevant Statutory Provisions\r\nImmigration and Refugee Protection Act\r\n, S.C. 2001, c. 27\r\n72.(1)",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "080279.txt",
+      "region_id": "080279_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "080279:6e9ff58ced3abec9:0-423:4e3be922f07d",
+      "span_bytes": [
+        0,
+        200
+      ],
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_preview": "[1]\r\nLafrenière, Case Management Judge\r\n: As was stated by the late Prothonotary John Hargrave in\r\n <FRAGMENT_SUPPRESSED> , at paragraph 19: \"Disputes",
+      "before_preview": "",
+      "after_preview": "iably complex matters which, if litigated, lead to extremely complicated and lengthy proceedings.\" T",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "080279.txt",
+      "region_id": "080279_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "080279:6e9ff58ced3abec9:10085-10844:4e3be922f07d",
+      "span_bytes": [
+        10085,
+        10285
+      ],
+      "context_span_bytes": [
+        9685,
+        10685
+      ],
+      "focus_preview": "[26]\r\nIn opposing the motion, Sargeant and Comerica have advanced similar arguments. They submit that the Mortgage, if not expressly then impliedly, s",
+      "before_preview": "he wording of the Mortgage and the VCA, their claims cannot include repayment of the funds advanced.",
+      "after_preview": "to the VCA, as particularized in their respective affidavits of claim. The VCA expressly provides th",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "080279.txt",
+      "region_id": "080279_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "080279:6e9ff58ced3abec9:24223-24855:4e3be922f07d",
+      "span_bytes": [
+        24223,
+        24423
+      ],
+      "context_span_bytes": [
+        23823,
+        24823
+      ],
+      "focus_preview": "[50]\r\nTHIS COURT ORDERS that\r\n:\r\n1. The motion is granted.\r\n2. The Builder's Mortgage granted to the Intervener, Harry Sargeant III, against the Defen",
+      "before_preview": "ited to possession and ownership of the Vessel and an\r\nin personam action\r\nagainst Worldspan.\r\nORDER",
+      "after_preview": "nstruction Agreement between Harry Sargeant III and the Defendant, Worldspan Marine Inc. dated Febru",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "081898.txt",
+      "region_id": "081898_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "081898:0c1e1a09cd997c5d:4935-5482:4e3be922f07d",
+      "span_bytes": [
+        4935,
+        5135
+      ],
+      "context_span_bytes": [
+        4535,
+        5535
+      ],
+      "focus_preview": "[1] \r\n   \r\n Kane, J. \r\n : This is an application for judicial review pursuant to section 72 of the  \r\n Immigration and Refugee Protection Act \r\n , SC ",
+      "before_preview": "                                                                               <FRAGMENT_SUPPRESSED>",
+      "after_preview": "senior immigration officer, dated January 12, 2012, which found that the applicants had not provided",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "081898.txt",
+      "region_id": "081898_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "081898:0c1e1a09cd997c5d:25144-26388:4e3be922f07d",
+      "span_bytes": [
+        25144,
+        25344
+      ],
+      "context_span_bytes": [
+        24744,
+        25744
+      ],
+      "focus_preview": "[43] \r\n  The applicant also submits that the officer made a number of errors in assessing Rhea's best interests, including: he mistakenly found that R",
+      "before_preview": "erests of the child and did not conduct a proper analysis of these interests.  <FRAGMENT_SUPPRESSED>",
+      "after_preview": "ld, therefore, be treated there again; he failed to take into account the evidence that relapsed ALL",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "081898.txt",
+      "region_id": "081898_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "081898:0c1e1a09cd997c5d:47332-47648:4e3be922f07d",
+      "span_bytes": [
+        47332,
+        47532
+      ],
+      "context_span_bytes": [
+        46932,
+        47652
+      ],
+      "focus_preview": "[85] \r\n   \r\n THIS COURT'S JUDGMENT is that \r\n :  <FRAGMENT_SUPPRESSED>  \r\n 1. The application for judicial review is allowed and the H&C application s",
+      "before_preview": "hould be remitted to a different officer.  <FRAGMENT_SUPPRESSED>  \r\n JUDGMENT  <FRAGMENT_SUPPRESSED>",
+      "after_preview": "NT_SUPPRESSED>  \r\n Application allowed.  <FRAGMENT_SUPPRESSED>  \r\n Editor: E. Joanne Oley/vnh  <FRAG",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "087799.txt",
+      "region_id": "087799_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "087799:3d0ebec6657410b4:13-368:4e3be922f07d",
+      "span_bytes": [
+        13,
+        213
+      ],
+      "context_span_bytes": [
+        0,
+        613
+      ],
+      "focus_preview": "[1]\r\nShore, J.\r\n: The objectives of the\r\nImmigration and Refugee Protection\r\nAct\r\n, S.C. 2001, c. 27 (\r\nIRPA\r\n), enumerated in section 3 are two-fold:",
+      "before_preview": "I. Overview",
+      "after_preview": "facilitating immigration and family reunification; whereas, paragraphs (h) and (l) aim to protect th",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "087799.txt",
+      "region_id": "087799_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "087799:3d0ebec6657410b4:5987-6325:4e3be922f07d",
+      "span_bytes": [
+        5987,
+        6187
+      ],
+      "context_span_bytes": [
+        5587,
+        6587
+      ],
+      "focus_preview": "[17]\r\nOn October 27, 2005, Mr. Bhoonahesh Ramnanan was convicted of several offences, including possession over $5,000.00, assault, two counts of poss",
+      "before_preview": "nce, immediately report that fact in writing to the Department and the Immigration Appeal Division.\"",
+      "after_preview": "00 and possession of weapon dangerous. Mr. Bhoonahesh Ramnanan was sentenced to 90 days to be served",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "087799.txt",
+      "region_id": "087799_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "087799:3d0ebec6657410b4:14918-35701:4e3be922f07d",
+      "span_bytes": [
+        14918,
+        15118
+      ],
+      "context_span_bytes": [
+        14518,
+        15518
+      ],
+      "focus_preview": "[33]\r\nThus, the fundamental question in determining whether a tribunal has jurisdiction to determine the constitutionality of any provision of its ena",
+      "before_preview": "nation of the validity of that provision. (Reference is also made to\r\nFerri\r\n, above, paras. 24-25.)",
+      "after_preview": "l has authority to decide questions of law under the challenged provision itself. Where a tribunal h",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "007685.txt",
+      "region_id": "007685_R1_first_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 1,
+      "span_bytes": [
+        4692,
+        4739
+      ],
+      "context_span_bytes": [
+        4292,
+        5139
+      ],
+      "focus_preview": "[1]\r\n--B. Basis of the Claim and Counterclaim",
+      "before_preview": " out a table of contents of these reasons for judgment.\r\nI. Introduction\r\n[1] to [10]\r\n--A. Overview",
+      "after_preview": "[3]\r\n--C. Overview of Conclusions\r\n[8]\r\n--D. Applicable Law\r\n[9]\r\n--E. Table of Contents\r\n[10]\r\nII. ",
+      "verdict": "defect_found",
+      "evaluation_notes": "Outer paragraphs swallowed as quote sidecars due to numbering discrepancy.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "007685.txt",
+      "region_id": "007685_R2_last_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 520,
+      "span_bytes": [
+        308918,
+        309068
+      ],
+      "context_span_bytes": [
+        308518,
+        309468
+      ],
+      "focus_preview": "[520]\r\nFor the Reasons set out herein, following the trial of this action,\r\nthis Court adjudges and declares as follows\r\n:\r\n1. Les Laboratoires Servie",
+      "before_preview": "matter relevant to the award of costs. These submissions should not exceed ten (10) pages.\r\nJUDGMENT",
+      "after_preview": "r, Oril Industries, Servier Laboratories (Australia) Pty Ltd and Servier Laboratories Limited are he",
+      "verdict": "defect_found",
+      "evaluation_notes": "Cascading quote sidecar swallowing true outer sequence.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "007685.txt",
+      "region_id": "007685_R3_initial_paragraph_boundary",
+      "target_type": "paragraph_boundary",
+      "target_id": "007685:ce7ef3c8c4eb0d66:30-646:4e3be922f07d",
+      "span_bytes": [
+        30,
+        180
+      ],
+      "context_span_bytes": [
+        0,
+        580
+      ],
+      "focus_preview": "[1]\r\nSnider, J.\r\n: The Plaintiffs (described below and collectively referred to as Servier) manufacture, distribute and sell a drug with the trademark",
+      "before_preview": "I. Introduction\r\nA. Overview",
+      "after_preview": "of COVERSYL, used primarily in the treatment of hypertension and cardiac insufficiency. The active i",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "020897.txt",
+      "region_id": "020897_R1_first_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 10,
+      "span_bytes": [
+        5104,
+        5254
+      ],
+      "context_span_bytes": [
+        4704,
+        5654
+      ],
+      "focus_preview": "[10]\r\nTo assist the reader, the following Table of Contents is provided. The paragraph number for the beginning of each noted section is set out.\r\n-",
+      "before_preview": "nce and testimony are contained in the appropriate sections of these Reasons.\r\nII. Table of Contents",
+      "after_preview": "Para.\r\nI. Introduction\r\n1\r\nII. Table of Contents\r\n10\r\nIII. Issues\r\n11\r\nIV. Essential Background\r\n13\r",
+      "verdict": "defect_found",
+      "evaluation_notes": "Outer paragraphs swallowed as quote sidecars due to numbering discrepancy.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "020897.txt",
+      "region_id": "020897_R2_last_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 303,
+      "span_bytes": [
+        169433,
+        169583
+      ],
+      "context_span_bytes": [
+        169033,
+        169983
+      ],
+      "focus_preview": "[303]\r\nAlso, post-release of the Reasons and Judgment, Apotex commented on three parts of the Judgment that did not accord with the Reasons. Apotex wa",
+      "before_preview": "ils regarding the report, the overall reference to the report remains for context and understanding.",
+      "after_preview": "s right. The following amendments have been made to the Judgment:\r\n1. The reference in paragraph 1 t",
+      "verdict": "defect_found",
+      "evaluation_notes": "Cascading quote sidecar swallowing true outer sequence.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "020897.txt",
+      "region_id": "020897_R3_initial_paragraph_boundary",
+      "target_type": "paragraph_boundary",
+      "target_id": "020897:9d72531c139bde27:17-347:4e3be922f07d",
+      "span_bytes": [
+        17,
+        167
+      ],
+      "context_span_bytes": [
+        0,
+        567
+      ],
+      "focus_preview": "[1]\r\nSnider, J.\r\n: Apotex Inc. (Apotex), the Plaintiff in this action, sells a generic version of ramipril - a drug used mainly to treat hypertension",
+      "before_preview": "I. Introduction",
+      "after_preview": "- into the Canadian market. Sanofi-Aventis Canada Inc. (Sanofi), one of the Defendants in this actio",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "078607.txt",
+      "region_id": "078607_R1_first_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 281,
+      "span_bytes": [
+        169850,
+        170000
+      ],
+      "context_span_bytes": [
+        169450,
+        170400
+      ],
+      "focus_preview": "[281]\r\nGiven that Apotex says that this reasoning, if applied in Canada, raises an issue of extraterritorial application of our\r\nPatent Act\r\n, it is a",
+      "before_preview": "ther construction,' he adds, 'would render ... the whole privilege ... futile,' p. 233.\" (para. 31.)",
+      "after_preview": "lso worth mentioning that this very same issue was considered in England more than a hundred years a",
+      "verdict": "defect_found",
+      "evaluation_notes": "Outer paragraphs swallowed as quote sidecars due to numbering discrepancy.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "078607.txt",
+      "region_id": "078607_R2_last_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 884,
+      "span_bytes": [
+        476902,
+        477052
+      ],
+      "context_span_bytes": [
+        476502,
+        477452
+      ],
+      "focus_preview": "[884]\r\nFor the Reasons set out herein, following the trial of this action, this Court adjudges and declares as follows:\r\n1. At least one valid claim i",
+      "before_preview": "ble expert witness fees and disbursements for the expert witnesses who testified at trial.\r\nJUDGMENT",
+      "after_preview": "n each of the following patents:\r\na. Canadian Letters Patent No. 1,133,007;\r\nb. Canadian Letters Pat",
+      "verdict": "defect_found",
+      "evaluation_notes": "Cascading quote sidecar swallowing true outer sequence.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "078607.txt",
+      "region_id": "078607_R3_initial_paragraph_boundary",
+      "target_type": "paragraph_boundary",
+      "target_id": "078607:01870c8fd902231d:0-626:4e3be922f07d",
+      "span_bytes": [
+        0,
+        150
+      ],
+      "context_span_bytes": [
+        0,
+        550
+      ],
+      "focus_preview": "[1]\r\nGauthier, J.\r\n: The plaintiffs in this action claim that their rights under eight Canadian patents were infringed when Apotex Inc. (Apotex) impor",
+      "before_preview": "",
+      "after_preview": "ted bulk cefaclor into Canada for use in the various Apo-cefaclor dosage forms they sold after Janua",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "038799.txt",
+      "region_id": "038799_R1_reset_marker_boundary",
+      "target_type": "reset_paragraph",
+      "target_id": "038799:4101891f3f00adb3:11081-11470:4e3be922f07d",
+      "span_bytes": [
+        11081,
+        11281
+      ],
+      "context_span_bytes": [
+        10681,
+        11681
+      ],
+      "focus_preview": "[1] \r\n   \r\n Le juge Manson \r\n  [Traduction]: La présente demande de contrôle judiciaire fondée sur l'article 18.1 de la  \r\n Loi sur les Cours fédérale",
+      "before_preview": "s. \r\n \r\n \r\n \r\n ......................... \r\n \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED>  Passeports (défendeurs)",
+      "after_preview": "n arbitre de Passeport Canada, Jocelyn Francoeur [l'arbitre], de révoquer l'accès du demandeur aux s",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "038799.txt",
+      "region_id": "038799_R2_first_para_boundary",
+      "target_type": "first_paragraph",
+      "target_id": "038799:4101891f3f00adb3:838-1216:4e3be922f07d",
+      "span_bytes": [
+        838,
+        1038
+      ],
+      "context_span_bytes": [
+        438,
+        1438
+      ],
+      "focus_preview": "[1] \r\n   \r\n Manson, J. \r\n : This is an application for judicial review of the decision of Jocelyn Francoeur, an Adjudicator with Passport Canada [the ",
+      "before_preview": "edited, therefore contains no summary. This case was originally cited as [2013] F.T.R. TBEd. SE.017.",
+      "after_preview": "Federal Courts Act \r\n , RSC 1985, c F-7. The Adjudicator revoked the availability of passport servic",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "038799.txt",
+      "region_id": "038799_R3_pre_reset_separator",
+      "target_type": "pre_reset_unit",
+      "target_id": "038799:4101891f3f00adb3:11080-11081:4e3be922f07d",
+      "span_bytes": [
+        11080,
+        11081
+      ],
+      "context_span_bytes": [
+        10680,
+        11481
+      ],
+      "focus_preview": "",
+      "before_preview": "s. \r\n \r\n \r\n \r\n ......................... \r\n \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED>  Passeports (défendeurs)",
+      "after_preview": "[1] \r\n   \r\n Le juge Manson \r\n  [Traduction]: La présente demande de contrôle judiciaire fondée sur l",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "050936.txt",
+      "region_id": "050936_R1_reset_marker_boundary",
+      "target_type": "reset_paragraph",
+      "target_id": "050936:d61772efef974570:13042-24976:4e3be922f07d",
+      "span_bytes": [
+        13042,
+        13242
+      ],
+      "context_span_bytes": [
+        12642,
+        13642
+      ],
+      "focus_preview": "[1] The Court is of the opinion that the Board may draw reasonable conclusions based on implausibilities, common sense and rationality and may reject ",
+      "before_preview": "ccord with the probabilities. As noted by Justice Shore in\r\n <FRAGMENT_SUPPRESSED> [2007] FCJ No 97:",
+      "after_preview": "ties affecting the case as a whole: (\r\n <FRAGMENT_SUPPRESSED>  (QL))\r\n[31]\r\nThe jurisprudence has es",
+      "verdict": "defect_found",
+      "evaluation_notes": "Quoted [1] inside English body misclassified as document numbering reset, setting language to unknown:1.",
+      "finding_ref": "M1-FINDING-002",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "050936.txt",
+      "region_id": "050936_R2_first_para_boundary",
+      "target_type": "first_paragraph",
+      "target_id": "050936:d61772efef974570:684-1116:4e3be922f07d",
+      "span_bytes": [
+        684,
+        884
+      ],
+      "context_span_bytes": [
+        284,
+        1284
+      ],
+      "focus_preview": "[1]\r\nKane, J.\r\n: The applicants seek judicial review pursuant to section 72 of the\r\nImmigration and Refugee Protection Act\r\n, SC 2001, c 27 [the\r\nAct\r",
+      "before_preview": ", therefore contains no summary. Any footnotes found in this case will appear below end of document.",
+      "after_preview": "ion of the Immigration and Refugee Board (the \"Board\") made on January 15, 2013, which determined th",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "050936.txt",
+      "region_id": "050936_R3_pre_reset_separator",
+      "target_type": "pre_reset_unit",
+      "target_id": "050936:d61772efef974570:13040-13042:4e3be922f07d",
+      "span_bytes": [
+        13040,
+        13042
+      ],
+      "context_span_bytes": [
+        12640,
+        13442
+      ],
+      "focus_preview": "",
+      "before_preview": "ccord with the probabilities. As noted by Justice Shore in\r\n <FRAGMENT_SUPPRESSED> [2007] FCJ No 97:",
+      "after_preview": "[1] The Court is of the opinion that the Board may draw reasonable conclusions based on implausibili",
+      "verdict": "defect_found",
+      "evaluation_notes": "Preceding text is body quotation cue, not bilingual section separator.",
+      "finding_ref": "M1-FINDING-002",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "057925.txt",
+      "region_id": "057925_R1_reset_marker_boundary",
+      "target_type": "reset_paragraph",
+      "target_id": "057925:676394e39cb89f28:12878-13340:4e3be922f07d",
+      "span_bytes": [
+        12878,
+        13078
+      ],
+      "context_span_bytes": [
+        12478,
+        13478
+      ],
+      "focus_preview": "[1] \r\n   \r\n Le juge Blanchard \r\n : La présente porte sur une demande de contrôle judiciaire d'une décision de la Section de la protection des réfugiés",
+      "before_preview": ". Le Ministre de la Citoyennetéa et de l'Immigration (partie défenderesse)  \r\n \r\n \r\n \r\n INTRODUCTION",
+      "after_preview": "ut de réfugié \" la Commission \" rendue le 21 septembre 2004 par le commissaire Me Michael Hamelin. P",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "057925.txt",
+      "region_id": "057925_R2_first_para_boundary",
+      "target_type": "first_paragraph",
+      "target_id": "057925:676394e39cb89f28:778-1190:4e3be922f07d",
+      "span_bytes": [
+        778,
+        978
+      ],
+      "context_span_bytes": [
+        378,
+        1378
+      ],
+      "focus_preview": "[1] \r\n   \r\n Blanchard, J. \r\n  [Translation]: This is an application for judicial review of a decision by Member Michael Hamelin of the Refugee Protect",
+      "before_preview": " \r\n \r\n Summary: \r\n \r\n This case is unedited, therefore contains no summary. \r\n \r\n \r\n \r\n INTRODUCTION",
+      "after_preview": "(the Board) dated September 21, 2004. By operation of the decision, the applicant's claim for refuge",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "057925.txt",
+      "region_id": "057925_R3_pre_reset_separator",
+      "target_type": "pre_reset_unit",
+      "target_id": "057925:676394e39cb89f28:12877-12878:4e3be922f07d",
+      "span_bytes": [
+        12877,
+        12878
+      ],
+      "context_span_bytes": [
+        12477,
+        13278
+      ],
+      "focus_preview": "",
+      "before_preview": ". Le Ministre de la Citoyennetéa et de l'Immigration (partie défenderesse)  \r\n \r\n \r\n \r\n INTRODUCTION",
+      "after_preview": "[1] \r\n   \r\n Le juge Blanchard \r\n : La présente porte sur une demande de contrôle judiciaire d'une dé",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "046028.txt",
+      "region_id": "046028_R1_largest_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "046028:103e31cc6e144258:3622-21601:4e3be922f07d",
+      "span_bytes": [
+        3622,
+        3922
+      ],
+      "context_span_bytes": [
+        3222,
+        4322
+      ],
+      "focus_preview": "1) Did the visa officer err by not considering all of the evidence before her?\r\n[8]\r\nThe applicant first submits that the visa officer erred by failin",
+      "before_preview": "e decision must be set aside (Congrégation des témoins de  <FRAGMENT_SUPPRESSED>  at 665).\r\nANALYSIS",
+      "after_preview": "ted States.\r\n[9]\r\nThe respondent, for his part, asserts that there is a presumption that the visa of",
+      "verdict": "defect_found",
+      "evaluation_notes": "Massive unnumbered block containing dozens of skipped numbered paragraphs swallowed into structure_unknown.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "046028.txt",
+      "region_id": "046028_R2_unnumbered_to_para_transition",
+      "target_type": "transition",
+      "target_id": "046028:103e31cc6e144258:459-913:4e3be922f07d",
+      "span_bytes": [
+        459,
+        659
+      ],
+      "context_span_bytes": [
+        59,
+        1059
+      ],
+      "focus_preview": "[1]\r\nBlais, J.\r\n: This is an application pursuant to subsection 72(1) of the Immigration and Refugee Protection Act, S.C. 2001, c. 27 (the Act), for j",
+      "before_preview": ", therefore contains no summary. Any footnotes found in this case will appear below end of document.",
+      "after_preview": "ed January 13, 2006, who held that the applicant failed to meet the criteria under section 75 of the",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "046028.txt",
+      "region_id": "046028_R3_secondary_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "046028:103e31cc6e144258:176-324:4e3be922f07d",
+      "span_bytes": [
+        176,
+        324
+      ],
+      "context_span_bytes": [
+        0,
+        724
+      ],
+      "focus_preview": "Max Chaudhary, North York, Ontario, for the applicant;\r\nJohn H. Sims, Q.C., Deputy Attorney General of Canada, Toronto, Ontario, for the respondent.",
+      "before_preview": "unsel:\r\nMax Chaudhary, for the applicant;\r\nDavid Joseph,  for the respondent.\r\nSolicitors of Record:",
+      "after_preview": "Summary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case wil",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "066595.txt",
+      "region_id": "066595_R1_largest_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "066595:1273b5e577bc5ad6:5096-24434:4e3be922f07d",
+      "span_bytes": [
+        5096,
+        5396
+      ],
+      "context_span_bytes": [
+        4696,
+        5796
+      ],
+      "focus_preview": "[10]\r\nLe demandeur soutient que la Commission a erré en concluant que sa crainte correspondait à une crainte généralisée vécue par la population en gé",
+      "before_preview": "acceptables pouvant se justifier au regard des faits et du droit. [para. 47 de la décision]\r\nAnalyse",
+      "after_preview": "l a accepté de payer les montants exigés pendant huit mois et qu'il a subi des menaces lorsqu'il a r",
+      "verdict": "defect_found",
+      "evaluation_notes": "Massive unnumbered block containing dozens of skipped numbered paragraphs swallowed into structure_unknown.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "066595.txt",
+      "region_id": "066595_R2_unnumbered_to_para_transition",
+      "target_type": "transition",
+      "target_id": "066595:1273b5e577bc5ad6:682-1274:4e3be922f07d",
+      "span_bytes": [
+        682,
+        882
+      ],
+      "context_span_bytes": [
+        282,
+        1282
+      ],
+      "focus_preview": "[1]\r\nBédard, J.\r\n: Il s'agit d'une demande de contrôle judiciaire en vertu du paragraphe 72(1) de la\r\nLoi sur l'immigration et la protection des réfug",
+      "before_preview": ", therefore contains no summary. Any footnotes found in this case will appear below end of document.",
+      "after_preview": "ontre d'une décision de la Commission de l'immigration et du statut de réfugié, Section de la protec",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "066595.txt",
+      "region_id": "066595_R3_secondary_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "066595:1273b5e577bc5ad6:1-281:4e3be922f07d",
+      "span_bytes": [
+        1,
+        201
+      ],
+      "context_span_bytes": [
+        0,
+        601
+      ],
+      "focus_preview": "<FRAGMENT_SUPPRESSED>  (FC)\r\nMLB unedited judgment\r\n[English language version follows French language version]\r\n[La version anglaise vient à la suite ",
+      "before_preview": "",
+      "after_preview": "FC 991)\r\n <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nBédard, J.\r\nOctober 5, 2010.\r\nCounsel:\r\nOscar Ferna",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "068174.txt",
+      "region_id": "068174_R1_largest_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "068174:5c57b653545603c6:7968-23099:4e3be922f07d",
+      "span_bytes": [
+        7968,
+        8268
+      ],
+      "context_span_bytes": [
+        7568,
+        8668
+      ],
+      "focus_preview": "[7] \r\n  This case is an unfortunate outcome of the current state of citizenship law. The applicant is well established in Canada. She fell short of me",
+      "before_preview": "MENT_SUPPRESSED> [2009] SCR 339).  <FRAGMENT_SUPPRESSED>  \r\n IV.  \r\n Analysis  <FRAGMENT_SUPPRESSED>",
+      "after_preview": "yond her control; her mother was ill and in need of the applicant's help and support. She otherwise ",
+      "verdict": "defect_found",
+      "evaluation_notes": "Massive unnumbered block containing dozens of skipped numbered paragraphs swallowed into structure_unknown.",
+      "finding_ref": "M1-FINDING-001",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "068174.txt",
+      "region_id": "068174_R2_unnumbered_to_para_transition",
+      "target_type": "transition",
+      "target_id": "068174:5c57b653545603c6:4649-5216:4e3be922f07d",
+      "span_bytes": [
+        4649,
+        4849
+      ],
+      "context_span_bytes": [
+        4249,
+        5249
+      ],
+      "focus_preview": "[1] \r\n   \r\n Bédard, J. \r\n : The applicant is a citizen of Russia but has spent most of her life in Germany. She entered Canada on October 22, 2003, an",
+      "before_preview": "                                                                               <FRAGMENT_SUPPRESSED>",
+      "after_preview": "for Canadian citizenship. During the four years that preceded the date of her application for citize",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "068174.txt",
+      "region_id": "068174_R3_secondary_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "068174:5c57b653545603c6:179-3914:4e3be922f07d",
+      "span_bytes": [
+        179,
+        379
+      ],
+      "context_span_bytes": [
+        0,
+        779
+      ],
+      "focus_preview": "The applicant's citizenship application was denied on the basis of the physical presence test (Citizenship Act, s. 5(1)(c)). The applicant appealed.  ",
+      "before_preview": "SSED> )  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>  2011.  <FRAGMENT_SUPPRESSED>  \r\n Summary:",
+      "after_preview": "sed the appeal.  <FRAGMENT_SUPPRESSED>  \r\n Aliens - Topic 2525 \r\n \r\n Naturalization - Qualifications",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "019591.txt",
+      "region_id": "019591_R1_heading_candidate",
+      "target_type": "heading_candidate",
+      "target_id": "019591:684aef2ab0e323e1:598-611:4e3be922f07d",
+      "span_bytes": [
+        598,
+        611
+      ],
+      "context_span_bytes": [
+        198,
+        1011
+      ],
+      "focus_preview": "Federal Court",
+      "before_preview": "283; 2012 CF 1283) \r\n \r\n \r\n \r\n Indexed As: Smith v. Canada (Minister of Citizenship and Immigration)",
+      "after_preview": "Mosley, J. \r\n \r\n November 2, 2012. \r\n \r\n \r\n \r\n Summary: \r\n \r\n Smith, an American citizen, claimed re",
+      "verdict": "defect_found",
+      "evaluation_notes": "Header court metadata or headnote classification line misclassified as structural heading.",
+      "finding_ref": "M1-FINDING-003",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "019591.txt",
+      "region_id": "019591_R2_heading_candidate_2",
+      "target_type": "heading_candidate",
+      "target_id": "019591:684aef2ab0e323e1:1597-1613:4e3be922f07d",
+      "span_bytes": [
+        1597,
+        1613
+      ],
+      "context_span_bytes": [
+        1197,
+        2013
+      ],
+      "focus_preview": "Aliens - Topic 2",
+      "before_preview": "ade unreasonable state protection findings. \r\n \r\n \r\n \r\n The Federal Court dismissed the application.",
+      "after_preview": "Definitions and general principles - Legislation - Interpretation - The applicant, an American citiz",
+      "verdict": "defect_found",
+      "evaluation_notes": "Header court metadata or headnote classification line misclassified as structural heading.",
+      "finding_ref": "M1-FINDING-003",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "019591.txt",
+      "region_id": "019591_R3_known_heading",
+      "target_type": "known_heading",
+      "target_id": "019591:684aef2ab0e323e1:665-673:4e3be922f07d",
+      "span_bytes": [
+        665,
+        673
+      ],
+      "context_span_bytes": [
+        265,
+        1073
+      ],
+      "focus_preview": "Summary:",
+      "before_preview": "r of Citizenship and Immigration) \r\n \r\n \r\n \r\n Federal Court \r\n \r\n Mosley, J. \r\n \r\n November 2, 2012.",
+      "after_preview": "Smith, an American citizen, claimed refugee protection from alleged persecution and the alleged thre",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "042691.txt",
+      "region_id": "042691_R1_heading_candidate",
+      "target_type": "heading_candidate",
+      "target_id": "042691:7550942ffaa99248:573-586:4e3be922f07d",
+      "span_bytes": [
+        573,
+        586
+      ],
+      "context_span_bytes": [
+        173,
+        986
+      ],
+      "focus_preview": "Federal Court",
+      "before_preview": "ndents) \r\n \r\n (T-784-11; 2012 FC 803; 2012 CF 803) \r\n \r\n \r\n \r\n Indexed As: Warman et al. v. Fournier",
+      "after_preview": "Rennie, J. \r\n \r\n June 21, 2012. \r\n \r\n \r\n \r\n Summary: \r\n \r\n Warman asserted that the respondents infr",
+      "verdict": "defect_found",
+      "evaluation_notes": "Header court metadata or headnote classification line misclassified as structural heading.",
+      "finding_ref": "M1-FINDING-003",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "042691.txt",
+      "region_id": "042691_R2_outer_quote_collision",
+      "target_type": "paragraph",
+      "target_id": "042691:7550942ffaa99248:31005-31350:4e3be922f07d",
+      "span_bytes": [
+        31005,
+        31255
+      ],
+      "context_span_bytes": [
+        30605,
+        31655
+      ],
+      "focus_preview": "[37] \r\n  The evidence is clear that the Barrera Work was posted on the applicant's personal website and thus the communication of the Barrera Work occ",
+      "before_preview": "blic constitutes authorization of communication by telecommunication: \r\n \r\n \r\n \r\nFRAGMENT_SUPPRESSED",
+      "after_preview": "cation of the Barrera Work by posting it on his website and therefore there is no infringement. \r\n \r",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "042691.txt",
+      "region_id": "042691_R3_known_heading",
+      "target_type": "known_heading",
+      "target_id": "042691:7550942ffaa99248:637-645:4e3be922f07d",
+      "span_bytes": [
+        637,
+        645
+      ],
+      "context_span_bytes": [
+        237,
+        1045
+      ],
+      "focus_preview": "Summary:",
+      "before_preview": "ndexed As: Warman et al. v. Fournier \r\n \r\n \r\n \r\n Federal Court \r\n \r\n Rennie, J. \r\n \r\n June 21, 2012.",
+      "after_preview": "Warman asserted that the respondents infringed his copyright in three works and applied for several ",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "077071.txt",
+      "region_id": "077071_R1_heading_candidate",
+      "target_type": "heading_candidate",
+      "target_id": "077071:8edd381a974af57d:328-342:4e3be922f07d",
+      "span_bytes": [
+        328,
+        342
+      ],
+      "context_span_bytes": [
+        0,
+        742
+      ],
+      "focus_preview": "Trial Division",
+      "before_preview": "\n \r\n Indexed As: Huynh v. Minister of Employment and Immigration \r\n \r\n \r\n \r\n Federal Court of Canada",
+      "after_preview": "Cullen, J. \r\n \r\n November 24, 1994. \r\n \r\n \r\n \r\n Summary: \r\n \r\n Huynh applied for judicial review of ",
+      "verdict": "defect_found",
+      "evaluation_notes": "Header court metadata or headnote classification line misclassified as structural heading.",
+      "finding_ref": "M1-FINDING-003",
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "077071.txt",
+      "region_id": "077071_R2_outer_quote_collision",
+      "target_type": "paragraph",
+      "target_id": "077071:8edd381a974af57d:27263-27406:4e3be922f07d",
+      "span_bytes": [
+        27263,
+        27406
+      ],
+      "context_span_bytes": [
+        26863,
+        27806
+      ],
+      "focus_preview": "[37] \r\n  Likewise, administrative tribunals can expect no curial deference when they make constitutional decisions: see  \r\nFRAGMENT_SUPPRESSED.",
+      "before_preview": "tional interpretation. In  \r\nFRAGMENT_SUPPRESSED, Beetz, J., stated: \r\n \r\n \r\n \r\n FRAGMENT_SUPPRESSED",
+      "after_preview": "[38] \r\n  However, the limitations on the power of privative clauses to oust judicial review apply on",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    },
+    {
+      "case_id": "077071.txt",
+      "region_id": "077071_R3_known_heading",
+      "target_type": "known_heading",
+      "target_id": "077071:8edd381a974af57d:397-405:4e3be922f07d",
+      "span_bytes": [
+        397,
+        405
+      ],
+      "context_span_bytes": [
+        0,
+        805
+      ],
+      "focus_preview": "Summary:",
+      "before_preview": "n \r\n \r\n \r\n \r\n Federal Court of Canada \r\n \r\n Trial Division \r\n \r\n Cullen, J. \r\n \r\n November 24, 1994.",
+      "after_preview": "Huynh applied for judicial review of a decision by a credible basis tribunal which found that his re",
+      "verdict": "clean_pass",
+      "evaluation_notes": "Structure, boundaries and provenance match raw context.",
+      "finding_ref": null,
+      "adjudication_status": "resolved"
+    }
+  ]
+}

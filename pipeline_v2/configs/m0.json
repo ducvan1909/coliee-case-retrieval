@@ -1,0 +1,30 @@
+{
+  "schema_version": "pipeline-v2-m0-config-1",
+  "corpus_path": "data/task1_train_files_2026/cases",
+  "labels_path": "data/task1_train_files_2026/clean_task1_train_labels_2026.json",
+  "sampling": {"seed": 20261105, "discovery_size": 10, "holdout_size": 10, "exclude_candidate_read": true},
+  "manual_exposures": ["048250.txt", "094632.txt", "087962.txt", "001206.txt", "026919.txt", "043625.txt"],
+  "manual_provenance": "User session history and Main M0 scope, 2026-11-05; query IDs only; completeness unknown",
+  "exposure_artifacts": [
+    {"path": "knowledge_base/pipeline_v1/coliee_task1_label_rule_study_v1/study_manifest.json", "adapter": "rule_study"},
+    {"path": "knowledge_base/pipeline_v1/manifests/split_registry.v1.json", "adapter": "split_registry"},
+    {"path": "knowledge_base/pipeline_v1/au_reference_gold_exposed_v1/manifest.json", "adapter": "au_reference"},
+    {"path": "knowledge_base/pipeline_v1/coliee_task1_gold_link_study_v1/manifest.json", "adapter": "gold_link"},
+    {"path": "knowledge_base/pipeline_v1/coliee_task1_citation_source_pilot_v1/manifest.json", "adapter": "source_pilot"},
+    {"path": "knowledge_base/pipeline_v1/coliee_task1_verified_gold_passages_v1/manifest.json", "adapter": "gold_passages"},
+    {"path": "knowledge_base/pipeline_v1/coliee_task1_verified_gold_passages_v2/manifest.json", "adapter": "gold_passages"},
+    {"path": "knowledge_base/pipeline_v1/coliee_task1_verified_gold_passages_v3/manifest.json", "adapter": "gold_passages"},
+    {"path": "knowledge_base/pipeline_v1/manifests/selected_kos_manifest.v1.json", "adapter": "calibration"},
+    {"path": "knowledge_base/pipeline_v1/manifests/calibration_manifest.v1.json", "adapter": "calibration"},
+    {"path": "knowledge_base/pipeline_v1/reports/codex_reading_trial_011904_20261103/manifest.json", "adapter": "reading_trial"}
+  ],
+  "profiles": {
+    "source": {"version": "raw-utf8-v1", "read_only": true, "hash": "sha256_raw_bytes", "decode": "utf-8-strict", "bom": "retain_raw_bytes; decoded_view_policy_pending_M1", "newline": "preserve", "offsets": "UTF-8-byte-half-open", "metadata": "observations_with_source_refs; unknown_allowed"},
+    "chunk": {"version": "structural-core-draft-v1", "status": "provisional_pending_tokenizer", "basic_unit": "outer_paragraph_with_offset_identity", "target_tokens": 320, "soft_min_tokens": 128, "proposed_max_core_tokens": 448, "core_overlap_tokens": 0, "optional_context": {"enabled": false, "max_sentences": 1, "max_tokens": 64}, "overflow_policy": "reject_or_rechunk_never_truncate", "full_input_includes": ["body", "prefix", "heading", "context", "special_tokens"], "same_bm25_dense_core": true},
+    "bm25": {"version": "unicode-legaltext-proposed-v1", "k1": 1.5, "b": 0.75, "channels": ["case", "global_passage"], "analyzer": {"unicode": true, "casefold": true, "retain_digits": true, "retain_accents": true, "retain_negation": true, "stopwords": [], "exact_identifier_field": true}, "status": "specified_not_implemented"},
+    "fusion": {"version": "case-rank-rrf-v1", "k": 60, "channel_weights": {"case_bm25": 1, "passage_bm25": 1, "dense_passage": 1}, "passage_to_case": "best_hit", "missing_channel_contribution": 0, "repeated_search_votes": false, "unique_case_cap": null, "status": "pending_retrieval_preflight"},
+    "embedding": {"status": "not_ready", "reason": "model_and_tokenizer_not_selected", "model": null, "model_revision": null, "tokenizer": null, "tokenizer_revision": null, "provider": null, "query_prompt": null, "document_prompt": null, "input_type": null, "pooling": null, "dimensions": null, "precision": null, "normalization": null, "similarity": null, "model_input_limit": null, "endpoint_input_limit": null, "effective_input_limit": null, "en_fr_support": null},
+    "runtime": {"status": "not_ready", "reason": "model_prompt_and_payload_preflight_pending", "controller": null, "selector": null, "reviewer": null, "budgets": {"requests": null, "input_tokens": null, "output_tokens": null, "search_calls": null, "open_calls": null, "retry_attempts": null, "latency_seconds": null}, "authorization": "M0_local_only_no_inference_or_deploy"},
+    "evaluation": {"primary": "micro_precision_recall_f1_unique_query_candidate", "gold_outside_pool": "false_negative", "holdout_uses": 1, "model_silver_is_human_gold": false}
+  }
+}

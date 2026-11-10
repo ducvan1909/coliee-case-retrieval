@@ -1,0 +1,27 @@
+{
+  "sqlite_default_cache_size": -2000,
+  "sqlite_default_mmap_size": 0,
+  "bm25_mmap_run1_seconds": 86.571,
+  "bm25_mmap_run2_seconds": 63.6325,
+  "open_context_latency": {
+    "PassageReader_small_case_031881_2_passages_seconds": 0.2349,
+    "PassageReader_large_case_055641_1140_passages_seconds": 2.4576,
+    "NavigationReader_large_case_055641_seconds": 0.7341,
+    "large_case_first_parent_handle": "p000351"
+  },
+  "m2_corpus_context_size_distribution": {
+    "scan_seconds": 17.4964,
+    "parents_over_64KiB": 5,
+    "max_parent_bytes": [
+      "041666.txt",
+      "p000417",
+      84205
+    ],
+    "context_windows_over_64KiB": 13,
+    "max_context_window_bytes": [
+      "041666.txt",
+      "p000416",
+      85392
+    ]
+  }
+}

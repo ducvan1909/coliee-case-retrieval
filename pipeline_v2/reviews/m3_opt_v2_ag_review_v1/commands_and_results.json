@@ -1,0 +1,137 @@
+{
+  "schema_version": "ag-m3-opt-v2-review-commands-1",
+  "generated_at_utc": "2026-11-08T04:05:00Z",
+  "workspace_root": "E:/Git/coliee-case-retrieval",
+  "commands": [
+    {
+      "step": "local_unit_tests",
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_opt_v2_index pipeline_v2.tests.test_m3_opt_v2_session pipeline_v2.tests.test_m3_opt_v2_runtime pipeline_v2.tests.test_m3_opt_v2_benchmark pipeline_v2.tests.test_m3_opt_v2_cli -v",
+      "exit_code": 0,
+      "elapsed_seconds": 0.419,
+      "summary": "Ran 18 tests in 0.419s — OK"
+    },
+    {
+      "step": "independent_ag_local_audit_and_tests",
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_opt_v2_ag_review_v1/test_m3_opt_v2_independent_ag.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.12,
+      "output_artifact": "pipeline_v2/reviews/m3_opt_v2_ag_review_v1/independent_local_test_results.json",
+      "summary": "Ran 4 independent test suites + 16-query 2-channel BM25 oracle audit on real index (all_ids_equal=true, max_score_diff=3.55e-15, case_mean_sqlite_seconds=0.0225s)."
+    },
+    {
+      "step": "verify_full_db_attempt_1_before_wmi_docker_persist",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 verify --index-dir pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1 --full-db",
+      "exit_code": 1,
+      "full_cli_seconds": 3.6534376999989036,
+      "status": "error",
+      "error": "ConnectionError",
+      "note": "Docker Desktop spawned inside ephemeral PowerShell session exited when command turn ended; restarted persistently via Win32_Process.Create before attempt 2."
+    },
+    {
+      "step": "verify_full_db",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 verify --index-dir pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1 --full-db",
+      "exit_code": 0,
+      "full_cli_seconds": 2.7833331000001635,
+      "session_initialization_seconds": 0.5613757000010082,
+      "status": "immutable_snapshot_revalidated",
+      "full_db_verified": true,
+      "raw_cases": 916,
+      "database": {
+        "collection": "coliee_m3_pilot_99e66b7f9bbf4be4",
+        "points": 1024,
+        "status": "PASS"
+      }
+    },
+    {
+      "step": "deploy_modal_v2",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 deploy",
+      "exit_code": 0,
+      "modal_app": "coliee-pipeline-v2-embed-m3-opt-v2",
+      "modal_deploy_seconds": 4.849,
+      "summary": "Deployed coliee-pipeline-v2-embed-m3-opt-v2 with 4 mounted files without overwriting V1 apps."
+    },
+    {
+      "step": "compatibility_preflight",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 preflight --index-dir pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1 --output pipeline_v2/artifacts/m3_opt_v2_compat_20261108_v1",
+      "exit_code": 0,
+      "output_dir": "pipeline_v2/artifacts/m3_opt_v2_compat_20261108_v1",
+      "status": "PASS",
+      "execution_mode": "real",
+      "full_cli_seconds": 60.594281699999556,
+      "model_requests": 9,
+      "known_input_tokens": 1856,
+      "unknown_token_attempts": 0,
+      "max_document_cosine_deviation": 0.00020956993103027344,
+      "max_singleton_batch_deviation": 0.0001575946807861328,
+      "max_query_cosine_deviation": 2.384185791015625e-07
+    },
+    {
+      "step": "gpu_benchmark",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 benchmark --index-dir pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1 --compatibility pipeline_v2/artifacts/m3_opt_v2_compat_20261108_v1 --output pipeline_v2/artifacts/m3_opt_v2_gpu_benchmark_20261108_v1",
+      "exit_code": 0,
+      "output_dir": "pipeline_v2/artifacts/m3_opt_v2_gpu_benchmark_20261108_v1",
+      "status": "completed_with_limits",
+      "execution_mode": "real_modal",
+      "full_cli_seconds": 158.75637129999996,
+      "total_seconds": 156.97336709999945,
+      "model_requests": 89,
+      "known_input_tokens": 412295,
+      "total_padded_tokens": 433024,
+      "unknown_token_attempts": 0,
+      "total_document_encodings": 2560,
+      "winner_batch_size": 64
+    },
+    {
+      "step": "search_benchmark",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 search-benchmark --index-dir pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1 --compatibility pipeline_v2/artifacts/m3_opt_v2_compat_20261108_v1 --output pipeline_v2/artifacts/m3_opt_v2_search_benchmark_20261108_v1",
+      "exit_code": 0,
+      "output_dir": "pipeline_v2/artifacts/m3_opt_v2_search_benchmark_20261108_v1",
+      "status": "PASS_components_measured_not_full_corpus_quality",
+      "execution_mode": "unified_v2_real_query",
+      "full_cli_seconds": 13.369916499999817,
+      "session_initialization_seconds": 0.5915972000002512,
+      "model_requests": 3,
+      "known_input_tokens": 118,
+      "local_vector_reuse_mean_seconds": 0.20801
+    },
+    {
+      "step": "standalone_search_walltime_01",
+      "command": "Measure-Command { & .venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 search --index-dir pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1 --compatibility pipeline_v2/artifacts/m3_opt_v2_compat_20261108_v1 --query \"standard of review\" --limit 10 | Set-Content -Encoding utf8 pipeline_v2/reviews/m3_opt_v2_ag_review_v1/search_walltime_01.json }",
+      "exit_code": 0,
+      "subprocess_walltime_seconds": 6.5850839,
+      "full_cli_seconds": 6.381185300000652,
+      "session_initialization_seconds": 0.6080320000000938,
+      "warm_session_request_seconds": 5.373104199999943,
+      "client_rpc_seconds": 4.164819200001148,
+      "remote_total_seconds": 0.054630631999998513,
+      "local_retrieval_seconds": 0.20052940000095987,
+      "output_artifact": "pipeline_v2/reviews/m3_opt_v2_ag_review_v1/search_walltime_01.json"
+    },
+    {
+      "step": "standalone_search_walltime_02",
+      "command": "Measure-Command { & .venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 search --index-dir pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1 --compatibility pipeline_v2/artifacts/m3_opt_v2_compat_20261108_v1 --query \"standard of review\" --limit 10 | Set-Content -Encoding utf8 pipeline_v2/reviews/m3_opt_v2_ag_review_v1/search_walltime_02.json }",
+      "exit_code": 0,
+      "subprocess_walltime_seconds": 6.5107887,
+      "full_cli_seconds": 6.332285200000115,
+      "session_initialization_seconds": 0.5961790000001201,
+      "warm_session_request_seconds": 5.528008100000079,
+      "client_rpc_seconds": 4.402121499999339,
+      "remote_total_seconds": 0.06176731199997221,
+      "local_retrieval_seconds": 0.19831660000090778,
+      "output_artifact": "pipeline_v2/reviews/m3_opt_v2_ag_review_v1/search_walltime_02.json"
+    },
+    {
+      "step": "standalone_search_walltime_03",
+      "command": "Measure-Command { & .venv/Scripts/python.exe -m pipeline_v2.m3_opt_v2 search --index-dir pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1 --compatibility pipeline_v2/artifacts/m3_opt_v2_compat_20261108_v1 --query \"standard of review\" --limit 10 | Set-Content -Encoding utf8 pipeline_v2/reviews/m3_opt_v2_ag_review_v1/search_walltime_03.json }",
+      "exit_code": 0,
+      "subprocess_walltime_seconds": 6.3379619,
+      "full_cli_seconds": 6.148772699998517,
+      "session_initialization_seconds": 0.6148513999996794,
+      "warm_session_request_seconds": 5.322869999999966,
+      "client_rpc_seconds": 4.151747600000817,
+      "remote_total_seconds": 0.14161717799998996,
+      "local_retrieval_seconds": 0.21445679999851563,
+      "output_artifact": "pipeline_v2/reviews/m3_opt_v2_ag_review_v1/search_walltime_03.json"
+    }
+  ]
+}

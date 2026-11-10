@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "session_init_seconds": 1.0616878999999244,
+  "probes": [
+    {
+      "probe_passage": "000031:018547a62831b1cdec3cb655",
+      "excluded_case": "000031.txt",
+      "query_for_lexical_channel": "standard of review",
+      "local_seconds": [
+        1.0665804999998727,
+        0.9858252999993056,
+        1.0443740000000616
+      ],
+      "unique_case_results": 10,
+      "guard_contract": {
+        "raw_content_hashes": "all_selected_cases",
+        "index": "sealed_content_hashes",
+        "database": "schema_count_and_returned_hits_only_not_full_membership_attestation"
+      }
+    },
+    {
+      "probe_passage": "044179:5dc7c84542fa1897916cf192",
+      "excluded_case": "044179.txt",
+      "query_for_lexical_channel": "standard of review",
+      "local_seconds": [
+        1.0077732999998261,
+        0.9369746000002124,
+        0.9630177000008189
+      ],
+      "unique_case_results": 10,
+      "guard_contract": {
+        "raw_content_hashes": "all_selected_cases",
+        "index": "sealed_content_hashes",
+        "database": "schema_count_and_returned_hits_only_not_full_membership_attestation"
+      }
+    },
+    {
+      "probe_passage": "099838:f4606a32e2be416805619300",
+      "excluded_case": "099838.txt",
+      "query_for_lexical_channel": "d\u00e9cision n'est pas raisonnable under s. 97(1)",
+      "local_seconds": [
+        0.9725373000001127,
+        1.0115064999999959,
+        0.9823517000004358
+      ],
+      "unique_case_results": 10,
+      "guard_contract": {
+        "raw_content_hashes": "all_selected_cases",
+        "index": "sealed_content_hashes",
+        "database": "schema_count_and_returned_hits_only_not_full_membership_attestation"
+      }
+    }
+  ],
+  "model_requests": 0,
+  "actual_Qdrant": true,
+  "actual_SQLite": true,
+  "scope": "local_retrieval_path_using_document_vector_probes_not_full_query_latency_or_quality"
+}

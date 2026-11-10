@@ -1,0 +1,250 @@
+{
+  "pilot_id": "coliee_task1_citation_source_pilot_v1",
+  "created_at_utc": "2026-11-04T15:44:59Z",
+  "seed": 20261106,
+  "bm25_parameters": {
+    "k1": 1.5,
+    "b": 0.75,
+    "stopwords_count": 119,
+    "token_pattern": "\\b[a-zA-Z]{3,}\\b"
+  },
+  "quota_distribution": {
+    "direct_quote": 3,
+    "principle_paraphrase": 3,
+    "nested_citation": 2,
+    "list_citation": 2,
+    "total_contexts": 10
+  },
+  "contexts": [
+    {
+      "context_id": "CTX_01",
+      "category": "direct_quote",
+      "query_id": "072410.txt",
+      "query_sha256": "4b158ee33c42a18baa6d1f75a30e4e433049af40f91e656197078c0ef34f4c3c",
+      "focal_para": "[61]",
+      "para_range": "[60]-[62]",
+      "heading": "Standard of Impartiality in Commissions of Inquiry",
+      "speaker_role_query": "Teitelbaum J. / Federal Court (reviewing Gomery Commission findings)",
+      "attribution_in_query": "<FRAGMENT_SUPPRESSED> (F.C.A.) (hereinafter Beno (F.C.A.) )",
+      "description": "Verbatim quote of Federal Court of Appeal's ruling on the nature and function of inquiry commissions.",
+      "context_offsets": {
+        "start_byte": 41053,
+        "end_byte": 44851,
+        "sha256": "bec5e965f53127b805920a58478f74adba633e0e7b373eaf205d2a585f970295"
+      },
+      "seed_gold_candidate": "053305.txt",
+      "competitor_candidates": [
+        "031711.txt",
+        "062352.txt",
+        "005980.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_02",
+      "category": "direct_quote",
+      "query_id": "062436.txt",
+      "query_sha256": "e38152542271182906ba5c3ca868ffa0c215b09e9da3eaa37f1745bd23194284",
+      "focal_para": "[24]",
+      "para_range": "[23]-[25]",
+      "heading": "Standard of Review",
+      "speaker_role_query": "Snider J. / Federal Court",
+      "attribution_in_query": "See REFERENCE_SUPPRESSED, citing REFERENCE_SUPPRESSED",
+      "description": "Verbatim quote of Dunsmuir reasonableness standard ('justification, transparency and intelligibility... range of possible, acceptable outcomes').",
+      "context_offsets": {
+        "start_byte": 17286,
+        "end_byte": 19716,
+        "sha256": "b9d1e5e22dcb976ff8882d67264a9eafcf836460fbe5f52937ef8520c33ed67f"
+      },
+      "seed_gold_candidate": "053331.txt",
+      "competitor_candidates": [
+        "037117.txt",
+        "098047.txt",
+        "018113.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_03",
+      "category": "direct_quote",
+      "query_id": "028684.txt",
+      "query_sha256": "7c2599ca185e115c80a6420c767a68b0f3d492dbca11f79267431289809f76ad",
+      "focal_para": "[27]",
+      "para_range": "[26]-[28]",
+      "heading": "Material Fact & Certified Questions",
+      "speaker_role_query": "Zinn J. / Federal Court",
+      "attribution_in_query": "REFERENCE_SUPPRESSED at paras. 33-34",
+      "description": "Verbatim quote of certified question and judgment answering whether mens rea is required under s. 40(1).",
+      "context_offsets": {
+        "start_byte": 9864,
+        "end_byte": 11560,
+        "sha256": "5bc8bb9d1f51503657e6c57fc6bdd899cac66144753b0eff63119972d1b0f3c5"
+      },
+      "seed_gold_candidate": "076296.txt",
+      "competitor_candidates": [
+        "024224.txt",
+        "022855.txt",
+        "023310.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_04",
+      "category": "principle_paraphrase",
+      "query_id": "055901.txt",
+      "query_sha256": "adb582a07e87d9d45882289da0ebddb12a2d831998c9c50a3aa449dcad4c39b2",
+      "focal_para": "[31]",
+      "para_range": "[30]-[32]",
+      "heading": "Motion to Strike Pleadings",
+      "speaker_role_query": "Gauthier J. / Federal Court",
+      "attribution_in_query": "<FRAGMENT_SUPPRESSED> at para. 27",
+      "description": "Paraphrase of principle governing motions to strike out pleadings (only in plain and obvious cases where beyond doubt certain to fail).",
+      "context_offsets": {
+        "start_byte": 15147,
+        "end_byte": 15870,
+        "sha256": "7e19948fbbec216d70e1c161c5f9bdf3ccd29cc65954af68b9fd9791023c9807"
+      },
+      "seed_gold_candidate": "044411.txt",
+      "competitor_candidates": [
+        "086481.txt",
+        "004593.txt",
+        "083611.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_05",
+      "category": "principle_paraphrase",
+      "query_id": "062436.txt",
+      "query_sha256": "e38152542271182906ba5c3ca868ffa0c215b09e9da3eaa37f1745bd23194284",
+      "focal_para": "[47]",
+      "para_range": "[46]-[48]",
+      "heading": "Appropriate Test for H&C under subsection 25(1)",
+      "speaker_role_query": "Snider J. / Federal Court",
+      "attribution_in_query": "subsection 25(1) jurisprudence",
+      "description": "Paraphrase of the legal principle that unusual and undeserved or disproportionate hardship test is the usual standard under s. 25(1).",
+      "context_offsets": {
+        "start_byte": 29243,
+        "end_byte": 30436,
+        "sha256": "3dfd3ce0721ddfb1e95220a9e3953a9aa503ef975fba252f6ecca27c1c5ae006"
+      },
+      "seed_gold_candidate": "053331.txt",
+      "competitor_candidates": [
+        "098047.txt",
+        "053450.txt",
+        "071670.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_06",
+      "category": "principle_paraphrase",
+      "query_id": "095431.txt",
+      "query_sha256": "c356dd21073065314159e56fac9b01c1e6c04ad795bc938ffe8124fd7c91e1ec",
+      "focal_para": "[11]",
+      "para_range": "[10]-[12]",
+      "heading": "Right to Citizenship & Residence Calculation",
+      "speaker_role_query": "Boivin J. / Federal Court",
+      "attribution_in_query": "Citizenship Act, s. 5(1)(c)",
+      "description": "Paraphrase of statutory rule and jurisprudence regarding calculation of 1,095 days of physical presence within four years.",
+      "context_offsets": {
+        "start_byte": 8443,
+        "end_byte": 12042,
+        "sha256": "55fb1ad373a7fd9d4d387dc3f848521e6fa534efcb8dc74d054f6a07b9429e01"
+      },
+      "seed_gold_candidate": "052370.txt",
+      "competitor_candidates": [
+        "096053.txt",
+        "032566.txt",
+        "026914.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_07",
+      "category": "nested_citation",
+      "query_id": "028684.txt",
+      "query_sha256": "7c2599ca185e115c80a6420c767a68b0f3d492dbca11f79267431289809f76ad",
+      "focal_para": "[13]",
+      "para_range": "[13]-[15]",
+      "heading": "Standard of Review on Home Statute & Mens Rea",
+      "speaker_role_query": "Zinn J. / Federal Court",
+      "attribution_in_query": "See REFERENCE_SUPPRESSED, citing REFERENCE_SUPPRESSED",
+      "description": "Explicit nested citation: court states standard of review on interpretation of home statute is reasonableness, citing a decision that cites Dunsmuir.",
+      "context_offsets": {
+        "start_byte": 4323,
+        "end_byte": 5913,
+        "sha256": "6649b8df05103290ef8b416ab254d70670eb5d49cb999b671d3896e994dc8982"
+      },
+      "seed_gold_candidate": "005698.txt",
+      "competitor_candidates": [
+        "022855.txt",
+        "024224.txt",
+        "095429.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_08",
+      "category": "nested_citation",
+      "query_id": "072410.txt",
+      "query_sha256": "4b158ee33c42a18baa6d1f75a30e4e433049af40f91e656197078c0ef34f4c3c",
+      "focal_para": "[65]",
+      "para_range": "[64]-[66]",
+      "heading": "Reasonable Apprehension of Bias Test",
+      "speaker_role_query": "Teitelbaum J. / Federal Court",
+      "attribution_in_query": "Cory, J., stated in <FRAGMENT_SUPPRESSED> , supra ... quoting <FRAGMENT_SUPPRESSED>",
+      "description": "Nested quote-chain: Query cites Cory J. in Supreme Court precedent (<FRAGMENT_SUPPRESSED>) who in turn quotes Committee for Justice and Liberty.",
+      "context_offsets": {
+        "start_byte": 45135,
+        "end_byte": 47512,
+        "sha256": "759bbc15daaead4f7c8fb61a4a373fbf9fcb1e70a33bcf09895530215aced7c8"
+      },
+      "seed_gold_candidate": "053305.txt",
+      "competitor_candidates": [
+        "031711.txt",
+        "004627.txt",
+        "057299.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_09",
+      "category": "list_citation",
+      "query_id": "028684.txt",
+      "query_sha256": "7c2599ca185e115c80a6420c767a68b0f3d492dbca11f79267431289809f76ad",
+      "focal_para": "[25]",
+      "para_range": "[24]-[26]",
+      "heading": "Purpose of Paragraph 40(1)(a) IRPA",
+      "speaker_role_query": "Zinn J. / Federal Court",
+      "attribution_in_query": "See: REFERENCE_SUPPRESSED; REFERENCE_SUPPRESSED",
+      "description": "Sequential string citations providing authority for the proposition that the purpose of s. 40(1)(a) is to deter misrepresentation and ensure complete disclosure.",
+      "context_offsets": {
+        "start_byte": 9061,
+        "end_byte": 10387,
+        "sha256": "611b69ef5d28f2ea9bab9d83672e43529e3a87ef6c7e63eccb4326d2c2c7fad1"
+      },
+      "seed_gold_candidate": "033125.txt",
+      "competitor_candidates": [
+        "022855.txt",
+        "024224.txt",
+        "010784.txt"
+      ]
+    },
+    {
+      "context_id": "CTX_10",
+      "category": "list_citation",
+      "query_id": "001548.txt",
+      "query_sha256": "a6d3620cddc1795a442bd6fa7e246685d6fe128ae914bd80e248cbcb7d49ee63",
+      "focal_para": "[22]",
+      "para_range": "[21]-[23]",
+      "heading": "Evidentiary Basis for Visa Officer Findings",
+      "speaker_role_query": "Mosley J. / Federal Court",
+      "attribution_in_query": "<FRAGMENT_SUPPRESSED> ; and <FRAGMENT_SUPPRESSED> , above, at para 47",
+      "description": "Dual list citation supporting the rule that visa officer's decision on conditions in country of origin must be based on evidence in the record.",
+      "context_offsets": {
+        "start_byte": 9787,
+        "end_byte": 11720,
+        "sha256": "4ede7d163998bd22a0a614857dc5a5dadb24dbfb1aef253590d3fc415e727263"
+      },
+      "seed_gold_candidate": "008723.txt",
+      "competitor_candidates": [
+        "006862.txt",
+        "012573.txt",
+        "032519.txt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "audit_method": "independent selected-record/source/hash/tokenizer verification; no M3 builder/reader imports",
+  "case_passage_count_stats": {
+    "max": 5,
+    "mean": 1.1179039301310043,
+    "min": 1
+  },
+  "embedding_fingerprint": "eefd09b020d2399fa74f6a19ae79276ed35a2fdd7bc6a6490ee66144c79403d6",
+  "implementation_sha256_map_match": true,
+  "input_hashes_and_order_verified": 1024,
+  "labels_accessed": false,
+  "m2_seal_sha256": "0ed42d51023adaf47c1205fa925f18f31b7aacb58b0c8e44c7d23288d123dda6",
+  "manifest_sha256": "2ee5f2db970008de3464786c3fd58e062fc379b8e289cc6db52b2260ac668903",
+  "model_requests": 0,
+  "navigation_seal_sha256": "43ca58589704e94754be3ed6b343ffa73f806a0c757c752abffa1fdb4942234c",
+  "pilot_executed": false,
+  "pinned_tokenizer_ids_verified": 1024,
+  "raw_source_hashes_verified": 916,
+  "recomputed_strata": {
+    "no_preview": 1,
+    "split_children": 105,
+    "unicode": 161
+  },
+  "run_dir": "pipeline_v2/artifacts/m3_pilot_20261106_v1",
+  "selected_cases": 916,
+  "selected_m2_record_files_verified": 916,
+  "selected_navigation_record_files_verified": 916,
+  "selected_passages": 1024,
+  "status": "PASS",
+  "test_sources_accessed": false,
+  "token_count_stats": {
+    "bins_64": {
+      "0": 262,
+      "128": 190,
+      "192": 64,
+      "256": 44,
+      "320": 84,
+      "384": 10,
+      "448": 1,
+      "64": 369
+    },
+    "max": 448,
+    "mean": 129.7294921875,
+    "median": 103.0,
+    "min": 2
+  },
+  "unique_passage_ids": 1024
+}

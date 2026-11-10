@@ -1,0 +1,4472 @@
+[
+  {
+    "case_id": "000758.txt",
+    "region_index": 0,
+    "region_name": "numbering_skip_35_to_37",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      23607,
+      24909
+    ],
+    "units_count": 3,
+    "units_summary": [
+      {
+        "unit_id": "000758:0f5dc268d22acb28:23607-24753:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 35,
+        "paragraph_role": "unknown",
+        "language_region": "en:1",
+        "span_bytes": [
+          23607,
+          24753
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "000758:0f5dc268d22acb28:24753-24755:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:1",
+        "span_bytes": [
+          24753,
+          24755
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "000758:0f5dc268d22acb28:24755-24909:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 37,
+        "paragraph_role": "unknown",
+        "language_region": "en:1",
+        "span_bytes": [
+          24755,
+          24909
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "000758.txt",
+    "region_index": 1,
+    "region_name": "heading_summary_and_p38",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      24909,
+      25232
+    ],
+    "units_count": 4,
+    "units_summary": [
+      {
+        "unit_id": "000758:0f5dc268d22acb28:24909-24911:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:1",
+        "span_bytes": [
+          24909,
+          24911
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "000758:0f5dc268d22acb28:24911-24918:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          24911,
+          24918
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "000758:0f5dc268d22acb28:24918-24920:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          24918,
+          24920
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "000758:0f5dc268d22acb28:24920-25232:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 38,
+        "paragraph_role": "unknown",
+        "language_region": "en:1",
+        "span_bytes": [
+          24920,
+          25232
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "000758.txt",
+    "region_index": 2,
+    "region_name": "final_paragraph_75",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      48751,
+      48895
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "000758:0f5dc268d22acb28:48751-48895:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 75,
+        "paragraph_role": "unknown",
+        "language_region": "en:2",
+        "span_bytes": [
+          48751,
+          48895
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "050936.txt",
+    "region_index": 3,
+    "region_name": "quoted_marker_1_after_p30",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      12729,
+      1116
+    ],
+    "units_count": 0,
+    "units_summary": [],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "050936.txt",
+    "region_index": 4,
+    "region_name": "following_english_p31",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      13312,
+      13597
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "050936:d61772efef974570:13312-13597:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 31,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          13312,
+          13597
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "000432.txt",
+    "region_index": 5,
+    "region_name": "french_start_at_marker_2",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      29138,
+      29369
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "000432:ba5beb528d715237:29138-29369:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 2,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          29138,
+          29369
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Accepted limitation: French translation cue was not triggered at [2] (delayed to [26]); marker [2] preserved as independent unit."
+  },
+  {
+    "case_id": "000432.txt",
+    "region_index": 6,
+    "region_name": "french_body_mid",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      38828,
+      39366
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "000432:ba5beb528d715237:38828-39366:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 25,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          38828,
+          39366
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "014069.txt",
+    "region_index": 7,
+    "region_name": "french_transition_boundary",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      41125,
+      41300
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "014069:4707db807452e037:41125-41300:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 6,
+        "paragraph_role": "unknown",
+        "language_region": "fr:1",
+        "span_bytes": [
+          41125,
+          41300
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved",
+          "translation_boundary_observed"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "046028.txt",
+    "region_index": 8,
+    "region_name": "skip_marker_6_to_8",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      2600,
+      3933
+    ],
+    "units_count": 7,
+    "units_summary": [
+      {
+        "unit_id": "046028:103e31cc6e144258:2600-3610:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 6,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          2600,
+          3610
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "046028:103e31cc6e144258:3610-3612:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          3610,
+          3612
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "046028:103e31cc6e144258:3612-3620:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          3612,
+          3620
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "046028:103e31cc6e144258:3620-3622:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          3620,
+          3622
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "046028:103e31cc6e144258:3622-3700:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          3622,
+          3700
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "046028:103e31cc6e144258:3700-3702:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          3700,
+          3702
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "046028:103e31cc6e144258:3702-3933:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 8,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          3702,
+          3933
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "061295.txt",
+    "region_index": 9,
+    "region_name": "quotation_sidecar_link",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      11360,
+      11957
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "061295:2342dbe5792ef49a:11360-11957:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 9,
+        "paragraph_role": "quoted",
+        "language_region": "en:1",
+        "span_bytes": [
+          11360,
+          11957
+        ],
+        "uncertainties": [
+          "quote_extent_beyond_this_unit_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 1,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "067620.txt",
+    "region_index": 10,
+    "region_name": "bilingual_repeated_marker_1",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      1087,
+      7715
+    ],
+    "units_count": 39,
+    "units_summary": [
+      {
+        "unit_id": "067620:27f27749125392e1:1087-1398:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          1087,
+          1398
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:1398-1400:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          1398,
+          1400
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:1400-1610:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 2,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          1400,
+          1610
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:1610-1612:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          1610,
+          1612
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:1612-1896:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 3,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          1612,
+          1896
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:1896-1898:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          1896,
+          1898
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:1898-2283:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 4,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          1898,
+          2283
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:2283-2285:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          2283,
+          2285
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:2285-2622:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 5,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          2285,
+          2622
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:2622-2624:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          2622,
+          2624
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:2624-3122:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 6,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          2624,
+          3122
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:3122-3124:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          3122,
+          3124
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:3124-3399:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 7,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          3124,
+          3399
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:3399-3401:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          3399,
+          3401
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:3401-3925:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 8,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          3401,
+          3925
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:3925-3927:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          3925,
+          3927
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:3927-4403:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 9,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          3927,
+          4403
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:4403-4405:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          4403,
+          4405
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:4405-5004:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 10,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          4405,
+          5004
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:5004-5006:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          5004,
+          5006
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:5006-5412:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 11,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          5006,
+          5412
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:5412-5414:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          5412,
+          5414
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:5414-5818:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 12,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          5414,
+          5818
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:5818-5820:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          5818,
+          5820
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:5820-6089:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 13,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          5820,
+          6089
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:6089-6091:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          6089,
+          6091
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:6091-6427:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 14,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          6091,
+          6427
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:6427-6429:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          6427,
+          6429
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:6429-6822:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 15,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          6429,
+          6822
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:6822-6824:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          6822,
+          6824
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:6824-7008:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 16,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          6824,
+          7008
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:7008-7010:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          7008,
+          7010
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:7010-7067:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 17,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          7010,
+          7067
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:7067-7069:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          7067,
+          7069
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:7069-7077:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          7069,
+          7077
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:7077-7079:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          7077,
+          7079
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:7079-7314:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 18,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          7079,
+          7314
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:7314-7316:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          7314,
+          7316
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "067620:27f27749125392e1:7316-7715:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "fr:1",
+        "span_bytes": [
+          7316,
+          7715
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved",
+          "translation_boundary_observed"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "062436.txt",
+    "region_index": 11,
+    "region_name": "heading_the_respondent",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "target_span_bytes": [
+      26655,
+      26669
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "062436:e381525422711829:26655-26669:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          26655,
+          26669
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "008976.txt",
+    "region_index": 12,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      1564
+    ],
+    "units_count": 23,
+    "units_summary": [
+      {
+        "unit_id": "008976:2729011139f302a3:0-2:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          2
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:2-519:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          2,
+          519
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:519-523:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          519,
+          523
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:523-524:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          523,
+          524
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:524-532:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          524,
+          532
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:532-535:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          532,
+          535
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:535-539:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          535,
+          539
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:539-641:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          539,
+          641
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:641-645:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          641,
+          645
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:645-646:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          645,
+          646
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:646-667:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          646,
+          667
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:667-670:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          667,
+          670
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:670-674:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          670,
+          674
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:674-844:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          674,
+          844
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:844-848:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          844,
+          848
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:848-849:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          848,
+          849
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:849-857:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          849,
+          857
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:857-860:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          857,
+          860
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:860-864:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          860,
+          864
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:864-1008:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          864,
+          1008
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:1008-1012:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          1008,
+          1012
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:1012-1013:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "en:0",
+        "span_bytes": [
+          1012,
+          1013
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "008976:2729011139f302a3:1013-1564:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          1013,
+          1564
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 3,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "008976.txt",
+    "region_index": 13,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      7600,
+      8382
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "008976:2729011139f302a3:7600-8382:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 15,
+        "paragraph_role": "unknown",
+        "language_region": "en:0",
+        "span_bytes": [
+          7600,
+          8382
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "008976.txt",
+    "region_index": 14,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      15463,
+      15649
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "008976:2729011139f302a3:15463-15649:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 15,
+        "paragraph_role": "unknown",
+        "language_region": "fr:2",
+        "span_bytes": [
+          15463,
+          15649
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "011922.txt",
+    "region_index": 15,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      1316
+    ],
+    "units_count": 23,
+    "units_summary": [
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:0-26:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          26
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:26-153:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          26,
+          153
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:153-165:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          153,
+          165
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:165-166:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          165,
+          166
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:166-174:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          166,
+          174
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:174-177:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          174,
+          177
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:177-181:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          177,
+          181
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:181-265:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          181,
+          265
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:265-277:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          265,
+          277
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:277-278:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          277,
+          278
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:278-299:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          278,
+          299
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:299-302:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          299,
+          302
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:302-306:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          302,
+          306
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:306-463:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          306,
+          463
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:463-475:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          463,
+          475
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:475-476:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          475,
+          476
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:476-484:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          476,
+          484
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:484-487:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          484,
+          487
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:487-491:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          487,
+          491
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:491-612:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          491,
+          612
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:612-624:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          612,
+          624
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:624-625:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          624,
+          625
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:625-1316:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          625,
+          1316
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 3,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "011922.txt",
+    "region_index": 16,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      2576,
+      3101
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:2576-3101:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 53,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          2576,
+          3101
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "011922.txt",
+    "region_index": 17,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      4884,
+      5257
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "011922:ae50db46d34a0ba0:4884-5257:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 7,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          4884,
+          5257
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "014101.txt",
+    "region_index": 18,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      297
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "014101:190e664505334bec:0-297:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          297
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "014101.txt",
+    "region_index": 19,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      2537,
+      3308
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "014101:190e664505334bec:2537-3308:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 7,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          2537,
+          3308
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "014101.txt",
+    "region_index": 20,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      9281,
+      9921
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "014101:190e664505334bec:9281-9921:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 12,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          9281,
+          9921
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "015732.txt",
+    "region_index": 21,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      336
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "015732:29c92ca131c1443e:0-336:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          336
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "015732.txt",
+    "region_index": 22,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      12511,
+      12798
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "015732:29c92ca131c1443e:12511-12798:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 13,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          12511,
+          12798
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "015732.txt",
+    "region_index": 23,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      18603,
+      18704
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "015732:29c92ca131c1443e:18603-18704:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 25,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          18603,
+          18704
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "038777.txt",
+    "region_index": 24,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      417
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "038777:aa66dfe81309a73f:0-417:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          417
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "038777.txt",
+    "region_index": 25,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      20820,
+      22806
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "038777:aa66dfe81309a73f:20820-22806:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 27,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          20820,
+          22806
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "038777.txt",
+    "region_index": 26,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      35761,
+      35928
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "038777:aa66dfe81309a73f:35761-35928:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 53,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          35761,
+          35928
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "059675.txt",
+    "region_index": 27,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      1084
+    ],
+    "units_count": 16,
+    "units_summary": [
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:0-1:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          1
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:1-75:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          1,
+          75
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:75-77:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          75,
+          77
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:77-85:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          77,
+          85
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:85-87:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          85,
+          87
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:87-157:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          87,
+          157
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:157-159:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          157,
+          159
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:159-180:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          159,
+          180
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:180-182:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          180,
+          182
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:182-328:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          182,
+          328
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:328-330:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          328,
+          330
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:330-338:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          330,
+          338
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:338-340:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          338,
+          340
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:340-393:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          340,
+          393
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:393-395:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          393,
+          395
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:395-1084:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          395,
+          1084
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 3,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "059675.txt",
+    "region_index": 28,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      4338,
+      5185
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:4338-5185:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 6,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          4338,
+          5185
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "059675.txt",
+    "region_index": 29,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      7728,
+      7929
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "059675:77d7f75cf10c1c52:7728-7929:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 11,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          7728,
+          7929
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "060604.txt",
+    "region_index": 30,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      434
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "060604:a5bc3adb0b999430:0-434:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          434
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "060604.txt",
+    "region_index": 31,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      8649,
+      8826
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "060604:a5bc3adb0b999430:8649-8826:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 22,
+        "paragraph_role": "unknown",
+        "language_region": "en:6",
+        "span_bytes": [
+          8649,
+          8826
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "060604.txt",
+    "region_index": 32,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      20668,
+      21031
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "060604:a5bc3adb0b999430:20668-21031:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 43,
+        "paragraph_role": "unknown",
+        "language_region": "en:9",
+        "span_bytes": [
+          20668,
+          21031
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "062913.txt",
+    "region_index": 33,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      846
+    ],
+    "units_count": 16,
+    "units_summary": [
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:0-1:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          1
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:1-67:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          1,
+          67
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:67-69:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          67,
+          69
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:69-77:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          69,
+          77
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:77-79:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          77,
+          79
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:79-151:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          79,
+          151
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:151-153:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          151,
+          153
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:153-174:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          153,
+          174
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:174-176:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          174,
+          176
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:176-326:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          176,
+          326
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:326-328:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          326,
+          328
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:328-336:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          328,
+          336
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:336-338:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          336,
+          338
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:338-391:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          338,
+          391
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:391-393:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          391,
+          393
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:393-846:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          393,
+          846
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 3,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "062913.txt",
+    "region_index": 34,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      6201,
+      6569
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:6201-6569:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 15,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          6201,
+          6569
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "062913.txt",
+    "region_index": 35,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      15584,
+      15709
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "062913:11e34b6a70dc87c4:15584-15709:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 28,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          15584,
+          15709
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "068193.txt",
+    "region_index": 36,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      2295
+    ],
+    "units_count": 3,
+    "units_summary": [
+      {
+        "unit_id": "068193:e74a2760a29e6ac5:0-12:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          12
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "068193:e74a2760a29e6ac5:12-14:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          12,
+          14
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "068193:e74a2760a29e6ac5:14-2295:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          14,
+          2295
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "068193.txt",
+    "region_index": 37,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      13157,
+      13738
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "068193:e74a2760a29e6ac5:13157-13738:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 19,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          13157,
+          13738
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "068193.txt",
+    "region_index": 38,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      24254,
+      24524
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "068193:e74a2760a29e6ac5:24254-24524:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 36,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          24254,
+          24524
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "080359.txt",
+    "region_index": 39,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      845
+    ],
+    "units_count": 16,
+    "units_summary": [
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:0-1:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          1
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:1-69:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          1,
+          69
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:69-71:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          69,
+          71
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:71-79:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          71,
+          79
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:79-81:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          79,
+          81
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:81-157:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          81,
+          157
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:157-159:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          157,
+          159
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:159-180:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          159,
+          180
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:180-182:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          180,
+          182
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:182-331:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          182,
+          331
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:331-333:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          331,
+          333
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:333-341:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          333,
+          341
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:341-343:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          341,
+          343
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:343-406:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          343,
+          406
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:406-408:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          406,
+          408
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:408-845:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          408,
+          845
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 3,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "080359.txt",
+    "region_index": 40,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      5478,
+      5711
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:5478-5711:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 13,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          5478,
+          5711
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "080359.txt",
+    "region_index": 41,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      8832,
+      8922
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "080359:ca5cc56b2ff54a35:8832-8922:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 24,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          8832,
+          8922
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "081945.txt",
+    "region_index": 42,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      1070
+    ],
+    "units_count": 23,
+    "units_summary": [
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:0-2:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          2
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:2-235:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          2,
+          235
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:235-239:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          235,
+          239
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:239-240:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          239,
+          240
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:240-248:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          240,
+          248
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:248-251:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          248,
+          251
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:251-255:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          251,
+          255
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:255-366:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          255,
+          366
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:366-370:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          366,
+          370
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:370-371:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          370,
+          371
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:371-392:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          371,
+          392
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:392-395:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          392,
+          395
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:395-399:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          395,
+          399
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:399-579:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          399,
+          579
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:579-583:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          579,
+          583
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:583-584:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          583,
+          584
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:584-592:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          584,
+          592
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:592-595:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          592,
+          595
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:595-599:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          595,
+          599
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:599-743:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          599,
+          743
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:743-747:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          743,
+          747
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:747-748:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          747,
+          748
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:748-1070:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          748,
+          1070
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 3,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "081945.txt",
+    "region_index": 43,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      8484,
+      8915
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:8484-8915:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 17,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          8484,
+          8915
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "081945.txt",
+    "region_index": 44,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      19141,
+      19517
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "081945:a4de6b0c9511c0fa:19141-19517:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 32,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          19141,
+          19517
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "087842.txt",
+    "region_index": 45,
+    "region_name": "header_to_first_paragraph",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      0,
+      777
+    ],
+    "units_count": 16,
+    "units_summary": [
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:0-1:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          0,
+          1
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:1-73:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          1,
+          73
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:73-75:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          73,
+          75
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:75-83:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          75,
+          83
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:83-85:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          83,
+          85
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:85-153:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          85,
+          153
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:153-155:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          153,
+          155
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:155-176:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          155,
+          176
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:176-178:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          176,
+          178
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:178-268:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          178,
+          268
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:268-270:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          268,
+          270
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:270-278:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          270,
+          278
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:278-280:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          278,
+          280
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:280-401:20c8805023c2",
+        "unit_kind": "unnumbered",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          280,
+          401
+        ],
+        "uncertainties": [
+          "structure_unknown"
+        ]
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:401-403:20c8805023c2",
+        "unit_kind": "whitespace",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          401,
+          403
+        ],
+        "uncertainties": []
+      },
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:403-777:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          403,
+          777
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 3,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "087842.txt",
+    "region_index": 46,
+    "region_name": "mid_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      12231,
+      12638
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:12231-12638:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 26,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          12231,
+          12638
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "087842.txt",
+    "region_index": 47,
+    "region_name": "final_paragraph_boundary",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "target_span_bytes": [
+      21093,
+      21849
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "087842:1fcf6b81e09d14b2:21093-21849:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 47,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          21093,
+          21849
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "046523.txt",
+    "region_index": 48,
+    "region_name": "quote_relation_marker_40",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "target_span_bytes": [
+      26751,
+      27727
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "046523:1e63977b7e811621:26751-27727:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 40,
+        "paragraph_role": "quoted",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          26751,
+          27727
+        ],
+        "uncertainties": [
+          "quote_extent_beyond_this_unit_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 1,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "046523.txt",
+    "region_index": 49,
+    "region_name": "quote_relation_marker_41",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "target_span_bytes": [
+      33568,
+      34200
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "046523:1e63977b7e811621:33568-34200:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 41,
+        "paragraph_role": "quoted",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          33568,
+          34200
+        ],
+        "uncertainties": [
+          "quote_extent_beyond_this_unit_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 1,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "050107.txt",
+    "region_index": 50,
+    "region_name": "quote_relation_marker_33",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "target_span_bytes": [
+      13230,
+      13789
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "050107:2f2a1393b0c68fb0:13230-13789:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 33,
+        "paragraph_role": "quoted",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          13230,
+          13789
+        ],
+        "uncertainties": [
+          "quote_extent_beyond_this_unit_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 1,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "050107.txt",
+    "region_index": 51,
+    "region_name": "quote_relation_marker_36",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "target_span_bytes": [
+      20921,
+      21158
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "050107:2f2a1393b0c68fb0:20921-21158:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 36,
+        "paragraph_role": "quoted",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          20921,
+          21158
+        ],
+        "uncertainties": [
+          "quote_extent_beyond_this_unit_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 1,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "023783.txt",
+    "region_index": 52,
+    "region_name": "quote_relation_marker_48",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "target_span_bytes": [
+      52764,
+      53438
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "023783:8b8366c75993346b:52764-53438:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 48,
+        "paragraph_role": "quoted",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          52764,
+          53438
+        ],
+        "uncertainties": [
+          "quote_extent_beyond_this_unit_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 1,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "023783.txt",
+    "region_index": 53,
+    "region_name": "quote_relation_marker_113",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "target_span_bytes": [
+      58067,
+      58260
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "023783:8b8366c75993346b:58067-58260:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 113,
+        "paragraph_role": "quoted",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          58067,
+          58260
+        ],
+        "uncertainties": [
+          "quote_extent_beyond_this_unit_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 1,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "050969.txt",
+    "region_index": 54,
+    "region_name": "translation_boundary_region",
+    "sample_type": "structural_risk",
+    "risk_group": "group_b_translation_boundaries",
+    "target_span_bytes": [
+      45894,
+      46109
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "050969:c0983f72fb994246:45894-46109:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 2,
+        "paragraph_role": "unknown",
+        "language_region": "fr:1",
+        "span_bytes": [
+          45894,
+          46109
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved",
+          "translation_boundary_observed"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "033536.txt",
+    "region_index": 55,
+    "region_name": "translation_boundary_region",
+    "sample_type": "structural_risk",
+    "risk_group": "group_b_translation_boundaries",
+    "target_span_bytes": [
+      64393,
+      64961
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "033536:3d825848d92fa3db:64393-64961:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 7,
+        "paragraph_role": "unknown",
+        "language_region": "fr:1",
+        "span_bytes": [
+          64393,
+          64961
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved",
+          "translation_boundary_observed"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "039093.txt",
+    "region_index": 56,
+    "region_name": "translation_boundary_region",
+    "sample_type": "structural_risk",
+    "risk_group": "group_b_translation_boundaries",
+    "target_span_bytes": [
+      150791,
+      151550
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "039093:aebda0fdd233e214:150791-151550:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 1,
+        "paragraph_role": "unknown",
+        "language_region": "fr:1",
+        "span_bytes": [
+          150791,
+          151550
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved",
+          "translation_boundary_observed"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "080480.txt",
+    "region_index": 57,
+    "region_name": "heading_header",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "target_span_bytes": [
+      426,
+      434
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "080480:acc31de46fcee111:426-434:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          426,
+          434
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "080480.txt",
+    "region_index": 58,
+    "region_name": "heading_header",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "target_span_bytes": [
+      5361,
+      5369
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "080480:acc31de46fcee111:5361-5369:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          5361,
+          5369
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "039093.txt",
+    "region_index": 59,
+    "region_name": "heading_header",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "target_span_bytes": [
+      285,
+      293
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "039093:aebda0fdd233e214:285-293:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          285,
+          293
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "039093.txt",
+    "region_index": 60,
+    "region_name": "heading_header",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "target_span_bytes": [
+      588,
+      609
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "039093:aebda0fdd233e214:588-609:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          588,
+          609
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "067205.txt",
+    "region_index": 61,
+    "region_name": "heading_header",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "target_span_bytes": [
+      103,
+      111
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "067205:233a1743fe411b98:103-111:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          103,
+          111
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "067205.txt",
+    "region_index": 62,
+    "region_name": "heading_header",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "target_span_bytes": [
+      194,
+      215
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "067205:233a1743fe411b98:194-215:20c8805023c2",
+        "unit_kind": "heading",
+        "observed_marker": null,
+        "paragraph_role": null,
+        "language_region": "unknown:0",
+        "span_bytes": [
+          194,
+          215
+        ],
+        "uncertainties": [
+          "heading_literal_observation"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 1,
+    "adjudication": "pass",
+    "notes": "Structural contract satisfied. Markers and boundaries cleanly preserved."
+  },
+  {
+    "case_id": "068014.txt",
+    "region_index": 63,
+    "region_name": "voice_cue_para_9",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "target_span_bytes": [
+      3215,
+      3587
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "068014:fad8a6592e980ace:3215-3587:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 9,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          3215,
+          3587
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Observed voice cue retained as observation with role=unknown (conservative R2 contract)."
+  },
+  {
+    "case_id": "068014.txt",
+    "region_index": 64,
+    "region_name": "voice_cue_para_121",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "target_span_bytes": [
+      44874,
+      45131
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "068014:fad8a6592e980ace:44874-45131:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 121,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          44874,
+          45131
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Observed voice cue retained as observation with role=unknown (conservative R2 contract)."
+  },
+  {
+    "case_id": "076793.txt",
+    "region_index": 65,
+    "region_name": "voice_cue_para_39",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "target_span_bytes": [
+      23566,
+      23689
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "076793:1d602c9950904c13:23566-23689:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 39,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          23566,
+          23689
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Observed voice cue retained as observation with role=unknown (conservative R2 contract)."
+  },
+  {
+    "case_id": "076793.txt",
+    "region_index": 66,
+    "region_name": "voice_cue_para_45",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "target_span_bytes": [
+      26400,
+      26575
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "076793:1d602c9950904c13:26400-26575:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 45,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          26400,
+          26575
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Observed voice cue retained as observation with role=unknown (conservative R2 contract)."
+  },
+  {
+    "case_id": "019467.txt",
+    "region_index": 67,
+    "region_name": "voice_cue_para_2",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "target_span_bytes": [
+      711,
+      958
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "019467:7b4b6720d5799b19:711-958:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 2,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          711,
+          958
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Observed voice cue retained as observation with role=unknown (conservative R2 contract)."
+  },
+  {
+    "case_id": "019467.txt",
+    "region_index": 68,
+    "region_name": "voice_cue_para_3",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "target_span_bytes": [
+      960,
+      1108
+    ],
+    "units_count": 1,
+    "units_summary": [
+      {
+        "unit_id": "019467:7b4b6720d5799b19:960-1108:20c8805023c2",
+        "unit_kind": "paragraph",
+        "observed_marker": 3,
+        "paragraph_role": "unknown",
+        "language_region": "unknown:0",
+        "span_bytes": [
+          960,
+          1108
+        ],
+        "uncertainties": [
+          "paragraph_ownership_unresolved"
+        ]
+      }
+    ],
+    "sidecars_count": 0,
+    "headings_count": 0,
+    "adjudication": "pass",
+    "notes": "Observed voice cue retained as observation with role=unknown (conservative R2 contract)."
+  }
+]

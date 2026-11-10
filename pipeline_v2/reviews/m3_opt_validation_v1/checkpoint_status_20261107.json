@@ -1,0 +1,58 @@
+{
+  "status": "local_optimization_passed_remote_benchmarks_pending_L4_capacity",
+  "optimization_implementation": {
+    "pipeline_v2/m3_opt.py": "c3c188c780738eb1958833283339bcad2e22427a9ba1737d5d86ee0ae343d9ca",
+    "pipeline_v2/optimization/__init__.py": "50577ddb95c74099497aff2be431e908fb8b069ef7e541c218a6185e77ba7886",
+    "pipeline_v2/optimization/batching.py": "4cba08dbe95d362f7ff3707a8e5e3817af2bb84e474f0b9f5fe21e054d4ba618",
+    "pipeline_v2/optimization/benchmark.py": "d7486cf9056086817d4124f5ced7b0ef51b94a222e61165c3db668431ab623ec",
+    "pipeline_v2/optimization/common.py": "24e02102a5544fb6b26339877e7f6ff0e2ab12dde0011d60e56ecea36bb01013",
+    "pipeline_v2/optimization/index.py": "fd42e0151498a38286af5c7094e8c8fdc9ec904b5047f9e409e542871cb3147a",
+    "pipeline_v2/optimization/runtime.py": "461407abfc96a526772f2dfe2b148ea06608726509c69558d8aa0e819b49e67f",
+    "pipeline_v2/deployments/modal_opt/engine.py": "b097172506ddf4704ee62067acf43dc4fdfe0e85c0a7ac37359c942c4938c9e1",
+    "pipeline_v2/deployments/modal_opt/qwen3_embed.py": "39ea6e578865655a646b7d90e90da5dd8a4fd3ad419cf17758c0a39245e84cab"
+  },
+  "tests": {
+    "passed": 21,
+    "total": 21,
+    "seconds": 0.448
+  },
+  "index": "pipeline_v2/artifacts/m3_opt_index_20261107_v2",
+  "index_build_seconds": 61.945261,
+  "baseline_vectors_reused": 1024,
+  "raw_cases": 916,
+  "lexical_equivalence_checks": 6,
+  "full_db_verify": "PASS_1024_points",
+  "local_probe_session_init_seconds": 1.0616879,
+  "local_probe_search_seconds_range": [
+    0.9369746,
+    1.0665805
+  ],
+  "probe_limit": "document_vector_probes_not_full_text_query_latency",
+  "gpu_benchmark_dir": "pipeline_v2/artifacts/m3_opt_gpu_benchmark_20261107_v1",
+  "search_benchmark_dir": "pipeline_v2/artifacts/m3_opt_search_benchmark_20261107_v1",
+  "remote_status": {
+    "m3_opt_gpu_benchmark_20261107_v1": {
+      "attempts": [
+        {
+          "batch": "warmup-16",
+          "status": "started",
+          "tokens": null,
+          "elapsed_since_start": 838.407482624054
+        }
+      ]
+    },
+    "m3_opt_search_benchmark_20261107_v1": {
+      "attempts": [
+        {
+          "batch": "benchmark-query-0",
+          "status": "started",
+          "tokens": null,
+          "elapsed_since_start": 368.9958312511444
+        }
+      ]
+    }
+  },
+  "baseline_code_and_147_artifact_files_unchanged": true,
+  "full_corpus_executed": false,
+  "subagent_review_limit": "both subagents hit usage limit; Main completed fixes and tests; final independent review pending"
+}

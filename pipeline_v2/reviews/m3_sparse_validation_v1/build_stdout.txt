@@ -1,0 +1,1 @@
+{"bytes": 403896521, "cli_timing_origin": "after_argument_parse_excludes_process_startup", "index_dir": "E:\\Git\\coliee-case-retrieval\\pipeline_v2\\artifacts\\m3_sparse_20261110_v1", "internal_cli_seconds": 258.5200860999994, "model_requests": 0, "postings": 31961166, "seconds": 229.3830522999997, "status": "sparse_index_built"}

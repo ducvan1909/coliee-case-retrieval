@@ -1,0 +1,9 @@
+{
+  "schema_version": "pipeline-v2-m3-lexical-1",
+  "full_run": "pipeline_v2/artifacts/m3_full_train_20261108_v1",
+  "analyzer": "unicode_word_casefold_no_stopwords_v1",
+  "cache_mib": 128,
+  "mmap_mib": 512,
+  "fetch_size": 4096,
+  "max_limit": 16384
+}

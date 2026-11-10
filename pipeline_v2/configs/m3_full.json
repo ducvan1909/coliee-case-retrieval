@@ -1,0 +1,48 @@
+{
+  "schema_version": "pipeline-v2-m3-full-1",
+  "mode": "full_train",
+  "expected_cases": 7708,
+  "expected_passages": 415693,
+  "batch_size": 64,
+  "passages_bundle": "pipeline_v2/artifacts/m2_passages_20261106_v1",
+  "accepted_m2_seal_sha256": "0ed42d51023adaf47c1205fa925f18f31b7aacb58b0c8e44c7d23288d123dda6",
+  "embedding": {
+    "model": "Qwen/Qwen3-Embedding-4B",
+    "revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+    "dimensions": 2560,
+    "max_tokens": 448,
+    "max_batch_size": 128,
+    "weights_dtype": "bfloat16",
+    "output_dtype": "float32",
+    "pooling": "last_nonpadding_token",
+    "normalization": "l2",
+    "document_template": "{body}",
+    "add_special_tokens": true,
+    "truncation": false,
+    "query_instruction": "Given a passage from a court decision, retrieve passages from other court decisions that could be sources cited or relied on in that passage.",
+    "torch": "2.8.0",
+    "transformers": "4.57.1",
+    "tokenizers": "0.22.2",
+    "modal_app": "coliee-pipeline-v2-embed-m3-opt-v2",
+    "modal_class": "Embedder",
+    "modal_volume": "coliee-pipeline-v2-qwen3-4b-cache-v1",
+    "gpu": "L4",
+    "scaledown_window_seconds": 120
+  },
+  "bm25": {
+    "k1": 1.5,
+    "b": 0.75,
+    "analyzer": "unicode_word_casefold_no_stopwords_v1"
+  },
+  "qdrant": {
+    "url": "http://127.0.0.1:6333",
+    "version": "1.20.0",
+    "collection_prefix": "coliee_m3_full_",
+    "timeout_seconds": 120,
+    "on_disk": true
+  },
+  "compatibility_index": "pipeline_v2/artifacts/m3_opt_v2_index_20261108_v1",
+  "compatibility_receipt": "pipeline_v2/artifacts/m3_opt_v2_compat_20261108_v1",
+  "full_search": "deferred",
+  "retry_policy": "stop_on_first_failed_remote_attempt_resume_explicitly"
+}

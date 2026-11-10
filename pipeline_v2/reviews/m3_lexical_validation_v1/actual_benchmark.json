@@ -1,0 +1,287 @@
+{
+  "status": "PASS_actual_full_workload_rank_score_parity",
+  "startup_seconds": 78.43884529999923,
+  "scalar_preload_seconds": 4.8323595999972895,
+  "scope": "same_exposed_AG_workload_local_readonly_no_RPC",
+  "configuration": {
+    "schema_version": "pipeline-v2-m3-lexical-1",
+    "full_run": "pipeline_v2/artifacts/m3_full_train_20261108_v1",
+    "analyzer": "unicode_word_casefold_no_stopwords_v1",
+    "cache_mib": 128,
+    "mmap_mib": 512,
+    "fetch_size": 4096,
+    "max_limit": 16384
+  },
+  "implementation_sha256": "3633aa881ef8ff7f739a87c5c174b00faff82f59f656466a70d3804f7c0856bf",
+  "rows": [
+    {
+      "query_id": "Q01",
+      "kind": "case",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 4.566165299998829,
+        "scalar": 0.07672319999983301
+      },
+      "vectorized_repeat_seconds": 0.19859510000242153,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q02",
+      "kind": "case",
+      "execution_order": [
+        "scalar",
+        "vectorized"
+      ],
+      "seconds": {
+        "scalar": 5.455286800002796,
+        "vectorized": 0.2172984999997425
+      },
+      "vectorized_repeat_seconds": 0.18277759999909904,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q03",
+      "kind": "case",
+      "execution_order": [
+        "scalar",
+        "vectorized"
+      ],
+      "seconds": {
+        "scalar": 1.0261953000008361,
+        "vectorized": 0.23097989999951096
+      },
+      "vectorized_repeat_seconds": 0.19660339999973075,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q04",
+      "kind": "case",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 2.3272528999950737,
+        "scalar": 0.17364100000122562
+      },
+      "vectorized_repeat_seconds": 0.28026589999353746,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q05",
+      "kind": "case",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 1.2925271999993129,
+        "scalar": 0.14473480000015115
+      },
+      "vectorized_repeat_seconds": 0.2306343000018387,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q06",
+      "kind": "case",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 1.1690512999994098,
+        "scalar": 0.19413589999749092
+      },
+      "vectorized_repeat_seconds": 0.289773199998308,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q07",
+      "kind": "case",
+      "execution_order": [
+        "scalar",
+        "vectorized"
+      ],
+      "seconds": {
+        "scalar": 2.253187500005879,
+        "vectorized": 0.5243298999994295
+      },
+      "vectorized_repeat_seconds": 0.6146920000028331,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q08",
+      "kind": "case",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 1.9469141000008676,
+        "scalar": 0.6673295000000508
+      },
+      "vectorized_repeat_seconds": 0.6906547999969916,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q01",
+      "kind": "passage",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 38.046083400004136,
+        "scalar": 2.507770399999572
+      },
+      "vectorized_repeat_seconds": 2.168053499997768,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q02",
+      "kind": "passage",
+      "execution_order": [
+        "scalar",
+        "vectorized"
+      ],
+      "seconds": {
+        "scalar": 44.60265779999463,
+        "vectorized": 59.983646400003636
+      },
+      "vectorized_repeat_seconds": 4.605941000001621,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q03",
+      "kind": "passage",
+      "execution_order": [
+        "scalar",
+        "vectorized"
+      ],
+      "seconds": {
+        "scalar": 12.292296700004954,
+        "vectorized": 6.991124699998181
+      },
+      "vectorized_repeat_seconds": 29.91288120000536,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q04",
+      "kind": "passage",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 19.927088500000536,
+        "scalar": 18.257650899999135
+      },
+      "vectorized_repeat_seconds": 77.07662259999779,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q05",
+      "kind": "passage",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 11.72938950000389,
+        "scalar": 7.921406100002059
+      },
+      "vectorized_repeat_seconds": 7.2524325999984285,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q06",
+      "kind": "passage",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 15.879357000005257,
+        "scalar": 12.06788900000538
+      },
+      "vectorized_repeat_seconds": 11.18153390000225,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q07",
+      "kind": "passage",
+      "execution_order": [
+        "scalar",
+        "vectorized"
+      ],
+      "seconds": {
+        "scalar": 21.706006100001105,
+        "vectorized": 16.231711200001882
+      },
+      "vectorized_repeat_seconds": 15.04716190000181,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    },
+    {
+      "query_id": "Q08",
+      "kind": "passage",
+      "execution_order": [
+        "vectorized",
+        "scalar"
+      ],
+      "seconds": {
+        "vectorized": 32.04098669999803,
+        "scalar": 33.56361279999692
+      },
+      "vectorized_repeat_seconds": 39.46686009999394,
+      "ranked_ids_exact": true,
+      "hits": 4096,
+      "max_abs_score_diff": 0.0
+    }
+  ],
+  "summary": {
+    "case": {
+      "scalar_median_seconds": 0.43073269999877084,
+      "vectorized_median_seconds": 1.2307892499993613,
+      "vectorized_repeat_median_seconds": 0.2554500999976881
+    },
+    "passage": {
+      "scalar_median_seconds": 15.274973800002044,
+      "vectorized_median_seconds": 18.07939985000121,
+      "vectorized_repeat_median_seconds": 13.11434790000203
+    }
+  },
+  "elapsed_seconds": 648.9469108999983
+}

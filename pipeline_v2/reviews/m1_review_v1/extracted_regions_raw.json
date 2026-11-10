@@ -1,0 +1,1588 @@
+{
+  "008932.txt": [
+    {
+      "region_id": "008932_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "008932:ba4308904e4586f7:0-227:4e3be922f07d",
+      "span_bytes": [
+        0,
+        227
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_span_bytes": [
+        0,
+        200
+      ],
+      "before_context": "",
+      "focus_text": "[1]\r\nNadon, J.\r\n: This is an application by the defendant, pursuant to rule 419(1)(a) of the\r\nRules\r\nof this court, to strike out the plaintiff's Statement of Claim on the ground that it discloses no ",
+      "after_context": "reasonable cause of action.\r\n[2]\r\nSpecifically, the defendant seeks to strike out the Statement of Claim on the ground that this court has no jurisdiction to grant the relief sought by the plaintiff in that, according to the defendant, \"Plaintiff is seeking declaratory relief by way of an action, whereas he should have proceeded by way of a Motion for Judicial Review\".\r\n[3]\r\nThe plaintiff argues t"
+    },
+    {
+      "region_id": "008932_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "008932:ba4308904e4586f7:573-772:4e3be922f07d",
+      "span_bytes": [
+        573,
+        772
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        173,
+        1172
+      ],
+      "focus_span_bytes": [
+        573,
+        772
+      ],
+      "before_context": "round that it discloses no reasonable cause of action.\r\n[2]\r\nSpecifically, the defendant seeks to strike out the Statement of Claim on the ground that this court has no jurisdiction to grant the relief sought by the plaintiff in that, according to the defendant, \"Plaintiff is seeking declaratory relief by way of an action, whereas he should have proceeded by way of a Motion for Judicial Review\".\r\n",
+      "focus_text": "[3]\r\nThe plaintiff argues that rule 419(1)(a) is not the appropriate channel for an attack on the court's jurisdiction. The plaintiff submits that such an attack should be made by virtue of rule 401.",
+      "after_context": "\r\n[4]\r\nThere is abundant authority to the effect that the court's jurisdiction may be challenged by invoking rule 419(1)(a). ( <FRAGMENT_SUPPRESSED>  C.E.R. 349 ( <FRAGMENT_SUPPRESSED>  defendant herein is fully entitled to raise the issue of jurisdiction by way of rule 419(1)(a) which reads as follows:\r\n\"419(1) The Court may at any stage of an action order any pleading or anything in any pleading"
+    },
+    {
+      "region_id": "008932_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "008932:ba4308904e4586f7:774-13896:4e3be922f07d",
+      "span_bytes": [
+        774,
+        13896
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        374,
+        1374
+      ],
+      "focus_span_bytes": [
+        774,
+        974
+      ],
+      "before_context": " sought by the plaintiff in that, according to the defendant, \"Plaintiff is seeking declaratory relief by way of an action, whereas he should have proceeded by way of a Motion for Judicial Review\".\r\n[3]\r\nThe plaintiff argues that rule 419(1)(a) is not the appropriate channel for an attack on the court's jurisdiction. The plaintiff submits that such an attack should be made by virtue of rule 401.\r\n",
+      "focus_text": "[4]\r\nThere is abundant authority to the effect that the court's jurisdiction may be challenged by invoking rule 419(1)(a). ( <FRAGMENT_SUPPRESSED>  C.E.R. 349 ( <FRAGMENT_SUPPRESSED>  defendant herein",
+      "after_context": " is fully entitled to raise the issue of jurisdiction by way of rule 419(1)(a) which reads as follows:\r\n\"419(1) The Court may at any stage of an action order any pleading or anything in any pleading to be struck out, with or without leave to amend, on the ground that\r\n(a) it discloses no reasonable cause of action or defence, as the case may be,\r\nand may order the action to be stayed or dismissed "
+    }
+  ],
+  "011913.txt": [
+    {
+      "region_id": "011913_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "011913:8ca5a4008d0dc09a:0-957:4e3be922f07d",
+      "span_bytes": [
+        0,
+        957
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_span_bytes": [
+        0,
+        200
+      ],
+      "before_context": "",
+      "focus_text": "[1]\r\nNoël, J.\r\n: This is an application for judicial review of a report of findings of the Office of the Privacy Commissioner of Canada [the \"OPC\"]. The OPC issued the report on July 12, 2011, after ",
+      "after_context": "the Applicant, a self-represented litigant, had made a complaint pursuant to section 11 of the\r\nPersonal Information Protection and Electronic Documents Act\r\n, SC 2000, c 5 [ <FRAGMENT_SUPPRESSED> ] against Telus Communications Company [ <FRAGMENT_SUPPRESSED> ]. In a parallel proceeding, the Applicant is applying for judicial review of another report of findings by the OPC, issued on July 14, 2011"
+    },
+    {
+      "region_id": "011913_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "011913:8ca5a4008d0dc09a:7216-7902:4e3be922f07d",
+      "span_bytes": [
+        7216,
+        7902
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        6816,
+        7816
+      ],
+      "focus_span_bytes": [
+        7216,
+        7416
+      ],
+      "before_context": "sult of an ongoing relationship between the doctor and the Telus Health Department which began in November 2006. This occurred as a result of an authorization form signed by the Applicant. Disclosure of personal information was made to the psychiatrist pursuant to a consent form signed on May 7, 2007, which was valid until the Applicant's withdrawal of his consent.\r\nIII.\r\nApplicant's Submissions\r\n",
+      "focus_text": "[12]\r\nThe Applicant claims that he never signed any consent form authorizing Shepell to disclose personal information, and that he never made any threats. He therefore submits that Shepell unlawfully ",
+      "after_context": "disclosed personal information to Telus, who then unlawfully disclosed his personal information to employees and medical practitioners. The Applicant asks this Court to order that the matter be sent for re-determination by the OPC. He alleges that the investigations were incomplete, and unfair since the information received from both Telus and Shepell was not communicated to him, and that the labo"
+    },
+    {
+      "region_id": "011913_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "011913:8ca5a4008d0dc09a:11349-45228:4e3be922f07d",
+      "span_bytes": [
+        11349,
+        45228
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        10949,
+        11949
+      ],
+      "focus_span_bytes": [
+        11349,
+        11549
+      ],
+      "before_context": "arliament as an independent Officer of Parliament pursuant to section 53 of the\r\nPrivacy Act\r\n, RCS 1985, c P-21 [\"\r\nPrivacy Act\r\n\"].\r\n[22]\r\nIn her capacity under the PIPEDA, the Privacy Commissioner conducts \"[...] impartial, independent and non-partisan investigations\" when dealing with complaints. She is an \"[...] administrative investigator not an adjudicator\" (see\r\n <FRAGMENT_SUPPRESSED> ).\r\n",
+      "focus_text": "[23]\r\nThe Privacy Commissioner has extensive investigative powers which require her to keep all information received during the course of an investigation confidential (see sections 12.1 and 20 of the",
+      "after_context": " PIPEDA). Her reports and findings may include recommendations that are not binding. The OPC may ask to be informed of the actions taken by the organization, if any, or to be given an explanation why no such action will follow (see sections 13(1)(a) and 13(1)(c) of the  <FRAGMENT_SUPPRESSED> , concluded that the role of the Privacy Commissioner is comparable to that of an \"ombudsman,\" which requir"
+    }
+  ],
+  "014069.txt": [
+    {
+      "region_id": "014069_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "014069:4707db807452e037:830-1515:4e3be922f07d",
+      "span_bytes": [
+        830,
+        1515
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        430,
+        1430
+      ],
+      "focus_span_bytes": [
+        830,
+        1030
+      ],
+      "before_context": "sel:\r\nAlla Kikinova, for the applicant;\r\nChristopher Ezrin, for the respondent.\r\nSolicitors of Record:\r\nMichael Loebach, London, Ontario, for the applicant;\r\nMyles J. Kirvan, Deputy Attorney General of Canada, Toronto, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\nI.\r\nIntroduction\r\n",
+      "focus_text": "[1]\r\nShore, J.\r\n: The principal Applicant, her common-law spouse and his son seek refugee protection under sections 96 and 97 of the\r\nImmigration and Refugee Protection Act\r\n, SC 2001, c 27 [\r\nIRPA\r\n]",
+      "after_context": ". The principal Applicant fears persecution by paramilitaries in Colombia; her spouse and his son fear persecution arising from criminality in Mexico. They seek judicial review of a decision by the Refugee Protection Division [RPD] of the Immigration and Refugee Board, which denied the claim of the principal Applicant on the basis of state protection and the claim of her spouse and his son as they"
+    },
+    {
+      "region_id": "014069_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "014069:4707db807452e037:19395-20075:4e3be922f07d",
+      "span_bytes": [
+        19395,
+        20075
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        18995,
+        19995
+      ],
+      "focus_span_bytes": [
+        19395,
+        19595
+      ],
+      "before_context": "e U.S. also detracted from her subjective fear. The Respondent cites\r\n <FRAGMENT_SUPPRESSED>  for the propositions that (i) delay in filing a refugee protection claim \"can be fatal to an applicant's claim\" absent a satisfactory explanation and (ii) the mere fact that the applicants had one relative in Canada is insufficient to overcome failure to apply earlier in another country (at paras 53-4).\r\n",
+      "focus_text": "[35]\r\nThe Respondent submits that the risk of the principal Applicant's spouse and his son is generalized and outside the scope of paragraph 97(1)(b) of the\r\nIRPA\r\n. The Respondent argues that they di",
+      "after_context": "d not show that they had been targeted or faced prospective risk beyond that of Mexicans generally. The Respondent refers to\r\n <FRAGMENT_SUPPRESSED>  for the principle that \"[w]here a portion, not necessarily a majority, of the population is subjected to threats of extortion and violence, the evidence must demonstrate that the Applicants have experienced something that is beyond what has been expe"
+    },
+    {
+      "region_id": "014069_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "014069:4707db807452e037:38053-39643:4e3be922f07d",
+      "span_bytes": [
+        38053,
+        39643
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        37653,
+        38653
+      ],
+      "focus_span_bytes": [
+        38053,
+        38253
+      ],
+      "before_context": "vidual and ongoing threat of criminal violence in Mexico.\r\nX.\r\nConclusion\r\n[68]\r\nFor all of the above reasons, the principal Applicant's application for judicial review is granted and the matter is returned for a hearing anew (\r\nde novo\r\n) before a differently constituted panel of the tribunal; the principal Applicant's spouse and his son's application for judicial review is dismissed.\r\nJUDGMENT\r\n",
+      "focus_text": "[69]\r\nTHIS COURT ORDERS that\r\n1. The principal Applicant's application for judicial review be granted and the matter be returned for a hearing anew (\r\nde novo\r\n) before a differently constituted panel",
+      "after_context": " of the tribunal.\r\n2. The principal Applicant's spouse and his son's application for judicial review be dismissed.\r\n3. No question for certification.\r\n.........................\r\nMari Ilda Avila Rodriguez, Jose Aniceto Elias Cotlame Tepole (aussi appelé Aniceto E Cotlame Tepole), Jose Omar Eduardo Cotlame Zepahua (aussi appelé  <FRAGMENT_SUPPRESSED>  Shore\r\n[Traduction]: La demanderesse principal"
+    }
+  ],
+  "015710.txt": [
+    {
+      "region_id": "015710_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "015710:05f880d3d7f23afd:0-404:4e3be922f07d",
+      "span_bytes": [
+        0,
+        404
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_span_bytes": [
+        0,
+        200
+      ],
+      "before_context": "",
+      "focus_text": "[1]\r\nZinn, J.\r\n: Mr. Dixon, an inmate in a federal penitentiary, asks how long must he wait to have an application for day parole considered by the National Parole Board, after his previous applicatio",
+      "after_context": "n was rejected. He says it is six months; the Board says it is two years. For the reasons that follow, I find that he need wait no longer than six months after he makes a valid application for day parole.\r\nBACKGROUND\r\n[2]\r\nOn November 23, 1983, Mr. Dixon was sentenced to serve a term of life imprisonment. He is currently incarcerated at Mountain Institution in Agassiz, British Columbia. The Nation"
+    },
+    {
+      "region_id": "015710_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "015710:05f880d3d7f23afd:15367-15869:4e3be922f07d",
+      "span_bytes": [
+        15367,
+        15869
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        14967,
+        15967
+      ],
+      "focus_span_bytes": [
+        15367,
+        15567
+      ],
+      "before_context": "ysis that follows I will look first at the words in their grammatical and ordinary sense in the scheme of the\r\nAct\r\nto see whether either party's interpretation is more strongly supported. I will then turn to consider the object of the\r\nAct\r\nand the intention of Parliament to see whether those considerations support or challenge the previous analysis.\r\nGrammatical and Ordinary Sense of the Words\r\n",
+      "focus_text": "[21]\r\nIn my view, the Applicant's interpretation more closely accords with the grammatical and ordinary sense of the words of the relevant statutory provisions in the context of the\r\nAct\r\n. The Respon",
+      "after_context": "dent's interpretation requires a reading in of the concepts of an \"initial application\" and \"subsequent applications\" for day parole. There is nothing in the ordinary sense of the words used in subsection 122(1) that would limit its application only to an offender's initial application for day parole.\r\n[22]\r\nThe Respondent's interpretation also requires that subsection 122(4) be read as the statut"
+    },
+    {
+      "region_id": "015710_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "015710:05f880d3d7f23afd:27958-28559:4e3be922f07d",
+      "span_bytes": [
+        27958,
+        28559
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        27558,
+        28558
+      ],
+      "focus_span_bytes": [
+        27958,
+        28158
+      ],
+      "before_context": "tion does not create any contradictions or absurdities. Specifically, I hold that Mr. Dixon was entitled to make a new application for day parole at any time on or after September 15, 2007, and the Board was required under subsection 157(2) of the\r\nRegulations\r\nto consider that application within six months.\r\n[40]\r\nAccordingly this application for judicial review is allowed with costs.\r\nJUDGMENT\r\n",
+      "focus_text": "[41]\r\nTHIS COURT ORDERS AND ADJUDGES that:\r\n1. This application for judicial review is allowed with costs.\r\n2. The Applicant was entitled to have his application for day parole, which he submitted Sep",
+      "after_context": "tember 17, 2007, reviewed by the National Parole Board before March 17, 2008, pursuant to subsection 157(2) of the\r\nCorrections and Conditional Release Regulations\r\n, SOR/92-620; and\r\n3. The National Parole Board is hereby directed to review the Applicant's application for day parole dated September 17, 2007, as soon as possible.\r\nApplication allowed.\r\nEditor: Angela E. McKay/clh\r\n[End of document"
+    }
+  ],
+  "038761.txt": [
+    {
+      "region_id": "038761_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "038761:6c72e3e5bc69c5df:0-468:4e3be922f07d",
+      "span_bytes": [
+        0,
+        468
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_span_bytes": [
+        0,
+        200
+      ],
+      "before_context": "",
+      "focus_text": "[1]\r\nBoivin, J.\r\n: This is an application pursuant to subsection 72(1) of the\r\nImmigration and Refugee Protection Act\r\n, SC 2001, c 27 [the Act] for judicial review of the decision rendered by the Ref",
+      "after_context": "ugee Protection Division of the Immigration and Refugee Board (the Board) rendered on May 12, 2011, and signed on May 19, 2011, which refused the applicant's claim to be deemed a Convention refugee or a person in need of protection under sections 96 and 97 of the Act.\r\n[2]\r\nThe applicant seeks an order setting aside the decision and remitting the matter for redetermination by a differently constit"
+    },
+    {
+      "region_id": "038761_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "038761:6c72e3e5bc69c5df:2616-3053:4e3be922f07d",
+      "span_bytes": [
+        2616,
+        3053
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        2216,
+        3216
+      ],
+      "focus_span_bytes": [
+        2616,
+        2816
+      ],
+      "before_context": " 12, 1997 to March 5, 2009, at which point he arrived in Canada and sought asylum.\r\n[10]\r\nThe applicant's refugee claim was heard by the Board on May 12, 2011.\r\n[11]\r\nThe Board denied the claim on the basis that the applicant's allegations were not credible.\r\nIssue\r\n[12]\r\nThis matter raises the following issue: was the applicant denied a fair hearing due to the ineffective assistance of counsel?\r\n",
+      "focus_text": "[13]\r\nThe Supreme Court of Canada in\r\nR v GDB\r\n, 2000 SCC 22 at para 27, [2000] 1 SRC 520, instructed that incompetence is to be determined using the reasonableness standard. The Court agrees with Jus",
+      "after_context": "tice Zinn's view that when incompetence of a counsel is alleged, \"caution is particularly relevant because the former representative [counsel] is not before the Court to explain his actions\" (\r\n <FRAGMENT_SUPPRESSED> [2011] FCJ No 1154).\r\n[14]\r\nIndeed, in the present case the Court is left to assess the applicant's allegations on solely the basis of the facts disclosed in the record.\r\nApplicant's "
+    },
+    {
+      "region_id": "038761_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "038761:6c72e3e5bc69c5df:6997-12790:4e3be922f07d",
+      "span_bytes": [
+        6997,
+        12790
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        6597,
+        7597
+      ],
+      "focus_span_bytes": [
+        6997,
+        7197
+      ],
+      "before_context": "urt of Canada outlined the following:\r\n[27] Incompetence is determined by a reasonableness standard. The analysis proceeds upon a strong presumption that counsel's conduct fell within the wide range of reasonable professional assistance. The onus is on the appellant to establish the acts or omissions of counsel that are alleged not to have been the result of reasonable professional judgment. ...\r\n",
+      "focus_text": "[25]\r\nMoreover, the comments of Justice De Montigny in the case of\r\n <FRAGMENT_SUPPRESSED> [ 2007] FCJ No 680, are apposite:\r\n[18] This Court has made it clear that a party should not be allowed to ra",
+      "after_context": "ise the incompetence of his lawyer unless that lawyer has had an opportunity to explain his conduct, or without evidence that the matter has been referred to the governing body for investigation: see, for example,\r\n <FRAGMENT_SUPPRESSED>  present instance.\r\n[19] The standard for this Court to conclude that the lawyer's incompetence was so severe as to amount to a breach of natural justice is very "
+    }
+  ],
+  "059632.txt": [
+    {
+      "region_id": "059632_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "059632:8d36d51cf235ab2a:18-525:4e3be922f07d",
+      "span_bytes": [
+        18,
+        525
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        0,
+        618
+      ],
+      "focus_span_bytes": [
+        18,
+        218
+      ],
+      "before_context": "Relief Requested\r\n",
+      "focus_text": "[1]\r\nStrayer, J.\r\n: This is an application for certiorari to quash a decision of the Public Service Commission delivered on July 10, 1989, which determined that the applicant's opportunity for advance",
+      "after_context": "ment had not been prejudicially affected by the reclassification of certain positions in the Department of Energy, Mines and Resources; and for mandamus requiring the Commission to decide that question again in accordance with the requirements of s. 21 of the Public Service Employment Act [see footnote 1].\r\nFacts\r\n[2]\r\nThe applicant is employed at the Canada Centre for Mapping, part of the Departm"
+    },
+    {
+      "region_id": "059632_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "059632:8d36d51cf235ab2a:6967-8300:4e3be922f07d",
+      "span_bytes": [
+        6967,
+        8300
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        6567,
+        7567
+      ],
+      "focus_span_bytes": [
+        6967,
+        7167
+      ],
+      "before_context": "\nThe essential issues here are:\r\n(1) What is the role of the Public Service Commission under s. 21(1) of the Public Service Employment Act?\r\n(2) Can the opinion of the Commission formulated on June 23, 1989 and issued July 10, 1989 be characterized as within that role?\r\nConclusions\r\n[8]\r\nThe respective responsibilities under s. 21(1) of the Commission and of an appeal board are not well defined.\r\n",
+      "focus_text": "[9]\r\nAt the outset one can assume that both are bound to respect the fundamental principle stated in s. 10 of the Act that:\r\n\"Appointments to or from within the Public Service shall be based on select",
+      "after_context": "ion according to merit ...\"\r\nwhether they are made with or without competition. If one took literally the words of s. 21(1) requiring the Commission, when requested, to give an opinion as to whether a given person's \"opportunity for advancement ... has been prejudicially affected ...\" by a selection without competition, and if one ignored the other words of the subsection, one could attribute to t"
+    },
+    {
+      "region_id": "059632_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "059632:8d36d51cf235ab2a:16180-16682:4e3be922f07d",
+      "span_bytes": [
+        16180,
+        16682
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        15780,
+        16682
+      ],
+      "focus_span_bytes": [
+        16180,
+        16380
+      ],
+      "before_context": "n application for judicial review is not an appeal and the court is not at liberty to substitute its own opinion on the facts for that of the authority being reviewed. I am satisfied that the Commission has not misdirected itself on the permissible legal interpretation of s. 21(1) or as to its jurisdiction under that subsection. There is therefore no basis for quashing the decision.\r\nDisposition\r\n",
+      "focus_text": "[17]\r\nThe application is therefore dismissed with costs.\r\nApplication dismissed.\r\nEditor: Elizabeth M.A. Turgeon/blk\r\nFootnotes\r\n1. R.S.C. 1985, c. P-33, which is the same in substance as the comparab",
+      "after_context": "le section in the previous Act which was in force when most of the relevant events occurred.\r\n2.  <FRAGMENT_SUPPRESSED> , at p. 637 S.C.R.\r\n4. See e.g.,  <FRAGMENT_SUPPRESSED> , at p. 221 F.C.\r\n5.  <FRAGMENT_SUPPRESSED> . Supra note 5 at page 234.\r\n9. [1978] 2 F.C. 129; 22 N.R. 514.\r\n[End of document]"
+    }
+  ],
+  "060581.txt": [
+    {
+      "region_id": "060581_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "060581:ed822e0c2fd7dbb3:1829-2312:4e3be922f07d",
+      "span_bytes": [
+        1829,
+        2312
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        1429,
+        2429
+      ],
+      "focus_span_bytes": [
+        1829,
+        2029
+      ],
+      "before_context": "ng Public Interest and Public Policy\r\n168\r\nii) No Standing\r\n171\r\niii) Fair Dealing\r\n173\r\niv) Estoppel, Laches, Acquiescence, etc.\r\n179\r\n5) The Canadian Charter of Rights and Freedoms\r\n182\r\n6) Free-Standing Photocopiers\r\n189\r\nRELIEFS\r\n193\r\n1) By the Plaintiffs\r\n193\r\n2) By the Defendant\r\n201\r\nA POSTSCRIPT\r\n203\r\nCOSTS\r\n204\r\nPAGE #\r\nSCHEDULE \"A\"\r\n83\r\nSCHEDULE \"B\"\r\n99\r\nSCHEDULE \"C\"\r\n105\r\nIntroduction\r\n",
+      "focus_text": "[1]\r\nGibson, J.\r\n: These actions were com­menced by Statements of Claim each filed the 2nd of July, 1993. The actions involve allegations of infringements of copyrights owned by the plaintiffs. The a",
+      "after_context": "lleged in­fringements result from the photocopying policies and activities of the defendant in supplying for the legal profession and the judiciary, limited copies of legal materials published by the plaintiffs and held in the defendant's \"Great Library\" at Osgoode Hall in Toronto.\r\n[2]\r\nSince February, 1996, the photocopying policies of the defendant have been reflected in its \"Access to the Law"
+    },
+    {
+      "region_id": "060581_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "060581:ed822e0c2fd7dbb3:52758-54476:4e3be922f07d",
+      "span_bytes": [
+        52758,
+        54476
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        52358,
+        53358
+      ],
+      "focus_span_bytes": [
+        52758,
+        52958
+      ],
+      "before_context": " appointed to the Ontario Court of Appeal where he served until his retirement. Since his retire­ment from the Ontario Court of Appeal, Mr. Arnup had returned to service with the Law Society of Upper Canada as a life-bencher.\r\n- Mr. Hugh Pattison. Mr. Pattison was called to the Ontario Bar in 1983. He practiced in the field of civil litigation with a relatively small firm of lawyers in Toronto.\r\n",
+      "focus_text": "[20]\r\nAmong the exhibits filed on behalf of the defendant is the expert affidavit of Pro­fessor H. Patrick Glenn. Professor Glenn was a member of the Bars of British Columbia and Québec. He was, at ",
+      "after_context": "the time he swore his affidavit, a Professor of Law at McGill University, the director of McGill University's Institute of Comparative Law, a Titular Member of the International Academy of Comparative Law, the President since 1987 of the Canadian Comparative Law Association, and a member since 1989 of the Board of Directors of the American Association for the Comparative Study of Law. Professor Gl"
+    },
+    {
+      "region_id": "060581_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "060581:ed822e0c2fd7dbb3:67220-272216:4e3be922f07d",
+      "span_bytes": [
+        67220,
+        272216
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        66820,
+        67820
+      ],
+      "focus_span_bytes": [
+        67220,
+        67420
+      ],
+      "before_context": "s in favour of the publisher. [see footnote 16] In fact, it was pointed out, the defendant itself had claimed ownership of copyright in the reported judicial decisions it published in the\r\nOntario Reports\r\nand had obtained an assignment of copyright in respect of those works from Canada Law Book Inc. when it was the publisher of the\r\nOntario Reports\r\non behalf of the defendant. [see footnote 17]\r\n",
+      "focus_text": "[38]\r\nFinally, counsel referred me to the certificates of registration of copyright in the specific judicial decisions before the court, namely\r\n <FRAGMENT_SUPPRESSED>  decision is a literary work pro",
+      "after_context": "tected in itself by copyright. He argued that the evidence established that the creation of a headnote requires skill and knowledge; that it is not simply a contraction or precis of the reasons for judgment. [see footnote 19]\r\n[40]\r\nCounsel noted that the defendant acknowledged that copyright subsists in the headnote to a reported judicial decision. [see footnote 20]\r\n[41]\r\nOnce again, and more sp"
+    }
+  ],
+  "062793.txt": [
+    {
+      "region_id": "062793_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "062793:b14b5313b90d0fd9:0-1390:4e3be922f07d",
+      "span_bytes": [
+        0,
+        1390
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_span_bytes": [
+        0,
+        200
+      ],
+      "before_context": "",
+      "focus_text": "[1]\r\nMuldoon, J.\r\n: These proceedings began as an application pursuant to s. 18 of the Federal Court Act, R.S.C. 1970, (2nd Supp.), c. 10, directed against the Governor-in-Council as respondent, and s",
+      "after_context": "eeking certiorari to quash Order-in-Council P.C. 1988-762 dated April 22, 1988. That decretal purports to vary, pursuant to s. 64(1) of the National Telecommunications Powers and Procedures Act Telecom Decision CRTC 88-4 rendered March 17, 1988. On August 28, 1987, Royal Assent was accorded to the National Transportation Act, 1987, S.C. 1987, c. 34, which provides:\r\n\"National Transportation Act\r\n\""
+    },
+    {
+      "region_id": "062793_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "062793:b14b5313b90d0fd9:37952-38621:4e3be922f07d",
+      "span_bytes": [
+        37952,
+        38621
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        37552,
+        38552
+      ],
+      "focus_span_bytes": [
+        37952,
+        38152
+      ],
+      "before_context": " own motion\r\n, and\r\nwithout any petition or application\r\n, simply\r\ndo what it will\r\nto or about any CRTC decision such as Telecom Decision 88-4,\r\neven though rendered inter partes\r\n; and whatever the cabinet does about or to such regulation,\r\nits order is binding upon the CRTC and all parties\r\n. It is difficult to describe those powers in adjectives other than arbitrary, despotic and autocratic.\r\n",
+      "focus_text": "[31]\r\nThe question of whether, in times of\r\nno emergency\r\n, it is constitutionally legitimate for the Parliament of Canada to accord by ordinary legislation to the Governor-in-Council albeit narrowly ",
+      "after_context": "confined but otherwise absolute powers of unlimited duration, especially when there is no legislative attempt to invoke s. 33 of the Charter or s. 2 of the Bill of Rights, is a question which must be left to another day. The plaintiffs' counsel in open court eschewed and foreswore in these proceedings any attack on the vires of Parliament to enact s. 64(1) of the N.T.P. & P. Act. The attack is upo"
+    },
+    {
+      "region_id": "062793_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "062793:b14b5313b90d0fd9:72907-73153:4e3be922f07d",
+      "span_bytes": [
+        72907,
+        73153
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        72507,
+        73153
+      ],
+      "focus_span_bytes": [
+        72907,
+        73107
+      ],
+      "before_context": "Order-in-Council P.O. 1988-762 will be declared to be null and void and of no force and effect for infringement of the plaintiffs' rights pursuant to s. 2(e) of the Canadian Bill of Rights, without prejudice to any action on the part of the Governor-in-Council to re-articulate its powers pursuant to s. 64(1) of the N.T.P. & P. Act on the same subject but in a lawful manner, as prescribed herein.\r\n",
+      "focus_text": "[60]\r\nCounsel for the respective parties and the interveners were all in agreement about not awarding any costs of, or incidental to, these proceedings. The court concurs.\r\nApplication allowed.\r\nEdito",
+      "after_context": "r: Debra F. MacCausland/mja\r\n[End of document]"
+    }
+  ],
+  "068113.txt": [
+    {
+      "region_id": "068113_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "068113:53c0e400143cad5f:461-993:4e3be922f07d",
+      "span_bytes": [
+        461,
+        993
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        61,
+        1061
+      ],
+      "focus_span_bytes": [
+        461,
+        661
+      ],
+      "before_context": " 3, 2010.\r\nCounsel:\r\nMichael F. Battista, for the applicant;\r\nAmy King, for the respondent.\r\nSolicitors of Record:\r\nJordan Battista, LLP, Toronto, Ontario, for the applicant;\r\nMyles J. Kirvan, Deputy Attorney General of Canada, Toronto, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\n",
+      "focus_text": "[1]\r\nO'Keefe, J.\r\n: This is an application pursuant to subsection 72(1) of the\r\nImmigration and Refugee Protection Act\r\n, S.C. 2001, c. 27 (the Act) for judicial review of a decision of the Refugee Pr",
+      "after_context": "otection Division of the Immigration and Refugee Board (the Board), dated January 7, 2010, wherein the applicant was determined not to be a Convention refugee or a person in need of protection under sections 96 and 97 of the Act. This conclusion was based on the Board's finding that state protection was available to the applicant.\r\n[2]\r\nThe applicant requests that the decision of the Board be set "
+    },
+    {
+      "region_id": "068113_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "068113:53c0e400143cad5f:9552-9917:4e3be922f07d",
+      "span_bytes": [
+        9552,
+        9917
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        9152,
+        10152
+      ],
+      "focus_span_bytes": [
+        9552,
+        9752
+      ],
+      "before_context": "eive threats of honour killings and experience gender violence as discussed in\r\n <FRAGMENT_SUPPRESSED> .\r\n[27]\r\nThe failure to examine the totality of the evidence before determining what actions were reasonable for the applicant is an inappropriate state protection analysis and the Board erred by finding that adequate state protection existed for the applicant.\r\nRespondent's Written Submissions\r\n",
+      "focus_text": "[28]\r\nThe respondent submits that in order to rebut the presumption that the state is capable of protecting its citizens, the applicant must provide clear and convincing evidence of the state's inabil",
+      "after_context": "ity to protect him. The Board's finding of a high level of democracy in Israel creates a heavy burden that the applicant needs to overcome to rebut this presumption.\r\n[29]\r\nThe Board reviewed the applicant's materials and made reference to his personal narratives and documentary evidence submitted. The respondent submits that it was open to the Board to find this evidence to be insufficient to mee"
+    },
+    {
+      "region_id": "068113_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "068113:53c0e400143cad5f:19126-23095:4e3be922f07d",
+      "span_bytes": [
+        19126,
+        23095
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        18726,
+        19726
+      ],
+      "focus_span_bytes": [
+        19126,
+        19326
+      ],
+      "before_context": "e protection was available to the applicant based on these findings. This amounted to a reviewable error.\r\n[53]\r\nConsequently, the application for judicial review will be allowed and the matter is referred to a different panel of the Board for redetermination.\r\n[54]\r\nNeither party wished to submit a proposed serious question of general importance for my consideration for certification.\r\nJUDGMENT\r\n",
+      "focus_text": "[55]\r\nIT IS ORDERED that\r\nthe application for judicial review is allowed, the decision of the Board is set aside and the matter is referred to a different panel of the Board for redetermination.\r\nANNE",
+      "after_context": "X\r\nRelevant Statutory Provisions\r\nImmigration and Refugee Protection Act\r\n, S.C. 2001, c. 27\r\n72.(1) Judicial review by the Federal Court with respect to any matter - a decision, determination or order made, a measure taken or a question raised - under this Act is commenced by making an application for leave to the Court.\r\n96. A Convention refugee is a person who, by reason of a well-founded fear "
+    }
+  ],
+  "080279.txt": [
+    {
+      "region_id": "080279_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "080279:6e9ff58ced3abec9:0-423:4e3be922f07d",
+      "span_bytes": [
+        0,
+        423
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        0,
+        600
+      ],
+      "focus_span_bytes": [
+        0,
+        200
+      ],
+      "before_context": "",
+      "focus_text": "[1]\r\nLafrenière, Case Management Judge\r\n: As was stated by the late Prothonotary John Hargrave in\r\n <FRAGMENT_SUPPRESSED> , at paragraph 19: \"Disputes between vessel owners and shipbuilders are invar",
+      "after_context": "iably complex matters which, if litigated, lead to extremely complicated and lengthy proceedings.\" The same came to be said about clashes between\r\nin rem\r\nclaimants jockeying for position in advance of a priorities hearing.\r\n[2]\r\nThe Plaintiff, Offshore Interiors Inc. (Offshore), seeks a declaration that the Mortgage granted to the Intervener, Harry Sargeant III (Sargeant), pursuant to the Vessel "
+    },
+    {
+      "region_id": "080279_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "080279:6e9ff58ced3abec9:10085-10844:4e3be922f07d",
+      "span_bytes": [
+        10085,
+        10844
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        9685,
+        10685
+      ],
+      "focus_span_bytes": [
+        10085,
+        10285
+      ],
+      "before_context": " requested by Offshore is not intended to preclude either Sargeant or Comerica from participating in the upcoming priorities hearing. Offshore acknowledges that Sargeant and Comerica are fully entitled to attempt to prove that they have\r\nin rem\r\nclaims. However, Offshore maintains that, based on the wording of the Mortgage and the VCA, their claims cannot include repayment of the funds advanced.\r\n",
+      "focus_text": "[26]\r\nIn opposing the motion, Sargeant and Comerica have advanced similar arguments. They submit that the Mortgage, if not expressly then impliedly, secures repayment of the amounts advanced pursuant ",
+      "after_context": "to the VCA, as particularized in their respective affidavits of claim. The VCA expressly provides that advances made by Sargeant to Worldspan are not earned until a future date: the delivery and acceptance of the Vessel. Sargeant and Comerica say that since the Vessel was never supplied, the advances are recoverable as money lent. In the alternative, they say that Sargeant has an equitable mortgag"
+    },
+    {
+      "region_id": "080279_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "080279:6e9ff58ced3abec9:24223-24855:4e3be922f07d",
+      "span_bytes": [
+        24223,
+        24855
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        23823,
+        24823
+      ],
+      "focus_span_bytes": [
+        24223,
+        24423
+      ],
+      "before_context": "It does not. If the monies were to be repaid, the Agreement would say so. It does not\r\n. (Plaintiff's underlining)\r\n[49]\r\nFor the above reasons, I conclude that there are no financial obligations that Worldspan has to Sargeant under the VCA. If Worldspan was in breach, Sargeant's remedies were limited to possession and ownership of the Vessel and an\r\nin personam action\r\nagainst Worldspan.\r\nORDER\r\n",
+      "focus_text": "[50]\r\nTHIS COURT ORDERS that\r\n:\r\n1. The motion is granted.\r\n2. The Builder's Mortgage granted to the Intervener, Harry Sargeant III, against the Defendant Vessel \"QE014226C010\" pursuant to a Vessel Co",
+      "after_context": "nstruction Agreement between Harry Sargeant III and the Defendant, Worldspan Marine Inc. dated February 29, 2008 does not create a lien or charge in the Vessel other than to secure delivery.\r\n3. Costs of the motion shall be paid to the Plaintiff by each of the Interveners, Harry Sargeant III and Comerica Bank, in the amount of $1,500.00, inclusive of disbursements and taxes.\r\nMotion allowed.\r\nEdit"
+    }
+  ],
+  "081898.txt": [
+    {
+      "region_id": "081898_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "081898:0c1e1a09cd997c5d:4935-5482:4e3be922f07d",
+      "span_bytes": [
+        4935,
+        5482
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        4535,
+        5535
+      ],
+      "focus_span_bytes": [
+        4935,
+        5135
+      ],
+      "before_context": "f the Federal Court, who delivered the following reasons for judgment and judgment, dated March 8, 2013, at Ottawa, Ontario.  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>                                                                                                        <FRAGMENT_SUPPRESSED>  \r\n ",
+      "focus_text": "[1] \r\n   \r\n Kane, J. \r\n : This is an application for judicial review pursuant to section 72 of the  \r\n Immigration and Refugee Protection Act \r\n , SC 2001, c 27 [the  \r\n Act \r\n ], of the decision of a",
+      "after_context": " senior immigration officer, dated January 12, 2012, which found that the applicants had not provided sufficient evidence of humanitarian and compassionate [H&C] grounds pursuant to subsection 25 (1) of the  \r\n Act \r\n  to justify an exemption from the requirement to apply for permanent residence status from outside Canada.  <FRAGMENT_SUPPRESSED>  \r\n Background  <FRAGMENT_SUPPRESSED>  \r\n [2] \r\n  Th"
+    },
+    {
+      "region_id": "081898_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "081898:0c1e1a09cd997c5d:25144-26388:4e3be922f07d",
+      "span_bytes": [
+        25144,
+        26388
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        24744,
+        25744
+      ],
+      "focus_span_bytes": [
+        25144,
+        25344
+      ],
+      "before_context": "ment of this evidence is addressed below with respect to the reasonableness of the decision.  <FRAGMENT_SUPPRESSED>  \r\n The Best Interests of the Child [BIOC] Analysis  <FRAGMENT_SUPPRESSED>  \r\n [42] \r\n  The applicant submits that the officer was not \"alert, alive and sensitive\" to the best interests of the child and did not conduct a proper analysis of these interests.  <FRAGMENT_SUPPRESSED>  \r\n ",
+      "focus_text": "[43] \r\n  The applicant also submits that the officer made a number of errors in assessing Rhea's best interests, including: he mistakenly found that Rhea had been successfully treated in India and cou",
+      "after_context": "ld, therefore, be treated there again; he failed to take into account the evidence that relapsed ALL requires a different level of care; he failed to assess whether it is in Rhea's best interest to remain in Canada under the optimal care of Sick Kids, as recommended by the doctors at Sick Kids, or to return to India and receive a lower standard of care; he failed to address the inferior treatment "
+    },
+    {
+      "region_id": "081898_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "081898:0c1e1a09cd997c5d:47332-47648:4e3be922f07d",
+      "span_bytes": [
+        47332,
+        47648
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        46932,
+        47652
+      ],
+      "focus_span_bytes": [
+        47332,
+        47532
+      ],
+      "before_context": "er how Rhea's illness and treatment played a role in the family's establishment in Canada and the officer did not provide adequate reasons for finding that their level of establishment was no more than expected. Therefore, the application for judicial review is allowed and the H&C application should be remitted to a different officer.  <FRAGMENT_SUPPRESSED>  \r\n JUDGMENT  <FRAGMENT_SUPPRESSED>  \r\n ",
+      "focus_text": "[85] \r\n   \r\n THIS COURT'S JUDGMENT is that \r\n :  <FRAGMENT_SUPPRESSED>  \r\n 1. The application for judicial review is allowed and the H&C application should be remitted to a different officer.  <FRAGME",
+      "after_context": "NT_SUPPRESSED>  \r\n Application allowed.  <FRAGMENT_SUPPRESSED>  \r\n Editor: E. Joanne Oley/vnh  <FRAGMENT_SUPPRESSED>  \r\n"
+    }
+  ],
+  "087799.txt": [
+    {
+      "region_id": "087799_R1_header_to_para1",
+      "target_type": "initial_paragraph",
+      "target_id": "087799:3d0ebec6657410b4:13-368:4e3be922f07d",
+      "span_bytes": [
+        13,
+        368
+      ],
+      "rationale": "Check boundary from metadata/header to first paragraph.",
+      "context_span_bytes": [
+        0,
+        613
+      ],
+      "focus_span_bytes": [
+        13,
+        213
+      ],
+      "before_context": "I. Overview\r\n",
+      "focus_text": "[1]\r\nShore, J.\r\n: The objectives of the\r\nImmigration and Refugee Protection\r\nAct\r\n, S.C. 2001, c. 27 (\r\nIRPA\r\n), enumerated in section 3 are two-fold: paragraphs (a) to (g) contain objectives aimed at",
+      "after_context": " facilitating immigration and family reunification; whereas, paragraphs (h) and (l) aim to protect the health, safety and security of the Canadian society.\r\n[2]\r\nIn drafting the new immigration legislation, Parliament decided the tipping point had been reached and it intended, for the sake of the security of Canadian society, to restrict access to Canada for persons inadmissible on grounds of crim"
+    },
+    {
+      "region_id": "087799_R2_mid_paragraph",
+      "target_type": "mid_paragraph",
+      "target_id": "087799:3d0ebec6657410b4:5987-6325:4e3be922f07d",
+      "span_bytes": [
+        5987,
+        6325
+      ],
+      "rationale": "Check middle paragraph boundary and text integrity.",
+      "context_span_bytes": [
+        5587,
+        6587
+      ],
+      "focus_span_bytes": [
+        5987,
+        6187
+      ],
+      "before_context": "th numerous terms and conditions, and the appeal was to be reconsidered, on May 17, 2007. The relevant conditions include:\r\n\"4) Not commit any criminal offences.\r\n\"5) If charged with a criminal offence, immediately report that fact in writing to the Department.\r\n\"6) If convicted of a criminal offence, immediately report that fact in writing to the Department and the Immigration Appeal Division.\"\r\n",
+      "focus_text": "[17]\r\nOn October 27, 2005, Mr. Bhoonahesh Ramnanan was convicted of several offences, including possession over $5,000.00, assault, two counts of possession of property obtained by crime under $5,000.",
+      "after_context": "00 and possession of weapon dangerous. Mr. Bhoonahesh Ramnanan was sentenced to 90 days to be served concurrently and 12 months probation.\r\n[18]\r\nOn December 19, 2005 and March 6, 2006, the Respondents wrote Mr. Bhoonahesh Ramnanan advising him that the IAD's stay of his deportation order was cancelled by operation of law and his appeal to the IAD was terminated, pursuant to s. 68(4) of the\r\nIRPA\r"
+    },
+    {
+      "region_id": "087799_R3_final_paragraph",
+      "target_type": "final_paragraph",
+      "target_id": "087799:3d0ebec6657410b4:14918-35701:4e3be922f07d",
+      "span_bytes": [
+        14918,
+        35701
+      ],
+      "rationale": "Check conclusion/final paragraph boundary.",
+      "context_span_bytes": [
+        14518,
+        15518
+      ],
+      "focus_span_bytes": [
+        14918,
+        15118
+      ],
+      "before_context": "stitutional validity of its enabling legislation.  <FRAGMENT_SUPPRESSED>  jurisprudence, which emphasized policy considerations and, therefore, their applicability is limited.\r\n[32]\r\n <FRAGMENT_SUPPRESSED>  questions of law, arising under a legislative provision, is presumed to extend to a determination of the validity of that provision. (Reference is also made to\r\nFerri\r\n, above, paras. 24-25.)\r\n",
+      "focus_text": "[33]\r\nThus, the fundamental question in determining whether a tribunal has jurisdiction to determine the constitutionality of any provision of its enabling statute, is to determine whether the tribuna",
+      "after_context": "l has authority to decide questions of law under the challenged provision itself. Where a tribunal has the jurisdiction to consider questions of law, arising under the challenged provision, the tribunal also possesses jurisdiction to entertain a\r\nCharter\r\nchallenge to the very same provision:\r\n\"[39] ... the relevant question in each case is not whether the terms of the express grant of jurisdictio"
+    }
+  ],
+  "007685.txt": [
+    {
+      "region_id": "007685_R1_first_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 1,
+      "span_bytes": [
+        4692,
+        4739
+      ],
+      "parent_unit_id": "007685:ce7ef3c8c4eb0d66:4664-312733:4e3be922f07d",
+      "rationale": "Verify whether first quote sidecar is genuinely inside quotation or misclassified outer paragraph.",
+      "context_span_bytes": [
+        4292,
+        5139
+      ],
+      "focus_span_bytes": [
+        4692,
+        4739
+      ],
+      "before_context": "that date. Accordingly, references in these reasons to the\r\nPatent Act\r\n(referred to as the\r\nPatent Act\r\nor the\r\nAct\r\n) will, unless specifically noted otherwise, be to the\r\nAct\r\nas it stood immediately prior to October 1, 1989.\r\nE. Table of Contents\r\n[10]\r\nFor assistance to the reader, I have set out a table of contents of these reasons for judgment.\r\nI. Introduction\r\n[1] to [10]\r\n--A. Overview\r\n",
+      "focus_text": "[1]\r\n--B. Basis of the Claim and Counterclaim\r\n",
+      "after_context": "[3]\r\n--C. Overview of Conclusions\r\n[8]\r\n--D. Applicable Law\r\n[9]\r\n--E. Table of Contents\r\n[10]\r\nII. Witnesses\r\n[11] to [38]\r\n--A. Factual Witnesses\r\n[12]\r\n--B. Expert Witnesses\r\n[21]\r\n--- (1) Servier Expert Witnesses\r\n[22]\r\n---(2) Apotex Expert Witnesses\r\n[29]\r\n---(3) General Comments on the Expert Witnesses\r\n[35]\r\nIII. Background\r\n[39] to [63]\r\n--A. Background to ACE Inhibitors, including Perindo"
+    },
+    {
+      "region_id": "007685_R2_last_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 520,
+      "span_bytes": [
+        308918,
+        312733
+      ],
+      "parent_unit_id": "007685:ce7ef3c8c4eb0d66:4664-312733:4e3be922f07d",
+      "rationale": "Verify whether subsequent numbered paragraphs were swallowed as sidecars.",
+      "context_span_bytes": [
+        308518,
+        309468
+      ],
+      "focus_span_bytes": [
+        308918,
+        309068
+      ],
+      "before_context": " parties provide written submissions as to costs, within thirty (30) days from the delivery of these Reasons. These submissions should address those matters set out in Rule 400(3) of the\r\nFederal Courts Rules\r\nas well as experts, number of counsel, disbursements, any offer to settle and any other matter relevant to the award of costs. These submissions should not exceed ten (10) pages.\r\nJUDGMENT\r\n",
+      "focus_text": "[520]\r\nFor the Reasons set out herein, following the trial of this action,\r\nthis Court adjudges and declares as follows\r\n:\r\n1. Les Laboratoires Servie",
+      "after_context": "r, Oril Industries, Servier Laboratories (Australia) Pty Ltd and Servier Laboratories Limited are hereby struck from the style of cause of this action and shall have no rights as Plaintiffs in respect of this action;\r\n2. Claims 1, 2, 3 and 5 of Canadian Letters Patent No 1,341,196 are valid and have been infringed by the Defendants, Apotex Inc. and Apotex Pharmachem Inc., or either of them, by the"
+    },
+    {
+      "region_id": "007685_R3_initial_paragraph_boundary",
+      "target_type": "paragraph_boundary",
+      "target_id": "007685:ce7ef3c8c4eb0d66:30-646:4e3be922f07d",
+      "span_bytes": [
+        30,
+        646
+      ],
+      "rationale": "Verify transition from header/title into initial paragraph.",
+      "context_span_bytes": [
+        0,
+        580
+      ],
+      "focus_span_bytes": [
+        30,
+        180
+      ],
+      "before_context": "I. Introduction\r\nA. Overview\r\n",
+      "focus_text": "[1]\r\nSnider, J.\r\n: The Plaintiffs (described below and collectively referred to as Servier) manufacture, distribute and sell a drug with the trademark",
+      "after_context": " of COVERSYL, used primarily in the treatment of hypertension and cardiac insufficiency. The active ingredient in COVERSYL is perindopril, a compound covered by Canadian Patent No. 1,341,196 (the '196 Patent), which patent is owned by one of the Plaintiffs, ADIR. The other Plaintiffs - all corporate affiliates of ADIR - are engaged in some aspect of the distribution, manufacture or sale of COVERSY"
+    }
+  ],
+  "020897.txt": [
+    {
+      "region_id": "020897_R1_first_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 10,
+      "span_bytes": [
+        5104,
+        6836
+      ],
+      "parent_unit_id": "020897:9d72531c139bde27:4274-179652:4e3be922f07d",
+      "rationale": "Verify whether first quote sidecar is genuinely inside quotation or misclassified outer paragraph.",
+      "context_span_bytes": [
+        4704,
+        5654
+      ],
+      "focus_span_bytes": [
+        5104,
+        5254
+      ],
+      "before_context": "e many fact and expert witnesses who appeared in this trial and the areas to which they testified in Appendix A. For the experts, I have described the matters in respect of which I found them to be qualified to provide me with their expert opinions. More detailed references to the witnesses' evidence and testimony are contained in the appropriate sections of these Reasons.\r\nII. Table of Contents\r\n",
+      "focus_text": "[10]\r\nTo assist the reader, the following Table of Contents is provided. The paragraph number for the beginning of each noted section is set out.\r\n-\r\n",
+      "after_context": "Para.\r\nI. Introduction\r\n1\r\nII. Table of Contents\r\n10\r\nIII. Issues\r\n11\r\nIV. Essential Background\r\n13\r\n--A. Statutory framework under the PM (NOC) Regulations\r\n13\r\n--B. Ramipril patents\r\n26\r\n--C. Apotex's regulatory submissions and litigation\r\n29\r\nV. Relevant Period\r\n37\r\n--A. Commencement date\r\n37\r\n--B. End date\r\n56\r\n---(1) Apotex's date: May 2, 2008\r\n59\r\n---(2) Sanofi's date: June 27, 2006\r\n65\r\n---"
+    },
+    {
+      "region_id": "020897_R2_last_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 303,
+      "span_bytes": [
+        169433,
+        179652
+      ],
+      "parent_unit_id": "020897:9d72531c139bde27:4274-179652:4e3be922f07d",
+      "rationale": "Verify whether subsequent numbered paragraphs were swallowed as sidecars.",
+      "context_span_bytes": [
+        169033,
+        169983
+      ],
+      "focus_span_bytes": [
+        169433,
+        169583
+      ],
+      "before_context": "he requested portions. In my opinion, the fact that Sanofi had prepared an internal market analysis report is not surprising or commercially sensitive. In addition, this report formed the basis for some of my findings on market share. Thus, while I have redacted the specific numbers and other details regarding the report, the overall reference to the report remains for context and understanding.\r\n",
+      "focus_text": "[303]\r\nAlso, post-release of the Reasons and Judgment, Apotex commented on three parts of the Judgment that did not accord with the Reasons. Apotex wa",
+      "after_context": "s right. The following amendments have been made to the Judgment:\r\n1. The reference in paragraph 1 to \"2.5, 5 and 10 mg capsules of Novo-ramipril\" should be to \"1.25, 2.5, 5 and 10 mg capsules of Apo-ramipril\".\r\n2. The reference in paragraph 2(d)(f)(i), third bullet, to\"50% during Period 3\" should be to \"65% during Period 3\".\r\n3. Paragraph 2 of the Judgment indicates that \"Sanofi is ordered and di"
+    },
+    {
+      "region_id": "020897_R3_initial_paragraph_boundary",
+      "target_type": "paragraph_boundary",
+      "target_id": "020897:9d72531c139bde27:17-347:4e3be922f07d",
+      "span_bytes": [
+        17,
+        347
+      ],
+      "rationale": "Verify transition from header/title into initial paragraph.",
+      "context_span_bytes": [
+        0,
+        567
+      ],
+      "focus_span_bytes": [
+        17,
+        167
+      ],
+      "before_context": "I. Introduction\r\n",
+      "focus_text": "[1]\r\nSnider, J.\r\n: Apotex Inc. (Apotex), the Plaintiff in this action, sells a generic version of ramipril - a drug used mainly to treat hypertension ",
+      "after_context": "- into the Canadian market. Sanofi-Aventis Canada Inc. (Sanofi), one of the Defendants in this action, holds or has held patent rights to a brand-name version of ramipril - ALTACE.\r\n[2]\r\nIn spite of the fact that Apotex received certain regulatory approvals from Health Canada in 2004, it was unable to commence sales of Apo-ramipril until December 12, 2006, when it received its Notice of Compliance"
+    }
+  ],
+  "078607.txt": [
+    {
+      "region_id": "078607_R1_first_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 281,
+      "span_bytes": [
+        169850,
+        171271
+      ],
+      "parent_unit_id": "078607:01870c8fd902231d:168576-552135:4e3be922f07d",
+      "rationale": "Verify whether first quote sidecar is genuinely inside quotation or misclassified outer paragraph.",
+      "context_span_bytes": [
+        169450,
+        170400
+      ],
+      "focus_span_bytes": [
+        169850,
+        170000
+      ],
+      "before_context": "for the Court, found to be of particular interest:\r\n\" <FRAGMENT_SUPPRESSED>  includes a monopoly of the sale ... of products made according to the patented process ... A person who ... sells the product here, is surely indirectly making, using, and putting in practice the patented invention. Any other construction,' he adds, 'would render ... the whole privilege ... futile,' p. 233.\" (para. 31.)\r\n",
+      "focus_text": "[281]\r\nGiven that Apotex says that this reasoning, if applied in Canada, raises an issue of extraterritorial application of our\r\nPatent Act\r\n, it is a",
+      "after_context": "lso worth mentioning that this very same issue was considered in England more than a hundred years ago. In\r\nBadische Anilin und  <FRAGMENT_SUPPRESSED>  obtained a declaration of infringement against a trader in England who had ordered goods made in Switzerland using a process protected by an English patent, but which were delivered to the Swiss post office (the Buyer) by whom they were then import"
+    },
+    {
+      "region_id": "078607_R2_last_quote_sidecar",
+      "target_type": "sidecar",
+      "target_id": 884,
+      "span_bytes": [
+        476902,
+        552135
+      ],
+      "parent_unit_id": "078607:01870c8fd902231d:168576-552135:4e3be922f07d",
+      "rationale": "Verify whether subsequent numbered paragraphs were swallowed as sidecars.",
+      "context_span_bytes": [
+        476502,
+        477452
+      ],
+      "focus_span_bytes": [
+        476902,
+        477052
+      ],
+      "before_context": "n the basis of the top of the scale of Column III of Tariff B while services rendered after the trial started will be assessed on the basis of the top of the scale of Column IV of the said Tariff.\r\n[883]\r\nThe defendants by counterclaim are entitled to assess costs of two counsel as well as reasonable expert witness fees and disbursements for the expert witnesses who testified at trial.\r\nJUDGMENT\r\n",
+      "focus_text": "[884]\r\nFor the Reasons set out herein, following the trial of this action, this Court adjudges and declares as follows:\r\n1. At least one valid claim i",
+      "after_context": "n each of the following patents:\r\na. Canadian Letters Patent No. 1,133,007;\r\nb. Canadian Letters Patent No. 1,146,536;\r\nc. Canadian Letters Patent No. 1,133,468;\r\nd. Canadian Letters Patent No. 1,150,725;\r\ne. Canadian Letters Patent No. 1,095,026;\r\nf. Canadian Letters Patent No. 1,132,547;\r\ng. Canadian Letters Patent No. 1,136,132;\r\nh. Canadian Letters Patent No. 1,144,924;\r\nhave been infringed by"
+    },
+    {
+      "region_id": "078607_R3_initial_paragraph_boundary",
+      "target_type": "paragraph_boundary",
+      "target_id": "078607:01870c8fd902231d:0-626:4e3be922f07d",
+      "span_bytes": [
+        0,
+        626
+      ],
+      "rationale": "Verify transition from header/title into initial paragraph.",
+      "context_span_bytes": [
+        0,
+        550
+      ],
+      "focus_span_bytes": [
+        0,
+        150
+      ],
+      "before_context": "",
+      "focus_text": "[1]\r\nGauthier, J.\r\n: The plaintiffs in this action claim that their rights under eight Canadian patents were infringed when Apotex Inc. (Apotex) impor",
+      "after_context": "ted bulk cefaclor into Canada for use in the various Apo-cefaclor dosage forms they sold after January, 1997. The plaintiff Eli Lilly and Company (Lilly U.S.) is the owner of these eight patents. Eli Lilly Canada Inc. (Lilly Canada) is a wholly owned subsidiary of Lilly U.S. incorporated under the laws of Ontario and it alleges that it has rights under the patentee, which is contested by Apotex. T"
+    }
+  ],
+  "038799.txt": [
+    {
+      "region_id": "038799_R1_reset_marker_boundary",
+      "target_type": "reset_paragraph",
+      "target_id": "038799:4101891f3f00adb3:11081-11470:4e3be922f07d",
+      "span_bytes": [
+        11081,
+        11470
+      ],
+      "language_region": "fr:1",
+      "uncertainties": [
+        "translation_boundary_observed"
+      ],
+      "rationale": "Examine raw context around numbering reset [1] to determine if truly French or false reset.",
+      "context_span_bytes": [
+        10681,
+        11681
+      ],
+      "focus_span_bytes": [
+        11081,
+        11281
+      ],
+      "before_context": "\r\n Newfoundland and  <FRAGMENT_SUPPRESSED> ). \r\n \r\n \r\n \r\n JUDGMENT \r\n \r\n \r\n \r\n [21] \r\n   \r\n THIS COURT'S JUDGMENT is that \r\n : \r\n \r\n \r\n \r\n 1. The application for judicial review is dismissed; \r\n \r\n \r\n \r\n 2. Cost to the Respondent fixed in the amount of $2500, as agreed to by the parties. \r\n \r\n \r\n \r\n ......................... \r\n \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED>  Passeports (défendeurs) \r\n \r\n \r\n \r\n ",
+      "focus_text": "[1] \r\n   \r\n Le juge Manson \r\n  [Traduction]: La présente demande de contrôle judiciaire fondée sur l'article 18.1 de la  \r\n Loi sur les Cours fédérales \r\n , LRC 1985, c F-7, vise la décision d'u",
+      "after_context": "n arbitre de Passeport Canada, Jocelyn Francoeur [l'arbitre], de révoquer l'accès du demandeur aux services de passeport pendant une période de cinq ans, à compter du 23 décembre 2010. \r\n \r\n \r\n \r\n I.  \r\n Contexte \r\n \r\n \r\n \r\n [2] \r\n  Les parties admettent que le 23 décembre 2010 un inconnu [l'imposteur] a tenté de prendre un vol d'Istanbul, en Turquie, à destination de Toronto, en présenta"
+    },
+    {
+      "region_id": "038799_R2_first_para_boundary",
+      "target_type": "first_paragraph",
+      "target_id": "038799:4101891f3f00adb3:838-1216:4e3be922f07d",
+      "span_bytes": [
+        838,
+        1216
+      ],
+      "language_region": "en:0",
+      "rationale": "Examine first paragraph language and structure to contrast with reset.",
+      "context_span_bytes": [
+        438,
+        1438
+      ],
+      "focus_span_bytes": [
+        838,
+        1038
+      ],
+      "before_context": "icant; \r\n \r\n Agnieszka Zagorska, for the respondent. \r\n \r\n \r\n \r\n Solicitors of Record: \r\n \r\n R. Mitchell Rowe, Ottawa, Ontario, for the applicant; \r\n \r\n William F. Pentney, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent. \r\n \r\n \r\n \r\n Summary: \r\n \r\n This case is unedited, therefore contains no summary. This case was originally cited as [2013] F.T.R. TBEd. SE.017. \r\n \r\n \r\n \r\n ",
+      "focus_text": "[1] \r\n   \r\n Manson, J. \r\n : This is an application for judicial review of the decision of Jocelyn Francoeur, an Adjudicator with Passport Canada [the Adjudicator], pursuant to section 18.1 of the  \r\n ",
+      "after_context": "Federal Courts Act \r\n , RSC 1985, c F-7. The Adjudicator revoked the availability of passport services to the Applicant for a period of five years, starting on December 23, 2010. \r\n \r\n \r\n \r\n I.  \r\n Background \r\n \r\n \r\n \r\n [2] \r\n  The parties do not dispute that on December 23, 2010, an unknown individual [the Impostor] attempted to board a flight from Istanbul, Turkey, to Toronto, using the Applica"
+    },
+    {
+      "region_id": "038799_R3_pre_reset_separator",
+      "target_type": "pre_reset_unit",
+      "target_id": "038799:4101891f3f00adb3:11080-11081:4e3be922f07d",
+      "span_bytes": [
+        11080,
+        11081
+      ],
+      "unit_kind": "whitespace",
+      "rationale": "Check separator or cue preceding reset (e.g. [translation], stars, dots).",
+      "context_span_bytes": [
+        10680,
+        11481
+      ],
+      "focus_span_bytes": [
+        11080,
+        11081
+      ],
+      "before_context": " \r\n Newfoundland and  <FRAGMENT_SUPPRESSED> ). \r\n \r\n \r\n \r\n JUDGMENT \r\n \r\n \r\n \r\n [21] \r\n   \r\n THIS COURT'S JUDGMENT is that \r\n : \r\n \r\n \r\n \r\n 1. The application for judicial review is dismissed; \r\n \r\n \r\n \r\n 2. Cost to the Respondent fixed in the amount of $2500, as agreed to by the parties. \r\n \r\n \r\n \r\n ......................... \r\n \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED>  Passeports (défendeurs) \r\n \r\n \r\n \r\n",
+      "focus_text": " ",
+      "after_context": "[1] \r\n   \r\n Le juge Manson \r\n  [Traduction]: La présente demande de contrôle judiciaire fondée sur l'article 18.1 de la  \r\n Loi sur les Cours fédérales \r\n , LRC 1985, c F-7, vise la décision d'un arbitre de Passeport Canada, Jocelyn Francoeur [l'arbitre], de révoquer l'accès du demandeur aux services de passeport pendant une période de cinq ans, à compter du 23 décembre 2010. \r\n \r\n \r\n \r"
+    }
+  ],
+  "050936.txt": [
+    {
+      "region_id": "050936_R1_reset_marker_boundary",
+      "target_type": "reset_paragraph",
+      "target_id": "050936:d61772efef974570:13042-24976:4e3be922f07d",
+      "span_bytes": [
+        13042,
+        24976
+      ],
+      "language_region": "unknown:1",
+      "uncertainties": [
+        "numbering_reset_language_unknown",
+        "contains_quoted_marker_candidates",
+        "nested_marker_hierarchy_unverified"
+      ],
+      "rationale": "Examine raw context around numbering reset [1] to determine if truly French or false reset.",
+      "context_span_bytes": [
+        12642,
+        13642
+      ],
+      "focus_span_bytes": [
+        13042,
+        13242
+      ],
+      "before_context": "eduled for months, reasonably led the Board to draw a negative credibility inference.\r\n[30]\r\nThe Board is entitled to draw reasonable conclusions with respect to credibility based on implausibility, common sense and rationality of an applicant's narrative, and may reject testimony if it does not accord with the probabilities. As noted by Justice Shore in\r\n <FRAGMENT_SUPPRESSED> [2007] FCJ No 97:\r\n",
+      "focus_text": "[1] The Court is of the opinion that the Board may draw reasonable conclusions based on implausibilities, common sense and rationality and may reject testimony if it does not accord with the probabili",
+      "after_context": "ties affecting the case as a whole: (\r\n <FRAGMENT_SUPPRESSED>  (QL))\r\n[31]\r\nThe jurisprudence has established that internal inconsistencies in an applicant's story, as well as inconsistencies between an applicant's story and other evidence, may provide the basis for the Board's negative credibility findings (\r\n <FRAGMENT_SUPPRESSED> [2006] FCJ No 1516).\r\n[32]\r\nGiven that the Board had the benefit "
+    },
+    {
+      "region_id": "050936_R2_first_para_boundary",
+      "target_type": "first_paragraph",
+      "target_id": "050936:d61772efef974570:684-1116:4e3be922f07d",
+      "span_bytes": [
+        684,
+        1116
+      ],
+      "language_region": "en:0",
+      "rationale": "Examine first paragraph language and structure to contrast with reset.",
+      "context_span_bytes": [
+        284,
+        1284
+      ],
+      "focus_span_bytes": [
+        684,
+        884
+      ],
+      "before_context": "ary 29, 2014.\r\nCounsel:\r\nLaura Setzer, for the applicants;\r\nPeter Nostbakken, for the respondent.\r\nSolicitors of Record:\r\nLaura Setzer, Ottawa, Ontario, for the applicants;\r\nWilliam F. Pentney, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\n",
+      "focus_text": "[1]\r\nKane, J.\r\n: The applicants seek judicial review pursuant to section 72 of the\r\nImmigration and Refugee Protection Act\r\n, SC 2001, c 27 [the\r\nAct\r\n] of the decision of the Refugee Protection Divis",
+      "after_context": "ion of the Immigration and Refugee Board (the \"Board\") made on January 15, 2013, which determined that they were not Convention refugees pursuant to section 96, nor persons in need of protection pursuant to section 97 of the\r\nAct\r\n.\r\n[2]\r\nFor the reasons that follow, the application is dismissed.\r\nBackground\r\n[3]\r\nThe applicants, Wilmer Lopez (\"Wilmer\") and Kelvin Recinos Amaya (\"Kelvin\"), are hal"
+    },
+    {
+      "region_id": "050936_R3_pre_reset_separator",
+      "target_type": "pre_reset_unit",
+      "target_id": "050936:d61772efef974570:13040-13042:4e3be922f07d",
+      "span_bytes": [
+        13040,
+        13042
+      ],
+      "unit_kind": "whitespace",
+      "rationale": "Check separator or cue preceding reset (e.g. [translation], stars, dots).",
+      "context_span_bytes": [
+        12640,
+        13442
+      ],
+      "focus_span_bytes": [
+        13040,
+        13042
+      ],
+      "before_context": "cheduled for months, reasonably led the Board to draw a negative credibility inference.\r\n[30]\r\nThe Board is entitled to draw reasonable conclusions with respect to credibility based on implausibility, common sense and rationality of an applicant's narrative, and may reject testimony if it does not accord with the probabilities. As noted by Justice Shore in\r\n <FRAGMENT_SUPPRESSED> [2007] FCJ No 97:",
+      "focus_text": "\r\n",
+      "after_context": "[1] The Court is of the opinion that the Board may draw reasonable conclusions based on implausibilities, common sense and rationality and may reject testimony if it does not accord with the probabilities affecting the case as a whole: (\r\n <FRAGMENT_SUPPRESSED>  (QL))\r\n[31]\r\nThe jurisprudence has established that internal inconsistencies in an applicant's story, as well as inconsistencies between "
+    }
+  ],
+  "057925.txt": [
+    {
+      "region_id": "057925_R1_reset_marker_boundary",
+      "target_type": "reset_paragraph",
+      "target_id": "057925:676394e39cb89f28:12878-13340:4e3be922f07d",
+      "span_bytes": [
+        12878,
+        13340
+      ],
+      "language_region": "fr:1",
+      "uncertainties": [
+        "translation_boundary_observed"
+      ],
+      "rationale": "Examine raw context around numbering reset [1] to determine if truly French or false reset.",
+      "context_span_bytes": [
+        12478,
+        13478
+      ],
+      "focus_span_bytes": [
+        12878,
+        13078
+      ],
+      "before_context": "\r\n \r\n \r\n ORDER \r\n \r\n \r\n \r\n [30] \r\n   \r\n THE COURT ORDERS THAT \r\n : \r\n \r\n \r\n \r\n 1. The application for judicial review is dismissed. \r\n \r\n \r\n \r\n 2. No serious question of general importance is certified. \r\n \r\n \r\n \r\n .................... \r\n \r\n \r\n \r\n  Xue Jun Chen (partie demanderesse) v. Le Ministre de la Citoyennetéa et de l'Immigration (partie défenderesse)  \r\n \r\n \r\n \r\n INTRODUCTION \r\n \r\n \r\n \r\n ",
+      "focus_text": "[1] \r\n   \r\n Le juge Blanchard \r\n : La présente porte sur une demande de contrôle judiciaire d'une décision de la Section de la protection des réfugiés de la Commission de l'immigration et du stat",
+      "after_context": "ut de réfugié \" la Commission \" rendue le 21 septembre 2004 par le commissaire Me Michael Hamelin. Par opération de cette décision, la demande d'asile du demandeur a été rejetée au motif qu'il n'avait pas qualité de réfugié ni de personne à protéger. \r\n \r\n \r\n \r\n [2] \r\n  Le demandeur, Xue Jun Chen, demande que cette Cour casse la décision contestée et renvoie l'affaire devant un commi"
+    },
+    {
+      "region_id": "057925_R2_first_para_boundary",
+      "target_type": "first_paragraph",
+      "target_id": "057925:676394e39cb89f28:778-1190:4e3be922f07d",
+      "span_bytes": [
+        778,
+        1190
+      ],
+      "language_region": "en:0",
+      "rationale": "Examine first paragraph language and structure to contrast with reset.",
+      "context_span_bytes": [
+        378,
+        1378
+      ],
+      "focus_span_bytes": [
+        778,
+        978
+      ],
+      "before_context": "05. \r\n \r\n \r\n \r\n Counsel: \r\n \r\n Luciano Mascaro, for the plaintiff; \r\n \r\n Marie-Claude Paquette, for the defendant. \r\n \r\n \r\n \r\n Solicitors of Record: \r\n \r\n Luciano Mascaro, for the plaintiff; \r\n \r\n John J. Sims, Deputy Attorney General of Canada, Ottawa, Ontario, for the defendant. \r\n \r\n \r\n \r\n Summary: \r\n \r\n This case is unedited, therefore contains no summary. \r\n \r\n \r\n \r\n INTRODUCTION \r\n \r\n \r\n \r\n ",
+      "focus_text": "[1] \r\n   \r\n Blanchard, J. \r\n  [Translation]: This is an application for judicial review of a decision by Member Michael Hamelin of the Refugee Protection Division of the Immigration and Refugee Board ",
+      "after_context": "(the Board) dated September 21, 2004. By operation of the decision, the applicant's claim for refugee protection was rejected on the grounds that he was not a Convention refugee or a person in need of protection. \r\n \r\n \r\n \r\n [2] \r\n  The applicant, Xue Jun Chen, is asking the Court to set aside the impugned decision and refer the matter back to a differently constituted panel of the Refugee Protect"
+    },
+    {
+      "region_id": "057925_R3_pre_reset_separator",
+      "target_type": "pre_reset_unit",
+      "target_id": "057925:676394e39cb89f28:12877-12878:4e3be922f07d",
+      "span_bytes": [
+        12877,
+        12878
+      ],
+      "unit_kind": "whitespace",
+      "rationale": "Check separator or cue preceding reset (e.g. [translation], stars, dots).",
+      "context_span_bytes": [
+        12477,
+        13278
+      ],
+      "focus_span_bytes": [
+        12877,
+        12878
+      ],
+      "before_context": " \r\n \r\n \r\n ORDER \r\n \r\n \r\n \r\n [30] \r\n   \r\n THE COURT ORDERS THAT \r\n : \r\n \r\n \r\n \r\n 1. The application for judicial review is dismissed. \r\n \r\n \r\n \r\n 2. No serious question of general importance is certified. \r\n \r\n \r\n \r\n .................... \r\n \r\n \r\n \r\n  Xue Jun Chen (partie demanderesse) v. Le Ministre de la Citoyennetéa et de l'Immigration (partie défenderesse)  \r\n \r\n \r\n \r\n INTRODUCTION \r\n \r\n \r\n \r\n",
+      "focus_text": " ",
+      "after_context": "[1] \r\n   \r\n Le juge Blanchard \r\n : La présente porte sur une demande de contrôle judiciaire d'une décision de la Section de la protection des réfugiés de la Commission de l'immigration et du statut de réfugié \" la Commission \" rendue le 21 septembre 2004 par le commissaire Me Michael Hamelin. Par opération de cette décision, la demande d'asile du demandeur a été rejetée au motif qu'il "
+    }
+  ],
+  "046028.txt": [
+    {
+      "region_id": "046028_R1_largest_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "046028:103e31cc6e144258:3622-21601:4e3be922f07d",
+      "span_bytes": [
+        3622,
+        21601
+      ],
+      "rationale": "Check why this large unnumbered block was not parsed into paragraphs or headings.",
+      "context_span_bytes": [
+        3222,
+        4322
+      ],
+      "focus_span_bytes": [
+        3622,
+        3922
+      ],
+      "before_context": "and in accordance with the principles of natural justice and where reliance has not been placed upon considerations irrelevant or extraneous to the statutory purpose, courts should not interfere ( <FRAGMENT_SUPPRESSED>  at paragraph 65). Therefore, if a breach of procedural fairness is found, the decision must be set aside (Congrégation des témoins de  <FRAGMENT_SUPPRESSED>  at 665).\r\nANALYSIS\r\n",
+      "focus_text": "1) Did the visa officer err by not considering all of the evidence before her?\r\n[8]\r\nThe applicant first submits that the visa officer erred by failing to examine the totality of the applicant’s work experience and confining her analysis to the applicant’s work experience since coming to the Uni",
+      "after_context": "ted States.\r\n[9]\r\nThe respondent, for his part, asserts that there is a presumption that the visa officer has considered all the evidence before her when rendering her decision and that the onus is on the applicant to provide the necessary information to support his claim.\r\n[10]\r\nThe respondent is correct in stating that there is a presumption, recognized by the Supreme Court of Canada in  <FRAGME"
+    },
+    {
+      "region_id": "046028_R2_unnumbered_to_para_transition",
+      "target_type": "transition",
+      "target_id": "046028:103e31cc6e144258:459-913:4e3be922f07d",
+      "span_bytes": [
+        459,
+        913
+      ],
+      "rationale": "Check boundary between header unnumbered region and first paragraph.",
+      "context_span_bytes": [
+        59,
+        1059
+      ],
+      "focus_span_bytes": [
+        459,
+        659
+      ],
+      "before_context": " 15, 2007.\r\nCounsel:\r\nMax Chaudhary, for the applicant;\r\nDavid Joseph,  for the respondent.\r\nSolicitors of Record:\r\nMax Chaudhary, North York, Ontario, for the applicant;\r\nJohn H. Sims, Q.C., Deputy Attorney General of Canada, Toronto, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\n",
+      "focus_text": "[1]\r\nBlais, J.\r\n: This is an application pursuant to subsection 72(1) of the Immigration and Refugee Protection Act, S.C. 2001, c. 27 (the Act), for judicial review of a decision of a visa officer dat",
+      "after_context": "ed January 13, 2006, who held that the applicant failed to meet the criteria under section 75 of the Immigration and Refugee Protection Regulations, S.O.R./2002-227 (the Regulations) to be granted a permanent resident visa under the skilled worker class.\r\nBACKGROUND\r\n[2]\r\nNabeel Athar (the applicant) is a citizen of Pakistan who has recently been living and working in the United States, with his w"
+    },
+    {
+      "region_id": "046028_R3_secondary_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "046028:103e31cc6e144258:176-324:4e3be922f07d",
+      "span_bytes": [
+        176,
+        324
+      ],
+      "rationale": "Check secondary unnumbered region for missing structure.",
+      "context_span_bytes": [
+        0,
+        724
+      ],
+      "focus_span_bytes": [
+        176,
+        324
+      ],
+      "before_context": " <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nBlais, J.\r\nFebruary 15, 2007.\r\nCounsel:\r\nMax Chaudhary, for the applicant;\r\nDavid Joseph,  for the respondent.\r\nSolicitors of Record:\r\n",
+      "focus_text": "Max Chaudhary, North York, Ontario, for the applicant;\r\nJohn H. Sims, Q.C., Deputy Attorney General of Canada, Toronto, Ontario, for the respondent.",
+      "after_context": "\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\n[1]\r\nBlais, J.\r\n: This is an application pursuant to subsection 72(1) of the Immigration and Refugee Protection Act, S.C. 2001, c. 27 (the Act), for judicial review of a decision of a visa officer dated January 13, 2006, who held that the applicant failed to meet t"
+    }
+  ],
+  "066595.txt": [
+    {
+      "region_id": "066595_R1_largest_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "066595:1273b5e577bc5ad6:5096-24434:4e3be922f07d",
+      "span_bytes": [
+        5096,
+        24434
+      ],
+      "rationale": "Check why this large unnumbered block was not parsed into paragraphs or headings.",
+      "context_span_bytes": [
+        4696,
+        5796
+      ],
+      "focus_span_bytes": [
+        5096,
+        5396
+      ],
+      "before_context": "ême du Canada a défini comme suit le critère de la raisonnabilité:\r\n[...] Le caractère raisonnable tient principalement à la justification de la décision, à la transparence et à l'intelligibilité du processus décisionnel, ainsi qu'à l'appartenance de la décision aux issues possibles acceptables pouvant se justifier au regard des faits et du droit. [para. 47 de la décision]\r\nAnalyse\r\n",
+      "focus_text": "[10]\r\nLe demandeur soutient que la Commission a erré en concluant que sa crainte correspondait à une crainte généralisée vécue par la population en général. Le demandeur soutient qu'il a fait la preuve qu'il a été personnellement ciblé par les Maras, qu'il a fait l'objet d'extorsion, qu'i",
+      "after_context": "l a accepté de payer les montants exigés pendant huit mois et qu'il a subi des menaces lorsqu'il a refusé de continuer de payer. Dès lors, le demandeur soutient que le risque qu'il encourt est personnalisé et qu'il ne doit pas être considéré comme étant comparable à celui encouru par la population en général. Dans son mémoire, le demandeur a également insisté sur la nature de son tr"
+    },
+    {
+      "region_id": "066595_R2_unnumbered_to_para_transition",
+      "target_type": "transition",
+      "target_id": "066595:1273b5e577bc5ad6:682-1274:4e3be922f07d",
+      "span_bytes": [
+        682,
+        1274
+      ],
+      "rationale": "Check boundary between header unnumbered region and first paragraph.",
+      "context_span_bytes": [
+        282,
+        1282
+      ],
+      "focus_span_bytes": [
+        682,
+        882
+      ],
+      "before_context": "\nCounsel:\r\nOscar Fernando Rodas, for the applicant;\r\nIsabelle Brochu, for the respondent.\r\nSolicitors of Record:\r\nOscar Fernando Rodas, Montreal, Quebec, for the applicant;\r\nJohn H. Sims, Q.C., Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\n",
+      "focus_text": "[1]\r\nBédard, J.\r\n: Il s'agit d'une demande de contrôle judiciaire en vertu du paragraphe 72(1) de la\r\nLoi sur l'immigration et la protection des réfugiés\r\n, L.C. 2001, c. 27 (la\r\nLIPR\r\n), à l'enc",
+      "after_context": "ontre d'une décision de la Commission de l'immigration et du statut de réfugié, Section de la protection des réfugiés (la Commission), datée du 25 décembre 2010, qui a refusé la demande d'asile du demandeur et conclu qu'il n'était ni un réfugié au sens de l'article 96 de la\r\nLIPR\r\n, ni une « personne à protéger » au sens de l'article 97 de la\r\nLIPR\r\n.\r\nContexte de la demande\r\n[2]\r\nL"
+    },
+    {
+      "region_id": "066595_R3_secondary_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "066595:1273b5e577bc5ad6:1-281:4e3be922f07d",
+      "span_bytes": [
+        1,
+        281
+      ],
+      "rationale": "Check secondary unnumbered region for missing structure.",
+      "context_span_bytes": [
+        0,
+        601
+      ],
+      "focus_span_bytes": [
+        1,
+        201
+      ],
+      "before_context": " ",
+      "focus_text": "<FRAGMENT_SUPPRESSED>  (FC)\r\nMLB unedited judgment\r\n[English language version follows French language version]\r\n[La version anglaise vient à la suite de la version française]\r\n <FRAGMENT_SUPPRESSED>",
+      "after_context": "  FC 991)\r\n <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nBédard, J.\r\nOctober 5, 2010.\r\nCounsel:\r\nOscar Fernando Rodas, for the applicant;\r\nIsabelle Brochu, for the respondent.\r\nSolicitors of Record:\r\nOscar Fernando Rodas, Montreal, Quebec, for the applicant;\r\nJohn H. Sims, Q.C., Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains "
+    }
+  ],
+  "068174.txt": [
+    {
+      "region_id": "068174_R1_largest_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "068174:5c57b653545603c6:7968-23099:4e3be922f07d",
+      "span_bytes": [
+        7968,
+        23099
+      ],
+      "rationale": "Check why this large unnumbered block was not parsed into paragraphs or headings.",
+      "context_span_bytes": [
+        7568,
+        8668
+      ],
+      "focus_span_bytes": [
+        7968,
+        8268
+      ],
+      "before_context": "Hao \r\n ];  \r\n  <FRAGMENT_SUPPRESSED> FTR 164 [ \r\n Cardin \r\n ];  \r\n  <FRAGMENT_SUPPRESSED> (available on  <FRAGMENT_SUPPRESSED> FTR 76;  \r\n  <FRAGMENT_SUPPRESSED> ACWS (3d) 222;  \r\n Canada (Minister of Citizenship and  <FRAGMENT_SUPPRESSED>  [ \r\n Dunsmuir \r\n ];  \r\n Canada (Citizenship and  <FRAGMENT_SUPPRESSED> [2009] SCR 339).  <FRAGMENT_SUPPRESSED>  \r\n IV.  \r\n Analysis  <FRAGMENT_SUPPRESSED>  \r\n ",
+      "focus_text": "[7] \r\n  This case is an unfortunate outcome of the current state of citizenship law. The applicant is well established in Canada. She fell short of meeting the residency requirement during the reference period because she spent some time in Germany due to compelling humanitarian reasons that were be",
+      "after_context": "yond her control; her mother was ill and in need of the applicant's help and support. She otherwise demonstrated a strong commitment to becoming Canadian.  <FRAGMENT_SUPPRESSED>  \r\n A.  \r\n Did the Citizenship judge err in applying the physical presence test rather than any other residency test?  <FRAGMENT_SUPPRESSED>  \r\n [8] \r\n  The applicant argued that it is both unreasonable and unfair that Cit"
+    },
+    {
+      "region_id": "068174_R2_unnumbered_to_para_transition",
+      "target_type": "transition",
+      "target_id": "068174:5c57b653545603c6:4649-5216:4e3be922f07d",
+      "span_bytes": [
+        4649,
+        5216
+      ],
+      "rationale": "Check boundary between header unnumbered region and first paragraph.",
+      "context_span_bytes": [
+        4249,
+        5249
+      ],
+      "focus_span_bytes": [
+        4649,
+        4849
+      ],
+      "before_context": "11, before Bédard, J., of the Federal Court, who delivered the following judgment in Ottawa, Ontario, on December 21, 2011.  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>                                                                                                        <FRAGMENT_SUPPRESSED>  \r\n ",
+      "focus_text": "[1] \r\n   \r\n Bédard, J. \r\n : The applicant is a citizen of Russia but has spent most of her life in Germany. She entered Canada on October 22, 2003, and on April 4, 2007, she submitted an application ",
+      "after_context": "for Canadian citizenship. During the four years that preceded the date of her application for citizenship, the applicant was physically present in Canada for 897 days. Most of her absences from Canada were due to visits to Germany to take care of her mother who was ill; her other absences were related to business trips and vacation (44 days).  <FRAGMENT_SUPPRESSED>  \r\n [2] \r\n  On March 28, 2011, C"
+    },
+    {
+      "region_id": "068174_R3_secondary_unnumbered_block",
+      "target_type": "unnumbered_block",
+      "target_id": "068174:5c57b653545603c6:179-3914:4e3be922f07d",
+      "span_bytes": [
+        179,
+        3914
+      ],
+      "rationale": "Check secondary unnumbered region for missing structure.",
+      "context_span_bytes": [
+        0,
+        779
+      ],
+      "focus_span_bytes": [
+        179,
+        379
+      ],
+      "before_context": "  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>  \r\n \r\n  <FRAGMENT_SUPPRESSED> )  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>  2011.  <FRAGMENT_SUPPRESSED>  \r\n Summary: \r\n \r\n ",
+      "focus_text": "The applicant's citizenship application was denied on the basis of the physical presence test (Citizenship Act, s. 5(1)(c)). The applicant appealed.  <FRAGMENT_SUPPRESSED>  \r\n The Federal Court dismis",
+      "after_context": "sed the appeal.  <FRAGMENT_SUPPRESSED>  \r\n Aliens - Topic 2525 \r\n \r\n Naturalization - Qualifications - Residence - The applicant's citizenship application was denied on the basis of the physical presence test (Citizenship Act, s. 5(1)(c)) - She was 200 days short of the required 1095 days of physical presence in Canada because she had been out of the country to care for her sick mother - The appli"
+    }
+  ],
+  "019591.txt": [
+    {
+      "region_id": "019591_R1_heading_candidate",
+      "target_type": "heading_candidate",
+      "target_id": "019591:684aef2ab0e323e1:598-611:4e3be922f07d",
+      "span_bytes": [
+        598,
+        611
+      ],
+      "rationale": "Verify whether candidate is a genuine legal heading or party/counsel/sentence fragment.",
+      "context_span_bytes": [
+        198,
+        1011
+      ],
+      "focus_span_bytes": [
+        598,
+        611
+      ],
+      "before_context": "[La version française vient à la suite de la version anglaise] \r\n \r\n \r\n \r\n ......................... \r\n \r\n \r\n \r\n Temp. Cite: [2012] F.T.R. TBEd. NO.033 \r\n \r\n \r\n \r\n Bethany Lanae Smith (applicant) v. The Minister of Citizenship and Immigration (respondent) \r\n \r\n (IMM-5699-11; 2012 FC 1283; 2012 CF 1283) \r\n \r\n \r\n \r\n Indexed As: Smith v. Canada (Minister of Citizenship and Immigration) \r\n \r\n \r\n \r\n ",
+      "focus_text": "Federal Court",
+      "after_context": " \r\n \r\n Mosley, J. \r\n \r\n November 2, 2012. \r\n \r\n \r\n \r\n Summary: \r\n \r\n Smith, an American citizen, claimed refugee protection from alleged persecution and the alleged threat of physical harm from her peers and superiors in the U.S. Army because of her sexual orientation as a lesbian. The Immigration and Refugee Board, Refugee Protection Division, found that Smith was not a Convention refugee or a pe"
+    },
+    {
+      "region_id": "019591_R2_heading_candidate_2",
+      "target_type": "heading_candidate",
+      "target_id": "019591:684aef2ab0e323e1:1597-1613:4e3be922f07d",
+      "span_bytes": [
+        1597,
+        1613
+      ],
+      "rationale": "Verify second candidate heading.",
+      "context_span_bytes": [
+        1197,
+        2013
+      ],
+      "focus_span_bytes": [
+        1597,
+        1613
+      ],
+      "before_context": "(1) whether the Board made unreasonable credibility findings; (2) whether the Board erred in failing to apply the Charter and international human rights instruments in its state protection analysis; (3) whether the Board disregarded important expert evidence; and (4) whether the Board made unreasonable state protection findings. \r\n \r\n \r\n \r\n The Federal Court dismissed the application. \r\n \r\n \r\n \r\n ",
+      "focus_text": "Aliens - Topic 2",
+      "after_context": " \r\n \r\n Definitions and general principles - Legislation - Interpretation - The applicant, an American citizen, claimed refugee protection from alleged persecution and the alleged threat of physical harm from her peers and superiors in the U.S. Army because of her sexual orientation as a lesbian - The Immigration and Refugee Board rejected the claim - On judicial review, the applicant submitted tha"
+    },
+    {
+      "region_id": "019591_R3_known_heading",
+      "target_type": "known_heading",
+      "target_id": "019591:684aef2ab0e323e1:665-673:4e3be922f07d",
+      "span_bytes": [
+        665,
+        673
+      ],
+      "rationale": "Compare candidate with known heading.",
+      "context_span_bytes": [
+        265,
+        1073
+      ],
+      "focus_span_bytes": [
+        665,
+        673
+      ],
+      "before_context": " \r\n \r\n \r\n ......................... \r\n \r\n \r\n \r\n Temp. Cite: [2012] F.T.R. TBEd. NO.033 \r\n \r\n \r\n \r\n Bethany Lanae Smith (applicant) v. The Minister of Citizenship and Immigration (respondent) \r\n \r\n (IMM-5699-11; 2012 FC 1283; 2012 CF 1283) \r\n \r\n \r\n \r\n Indexed As: Smith v. Canada (Minister of Citizenship and Immigration) \r\n \r\n \r\n \r\n Federal Court \r\n \r\n Mosley, J. \r\n \r\n November 2, 2012. \r\n \r\n \r\n \r\n ",
+      "focus_text": "Summary:",
+      "after_context": " \r\n \r\n Smith, an American citizen, claimed refugee protection from alleged persecution and the alleged threat of physical harm from her peers and superiors in the U.S. Army because of her sexual orientation as a lesbian. The Immigration and Refugee Board, Refugee Protection Division, found that Smith was not a Convention refugee or a person in need of protection. An application for judicial review"
+    }
+  ],
+  "042691.txt": [
+    {
+      "region_id": "042691_R1_heading_candidate",
+      "target_type": "heading_candidate",
+      "target_id": "042691:7550942ffaa99248:573-586:4e3be922f07d",
+      "span_bytes": [
+        573,
+        586
+      ],
+      "rationale": "Verify whether candidate is a genuine legal heading or party/counsel/sentence fragment.",
+      "context_span_bytes": [
+        173,
+        986
+      ],
+      "focus_span_bytes": [
+        573,
+        586
+      ],
+      "before_context": "version] \r\n \r\n \r\n \r\n [La version française vient à la suite de la version anglaise] \r\n \r\n \r\n \r\n ......................... \r\n \r\n \r\n \r\n Temp. Cite: [2012] F.T.R. TBEd. JL.019 \r\n \r\n \r\n \r\n Richard Warman and National Post Company (applicants) v. Mark Fournier and Constance Fournier (respondents) \r\n \r\n (T-784-11; 2012 FC 803; 2012 CF 803) \r\n \r\n \r\n \r\n Indexed As: Warman et al. v. Fournier \r\n \r\n \r\n \r\n ",
+      "focus_text": "Federal Court",
+      "after_context": " \r\n \r\n Rennie, J. \r\n \r\n June 21, 2012. \r\n \r\n \r\n \r\n Summary: \r\n \r\n Warman asserted that the respondents infringed his copyright in three works and applied for several remedies. \r\n \r\n \r\n \r\n The Federal Court dismissed the application. \r\n \r\n \r\n \r\n Copyright - Topic 4405 \r\n \r\n Infringement of copyright - General principles - Substantial similarity or substantial copying - An article authored by Kay an"
+    },
+    {
+      "region_id": "042691_R2_outer_quote_collision",
+      "target_type": "paragraph",
+      "target_id": "042691:7550942ffaa99248:31005-31350:4e3be922f07d",
+      "span_bytes": [
+        31005,
+        31350
+      ],
+      "rationale": "Examine outer sequence paragraph with possible quotation cue to verify outer vs quote.",
+      "context_span_bytes": [
+        30605,
+        31655
+      ],
+      "focus_span_bytes": [
+        31005,
+        31255
+      ],
+      "before_context": "communication was authorized by the applicant. Communication of a work by telecommunication will only constitute infringement if it was unauthorized. In  \r\n FRAGMENT_SUPPRESSED \r\n , the Copyright Board held at page 19 that making a work available on an internet website accessible to the public constitutes authorization of communication by telecommunication: \r\n \r\n \r\n \r\nFRAGMENT_SUPPRESSED \r\n \r\n \r\n ",
+      "focus_text": "[37] \r\n  The evidence is clear that the Barrera Work was posted on the applicant's personal website and thus the communication of the Barrera Work occurred by creating a hyperlink to the applicant's own website. Thus, the applicant authorized communi",
+      "after_context": "cation of the Barrera Work by posting it on his website and therefore there is no infringement. \r\n \r\n \r\n \r\n [38] \r\n  Counsel for the applicant argued that the respondents cannot rely on the fact that the Barrera Work was posted on the applicant's website because that would amount to \"blaming the victim\". However, the applicant is only a victim of infringement if the respondents did something only "
+    },
+    {
+      "region_id": "042691_R3_known_heading",
+      "target_type": "known_heading",
+      "target_id": "042691:7550942ffaa99248:637-645:4e3be922f07d",
+      "span_bytes": [
+        637,
+        645
+      ],
+      "rationale": "Compare candidate with known heading.",
+      "context_span_bytes": [
+        237,
+        1045
+      ],
+      "focus_span_bytes": [
+        637,
+        645
+      ],
+      "before_context": " la version anglaise] \r\n \r\n \r\n \r\n ......................... \r\n \r\n \r\n \r\n Temp. Cite: [2012] F.T.R. TBEd. JL.019 \r\n \r\n \r\n \r\n Richard Warman and National Post Company (applicants) v. Mark Fournier and Constance Fournier (respondents) \r\n \r\n (T-784-11; 2012 FC 803; 2012 CF 803) \r\n \r\n \r\n \r\n Indexed As: Warman et al. v. Fournier \r\n \r\n \r\n \r\n Federal Court \r\n \r\n Rennie, J. \r\n \r\n June 21, 2012. \r\n \r\n \r\n \r\n ",
+      "focus_text": "Summary:",
+      "after_context": " \r\n \r\n Warman asserted that the respondents infringed his copyright in three works and applied for several remedies. \r\n \r\n \r\n \r\n The Federal Court dismissed the application. \r\n \r\n \r\n \r\n Copyright - Topic 4405 \r\n \r\n Infringement of copyright - General principles - Substantial similarity or substantial copying - An article authored by Kay and published in the National Post was highly critical of War"
+    }
+  ],
+  "077071.txt": [
+    {
+      "region_id": "077071_R1_heading_candidate",
+      "target_type": "heading_candidate",
+      "target_id": "077071:8edd381a974af57d:328-342:4e3be922f07d",
+      "span_bytes": [
+        328,
+        342
+      ],
+      "rationale": "Verify whether candidate is a genuine legal heading or party/counsel/sentence fragment.",
+      "context_span_bytes": [
+        0,
+        742
+      ],
+      "focus_span_bytes": [
+        328,
+        342
+      ],
+      "before_context": " \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n Huynh v. MEI (1994), 88 F.T.R. 60 (TD) \r\n \r\n \r\n \r\n MLB headnote and full text \r\n \r\n \r\n \r\n Cam Hoa Huynh (applicant) v. Minister of Employment and Immigration (respondent) \r\n \r\n (T-2231-93) \r\n \r\n \r\n \r\n Indexed As: Huynh v. Minister of Employment and Immigration \r\n \r\n \r\n \r\n Federal Court of Canada \r\n \r\n ",
+      "focus_text": "Trial Division",
+      "after_context": " \r\n \r\n Cullen, J. \r\n \r\n November 24, 1994. \r\n \r\n \r\n \r\n Summary: \r\n \r\n Huynh applied for judicial review of a decision by a credible basis tribunal which found that his refugee claim lacked a credible basis. \r\n \r\n \r\n \r\n The Federal Court of Canada, Trial Division, in a decision reported 65 F.T.R. 11, dismissed the application on June 24, 1993 and refused to certify questions for consideration by th"
+    },
+    {
+      "region_id": "077071_R2_outer_quote_collision",
+      "target_type": "paragraph",
+      "target_id": "077071:8edd381a974af57d:27263-27406:4e3be922f07d",
+      "span_bytes": [
+        27263,
+        27406
+      ],
+      "rationale": "Examine outer sequence paragraph with possible quotation cue to verify outer vs quote.",
+      "context_span_bytes": [
+        26863,
+        27806
+      ],
+      "focus_span_bytes": [
+        27263,
+        27406
+      ],
+      "before_context": "that a privative clause, properly framed, could effectively oust judicial interpretation on questions of law and other questions not touching upon jurisdiction. However, no privative clause can inhibit review of a tribunal's decision by a superior court for jurisdictional error or constitutional interpretation. In  \r\nFRAGMENT_SUPPRESSED, Beetz, J., stated: \r\n \r\n \r\n \r\n FRAGMENT_SUPPRESSED \r\n \r\n \r\n ",
+      "focus_text": "[37] \r\n  Likewise, administrative tribunals can expect no curial deference when they make constitutional decisions: see  \r\nFRAGMENT_SUPPRESSED.",
+      "after_context": " \r\n \r\n \r\n \r\n [38] \r\n  However, the limitations on the power of privative clauses to oust judicial review apply only to tribunals or other administrative bodies. The same limits do not apply to superior courts themselves. The Federal Court Trial Division is clearly a superior court and its interpretations of the  \r\n Charter \r\n  are not subject to review unless the legislation that the Trial Divisio"
+    },
+    {
+      "region_id": "077071_R3_known_heading",
+      "target_type": "known_heading",
+      "target_id": "077071:8edd381a974af57d:397-405:4e3be922f07d",
+      "span_bytes": [
+        397,
+        405
+      ],
+      "rationale": "Compare candidate with known heading.",
+      "context_span_bytes": [
+        0,
+        805
+      ],
+      "focus_span_bytes": [
+        397,
+        405
+      ],
+      "before_context": " \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n Huynh v. MEI (1994), 88 F.T.R. 60 (TD) \r\n \r\n \r\n \r\n MLB headnote and full text \r\n \r\n \r\n \r\n Cam Hoa Huynh (applicant) v. Minister of Employment and Immigration (respondent) \r\n \r\n (T-2231-93) \r\n \r\n \r\n \r\n Indexed As: Huynh v. Minister of Employment and Immigration \r\n \r\n \r\n \r\n Federal Court of Canada \r\n \r\n Trial Division \r\n \r\n Cullen, J. \r\n \r\n November 24, 1994. \r\n \r\n \r\n \r\n ",
+      "focus_text": "Summary:",
+      "after_context": " \r\n \r\n Huynh applied for judicial review of a decision by a credible basis tribunal which found that his refugee claim lacked a credible basis. \r\n \r\n \r\n \r\n The Federal Court of Canada, Trial Division, in a decision reported 65 F.T.R. 11, dismissed the application on June 24, 1993 and refused to certify questions for consideration by the Federal Court of Appeal. On July 23, 1993, Huynh filed a noti"
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+"""Constructs pipeline_v2/reviews/m1_review_v1/findings.json following Section 6 rules."""
+
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[4]
+OUTPUT_PATH = ROOT / "pipeline_v2" / "reviews" / "m1_review_v1" / "findings.json"
+
+FINDINGS = [
+    {
+        "finding_id": "M1-FINDING-001",
+        "severity": "critical",
+        "type": "confirmed_defect",
+        "title": "Cascading swallowing of outer paragraphs into quotation sidecars due to strict 'number != expected' clause",
+        "affected_cases_sample": ["000758.txt", "046028.txt", "000432.txt", "014069.txt", "066595.txt", "068174.txt"],
+        "corpus_scope": {
+            "total_affected_cases": 1632,
+            "corpus_fraction": 0.2117,
+            "description": "At least 1,632 out of 7,708 cases exhibit outer sequence cascading swallowing caused by non-consecutive numbering."
+        },
+        "primary_example": {
+            "case_id": "000758.txt",
+            "source_hash": "0f5dc268d22acb28de68461ee6be3fecefbfa0da0f1713d3170e7e008ba38029",
+            "unit_id": "000758:0f5dc268d22acb28:23607-48895:4e3be922f07d",
+            "raw_byte_span": [23607, 48895],
+            "swallowed_sidecars_count": 37,
+            "swallowed_markers": [37, 38, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 69, 70, 71, 72, 73, 74, 75],
+            "text_evidence": (
+                "...interpret the scope of section 97 of the Act, and this interpretation involves a question of law, "
+                "which is subject to the correctness standard.\r\n"
+                "[37]\r\n"
+                "Accordingly, I will apply the correctness standard to the section 97 interpretation and the reasonableness "
+                "standard to the panel's findings of fact.\r\n"
+                "Summary\r\n"
+                "[38]\r\n"
+                "The Court is of the view that consideration of an application for protected person status..."
+            )
+        },
+        "current_behavior": (
+            "In pipeline_v2/source/core.py lines 123-127, 'nested' is assigned True if '(number != expected and not reset)'. "
+            "When a judge or court reporter skips a single paragraph number (e.g. [35] jumps to [37] in 000758.txt), "
+            "expected is 36, number is 37 != 36. [37] is classified as nested quotation sidecar. "
+            "quote_active is set to True, and last_outer remains stuck at 35. For every subsequent paragraph [38], [39]... [75], "
+            "number != 36 is continuously True, causing all remaining 37 paragraphs (over 25,000 bytes) and headings to be swallowed "
+            "into a single outer paragraph unit [35]."
+        ),
+        "expected_behavior": (
+            "Paragraph numbering gaps (e.g. 35 -> 37, 6 -> 8) must be recognized as outer sequence progression. "
+            "A marker without a preceding quotation cue (intro) and without indentation should advance outer numbering "
+            "(with an uncertainty flag like 'numbering_gap_observed'), rather than permanently freezing last_outer "
+            "and swallowing all subsequent text as quotation sidecars."
+        ),
+        "reproduction_command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/repro_findings.py --finding M1-FINDING-001",
+        "m2_impact": (
+            "BLOCKER for M2. Retrieval core chunking in M2 relies on paragraph boundaries. "
+            "When 21.17% of the corpus has giant paragraphs of 20,000-50,000 bytes with 30-70 swallowed outer paragraphs, "
+            "M2 cannot respect legal paragraph units. Core chunks will either be forced into length fallback splits "
+            "spanning multiple distinct legal analyses, or lose structural unit indexing entirely. "
+            "In bilingual cases (000432.txt, 014069.txt), whole French versions are swallowed into English paragraphs."
+        ),
+        "minimal_fix_direction": (
+            "1. Remove '(number != expected and not reset)' as an unconditional cause for 'nested = True'. "
+            "Require evidence of nesting (e.g. intro is True, or indent > root_indent, or quotation block context). "
+            "2. If number > last_outer without quotation cues, advance last_outer = number, reset quote_active = False, "
+            "and record 'numbering_gap_observed' in uncertainties. "
+            "3. Allow numbering resets to trigger even if [1] is absent when bilingual separators or French cues appear."
+        ),
+        "adjudication_status": "resolved"
+    },
+    {
+        "finding_id": "M1-FINDING-002",
+        "severity": "critical",
+        "type": "confirmed_defect",
+        "title": "False numbering reset triggered by body quotation starting with [1], corrupting language region and swallowing English text",
+        "affected_cases_sample": ["050936.txt"],
+        "corpus_scope": {
+            "total_affected_cases": 62,
+            "description": "62 cases in summary.json report 'numbering_reset_language_unknown'. In cases like 050936, this is caused by body quotations."
+        },
+        "primary_example": {
+            "case_id": "050936.txt",
+            "source_hash": "d61772efef97457045b80eeec0535eebdf6a5e12dc0e5dd9ef18fe5fc99f9c73",
+            "unit_id": "050936:d61772efef974570:13042-24976:4e3be922f07d",
+            "raw_byte_span": [13042, 24976],
+            "text_evidence": (
+                "[30]\r\n"
+                "The Board is entitled to draw reasonable conclusions with respect to credibility based on implausibility... "
+                "As noted by Justice Shore in <FRAGMENT_SUPPRESSED> [2007] FCJ No 97:\r\n"
+                "[1] The Court is of the opinion that the Board may draw reasonable conclusions based on implausibilities, "
+                "common sense and rationality and may reject testimony if it does not accord with the probabilities affecting the case as a whole: (\r\n"
+                " <FRAGMENT_SUPPRESSED>  (QL))\r\n"
+                "[31]\r\n"
+                "The jurisprudence has established that internal inconsistencies in an applicant's story..."
+            )
+        },
+        "current_behavior": (
+            "In pipeline_v2/source/core.py line 117, 'reset = number == 1 and last_outer is not None and last_outer > 1'. "
+            "When paragraph 30 quotes paragraph [1] of an external decision introduced by 'As noted by Justice Shore in ...:', "
+            "QUOTE_CUE fails to match ('noted' is not in regex). Because number == 1, 'reset' is True, and 'nested' evaluates to False. "
+            "The parser resets outer sequence to 1, sets language_region to 'unknown:1'. When real outer paragraph [31] arrives, "
+            "expected is 2, so [31] through [54] are treated as nested sidecars under the quoted [1] unit. "
+            "Furthermore, when the actual French translation appears at [2], it is absorbed into this 'unknown:1' sequence."
+        ),
+        "expected_behavior": (
+            "A marker [1] occurring inside a paragraph preceded by a citation colon or quote intro must be classified as a quoted marker sidecar, "
+            "not a document-level translation/numbering reset. Document resets require separation cues (e.g. rule lines, [traduction], "
+            "or full header blocks), or should at least verify that following paragraphs do not immediately resume the prior outer sequence ([31])."
+        ),
+        "reproduction_command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/repro_findings.py --finding M1-FINDING-002",
+        "m2_impact": (
+            "BLOCKER for M2. Paragraphs 31-54 of English text are hidden as sidecars under an 'unknown:1' unit, "
+            "and subsequent French text is mislabeled as unknown:1. Chunks in M2 will mix languages and lose outer paragraph boundaries."
+        ),
+        "minimal_fix_direction": (
+            "1. Expand quote intro detection to include common introduction patterns (citations ending in colon, 'noted', 'observed'). "
+            "2. In line 117, do not trigger numbering reset if the [1] line is immediately preceded by an active paragraph or citation cue "
+            "without section break / translation separator. "
+            "3. If a subsequent marker matches last_outer + 1 (e.g. [31] following [30]), discard the candidate reset and treat [1] as quoted."
+        ),
+        "adjudication_status": "resolved"
+    },
+    {
+        "finding_id": "M1-FINDING-003",
+        "severity": "major",
+        "type": "confirmed_defect",
+        "title": "False positive headings from header metadata and headnote classification lines",
+        "affected_cases_sample": ["019591.txt", "077071.txt", "042691.txt"],
+        "corpus_scope": {
+            "total_affected_cases": 4246,
+            "description": "4,246 units in summary.json have 'heading_candidate'. A significant fraction are court headers and headnote topic lines."
+        },
+        "primary_example": {
+            "case_id": "019591.txt",
+            "source_hash": "684aef2ab0e323e1c01e51df525b6a71d79860b73c4d7e2ff8d998d36357fc9a",
+            "unit_id": "019591:684aef2ab0e323e1:57-70:4e3be922f07d",
+            "raw_byte_span": [57, 70],
+            "text_evidence": "Federal Court",
+            "additional_evidence": [
+                {"case_id": "077071.txt", "span_bytes": [31, 45], "text": "Trial Division"},
+                {"case_id": "042691.txt", "span_bytes": [87, 109], "text": "Copyright - Topic 4405"},
+                {"case_id": "042691.txt", "span_bytes": [419, 444], "text": "Defences - Consent - [See"}
+            ]
+        },
+        "current_behavior": (
+            "In pipeline_v2/source/core.py lines 152-156, 'title_candidate = previous_blank and len(clean) <= 100 "
+            "and len(clean.split()) >= 2 and clean.istitle() and not re.search(r'[.;,!?]$', clean)'. "
+            "Header lines such as 'Federal Court', 'Trial Division' and headnote catalog lines like 'Aliens - Topic 2' "
+            "satisfy this condition and are created as structural 'heading' units. "
+            "Consequently, 'section_path_refs' for all body paragraphs in the entire case point to 'Federal Court' or topic lines."
+        ),
+        "expected_behavior": (
+            "Lines preceding the first paragraph that match known court names or headnote topic classification patterns "
+            "should remain part of the unnumbered header block, rather than becoming structural section headings."
+        ),
+        "reproduction_command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/repro_findings.py --finding M1-FINDING-003",
+        "m2_impact": (
+            "MEDIUM to HIGH in M2. In M2 hybrid retrieval and dense prefix generation, section_refs are attached to passages "
+            "(e.g. prefixing chunk with heading). Attaching 'Federal Court' or 'Aliens - Topic 2' or 'Defences - Consent - [See' "
+            "as section heading pollutes chunk embedding representations and BM25 field boost."
+        ),
+        "minimal_fix_direction": (
+            "Exclude header lines (before first paragraph) matching court names or 'Topic [0-9]' from title_candidate headings."
+        ),
+        "adjudication_status": "resolved"
+    },
+    {
+        "finding_id": "M1-FINDING-004",
+        "severity": "major",
+        "type": "confirmed_defect",
+        "title": "False negative headings: ALL CAPS legal headings (ORDER, INTRODUCTION, ARGUMENTS) excluded by case-sensitive heuristic",
+        "affected_cases_sample": ["000758.txt", "014069.txt"],
+        "corpus_scope": {
+            "sample_statistic": "In a 500-case sample, ORDER was missed in 78 cases (15.6%), INTRODUCTION in 23 cases, ARGUMENTS in 12 cases.",
+            "description": "Standard Canadian judgment ALL CAPS section headings not in KNOWN_HEADING fail clean.istitle() and split() >= 2."
+        },
+        "primary_example": {
+            "case_id": "000758.txt",
+            "source_hash": "0f5dc268d22acb28de68461ee6be3fecefbfa0da0f1713d3170e7e008ba38029",
+            "text_evidence": "Summary\r\n[38]\r\nThe Court is of the view...",
+            "additional_evidence": "Standalone 'ORDER', 'INTRODUCTION', 'DECISION', 'STATUTORY PROVISIONS' lines across the corpus."
+        },
+        "current_behavior": (
+            "KNOWN_HEADING regex contains only 18 specific keywords. All other candidate headings must pass 'clean.istitle()' "
+            "and 'len(clean.split()) >= 2'. Single-word uppercase headings like 'ORDER', 'INTRODUCTION', 'ARGUMENTS', 'LEGISLATION' "
+            "fail both conditions and are omitted from heading events."
+        ),
+        "expected_behavior": (
+            "Prominent standalone section headers in uppercase or title case should be recognized as headings or heading candidates."
+        ),
+        "reproduction_command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/repro_findings.py --finding M1-FINDING-004",
+        "m2_impact": (
+            "MODERATE in M2. M2 section boundary splitting and reading context references will miss genuine section breaks "
+            "such as 'ORDER' or 'INTRODUCTION', causing chunks to merge introductory remarks or orders into body paragraphs."
+        ),
+        "minimal_fix_direction": (
+            "Expand KNOWN_HEADING to include 'order', 'ordonnance', 'introduction', 'arguments', 'legislation', 'motifs', "
+            "and allow single-word uppercase lines if isolated by blank lines."
+        ),
+        "adjudication_status": "resolved"
+    },
+    {
+        "finding_id": "M1-FINDING-005",
+        "severity": "high",
+        "type": "confirmed_defect",
+        "title": "Tautological bundle validation: validator re-runs identical builder heuristic without independent structural assertions",
+        "affected_cases_sample": ["All 7,708 cases"],
+        "corpus_scope": {
+            "total_affected_cases": 7708,
+            "description": "The validation harness tests algorithm reproducibility rather than structural correctness."
+        },
+        "primary_example": {
+            "file": "pipeline_v2/source/store.py",
+            "code_lines": "Line 229: if record != parse_source(ident, raw, self.manifest['profile']): raise M1Error(...)"
+        },
+        "current_behavior": (
+            "validate_bundle() iterates over all sources and calls parse_source(ident, raw, profile), checking "
+            "record == fresh. If parse_source has an algorithmic defect (e.g. swallowing 37 paragraphs in 000758.txt), "
+            "fresh produces the identical defect, and the equality check evaluates to True. "
+            "The test suite thus certified 100% PASS (21/21 tests, 7,708/7,708 sources) despite widespread cascading defects."
+        ),
+        "expected_behavior": (
+            "Bundle validation should assert independent invariant properties: e.g., that sidecars do not form "
+            "long ascending outer sequences, that paragraphs do not exceed abnormal length thresholds without flags, "
+            "and that headings inside swallowed regions are detected."
+        ),
+        "reproduction_command": ".venv/Scripts/python.exe pipeline_v2/reviews/m1_review_v1/scripts/repro_findings.py --finding M1-FINDING-005",
+        "m2_impact": (
+            "METHODOLOGY / GOVERNANCE IMPACT. Masked the 1,632 corrupted cases from detection prior to M1 sign-off."
+        ),
+        "minimal_fix_direction": (
+            "Incorporate structural sanity checks into validate_bundle (e.g. max sidecars per parent with ascending markers, "
+            "presence of unparented sidecars in unnumbered regions)."
+        ),
+        "adjudication_status": "resolved"
+    },
+    {
+        "finding_id": "M1-FINDING-006",
+        "severity": "medium",
+        "type": "accepted_limitation",
+        "title": "Header literal metadata regex collects all neutral citations in header, including cited authorities in headnotes",
+        "affected_cases_sample": ["042691.txt", "123456.txt (unit test)"],
+        "corpus_scope": {
+            "description": "Cases where headnotes or summaries precede paragraph [1] and cite prior decisions."
+        },
+        "current_behavior": (
+            "re.finditer on neutral citation pattern extracts all citations in header. In 042691.txt, both the case's citation "
+            "and citations of cases in headnote are collected as candidates with 'observed_not_identity_verified'."
+        ),
+        "expected_behavior": (
+            "Acceptable per M1 contract: M1 explicitly specifies that metadata consists of literal observations, "
+            "not verified case identity, and leaves resolution to downstream stages."
+        ),
+        "reproduction_command": ".venv/Scripts/python.exe -m unittest pipeline_v2/tests/test_m1_core.py -k test_multiple_header_citations",
+        "m2_impact": (
+            "LOW for M2. M2 does not rely on metadata citation for chunking; case identity is maintained via M0 inventory case_id."
+        ),
+        "minimal_fix_direction": "Retain as documented limitation. Document in M2 ingestion profile.",
+        "adjudication_status": "resolved"
+    },
+    {
+        "finding_id": "M1-FINDING-007",
+        "severity": "low",
+        "type": "accepted_limitation",
+        "title": "Legitimate unnumbered blocks (headers, titles, counsel tables) correctly labeled as structure_unknown",
+        "affected_cases_sample": ["008932.txt", "011913.txt", "015710.txt", "038761.txt"],
+        "corpus_scope": {
+            "description": "Normal court cases where 0-2% of bytes are header metadata and unnumbered preliminary notes."
+        },
+        "current_behavior": (
+            "Text preceding paragraph [1] that is not a heading (e.g. style of cause, counsel, judges) is kept in an "
+            "unnumbered unit with uncertainty ['structure_unknown']."
+        ),
+        "expected_behavior": (
+            "Acceptable per M1 contract: 5.70% unnumbered bytes across corpus is not 5.70% error. "
+            "Valid court headers are legitimately unnumbered."
+        ),
+        "reproduction_command": "None needed; verified across random sample cases.",
+        "m2_impact": (
+            "NONE. M2 can safely exclude or treat header unnumbered units as non-core context according to policy."
+        ),
+        "minimal_fix_direction": "Retain as accepted behavior.",
+        "adjudication_status": "resolved"
+    }
+]
+
+
+def main():
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(FINDINGS, f, indent=2, ensure_ascii=False)
+    print(f"Saved {len(FINDINGS)} findings to {OUTPUT_PATH}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "counts": {
+    "unindexed_whitespace_units": 514659,
+    "unindexed_whitespace_bytes": 1540929,
+    "unindexed_heading_units": 48990,
+    "unindexed_heading_bytes": 481721,
+    "passages": 415693,
+    "full_input_tokens": 55346360,
+    "overlap_tokens": 4244972,
+    "max_full_input_tokens": 448,
+    "parents": 382343,
+    "split_parents": 9856,
+    "sources": 7708
+  },
+  "errors": [],
+  "elapsed_seconds": 450.473631,
+  "bundle": "E:\\Git\\coliee-case-retrieval\\pipeline_v2\\artifacts\\m2_passages_20261106_v1",
+  "scope": "all_navigation_units_raw_reencoding_coverage_metadata_mapping",
+  "limits": [
+    "not_semantic_or_retrieval_quality",
+    "headings_whitespace_not_standalone_embeddings"
+  ],
+  "model_requests": 0,
+  "inference_tokens": 0
+}

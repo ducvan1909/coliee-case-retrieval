@@ -1,0 +1,13 @@
+{
+  "status": "local_preparation_passed",
+  "helper_sha256": "8e94449376bb91902831d6d127a0532e7c879dd2b725b2a0dc2df3bcc777ad29",
+  "m3_fingerprint": "ade771e2d328b974d12421b5fa48b2b90632b10eb8422166f82b9f960d9add63",
+  "env_ignored": true,
+  "env_tracked": false,
+  "targeted_tests": 12,
+  "tests_passed": 12,
+  "test_seconds": 0.591,
+  "authentication_verified": false,
+  "remote_requests": 0,
+  "deployment_executed": false
+}

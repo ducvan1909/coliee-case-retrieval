@@ -1,0 +1,17 @@
+{
+  "status": "L4_local_configuration_ready",
+  "gpu": "L4",
+  "embedding_fingerprint": "d945329fa49e2f4b4f83d530df03fb4897babd5345562cbeaebd3b21499649bf",
+  "m3_implementation_sha256": "ade771e2d328b974d12421b5fa48b2b90632b10eb8422166f82b9f960d9add63",
+  "helper_sha256": "bb42e06aa7302594b088285beb29120bdf035f1a10de602642712b5679a299a0",
+  "run_dir": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+  "tests_passed": 20,
+  "tests_total": 20,
+  "tests_seconds": 1.433,
+  "plan_audit": "PASS",
+  "same_input_ids_as_A10": true,
+  "local_helper_check": "frozen_profile_code_and_manifest_checksum_match",
+  "deployment_executed": false,
+  "gpu_runtime_tested": false,
+  "model_requests": 0
+}

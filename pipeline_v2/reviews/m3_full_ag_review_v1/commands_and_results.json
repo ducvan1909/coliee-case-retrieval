@@ -1,0 +1,109 @@
+{
+  "schema_version": "ag-m3-full-review-commands-1",
+  "generated_at_utc": "2026-11-09T10:49:00Z",
+  "workspace_root": "E:/Git/coliee-case-retrieval",
+  "run_dir": "pipeline_v2/artifacts/m3_full_train_20261108_v1",
+  "collection": "coliee_m3_full_ef2f4d6950a5b9fd",
+  "commands": [
+    {
+      "step": "local_unit_tests",
+      "command": ".venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m3_full_storage pipeline_v2.tests.test_m3_full_runner pipeline_v2.tests.test_m3_opt_v2_index pipeline_v2.tests.test_m3_opt_v2_session pipeline_v2.tests.test_m3_opt_v2_runtime pipeline_v2.tests.test_m3_opt_v2_benchmark pipeline_v2.tests.test_m3_opt_v2_cli -v",
+      "exit_code": 0,
+      "elapsed_seconds": 0.585,
+      "output_artifact": "pipeline_v2/reviews/m3_full_ag_review_v1/unit_tests_30.txt",
+      "summary": "Ran 30 tests in 0.585s — OK (12 full corpus runner/storage tests + 18 optimization V2 regression tests)."
+    },
+    {
+      "step": "independent_ag_fault_injection_and_plan_audit",
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_full_ag_review_v1/test_m3_full_independent_ag.py",
+      "exit_code": 0,
+      "elapsed_seconds": 144.5,
+      "output_artifact": "pipeline_v2/reviews/m3_full_ag_review_v1/independent_local_test_results.json",
+      "summary": "Ran 7 independent fault-injection tests (crash after upsert before progress, max-batches skip, orphan recovery, execution identity guard, run_lock, local CLI no .env, Qdrant short response/cycle guard) + streaming audit of 415,693 passages / 7,708 cases on real lexical.sqlite3 (PASS in 143.43s)."
+    },
+    {
+      "step": "state_before_snapshot",
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_full_ag_review_v1/snapshot_state.py before",
+      "exit_code": 0,
+      "output_artifact": "pipeline_v2/reviews/m3_full_ag_review_v1/state_before.json",
+      "summary": "Captured baseline, V1, V2, plan seals, disk space (E: 99.46 GB free), and Qdrant collections before canary run."
+    },
+    {
+      "step": "step1_status_before_canary",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full status --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+      "exit_code": 0,
+      "wall_seconds": 25.639,
+      "internal_cli_seconds": 25.409,
+      "output_artifact": "pipeline_v2/reviews/m3_full_ag_review_v1/step1_status_stdout.json",
+      "summary": "Status reported 'planned', model_requests=0, passages=415693, batches=6496."
+    },
+    {
+      "step": "step2_canary_2_batches",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full run --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1 --max-batches 2",
+      "exit_code": 0,
+      "wall_seconds": 740.514,
+      "internal_cli_seconds": 740.198,
+      "output_artifact": "pipeline_v2/reviews/m3_full_ag_review_v1/step2_canary_stdout.json",
+      "summary": "Canary run processed 2 batches (128 passages), stopped_at_batch_boundary, 2 requests, 256 input tokens."
+    },
+    {
+      "step": "step3_status_after_canary",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full status --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+      "exit_code": 0,
+      "wall_seconds": 25.491,
+      "internal_cli_seconds": 25.249,
+      "output_artifact": "pipeline_v2/reviews/m3_full_ag_review_v1/step3_status_stdout.json",
+      "summary": "Status confirmed stopped_at_batch_boundary, model_requests=2, known_input_tokens=256."
+    },
+    {
+      "step": "step4_full_run_invocations_summary",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full run --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+      "exit_code": 0,
+      "invocations_directory": "pipeline_v2/artifacts/m3_full_train_20261108_v1/invocations",
+      "summary": "Executed across 5 invocations: #1 canary (2 batches, 2 reqs, stopped_at_batch_boundary); #2 network ConnectionError (0 batches); #3 network ConnectionError after 1401 batches (last_batch 5692); #4 KeyboardInterrupt after 803 batches (last_batch 6495); #5 runner self-verification on resume (0 new inference, 6496 cached batches, verification PASS for 415693 points)."
+    },
+    {
+      "step": "step5_verify_full_attempt1_standby_timeout",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full verify --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+      "exit_code": 2,
+      "wall_seconds": 1141.701,
+      "internal_cli_seconds": 1138.443,
+      "error": "ReadTimeout",
+      "cause": "Windows entered Modern Standby (Kernel-Power Event ID 506 at 17:09:44 local time), temporarily suspending WSL2 container.",
+      "output_artifacts": [
+        "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_attempt1_receipt.json",
+        "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_attempt1_stdout.json",
+        "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_attempt1_stderr.txt"
+      ]
+    },
+    {
+      "step": "step5_verify_full_attempt2_clean_pass",
+      "command": ".venv/Scripts/python.exe -m pipeline_v2.m3_full verify --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1",
+      "exit_code": 0,
+      "wall_seconds": 1525.539,
+      "internal_cli_seconds": 1525.049,
+      "status": "PASS",
+      "points": 415693,
+      "method": "all_expected_unique_ids_payload_vectors_plus_exact_count_batched64",
+      "output_artifacts": [
+        "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_receipt.json",
+        "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_stdout.json",
+        "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_stderr.txt"
+      ],
+      "summary": "Read-only streaming verification checked all 6,496 batches against local ReadonlyCache and Qdrant points with exact payload, fingerprint, and vector similarity; exact count 415,693."
+    },
+    {
+      "step": "streaming_ledger_and_schedule_audit",
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_full_ag_review_v1/audit_ledger_and_schedule.py",
+      "exit_code": 0,
+      "output_artifact": "pipeline_v2/reviews/m3_full_ag_review_v1/ledger_and_schedule_audit.json",
+      "summary": "Full streaming reconciliation of 6,496 batches across schedule and ledger: 6496 success, 1 started (unknown usage preserved), 55,346,360 input tokens, 55,360,576 padded tokens, 0 duplicate success batches."
+    },
+    {
+      "step": "recompute_all_full_metrics",
+      "command": ".venv/Scripts/python.exe pipeline_v2/reviews/m3_full_ag_review_v1/recompute_all_full_metrics.py",
+      "output_artifact": "pipeline_v2/reviews/m3_full_ag_review_v1/recomputed_metrics.json",
+      "summary": "Audit of all 6,496 on-disk vector cache shards (.npz + .json), spot-check L2 norms, state_after snapshot, and cross-metric consolidation."
+    }
+  ]
+}

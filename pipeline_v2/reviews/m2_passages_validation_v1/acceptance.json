@@ -1,0 +1,47 @@
+{
+  "status": "ready_with_documented_limits",
+  "milestone": "M2_local_passages",
+  "counts": {
+    "full_input_tokens": 55346360,
+    "kind_paragraph": 385697,
+    "kind_unnumbered": 29996,
+    "max_full_input_tokens": 448,
+    "overlap_tokens": 4244972,
+    "parent_units": 382343,
+    "passages": 415693,
+    "role_None": 29996,
+    "role_quoted": 1278,
+    "role_unknown": 384419,
+    "sources": 7708,
+    "split_parents": 9856,
+    "token_bin_0": 104446,
+    "token_bin_128": 75233,
+    "token_bin_192": 31693,
+    "token_bin_256": 21988,
+    "token_bin_320": 34623,
+    "token_bin_384": 3565,
+    "token_bin_448": 37,
+    "token_bin_64": 144108,
+    "word_boundary_splits": 0
+  },
+  "checks": {
+    "full_suite": "65/65 PASS reported by implementer",
+    "independent_targeted": "9/9 PASS reported by tester_advanced",
+    "full_validator": "PASS",
+    "independent_raw_token_audit": "PASS",
+    "middle_child_context": "PASS"
+  },
+  "evidence_sha256": {
+    "pipeline_v2/artifacts/m2_passages_20261106_v1/seal.json": "0ed42d51023adaf47c1205fa925f18f31b7aacb58b0c8e44c7d23288d123dda6",
+    "pipeline_v2/reviews/m2_passages_validation_v1/audit.py": "870c2425d61abfa6b5048ffafd0ea906504e59b6f4d59a0dea6a10fa905b67c4",
+    "pipeline_v2/reviews/m2_passages_validation_v1/full_corpus_audit.json": "8cf6b6f066a5ca6948dcd93c25399314de3e653ce77e91231c531155fb6df9f9",
+    "pipeline_v2/reviews/m2_passages_validation_v1/check_middle_child.py": "a0a06b70a84267c0a922eed711890e1a62584d98aec31fbaa98ef8b4b6111f5d",
+    "pipeline_v2/reviews/m2_passages_validation_v1/middle_child_result.json": "d909ad6b20e1fec2f5365732fece78a5625aa0c22bb4341459af5e9f64dafd4a",
+    "pipeline_v2/reviews/m2_passages_validation_v1/validator_receipt.json": "ec382eb04e7ed1289a3204e4f689330a13f731abb69bea356547fcbe19a8d093"
+  },
+  "model_requests": 0,
+  "inference_tokens": 0,
+  "development_chat_tokens": null,
+  "M3_executed": false,
+  "modal_deployed": false
+}

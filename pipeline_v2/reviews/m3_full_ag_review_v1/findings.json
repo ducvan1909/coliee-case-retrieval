@@ -1,0 +1,84 @@
+{
+  "schema_version": "ag-m3-full-review-findings-1",
+  "generated_at_utc": "2026-11-09T10:48:00Z",
+  "verdicts": {
+    "local_correctness": "PASS",
+    "schedule_and_plan_integrity": "PASS",
+    "canary_and_resume": "PASS",
+    "full_ingestion_and_accounting": "PASS",
+    "full_db_verification": "PASS",
+    "full_search_and_downstream_readiness": "DEFERRED_BY_DESIGN_SCOPE"
+  },
+  "prior_defects_and_checker_history": [
+    {
+      "component": "test_m3_full_independent_ag.py",
+      "issue": "bm25.search parameter order and open_full return key alignment during initial test script construction",
+      "resolution": "Fixed caller arguments (query, kind) and assertion key (hit_passage_id) in review test script; production code was unchanged and passed cleanly."
+    },
+    {
+      "component": "verify_full attempt 1",
+      "issue": "ReadTimeout after 1138.44s during first independent verify run due to Windows entering Modern Standby (Kernel-Power Event 506 at 17:09:44), suspending WSL2 Qdrant container",
+      "resolution": "Preserved attempt 1 artifacts (exit_code=2, stderr ReadTimeout); re-executed verify in attempt 2 which completed cleanly in 1525.54s with EXIT_CODE=0 and status PASS (415,693 points)."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-M3FULL-01",
+      "category": "accounting_compliance",
+      "severity": "info",
+      "blocking": false,
+      "title": "One in-flight attempt (id=4293) correctly preserved as 'started' with unknown usage after network interruption",
+      "files_and_symbols": [
+        "pipeline_v2/artifacts/m3_full_train_20261108_v1/ledger.sqlite3::attempts",
+        "pipeline_v2/full_corpus/storage.py::FullCache.usage"
+      ],
+      "evidence": "At attempt id=4293 (batch 'full-documents-4292', started at 2026-11-08T15:09:49Z), the connection dropped before a response was received. In accordance with M3 contract rules, status remains 'started', elapsed is null, and tokens is null (unknown usage). On subsequent resume, attempt id=4294 re-requested batch 4292 and succeeded (tokens=9216). FullCache.usage() accurately reports unknown_token_attempts=1, unknown_elapsed_attempts=1, status_counts={'started': 1, 'success': 6496}, and known_input_tokens=55,346,360.",
+      "impact": "Strictly satisfies the audit requirement: unknown usage is preserved and neither forced to 0 nor converted to success.",
+      "recommended_action": "Retain ledger in place; do not alter or delete attempt id=4293."
+    },
+    {
+      "id": "F-M3FULL-02",
+      "category": "operational_resilience",
+      "severity": "low",
+      "blocking": false,
+      "title": "Windows Modern Standby caused socket ReadTimeout during verify attempt 1; verify attempt 2 succeeded with full PASS",
+      "files_and_symbols": [
+        "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_attempt1_receipt.json",
+        "pipeline_v2/reviews/m3_full_ag_review_v1/step5_verify_receipt.json",
+        "pipeline_v2/full_corpus/storage.py::FullQdrant.matches"
+      ],
+      "evidence": "Verify attempt 1 started at 2026-11-09T09:58:59Z and encountered ReadTimeout after 1138.44s. System event logs confirm Windows entered Modern Standby (Event 506) at 17:09:44 local time, halting the WSL2 VM hosting Qdrant. Verify attempt 2 completed all 6,496 batch comparisons across 415,693 points in 1525.54s with status PASS and 0 errors.",
+      "impact": "Verification is confirmed PASS. Both attempt 1 failure evidence and attempt 2 success receipt are retained in the review directory.",
+      "recommended_action": "For prolonged background verification or inference tasks on Windows laptops, ensure Modern Standby / Sleep is suppressed."
+    },
+    {
+      "id": "F-M3FULL-03",
+      "category": "scope_boundary",
+      "severity": "info",
+      "blocking": false,
+      "title": "Ingestion and DB integrity verification PASS is distinct from full hybrid search, COLIEE gold F1, and M4 agent",
+      "files_and_symbols": [
+        "pipeline_v2/configs/m3_full.json",
+        "pipeline_v2/docs/M3_FULL.md",
+        "pipeline_v2/full_corpus/runner.py::open_full"
+      ],
+      "evidence": "m3_full.py implements plan, run, status, verify, and open for document vector ingestion and BM25 index creation across all 415,693 passages. As specified in M3_FULL.md, full hybrid search (combining BM25 and vector search at full corpus scale), COLIEE test evaluation (F1 metric), and M4 agent reasoning are deferred to subsequent deliverables.",
+      "impact": "M3 ingestion milestone is completely verified, but downstream retrieval and task evaluation must be scheduled in their respective plans.",
+      "recommended_action": "Accept M3 full ingestion as verified; proceed to full search adapter and evaluation in accordance with the project roadmap."
+    },
+    {
+      "id": "F-M3FULL-04",
+      "category": "resource_and_disk_accounting",
+      "severity": "info",
+      "blocking": false,
+      "title": "Storage footprint and memory bounds verified across local disk and Docker volumes",
+      "files_and_symbols": [
+        "pipeline_v2/artifacts/m3_full_train_20261108_v1/vectors",
+        "pipeline_v2/artifacts/m3_full_train_20261108_v1/lexical.sqlite3"
+      ],
+      "evidence": "Local cache disk consumption: lexical.sqlite3 is 4.36 GB (sealed), vectors cache is 4.49 GB (6,496 .npz arrays = 4,491,379,152 bytes; 6,496 .json sidecars = 2,514,640 bytes). Qdrant Docker storage on E: consumed approximately 48.6 GB for 415,693 vectors (2560-dim FP32 on-disk) with HNSW graph and payload indexes. Free space on drive E: decreased from 99.46 GB to 42.01 GB (57.45 GB total consumed). Throughout verify, memory usage remained bounded at batch_size=64 without loading the full 4.26 GB vector matrix into RAM.",
+      "impact": "Confirms bounded streaming memory contract and documented disk space consumption.",
+      "recommended_action": "Maintain adequate headroom on drive E: for subsequent retrieval index structures."
+    }
+  ]
+}

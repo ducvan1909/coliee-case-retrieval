@@ -1,0 +1,7 @@
+# Phạm vi phép đo Main
+
+Workload lấy nguyên8queries đã exposed trong manifest diagnostic AG, không mở gold/holdout hoặc chọn lại query theo kết quả. Khởi tạo LexicalSession đầy đủ một lần; snapshot startup/fullhash được báo riêng. Cả case và passage dùng limit4096/excludequerycase. Mỗi cặp scalar/new đổi thứ tự theo seed; new có một repeat tiếp theo. Không kiểm soát OS cache, không restart Docker, không gọi cold cho lượt đầu. SQLite connection scalar và reader dùng cùng cache128MiB/mmap512MiB, nhậnactualPRAGMA theo runtime.
+
+Scalar comparator là oracle scoring no-JOIN độc lập, đọcfetchmany4096 và cộng điểm bằngfloat64Python; không fetchmetadata hoặc guard snapshot mỗiquery. New timing gồmguard+metadata. Vì khác ranh giới, không lấy ratio scalar/new làm kết luận causal speedup thuầnvectorization. Trọng tâm lần đo là full IDs/scores parity và latency thực tế của reader mới theo thời điểm chạy. Thời gian AG trước đây là diagnostic khác cấu hình/cache/máy trạng thái, chỉ làm tham chiếu lịch sử.
+
+RAM process benchmark còn chứa comparator maps, scores và haiSQLiteconnections; không coi working-set toàn process là RAM riêng reader. Mmap limit không phải residentRAM cap. Không lấy một repeat nhanh nhất hoặc loại outlier chậm. Nếu kết quả mới dao động hoặc không vượtC lịch sử, giữ kết luận đó và giao AG profile caching/I/O trong session combined ở bước sau. Không tự tăngRAM hoặc thaysettings đãfreeze để làm số đo đẹp.

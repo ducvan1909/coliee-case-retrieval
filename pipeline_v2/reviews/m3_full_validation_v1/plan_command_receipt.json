@@ -1,0 +1,6 @@
+{
+  "command": "python -m pipeline_v2.m3_full --env-file DOES_NOT_EXIST plan --output pipeline_v2/artifacts/m3_full_train_20261108_v1",
+  "exit_code": 0,
+  "wall_seconds": 1177.8243303,
+  "modal_executed": false
+}

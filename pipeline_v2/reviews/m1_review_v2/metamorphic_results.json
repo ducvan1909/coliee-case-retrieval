@@ -1,0 +1,235 @@
+{
+  "all_pass": true,
+  "cases": {
+    "061295.txt": {
+      "descending_numbers": {
+        "pass": true,
+        "orig_paragraphs": 26,
+        "new_paragraphs": 26,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "all_ones": {
+        "pass": true,
+        "orig_paragraphs": 26,
+        "new_paragraphs": 26,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "large_gaps": {
+        "pass": true,
+        "orig_paragraphs": 26,
+        "new_paragraphs": 26,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      }
+    },
+    "067620.txt": {
+      "descending_numbers": {
+        "pass": true,
+        "orig_paragraphs": 36,
+        "new_paragraphs": 36,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "all_ones": {
+        "pass": true,
+        "orig_paragraphs": 36,
+        "new_paragraphs": 36,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "large_gaps": {
+        "pass": true,
+        "orig_paragraphs": 36,
+        "new_paragraphs": 36,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      }
+    },
+    "062436.txt": {
+      "descending_numbers": {
+        "pass": true,
+        "orig_paragraphs": 73,
+        "new_paragraphs": 73,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "all_ones": {
+        "pass": true,
+        "orig_paragraphs": 73,
+        "new_paragraphs": 73,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "large_gaps": {
+        "pass": true,
+        "orig_paragraphs": 73,
+        "new_paragraphs": 73,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      }
+    },
+    "000758.txt": {
+      "descending_numbers": {
+        "pass": true,
+        "orig_paragraphs": 72,
+        "new_paragraphs": 72,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "all_ones": {
+        "pass": true,
+        "orig_paragraphs": 72,
+        "new_paragraphs": 72,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "large_gaps": {
+        "pass": true,
+        "orig_paragraphs": 72,
+        "new_paragraphs": 72,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      }
+    },
+    "050936.txt": {
+      "descending_numbers": {
+        "pass": true,
+        "orig_paragraphs": 117,
+        "new_paragraphs": 117,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "all_ones": {
+        "pass": true,
+        "orig_paragraphs": 117,
+        "new_paragraphs": 117,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "large_gaps": {
+        "pass": true,
+        "orig_paragraphs": 117,
+        "new_paragraphs": 117,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      }
+    },
+    "000432.txt": {
+      "descending_numbers": {
+        "pass": true,
+        "orig_paragraphs": 95,
+        "new_paragraphs": 95,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "all_ones": {
+        "pass": true,
+        "orig_paragraphs": 95,
+        "new_paragraphs": 95,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "large_gaps": {
+        "pass": true,
+        "orig_paragraphs": 95,
+        "new_paragraphs": 95,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      }
+    },
+    "014069.txt": {
+      "descending_numbers": {
+        "pass": true,
+        "orig_paragraphs": 146,
+        "new_paragraphs": 146,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "all_ones": {
+        "pass": true,
+        "orig_paragraphs": 146,
+        "new_paragraphs": 146,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "large_gaps": {
+        "pass": true,
+        "orig_paragraphs": 146,
+        "new_paragraphs": 146,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      }
+    },
+    "046028.txt": {
+      "descending_numbers": {
+        "pass": true,
+        "orig_paragraphs": 33,
+        "new_paragraphs": 33,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "all_ones": {
+        "pass": true,
+        "orig_paragraphs": 33,
+        "new_paragraphs": 33,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      },
+      "large_gaps": {
+        "pass": true,
+        "orig_paragraphs": 33,
+        "new_paragraphs": 33,
+        "roles_match": true,
+        "kinds_match": true,
+        "languages_match": true
+      }
+    },
+    "synthetic_quote_non_leakage": {
+      "pass": true,
+      "roles": [
+        [
+          1,
+          "unknown"
+        ],
+        [
+          2,
+          "quoted"
+        ],
+        [
+          3,
+          "unknown"
+        ],
+        [
+          4,
+          "unknown"
+        ]
+      ],
+      "sidecars": 1
+    }
+  }
+}

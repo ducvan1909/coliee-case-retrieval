@@ -1,0 +1,103 @@
+{
+  "timestamp_utc": "2026-11-09T13:24:18Z",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "python_version": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "sqlite_version": "3.42.0",
+  "cpu_count_logical": 12,
+  "system_memory": {
+    "memory_load_percent": 73,
+    "total_phys_bytes": 12467421184,
+    "avail_phys_bytes": 3335229440,
+    "total_phys_gib": 11.611,
+    "avail_phys_gib": 3.106
+  },
+  "disk_e": {
+    "drive": "E:",
+    "total_bytes": 277021192192,
+    "used_bytes": 231937949696,
+    "free_bytes": 45083242496,
+    "free_gib": 41.987
+  },
+  "disk_c": {
+    "drive": "C:",
+    "total_bytes": 179875868672,
+    "used_bytes": 175006031872,
+    "free_bytes": 4869836800,
+    "free_gib": 4.535
+  },
+  "lexical_sqlite3_size_bytes": 4357505024,
+  "concurrent_top_processes": [
+    {
+      "ProcessName": "vmmemWSL",
+      "Id": 25940,
+      "WS_MB": 583.5,
+      "CPU_s": 0
+    },
+    {
+      "ProcessName": "ChatGPT",
+      "Id": 22496,
+      "WS_MB": 451,
+      "CPU_s": 1071.7
+    },
+    {
+      "ProcessName": "WizTree64",
+      "Id": 29232,
+      "WS_MB": 374,
+      "CPU_s": 3982.6
+    },
+    {
+      "ProcessName": "brave",
+      "Id": 31224,
+      "WS_MB": 341.7,
+      "CPU_s": 108.4
+    },
+    {
+      "ProcessName": "language_server",
+      "Id": 21584,
+      "WS_MB": 332.1,
+      "CPU_s": 657.2
+    },
+    {
+      "ProcessName": "Memory Compression",
+      "Id": 3280,
+      "WS_MB": 319.3,
+      "CPU_s": 0
+    },
+    {
+      "ProcessName": "msedgewebview2",
+      "Id": 20280,
+      "WS_MB": 263.7,
+      "CPU_s": 1378.1
+    },
+    {
+      "ProcessName": "Antigravity",
+      "Id": 6788,
+      "WS_MB": 243,
+      "CPU_s": 1084.8
+    },
+    {
+      "ProcessName": "com.docker.backend",
+      "Id": 9076,
+      "WS_MB": 191.9,
+      "CPU_s": 3411.5
+    },
+    {
+      "ProcessName": "ChatGPT",
+      "Id": 28356,
+      "WS_MB": 176.8,
+      "CPU_s": 38.6
+    },
+    {
+      "ProcessName": "Dropbox",
+      "Id": 22148,
+      "WS_MB": 133.1,
+      "CPU_s": 384.7
+    },
+    {
+      "ProcessName": "msedgewebview2",
+      "Id": 2104,
+      "WS_MB": 129.9,
+      "CPU_s": 370.6
+    }
+  ]
+}

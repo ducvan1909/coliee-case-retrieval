@@ -1,0 +1,109 @@
+{
+  "schema_version": "m3-search-latency-diagnostic-findings-1",
+  "generated_at_utc": "2026-11-09T15:03:00Z",
+  "review_directory": "pipeline_v2/reviews/m3_search_latency_diagnostic_v1",
+  "prior_evidence_audit_summary": {
+    "probe_deep_dive_results_json_exists": false,
+    "explanation": "In pipeline_v2/reviews/m3_full_search_plan_ag_review_v1, probe_deep_dive.py failed at line 178 (`nr.open_context('055641.txt', 'p000001')`) because case 055641.txt begins with 'u000001' and 'p000351', never reaching line 189 where probe_deep_dive_results.json would be written. Prior review claims relying on that missing file or on analytical extrapolations ('~25 MB' RAM, '~31.1s' / '~1.0s' shard verification) were discarded and replaced by persisted controlled measurements in this diagnostic."
+  },
+  "hypotheses_adjudication": [
+    {
+      "hypothesis_id": "H1",
+      "statement": "JOIN/random lookup chiếm phần lớn thời gian.",
+      "verdict": "supported",
+      "scope_and_qualification": "Supported as the primary bottleneck of the current implementation (Variant A) on `passage` BM25.",
+      "measured_evidence": {
+        "variant_A_passage_warm_median_total_s": 92.799461,
+        "variant_A_passage_warm_range_total_s": [10.431578, 247.448918],
+        "variant_A_stage_c_sqlite_join_warm_median_s": 90.495224,
+        "variant_A_stage_c_share_of_total_percent_range": [88.3, 99.32],
+        "variant_B_no_join_same_default_pragmas_warm_median_total_s": 13.744506,
+        "variant_B_no_join_warm_range_total_s": [2.264524, 26.464096],
+        "variant_B_stage_c_sqlite_no_join_warm_median_s": 10.744483,
+        "speedup_B_over_A_warm_median_ratio": 6.75,
+        "speedup_B_over_A_per_query_warm_range": [1.81, 20.14],
+        "structural_explanation": "In `lexical.sqlite3` (4.058 GiB), `documents WHERE kind='passage'` has 415,693 rows with 667.36 MB of JSON metadata (avg 1,605.41 bytes/row, ~2 rows per 4 KiB page across ~200,000+ leaf pages). Because `documents` is a rowid table, `SEARCH d USING INDEX sqlite_autoindex_documents_1 (kind=? AND id=?)` performs an index B-tree lookup plus a random table B-tree page lookup per posting (245,083 to 3,639,697 lookups per query). Removing `JOIN documents` while keeping default SQLite PRAGMAs fixed (Variant B) eliminates 85.2% of the median warm query time."
+      },
+      "limitations": "Removing `JOIN documents` does not eliminate the linear cost of scanning `postings` B-tree pages and materializing millions of `(id, tf)` tuples in Python when queries contain high-df stopwords ( up to 3.64M postings in Q08)."
+    },
+    {
+      "hypothesis_id": "H2",
+      "statement": "Python scoring/sort chiếm phần lớn thời gian.",
+      "verdict": "contradicted",
+      "scope_and_qualification": "Contradicted for the current implementation (Variant A), where Python scoring + sort is <2% of median latency. Becomes a secondary linear component (~25% of remaining time) only after `JOIN` and cache bottlenecks are removed in Variant C.",
+      "measured_evidence": {
+        "variant_A_stage_d_scoring_warm_median_s": 0.840677,
+        "variant_A_stage_d_scoring_warm_range_s": [0.162268, 2.271913],
+        "variant_A_stage_e_sort_warm_median_s": 0.469688,
+        "variant_A_stage_e_sort_warm_range_s": [0.201054, 0.526754],
+        "variant_A_combined_d_plus_e_share_of_median_pct": 1.41,
+        "variant_C_stage_d_scoring_warm_median_s": 1.396553,
+        "variant_C_stage_d_scoring_warm_range_s": [0.319086, 3.608544],
+        "variant_C_stage_e_sort_warm_median_s": 0.480782,
+        "variant_C_combined_d_plus_e_share_of_median_pct": 24.87,
+        "correlation_stage_d_with_total_postings_r": 0.9927
+      },
+      "limitations": "In Variant B/C, Stage d is ~1.6x higher than in Variant A (1.40s vs 0.84s median) because Python performs two dict lookups (`preloaded_case_ids[ident]` and `preloaded_lengths[ident]`) per posting across up to 3.64M postings."
+    },
+    {
+      "hypothesis_id": "H3",
+      "statement": "Đọc metadata/JSON chiếm phần lớn thời gian.",
+      "verdict": "contradicted",
+      "scope_and_qualification": "Contradicted as a direct stage bottleneck (`Stage f` `get_many` + `json.loads` is <0.5% of warm time). Metadata size only hurts indirectly by bloating the `documents` B-tree pages touched during Variant A's `JOIN` (H1).",
+      "measured_evidence": {
+        "variant_A_stage_f_meta4096_warm_median_s": 0.263211,
+        "variant_A_stage_f_meta4096_warm_range_s": [0.161072, 0.339878],
+        "variant_B_stage_f_meta4096_warm_median_s": 0.230018,
+        "variant_C_stage_f_meta4096_warm_median_s": 0.193071,
+        "variant_C_stage_f_meta4096_warm_range_s": [0.152704, 0.236476],
+        "stage_f_top100_unique_cases_warm_median_s": {
+          "A": 0.004161,
+          "B": 0.004287,
+          "C": 0.002019
+        },
+        "first_observed_stage_f_meta4096_max_s": 2.231
+      },
+      "limitations": "Fetching metadata for all 4,096 raw hits costs ~0.19s-0.26s warm (up to 2.23s when cold/evicted), whereas fetching metadata only for the 100 retained unique-case leads costs 0.002s-0.004s (2-4 ms)."
+    },
+    {
+      "hypothesis_id": "H4",
+      "statement": "I/O và cache state chi phối.",
+      "verdict": "supported",
+      "scope_and_qualification": "Supported as a co-primary factor: (1) physical RAM scarcity (3.11 GiB available vs 4.06 GiB `lexical.sqlite3` + Qdrant WSL2) makes Variant A's random `documents` B-tree lookups thrash disk/OS cache, and (2) explicit read-only `mmap_size`/`cache_size` (Variant C vs B) cuts `postings` scan time nearly in half.",
+      "measured_evidence": {
+        "host_total_ram_gib": 11.611,
+        "host_avail_ram_gib_at_start": 3.106,
+        "lexical_sqlite3_size_gib": 4.0582,
+        "variant_B_default_2mib_cache_warm_median_s": 13.744506,
+        "variant_C_4gib_mmap_512mib_cache_warm_median_s": 7.54909,
+        "speedup_C_over_B_passage_warm_median_ratio": 1.82,
+        "speedup_C_over_B_case_warm_median_ratio": 2.59,
+        "crossover_cache_eviction_evidence": "In Q06 pass 0, 1, 2 (when C ran before A), Variant C took 7.985s, 7.905s, and 8.140s. In Q06 pass 2, Variant A ran last and took 294.489s, reading ~800 MiB of `documents` pages and evicting `postings` pages from the ~3.1 GiB available RAM. Immediately afterward in Q06 pass 3 (order C -> A -> B), Variant C's Stage c spiked from 5.342s to 64.572s (total 69.622s). A similar eviction spike occurred on Q07 pass 3 (B -> A -> C: A took 297.277s, then C took 33.140s vs 9.833s-11.714s in passes 1-2)."
+      },
+      "limitations": "Because OS filesystem cache was deliberately not flushed via privileged commands, `first_observed` reflects the cache state at process start, and crossover runs capture real inter-query page eviction under 3.1 GiB free RAM."
+    },
+    {
+      "hypothesis_id": "H5",
+      "statement": "Chênh lệch Qdrant timeout/cold state làm so sánh sai lệch.",
+      "verdict": "supported",
+      "scope_and_qualification": "Supported: Qdrant `exact=True` on `on_disk=True` vectors suffers an 81.80s cold/evicted paging penalty on its first scan (exceeding Qdrant's default 60s internal server timeout unless `?timeout=120` is passed), then drops to 0.80s-1.15s median when warm.",
+      "measured_evidence": {
+        "qdrant_first_observed_V01_limit256_client_s": 81.800435,
+        "qdrant_first_observed_V01_limit256_server_s": 81.717385,
+        "qdrant_warm_limit256_client_medians_s": [1.032635, 0.935905, 0.798539],
+        "qdrant_warm_limit4096_client_medians_s": [1.151328, 0.965663, 1.00735],
+        "real_shard_verification_top100_uncached_first_pass_s": [4.031342, 3.921677, 3.799279],
+        "real_shard_verification_top100_warm_lru_pass_s": [0.000517, 0.000652, 0.000617],
+        "real_corpus_adaptive_window_proof": "Vector V03 (000713:3a2a0520d60f55dd1d773c75) returned only 97 unique cases at limit=256 (<100 budget), and 274 unique cases at limit=4096."
+      },
+      "limitations": "Measured on 3 deterministic cached passage vectors (V01, V02, V03), which are diagnostic vectors rather than real query-instruction embeddings. However, because `exact=True` computes dot products against all 415,693 vectors regardless of query vector values, exact scan work is invariant to vector semantics."
+    }
+  ],
+  "answers_to_5_required_questions": {
+    "1_where_is_bm25_slow": "In current `PersistentBM25.search('passage')` (Variant A, warm median 92.80s, range 10.43s-247.45s), 88.3%-99.3% of the latency (median 90.50s) is in Stage c (`SELECT p.id, p.tf, d.length FROM postings p JOIN documents d ...`), caused by executing 245k-3.64M random B-tree index+table lookups per query into the 667 MB `documents` table. Once `JOIN documents` and small-cache limits are removed (Variant C, warm median 7.55s, range 1.09s-15.93s), the remaining time is dominated by Stage c SQLite `postings` B-tree scan + tuple allocation (median 4.98s, ~66%) and Stage d Python BM25 scoring across millions of stopword postings (median 1.40s, ~18.5%), followed by Stage e sorting (0.48s, ~6.4%) and Stage f metadata fetch for 4,096 hits (0.19s, ~2.6%).",
+    "2_implementation_vs_insufficient_evidence": "Proven due to current implementation: (a) per-posting `JOIN documents` inside the term loop; (b) default 2 MiB SQLite cache (`cache_size=-2000, mmap_size=0`); (c) calling `get_many` on all 4,096 raw hits (193-263ms) instead of retained unique-case leads (2-4ms); (d) omitting `?timeout=120` on Qdrant `exact=True` query URL; and (e) scanning uncached `.npz` shards without an LRU shard cache (~3.9s vs 0.6ms). Proven due to corpus/analyzer design + host RAM limits: retaining high-df stopwords (`the` df=359,820, `of` df=346,161) means long queries (18-47 unique terms) scan 1.87M-3.64M postings, costing 8.1s-14.8s in Python+SQLite even in Variant C. Still lacking direct measurement (insufficient evidence until S1-S4 implementation): (a) real concurrent/interleaved contention between Qdrant (WSL2) and SQLite `mmap` inside a single unified `search_corpus` session; and (b) latency distribution on real agent-generated search queries in M4.",
+    "3_which_optimizations_preserve_ranking_and_pay_off": "Both Variant B and Variant C preserve 100% bitwise-identical rankings, scores (`max_abs_score_diff = 0.0` across all 8 queries in both `case` and `passage`), and metadata without modifying `lexical.sqlite3`. Preloading `id -> length` and `id -> sys.intern(case_id)` for all 7,708 cases and 415,693 passages takes `2.927s` (`3.524s` with `tracemalloc` instrumentation) and adds `50.251 MiB` of Python heap (`tracemalloc`, peak `50.255 MiB`; or `44.957 MiB` for `id -> length` alone when deriving `case_id` from the verified `passage_id` prefix, vs the prior review's unmeasured '~25 MB' estimate; pure OS PrivateUsage delta `+65.508 MiB`, WorkingSet delta `+65.656 MiB`). Because Variant C saves `6.31s to 235.74s` per warm query (median `81.99s` saved per query), the `2.93s` preload cost pays back on the VERY FIRST query (`breakeven = 0.012 to 0.464 queries`, median `0.036 queries`).",
+    "4_redesign_full_search_or_optimize_reader_only": "No redesign of the M3 full search architecture or sealed `m3_full_train_20261108_v1` artifacts is needed. Only reader-level optimizations in the new `pipeline_v2/full_search/` module are required: (1) preload `id -> length` (44.96 MiB heap, using verified prefix `id[:6] + '.txt'` or interned `case_id` at 50.25 MiB) and remove `JOIN documents` from `PersistentBM25.search`; (2) set read-only SQLite `PRAGMA mmap_size` (bounded, e.g. 1-2 GiB to avoid starving WSL2 on 11.6 GiB hosts) and `cache_size`; (3) run 1 single-pass BM25 scan per query and fetch `documents.metadata` only for retained unique-case leads (`<= 100 * max_leads_per_case`, saving ~200ms); (4) pass `?timeout=120` to Qdrant, query `exact=True` once at `limit=4096` (or 2-step `256 -> 4096` since V03 had 97 unique cases at 256), and use an LRU shard cache when verifying retained leads against `ReadonlyCache`.",
+    "5_next_measurements_needed": "Once `pipeline_v2/full_search/` is implemented in S1-S4, run one bounded end-to-end session benchmark measuring sequential execution of `case_bm25 + passage_bm25 (Variant C) + dense_passage (Qdrant exact=True + LRU shard verify)` within the same process to verify that SQLite `mmap_size` and WSL2 Qdrant do not evict each other under the host's ~3.1 GiB available physical RAM (tuning `mmap_size` between 512 MiB and 2 GiB if cross-channel paging is observed)."
+  }
+}

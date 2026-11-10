@@ -1,0 +1,35 @@
+{
+  "schema_version": "ag-m3-opt-independent-tests-1",
+  "generated_at_utc": "2026-11-08T02:05:00Z",
+  "test_suites": [
+    {
+      "suite": "existing_m3_opt_unit_tests",
+      "command": ".venv\\Scripts\\python.exe -m unittest pipeline_v2.tests.test_m3_opt_benchmark pipeline_v2.tests.test_m3_opt_lexical_batching pipeline_v2.tests.test_m3_opt_runtime pipeline_v2.tests.test_m3_opt_session -v",
+      "tests_run": 21,
+      "passed": 21,
+      "failed": 0,
+      "errors": 0,
+      "elapsed_seconds": 0.751,
+      "status": "PASS"
+    },
+    {
+      "suite": "ag_independent_m3_opt_review_tests",
+      "command": ".venv\\Scripts\\python.exe -m unittest pipeline_v2.reviews.m3_opt_ag_review_v1.test_m3_opt_independent_ag -v",
+      "tests_run": 7,
+      "passed": 7,
+      "failed": 0,
+      "errors": 0,
+      "elapsed_seconds": 6.154,
+      "status": "PASS",
+      "test_cases": [
+        "test_01_persistent_bm25_readonly_and_independent_math",
+        "test_02_length_batching_invariants_and_validation",
+        "test_03_unique_case_rrf_deduplicates_multiple_passages_per_case",
+        "test_04_request_embedding_accounting_and_gpu_validation",
+        "test_05_fast_session_guards_on_real_index_with_fault_injection",
+        "test_06_seal_validation_rejects_missing_extra_or_mutated_files",
+        "test_07_representative_selection_and_simulated_oom_stop"
+      ]
+    }
+  ]
+}

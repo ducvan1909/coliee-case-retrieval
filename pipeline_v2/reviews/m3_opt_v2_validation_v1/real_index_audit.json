@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "case_metadata": 916,
+  "passage_metadata": 1024,
+  "metadata_has_raw_text": false,
+  "vectors_shape": [
+    1024,
+    2560
+  ],
+  "vectors_exactly_equal_baseline_shards": true,
+  "sqlite_bytes": 93270016,
+  "lexical_checks": [
+    {
+      "kind": "case",
+      "query": "standard of review",
+      "excluded_case": null,
+      "hits": 916,
+      "query_seconds": 0.02851470000041445,
+      "status": "PASS"
+    },
+    {
+      "kind": "case",
+      "query": "standard of review",
+      "excluded_case": "079659.txt",
+      "hits": 915,
+      "query_seconds": 0.025782900000194786,
+      "status": "PASS"
+    },
+    {
+      "kind": "case",
+      "query": "d\u00e9cision n'est pas raisonnable under s. 97(1)",
+      "excluded_case": null,
+      "hits": 916,
+      "query_seconds": 0.04646720000073401,
+      "status": "PASS"
+    },
+    {
+      "kind": "passage",
+      "query": "standard of review",
+      "excluded_case": null,
+      "hits": 802,
+      "query_seconds": 0.023812000000361877,
+      "status": "PASS"
+    },
+    {
+      "kind": "passage",
+      "query": "standard of review",
+      "excluded_case": "079659.txt",
+      "hits": 802,
+      "query_seconds": 0.03902049999942392,
+      "status": "PASS"
+    },
+    {
+      "kind": "passage",
+      "query": "d\u00e9cision n'est pas raisonnable under s. 97(1)",
+      "excluded_case": null,
+      "hits": 628,
+      "query_seconds": 0.024756800000432122,
+      "status": "PASS"
+    }
+  ],
+  "elapsed_seconds": 11.133959900000264,
+  "modal_requests": 0,
+  "Qdrant_accessed": false,
+  "scope": "local_index_integrity_and_actual_BM25_equivalence_only"
+}

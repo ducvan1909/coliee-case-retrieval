@@ -1,0 +1,13 @@
+{
+  "schema_version": "pipeline-v2-m3-sparse-1",
+  "full_run": "pipeline_v2/artifacts/m3_full_train_20261108_v1",
+  "index_dir": "pipeline_v2/artifacts/m3_sparse_20261110_v1",
+  "analyzer": "unicode_word_casefold_no_stopwords_v1",
+  "score_dtype": "float64",
+  "doc_index_dtype": "uint32",
+  "offset_dtype": "uint64",
+  "fetch_size": 8192,
+  "score_block_size": 65536,
+  "metadata_cache_mib": 32,
+  "max_limit": 16384
+}

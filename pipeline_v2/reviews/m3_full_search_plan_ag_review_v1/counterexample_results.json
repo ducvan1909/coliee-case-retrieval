@@ -1,0 +1,107 @@
+{
+  "CE01_same_case_flood": {
+    "pilot_1024_unique_cases": 3,
+    "adaptive_rounds_to_100": [
+      {
+        "scan_cap": 256,
+        "unique_cases": 3
+      },
+      {
+        "scan_cap": 512,
+        "unique_cases": 3
+      },
+      {
+        "scan_cap": 1024,
+        "unique_cases": 3
+      },
+      {
+        "scan_cap": 2048,
+        "unique_cases": 100
+      }
+    ],
+    "extreme_flood_at_4096_unique_cases": 5,
+    "shortfall_correctly_triggered": true
+  },
+  "CE02_query_case_exclusion": {
+    "post_filter_hits_at_256": 0,
+    "pre_filter_hits_at_256": 49,
+    "total_corpus_cases": 50,
+    "eligible_universe_when_query_in_corpus": 49
+  },
+  "CE03_dense_ties": {
+    "tied_candidates_count": 150,
+    "score_at_rank_100": 0.85,
+    "score_at_rank_101": 0.85,
+    "boundary_tie_detected": true
+  },
+  "CE04_cached_query_vector_reuse": {
+    "intra_request_expansion_embedding_requests": 1,
+    "intra_request_expansion_qdrant_queries": 5,
+    "naive_key_collides_real_and_simulated": true,
+    "safe_key_separates_real_and_simulated": true
+  },
+  "CE05_rrf_channel_cap_bug": {
+    "unbounded_rrf_order": [
+      "CASE_X.txt",
+      "CASE_Y.txt"
+    ],
+    "strict_100_budget_rrf_order": [
+      "CASE_Y.txt",
+      "CASE_X.txt"
+    ],
+    "rank_inversion_proven": true
+  },
+  "CE06_source_and_db_drift": {
+    "total_points_before": 415693,
+    "total_points_after_1_to_1_vector_zeroing": 415693,
+    "returned_top_k_payload_and_cosine_valid": true,
+    "suppressed_point_detected_by_returned_hit_check": false,
+    "requires_readonly_workload_and_explicit_verify": true
+  },
+  "CE07_simulated_to_real": {
+    "simulated_receipt_blocked_in_real_session": true,
+    "sealed_ingestion_dir_must_remain_readonly_during_search": true
+  },
+  "CE08_phrase_casefold_offset": {
+    "cross_heading_phrase_found_in_raw": true,
+    "cross_heading_phrase_found_in_passages": false,
+    "naive_casefold_slice": "\u00e9cision est raisonnable.",
+    "safe_mapped_slice": "d\u00e9cision est raisonnable",
+    "safe_byte_span": [
+      57,
+      82
+    ]
+  },
+  "CE09_case_bm25_no_pinpoint": {
+    "case_id": "099999.txt",
+    "channels": {
+      "case_bm25": {
+        "case_id": "099999.txt",
+        "rank": 1,
+        "score": 12.5
+      }
+    },
+    "matched_passages": [],
+    "pinpoint_status": "case_lead_only_no_passage_pinpoint"
+  },
+  "CE10_utf8_and_interval_pagination": {
+    "odd_byte_boundary_rejected_by_utf8map": true,
+    "snapped_utf8_byte_boundary": 50,
+    "disjoint_pending_parent_intervals_when_hit_in_middle": [
+      [
+        0,
+        20000
+      ],
+      [
+        85536,
+        100000
+      ]
+    ]
+  },
+  "CE11_m4_token_budget_deferred": {
+    "host_transport_cap_bytes": 65536,
+    "approx_llm_tokens_for_64kib": 16000,
+    "is_token_safe_agent_payload": false,
+    "caller_must_be_able_to_pass_smaller_byte_budget": true
+  }
+}

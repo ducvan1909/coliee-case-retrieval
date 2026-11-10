@@ -1,0 +1,48 @@
+{
+  "schema_version": "pipeline-v2-m2-profile-2",
+  "navigation_version": "raw-unit-navigation-1",
+  "source_scope": "M1_revision2_train_only",
+  "preview": {
+    "max_chars": 240,
+    "anchor_radius_chars": 120,
+    "max_display_previews": 2,
+    "text": "exact_raw_slices",
+    "sentence_boundary": "not_evaluated_partial_sentence_null",
+    "selection_version": "bounded_content_window_novel_anchor_coverage_v3",
+    "clip_metadata": "truncated_start_end_word_tag_flags",
+    "boundary_policy": "long_cue_partial_focus_safe_boundaries"
+  },
+  "anchor": {
+    "placeholder_types": [
+      "FRAGMENT_SUPPRESSED",
+      "REFERENCE_SUPPRESSED"
+    ],
+    "quote_cues": "M1_evidence_refs_only_not_semantic_confirmation"
+  },
+  "neighbors": {
+    "paragraph": "previous_and_next_paragraph_by_source_order",
+    "unnumbered": "previous_and_next_content_unit_by_source_order",
+    "cross_source": false
+  },
+  "pagination": {
+    "default_limit": 20,
+    "max_limit": 100
+  },
+  "embedding": {
+    "status": "not_ready",
+    "model": null,
+    "tokenizer": null
+  },
+  "agent_tokenizer": {
+    "status": "not_ready",
+    "model": null,
+    "tokenizer": null
+  },
+  "token_validated_chunks": {
+    "status": "not_ready",
+    "reason": "embedding_model_selected_revision_assets_and_token_preflight_pending"
+  },
+  "semantic_inference": false,
+  "language_processing": "deferred_preserve_all_source",
+  "runtime_delivery": "M4_not_implemented"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "case_id": "041666.txt",
+  "parent_handle": "p000417",
+  "split_count": 110,
+  "hit_id": "041666:6aa38298330c0005b7207373",
+  "hit_span_bytes": [
+    282037,
+    283127
+  ],
+  "parent_span_bytes": [
+    234305,
+    318510
+  ],
+  "context_span_bytes": [
+    233500,
+    318510
+  ],
+  "neighbor_handles": {
+    "previous_context": "p000416",
+    "parent": "p000417"
+  },
+  "elapsed_seconds": 16.50976350000019,
+  "scope": "diagnostic_raw_context_not_M4_delivery_or_semantic_quality",
+  "interior_middle_child": {
+    "parent_handle": "p000153",
+    "passage_id": "041666:3f296642490ce0314e005143",
+    "neighbor_handles": {
+      "previous_context": "p000151",
+      "parent": "p000153",
+      "next_context": "p000155"
+    }
+  },
+  "prior_attempt": {
+    "status": "FAIL",
+    "cause": "checker_assumed_next_neighbor_at_source_end",
+    "production_changed": false
+  }
+}

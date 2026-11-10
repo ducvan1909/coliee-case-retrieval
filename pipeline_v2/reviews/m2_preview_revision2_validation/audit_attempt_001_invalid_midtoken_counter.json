@@ -1,0 +1,24 @@
+{
+  "attempt": 2,
+  "status_at_run": "PASS",
+  "known_invalid_diagnostic": true,
+  "old_bundle": "pipeline_v2/artifacts/m2_navigation_20261105_v1",
+  "new_bundle": "pipeline_v2/artifacts/m2_navigation_20261106_v2",
+  "counts": {
+    "cases": 7708,
+    "navigation_units": 382343,
+    "previews": 454275,
+    "max_preview_chars": 240,
+    "word_boundary_clipped": 245,
+    "tag_boundary_clipped": 9,
+    "sentence_status_unverified": 454275,
+    "units_with_previews": 382076,
+    "contained_preview_pairs": 0
+  },
+  "error_count": 0,
+  "elapsed_seconds": 57.484,
+  "short_opening_diagnostic_count": 6,
+  "midtoken_end_diagnostic_count": 292722,
+  "invalid_reason": "The checker treated a preview ending in an alphanumeric codepoint as a mid-token clip without checking the next raw codepoint. Word-ending text followed by whitespace was incorrectly counted. The 292722 figure must not be interpreted as a clip count or quality rate.",
+  "replacement": "audit_attempt_002_flags_only.json preserves the later metadata-only count; m2_navigation_20261106_v2_audit_checkpoint.json preserves raw-verified v2 findings; m2_navigation_20261106_v3_full_corpus_audit.json is the final raw-verified result."
+}

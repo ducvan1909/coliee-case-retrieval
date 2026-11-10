@@ -1,0 +1,153 @@
+{
+  "eligible_pool_size": 7680,
+  "exclusions": {
+    "m0_discovery_queries": [
+      "017984.txt",
+      "090579.txt",
+      "021095.txt",
+      "078522.txt",
+      "013909.txt",
+      "052702.txt",
+      "079470.txt",
+      "081689.txt",
+      "023005.txt",
+      "054233.txt"
+    ],
+    "m0_holdout_queries": [
+      "038078.txt",
+      "023045.txt",
+      "086750.txt",
+      "059126.txt",
+      "039403.txt",
+      "024409.txt",
+      "004157.txt",
+      "038786.txt",
+      "034625.txt",
+      "042885.txt"
+    ],
+    "regression_exposed_reported_separately": [
+      "061295.txt",
+      "067620.txt",
+      "062436.txt",
+      "000758.txt",
+      "050936.txt",
+      "000432.txt",
+      "014069.txt",
+      "046028.txt"
+    ]
+  },
+  "labels_or_gold_accessed": false,
+  "region_selection_policy": {
+    "max_regions_per_case": 3,
+    "region_1_opening": "First unit with preview_absence_reason or opening preview <= 40 chars clipped before unit end; otherwise first paragraph unit in source order.",
+    "region_2_anchor_or_partial_cue": "First distinct unit with quote_introduction_candidate anchor, partial anchor visibility, or unshown anchors (> display limit); otherwise first distinct unit with any anchor (or heading-only source anchor if present); fallback to middle unit.",
+    "region_3_parent_neighbor_window": "First distinct unit with repeated/jumped marker neighbor, quoted role, intervening heading in expansion envelope, or unnumbered kind; fallback to 2/3 position unit."
+  },
+  "rng_method": "Python random.Random(20261105).sample on sorted eligible case IDs for uniform_random_20; deterministic metadata-threshold ranking with shared selected_set deduplication for risk_stratified_20",
+  "samples": {
+    "regression_exposed_8": [
+      "061295.txt",
+      "067620.txt",
+      "062436.txt",
+      "000758.txt",
+      "050936.txt",
+      "000432.txt",
+      "014069.txt",
+      "046028.txt"
+    ],
+    "risk_stratified_20": {
+      "risk_1_anchors_exceeding_display_limit": {
+        "criterion": "over_display_units >= 3 and unshown_anchors_total >= 10, sorted by (-unshown_anchors_total, -over_display_units, case_id)",
+        "eligible_matching_count": 1634,
+        "requested_slots": 4,
+        "selected_cases": [
+          "092292.txt",
+          "038059.txt",
+          "095961.txt",
+          "013848.txt"
+        ]
+      },
+      "risk_2_long_cross_unit_or_heading_cues": {
+        "criterion": "heading_only_cues > 0 or cross_unit_cues > 0 or long_cues (>=120 bytes) > 0, sorted by (-heading_only_cues, -cross_unit_cues, -max_cue_bytes, case_id)",
+        "eligible_matching_count": 503,
+        "requested_slots": 4,
+        "selected_cases": [
+          "048208.txt",
+          "075799.txt",
+          "027187.txt",
+          "015740.txt"
+        ]
+      },
+      "risk_3_very_short_abbrev_or_placeholder_previews": {
+        "criterion": "units_without_preview > 0 or short_opening_units (<=25 chars clipped before unit end) >= 2, sorted by (-units_without_preview, -short_opening_units, case_id)",
+        "eligible_matching_count": 5120,
+        "requested_slots": 4,
+        "selected_cases": [
+          "000841.txt",
+          "079842.txt",
+          "001867.txt",
+          "051807.txt"
+        ]
+      },
+      "risk_4_repeated_markers_quotations_unnumbered_context": {
+        "criterion": "repeated_markers >= 2 and quoted_units >= 1 and unnumbered_units >= 1, sorted by (-repeated_markers, -quoted_units, -unnumbered_units, case_id)",
+        "eligible_matching_count": 404,
+        "requested_slots": 4,
+        "selected_cases": [
+          "039093.txt",
+          "033536.txt",
+          "044061.txt",
+          "084744.txt"
+        ]
+      },
+      "risk_5_very_long_or_heading_dense_sources": {
+        "criterion": "approx_byte_length >= 80000 and headings >= 20 and navigation_units >= 120, sorted by (-headings, -approx_byte_length, case_id)",
+        "eligible_matching_count": 11,
+        "requested_slots": 4,
+        "selected_cases": [
+          "082096.txt",
+          "055641.txt",
+          "063659.txt",
+          "051130.txt"
+        ]
+      }
+    },
+    "uniform_random_20": [
+      "011922.txt",
+      "081945.txt",
+      "068193.txt",
+      "080359.txt",
+      "014101.txt",
+      "087842.txt",
+      "059675.txt",
+      "008976.txt",
+      "038777.txt",
+      "060604.txt",
+      "062913.txt",
+      "015732.txt",
+      "040117.txt",
+      "090642.txt",
+      "027977.txt",
+      "015764.txt",
+      "066194.txt",
+      "076028.txt",
+      "075801.txt",
+      "077142.txt"
+    ]
+  },
+  "schema_version": "pipeline-v2-m2-review-sampling-manifest-1",
+  "seed": 20261105,
+  "selection_locked_before_raw_inspection": true,
+  "slot_accounting": {
+    "combined_new_sample_slots": 40,
+    "combined_new_sample_unique_cases": 40,
+    "regression_exposed_separate_cases": 8,
+    "risk_stratified_slots_requested": 20,
+    "risk_stratified_unique_selected": 20,
+    "shortfall_slots": 0,
+    "total_unique_cases_reviewed": 48,
+    "uniform_random_slots_requested": 20,
+    "uniform_random_unique_selected": 20
+  },
+  "universe_size": 7708
+}

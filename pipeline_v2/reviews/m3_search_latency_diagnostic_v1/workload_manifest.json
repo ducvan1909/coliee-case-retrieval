@@ -1,0 +1,1747 @@
+{
+  "schema_version": "m3-search-latency-workload-manifest-1",
+  "generated_at_utc": "2026-11-09T13:24:18Z",
+  "blindness_and_exposure_status": "diagnostic_exposed_non_holdout_only_not_blind_evaluation",
+  "selection_rule": {
+    "seed": 20261109,
+    "rng": "Python random.Random(20261109).sample(candidate_pool, 8)",
+    "candidate_pool_source": "knowledge_base/pipeline_v1/manifests/split_registry.v1.json train development (10) + calibration (5) cases",
+    "candidate_pool_size": 15,
+    "candidate_pool_ids": [
+      "006725.txt",
+      "011680.txt",
+      "011904.txt",
+      "013009.txt",
+      "013948.txt",
+      "034501.txt",
+      "040898.txt",
+      "043625.txt",
+      "045155.txt",
+      "047415.txt",
+      "050313.txt",
+      "073214.txt",
+      "083288.txt",
+      "093150.txt",
+      "099980.txt"
+    ],
+    "excluded_reserved_holdout_count": 30,
+    "excluded_reserved_holdout_ids": [
+      "004157.txt",
+      "004750.txt",
+      "012639.txt",
+      "013378.txt",
+      "014163.txt",
+      "016637.txt",
+      "019072.txt",
+      "020779.txt",
+      "023045.txt",
+      "024409.txt",
+      "027941.txt",
+      "030153.txt",
+      "033849.txt",
+      "034625.txt",
+      "034757.txt",
+      "038078.txt",
+      "038786.txt",
+      "039403.txt",
+      "042885.txt",
+      "049829.txt",
+      "059126.txt",
+      "063124.txt",
+      "065768.txt",
+      "068905.txt",
+      "073619.txt",
+      "086137.txt",
+      "086750.txt",
+      "087182.txt",
+      "089468.txt",
+      "099523.txt"
+    ],
+    "overlap_with_split_registry_holdout": 0,
+    "overlap_with_m0_cohort_holdout": 0,
+    "overlap_with_m0_cohort_discovery": 0,
+    "overlap_with_m0_fresh_eligible_queries": 0,
+    "span_extraction_rule": "Start at first newline after floor(len(raw_text)/3) characters; take the next W_i whitespace-delimited tokens for W = [4, 6, 8, 12, 16, 24, 36, 56] assigned by index 0..7.",
+    "used_gold_or_labels": false,
+    "used_latency_or_retrieval_scores": false
+  },
+  "queries": [
+    {
+      "query_id": "Q01",
+      "ordinal": 0,
+      "query_case": "011904.txt",
+      "target_whitespace_words": 4,
+      "char_span": [
+        6985,
+        7022
+      ],
+      "span_bytes": [
+        6985,
+        7022
+      ],
+      "source_hash": "c2bc7c0944a5ee103368055f7d2f0e3c260d4bb8336d406c3d01733304c96b12",
+      "span_sha256": "0d2e84b153a49d53976ddbd45ef5779c79aa18aaf72abb72f110b02bd1484cc0",
+      "text": "<FRAGMENT_SUPPRESSED>  (QL), at para.",
+      "lexical_token_count": 4,
+      "unique_term_count": 4,
+      "unique_terms": [
+        "at",
+        "fragment_suppressed",
+        "para",
+        "ql"
+      ],
+      "channel_postings": {
+        "case": {
+          "total_postings_all_cases": 20184,
+          "excluded_query_case_postings": 4,
+          "eligible_postings_after_exclusion": 20180,
+          "max_term_df": 7631,
+          "min_term_df": 1249,
+          "terms_df": [
+            {
+              "term": "at",
+              "df": 7631
+            },
+            {
+              "term": "fragment_suppressed",
+              "df": 7308
+            },
+            {
+              "term": "para",
+              "df": 3996
+            },
+            {
+              "term": "ql",
+              "df": 1249
+            }
+          ]
+        },
+        "passage": {
+          "total_postings_all_cases": 245083,
+          "excluded_query_case_postings": 59,
+          "eligible_postings_after_exclusion": 245024,
+          "max_term_df": 114029,
+          "min_term_df": 3907,
+          "terms_df": [
+            {
+              "term": "at",
+              "df": 109430
+            },
+            {
+              "term": "fragment_suppressed",
+              "df": 114029
+            },
+            {
+              "term": "para",
+              "df": 17717
+            },
+            {
+              "term": "ql",
+              "df": 3907
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "Q02",
+      "ordinal": 1,
+      "query_case": "006725.txt",
+      "target_whitespace_words": 6,
+      "char_span": [
+        10970,
+        11008
+      ],
+      "span_bytes": [
+        10984,
+        11022
+      ],
+      "source_hash": "9cda4fda5ea6c8ab09cf11aae8a1e4cf5897de189ee728fb4427302e0c411443",
+      "span_sha256": "ba1c0b781eb930fb0316f3845c2d372fe2245d852cd60dc1422dac264d6889b6",
+      "text": "[14]\r\nFinally, the tribunal could also",
+      "lexical_token_count": 6,
+      "unique_term_count": 6,
+      "unique_terms": [
+        "14",
+        "also",
+        "could",
+        "finally",
+        "the",
+        "tribunal"
+      ],
+      "channel_postings": {
+        "case": {
+          "total_postings_all_cases": 35132,
+          "excluded_query_case_postings": 6,
+          "eligible_postings_after_exclusion": 35126,
+          "max_term_df": 7708,
+          "min_term_df": 3300,
+          "terms_df": [
+            {
+              "term": "14",
+              "df": 7148
+            },
+            {
+              "term": "also",
+              "df": 7109
+            },
+            {
+              "term": "could",
+              "df": 6390
+            },
+            {
+              "term": "finally",
+              "df": 3300
+            },
+            {
+              "term": "the",
+              "df": 7708
+            },
+            {
+              "term": "tribunal",
+              "df": 3477
+            }
+          ]
+        },
+        "passage": {
+          "total_postings_all_cases": 480176,
+          "excluded_query_case_postings": 75,
+          "eligible_postings_after_exclusion": 480101,
+          "max_term_df": 359820,
+          "min_term_df": 6371,
+          "terms_df": [
+            {
+              "term": "14",
+              "df": 18051
+            },
+            {
+              "term": "also",
+              "df": 49955
+            },
+            {
+              "term": "could",
+              "df": 29673
+            },
+            {
+              "term": "finally",
+              "df": 6371
+            },
+            {
+              "term": "the",
+              "df": 359820
+            },
+            {
+              "term": "tribunal",
+              "df": 16306
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "Q03",
+      "ordinal": 2,
+      "query_case": "043625.txt",
+      "target_whitespace_words": 8,
+      "char_span": [
+        11538,
+        11581
+      ],
+      "span_bytes": [
+        11543,
+        11586
+      ],
+      "source_hash": "176273961518cbc001f7e1a6a9a60cbf866cbf1f9a339cd5d960d5412f2210ef",
+      "span_sha256": "76baa38bddbc53a39056c24b77895c1f99f6bf0f172e66bac49fecb1a5a53131",
+      "text": "Annual review of orders\r\n131. (1) The Board",
+      "lexical_token_count": 8,
+      "unique_term_count": 8,
+      "unique_terms": [
+        "1",
+        "131",
+        "annual",
+        "board",
+        "of",
+        "orders",
+        "review",
+        "the"
+      ],
+      "channel_postings": {
+        "case": {
+          "total_postings_all_cases": 39121,
+          "excluded_query_case_postings": 8,
+          "eligible_postings_after_exclusion": 39113,
+          "max_term_df": 7708,
+          "min_term_df": 338,
+          "terms_df": [
+            {
+              "term": "1",
+              "df": 7708
+            },
+            {
+              "term": "131",
+              "df": 338
+            },
+            {
+              "term": "annual",
+              "df": 393
+            },
+            {
+              "term": "board",
+              "df": 4584
+            },
+            {
+              "term": "of",
+              "df": 7708
+            },
+            {
+              "term": "orders",
+              "df": 3683
+            },
+            {
+              "term": "review",
+              "df": 6999
+            },
+            {
+              "term": "the",
+              "df": 7708
+            }
+          ]
+        },
+        "passage": {
+          "total_postings_all_cases": 863196,
+          "excluded_query_case_postings": 165,
+          "eligible_postings_after_exclusion": 863031,
+          "max_term_df": 359820,
+          "min_term_df": 521,
+          "terms_df": [
+            {
+              "term": "1",
+              "df": 75381
+            },
+            {
+              "term": "131",
+              "df": 521
+            },
+            {
+              "term": "annual",
+              "df": 815
+            },
+            {
+              "term": "board",
+              "df": 45004
+            },
+            {
+              "term": "of",
+              "df": 323823
+            },
+            {
+              "term": "orders",
+              "df": 6209
+            },
+            {
+              "term": "review",
+              "df": 51623
+            },
+            {
+              "term": "the",
+              "df": 359820
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "Q04",
+      "ordinal": 3,
+      "query_case": "013948.txt",
+      "target_whitespace_words": 12,
+      "char_span": [
+        6488,
+        6555
+      ],
+      "span_bytes": [
+        6490,
+        6557
+      ],
+      "source_hash": "1571876439f11252edacb5b893c7538e1f7a29c2b47245ded2633f3de1114352",
+      "span_sha256": "74c82d3de1138abaeac51ad48b9e6b692395dd80d5f6dd1a952655e492b15c40",
+      "text": "(1) Before making a decision, was the PRRA officer required to give",
+      "lexical_token_count": 12,
+      "unique_term_count": 12,
+      "unique_terms": [
+        "1",
+        "a",
+        "before",
+        "decision",
+        "give",
+        "making",
+        "officer",
+        "prra",
+        "required",
+        "the",
+        "to",
+        "was"
+      ],
+      "channel_postings": {
+        "case": {
+          "total_postings_all_cases": 71519,
+          "excluded_query_case_postings": 12,
+          "eligible_postings_after_exclusion": 71507,
+          "max_term_df": 7708,
+          "min_term_df": 769,
+          "terms_df": [
+            {
+              "term": "1",
+              "df": 7708
+            },
+            {
+              "term": "a",
+              "df": 7708
+            },
+            {
+              "term": "before",
+              "df": 7074
+            },
+            {
+              "term": "decision",
+              "df": 7400
+            },
+            {
+              "term": "give",
+              "df": 3701
+            },
+            {
+              "term": "making",
+              "df": 4403
+            },
+            {
+              "term": "officer",
+              "df": 4041
+            },
+            {
+              "term": "prra",
+              "df": 769
+            },
+            {
+              "term": "required",
+              "df": 5625
+            },
+            {
+              "term": "the",
+              "df": 7708
+            },
+            {
+              "term": "to",
+              "df": 7704
+            },
+            {
+              "term": "was",
+              "df": 7678
+            }
+          ]
+        },
+        "passage": {
+          "total_postings_all_cases": 1387108,
+          "excluded_query_case_postings": 275,
+          "eligible_postings_after_exclusion": 1386833,
+          "max_term_df": 359820,
+          "min_term_df": 7316,
+          "terms_df": [
+            {
+              "term": "1",
+              "df": 75381
+            },
+            {
+              "term": "a",
+              "df": 280964
+            },
+            {
+              "term": "before",
+              "df": 42074
+            },
+            {
+              "term": "decision",
+              "df": 81228
+            },
+            {
+              "term": "give",
+              "df": 8278
+            },
+            {
+              "term": "making",
+              "df": 11110
+            },
+            {
+              "term": "officer",
+              "df": 47168
+            },
+            {
+              "term": "prra",
+              "df": 7316
+            },
+            {
+              "term": "required",
+              "df": 20024
+            },
+            {
+              "term": "the",
+              "df": 359820
+            },
+            {
+              "term": "to",
+              "df": 296053
+            },
+            {
+              "term": "was",
+              "df": 157692
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "Q05",
+      "ordinal": 4,
+      "query_case": "047415.txt",
+      "target_whitespace_words": 16,
+      "char_span": [
+        58443,
+        58524
+      ],
+      "span_bytes": [
+        58445,
+        58526
+      ],
+      "source_hash": "5c0f362e17ae1d4e268422f6fdce7e4e0cd4f43a78c12a71c9fb0641ac4d5ef7",
+      "span_sha256": "1a3e8fa0121b2de4b1d36a5ffa127deac455c8a15986a84cf43ce0f0950ef267",
+      "text": "(b) When Mr. Mahjoub is at home alone, the ethernet wire from the computer in the",
+      "lexical_token_count": 16,
+      "unique_term_count": 14,
+      "unique_terms": [
+        "alone",
+        "at",
+        "b",
+        "computer",
+        "ethernet",
+        "from",
+        "home",
+        "in",
+        "is",
+        "mahjoub",
+        "mr",
+        "the",
+        "when",
+        "wire"
+      ],
+      "channel_postings": {
+        "case": {
+          "total_postings_all_cases": 60036,
+          "excluded_query_case_postings": 14,
+          "eligible_postings_after_exclusion": 60022,
+          "max_term_df": 7708,
+          "min_term_df": 2,
+          "terms_df": [
+            {
+              "term": "alone",
+              "df": 1720
+            },
+            {
+              "term": "at",
+              "df": 7631
+            },
+            {
+              "term": "b",
+              "df": 5495
+            },
+            {
+              "term": "computer",
+              "df": 598
+            },
+            {
+              "term": "ethernet",
+              "df": 2
+            },
+            {
+              "term": "from",
+              "df": 7562
+            },
+            {
+              "term": "home",
+              "df": 2331
+            },
+            {
+              "term": "in",
+              "df": 7705
+            },
+            {
+              "term": "is",
+              "df": 7708
+            },
+            {
+              "term": "mahjoub",
+              "df": 23
+            },
+            {
+              "term": "mr",
+              "df": 4727
+            },
+            {
+              "term": "the",
+              "df": 7708
+            },
+            {
+              "term": "when",
+              "df": 6776
+            },
+            {
+              "term": "wire",
+              "df": 50
+            }
+          ]
+        },
+        "passage": {
+          "total_postings_all_cases": 1157969,
+          "excluded_query_case_postings": 1305,
+          "eligible_postings_after_exclusion": 1156664,
+          "max_term_df": 359820,
+          "min_term_df": 4,
+          "terms_df": [
+            {
+              "term": "alone",
+              "df": 2765
+            },
+            {
+              "term": "at",
+              "df": 109430
+            },
+            {
+              "term": "b",
+              "df": 33141
+            },
+            {
+              "term": "computer",
+              "df": 1347
+            },
+            {
+              "term": "ethernet",
+              "df": 4
+            },
+            {
+              "term": "from",
+              "df": 84258
+            },
+            {
+              "term": "home",
+              "df": 5276
+            },
+            {
+              "term": "in",
+              "df": 280423
+            },
+            {
+              "term": "is",
+              "df": 200665
+            },
+            {
+              "term": "mahjoub",
+              "df": 1006
+            },
+            {
+              "term": "mr",
+              "df": 43445
+            },
+            {
+              "term": "the",
+              "df": 359820
+            },
+            {
+              "term": "when",
+              "df": 36268
+            },
+            {
+              "term": "wire",
+              "df": 121
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "Q06",
+      "ordinal": 5,
+      "query_case": "099980.txt",
+      "target_whitespace_words": 24,
+      "char_span": [
+        40953,
+        41084
+      ],
+      "span_bytes": [
+        40975,
+        41106
+      ],
+      "source_hash": "49d56b1477fed32e9c45e52582884818f7632735542b22388911fccd602f2319",
+      "span_sha256": "3aa9a36289589cab2bcf1126bc0a9844724d83348cfeb1812719ef022ea9df52",
+      "text": "[73]\r\nIt is that aspect of the judgment in Seck 1 that is undoubtedly the most contentious today. The applicant is asking the Court",
+      "lexical_token_count": 24,
+      "unique_term_count": 18,
+      "unique_terms": [
+        "1",
+        "73",
+        "applicant",
+        "asking",
+        "aspect",
+        "contentious",
+        "court",
+        "in",
+        "is",
+        "it",
+        "judgment",
+        "most",
+        "of",
+        "seck",
+        "that",
+        "the",
+        "today",
+        "undoubtedly"
+      ],
+      "channel_postings": {
+        "case": {
+          "total_postings_all_cases": 82045,
+          "excluded_query_case_postings": 18,
+          "eligible_postings_after_exclusion": 82027,
+          "max_term_df": 7708,
+          "min_term_df": 4,
+          "terms_df": [
+            {
+              "term": "1",
+              "df": 7708
+            },
+            {
+              "term": "73",
+              "df": 1118
+            },
+            {
+              "term": "applicant",
+              "df": 6812
+            },
+            {
+              "term": "asking",
+              "df": 1205
+            },
+            {
+              "term": "aspect",
+              "df": 1302
+            },
+            {
+              "term": "contentious",
+              "df": 141
+            },
+            {
+              "term": "court",
+              "df": 7624
+            },
+            {
+              "term": "in",
+              "df": 7705
+            },
+            {
+              "term": "is",
+              "df": 7708
+            },
+            {
+              "term": "it",
+              "df": 7661
+            },
+            {
+              "term": "judgment",
+              "df": 5489
+            },
+            {
+              "term": "most",
+              "df": 3323
+            },
+            {
+              "term": "of",
+              "df": 7708
+            },
+            {
+              "term": "seck",
+              "df": 4
+            },
+            {
+              "term": "that",
+              "df": 7700
+            },
+            {
+              "term": "the",
+              "df": 7708
+            },
+            {
+              "term": "today",
+              "df": 777
+            },
+            {
+              "term": "undoubtedly",
+              "df": 352
+            }
+          ]
+        },
+        "passage": {
+          "total_postings_all_cases": 1874283,
+          "excluded_query_case_postings": 1233,
+          "eligible_postings_after_exclusion": 1873050,
+          "max_term_df": 359820,
+          "min_term_df": 53,
+          "terms_df": [
+            {
+              "term": "1",
+              "df": 75381
+            },
+            {
+              "term": "73",
+              "df": 1835
+            },
+            {
+              "term": "applicant",
+              "df": 123445
+            },
+            {
+              "term": "asking",
+              "df": 1755
+            },
+            {
+              "term": "aspect",
+              "df": 2124
+            },
+            {
+              "term": "contentious",
+              "df": 192
+            },
+            {
+              "term": "court",
+              "df": 85275
+            },
+            {
+              "term": "in",
+              "df": 280423
+            },
+            {
+              "term": "is",
+              "df": 200665
+            },
+            {
+              "term": "it",
+              "df": 131216
+            },
+            {
+              "term": "judgment",
+              "df": 9564
+            },
+            {
+              "term": "most",
+              "df": 7491
+            },
+            {
+              "term": "of",
+              "df": 323823
+            },
+            {
+              "term": "seck",
+              "df": 53
+            },
+            {
+              "term": "that",
+              "df": 269575
+            },
+            {
+              "term": "the",
+              "df": 359820
+            },
+            {
+              "term": "today",
+              "df": 1230
+            },
+            {
+              "term": "undoubtedly",
+              "df": 416
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "Q07",
+      "ordinal": 6,
+      "query_case": "040898.txt",
+      "target_whitespace_words": 36,
+      "char_span": [
+        4981,
+        5185
+      ],
+      "span_bytes": [
+        4981,
+        5185
+      ],
+      "source_hash": "d237feb39740cdf7c3eec24dbf04038bdb9a9c88c49afb42592372a40b5b0d0c",
+      "span_sha256": "2d50ca738c423784e84f859da78721fd0b8181bcd019ccfa0ed810517843e261",
+      "text": "<FRAGMENT_SUPPRESSED> ; 302 N.R. 178; 2003 FCA 39 (F.C.A.), at para. 14:\r\n\"Insofar as these are findings of fact they can only be reviewed if they are erroneous and made in a perverse or capricious manner",
+      "lexical_token_count": 38,
+      "unique_term_count": 35,
+      "unique_terms": [
+        "14",
+        "178",
+        "2003",
+        "302",
+        "39",
+        "a",
+        "and",
+        "are",
+        "as",
+        "at",
+        "be",
+        "c",
+        "can",
+        "capricious",
+        "erroneous",
+        "f",
+        "fact",
+        "fca",
+        "findings",
+        "fragment_suppressed",
+        "if",
+        "in",
+        "insofar",
+        "made",
+        "manner",
+        "n",
+        "of",
+        "only",
+        "or",
+        "para",
+        "perverse",
+        "r",
+        "reviewed",
+        "these",
+        "they"
+      ],
+      "channel_postings": {
+        "case": {
+          "total_postings_all_cases": 178769,
+          "excluded_query_case_postings": 35,
+          "eligible_postings_after_exclusion": 178734,
+          "max_term_df": 7708,
+          "min_term_df": 228,
+          "terms_df": [
+            {
+              "term": "14",
+              "df": 7148
+            },
+            {
+              "term": "178",
+              "df": 228
+            },
+            {
+              "term": "2003",
+              "df": 2378
+            },
+            {
+              "term": "302",
+              "df": 292
+            },
+            {
+              "term": "39",
+              "df": 3439
+            },
+            {
+              "term": "a",
+              "df": 7708
+            },
+            {
+              "term": "and",
+              "df": 7706
+            },
+            {
+              "term": "are",
+              "df": 7485
+            },
+            {
+              "term": "as",
+              "df": 7685
+            },
+            {
+              "term": "at",
+              "df": 7631
+            },
+            {
+              "term": "be",
+              "df": 7686
+            },
+            {
+              "term": "c",
+              "df": 7388
+            },
+            {
+              "term": "can",
+              "df": 5954
+            },
+            {
+              "term": "capricious",
+              "df": 786
+            },
+            {
+              "term": "erroneous",
+              "df": 1270
+            },
+            {
+              "term": "f",
+              "df": 5828
+            },
+            {
+              "term": "fact",
+              "df": 6640
+            },
+            {
+              "term": "fca",
+              "df": 1082
+            },
+            {
+              "term": "findings",
+              "df": 3756
+            },
+            {
+              "term": "fragment_suppressed",
+              "df": 7308
+            },
+            {
+              "term": "if",
+              "df": 7256
+            },
+            {
+              "term": "in",
+              "df": 7705
+            },
+            {
+              "term": "insofar",
+              "df": 753
+            },
+            {
+              "term": "made",
+              "df": 7083
+            },
+            {
+              "term": "manner",
+              "df": 3615
+            },
+            {
+              "term": "n",
+              "df": 4026
+            },
+            {
+              "term": "of",
+              "df": 7708
+            },
+            {
+              "term": "only",
+              "df": 6728
+            },
+            {
+              "term": "or",
+              "df": 7625
+            },
+            {
+              "term": "para",
+              "df": 3996
+            },
+            {
+              "term": "perverse",
+              "df": 809
+            },
+            {
+              "term": "r",
+              "df": 5083
+            },
+            {
+              "term": "reviewed",
+              "df": 3405
+            },
+            {
+              "term": "these",
+              "df": 6885
+            },
+            {
+              "term": "they",
+              "df": 6694
+            }
+          ]
+        },
+        "passage": {
+          "total_postings_all_cases": 2340921,
+          "excluded_query_case_postings": 238,
+          "eligible_postings_after_exclusion": 2340683,
+          "max_term_df": 323823,
+          "min_term_df": 311,
+          "terms_df": [
+            {
+              "term": "14",
+              "df": 18051
+            },
+            {
+              "term": "178",
+              "df": 311
+            },
+            {
+              "term": "2003",
+              "df": 7084
+            },
+            {
+              "term": "302",
+              "df": 427
+            },
+            {
+              "term": "39",
+              "df": 6039
+            },
+            {
+              "term": "a",
+              "df": 280964
+            },
+            {
+              "term": "and",
+              "df": 269105
+            },
+            {
+              "term": "are",
+              "df": 75597
+            },
+            {
+              "term": "as",
+              "df": 148936
+            },
+            {
+              "term": "at",
+              "df": 109430
+            },
+            {
+              "term": "be",
+              "df": 144854
+            },
+            {
+              "term": "c",
+              "df": 58388
+            },
+            {
+              "term": "can",
+              "df": 23259
+            },
+            {
+              "term": "capricious",
+              "df": 1239
+            },
+            {
+              "term": "erroneous",
+              "df": 2089
+            },
+            {
+              "term": "f",
+              "df": 21743
+            },
+            {
+              "term": "fact",
+              "df": 30768
+            },
+            {
+              "term": "fca",
+              "df": 2124
+            },
+            {
+              "term": "findings",
+              "df": 11836
+            },
+            {
+              "term": "fragment_suppressed",
+              "df": 114029
+            },
+            {
+              "term": "if",
+              "df": 53524
+            },
+            {
+              "term": "in",
+              "df": 280423
+            },
+            {
+              "term": "insofar",
+              "df": 1180
+            },
+            {
+              "term": "made",
+              "df": 44788
+            },
+            {
+              "term": "manner",
+              "df": 8099
+            },
+            {
+              "term": "n",
+              "df": 25512
+            },
+            {
+              "term": "of",
+              "df": 323823
+            },
+            {
+              "term": "only",
+              "df": 33867
+            },
+            {
+              "term": "or",
+              "df": 117151
+            },
+            {
+              "term": "para",
+              "df": 17717
+            },
+            {
+              "term": "perverse",
+              "df": 1282
+            },
+            {
+              "term": "r",
+              "df": 20413
+            },
+            {
+              "term": "reviewed",
+              "df": 6663
+            },
+            {
+              "term": "these",
+              "df": 38254
+            },
+            {
+              "term": "they",
+              "df": 41952
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "Q08",
+      "ordinal": 7,
+      "query_case": "034501.txt",
+      "target_whitespace_words": 56,
+      "char_span": [
+        10301,
+        10674
+      ],
+      "span_bytes": [
+        10404,
+        10777
+      ],
+      "source_hash": "90a1fe9bb87930bd1bab894c265bf9b693ba54d1f3fbf658f8c5b5cf45faa429",
+      "span_sha256": "22418c1193409d7fc0c1000dba7a78f112317b274be4e8bbfb3d942b351a6402",
+      "text": "[5] \r\n  At any rate, in August 2009, the citizenship officer referred their applications to a Citizenship Judge.  <FRAGMENT_SUPPRESSED>  \r\n [6] \r\n  Interviews with Mr. El Bousserghini and Ms. Kranfouli and Citizenship Judge Duguay were held on September 28, 2010. There is no transcript of the hearing but the judge was satisfied that the respondents met the conditions set",
+      "lexical_token_count": 56,
+      "unique_term_count": 47,
+      "unique_terms": [
+        "2009",
+        "2010",
+        "28",
+        "5",
+        "6",
+        "a",
+        "and",
+        "any",
+        "applications",
+        "at",
+        "august",
+        "bousserghini",
+        "but",
+        "citizenship",
+        "conditions",
+        "duguay",
+        "el",
+        "fragment_suppressed",
+        "hearing",
+        "held",
+        "in",
+        "interviews",
+        "is",
+        "judge",
+        "kranfouli",
+        "met",
+        "mr",
+        "ms",
+        "no",
+        "of",
+        "officer",
+        "on",
+        "rate",
+        "referred",
+        "respondents",
+        "satisfied",
+        "september",
+        "set",
+        "that",
+        "the",
+        "their",
+        "there",
+        "to",
+        "transcript",
+        "was",
+        "were",
+        "with"
+      ],
+      "channel_postings": {
+        "case": {
+          "total_postings_all_cases": 227554,
+          "excluded_query_case_postings": 47,
+          "eligible_postings_after_exclusion": 227507,
+          "max_term_df": 7708,
+          "min_term_df": 2,
+          "terms_df": [
+            {
+              "term": "2009",
+              "df": 2248
+            },
+            {
+              "term": "2010",
+              "df": 2135
+            },
+            {
+              "term": "28",
+              "df": 5393
+            },
+            {
+              "term": "5",
+              "df": 7696
+            },
+            {
+              "term": "6",
+              "df": 7677
+            },
+            {
+              "term": "a",
+              "df": 7708
+            },
+            {
+              "term": "and",
+              "df": 7706
+            },
+            {
+              "term": "any",
+              "df": 7483
+            },
+            {
+              "term": "applications",
+              "df": 2302
+            },
+            {
+              "term": "at",
+              "df": 7631
+            },
+            {
+              "term": "august",
+              "df": 3429
+            },
+            {
+              "term": "bousserghini",
+              "df": 9
+            },
+            {
+              "term": "but",
+              "df": 6986
+            },
+            {
+              "term": "citizenship",
+              "df": 2644
+            },
+            {
+              "term": "conditions",
+              "df": 3012
+            },
+            {
+              "term": "duguay",
+              "df": 14
+            },
+            {
+              "term": "el",
+              "df": 277
+            },
+            {
+              "term": "fragment_suppressed",
+              "df": 7308
+            },
+            {
+              "term": "hearing",
+              "df": 5185
+            },
+            {
+              "term": "held",
+              "df": 4970
+            },
+            {
+              "term": "in",
+              "df": 7705
+            },
+            {
+              "term": "interviews",
+              "df": 394
+            },
+            {
+              "term": "is",
+              "df": 7708
+            },
+            {
+              "term": "judge",
+              "df": 2228
+            },
+            {
+              "term": "kranfouli",
+              "df": 2
+            },
+            {
+              "term": "met",
+              "df": 3256
+            },
+            {
+              "term": "mr",
+              "df": 4727
+            },
+            {
+              "term": "ms",
+              "df": 1992
+            },
+            {
+              "term": "no",
+              "df": 7652
+            },
+            {
+              "term": "of",
+              "df": 7708
+            },
+            {
+              "term": "officer",
+              "df": 4041
+            },
+            {
+              "term": "on",
+              "df": 7696
+            },
+            {
+              "term": "rate",
+              "df": 565
+            },
+            {
+              "term": "referred",
+              "df": 4741
+            },
+            {
+              "term": "respondents",
+              "df": 922
+            },
+            {
+              "term": "satisfied",
+              "df": 4381
+            },
+            {
+              "term": "september",
+              "df": 3568
+            },
+            {
+              "term": "set",
+              "df": 5680
+            },
+            {
+              "term": "that",
+              "df": 7700
+            },
+            {
+              "term": "the",
+              "df": 7708
+            },
+            {
+              "term": "their",
+              "df": 6381
+            },
+            {
+              "term": "there",
+              "df": 7472
+            },
+            {
+              "term": "to",
+              "df": 7704
+            },
+            {
+              "term": "transcript",
+              "df": 1198
+            },
+            {
+              "term": "was",
+              "df": 7678
+            },
+            {
+              "term": "were",
+              "df": 7288
+            },
+            {
+              "term": "with",
+              "df": 7646
+            }
+          ]
+        },
+        "passage": {
+          "total_postings_all_cases": 3639697,
+          "excluded_query_case_postings": 682,
+          "eligible_postings_after_exclusion": 3639015,
+          "max_term_df": 359820,
+          "min_term_df": 16,
+          "terms_df": [
+            {
+              "term": "2009",
+              "df": 8121
+            },
+            {
+              "term": "2010",
+              "df": 7356
+            },
+            {
+              "term": "28",
+              "df": 12276
+            },
+            {
+              "term": "5",
+              "df": 30428
+            },
+            {
+              "term": "6",
+              "df": 23902
+            },
+            {
+              "term": "a",
+              "df": 280964
+            },
+            {
+              "term": "and",
+              "df": 269105
+            },
+            {
+              "term": "any",
+              "df": 57028
+            },
+            {
+              "term": "applications",
+              "df": 6930
+            },
+            {
+              "term": "at",
+              "df": 109430
+            },
+            {
+              "term": "august",
+              "df": 8285
+            },
+            {
+              "term": "bousserghini",
+              "df": 29
+            },
+            {
+              "term": "but",
+              "df": 42564
+            },
+            {
+              "term": "citizenship",
+              "df": 13161
+            },
+            {
+              "term": "conditions",
+              "df": 10802
+            },
+            {
+              "term": "duguay",
+              "df": 25
+            },
+            {
+              "term": "el",
+              "df": 1388
+            },
+            {
+              "term": "fragment_suppressed",
+              "df": 114029
+            },
+            {
+              "term": "hearing",
+              "df": 22391
+            },
+            {
+              "term": "held",
+              "df": 15568
+            },
+            {
+              "term": "in",
+              "df": 280423
+            },
+            {
+              "term": "interviews",
+              "df": 813
+            },
+            {
+              "term": "is",
+              "df": 200665
+            },
+            {
+              "term": "judge",
+              "df": 10862
+            },
+            {
+              "term": "kranfouli",
+              "df": 16
+            },
+            {
+              "term": "met",
+              "df": 7127
+            },
+            {
+              "term": "mr",
+              "df": 43445
+            },
+            {
+              "term": "ms",
+              "df": 12116
+            },
+            {
+              "term": "no",
+              "df": 76915
+            },
+            {
+              "term": "of",
+              "df": 323823
+            },
+            {
+              "term": "officer",
+              "df": 47168
+            },
+            {
+              "term": "on",
+              "df": 165954
+            },
+            {
+              "term": "rate",
+              "df": 1550
+            },
+            {
+              "term": "referred",
+              "df": 13607
+            },
+            {
+              "term": "respondents",
+              "df": 5954
+            },
+            {
+              "term": "satisfied",
+              "df": 11933
+            },
+            {
+              "term": "september",
+              "df": 8533
+            },
+            {
+              "term": "set",
+              "df": 20382
+            },
+            {
+              "term": "that",
+              "df": 269575
+            },
+            {
+              "term": "the",
+              "df": 359820
+            },
+            {
+              "term": "their",
+              "df": 39908
+            },
+            {
+              "term": "there",
+              "df": 65930
+            },
+            {
+              "term": "to",
+              "df": 296053
+            },
+            {
+              "term": "transcript",
+              "df": 2946
+            },
+            {
+              "term": "was",
+              "df": 157692
+            },
+            {
+              "term": "were",
+              "df": 60695
+            },
+            {
+              "term": "with",
+              "df": 122010
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "diagnostic_dense_vectors": [
+    {
+      "vector_id": "V01",
+      "schedule_batch": 1000,
+      "batch_row_index": 0,
+      "schedule_ordinal": 64000,
+      "passage_id": "095448:88b488d43fde1389756a8dd7",
+      "query_case_excluded": "095448.txt",
+      "lexical_length": 23,
+      "full_input_tokens": 46,
+      "exact_input_sha256": "bc19e13f296b2a1b509fa00303f1f322f9f417d14ac985fcbe539e288509ee58",
+      "source_hash": "78a77dfff8c30f6f99f458104bb1ccd51f7c0e319f995476c5cc627e7a2052ee",
+      "span_bytes": [
+        392,
+        569
+      ],
+      "note": "Deterministic cached passage vector from M3 full run schedule; diagnostic vector only, not a real query-template embedding."
+    },
+    {
+      "vector_id": "V02",
+      "schedule_batch": 3248,
+      "batch_row_index": 0,
+      "schedule_ordinal": 207872,
+      "passage_id": "041666:b5120463c47e98934ef7bde9",
+      "query_case_excluded": "041666.txt",
+      "lexical_length": 77,
+      "full_input_tokens": 106,
+      "exact_input_sha256": "5071334eb2ed34fe14ef7e53deae99be81e56b4942967cb1188e0e9a39a61008",
+      "source_hash": "e90c1fe477b77b425cdb9d9eefb672f76135e68874affe695a6a6c05f11f4438",
+      "span_bytes": [
+        74148,
+        74646
+      ],
+      "note": "Deterministic cached passage vector from M3 full run schedule; diagnostic vector only, not a real query-template embedding."
+    },
+    {
+      "vector_id": "V03",
+      "schedule_batch": 5500,
+      "batch_row_index": 0,
+      "schedule_ordinal": 352000,
+      "passage_id": "000713:3a2a0520d60f55dd1d773c75",
+      "query_case_excluded": "000713.txt",
+      "lexical_length": 191,
+      "full_input_tokens": 246,
+      "exact_input_sha256": "9bea6c58ed5661e209c1042b8ce0bd89bf2036fcafd9c609efc67a6e1d4da0af",
+      "source_hash": "8a844cffe0ef19bbce51505b5d7f3ce30d3b113bd2435060291a1efff75a3c41",
+      "span_bytes": [
+        35858,
+        36990
+      ],
+      "note": "Deterministic cached passage vector from M3 full run schedule; diagnostic vector only, not a real query-template embedding."
+    }
+  ]
+}

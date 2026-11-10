@@ -1,0 +1,190 @@
+{
+  "unittest_ran": 4,
+  "unittest_ok": true,
+  "unittest_output": "test_01_bm25_no_text_bounded_batches_relative_paths_and_oracle_parity (__main__.IndependentM3OptV2Tests.test_01_bm25_no_text_bounded_batches_relative_paths_and_oracle_parity) ... ok\ntest_02_real_index_integrity_and_bm25_oracle_across_16_queries (__main__.IndependentM3OptV2Tests.test_02_real_index_integrity_and_bm25_oracle_across_16_queries) ... ok\ntest_03_session_open_no_preload_and_tamper_invalidation_on_temp_copy (__main__.IndependentM3OptV2Tests.test_03_session_open_no_preload_and_tamper_invalidation_on_temp_copy) ... ok\ntest_04_compatibility_gate_and_unified_v2_attestations (__main__.IndependentM3OptV2Tests.test_04_compatibility_gate_and_unified_v2_attestations) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 1.120s\n\nOK\n",
+  "bm25_16_query_oracle_audit": {
+    "all_ids_equal": true,
+    "all_metadata_equal": true,
+    "max_score_diff": 3.552713678800501e-15,
+    "case_mean_sqlite_seconds": 0.022534,
+    "passage_mean_sqlite_seconds": 0.012899,
+    "comparisons": [
+      {
+        "query": "standard of review",
+        "kind": "case",
+        "exclude_case_id": null,
+        "hit_count": 916,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 2.220446049250313e-16,
+        "oracle_seconds": 0.006932,
+        "v2_sqlite_seconds": 0.021468
+      },
+      {
+        "query": "standard of review",
+        "kind": "passage",
+        "exclude_case_id": null,
+        "hit_count": 802,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 1.7763568394002505e-15,
+        "oracle_seconds": 0.004696,
+        "v2_sqlite_seconds": 0.023248
+      },
+      {
+        "query": "standard of review",
+        "kind": "case",
+        "exclude_case_id": "079659.txt",
+        "hit_count": 915,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 2.220446049250313e-16,
+        "oracle_seconds": 0.002968,
+        "v2_sqlite_seconds": 0.0223
+      },
+      {
+        "query": "standard of review",
+        "kind": "passage",
+        "exclude_case_id": "079659.txt",
+        "hit_count": 802,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 1.7763568394002505e-15,
+        "oracle_seconds": 0.004773,
+        "v2_sqlite_seconds": 0.022068
+      },
+      {
+        "query": "décision n'est pas raisonnable under s. 97(1)",
+        "kind": "case",
+        "exclude_case_id": null,
+        "hit_count": 916,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 3.552713678800501e-15,
+        "oracle_seconds": 0.004782,
+        "v2_sqlite_seconds": 0.043286
+      },
+      {
+        "query": "décision n'est pas raisonnable under s. 97(1)",
+        "kind": "passage",
+        "exclude_case_id": null,
+        "hit_count": 628,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 3.552713678800501e-15,
+        "oracle_seconds": 0.005016,
+        "v2_sqlite_seconds": 0.020576
+      },
+      {
+        "query": "judicial review procedural fairness standard of review reasonableness",
+        "kind": "case",
+        "exclude_case_id": "000031.txt",
+        "hit_count": 915,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 2.6645352591003757e-15,
+        "oracle_seconds": 0.004579,
+        "v2_sqlite_seconds": 0.03877
+      },
+      {
+        "query": "judicial review procedural fairness standard of review reasonableness",
+        "kind": "passage",
+        "exclude_case_id": "000031.txt",
+        "hit_count": 801,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 3.552713678800501e-15,
+        "oracle_seconds": 0.005087,
+        "v2_sqlite_seconds": 0.022411
+      },
+      {
+        "query": "patent claim construction infringement anticipation obviousness",
+        "kind": "case",
+        "exclude_case_id": "000085.txt",
+        "hit_count": 735,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 3.552713678800501e-15,
+        "oracle_seconds": 0.002935,
+        "v2_sqlite_seconds": 0.015246
+      },
+      {
+        "query": "patent claim construction infringement anticipation obviousness",
+        "kind": "passage",
+        "exclude_case_id": "000085.txt",
+        "hit_count": 123,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 1.7763568394002505e-15,
+        "oracle_seconds": 0.001857,
+        "v2_sqlite_seconds": 0.00397
+      },
+      {
+        "query": "crédibilité contrôle judiciaire décision déraisonnable",
+        "kind": "case",
+        "exclude_case_id": null,
+        "hit_count": 327,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 3.552713678800501e-15,
+        "oracle_seconds": 0.001954,
+        "v2_sqlite_seconds": 0.008236
+      },
+      {
+        "query": "crédibilité contrôle judiciaire décision déraisonnable",
+        "kind": "passage",
+        "exclude_case_id": null,
+        "hit_count": 50,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 3.552713678800501e-15,
+        "oracle_seconds": 0.001466,
+        "v2_sqlite_seconds": 0.002045
+      },
+      {
+        "query": "section 96 97(1) 2019 100% non-refoulement don't",
+        "kind": "case",
+        "exclude_case_id": "000127.txt",
+        "hit_count": 915,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 1.7763568394002505e-15,
+        "oracle_seconds": 0.004027,
+        "v2_sqlite_seconds": 0.030572
+      },
+      {
+        "query": "section 96 97(1) 2019 100% non-refoulement don't",
+        "kind": "passage",
+        "exclude_case_id": "000127.txt",
+        "hit_count": 287,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 3.552713678800501e-15,
+        "oracle_seconds": 0.003106,
+        "v2_sqlite_seconds": 0.008749
+      },
+      {
+        "query": "zzznonexistenttokenxyz12345",
+        "kind": "case",
+        "exclude_case_id": null,
+        "hit_count": 0,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 0.0,
+        "oracle_seconds": 0.000625,
+        "v2_sqlite_seconds": 0.000397
+      },
+      {
+        "query": "zzznonexistenttokenxyz12345",
+        "kind": "passage",
+        "exclude_case_id": null,
+        "hit_count": 0,
+        "ids_equal": true,
+        "metadata_equal": true,
+        "max_score_diff": 0.0,
+        "oracle_seconds": 0.00045,
+        "v2_sqlite_seconds": 0.000124
+      }
+    ]
+  }
+}

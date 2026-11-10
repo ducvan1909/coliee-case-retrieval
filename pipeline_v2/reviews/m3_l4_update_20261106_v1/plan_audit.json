@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "audit_method": "independent selected-record/source/hash/tokenizer verification; no M3 builder/reader imports",
+  "run_dir": "pipeline_v2/artifacts/m3_pilot_20261106_l4_v1",
+  "manifest_sha256": "2069968b6735e291afc81c7eb615121fc4da1c86dce566f46ebe5bfddadd18db",
+  "m2_seal_sha256": "0ed42d51023adaf47c1205fa925f18f31b7aacb58b0c8e44c7d23288d123dda6",
+  "navigation_seal_sha256": "43ca58589704e94754be3ed6b343ffa73f806a0c757c752abffa1fdb4942234c",
+  "implementation_sha256_map_match": true,
+  "embedding_fingerprint": "d945329fa49e2f4b4f83d530df03fb4897babd5345562cbeaebd3b21499649bf",
+  "selected_passages": 1024,
+  "unique_passage_ids": 1024,
+  "selected_cases": 916,
+  "raw_source_hashes_verified": 916,
+  "selected_m2_record_files_verified": 916,
+  "selected_navigation_record_files_verified": 916,
+  "input_hashes_and_order_verified": 1024,
+  "pinned_tokenizer_ids_verified": 1024,
+  "token_count_stats": {
+    "min": 2,
+    "max": 448,
+    "mean": 129.7294921875,
+    "median": 103.0,
+    "bins_64": {
+      "0": 262,
+      "128": 190,
+      "192": 64,
+      "256": 44,
+      "320": 84,
+      "384": 10,
+      "448": 1,
+      "64": 369
+    }
+  },
+  "recomputed_strata": {
+    "split_children": 105,
+    "unicode": 161,
+    "no_preview": 1
+  },
+  "case_passage_count_stats": {
+    "min": 1,
+    "max": 5,
+    "mean": 1.1179039301310043
+  },
+  "labels_accessed": false,
+  "test_sources_accessed": false,
+  "model_requests": 0,
+  "pilot_executed": false,
+  "configured_gpu": "L4",
+  "same_passages_and_inputs_as_A10": true,
+  "elapsed_seconds": 10.041934100001527,
+  "gpu_runtime_tested": false
+}

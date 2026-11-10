@@ -1,0 +1,26 @@
+{
+  "schema_version": "pipeline-v2-m1-profile-2",
+  "parser_version": "independent-markers-2",
+  "decode": "utf-8-strict",
+  "bom": "retain_as_U+FEFF_and_raw_bytes",
+  "newline": "preserve_CR_LF_individually",
+  "offsets": "half_open_bytes_and_unicode_codepoints",
+  "mapping": "non_ascii_exceptions_v1",
+  "structure": "independent_line_markers_local_evidence_roles",
+  "unknown_policy": "preserve_each_marker_boundary_and_unknown_ownership",
+  "semantic_speaker_or_holding": false,
+  "fixtures": [
+    "061295.txt",
+    "067620.txt",
+    "062436.txt",
+    "000758.txt",
+    "050936.txt",
+    "000432.txt",
+    "014069.txt",
+    "046028.txt"
+  ],
+  "numbering_policy": "marker_value_never_controls_structure_role_or_language",
+  "sidecar_policy": "quotation_relation_between_separate_units_not_physical_containment",
+  "current_case_policy": "not_asserted_from_court_voice_alone",
+  "classification_context_chars": 1600
+}

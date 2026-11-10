@@ -1,0 +1,1255 @@
+[
+  {
+    "case_id": "000758.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "numbering_skip_35_to_37",
+    "focus_unit_ids": [
+      "000758:0f5dc268d22acb28:23607-24753:20c8805023c2",
+      "000758:0f5dc268d22acb28:24755-24909:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      23607,
+      24909
+    ],
+    "context_span_bytes": [
+      23207,
+      25309
+    ],
+    "raw_context_text": " be determined according to the correctness standard (\r\nCartaway Resources Corp. et al., Re\r\n, [2004] 1 S.C.R. 672; 319 N.R. 1; 195 B.C.A.C. 161; 319 W.A.C. 161; 2004 SCC 26). This simply means that the analysis required is already deemed to have been performed and need not be repeated.\" ( <FRAGMENT_SUPPRESSED> , above, at para. 57).\r\n[35]\r\nErrors of law are generally reviewable on a correctness standard: <FRAGMENT_SUPPRESSED> , above, at paragraph 44. Although a certain deference may be appropriate where a specialized administrative tribunal is interpreting its own statute or statutes closely connected to its function ( <FRAGMENT_SUPPRESSED> , at para. 54), the relevant jurisprudence generally indicates that questions of law relating to refugee status (and, by implication, person in need of protection status) under the\r\nImmigration and Refugee Protection Act\r\nare reviewable on a standard of correctness:\r\n <FRAGMENT_SUPPRESSED> , at paragraphs 42 to 50,\r\n <FRAGMENT_SUPPRESSED>  maintain that the application of subparagraph 97(1)(b)(ii) of the\r\nAct\r\nis a question of fact reviewable on a standard of reasonableness. As I explain below, I agree that this standard applies to judicial review of decisions about the application of this subparagraph. Nonetheless, to arrive at this conclusion, it is necessary in this case to interpret the scope of section 97 of the\r\nAct\r\n, and this interpretation involves a question of law, which is subject to the correctness standard.\r\n[37]\r\nAccordingly, I will apply the correctness standard to the section 97 interpretation and the reasonableness standard to the panel's findings of fact.\r\nSummary\r\n[38]\r\nThe Court is of the view that consideration of an application for protected person status under subsection 97(1)(b)(ii) of the\r\nAct\r\nrequires an individualized assessment in the context of existing and prospective risks faced by the applicant. This assessment is based on the particular facts of each case.\r\n[39]\r\nThe requisite analysis includes not only an analysis of the personalized risk faced by the person in question, but also a separate a"
+  },
+  {
+    "case_id": "000758.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "heading_summary_and_p38",
+    "focus_unit_ids": [
+      "000758:0f5dc268d22acb28:24920-25232:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      24909,
+      25232
+    ],
+    "context_span_bytes": [
+      24509,
+      25632
+    ],
+    "raw_context_text": "n, it is necessary in this case to interpret the scope of section 97 of the\r\nAct\r\n, and this interpretation involves a question of law, which is subject to the correctness standard.\r\n[37]\r\nAccordingly, I will apply the correctness standard to the section 97 interpretation and the reasonableness standard to the panel's findings of fact.\r\nSummary\r\n[38]\r\nThe Court is of the view that consideration of an application for protected person status under subsection 97(1)(b)(ii) of the\r\nAct\r\nrequires an individualized assessment in the context of existing and prospective risks faced by the applicant. This assessment is based on the particular facts of each case.\r\n[39]\r\nThe requisite analysis includes not only an analysis of the personalized risk faced by the person in question, but also a separate analysis of the risk faced by other individuals from the country in question. The objective of these analyses is to determine, in each particular case, based on the evidence available, whether the personalized risk faced by the applicant exists \"in every part of that country and is not faced generally by other individuals "
+  },
+  {
+    "case_id": "000758.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "final_paragraph_75",
+    "focus_unit_ids": [
+      "000758:0f5dc268d22acb28:48751-48895:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      48751,
+      48895
+    ],
+    "context_span_bytes": [
+      48351,
+      48895
+    ],
+    "raw_context_text": " and which the Federal Court of Appeal declined to answer in\r\n <FRAGMENT_SUPPRESSED> .\r\n[74]\r\nI see no point in framing a question that the Federal Court of Appeal has clearly indicated it will not answer. Therefore, no question will be certified for purposes of paragraph 74(d) of the\r\nAct\r\n.\r\nJUDGMENT\r\n[75]\r\nTHE COURT ORDERS AND ADJUDGES\r\nthat the application for judicial review is dismissed.\r\nApplication dismissed.\r\nEditor: Rodney A. Jordan/ve"
+  },
+  {
+    "case_id": "050936.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "quoted_marker_1_after_p30",
+    "focus_unit_ids": [
+      "050936:d61772efef974570:12729-13040:20c8805023c2",
+      "050936:d61772efef974570:684-1116:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      12729,
+      1116
+    ],
+    "context_span_bytes": [
+      12329,
+      1516
+    ],
+    "raw_context_text": ""
+  },
+  {
+    "case_id": "050936.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "following_english_p31",
+    "focus_unit_ids": [
+      "050936:d61772efef974570:13312-13597:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      13312,
+      13597
+    ],
+    "context_span_bytes": [
+      12912,
+      13997
+    ],
+    "raw_context_text": "testimony if it does not accord with the probabilities. As noted by Justice Shore in\r\n <FRAGMENT_SUPPRESSED> [2007] FCJ No 97:\r\n[1] The Court is of the opinion that the Board may draw reasonable conclusions based on implausibilities, common sense and rationality and may reject testimony if it does not accord with the probabilities affecting the case as a whole: (\r\n <FRAGMENT_SUPPRESSED>  (QL))\r\n[31]\r\nThe jurisprudence has established that internal inconsistencies in an applicant's story, as well as inconsistencies between an applicant's story and other evidence, may provide the basis for the Board's negative credibility findings (\r\n <FRAGMENT_SUPPRESSED> [2006] FCJ No 1516).\r\n[32]\r\nGiven that the Board had the benefit of hearing and probing the applicants' testimonies and that the Board's credibility findings are to be given significant deference, it was open for the Board to make adverse credibility findings on the whole of the applicants' evidence, which revealed inconsistencies and omissions regarding many of their key allegations.\r\nDid the Board err in finding that"
+  },
+  {
+    "case_id": "000432.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "french_start_at_marker_2",
+    "focus_unit_ids": [
+      "000432:ba5beb528d715237:29138-29369:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      29138,
+      29369
+    ],
+    "context_span_bytes": [
+      28738,
+      29769
+    ],
+    "raw_context_text": "Règlement sur l'immigration et la protection des réfugiés\r\n, DORS/2002-227 (le Règlement). Cette décision reposait sur la conclusion de l'agent selon laquelle le demandeur ne maîtrisait pas insuffisamment l'anglais pour réussir son établissement économique au Canada.\r\n[2]\r\nLe demandeur demande que la décision de l'agent soit annulée et que l'affaire soit renvoyée à un autre agent du même bureau des visas ou d'un autre bureau des visas pour qu'une nouvelle décision soit rendue.\r\nLe contexte\r\n[3]\r\nLe demandeur, Muhammad Zulhaz Uddin, est un citoyen du Bangladesh. Il est marié et a un enfant à charge.\r\n[4]\r\nLe 10 novembre 2009, il a présenté une demande de résidence permanente au titre de la catégorie des travailleurs qualifiés (fédéral). Il a indiqué deux professions dans sa demande: directeur financier (CNP 0111) et comptable (CNP 1111).\r\n[5]\r\nDans une lettre datée du 3 mars 2011, l'agent a informé le demandeur qu'il avait apprécié sa demande et qu'il lui avait attribué 72 points. L'agent a néanmoins indiqué qu'il en"
+  },
+  {
+    "case_id": "000432.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "french_body_mid",
+    "focus_unit_ids": [
+      "000432:ba5beb528d715237:38828-39366:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      38828,
+      39366
+    ],
+    "context_span_bytes": [
+      38428,
+      39766
+    ],
+    "raw_context_text": "se à l'allégation du demandeur selon laquelle l'agent s'est intéressé seulement à la possibilité qu'il réussisse son établissement économique en tant qu'[traduction] « administrateur des finances ou dans le cadre d'une autre profession semblable », et non en tant que travailleur qualifié en général, le défendeur soutient que les notes du STIDI indiquent clairement que l'agent a tenu compte de la possibilité que le demandeur s'établisse dans d'autres champs d'expertise figurant dans la liste de la CNP.\r\n[26]\r\nLe défendeur soutient que la compétence du demandeur en anglais a été correctement appréciée. Il souligne que l'agent a donné au demandeur 60 jours, après être parvenu à sa conclusion préliminaire, pour produire des renseignements additionnels. Or, à part une déclaration personnelle, le demandeur n'a produit aucun document démontrant que, comme il le prétendait:\r\n1. la langue privilégiée à son travail au Bangladesh était l'anglais;\r\n2. il avait l'intention d'occuper le même genre d'emploi au Canada qu'au Bangladesh;\r\n3. indépendamment de ses lacunes en anglais, il avait réussi sur le plan professionnel au Bangladesh.\r\n[27]\r\nLe défendeur soutient qu'un agent n'a pas l'obligation de tenir compte des fonds d'établissement d'un demandeur lorsqu'il étudie la possibilité de substituer sa propre appréciation aux critère"
+  },
+  {
+    "case_id": "014069.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "french_transition_boundary",
+    "focus_unit_ids": [
+      "014069:4707db807452e037:41125-41300:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      41125,
+      41300
+    ],
+    "context_span_bytes": [
+      40725,
+      41700
+    ],
+    "raw_context_text": " [traduction] « qu'il était très difficile de faire quoi que ce soit parce que rien ne leur était encore arrivé » et [traduction] « ils lui ont dit de prendre des mesures de sécurité privées » (Formulaire de renseignements personnels [FRP] de la demanderesse principale, par 14).\r\n[6]\r\nLa demanderesse principale s'est enfuie aux États-Unis le 26 avril 1999. Elle est retournée en Colombie le 2 octobre 1999 et est revenue aux États-Unis le 16 mai 2000.\r\n[7]\r\nLa demanderesse principale allègue qu'elle est demeurée aux États-Unis en attendant que sa mère, sa sœur et son fils obtiennent des visas américains. Elle déclare que les membres de sa famille avaient l'intention de demander l'asile au Canada, qu'elle avait travaillé aux États-Unis pour subvenir à leurs besoins et qu'elle s'était renseignée sur la possibilité de demander l'asile aux États-Unis auprès d'un avocat, qui lui aurait dit qu'il était trop tard et qu'elle serait vraisemblablement expulsée.\r\n[8]\r\nLe fr"
+  },
+  {
+    "case_id": "046028.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "skip_marker_6_to_8",
+    "focus_unit_ids": [
+      "046028:103e31cc6e144258:2600-3610:20c8805023c2",
+      "046028:103e31cc6e144258:3702-3933:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      2600,
+      3933
+    ],
+    "context_span_bytes": [
+      2200,
+      4333
+    ],
+    "raw_context_text": "]\r\nThis application raises the following issues:\r\n1) Did the visa officer err by not considering all of the evidence before her?\r\n2) Did the visa officer err by not stating her concerns to the applicant and providing him with an opportunity to respond, as per the rules of procedural fairness?\r\n3) Did the conduct of the visa officer disclose a reasonable apprehension of bias?\r\nSTANDARD OF REVIEW\r\n[6]\r\nIt is well established in law that the decision of a visa officer whether or not to grant a permanent resident visa is a discretionary decision based essentially on a factual assessment, and should thus be reviewed on a standard of patent unreasonableness. As the Federal Court of Appeal held in  <FRAGMENT_SUPPRESSED>  2001 FCA 312, at paragraph 12:\r\nAn application to be admitted to Canada as an immigrant gives rise to a discretionary decision on the part of a visa officer, which is required to be made on the basis of specific statutory criteria. Where that statutory discretion has been exercised in good faith and in accordance with the principles of natural justice and where reliance has not been placed upon considerations irrelevant or extraneous to the statutory purpose, courts should not interfere ( <FRAGMENT_SUPPRESSED>  at paragraph 65). Therefore, if a breach of procedural fairness is found, the decision must be set aside (Congrégation des témoins de  <FRAGMENT_SUPPRESSED>  at 665).\r\nANALYSIS\r\n1) Did the visa officer err by not considering all of the evidence before her?\r\n[8]\r\nThe applicant first submits that the visa officer erred by failing to examine the totality of the applicant’s work experience and confining her analysis to the applicant’s work experience since coming to the United States.\r\n[9]\r\nThe respondent, for his part, asserts that there is a presumption that the visa officer has considered all the evidence before her when rendering her decision and that the onus is on the applicant to provide the necessary information to support his claim.\r\n[10]\r\nThe respondent is correct in stating that there is a presumption, recognized by the Supreme Court of Canada in  <FRAGMENT_SUPPRESSED>  th"
+  },
+  {
+    "case_id": "061295.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "quotation_sidecar_link",
+    "focus_unit_ids": [
+      "061295:2342dbe5792ef49a:11360-11957:20c8805023c2",
+      "061295:2342dbe5792ef49a:11010-11355:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      11360,
+      11957
+    ],
+    "context_span_bytes": [
+      10960,
+      12357
+    ],
+    "raw_context_text": "rt's jurisprudence also requires the citizenship judge to demonstrate that he or she has sufficiently analyzed the evidence and considered all important factors.  <FRAGMENT_SUPPRESSED>  F.T.R. 253, the Court stated the following in this respect at paragraph 9:  <FRAGMENT_SUPPRESSED>  \r\n [9] First, I agree with Justice Snider's conclusion that a citizenship appeal can be granted for failure to provide a proper analysis of the evidence. I consider this requirement of a citizenship judge to be a fundamental part of the duty of fairness. Second, I accept the proposition advanced by the Respondent that there is no hard and fast rule that important factors have to addressed in the manner and order which Justice Reed suggests, but, nevertheless, the decision must leave no doubt that all important relevant factors were addressed in reaching the decision. ...  <FRAGMENT_SUPPRESSED>  \r\n [13] \r\n  In  \r\n Canada (Minister of Citizenship and  <FRAGMENT_SUPPRESSED> (available on CanLII), the Court specified what constituted adequate reasons for a decision and determined that the reasons had to state the tests used to establish whether the person applying for citizenship had fulfilled his or her legal residence requirement:  <FRAGMENT_SUPPRESSED>  \r\n [17] Reasons for decisions are adequate when they are clear, precise and intelligible and when they state why the decision was reached. Adequa"
+  },
+  {
+    "case_id": "067620.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "bilingual_repeated_marker_1",
+    "focus_unit_ids": [
+      "067620:27f27749125392e1:1087-1398:20c8805023c2",
+      "067620:27f27749125392e1:7316-7715:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      1087,
+      7715
+    ],
+    "context_span_bytes": [
+      687,
+      8115
+    ],
+    "raw_context_text": "ip and Immigration.\r\nSolicitors of Record:\r\nWaldman & Associates, Toronto, Ontario, for the applicant, Mathiraj Thiruchelvam;\r\nWilliam F. Pentney, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent, The Minister of Citizenship and Immigration.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\n[1]\r\nAnnis, J.\r\n: The Mr. Thiruchelvam [the Applicant], a citizen of Sri Lanka, seeks judicial review pursuant to section 72(1) of the\r\nImmigration and Refugee Protection Act\r\n, SC 2001, c 27 [IRPA or the Act] of a decision by an immigration officer [the Officer] denying his Pre-Removal Risk Assessment [PRRA].\r\n[2]\r\nThe central issue of concern is whether the Officer made a determinative adverse credibility finding against the Applicant without convoking a hearing as required pursuant to subsection 113(b) of the IRPA.\r\n[3]\r\nWhile there has been some debate in the court with respect to the standard of review regarding the decision of a PRRA officer to conduct an oral hearing, I find that the recent jurisprudence has held that the deferential standard of reasonableness applies (REFERENCE_SUPPRESSED).\r\n[4]\r\nFor the reasons that follow, the application is dismissed. I find that a hearing would have served no purpose based on the Officer's line of reasoning for rejecting the Applicant's evidence that he was arrested, detained and tortured three times between November 2012 and March 2013 prior to fleeing on March 19, 2013 after experiencing problems with reporting to the authorities.\r\n[5]\r\nThe Applicant offered direct personal evidence claiming that he had been arrested and tortured by state authorities on three occasions. This evidence was corroborated by letters from a Sri Lankan doctor and from a Canadian doctor that the scarring apparent on the Applicant's body was consistent with his evidence of being tortured.\r\n[6]\r\nIn addition, the Applicant offered evidence primarily from his father or gathered from others by his father intended to corroborate the Applicant's arrest and the case against him being maintained by state authorities. This evidence was rejected as having little probative value. Its rejection is the second basis of the Applicant's application. However, I am satisfied with the Officer's analysis in this regard and only the need for a hearing raises a serious issue of concern for the Court.\r\n[7]\r\nThe Officer states that, based on all of the evidence presented, the Applicant did not discharge his burden of proving that he was reasonably likely to have been scarred by torturers against his will in Sri Lanka, or that he was a person of interest to the authourities.\r\n[8]\r\nI find that the determinative issue in this case is whether a hearing would have changed the result. This is a highly contextual decision, which in the present matter is assisted by the exhaustive and detailed reasons that accompany the decision. I conclude that the Officer's reasoning was that a hearing would serve no purpose given the probative evidence of inconsistencies from the Applicant, his profile and his treatment by state authorities which led the Officer to conclude that he was not a person of interest.\r\n[9]\r\nBased on the objective country condition evidence, the Officer found that the scarring is not, in and of itself, considered a risk unless a person is likely to be detained and stripped during interrogation for other reasons. The Officer concluded that the evidence presented by the Applicant does not support a finding that he will be detained and stripped during interrogation for other reasons upon his return to Sri Lanka, which would lead to his scars being revealed.\r\n[10]\r\nThe Officer also found that the Applicant's evidence does not support a conclusion that the Sri Lankan authorities suspected or accused the Applicant of being a failed suicide bomber or a fighter for the LTTE. The Officer found that those suspected of LTTE links are at a particular risk, that they are held for long terms and those who are released undergo rehabilitation. In that respect, the Applicant was not held for a long period of time nor did he undergo rehabilitation, which supports the conclusion that he would not be viewed by the authorities as a supporter or member of the LTTE.\r\n[11]\r\nHe was also released with minimal reporting conditions and after a short period of time, he was no longer required to report to the army camps. His national identity card was returned to him following his detentions. He was allowed to leave Sri Lanka with his own passport without problems from the authorities. He was not interrogated, detained or stripped by the authorities prior to his departure.\r\n[12]\r\nThe Officer found that the Applicant was cleared of any suspicion of being a LTTE member or supporter and therefore, he was not a wanted person or on the government's security alert list. As a result, the Officer concluded that the Applicant was not of interest to the authorities as a result of any real or perceived LTTE affiliation and therefore, he was not at risk upon his return to Sri Lanka.\r\n[13]\r\nThe Officer's final conclusion is that the Applicant does not have the profile of someone who will be seen as a threat or of adverse interest upon his return and that he does not have a personalized risk of persecution or harm in Sri Lanka based on his ethnicity.\r\n[14]\r\nIt is the accumulation of this evidence which led the Officer to conclude that the Applicant did not discharge his burden of proof that he was tortured. The Officer found it to be inconsistent with the more probative evidence of his actual treatment by the authorities and his profile as someone of no interest to the authorities.\r\n[15]\r\nUltimately, the decision whether to require a hearing is one to be made by the Officer and this decision is entitled to deference from the Court. I conclude that the Officer's decision not to hold a hearing is reasonable, as it would serve no purpose given the contradictory objective evidence that the Officer found to be of more probative value than the Applicant's personal narrative.\r\n[16]\r\nThe Officer's decision therefore falls within the range of reasonably acceptable outcomes based on the facts and the law and is justified by intelligible and transparent reasons.\r\n[17]\r\nIn the circumstances, the application is dismissed.\r\nJUDGMENT\r\n[18]\r\nTHIS COURT'S JUDGMENT is that\r\n:\r\n1. The application is dismissed; and\r\n2. No question is certified.\r\n.........................\r\nMathiraj Thiruchelvam (demandeur) v. Le Ministre de la Citoyenneté et de l'Immigration (défendeur)\r\n[1]\r\nLe juge Annis\r\n[Traduction]: M. Thiruchelvam[le demandeur], citoyen du Sri Lanka, sollicite le contrôle judiciaire, en application du paragraphe 72(1) de la\r\nLoi sur l'immigration et la protection des réfugiés\r\n, LC 2001, c 27 [LIPR ou la Loi], d'une décision rendue par un agent d'immigration [l'agent] par laquelle ce dernier a rejeté sa demande d'examen des risques avant renvoi [ERAR].\r\n[2]\r\nLa question principale est celle de déterminer si l'agent a tiré une conclusion défavorable déterminante quant à la crédibilité du demandeur sans convoquer d'audience comme l'exige l'alinéa 113\r\nb\r\n) de la LIPR.\r\n[3]\r\nBien que la question de la norme de contrôle applicable à l'égard de la décision d'un agent chargé d'une demande d'ERAR de tenir une audience ait fait l'objet d'un certain débat au sei"
+  },
+  {
+    "case_id": "062436.txt",
+    "sample_type": "regression_exposed",
+    "risk_group": null,
+    "region_name": "heading_the_respondent",
+    "focus_unit_ids": [
+      "062436:e381525422711829:26655-26669:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      26655,
+      26669
+    ],
+    "context_span_bytes": [
+      26255,
+      27069
+    ],
+    "raw_context_text": "\n  The Officer's assessment in this case should have looked at the Applicants'relative gain and how difficult it would be for them to give this up. The Officer did not do this and inappropriately held what should have been positive factors in their application against the Applicants. \r\n \r\n \r\n \r\n The Respondent \r\n \r\n \r\n \r\n [40] \r\n  The Respondent argues the Court should not interfere with the Decision because the Officer put appropriate weight on all the factors put forward by the Applicants in their H&C Application. An H&C exemption is an exceptional and discretionary remedy which gives special and additional consideration to applicants. The denial of an H&C exemption does not take any right away from the affected individual. \r\n \r\n \r\n \r\n Officer Appropriately Analysed the Minor Applicants' Interests \r\n "
+  },
+  {
+    "case_id": "008976.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "008976:2729011139f302a3:1013-1564:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      1564
+    ],
+    "context_span_bytes": [
+      0,
+      1964
+    ],
+    "raw_context_text": "  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>  \r\n \r\n  <FRAGMENT_SUPPRESSED>  (FC)  <FRAGMENT_SUPPRESSED>  \r\n MLB unedited judgment  <FRAGMENT_SUPPRESSED>  \r\n [French language version follows English language version]  <FRAGMENT_SUPPRESSED>  \r\n [La version française vient à la suite de la version anglaise]  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>  CF 713)  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>  \r\n Federal Court \r\n \r\n Near, J. \r\n \r\n June 7, 2012.  <FRAGMENT_SUPPRESSED>  \r\n Counsel: \r\n \r\n Zahra Khedri, for the applicant; \r\n \r\n Khatidja Moloo-Alam, for the respondent.  <FRAGMENT_SUPPRESSED>  \r\n Solicitors of Record: \r\n \r\n Zahra Khedri, East York, Ontario, for the applicant; \r\n \r\n Myles J. Kirvan, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.  <FRAGMENT_SUPPRESSED>  \r\n Summary: \r\n \r\n This case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.  <FRAGMENT_SUPPRESSED>  \r\n [1] \r\n   \r\n Near, J. \r\n : The Applicant, Muhammad Aslam Amri, contests the refusal of an Immigration Officer (the Officer) at the Canadian High Commission in Islamabad, Pakistan to grant his application for permanent residence as a member of the Country of Asylum class as described in section 147 of the  \r\n Immigration and Refugee Protection Regulations \r\n , SOR/2002-227 (Regulations). The Officer was not satisfied that the Applicant had provided credible information based on contradictions as to his residence in Pakistan.  <FRAGMENT_SUPPRESSED>  \r\n I.  \r\n Background  <FRAGMENT_SUPPRESSED>  \r\n [2] \r\n  The Applicant and his family are originally from Afghanistan, but claimed to have fled to Pakistan in 1998. While in Pakistan, he brought this application for permanent residence seeking resettlement in Canada. An interview was held on November 29, 2010 and the Officer subsequently refused his application on April 12, 2011.  <FRAGMENT_SUPPRES"
+  },
+  {
+    "case_id": "008976.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "008976:2729011139f302a3:7600-8382:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      7600,
+      8382
+    ],
+    "context_span_bytes": [
+      7200,
+      8782
+    ],
+    "raw_context_text": "f this evidence, it was reasonable for the Officer to reject the explanation in the face of clear contradictions and determine that the Applicant was not credible in the circumstances.  <FRAGMENT_SUPPRESSED>  \r\n V.  \r\n Conclusion  <FRAGMENT_SUPPRESSED>  \r\n [14] \r\n  For these reasons, the application for judicial review is dismissed.  <FRAGMENT_SUPPRESSED>  \r\n JUDGMENT  <FRAGMENT_SUPPRESSED>  \r\n [15] \r\n   \r\n THIS COURT'S JUDGMENT is that \r\n  this application for judicial review is dismissed.  <FRAGMENT_SUPPRESSED>  \r\n .........................  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>  [Traduction]: Le demandeur, Muhammad Aslam Amri, conteste le refus d'une agente d'immigration (l'agente) du Haut-commissariat du Canada à Islamabad, au Pakistan, d'accueillir la demande de résidence permanente qu'il a présentée au titre de la catégorie de pays d'accueil décrite à l'article 147 de la  \r\n Loi sur l'immigration et la protection des réfugiés \r\n , DORS/2002-227 (le Règlement). L'agente n'était pas convaincue que le demandeur avait produit une information crédible en raison de contradictions concernant sa résidence au Pakistan.  <FRAGMENT_SUPPRESSED>  \r\n I.  \r\n Le contexte  <FRAGMENT_SUPPRESSED>  \r\n [2] \r\n  Le demandeur et sa famille sont originaires de l'Afghanistan, mais ils prétendaient s'être enfuis au Pakistan en 1998. Pendant qu'il vivait dans ce pays, le demandeur a présenté la demande de résidence permanente en cause en l'espèce afin de se réinstaller au Canada. Une entrevue a eu lieu le 29 novembre 2010, puis l'agente a rejeté la demande le 12 avri"
+  },
+  {
+    "case_id": "008976.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "008976:2729011139f302a3:15463-15649:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      15463,
+      15649
+    ],
+    "context_span_bytes": [
+      15063,
+      15650
+    ],
+    "raw_context_text": "s.  <FRAGMENT_SUPPRESSED>  \r\n V.  \r\n Conclusion  <FRAGMENT_SUPPRESSED>  \r\n [14] \r\n  Pour ces motifs, la demande de contrôle judiciaire est rejetée.  <FRAGMENT_SUPPRESSED>  \r\n JUGEMENT  <FRAGMENT_SUPPRESSED>  \r\n [15] \r\n   \r\n LA COUR STATUE que \r\n  la présente demande de contrôle judiciaire est rejetée.  <FRAGMENT_SUPPRESSED>  \r\n [End of document]  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED> "
+  },
+  {
+    "case_id": "011922.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "011922:ae50db46d34a0ba0:625-1316:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      1316
+    ],
+    "context_span_bytes": [
+      0,
+      1716
+    ],
+    "raw_context_text": " \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED> ) \r\n \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED>  \r\n \r\n \r\n \r\n Federal Court \r\n \r\n Pinard, J. \r\n \r\n December 14, 2011. \r\n \r\n \r\n \r\n Counsel: \r\n \r\n Mitchell Goldberg, for the applicant; \r\n \r\n Catherine Brisebois, for the respondent. \r\n \r\n \r\n \r\n Solicitors of Record: \r\n \r\n Blanshay Goldberg Berger, Montreal, Quebec, for the applicant; \r\n \r\n Myles J. Kirvan, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent. \r\n \r\n \r\n \r\n Summary: \r\n \r\n This case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document. \r\n \r\n \r\n \r\n [1] \r\n   \r\n Pinard, J. \r\n : On March 14, 2011, Luftar Hysa (the \"applicant\") filed the present appeal, under subsection 14(5) of the  \r\n Citizenship Act \r\n , R.S.C. 1985, c. C-29 (the \"Act\"), from a decision of Judge Marcel Tremblay, the Citizenship Judge. The latter refused the applicant's application for citizenship due to his failure to meet the residency requirement under paragraph 5(1)( \r\n c \r\n ) of the Act. During the relevant period set out in paragraph 5(1)( \r\n c \r\n ) of the Act, the applicant was physically present in Canada for only 173 days, as he was living and working in Mexico, leaving him short 922 days from the required 1,095 days of physical presence in the country. \r\n \r\n \r\n \r\n [2] \r\n  The applicant argues that the Citizenship Judge erred in failing to clearly state the applicable test for residency, in failing to properly apply the  \r\n Re Koo \r\n , [1993] 1 F.C. 286 [ \r\n Re Koo \r\n ] test to evaluate his centralized mode of existence in Canada, and in failing to provide adequate reasons. I do not agree. Consequently, the appeal is dismissed. \r\n \r\n \r\n \r\n [3] \r"
+  },
+  {
+    "case_id": "011922.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "011922:ae50db46d34a0ba0:2576-3101:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      2576,
+      3101
+    ],
+    "context_span_bytes": [
+      2176,
+      3501
+    ],
+    "raw_context_text": " Justice Rennie refers to  \r\n Re Pourghasemi \r\n , [1993] F.C.J. No. 232, 62 F.T.R. 122 [ \r\n Re Pourghasemi \r\n ], and  \r\n Rizzo & Rizzo Shoes Ltd. (Re) \r\n , [1998] 1 S.C.R. 27: \r\n \r\n \r\n \r\n [52] In my view therefore, the interpretation of the residency provision of the  \r\n Citizenship Act \r\n  is subject to the standard of correctness and that residency means physical presence in Canada. \r\n \r\n \r\n \r\n [53] It is my opinion that  \r\n Re Pourghasemi \r\n  is the interpretation that reflects the true meaning, intent and spirit of subsection 5(1)( \r\n c \r\n ) of the Act:  \r\n Rizzo \r\n , paras 22 and 41. For this reason it cannot be said that the Citizenship Judge erred in applying the  \r\n Re Pourghasemi \r\n  test. Furthermore, the Citizenship Judge correctly applied the  \r\n Re Pourghasemi \r\n  test in determining that a shortfall of 771 days prevented a finding that 1,095 days of physical presence in Canada had been accumulated. \r\n \r\n \r\n \r\n [4] \r\n  In the case at bar, the Citizenship Judge, in his reasons, clearly indicated that the applicant was absent from Canada a total of 1,287 days. Consequently, the latter did not meet the physical residency requirement under paragraph 5(1)( \r\n c \r\n ) of the Act, failing to meet the test in  \r\n Re Pourghasemi \r\n . The applicant not having been physically present in Canada for the e"
+  },
+  {
+    "case_id": "011922.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "011922:ae50db46d34a0ba0:4884-5257:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      4884,
+      5257
+    ],
+    "context_span_bytes": [
+      4484,
+      5258
+    ],
+    "raw_context_text": "Judge's reasons are sufficient as they clearly allowed the applicant to know why his application for Canadian citizenship was refused: he did not meet the residency requirement under paragraph 5(1)( \r\n c \r\n ) of the Act, having been absent from Canada for 1,287 days. \r\n \r\n \r\n \r\n [6] \r\n  For the above reasons, the appeal is dismissed. There is no order as to costs. \r\n \r\n \r\n \r\n JUDGMENT \r\n \r\n \r\n \r\n [7] \r\n  The appeal from the decision of Citizenship Judge Marcel Tremblay, refusing the applicant's application for citizenship due to his failure to meet the residency requirement under paragraph 5(1)( \r\n c \r\n ) of the  \r\n Citizenship Act \r\n , R.S.C. 1985, c. C-29, is dismissed. There is no order as to costs. \r\n \r\n \r\n \r\n [End of document] \r\n \r\n \r\n  <FRAGMENT_SUPPRESSED> "
+  },
+  {
+    "case_id": "014101.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "014101:190e664505334bec:0-297:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      297
+    ],
+    "context_span_bytes": [
+      0,
+      697
+    ],
+    "raw_context_text": "[1]\r\nPinard, J.\r\n: This is an application pursuant to s. 44 of the\r\nAccess to Information Act\r\n, R.S.C. 1985, c. A-1 (the \"\r\nAct\r\n\"). The applicant asks for a review of a decision of the respondent to release certain records which have been requested from the latter by a competitor of the former.\r\n[2]\r\nThe respondent has taken a number of positions as to whether the information in question should be released. After advising the applicant of the request for these records, the respondent first advised the applicant, on December 20, 1994, that the records would not be released in that the respondent agreed with the arguments that the applicant had presented for withholding the records pursua"
+  },
+  {
+    "case_id": "014101.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "014101:190e664505334bec:2537-3308:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      2537,
+      3308
+    ],
+    "context_span_bytes": [
+      2137,
+      3708
+    ],
+    "raw_context_text": "ied, then sobeit. The respondent will not be actively arguing in favour of release, and will be quite happy to abide by any order that might issue.\"\r\n[5]\r\nIn support of this application, the applicant now relies only on paragraphs 20(1)(b) and (c) of the\r\nAct\r\n.\r\n[6]\r\nThe question therefore is whether the information should not be disclosed pursuant to paragraphs 20(1)(b) and (c) of the\r\nAct\r\n.\r\n[7]\r\nThe purpose of the\r\nAct\r\nis defined as follows in s. 2:\r\n\"2(1) The purpose of this Act is to extend the present laws of Canada to provide a right of access to information in records under the control of a government institution in accordance with the principles that government information should be available to the public, that necessary exceptions to the right of access should be limited and specific and that decisions on the disclosure of government information should be reviewed independently of government.\r\n\"2(2) This Act is intended to complement and not replace existing procedures for access to government information and is not intended to limit in any way access to the type of government information that is normally available to the general public.\"\r\n[8]\r\nThe\r\nAct\r\ncontains two types of exemptions, mandatory and discretionary.  <FRAGMENT_SUPPRESSED> , at 276-277  <FRAGMENT_SUPPRESSED>  (F.C.A., Heald, J.A., as he then was), the general intent and purpose of the\r\nAct\r\n, in the context of these exemptions, has been interpreted as follows:\r\n\"... The general intent and purpose of the\r\nAct\r\n, as expressed in section 2 supra, includes a clear inten"
+  },
+  {
+    "case_id": "014101.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "014101:190e664505334bec:9281-9921:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      9281,
+      9921
+    ],
+    "context_span_bytes": [
+      8881,
+      9921
+    ],
+    "raw_context_text": "information in issue had been disclosed to the public by virtue of the documents filed with the Ontario Court (General Division) as stated above, I am of the view that the respondent ought not have changed its position in its letter dated December 20, 1994 to the applicant that:\r\n\"... We support your arguments for withholding the records, pursuant to paragraphs 20(1)(b) and (c) of the Act.\"\r\n[12]\r\nConsequently, it will be ordered that none of the documents requested under the\r\nAct\r\nin this matter shall be disclosed by the respondent. All the confidential material which was ordered to be maintained in a sealed envelope by my colleague Mr. Justice Muldoon, in this case, shall continue to be maintained in a sealed envelope until further Order of the court, after the expiration of the time limit for filing an appeal. In the event that an appeal is taken against my decision, the documents will have to be dealt with at the direction of the Court of Appeal.\r\nApplication allowed.\r\nEditor: Jana A. Andersen/sg\r\n[End of document]"
+  },
+  {
+    "case_id": "015732.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "015732:29c92ca131c1443e:0-336:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      336
+    ],
+    "context_span_bytes": [
+      0,
+      736
+    ],
+    "raw_context_text": "[1]\r\nCullen, J.\r\n: The plaintiff appeals from a decision of the Tax Court of Canada dated June 12, 1985, wherein the court ruled that any losses experienced by the plaintiff by reason of his farming operation in the course of taxation years 1977 and 1978 were pursuant to s. 31 of the Income Tax Act and limited to $5,000 for each year.\r\n[2]\r\nAs a former income tax professor used to state about many an income tax, succession duty and estate tax clause, \"To read it is to weep\". Section 31 is such a clause. Mr. Justice Dickson, as he then was, wrote in  <FRAGMENT_SUPPRESSED> , at page 5214, \"Central to the appeal is the\r\nconstruction of s. 13(1) of the Income Tax Act R.S.C. 1952, c. 148, as amended, an awkwardly worded and intract"
+  },
+  {
+    "case_id": "015732.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "015732:29c92ca131c1443e:12511-12798:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      12511,
+      12798
+    ],
+    "context_span_bytes": [
+      12111,
+      13198
+    ],
+    "raw_context_text": " chief of staff at the hospital. The plaintiff was not available in the fall for extra hours. His lifestyle changed - less ostentatious car, fewer personal holidays, never again to the Bahamas -\r\ndevoted\r\nto farming. Dr. Smith estimated the plaintiff spent 40 to 55 hours a week on his practice of medicine plus on-call system obligations. He said, \"now his spare time is farming\". (Emphasis added)\r\n[13]\r\nMr. Donald Currie, a man of unquestioned knowledge of the beef industry, confirmed, \"the need to establish one's self - to get credibility as a breeder - establish a track record - it takes time.\" Mr. Currie said it took him 14 years before he sold a purebred for more than $2,000.\r\n[14]\r\nThe purebred industry is clearly a long-term business, because one must find and identify good cattle. It is more time-consuming than commercial herds. Mr. Currie stated, \"You bang you head against the wall for a long time. You must become involved with fellow breeders, work with the Association, attend shows, and go everywhere to gain credibility.\" Mr. Currie stated that the plaintiff, in"
+  },
+  {
+    "case_id": "015732.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "015732:29c92ca131c1443e:18603-18704:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      18603,
+      18704
+    ],
+    "context_span_bytes": [
+      18203,
+      18704
+    ],
+    "raw_context_text": "s dream but achieve it he was determined to do.\r\n[23]\r\nIn my view the situation here is practically on all fours with the Hadley case (supra).\r\n[24]\r\nThe appeal is therefore allowed and the Minister of National Revenue is requested to reassess the taxpayer's tax returns for the years 1977 and 1978 accordingly and to allow full deduction of the plaintiff's farming losses for those taxation years.\r\n[25]\r\nCosts to the plaintiff.\r\nAppeal allowed.\r\nEditor: Elizabeth M.A. Turgeon/blk\r\n[End of document]"
+  },
+  {
+    "case_id": "038777.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "038777:aa66dfe81309a73f:0-417:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      417
+    ],
+    "context_span_bytes": [
+      0,
+      817
+    ],
+    "raw_context_text": "[1]\r\nRussell, J.\r\n: This is an application under subsection 72(1) of the\r\nImmigration and Refugee Protection Act\r\n, SC 2001, c. 27 (Act) for judicial review of the decision of a Visa Officer (Officer) of the High Commission of Canada in London, United Kingdom, dated 16 March 2012 (Decision), which refused the Applicant's application for permanent residence in Canada as a member of the Federal Skilled Worker class.\r\nBACKGROUND\r\n[2]\r\nThe Principle Applicant (Applicant) is a 45-year-old citizen of India and a resident of Kuwait. The Secondary Applicants are his wife and daughter. The Applicant submitted an application for Permanent Residence as a Federal Skilled Worker on 21 April 2010 based on his professional qualifications as an Accountant. The Centralized Intake Office (CIO) conducted an initial assessmen"
+  },
+  {
+    "case_id": "038777.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "038777:aa66dfe81309a73f:20820-22806:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      20820,
+      22806
+    ],
+    "context_span_bytes": [
+      20420,
+      23206
+    ],
+    "raw_context_text": "erns were raised with the Applicant.\r\n[26]\r\nAs stated in\r\n <FRAGMENT_SUPPRESSED> the \"duty to inform the applicant will be fulfilled if the visa officer adopts an appropriate line of questioning or makes reasonable inquiries which give the applicant the opportunity to respond to the visa officer's concerns.\"\r\n[27]\r\nThe Applicant submits that his case is similar to the situation in <FRAGMENT_SUPPRESSED> , above, where the Court said at paragraphs 39-41:\r\nIn considering procedural fairness issues in the present case, I think it has to be borne in mind that the Applicants were dealt with under somewhat exceptional circumstances and that normal procedures had to be adjusted. I see no real evidence that the Applicants had access to the information they needed to satisfy all of the requirements under the Act. The Respondent's web-site instructions were published to tell applicants and those helping them how to apply. Those instructions told the Applicants to use the Federal Skilled Worker application form and also asked for a letter from a family member in Canada offering financial assistance.\r\nThe fact is that the Applicants did all they were asked to do and complied with the instructions that were posted on the web-site. The Officer's principal concern, as shown in the Decision, was general financial viability, although the documentation suggests that there were also peripheral credibility issues regarding the financial capabilities of the Canadian relative.\r\nUnder the specific facts in this case, I cannot see how the Applicants could have anticipated and addressed either the financial viability issue, the peripheral credibility issues, or possible language problems in advance. They did what they were told to do in accordance with the instructions on the web-site. General financial viability was obviously a crucial issue in the Decision. On these facts, fairness required the Officer to give the Applicants some kind of opportunity to address her concerns. There is no evidence before me to suggest that, had the Applicants been given such an opportunity, they could not have satisfied the Officer's concerns. The Principal Applicant is an established professional and he has also indicated various other connections and resources he can tap into for financial support.\r\n[28]\r\nThe Applicant also relies upon\r\n <FRAGMENT_SUPPRESSED>  where Justice James O'Reilly had the following to say at paragraphs 12-14:\r\nMr. Sekhon's submissions were directed to the officer's concerns about whether the school was carrying on business at the stated address. The parents' letters and photographs were aimed at meeting those concerns, and further documentation was provided regarding the school's finances. But Mr. Sekhon could not have met the officer's other unstated c"
+  },
+  {
+    "case_id": "038777.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "038777:aa66dfe81309a73f:35761-35928:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      35761,
+      35928
+    ],
+    "context_span_bytes": [
+      35361,
+      35928
+    ],
+    "raw_context_text": " accuracy of the Applicant's information, as the Applicant alleges. The Applicant simply failed to provide an application in accordance with the relevant instructions, and the Officer properly followed OB 120.\r\n[52]\r\nNeither party proposed a serious question of general importance for certification.\r\nJUDGMENT\r\n[53]\r\nTHIS COURT'S JUDGMENT is that\r\n1. The application is dismissed.\r\n2. There is no question for certification.\r\nApplication dismissed.\r\nEditor: J. Danielle King/vnh"
+  },
+  {
+    "case_id": "059675.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "059675:77d7f75cf10c1c52:395-1084:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      1084
+    ],
+    "context_span_bytes": [
+      0,
+      1484
+    ],
+    "raw_context_text": " <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nLayden-Stevenson, J.\r\nMay 21, 2004.\r\nCounsel:\r\nAlex Billingsley, for the applicants;\r\nAmina Riaz, for the respondent.\r\nSolicitors of Record:\r\nAlex Billingsley, Toronto, Ontario, for the applicants;\r\nMorris Rosenberg, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary.\r\n[1]\r\nLayden-Stevenson, J.\r\n: Mr. Sertkaya is an engineer from Turkey. He claims to be a Convention refugee or a person in need of protection on the basis of race, religion, nationality and political opinion. The claims of his wife and children, as members of a social group, are dependant upon his claim. The Refugee Protection Division of the Immigration and Refugee Board (RPD) determined that the applicants are neither Convention refugees nor persons in need of protection. The family asks that the RPD decision be set aside and that their application be referred back for redetermination before a differently constituted board. For the reasons that follow, I cannot grant the request.\r\n[2]\r\nMr. Sertkaya claimed to be a politically active Kurdish Alevi. He alleged that on nine occasions he was arrested, detained, and tortured by the Turkish police. Several of these incidents occurred when he called the police after being harassed by members of the MHP (Grey Wolves). Mr. Sertkaya maintained that these events occurred because of his background and beliefs and that the events prom"
+  },
+  {
+    "case_id": "059675.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "059675:77d7f75cf10c1c52:4338-5185:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      4338,
+      5185
+    ],
+    "context_span_bytes": [
+      3938,
+      5585
+    ],
+    "raw_context_text": "th respect to credibility and placed him in an impossible position. It was reasonable for him to have decided not to join the party out of fear that, as membership lists are provided to the government, he would face police persecution or reprisals at work. He argues that the fact that he was nonetheless subject to persecution has no bearing on the reasonableness of his actions in this respect.\r\n[6]\r\nI am in partial agreement with Mr. Sertkaya. In view of his evidence that he had supported the HADEP, had taught children's chess at the party headquarters and had, on occasion, socialized with HADEP members, there was no reason to insist that he must have taken out formal political party membership in order to express his political opinion. In determining whether an individual has been persecuted on grounds of political opinion, the relevant question is how the actions were perceived by the alleged persecutor. Thus, whether the applicant was, in fact, a HADEP member had no direct relevance to the RPD's inquiry. Therefore, it was patently unreasonable for the RPD to find that Mr. Sertkaya's failure to join HADEP was inconsistent with his background and actions. That being so, it does not follow that the decision must be set aside.\r\n[7]\r\nThe applicants' allegation that the impugned finding was determinative is not borne out by the board's reasons. Nor do I agree with Mr. Sertkaya that the RPD was overzealous in finding inconsistencies in his story or that the remaining findings were trivial. A review of the reasons reveals that the remaining credibility findings were not based on trivialities. Specifically, it was open to the"
+  },
+  {
+    "case_id": "059675.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "059675:77d7f75cf10c1c52:7728-7929:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      7728,
+      7929
+    ],
+    "context_span_bytes": [
+      7328,
+      7929
+    ],
+    "raw_context_text": "f any of the enumerated grounds and are not persons in need of protection.\r\n[10]\r\nMerely because the RPD chose to specifically refer to persecution of Alevi in one paragraph of its reasons does not mean that it did not also consider the applicants' claims as ethnic Kurds. The board's reasons disclose that it did consider all of the potential grounds of persecution, including race and religion.\r\n[11]\r\nIn the result, the application for judicial review will be dismissed and an order will so provide. Counsel did not suggest a question for certification and none is appropriate.\r\n[End of document]"
+  },
+  {
+    "case_id": "060604.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "060604:a5bc3adb0b999430:0-434:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      434
+    ],
+    "context_span_bytes": [
+      0,
+      834
+    ],
+    "raw_context_text": "[1]\r\nHarrington, J.\r\n[Translation]: Mr. Grenier served in the Canadian Forces Regular Force from 2004 to 2010. These six years of service were very difficult for him. Because of problems of stress and anxiety he was unable to pursue his occupation of a military police officer or remain in the Forces. That result, however, is not the issue here. The question is rather whether Mr. Grenier is entitled to receive a disability benefit.\r\n[2]\r\nThe Veterans Review and Appeal Board confirmed the decision of the Veterans Review and Appeal Board Entitlement Review Panel to grant Mr. Grenier a two-fifths award for an adjustment disorder with mixed mood from an aggravated pre-existing medical condition. This is the judicial review of that decision.\r\n[3]\r\nSince I will allow the judicial review on the ground that the rules of procedural "
+  },
+  {
+    "case_id": "060604.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "060604:a5bc3adb0b999430:8649-8826:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      8649,
+      8826
+    ],
+    "context_span_bytes": [
+      8249,
+      9226
+    ],
+    "raw_context_text": "rd was not able to obtain Dr. Trottier's report; in any case, there is no question that it is included in the record submitted to this Court.\r\nIII.\r\nTHE ACT\r\n[21]\r\nCounsel for the applicant offered meticulous arguments with respect to the fact that the decision was generally unreasonable and that the statutory presumptions that could have benefitted Mr. Grenier were excluded.\r\n[22]\r\nThe first presumption on which the applicant relies is provided in section 51 of the\r\nCanadian Forces Members and Veterans Re-establishment and Compensation Regulations\r\n.\r\n[23]\r\nSection 51 reads as follows:\r\nSubject to section 52, if an application for a disability award is in respect of a disability or disabling condition of a member or veteran that was not obvious at the time they became a member of the forces and was not recorded on their medical examination prior to enrolment, the member or veteran is presumed to have been in the medical condition found on their enrolment medical"
+  },
+  {
+    "case_id": "060604.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "060604:a5bc3adb0b999430:20668-21031:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      20668,
+      21031
+    ],
+    "context_span_bytes": [
+      20268,
+      21031
+    ],
+    "raw_context_text": "case, the report was not even in the tribunal record. It sometimes happens, in a written motion filed under section 369 of the\r\nFederal Courts Rules\r\n, that a judgment is based on an incomplete record. When such a discrepancy is revealed, justice requires that the matter be reconsidered.\r\nORDER\r\n[43]\r\nFOR REASONS GIVEN;\r\nTHE COURT ORDERS that\r\n1. The judicial review of the decision of the Veteran's Review and Appeal Board, appeal panel, rendered on October 20, 2011, is allowed, with costs.\r\n2. The matter is referred back to a differently constituted panel for redetermination, in view of these reasons.\r\nApplication allowed.\r\nEditor: Jana A. Andersen/vnh"
+  },
+  {
+    "case_id": "062913.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "062913:11e34b6a70dc87c4:393-846:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      846
+    ],
+    "context_span_bytes": [
+      0,
+      1246
+    ],
+    "raw_context_text": " <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nMosley, J.\r\nApril 23, 2004.\r\nCounsel:\r\nMichael Sherritt, for the applicant;\r\nCarrie Sharpe, for the respondent.\r\nSolicitors of Record:\r\nSherritt and Greene, Calgary, Alberta, for the applicant;\r\nMorris Rosenberg, Deputy Attorney General of Canada, Edmonton, Alberta, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary.\r\n[1]\r\nMosley, J.\r\n: Mr. Anuk Kumar seeks judicial review of the decision of the Immigration and Refugee Board, Refugee Protection Division (the \"Board\"), reasons dated July 3, 2003. In that decision, the Board determined that the Mr. Kumar was not a Convention refugee or a person in need of protection. The applicant seeks an order setting aside this decision and an order remitting his claim back to a differently constituted Board for reconsideration.\r\nBACKGROUND\r\n[2]\r\nMr. Kumar is a citizen of Fiji and is a Hindu, of Indian ethnicity. He claimed Convention refugee status in Canada, pursuant to section 96 of the Immigration and Refugee Protection Act, S.C. 2001, c. 27 (\"IRPA\"), by reason of his fear of persecution at the hands of indigenous Fijians because of his race and political opinion. He also claimed to be a person in need of protection,"
+  },
+  {
+    "case_id": "062913.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "062913:11e34b6a70dc87c4:6201-6569:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      6201,
+      6569
+    ],
+    "context_span_bytes": [
+      5801,
+      6969
+    ],
+    "raw_context_text": "e Board acknowledged that the documentary reports were not conclusive on this point, some indicating that descriptions of attacks on Indo-Fijians were exaggerated and others indicating that they continue to occur.\r\nISSUE\r\n[14]\r\nDid the Board err in determining that the applicant had an IFA in Fiji, outside his village and outside the area around the town of Nadi?\r\nPARTIES' POSITIONS and ANALYSIS\r\n[15]\r\nThe applicant argues that the Board erroneously applied the principles in relation to finding the existence of an IFA and refers to the relevant jurisprudence. According to the applicant, the Board erred in failing to identify a specific location to which an IFA would apply and the Board erred in analysing the reasonableness component of the IFA determination.\r\n[16]\r\nThe respondent submits that there is no serious possibility that Mr. Kumar would be persecuted in the proposed IFA, as there was no evidence presented to the Board that he had any profile outside his own village. The Board did not err in failing to clearly identify a proposed location that it considered to be a reasonable and safe IFA. The respondent submits that the case of  <FRAGMENT_SUP"
+  },
+  {
+    "case_id": "062913.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "062913:11e34b6a70dc87c4:15584-15709:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      15584,
+      15709
+    ],
+    "context_span_bytes": [
+      15184,
+      15709
+    ],
+    "raw_context_text": " immediate parties to the litigation and contemplates issues of broad significance or general application, see  <FRAGMENT_SUPPRESSED>  (T.D.)(QL). Moreover, it should be dispositive of the appeal:  <FRAGMENT_SUPPRESSED>  (T.D.)(QL). In my view the law is clear on the issue addressed by the question and the Board applied it correctly in its decision. Accordingly, no question is certified.\r\nORDER\r\n[28]\r\nTHIS COURT ORDERS\r\nthat this application for judicial review is dismissed. No question is certified.\r\n[End of document]"
+  },
+  {
+    "case_id": "068193.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "068193:e74a2760a29e6ac5:14-2295:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      2295
+    ],
+    "context_span_bytes": [
+      0,
+      2695
+    ],
+    "raw_context_text": "Introduction\r\n[1]\r\nTeitelbaum, J.\r\n: This is an application for judicial review pursuant to s. 18 of the\r\nFederal Court Act\r\n. The applicants, Eli Lilly and Company and Eli Lilly Canada Inc. (Lilly), seek an order of certiorari quashing the Notice of Compliance (NOC) issued on April 30, 1997 by the Minister of Health (Minister) to Apotex Inc. (Apotex) in respect of 150mg and 300mg capsules of nizatidine. The applicants also seek declaratory relief stressing to the court that the following orders are central to the present proceeding:\r\n\"1) an Order declaring that the Minister of Health is under a duty to comply with section 7(1) of the\r\nPatented Medicines (Notice of Compliance) Regulations\r\n(\" <FRAGMENT_SUPPRESSED> \") before issuing a Notice of Compliance to a second person;\r\n\"2) an Order declaring that the Minister of Health failed to comply with section 7(1) of the <FRAGMENT_SUPPRESSED> by issuing the Notice of Compliance to Apotex Inc. for 150mg and 300mg capsules of nizatidine on April 30, 1997;\r\n\"3) an Order declaring that the Notice of Allegation dated February 10, 1995, was not a valid Notice of allegation contemplated by section 5(1) of the <FRAGMENT_SUPPRESSED> ;\r\n\"4) an Order declaring that the Minister of Health is under a duty to ensure that there is an allegation on file in a second person's New Drug Submission at the time when the second person serves a Notice of that Allegation in accordance with section 5(3)(b) of the <FRAGMENT_SUPPRESSED> ;\r\n\"5) an Order declaring that the Minister of Health is under a duty to ensure that a detailed statement of the legal and factual basis for the allegation has been provided in accordance with the <FRAGMENT_SUPPRESSED> prior to the issuance of a Notice of Compliance;\r\n\"6) an Order declaring that Apotex Inc. failed to comply with section 5(3)(a) of the <FRAGMENT_SUPPRESSED> by not providing a detailed statement of the legal and factual basis for its allegation; and\r\n\"7) an order declaring that the Minister of Health is under a duty to ensure that any Notice of Compliance which is granted, is granted only with respect to the particular Allegation, Notice of Allegation and detailed statement of the legal and factual basis for its allegation that has been provided to the first person.\"\r\nBackground Information\r\n[2]\r\nThe applicant, Eli Lilly and Company, is the owner of the Canadian Patents 1,166,248 and 1,221,369 for nizatidine and holds an NOC to produce and market a certain dosage of the medicine. The respondent Apotex is a generic manufacturer who sought ministerial approval to market nizatidine in 1993 and in 1995 which resulted in lengthy disputes before the courts. This proceeding arises out of A"
+  },
+  {
+    "case_id": "068193.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "068193:e74a2760a29e6ac5:13157-13738:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      13157,
+      13738
+    ],
+    "context_span_bytes": [
+      12757,
+      14138
+    ],
+    "raw_context_text": "ter to process its NDS, which, as I have stated, was granted by Mr. Justice Jerome on April 25, 1997 and upheld by the Federal Court of Appeal on September 29, 1997.\r\n[18]\r\nLilly argues that the Minister erred in issuing the NOC to Apotex as the mandamus order was not binding upon him and that the Minister failed to ensure that the <FRAGMENT_SUPPRESSED> were complied with before issuing the NOC.\r\n[19]\r\nLilly submits that Mr. Justice Jerome's mandamus order was based on the assumption that the facts disclosed in the NDS which were not directly before the court were correct, which facts are now alleged by Lilly to be inaccurate. Hence it is submitted that Mr. Justice Jerome's mandamus order had no binding effect on the Minister and did not apply to the process disclosed  <FRAGMENT_SUPPRESSED> 's NDS for which a NOC was issued to Apotex on April 30, 1995. In Lilly's view, it follows that the Minister was faced with two contradicting orders at the time he issued the NOC.\r\n[20]\r\nNotwithstanding Lilly's submissions that the Minister was faced with contradictory orders and that the mandamus order could only relate to what was actually before Mr. Justice Jerome when the order was issued, I am in agreement with the respondent Minister's submissions that the Minister had no choice but to issue the NOC in accordance with Mr. Justice Jerome's decision as upheld by the Co"
+  },
+  {
+    "case_id": "068193.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "068193:e74a2760a29e6ac5:24254-24524:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      24254,
+      24524
+    ],
+    "context_span_bytes": [
+      23854,
+      24524
+    ],
+    "raw_context_text": "curate, then a court, on infringement proceedings, will determine if Apotex has infringed Lilly's patent by using a process other than the one for which the NOC was issued. In such an event, Apotex could be subject to \"grave consequences\" such as, in addition to ordinary damages, punitive damages and solicitor-client costs.\r\nConclusion\r\n[35]\r\nThe application for judicial review is denied.\r\nCosts\r\n[36]\r\nI raised the issue of costs with the parties. After hearing the submission that this case may be covering new ground, I am satisfied that no costs are to be allowed to any of the parties.\r\nApplication dismissed.\r\nEditor: Sharon J. McLaughlin/ldl\r\n[End of document]"
+  },
+  {
+    "case_id": "080359.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "080359:ca5cc56b2ff54a35:408-845:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      845
+    ],
+    "context_span_bytes": [
+      0,
+      1245
+    ],
+    "raw_context_text": " <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nPhelan, J.\r\nNovember 1, 2004.\r\nCounsel:\r\nCharlotte M. Janssen, for the applicant;\r\nNegar Hashemi, for the respondent.\r\nSolicitors of Record:\r\nJanssen & Associates, Toronto, Ontario, for the applicant;\r\nMorris Rosenberg, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary.\r\nOverview\r\n[1]\r\nPhelan, J.\r\n: Mr. Faria applied for citizenship although he had only been in Canada a total of 504 days over the period of 3 years (1095 days). Mr. Faria, while owning homes in Canada and having settled his family here, maintained his principal business in Dubai. The Citizenship Judge held that he had not centralized his mode of existence in Canada. Mr. Faria sought judicial review of this determination by the Citizenship Judge.\r\nBackground\r\n[2]\r\nMr. Faria, and his wife and children came to Canada in March, 1996 and became a permanent residents in August, 1996.\r\n[3]\r\nApproximately 4 or 5 days after arriving in Canada Mr. Faria and his family went to New York for more than a week. They returned to Canada but left shortly thereafter for Dubai where the children registered for school.\r\n[4]\r\nMr. Faria also started a business"
+  },
+  {
+    "case_id": "080359.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "080359:ca5cc56b2ff54a35:5478-5711:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      5478,
+      5711
+    ],
+    "context_span_bytes": [
+      5078,
+      6111
+    ],
+    "raw_context_text": "tion, and secondly that he has maintained the established residence throughout the relevant time period. Re Wong [1996] F.C.J. No. 591 (T.D.).\r\n[12]\r\nThe burden rests on the particular applicant and he cannot \"bootstrap\" his way into residency by reference to the conduct of other members of his family. Each individual is considered on his own merits and on his own conduct.\r\n[13]\r\nWith respect to the test for residency, cases under other statutes enacted for different purposes, such as the Income Tax Act, are not determinative of whether residency has been established for purposes of the Citizenship Act.\r\n[14]\r\nThe Applicant argues that the \"intention test\" for residency is applicable in this case. The Applicant further argues that the case law has not developed several tests for residency - place of living, reason for being in Canada, intention, three part, indicia of residence, quality of attachment - which then allows a citizenship judge to pick and choose which one of the tests to apply in any given case. He says t"
+  },
+  {
+    "case_id": "080359.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "080359:ca5cc56b2ff54a35:8832-8922:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      8832,
+      8922
+    ],
+    "context_span_bytes": [
+      8432,
+      8922
+    ],
+    "raw_context_text": "h to complete the transfer.\r\n[22]\r\nWhile he returns to Canada for major holidays, and his family is resident here, that is insufficient to establish his own residence. ( <FRAGMENT_SUPPRESSED> ).\r\n[23]\r\nHaving reviewed all of the circumstances, I do not see where the Citizenship Judge erred. She demonstrated an understanding of the law and properly determined all the facts.\r\n[24]\r\nTherefore this application for judicial review will be dismissed.\r\n[End of document]"
+  },
+  {
+    "case_id": "081945.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "081945:a4de6b0c9511c0fa:748-1070:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      1070
+    ],
+    "context_span_bytes": [
+      0,
+      1470
+    ],
+    "raw_context_text": "  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>  \r\n \r\n  <FRAGMENT_SUPPRESSED> )  <FRAGMENT_SUPPRESSED>  \r\n  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED>  \r\n Federal Court \r\n \r\n Mandamin, J. \r\n \r\n March 16, 2010.  <FRAGMENT_SUPPRESSED>  \r\n Counsel: \r\n \r\n Krissina Kostadinov, for the applicant; \r\n \r\n Jocelyn Espejo-Clarke, for the respondent.  <FRAGMENT_SUPPRESSED>  \r\n Solicitors of Record: \r\n \r\n Waldman & Associates, Toronto, Ontario, for the applicant; \r\n \r\n John H. Sims, Q.C., Deputy Attorney General of Canada, Toronto, Ontario, for the respondent.  <FRAGMENT_SUPPRESSED>  \r\n Summary: \r\n \r\n This case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.  <FRAGMENT_SUPPRESSED>  \r\n [1] \r\n   \r\n Mandamin, J. \r\n : The Applicants seek judicial review of the decision of P. Purcell, Second Secretary, Immigration, (the Officer) received on or about May 29, 2009 rejecting Ms. Shalini Kumar's application for a permanent residence visa in Canada as a member of the skilled worker class.  <FRAGMENT_SUPPRESSED>  \r\n [2] \r\n  Ms. Shalini Kumar, a citizen of India, submitted an application for a visa under the skilled workers class. She included in her application her spouse, Vineet Kumar, and child, Aryan. Ms. Kumar submits she is employed as an office manager in a family business and included documentation about her employment and income in her application.  <FRAGMENT_SUPPRESSED>  \r\n [3] \r\n  The Officer r"
+  },
+  {
+    "case_id": "081945.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "081945:a4de6b0c9511c0fa:8484-8915:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      8484,
+      8915
+    ],
+    "context_span_bytes": [
+      8084,
+      9315
+    ],
+    "raw_context_text": "_SUPPRESSED>  \r\n [16] \r\n  The Supreme Court of Canada in  \r\n  <FRAGMENT_SUPPRESSED>  determined there are two standards of review: correctness and reasonableness. Generally, the standard of correctness applies to questions of law while the standard of reasonableness applies to questions of fact or mixed fact and law.  <FRAGMENT_SUPPRESSED>  \r\n [17] \r\n  The standard of review is reasonableness for questions of fact and mixed fact and law.  \r\n Dunsmuir \r\n . For a decision to be reasonable, there must be justification, transparency and intelligibility within the decision making process. The decision must fall into a possible range of possible, acceptable outcomes which are defensible in respect of the facts and the law.  \r\n Dunsmuir \r\n , para. 47.  <FRAGMENT_SUPPRESSED>  \r\n [18] \r\n  With respect to procedural fairness, this Court found in  \r\n  <FRAGMENT_SUPPRESSED>  at para.10:  <FRAGMENT_SUPPRESSED>  \r\n The standard of correctness applies to questions of law, of natural justice, or of procedural fairness while the standard of reasonableness applies to questions of fact or mixed facts and law.  <FRAGMENT_SUPPRESSED>  \r\n ANALYSIS  <FRAGMENT_SUPPRESSED>  \r\n [19] \r\n  The Respondent brought the Court's attention to a l"
+  },
+  {
+    "case_id": "081945.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "081945:a4de6b0c9511c0fa:19141-19517:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      19141,
+      19517
+    ],
+    "context_span_bytes": [
+      18741,
+      19518
+    ],
+    "raw_context_text": "ncome covers several years and does not contradict the employment letter. In my view, the Applicant should have had the opportunity to respond to the Officer's concerns before the decision was made.  <FRAGMENT_SUPPRESSED>  \r\n [31] \r\n  The application for judicial review is granted.  <FRAGMENT_SUPPRESSED>  \r\n JUDGMENT  <FRAGMENT_SUPPRESSED>  \r\n [32] \r\n   \r\n THIS COURT ORDERS AND ADJUDGES that:  <FRAGMENT_SUPPRESSED>  \r\n 1. This application for judicial review is allowed.  <FRAGMENT_SUPPRESSED>  \r\n 2. The matter is remitted to another Visa Officer.  <FRAGMENT_SUPPRESSED>  \r\n 3. No question of general importance is certified.  <FRAGMENT_SUPPRESSED>  \r\n [End of document]  <FRAGMENT_SUPPRESSED>   <FRAGMENT_SUPPRESSED> "
+  },
+  {
+    "case_id": "087842.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "header_to_first_paragraph",
+    "focus_unit_ids": [
+      "087842:1fcf6b81e09d14b2:403-777:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      0,
+      777
+    ],
+    "context_span_bytes": [
+      0,
+      1177
+    ],
+    "raw_context_text": " <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nMactavish, J.\r\nFebruary 24, 2010.\r\nCounsel:\r\nGary Sauvé, on his own behalf;\r\nPatrick Bendin, for the defendants.\r\nSolicitors of Record:\r\nJohn H.Sims, Q.C., Deputy Attorney General of Canada, Ottawa, Ontario, for the defendants.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\n[1]\r\nMactavish, J.\r\n: Gary Sauvé is a member of the Royal Canadian Mounted Police who is currently on suspension without pay. Mr. Sauvé has commenced an action for damages against Her Majesty the Queen in Right of Canada, the RCMP and several RCMP officers. The defendants now seek an order striking Mr. Sauvé's statement of claim in its entirety, without leave to amend.\r\n[2]\r\nFor the reasons that follow, I have concluded that the statement of claim should indeed be struck. I have further concluded that, with the exception of one claim, leave to amend should not be granted.\r\nBackground\r\n[3]\r\nMr. Sauvé was engaged in protracted litigation in the province of Québec with respect to the paternity of two children. In the course of this litigation, documents were sent by M"
+  },
+  {
+    "case_id": "087842.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "mid_paragraph_boundary",
+    "focus_unit_ids": [
+      "087842:1fcf6b81e09d14b2:12231-12638:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      12231,
+      12638
+    ],
+    "context_span_bytes": [
+      11831,
+      13038
+    ],
+    "raw_context_text": "re different. The fundamental issue in the Ontario action is the liability of various provincial entities in relation to the matters complained of, whereas the question at issue in this case is the liability of Mr. Sauvé's employer and co-workers at the RCMP for the same matters.\r\nIs Mr. Sauvé's Statement of Claim Otherwise an Abuse of Process?\r\n[26]\r\nWhile I do not accept that Mr. Sauvé's claim is an abuse of process in light of his Ontario civil action, a close examination of Mr. Sauvé's amended statement of claim nevertheless discloses that it is an abuse of process as it is largely an attempt to relitigate the question of his guilt in relation to the criminal charges laid against him - a matter that has been resolved in his criminal trial.\r\n[27]\r\nThis is particularly evident from paragraphs 14 and 21 of the amended statement of claim, which plead that:\r\n[14] The plaintiff respectfully submits that if the defendants had properly investigated the matter, they would have found out that the plaintiff and his family have been harassed, threatened, defamed by [the mother of the children] for over a period of 23 years (1983 to present) and as such, would not have detained and arrested the pl"
+  },
+  {
+    "case_id": "087842.txt",
+    "sample_type": "uniform_random",
+    "risk_group": null,
+    "region_name": "final_paragraph_boundary",
+    "focus_unit_ids": [
+      "087842:1fcf6b81e09d14b2:21093-21849:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      21093,
+      21849
+    ],
+    "context_span_bytes": [
+      20693,
+      21849
+    ],
+    "raw_context_text": "re the Court are obliged to comply with the rules governing pleadings. Given the defendants' substantial success on the motion, I am of the view that an award of costs in their favour is appropriate. Having regard to all of the circumstances, including Mr. Sauvé's apparent impecuniosity, I fix these costs at $250.\r\nORDER\r\n[47]\r\nTHIS COURT ORDERS that\r\n:\r\n1. The defendants' motion is granted in part. All of the claims in Mr. Sauvé's amended statement of claim, with the exception of the claim identified in paragraph 33, are struck without leave to amend. The claim identified in paragraph 33 of the amended statement of claim is struck, with leave to amend. Mr. Sauvé shall have 30 days in which to file a further amended statement of claim with respect to this one claim;\r\n2. The style of cause is amended to remove the RCMP as a defendant. Paragraph 4 of the amended statement of claim is also struck without leave to amend;\r\n3. This matter will be continued as a specially managed proceeding; and\r\n4. The defendants will have their costs fixed at $250.\r\n[End of document]"
+  },
+  {
+    "case_id": "046523.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "region_name": "quote_relation_marker_40",
+    "focus_unit_ids": [
+      "046523:1e63977b7e811621:26751-27727:20c8805023c2",
+      "046523:1e63977b7e811621:26460-26749:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      26751,
+      27727
+    ],
+    "context_span_bytes": [
+      26351,
+      28127
+    ],
+    "raw_context_text": "Patent were true, particularly with respect to Examples 9 and 10.\r\nJurisprudence / Principles regarding NOA\r\n[49]\r\n <FRAGMENT_SUPPRESSED>  [2011] FCJ 287, Justice Hughes summarized the requirements of subsection 5(3)(b)(ii) of the\r\nNOC\r\nRegulations\r\ngoverning the contents of the NOA which must include \"a detailed statement of the legal and factual basis for the allegations\". He noted at para 40:\r\n[40] Without comment as to whether they are right or wrong as a matter of \"fairness\", certain principles have emerged as a result of judicial interpretation as to an NOA, including:\r\ni. The NOA cannot be amended once legal proceedings have commenced except that certain allegations made can be omitted or no longer relied upon (e.g.\r\n <FRAGMENT_SUPPRESSED>  (FC) at paras 72 to 84).\r\nii. The Notice of Allegation must be sufficient so as to make the \"first person\" fully aware of the grounds raised as to invalidity or non-infringement\r\n( <FRAGMENT_SUPPRESSED>  (FCA), at paras. 19-21).\r\niii. A second person cannot, in proceedings taken in Court, present argument and evidence relating to an issue that is outside the scope of its  <FRAGMENT_SUPPRESSED>  (FCA), at para. 25.\r\niv. The second party may not shift ground or raise a new ground during the legal proceedings that has not been raised in its NOA (\r\n <FRAGMENT_SUPPRESSED>  (FC), at paras 70 - 71).\r\nConclusion re NOA\r\n[50]\r\nI have considered these principles and do not agree that there was any deficiency in the NOA.\r\n[51]\r\nThe NOA sufficiently set out the allegations of invalidity and non-infringement to make Roche fully aware and to permit Roche to respond. Apotex did not raise any new ground or new argument or lead any evidence that was beyond the NOA or that was not responsive to arguments raised by the ap"
+  },
+  {
+    "case_id": "046523.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "region_name": "quote_relation_marker_41",
+    "focus_unit_ids": [
+      "046523:1e63977b7e811621:33568-34200:20c8805023c2",
+      "046523:1e63977b7e811621:33322-33566:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      33568,
+      34200
+    ],
+    "context_span_bytes": [
+      33168,
+      34600
+    ],
+    "raw_context_text": " unjustified. If Apotex does not meet its evidential burden, then Pfizer can simply rely on the presumption of validity to obtain its prohibition order.\r\n[62]\r\nAs noted above, Justice Hughes summarized the requirements of subsection 5(3)(b)(ii) of the\r\nNOC\r\nRegulations\r\ngoverning the contents of the Notice of Allegation [NOA] in\r\n <FRAGMENT_SUPPRESSED>  [2011] FCJ 287, and also noted at para 41:\r\n[41] In the Court proceedings, a first person is required to demonstrate, in accordance with subsection 6(2) of the\r\nNOC Regulations,\r\nthat \"none of those allegations is justified\". Thus, the object of the proceedings is to look at the allegations, consider the evidence, apply the law, and determine whether an allegation made in the NOA is justified. Such a determination, for instance, whether an allegation as to invalidity is justified or not, does not preclude that issue from being litigated in an ordinary action respecting the patent, in other words, there is no\r\nres judicata\r\n(\r\n <FRAGMENT_SUPPRESSED> (FCA), at para. 7).\r\n[63]\r\nIn the present case, Apotex has raised allegations in its NOA and has led evidence as to the invalidity of the Patent on the basis of anticipation, obviousness and overbreadth which is sufficient to put those issues into play. As a result, the applicant, Roche bears the burden of establishing, on a balance of probabilities, that these allegations are not justified.\r\n[64]\r\nApotex also alleg"
+  },
+  {
+    "case_id": "050107.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "region_name": "quote_relation_marker_33",
+    "focus_unit_ids": [
+      "050107:2f2a1393b0c68fb0:13230-13789:20c8805023c2",
+      "050107:2f2a1393b0c68fb0:13108-13228:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      13230,
+      13789
+    ],
+    "context_span_bytes": [
+      12830,
+      14189
+    ],
+    "raw_context_text": " stand where it has misconstrued the evidence before it and bases its decision on that erroneous factual finding (\r\n <FRAGMENT_SUPPRESSED>  [2012] FCJ No 1223 (QL) [\r\nSun\r\n] at paras 7-10;\r\n <FRAGMENT_SUPPRESSED>  [2003] FCJ No 1492 (QL) [ <FRAGMENT_SUPPRESSED> ] at para 31).\r\n[31]\r\nAs Justice Gleason states in\r\n <FRAGMENT_SUPPRESSED>  [2012] FCJ No 369 (QL) [ <FRAGMENT_SUPPRESSED> ] at para 33:\r\n[33] The wording of section 18.1(4)(d) requires that the impugned finding must meet three criteria for relief to be granted: first, it must be truly or palpably erroneous; second, it must be made capriciously, perversely or without regard to the evidence; and, finally, the tribunal's decision must be based on the erroneous finding (\r\n <FRAGMENT_SUPPRESSED>  (Fed. C.A.) at para 5 [\r\n <FRAGMENT_SUPPRESSED>  (F.C.) at para 12, [2006] F.C.J. No. 1607 (F.C.)). Thus, findings that are inconsequential or that amount to obiter cannot provide a basis for review.\r\n[32]\r\nThus, where the Board has misconstrued evidence to the point that it can be said to have made its decision \"without regard to the evidence\", its decision will be found to be unreasonable.\r\n[33]\r\nIn this case, the Applicant points to a very specific piece of evidence that it submits was ignored or misconstrued by the Board. This is the violent altercation that took place between the Applica"
+  },
+  {
+    "case_id": "050107.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "region_name": "quote_relation_marker_36",
+    "focus_unit_ids": [
+      "050107:2f2a1393b0c68fb0:20921-21158:20c8805023c2",
+      "050107:2f2a1393b0c68fb0:20729-20919:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      20921,
+      21158
+    ],
+    "context_span_bytes": [
+      20521,
+      21558
+    ],
+    "raw_context_text": " the claimants therein were originally subjected to threats that are widespread and prevalent in El Salvador, subsequent events showed that the claimants were specifically targeted after they defied a gang.\r\n[46]\r\nThe Applicant also relies on <FRAGMENT_SUPPRESSED> , above, where Justice Gleason proposed a framework for the analysis required under section 97 of the IRPA, and also held at para 36:\r\n[36] [...] It is simply untenable for the two statements of the Board to coexist: if an individual is subject to a\r\npersonal\r\nrisk to his life or risks cruel and unusual treatment or punishment, then that risk is no longer general. [...]\r\n[47]\r\nTo support his argument that the Board misinterpreted section 97 as exempting protection to claimants who have been specifically and personally targeted for violence and other serious risks to life because of belonging to a subgroup, the Applicant similarly relies on\r\n <FRAGMENT_SUPPRESSED>  [2012] FCJ No 955 (QL) [ <FRAGMENT_SUPPRESSED> ] which endorsed the Court's reasoning in <FRAGMENT_"
+  },
+  {
+    "case_id": "023783.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "region_name": "quote_relation_marker_48",
+    "focus_unit_ids": [
+      "023783:8b8366c75993346b:52764-53438:20c8805023c2",
+      "023783:8b8366c75993346b:52596-52762:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      52764,
+      53438
+    ],
+    "context_span_bytes": [
+      52364,
+      53838
+    ],
+    "raw_context_text": "eed, the Supreme Court of Canada expressly endorsed this conclusion in <FRAGMENT_SUPPRESSED> , where Justice LeBel, writing for the Court, stated as follows:\r\n[48] As this Court held in <FRAGMENT_SUPPRESSED> , a court deciding an application for judicial review must engage in a two-step process to identify the proper standard of review. First, it must consider whether the level of deference to be accorded with regard to the type of question raised on the application has been established satisfactorily in the jurisprudence. The second inquiry becomes relevant if the first is unfruitful or if the relevant precedents appear to be inconsistent with recent developments in the common law principles of judicial review. At this second stage, the court performs a full analysis in order to determine what the applicable standard is.\r\n[72]\r\nThus, the decisions in\r\nNu-Pharm 1\r\nand\r\nNu-Pharm 2\r\ndo not obviate the need for a standard of review analysis in this case because they do not undertake the standard of review analysis mandated in <FRAGMENT_SUPPRESSED> and subsequent Supreme Court of Canada decisions.\r\nB. The Impact of the Identity of the Decision-Maker\r\n[73]\r\nOn the second argument involving the impact of the decision in this case having been made by the Minister of Health (through officials at the OPML branch at Health Canada), I once again agree with the position of the Attorney General and concur that the identity of the decision-maker does not of itself"
+  },
+  {
+    "case_id": "023783.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_a_quotation_relations",
+    "region_name": "quote_relation_marker_113",
+    "focus_unit_ids": [
+      "023783:8b8366c75993346b:58067-58260:20c8805023c2",
+      "023783:8b8366c75993346b:57976-58065:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      58067,
+      58260
+    ],
+    "context_span_bytes": [
+      57667,
+      58660
+    ],
+    "raw_context_text": "wson J.A., concurred by Trudel and Stratas JJ.A.) at paras 18-23).\r\n[76]\r\nIn <FRAGMENT_SUPPRESSED> Justice Dawson writing for the majority stated as follows:\r\n[113] Application of the presumption of deference to the Minister's interpretation of the data protection regulations is inconsistent with the prior decision of this Court in\r\nGeorgia Strait\r\n.\r\n[114] In my view, any departure from such a recent decision creates unacceptable uncertainty. This is particularly so where, in the present case, the issue was not raised. The parties were in agreement that the applicable standard of review is correctness, no one argued that the presumption of reasonableness applied and no one argued that\r\nGeorgia Strait\r\nwas improperly decided.\r\n[115] Furthermore, the Supreme Court has in the past applied the correctness standard to such decisions. For example, in\r\n <FRAGMENT_SUPPRESSED> , the Court wrote at paragraph 25:\r\nThe outcome of this appeal turns on conflicting interpretations of the NOC "
+  },
+  {
+    "case_id": "050969.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_b_translation_boundaries",
+    "region_name": "translation_boundary_region",
+    "focus_unit_ids": [
+      "050969:c0983f72fb994246:45894-46109:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      45894,
+      46109
+    ],
+    "context_span_bytes": [
+      45494,
+      46509
+    ],
+    "raw_context_text": "\nLoi sur l'immigration et la protection des réfugiés\r\n, LC 2001, c 27 (la Loi), sollicitant le contrôle judiciaire de la décision du 16 novembre 2011 (la décision) par laquelle un agent d'immigration (l'agent), a rejeté la demande de résidence permanente du demandeur fondée sur des motifs d'ordre humanitaire en vertu du paragraphe 25(1) de la Loi.\r\nCONTEXTE\r\n[2]\r\nLe demandeur est un citoyen du Soudan âgé de 42 ans qui vit actuellement à Toronto. Il est arrivé au Canada et y a déposé une demande d'asile le 24 juin 2003. Sa demande a été rejetée le 20 avril 2005.\r\n[3]\r\nLe demandeur a déposé le 4 décembre 2007 une demande fondée sur des motifs d'ordre humanitaire. Il a invoqué son établissement au Canada et les risques auxquels il serait exposé s'il était renvoyé au Soudan. À l'appui de sa demande, le demandeur a fourni plusieurs lettres de référence et de soutien de la part d'amis, d'employeurs et de collègues à Toronto de même que des reçus de dons de charité et la preuve qu'il avait poursuivi ses étu"
+  },
+  {
+    "case_id": "033536.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_b_translation_boundaries",
+    "region_name": "translation_boundary_region",
+    "focus_unit_ids": [
+      "033536:3d825848d92fa3db:64393-64961:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      64393,
+      64961
+    ],
+    "context_span_bytes": [
+      63993,
+      65361
+    ],
+    "raw_context_text": " comme de celles qui le sont dans la présente espèce. La juge note l'absence de question litigieuse touchant l'interprétation du brevet.\r\n[39] Lors de l'audience, les parties se sont entendues sur le fait qu'il n'y avait aucun litige relativement à l'interprétation du brevet 113 et que la proposition d'Apotex de fabriquer et de vendre des comprimés d'olanzapine contrefaisait à tout le moins les revendications suivantes:\r\n3. 2-méthyl-10-(4-méthyl-1-pipérazinyl)-4H-thiéno-[2,3-b][1,5] benzodiazépine, ou un sel d'addition acide pharmaceutiquement acceptable de ce composé.\r\n6. L'utilisation d'un composé conformément à la revendication 2 ou 3 en vue de la fabrication d'un médicament pour le traitement de la schizophrénie.\r\n13. Une composition pharmaceutique renfermant le composé décrit à la revendication 3 ainsi qu'un diluant ou un vecteur pharmaceutiquement acceptable de ce composé.\r\n[71]\r\nLa formule chimique énoncée à la revendication 3 peut être simplement remplacée par le terme « olanzapine » aux fins de la présente analyse.\r\n[72]\r\nLa question de l'interprétation s'est posée de nouveau devant la juge Gauthier au moment de l'examen de la question de l'évidence. Elle a commencé cet examen par une analyse des « propriétés spéciales » de l'olanzapine et de la sélection aux paragraphes 332 et 333 de son exposé des motifs. Elle a traité expressément les"
+  },
+  {
+    "case_id": "039093.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_b_translation_boundaries",
+    "region_name": "translation_boundary_region",
+    "focus_unit_ids": [
+      "039093:aebda0fdd233e214:150791-151550:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      150791,
+      151550
+    ],
+    "context_span_bytes": [
+      150391,
+      151950
+    ],
+    "raw_context_text": "y Apotex. Should the parties be unable to agree, they shall so inform the Court within ten (10) days hereof and Lundbeck shall bring on a motion in writing for judgment in accordance with rule 369 of the\r\nFederal Courts Rules\r\n.\r\n.........................\r\n <FRAGMENT_SUPPRESSED>  Apotex Pharmachem Inc. (défenderesses reconventionnelles)\r\n[1]\r\nLe juge Harrington\r\n[Traduction]: La présente action en invalidation d'un brevet d'invention et la demande reconventionnelle en contrefaçon portent sur le composé appelé escitalopram ou (+)-citalopram. Ce composé appartient à la classe des ISRS (inhibiteurs sélectifs du recaptage de la sérotonine ou inhibiteurs du recaptage de la 5-HT). Il s'est révélé utile dans le traitement de la dépression clinique. Ce produit est vendu sous le nom de Cipralex au Canada, de Lexapro aux États-Unis et de Cipramil au Royaume-Uni. Il a été inventé au Danemark en 1988 et a été breveté au Canada et dans de nombreux autres pays. Le brevet revendique le (+)-citalopram lui-même, ainsi que des méthodes pour le fabriquer, et ses sels non toxiques.\r\n[2]\r\nApotex Inc. voulait commercialiser sa version générique du (+)-citalopram depuis un certain temps. Ses projets ont d'abord été contrecarrés par Lundbeck qui a obtenu une ordonnance de la Cour fondée sur le\r\nRèglement sur les médicaments brevetés (avis de conformité)\r\n[Règlement MB (AC)] et interdisant au ministre de la Santé de délivrer un avis de conformité. Cet avis aurait permis à Apotex d'entrer sur le marché. Cependant, l'ordonnance n'était pas censée statuer sur l"
+  },
+  {
+    "case_id": "080480.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "region_name": "heading_header",
+    "focus_unit_ids": [
+      "080480:acc31de46fcee111:426-434:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      426,
+      434
+    ],
+    "context_span_bytes": [
+      26,
+      834
+    ],
+    "raw_context_text": "llen v. Can. (A.G.) (2015), 476 F.T.R. 116 (FC) \r\n \r\n \r\n \r\n MLB headnote and full text \r\n \r\n \r\n \r\n Temp. Cite: [2015] F.T.R. TBEd. MR.010 \r\n \r\n \r\n \r\n Alecia Angella Allen (applicant) v. Attorney General of Canada (respondent) \r\n \r\n (T-1092-13; 2015 FC 213) \r\n \r\n \r\n \r\n Indexed As: Allen v. Canada (Attorney General) \r\n \r\n \r\n \r\n Federal Court \r\n \r\n Fothergill, J. \r\n \r\n February 20, 2015. \r\n \r\n \r\n \r\n Summary: \r\n \r\n While Allen was attempting to cross the border from Canada into the U.S. with her valid Canadian passport, U.S. border officials found the passport of another person in Allen's boot. Two years later, Allen applied for a passport. After an investigation, Passport Canada concluded that Allen had made false statements in her application and had used her passport in the commission of the indict"
+  },
+  {
+    "case_id": "080480.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "region_name": "heading_header",
+    "focus_unit_ids": [
+      "080480:acc31de46fcee111:5361-5369:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      5361,
+      5369
+    ],
+    "context_span_bytes": [
+      4961,
+      5769
+    ],
+    "raw_context_text": "f passport services - Here, Allen was neither charged with nor convicted of an indictable offence - Passport Services was without jurisdiction to deny passport services to Allen under s. 10(2)(b) of the Order - See paragraphs 21 to 33. \r\n \r\n \r\n \r\n Cases Noticed: \r\n \r\nFRAGMENT_SUPPRESSED\r\n \r\n \r\n \r\n \r\n Statutes Noticed: \r\n \r\n Canadian Passport Order, SI/81-86, sect. 10(2)(b) [para. 21]. \r\n \r\n \r\n \r\n Counsel: \r\n \r\n Jared Will, for the applicant, Alecia Angella Allen; \r\n \r\n Lorne McClenaghan, for the respondent, Attorney General of Canada. \r\n \r\n \r\n \r\n Solicitors of Record: \r\n \r\n Jared Will, Toronto, Ontario, for the applicant, Alecia Angella Allen; \r\n \r\n William F. Pentney, Deputy Attorney General of Canada, Toronto, Ontario, for the respondent, Attorney General of Canada. \r\n \r\n \r\n \r\n This application "
+  },
+  {
+    "case_id": "039093.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "region_name": "heading_header",
+    "focus_unit_ids": [
+      "039093:aebda0fdd233e214:285-293:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      285,
+      293
+    ],
+    "context_span_bytes": [
+      0,
+      693
+    ],
+    "raw_context_text": " <FRAGMENT_SUPPRESSED>  (FC)\r\nMLB unedited judgment\r\n[French language version follows English language version]\r\n[La version française vient à la suite de la version anglaise]\r\n <FRAGMENT_SUPPRESSED>  CF 192)\r\n <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nHarrington, J.\r\nMarch 12, 2013.\r\nCounsel:\r\nHarry B. Radomski, Richard Naiberg, Sandon Shogilev and Jordan Scopa, for the plaintiff and for the defendants by counterclaim;\r\nJulie Desrosiers, Marie Lafleur, Christian Leblanc, Hilal El Ayoubi, Silviu Bursanescu and Alain Leclerc, for the defendant and for the plaintiff by counterclaim.\r\nSolicitors of Record:\r\nGoodmans LLP, Toronto, Ontario, for the plaintiff and for the defendants by counterc"
+  },
+  {
+    "case_id": "039093.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "region_name": "heading_header",
+    "focus_unit_ids": [
+      "039093:aebda0fdd233e214:588-609:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      588,
+      609
+    ],
+    "context_span_bytes": [
+      188,
+      1009
+    ],
+    "raw_context_text": "SUPPRESSED>  CF 192)\r\n <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nHarrington, J.\r\nMarch 12, 2013.\r\nCounsel:\r\nHarry B. Radomski, Richard Naiberg, Sandon Shogilev and Jordan Scopa, for the plaintiff and for the defendants by counterclaim;\r\nJulie Desrosiers, Marie Lafleur, Christian Leblanc, Hilal El Ayoubi, Silviu Bursanescu and Alain Leclerc, for the defendant and for the plaintiff by counterclaim.\r\nSolicitors of Record:\r\nGoodmans LLP, Toronto, Ontario, for the plaintiff and for the defendants by counterclaim;\r\nFasken Martineau Dumoulin LLP, Montreal, Quebec, for the defendant and for the plaintiff by counterclaim.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. This case was originally cited as [2013] F.T.R. TBEd. MR.031. Any footnotes found in this case will appear below end of document.\r\n[1]\r\nHa"
+  },
+  {
+    "case_id": "067205.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "region_name": "heading_header",
+    "focus_unit_ids": [
+      "067205:233a1743fe411b98:103-111:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      103,
+      111
+    ],
+    "context_span_bytes": [
+      0,
+      511
+    ],
+    "raw_context_text": " <FRAGMENT_SUPPRESSED>  CF 101)\r\n <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nDiner, J.\r\nJanuary 26, 2015.\r\nCounsel:\r\nRobert Israel Blanshay, for the applicant;\r\nStephen Jarvis, for the respondent.\r\nSolicitors of Record:\r\nRobert Israel Blanshay, Toronto, Ontario, for the applicant;\r\nWilliam F. Pentney, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\nI.\r\nOv"
+  },
+  {
+    "case_id": "067205.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_c_headings",
+    "region_name": "heading_header",
+    "focus_unit_ids": [
+      "067205:233a1743fe411b98:194-215:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      194,
+      215
+    ],
+    "context_span_bytes": [
+      0,
+      615
+    ],
+    "raw_context_text": " <FRAGMENT_SUPPRESSED>  CF 101)\r\n <FRAGMENT_SUPPRESSED> \r\nFederal Court\r\nDiner, J.\r\nJanuary 26, 2015.\r\nCounsel:\r\nRobert Israel Blanshay, for the applicant;\r\nStephen Jarvis, for the respondent.\r\nSolicitors of Record:\r\nRobert Israel Blanshay, Toronto, Ontario, for the applicant;\r\nWilliam F. Pentney, Deputy Attorney General of Canada, Ottawa, Ontario, for the respondent.\r\nSummary:\r\nThis case is unedited, therefore contains no summary. Any footnotes found in this case will appear below end of document.\r\nI.\r\nOverview\r\n[1]\r\nDiner, J.\r\n: This is an application for judicial review pursuant to subsection 72(1) of the"
+  },
+  {
+    "case_id": "068014.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "region_name": "voice_cue_para_9",
+    "focus_unit_ids": [
+      "068014:fad8a6592e980ace:3215-3587:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      3215,
+      3587
+    ],
+    "context_span_bytes": [
+      2815,
+      3987
+    ],
+    "raw_context_text": "nd the Board were reasonable.\r\n[8]\r\nThe parties were given considerable time by the Court to resolve this matter after the day-long hearing. The parties were urged to do so by the Court so that this proud Blackfoot nation could begin the healing process and practice\r\npiikanissini\r\n, however, they have indicated to the Court that they have not been able to resolve it, so I will render a decision.\r\n[9]\r\nI find it regrettable the amount of money and judicial resources spent on the multitude of litigation surrounding these issues and more importantly the resulting toxic feelings amongst a communal people that will not heal in the near future because of this litigation. I am saddened when considering that the First Nation is experiencing financial difficulty already.\r\n[10]\r\nTerms are spelled in this decision as they are in the parties materials and is the customary spelling.\r\nII.\r\nGlossary (alphabetically and definitions from the evidence)\r\n[11]\r\nBridget Kenn\r\na: Chief Financial Officer (CFO) and acting Chief Executive Officer (CEO) of the Piikani First Nation.\r\n[12]\r\nChief Gayle Strikes With A Gun\r\n(Chief): The Applicant and the first woman chief elected in "
+  },
+  {
+    "case_id": "068014.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "region_name": "voice_cue_para_121",
+    "focus_unit_ids": [
+      "068014:fad8a6592e980ace:44874-45131:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      44874,
+      45131
+    ],
+    "context_span_bytes": [
+      44474,
+      45531
+    ],
+    "raw_context_text": " question regarding removal or suspension of Chief or Councillor of an Indian Band. However, when procedural fairness is at issue the standard will be correctness (\r\n <FRAGMENT_SUPPRESSED>  [ <FRAGMENT_SUPPRESSED> ] at para 28;\r\n <FRAGMENT_SUPPRESSED> ).\r\nVIII.\r\nAnalysis\r\n[120]\r\nI am dismissing this application for the reasons that follow.\r\n[121]\r\nI find the Board had jurisdiction to make the decision under review. The Board was correct that it did not have jurisdiction to order payment of legal costs for the Chief and did not have jurisdiction to order that the honoraria be paid to the Chief.\r\n[122]\r\nI find the Board's decision to be reasonable.\r\n[123]\r\nI find the decision not to pay the legal fees was already determined by the Alberta Court of Queen's Bench, but if I am wrong then I find the Council's decision to be reasonable.\r\nA. Did the Piikani Nation Removal Appeals Board have Jurisdiction?\r\n[124]\r\nThe Chief argued that the Board erred when they found they had jurisdiction for two reasons.\r\n[125]\r\nThe first reason the Chief argues is t"
+  },
+  {
+    "case_id": "076793.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "region_name": "voice_cue_para_39",
+    "focus_unit_ids": [
+      "076793:1d602c9950904c13:23566-23689:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      23566,
+      23689
+    ],
+    "context_span_bytes": [
+      23166,
+      24089
+    ],
+    "raw_context_text": "future length of detention; and\r\n(5) Availability of alternatives to detention.\r\n[38]\r\nAs stated in\r\nCharkaoui 1\r\n, in addition to these factors:\r\n\"... the reviewing judge should be able to look at all factors relevant to the justice of continued detention, including the possibility of the\r\nIRPA's\r\ndetention provisions being misused or abused\r\nCharkaoui 1\r\n, para. 117).\"\r\n[39]\r\nI will comment briefly on the threshold for release under the\r\nIRPA\r\n, the burden of proof and the standard of proof.\r\n[40]\r\nThe\r\nIRPA\r\nexpressly sets out the threshold to be met for a designated judge to release a named person from detention. Paragraph 82(5)(a) of the\r\nIRPA\r\nprovides that the designated judge must order the detention to continue if satisfied \"that the person's release under conditions would be injurious to national security or endanger the safety of any person, or that they would be unlikely to appear at a proceeding o"
+  },
+  {
+    "case_id": "076793.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "region_name": "voice_cue_para_45",
+    "focus_unit_ids": [
+      "076793:1d602c9950904c13:26400-26575:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      26400,
+      26575
+    ],
+    "context_span_bytes": [
+      26000,
+      26975
+    ],
+    "raw_context_text": "ception of hearsay evidence.\r\n[44]\r\nBoth information provided in public session and in closed session is admissible as evidence and can be relied upon by the designated judge. For the purpose of this detention review, I heard the evidence of the CSIS witness on the production of the Threat Assessment dated, which was given in closed session on October 19, 2009.\r\nAnalysis\r\n[45]\r\nI will now turn to the above listed\r\nCharkaoui 1\r\nfactors to be considered in a detention review. Before doing so, I wish to address an argument raised by the Ministers.\r\n[46]\r\nThe Ministers argue that a substantial lessening of the conditions of release would amount to a decision favourable to Mr. Mahjoub in the merits of the case, namely the reasonableness of the certificate, and for this position rely on\r\nCharkaoui, Re\r\n(2006), 295 F.T.R. 86; 2006 FC 555. In that case, Mr. Charkaoui asked that his conditions of release be abolished. Justice Noël at paragraph 22, concluded as follows:\r"
+  },
+  {
+    "case_id": "019467.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "region_name": "voice_cue_para_2",
+    "focus_unit_ids": [
+      "019467:7b4b6720d5799b19:711-958:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      711,
+      958
+    ],
+    "context_span_bytes": [
+      311,
+      1358
+    ],
+    "raw_context_text": "statements, but also in comparison with the public and closed evidence presented by both parties. At times, his testimony was simply incoherent, implausible if not contradictory. The Ministers have provided sufficient evidence to demonstrate that the issuance of the certificate was reasonable. Therefore, the security certificate issued against Mr. Harkat on security grounds is upheld.\r\nFindings\r\n[2]\r\nI find that the evidence and information adduced by the Ministers is credible and provides reasonable grounds to make the following non-limitative conclusions. On a balance of probabilities, the Ministers have established the following facts:\r\n[3]\r\nI find that Osama Bin Laden and Al-Qaeda supplied money and resources to the Chechen terrorist cause through Ibn Khattab and the Basayev group;\r\n[4]\r\nI find that the Basayev and Khattab groups were not part of the Al-Qaeda core, but were part of the Bin Laden Network;\r\n[5]\r\nI find that for at least 15 months, Mr. Harkat operated a guesthouse for Ibn Khattab and as such demonstrated active me"
+  },
+  {
+    "case_id": "019467.txt",
+    "sample_type": "structural_risk",
+    "risk_group": "group_d_voice_cues",
+    "region_name": "voice_cue_para_3",
+    "focus_unit_ids": [
+      "019467:7b4b6720d5799b19:960-1108:20c8805023c2"
+    ],
+    "target_span_bytes": [
+      960,
+      1108
+    ],
+    "context_span_bytes": [
+      560,
+      1508
+    ],
+    "raw_context_text": "e issuance of the certificate was reasonable. Therefore, the security certificate issued against Mr. Harkat on security grounds is upheld.\r\nFindings\r\n[2]\r\nI find that the evidence and information adduced by the Ministers is credible and provides reasonable grounds to make the following non-limitative conclusions. On a balance of probabilities, the Ministers have established the following facts:\r\n[3]\r\nI find that Osama Bin Laden and Al-Qaeda supplied money and resources to the Chechen terrorist cause through Ibn Khattab and the Basayev group;\r\n[4]\r\nI find that the Basayev and Khattab groups were not part of the Al-Qaeda core, but were part of the Bin Laden Network;\r\n[5]\r\nI find that for at least 15 months, Mr. Harkat operated a guesthouse for Ibn Khattab and as such demonstrated active membership in a group involved in terrorist activities in Chechnya which was affiliated with the Basayev group;\r\n[6]\r\nI find that, contrary to his testi"
+  }
+]

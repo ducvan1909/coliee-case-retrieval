@@ -1,0 +1,59 @@
+{
+  "all_passed": true,
+  "elapsed_seconds": 0.698,
+  "results": [
+    {
+      "error_caught": "M2 artifact seal integrity failure",
+      "passed": true,
+      "test": "unresealed_case_tamper"
+    },
+    {
+      "error_caught": "Navigation/preview/anchor differs from source and profile",
+      "passed": true,
+      "test": "resealed_preview_tamper"
+    },
+    {
+      "error_caught": "Navigation/preview/anchor differs from source and profile",
+      "passed": true,
+      "test": "resealed_neighbor_tamper"
+    },
+    {
+      "error_caught": "M2 summary differs from verified records",
+      "passed": true,
+      "test": "resealed_summary_tamper"
+    },
+    {
+      "error_caught": "Source drift: 000001.txt",
+      "passed": true,
+      "test": "raw_source_byte_drift"
+    },
+    {
+      "error_caught": "M2 profile/code/M1 provenance drift",
+      "passed": true,
+      "test": "profile_config_drift"
+    },
+    {
+      "error_caught": "M1 code/config/M0 provenance drift",
+      "passed": true,
+      "test": "m1_provenance_drift"
+    },
+    {
+      "adjacent_envelope_bytes": [
+        252,
+        414
+      ],
+      "parent_envelope_bytes": [
+        215,
+        414
+      ],
+      "passed": true,
+      "shared_handles": [
+        "p000005",
+        "p000006"
+      ],
+      "test": "multi_hit_same_and_adjacent_parent_dedup_mapping_fixture"
+    }
+  ],
+  "schema_version": "pipeline-v2-m2-ag-tamper-and-boundary-tests-1",
+  "tests_count": 8
+}

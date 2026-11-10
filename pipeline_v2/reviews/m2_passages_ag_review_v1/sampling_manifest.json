@@ -1,0 +1,2105 @@
+{
+  "schema_version": "m2-passages-ag-review-sampling-manifest-v1",
+  "seed": 20261106,
+  "locked_before_reading_raw": true,
+  "labels_accessed": false,
+  "test_sources_accessed": false,
+  "total_corpus_cases": 7708,
+  "excluded_discovery_count": 10,
+  "excluded_holdout_count": 10,
+  "separate_regression_cases_count": 22,
+  "eligible_pool_count": 7666,
+  "uniform_random_20": [
+    "000777.txt",
+    "001201.txt",
+    "002348.txt",
+    "004252.txt",
+    "008003.txt",
+    "010465.txt",
+    "012505.txt",
+    "020000.txt",
+    "021926.txt",
+    "025667.txt",
+    "026294.txt",
+    "030557.txt",
+    "038541.txt",
+    "060970.txt",
+    "064822.txt",
+    "064829.txt",
+    "067022.txt",
+    "088722.txt",
+    "092785.txt",
+    "095694.txt"
+  ],
+  "risk_stratified_20": {
+    "risk_1_long_split_parents_and_448_cap": [
+      "011919.txt",
+      "044492.txt",
+      "049243.txt",
+      "080634.txt"
+    ],
+    "risk_2_unicode_multibyte_and_french": [
+      "033536.txt",
+      "039093.txt",
+      "044061.txt",
+      "054218.txt"
+    ],
+    "risk_3_tight_whitespace_or_fallback_boundary": [
+      "016872.txt",
+      "046523.txt",
+      "067658.txt",
+      "074591.txt"
+    ],
+    "risk_4_jumping_or_repeated_markers_and_quoted": [
+      "020740.txt",
+      "063659.txt",
+      "070740.txt",
+      "084744.txt"
+    ],
+    "risk_5_unknown_unnumbered_and_no_preview": [
+      "027864.txt",
+      "050528.txt",
+      "065680.txt",
+      "076001.txt"
+    ]
+  },
+  "total_sampled_unique_cases": 40,
+  "overlap_between_uniform_and_risk": 0,
+  "overlap_with_discovery_or_holdout": 0,
+  "overlap_with_separate_regressions": 0,
+  "total_sampled_regions": 120,
+  "separate_regression_groups": {
+    "m2_passages_middle_child_regression": [
+      "041666.txt"
+    ],
+    "m1_m2_structural_exposed_fixtures": [
+      "050936.txt",
+      "061295.txt",
+      "062436.txt",
+      "067620.txt"
+    ],
+    "m2_preview_prompt_8_regressions": [
+      "011922.txt",
+      "051807.txt",
+      "080359.txt",
+      "068193.txt",
+      "014101.txt",
+      "048208.txt",
+      "081945.txt",
+      "015740.txt"
+    ],
+    "m2_preview_v2_9_tag_clip_regressions": [
+      "004301.txt",
+      "006063.txt",
+      "008545.txt",
+      "013122.txt",
+      "031088.txt",
+      "059397.txt",
+      "071931.txt",
+      "093363.txt",
+      "095618.txt"
+    ]
+  },
+  "case_selections": [
+    {
+      "case_id": "000777.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "000777.txt",
+        "parent_count": 146,
+        "passage_count": 151,
+        "split_parents_count": 3,
+        "max_split_count": 3,
+        "max_full_input_tokens": 385,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 6,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 127,
+        "max_token_to_byte_ratio": 0.355835,
+        "utf8_exceptions_count": 0,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 147,
+        "unnumbered_passages_count": 4,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 2,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000146",
+          "unit_id": "000777:c599a3595b2ea24c:89124-91503:20c8805023c2",
+          "target_passage_id": "000777:2cb36c7dc97023f010aad718",
+          "split_count": 3,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000023",
+          "unit_id": "000777:c599a3595b2ea24c:14929-14976:20c8805023c2",
+          "target_passage_id": "000777:827fb533c97ed6131793e963",
+          "split_count": 1,
+          "selection_reason": "slot2_unit_without_preview_still_indexed"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "000777:c599a3595b2ea24c:0-2648:20c8805023c2",
+          "target_passage_id": "000777:ecfdb2ef73df9e1fdefaa3fc",
+          "split_count": 3,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "001201.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "001201.txt",
+        "parent_count": 39,
+        "passage_count": 39,
+        "split_parents_count": 0,
+        "max_split_count": 1,
+        "max_full_input_tokens": 428,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 5,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 0,
+        "max_token_to_byte_ratio": 0.0,
+        "utf8_exceptions_count": 37,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 39,
+        "unnumbered_passages_count": 0,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000024",
+          "unit_id": "001201:5a2ac00d2fa8a931:19354-21003:20c8805023c2",
+          "target_passage_id": "001201:809bbd39823f4c8548ce9d9f",
+          "split_count": 1,
+          "selection_reason": "slot1_intact_parent_gt_320_le_448"
+        },
+        {
+          "handle": "p000009",
+          "unit_id": "001201:5a2ac00d2fa8a931:4450-6479:20c8805023c2",
+          "target_passage_id": "001201:a922b1f7426e70949688b986",
+          "split_count": 1,
+          "selection_reason": "slot2_intact_parent_gt_320_le_448"
+        },
+        {
+          "handle": "p000039",
+          "unit_id": "001201:5a2ac00d2fa8a931:34420-34743:20c8805023c2",
+          "target_passage_id": "001201:020de1c44a2bd16a0e079bd3",
+          "split_count": 1,
+          "selection_reason": "slot3_end_boundary_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "002348.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "002348.txt",
+        "parent_count": 12,
+        "passage_count": 15,
+        "split_parents_count": 2,
+        "max_split_count": 3,
+        "max_full_input_tokens": 321,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 125,
+        "max_token_to_byte_ratio": 0.223849,
+        "utf8_exceptions_count": 99,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 10,
+        "unnumbered_passages_count": 5,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000012",
+          "unit_id": "002348:434546149445f1c8:8050-10603:20c8805023c2",
+          "target_passage_id": "002348:dec82e1645d9789cc19382ae",
+          "split_count": 3,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "u000002",
+          "unit_id": "002348:434546149445f1c8:212-2694:20c8805023c2",
+          "target_passage_id": "002348:8eb643d8cd0f9dd4755d8fb1",
+          "split_count": 2,
+          "selection_reason": "slot2_secondary_high_token_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "002348:434546149445f1c8:26-184:20c8805023c2",
+          "target_passage_id": "002348:a722eb1cb93b2c9357a5f73c",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "004252.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "004252.txt",
+        "parent_count": 29,
+        "passage_count": 29,
+        "split_parents_count": 0,
+        "max_split_count": 1,
+        "max_full_input_tokens": 258,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 0,
+        "max_token_to_byte_ratio": 0.0,
+        "utf8_exceptions_count": 37,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 25,
+        "unnumbered_passages_count": 4,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000025",
+          "unit_id": "004252:3e8d382ca320fe78:11281-12606:20c8805023c2",
+          "target_passage_id": "004252:317c1ff29f4754fb429711e7",
+          "split_count": 1,
+          "selection_reason": "slot1_largest_token_parent"
+        },
+        {
+          "handle": "p000013",
+          "unit_id": "004252:3e8d382ca320fe78:4286-5523:20c8805023c2",
+          "target_passage_id": "004252:54875e2f5c67fb4828cd3e3d",
+          "split_count": 1,
+          "selection_reason": "slot2_secondary_high_token_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "004252:3e8d382ca320fe78:1-69:20c8805023c2",
+          "target_passage_id": "004252:eb260a2e47365ce37f266042",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "008003.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "008003.txt",
+        "parent_count": 85,
+        "passage_count": 88,
+        "split_parents_count": 1,
+        "max_split_count": 4,
+        "max_full_input_tokens": 443,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 5,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 128,
+        "max_token_to_byte_ratio": 0.225758,
+        "utf8_exceptions_count": 12,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 87,
+        "unnumbered_passages_count": 1,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000038",
+          "unit_id": "008003:459daac5b355649f:22311-26491:20c8805023c2",
+          "target_passage_id": "008003:36c9df4a9db4a22f9125b55c",
+          "split_count": 4,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000040",
+          "unit_id": "008003:459daac5b355649f:27462-28879:20c8805023c2",
+          "target_passage_id": "008003:1634a1a42ab602d7564ffb67",
+          "split_count": 1,
+          "selection_reason": "slot2_intact_parent_gt_320_le_448"
+        },
+        {
+          "handle": "u000037",
+          "unit_id": "008003:459daac5b355649f:22277-22309:20c8805023c2",
+          "target_passage_id": "008003:59c4fee12c4cb2e5ba3b296e",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "010465.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "010465.txt",
+        "parent_count": 17,
+        "passage_count": 19,
+        "split_parents_count": 1,
+        "max_split_count": 3,
+        "max_full_input_tokens": 320,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 126,
+        "max_token_to_byte_ratio": 0.206845,
+        "utf8_exceptions_count": 101,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 13,
+        "unnumbered_passages_count": 6,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "u000002",
+          "unit_id": "010465:44b162db4b4dd263:547-3204:20c8805023c2",
+          "target_passage_id": "010465:7f98280d86f937611ca8eb03",
+          "split_count": 3,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000008",
+          "unit_id": "010465:44b162db4b4dd263:5975-7197:20c8805023c2",
+          "target_passage_id": "010465:1fad55000cbed98fcb022238",
+          "split_count": 1,
+          "selection_reason": "slot2_secondary_high_token_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "010465:44b162db4b4dd263:2-527:20c8805023c2",
+          "target_passage_id": "010465:b83e4351b141cbdf8123cd46",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "012505.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "012505.txt",
+        "parent_count": 24,
+        "passage_count": 24,
+        "split_parents_count": 0,
+        "max_split_count": 1,
+        "max_full_input_tokens": 89,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 0,
+        "max_token_to_byte_ratio": 0.0,
+        "utf8_exceptions_count": 0,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 20,
+        "unnumbered_passages_count": 4,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000016",
+          "unit_id": "012505:fb5a796f2a767fc9:3704-4118:20c8805023c2",
+          "target_passage_id": "012505:d06c98ff2d49fe313f53762f",
+          "split_count": 1,
+          "selection_reason": "slot1_largest_token_parent"
+        },
+        {
+          "handle": "p000005",
+          "unit_id": "012505:fb5a796f2a767fc9:669-1005:20c8805023c2",
+          "target_passage_id": "012505:9d6207be7a00f6f83a93a14c",
+          "split_count": 1,
+          "selection_reason": "slot2_secondary_high_token_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "012505:fb5a796f2a767fc9:1-255:20c8805023c2",
+          "target_passage_id": "012505:70d719e21ff769f62798d935",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "020000.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "020000.txt",
+        "parent_count": 22,
+        "passage_count": 40,
+        "split_parents_count": 4,
+        "max_split_count": 7,
+        "max_full_input_tokens": 321,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 121,
+        "max_token_to_byte_ratio": 0.2827,
+        "utf8_exceptions_count": 105,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 33,
+        "unnumbered_passages_count": 7,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000022",
+          "unit_id": "020000:05b00c82b3e84488:17600-24066:20c8805023c2",
+          "target_passage_id": "020000:7a537958cbd3c7e2070429ea",
+          "split_count": 7,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000006",
+          "unit_id": "020000:05b00c82b3e84488:4664-9263:20c8805023c2",
+          "target_passage_id": "020000:be40798cc657ebbf5103ffe2",
+          "split_count": 6,
+          "selection_reason": "slot2_secondary_high_token_parent"
+        },
+        {
+          "handle": "u000002",
+          "unit_id": "020000:05b00c82b3e84488:421-3502:20c8805023c2",
+          "target_passage_id": "020000:4fb30c6e385a73bd0e560fe5",
+          "split_count": 4,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "021926.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "021926.txt",
+        "parent_count": 14,
+        "passage_count": 14,
+        "split_parents_count": 0,
+        "max_split_count": 1,
+        "max_full_input_tokens": 274,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 0,
+        "max_token_to_byte_ratio": 0.0,
+        "utf8_exceptions_count": 0,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 10,
+        "unnumbered_passages_count": 4,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000011",
+          "unit_id": "021926:8c5e347ef2488cbf:3554-4757:20c8805023c2",
+          "target_passage_id": "021926:f71b4e8979902a6878907d06",
+          "split_count": 1,
+          "selection_reason": "slot1_largest_token_parent"
+        },
+        {
+          "handle": "p000012",
+          "unit_id": "021926:8c5e347ef2488cbf:4759-5767:20c8805023c2",
+          "target_passage_id": "021926:0e58191e21ccece1b7e7da65",
+          "split_count": 1,
+          "selection_reason": "slot2_secondary_high_token_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "021926:8c5e347ef2488cbf:1-65:20c8805023c2",
+          "target_passage_id": "021926:0ff60bafc12c8858573e1026",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "025667.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "025667.txt",
+        "parent_count": 150,
+        "passage_count": 153,
+        "split_parents_count": 1,
+        "max_split_count": 4,
+        "max_full_input_tokens": 377,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 3,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 128,
+        "max_token_to_byte_ratio": 0.22945,
+        "utf8_exceptions_count": 3,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 150,
+        "unnumbered_passages_count": 3,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 1
+      },
+      "selected_regions": [
+        {
+          "handle": "p000108",
+          "unit_id": "025667:735bc24d7694d72e:47926-51756:20c8805023c2",
+          "target_passage_id": "025667:18519f02e1e42e6e115192bb",
+          "split_count": 4,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000144",
+          "unit_id": "025667:735bc24d7694d72e:63683-63850:20c8805023c2",
+          "target_passage_id": "025667:e96b1a26ab13c011e7440d8a",
+          "split_count": 1,
+          "selection_reason": "slot2_jumping_or_repeated_marker_parent"
+        },
+        {
+          "handle": "u000121",
+          "unit_id": "025667:735bc24d7694d72e:56520-56567:20c8805023c2",
+          "target_passage_id": "025667:4bd76e5b065199b613f4c8e4",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "026294.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "026294.txt",
+        "parent_count": 72,
+        "passage_count": 73,
+        "split_parents_count": 1,
+        "max_split_count": 2,
+        "max_full_input_tokens": 335,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 1,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 128,
+        "max_token_to_byte_ratio": 0.268972,
+        "utf8_exceptions_count": 26,
+        "french_passages_count": 0,
+        "quoted_passages_count": 3,
+        "unknown_passages_count": 61,
+        "unnumbered_passages_count": 9,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 7,
+        "non_monotonic_jumps_count": 9
+      },
+      "selected_regions": [
+        {
+          "handle": "u000031",
+          "unit_id": "026294:15d4bfbf3124f18f:8398-10370:20c8805023c2",
+          "target_passage_id": "026294:a0df6b6931beab5556475ed0",
+          "split_count": 2,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000043",
+          "unit_id": "026294:15d4bfbf3124f18f:16530-16860:20c8805023c2",
+          "target_passage_id": "026294:dcc0a4d9f49fc2ae6faa75e1",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "026294:15d4bfbf3124f18f:1-64:20c8805023c2",
+          "target_passage_id": "026294:1ef8951d906431d52bd3b177",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "030557.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "030557.txt",
+        "parent_count": 42,
+        "passage_count": 44,
+        "split_parents_count": 1,
+        "max_split_count": 3,
+        "max_full_input_tokens": 321,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 124,
+        "max_token_to_byte_ratio": 0.28084,
+        "utf8_exceptions_count": 38,
+        "french_passages_count": 0,
+        "quoted_passages_count": 3,
+        "unknown_passages_count": 36,
+        "unnumbered_passages_count": 5,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 1,
+        "non_monotonic_jumps_count": 7
+      },
+      "selected_regions": [
+        {
+          "handle": "u000011",
+          "unit_id": "030557:dbb0ce84552b5659:3206-5489:20c8805023c2",
+          "target_passage_id": "030557:9a85a02cf3f11c837ade068d",
+          "split_count": 3,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000015",
+          "unit_id": "030557:dbb0ce84552b5659:6276-6752:20c8805023c2",
+          "target_passage_id": "030557:594c18aeaf2143a12f59c5c0",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "030557:dbb0ce84552b5659:4-24:20c8805023c2",
+          "target_passage_id": "030557:d0967f4fa4e2537c2bed75ce",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "038541.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "038541.txt",
+        "parent_count": 28,
+        "passage_count": 28,
+        "split_parents_count": 0,
+        "max_split_count": 1,
+        "max_full_input_tokens": 259,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 0,
+        "max_token_to_byte_ratio": 0.0,
+        "utf8_exceptions_count": 1,
+        "french_passages_count": 0,
+        "quoted_passages_count": 3,
+        "unknown_passages_count": 25,
+        "unnumbered_passages_count": 0,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 10,
+        "non_monotonic_jumps_count": 7
+      },
+      "selected_regions": [
+        {
+          "handle": "p000013",
+          "unit_id": "038541:3f67ddda48ee05cf:7582-8808:20c8805023c2",
+          "target_passage_id": "038541:a917315a1db3fe96bda7a20a",
+          "split_count": 1,
+          "selection_reason": "slot1_largest_token_parent"
+        },
+        {
+          "handle": "p000017",
+          "unit_id": "038541:3f67ddda48ee05cf:10281-10753:20c8805023c2",
+          "target_passage_id": "038541:d141b3008203fb9207951c49",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "p000028",
+          "unit_id": "038541:3f67ddda48ee05cf:15869-16082:20c8805023c2",
+          "target_passage_id": "038541:f83c37eec648d187a5af3492",
+          "split_count": 1,
+          "selection_reason": "slot3_end_boundary_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "060970.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "060970.txt",
+        "parent_count": 26,
+        "passage_count": 26,
+        "split_parents_count": 0,
+        "max_split_count": 1,
+        "max_full_input_tokens": 309,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 0,
+        "max_token_to_byte_ratio": 0.0,
+        "utf8_exceptions_count": 0,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 22,
+        "unnumbered_passages_count": 4,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 2
+      },
+      "selected_regions": [
+        {
+          "handle": "p000018",
+          "unit_id": "060970:6a0d9560761c1898:4935-6382:20c8805023c2",
+          "target_passage_id": "060970:436b9dd394aace9f32b3a26a",
+          "split_count": 1,
+          "selection_reason": "slot1_largest_token_parent"
+        },
+        {
+          "handle": "p000017",
+          "unit_id": "060970:6a0d9560761c1898:4485-4930:20c8805023c2",
+          "target_passage_id": "060970:710e305998f8d6d201c3d049",
+          "split_count": 1,
+          "selection_reason": "slot2_jumping_or_repeated_marker_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "060970:6a0d9560761c1898:2-282:20c8805023c2",
+          "target_passage_id": "060970:5dc9e94a09461e2436ccff67",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "064822.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "064822.txt",
+        "parent_count": 29,
+        "passage_count": 29,
+        "split_parents_count": 0,
+        "max_split_count": 1,
+        "max_full_input_tokens": 211,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 0,
+        "max_token_to_byte_ratio": 0.0,
+        "utf8_exceptions_count": 0,
+        "french_passages_count": 0,
+        "quoted_passages_count": 1,
+        "unknown_passages_count": 22,
+        "unnumbered_passages_count": 6,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 3
+      },
+      "selected_regions": [
+        {
+          "handle": "p000012",
+          "unit_id": "064822:bc4d43dbae7d0e0f:2863-3861:20c8805023c2",
+          "target_passage_id": "064822:28659bbd2f23443a9b4529e2",
+          "split_count": 1,
+          "selection_reason": "slot1_largest_token_parent"
+        },
+        {
+          "handle": "p000017",
+          "unit_id": "064822:bc4d43dbae7d0e0f:4755-5254:20c8805023c2",
+          "target_passage_id": "064822:7de4dc250b0c9d15efb223be",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "064822:bc4d43dbae7d0e0f:1-67:20c8805023c2",
+          "target_passage_id": "064822:a18812b18604d0576f115054",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "064829.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "064829.txt",
+        "parent_count": 64,
+        "passage_count": 67,
+        "split_parents_count": 1,
+        "max_split_count": 4,
+        "max_full_input_tokens": 417,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 1,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 124,
+        "max_token_to_byte_ratio": 0.418146,
+        "utf8_exceptions_count": 100,
+        "french_passages_count": 0,
+        "quoted_passages_count": 3,
+        "unknown_passages_count": 57,
+        "unnumbered_passages_count": 7,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 2,
+        "non_monotonic_jumps_count": 6
+      },
+      "selected_regions": [
+        {
+          "handle": "u000002",
+          "unit_id": "064829:b5ecffa5c63f58d0:179-3395:20c8805023c2",
+          "target_passage_id": "064829:f571d550c7d083e27da12b9d",
+          "split_count": 4,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000035",
+          "unit_id": "064829:b5ecffa5c63f58d0:21960-22273:20c8805023c2",
+          "target_passage_id": "064829:c11fb303190c8907bb11928e",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "064829:b5ecffa5c63f58d0:2-159:20c8805023c2",
+          "target_passage_id": "064829:4c3af0516a5f913cf390b49f",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "067022.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "067022.txt",
+        "parent_count": 48,
+        "passage_count": 49,
+        "split_parents_count": 1,
+        "max_split_count": 2,
+        "max_full_input_tokens": 416,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 4,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 128,
+        "max_token_to_byte_ratio": 0.225629,
+        "utf8_exceptions_count": 0,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 49,
+        "unnumbered_passages_count": 0,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000013",
+          "unit_id": "067022:6aa8b493a3f8dad2:9814-11974:20c8805023c2",
+          "target_passage_id": "067022:dfb563d902de783e0e40dd47",
+          "split_count": 2,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000027",
+          "unit_id": "067022:6aa8b493a3f8dad2:19868-21716:20c8805023c2",
+          "target_passage_id": "067022:535b2f223cf036fba0173efc",
+          "split_count": 1,
+          "selection_reason": "slot2_intact_parent_gt_320_le_448"
+        },
+        {
+          "handle": "p000048",
+          "unit_id": "067022:6aa8b493a3f8dad2:40821-41455:20c8805023c2",
+          "target_passage_id": "067022:bf8175e08aa2e52615c88ece",
+          "split_count": 1,
+          "selection_reason": "slot3_end_boundary_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "088722.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "088722.txt",
+        "parent_count": 29,
+        "passage_count": 34,
+        "split_parents_count": 1,
+        "max_split_count": 6,
+        "max_full_input_tokens": 354,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 1,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 128,
+        "max_token_to_byte_ratio": 0.284574,
+        "utf8_exceptions_count": 77,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 29,
+        "unnumbered_passages_count": 5,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000029",
+          "unit_id": "088722:114f5cb3f52b7bf1:14624-19247:20c8805023c2",
+          "target_passage_id": "088722:35af2991d08dcbec82e35ad5",
+          "split_count": 6,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000010",
+          "unit_id": "088722:114f5cb3f52b7bf1:2607-4364:20c8805023c2",
+          "target_passage_id": "088722:7381f7457052c17ae1bea1f3",
+          "split_count": 1,
+          "selection_reason": "slot2_intact_parent_gt_320_le_448"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "088722:114f5cb3f52b7bf1:1-63:20c8805023c2",
+          "target_passage_id": "088722:04915bf4d8357a3c827a3f86",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "092785.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "092785.txt",
+        "parent_count": 59,
+        "passage_count": 74,
+        "split_parents_count": 2,
+        "max_split_count": 14,
+        "max_full_input_tokens": 334,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 2,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 124,
+        "max_token_to_byte_ratio": 0.276486,
+        "utf8_exceptions_count": 115,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 74,
+        "unnumbered_passages_count": 0,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 1
+      },
+      "selected_regions": [
+        {
+          "handle": "p000059",
+          "unit_id": "092785:2356923536cdd205:30110-41600:20c8805023c2",
+          "target_passage_id": "092785:8be01d75cdc5cd9f067b322a",
+          "split_count": 14,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000036",
+          "unit_id": "092785:2356923536cdd205:18104-18514:20c8805023c2",
+          "target_passage_id": "092785:205253b18d22a20172272d3f",
+          "split_count": 1,
+          "selection_reason": "slot2_jumping_or_repeated_marker_parent"
+        },
+        {
+          "handle": "p000058",
+          "unit_id": "092785:2356923536cdd205:29673-30098:20c8805023c2",
+          "target_passage_id": "092785:cd9dfd26fa42995a4c451f50",
+          "split_count": 1,
+          "selection_reason": "slot3_end_boundary_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "095694.txt",
+      "sample_group": "uniform_random_20",
+      "stratum": "uniform_random",
+      "metadata_summary": {
+        "case_id": "095694.txt",
+        "parent_count": 34,
+        "passage_count": 34,
+        "split_parents_count": 0,
+        "max_split_count": 1,
+        "max_full_input_tokens": 213,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 0,
+        "max_token_to_byte_ratio": 0.0,
+        "utf8_exceptions_count": 0,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 34,
+        "unnumbered_passages_count": 0,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000020",
+          "unit_id": "095694:62b486c5bfc002b8:6265-7122:20c8805023c2",
+          "target_passage_id": "095694:e9ecca739a5e51f649d050d8",
+          "split_count": 1,
+          "selection_reason": "slot1_largest_token_parent"
+        },
+        {
+          "handle": "p000022",
+          "unit_id": "095694:62b486c5bfc002b8:7523-8415:20c8805023c2",
+          "target_passage_id": "095694:0ca5cf98ab650655884a38e4",
+          "split_count": 1,
+          "selection_reason": "slot2_secondary_high_token_parent"
+        },
+        {
+          "handle": "p000034",
+          "unit_id": "095694:62b486c5bfc002b8:13852-14222:20c8805023c2",
+          "target_passage_id": "095694:f68156228dd2c75d840383d9",
+          "split_count": 1,
+          "selection_reason": "slot3_end_boundary_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "011919.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_1_long_split_parents_and_448_cap",
+      "metadata_summary": {
+        "case_id": "011919.txt",
+        "parent_count": 67,
+        "passage_count": 91,
+        "split_parents_count": 4,
+        "max_split_count": 14,
+        "max_full_input_tokens": 448,
+        "passages_at_448_count": 1,
+        "intact_gt_320_le_448_count": 4,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 118,
+        "max_token_to_byte_ratio": 0.65102,
+        "utf8_exceptions_count": 177,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 89,
+        "unnumbered_passages_count": 2,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 1
+      },
+      "selected_regions": [
+        {
+          "handle": "p000025",
+          "unit_id": "011919:cd2a349bb8a59526:25122-27010:20c8805023c2",
+          "target_passage_id": "011919:7c26ef189fc005e3172d3de2",
+          "split_count": 1,
+          "selection_reason": "slot1_split_parent_hitting_448_cap"
+        },
+        {
+          "handle": "p000041",
+          "unit_id": "011919:cd2a349bb8a59526:36432-36827:20c8805023c2",
+          "target_passage_id": "011919:71ed0645cf925b0228d49f90",
+          "split_count": 1,
+          "selection_reason": "slot2_jumping_or_repeated_marker_parent"
+        },
+        {
+          "handle": "u000011",
+          "unit_id": "011919:cd2a349bb8a59526:13570-13613:20c8805023c2",
+          "target_passage_id": "011919:5f830b6b4442125930106367",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "044492.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_1_long_split_parents_and_448_cap",
+      "metadata_summary": {
+        "case_id": "044492.txt",
+        "parent_count": 71,
+        "passage_count": 131,
+        "split_parents_count": 5,
+        "max_split_count": 29,
+        "max_full_input_tokens": 448,
+        "passages_at_448_count": 1,
+        "intact_gt_320_le_448_count": 4,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 126,
+        "max_token_to_byte_ratio": 0.308036,
+        "utf8_exceptions_count": 1369,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 121,
+        "unnumbered_passages_count": 10,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 30,
+        "non_monotonic_jumps_count": 1
+      },
+      "selected_regions": [
+        {
+          "handle": "p000031",
+          "unit_id": "044492:366ffd12b9c2a2ab:13786-15374:20c8805023c2",
+          "target_passage_id": "044492:f12977a84cc80915942d1ba7",
+          "split_count": 1,
+          "selection_reason": "slot1_split_parent_hitting_448_cap"
+        },
+        {
+          "handle": "p000041",
+          "unit_id": "044492:366ffd12b9c2a2ab:44883-44973:20c8805023c2",
+          "target_passage_id": "044492:5beb21d4dea524eb66967ce0",
+          "split_count": 1,
+          "selection_reason": "slot2_jumping_or_repeated_marker_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "044492:366ffd12b9c2a2ab:1-101:20c8805023c2",
+          "target_passage_id": "044492:f5825bb140c3dae708b7bd59",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "049243.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_1_long_split_parents_and_448_cap",
+      "metadata_summary": {
+        "case_id": "049243.txt",
+        "parent_count": 296,
+        "passage_count": 350,
+        "split_parents_count": 8,
+        "max_split_count": 41,
+        "max_full_input_tokens": 448,
+        "passages_at_448_count": 1,
+        "intact_gt_320_le_448_count": 8,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 123,
+        "max_token_to_byte_ratio": 0.291548,
+        "utf8_exceptions_count": 24,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 336,
+        "unnumbered_passages_count": 14,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 2
+      },
+      "selected_regions": [
+        {
+          "handle": "p000141",
+          "unit_id": "049243:b29d638a01bf1532:82653-84457:20c8805023c2",
+          "target_passage_id": "049243:977fc0ac7bf2da93c1bf8d96",
+          "split_count": 1,
+          "selection_reason": "slot1_split_parent_hitting_448_cap"
+        },
+        {
+          "handle": "p000081",
+          "unit_id": "049243:b29d638a01bf1532:42483-43020:20c8805023c2",
+          "target_passage_id": "049243:3ded7de291097b6da6a8f4f4",
+          "split_count": 1,
+          "selection_reason": "slot2_jumping_or_repeated_marker_parent"
+        },
+        {
+          "handle": "u000012",
+          "unit_id": "049243:b29d638a01bf1532:7682-7700:20c8805023c2",
+          "target_passage_id": "049243:87584eb490b47b510a53ed47",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "080634.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_1_long_split_parents_and_448_cap",
+      "metadata_summary": {
+        "case_id": "080634.txt",
+        "parent_count": 92,
+        "passage_count": 118,
+        "split_parents_count": 6,
+        "max_split_count": 17,
+        "max_full_input_tokens": 448,
+        "passages_at_448_count": 1,
+        "intact_gt_320_le_448_count": 9,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 124,
+        "max_token_to_byte_ratio": 0.56261,
+        "utf8_exceptions_count": 233,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 118,
+        "unnumbered_passages_count": 0,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000086",
+          "unit_id": "080634:98f35e87b2c2b149:71963-74061:20c8805023c2",
+          "target_passage_id": "080634:bfca6ac295fb444032f61c2f",
+          "split_count": 1,
+          "selection_reason": "slot1_split_parent_hitting_448_cap"
+        },
+        {
+          "handle": "p000010",
+          "unit_id": "080634:98f35e87b2c2b149:5018-6596:20c8805023c2",
+          "target_passage_id": "080634:19e2e74d886a39c565d4f11d",
+          "split_count": 1,
+          "selection_reason": "slot2_intact_parent_gt_320_le_448"
+        },
+        {
+          "handle": "p000092",
+          "unit_id": "080634:98f35e87b2c2b149:75744-87646:20c8805023c2",
+          "target_passage_id": "080634:c84a1dd73ff9d2230d805123",
+          "split_count": 17,
+          "selection_reason": "slot3_end_boundary_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "033536.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_2_unicode_multibyte_and_french",
+      "metadata_summary": {
+        "case_id": "033536.txt",
+        "parent_count": 483,
+        "passage_count": 530,
+        "split_parents_count": 23,
+        "max_split_count": 5,
+        "max_full_input_tokens": 444,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 31,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 124,
+        "max_token_to_byte_ratio": 0.316832,
+        "utf8_exceptions_count": 6040,
+        "french_passages_count": 183,
+        "quoted_passages_count": 9,
+        "unknown_passages_count": 515,
+        "unnumbered_passages_count": 6,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 262,
+        "non_monotonic_jumps_count": 96
+      },
+      "selected_regions": [
+        {
+          "handle": "p000173",
+          "unit_id": "033536:3d825848d92fa3db:113833-117037:20c8805023c2",
+          "target_passage_id": "033536:88cba55843e5fe2f7753c2c2",
+          "split_count": 5,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000072",
+          "unit_id": "033536:3d825848d92fa3db:54953-55479:20c8805023c2",
+          "target_passage_id": "033536:fb64f65c2a18685ba1629e5e",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "033536:3d825848d92fa3db:1-277:20c8805023c2",
+          "target_passage_id": "033536:ea40fb52a269a94068759942",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "039093.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_2_unicode_multibyte_and_french",
+      "metadata_summary": {
+        "case_id": "039093.txt",
+        "parent_count": 673,
+        "passage_count": 675,
+        "split_parents_count": 2,
+        "max_split_count": 2,
+        "max_full_input_tokens": 441,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 20,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 127,
+        "max_token_to_byte_ratio": 0.284574,
+        "utf8_exceptions_count": 6136,
+        "french_passages_count": 319,
+        "quoted_passages_count": 2,
+        "unknown_passages_count": 634,
+        "unnumbered_passages_count": 39,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 319,
+        "non_monotonic_jumps_count": 5
+      },
+      "selected_regions": [
+        {
+          "handle": "p000436",
+          "unit_id": "039093:aebda0fdd233e214:196636-198692:20c8805023c2",
+          "target_passage_id": "039093:4d6d2d1cf1128807410cf25e",
+          "split_count": 2,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000247",
+          "unit_id": "039093:aebda0fdd233e214:109834-110566:20c8805023c2",
+          "target_passage_id": "039093:af58db8254189942de33c127",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "039093:aebda0fdd233e214:1-283:20c8805023c2",
+          "target_passage_id": "039093:a1259f026e9bf44579029878",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "044061.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_2_unicode_multibyte_and_french",
+      "metadata_summary": {
+        "case_id": "044061.txt",
+        "parent_count": 405,
+        "passage_count": 509,
+        "split_parents_count": 37,
+        "max_split_count": 10,
+        "max_full_input_tokens": 447,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 21,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 120,
+        "max_token_to_byte_ratio": 0.413127,
+        "utf8_exceptions_count": 4935,
+        "french_passages_count": 274,
+        "quoted_passages_count": 3,
+        "unknown_passages_count": 500,
+        "unnumbered_passages_count": 6,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 1,
+        "repeated_markers_count": 208,
+        "non_monotonic_jumps_count": 29
+      },
+      "selected_regions": [
+        {
+          "handle": "p000397",
+          "unit_id": "044061:f405dc27042584b7:289754-296448:20c8805023c2",
+          "target_passage_id": "044061:c46e84f40f877caf7001c31d",
+          "split_count": 10,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000328",
+          "unit_id": "044061:f405dc27042584b7:221202-221207:20c8805023c2",
+          "target_passage_id": "044061:358afd673918ed6f2c1b148a",
+          "split_count": 1,
+          "selection_reason": "slot2_unit_without_preview_still_indexed"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "044061:f405dc27042584b7:1-463:20c8805023c2",
+          "target_passage_id": "044061:558a31de75cfedbce9e24ec3",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "054218.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_2_unicode_multibyte_and_french",
+      "metadata_summary": {
+        "case_id": "054218.txt",
+        "parent_count": 295,
+        "passage_count": 340,
+        "split_parents_count": 22,
+        "max_split_count": 5,
+        "max_full_input_tokens": 443,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 33,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 123,
+        "max_token_to_byte_ratio": 0.333333,
+        "utf8_exceptions_count": 4534,
+        "french_passages_count": 180,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 335,
+        "unnumbered_passages_count": 5,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 145,
+        "non_monotonic_jumps_count": 3
+      },
+      "selected_regions": [
+        {
+          "handle": "p000235",
+          "unit_id": "054218:f8901bbb45b6fd0e:187338-191193:20c8805023c2",
+          "target_passage_id": "054218:01590ecfd4df41abfd574d33",
+          "split_count": 5,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000091",
+          "unit_id": "054218:f8901bbb45b6fd0e:63541-64079:20c8805023c2",
+          "target_passage_id": "054218:24cb6cc36141f5df7d93be5a",
+          "split_count": 1,
+          "selection_reason": "slot2_jumping_or_repeated_marker_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "054218:f8901bbb45b6fd0e:1-353:20c8805023c2",
+          "target_passage_id": "054218:abe092043c0706d302a2ad72",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "016872.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_3_tight_whitespace_or_fallback_boundary",
+      "metadata_summary": {
+        "case_id": "016872.txt",
+        "parent_count": 172,
+        "passage_count": 264,
+        "split_parents_count": 5,
+        "max_split_count": 67,
+        "max_full_input_tokens": 433,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 9,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 104,
+        "max_token_to_byte_ratio": 0.391626,
+        "utf8_exceptions_count": 840,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 196,
+        "unnumbered_passages_count": 68,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "u000172",
+          "unit_id": "016872:f2d66f75bbe7ea8c:145884-196585:20c8805023c2",
+          "target_passage_id": "016872:08b974779164ef78396b5d8f",
+          "split_count": 67,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000033",
+          "unit_id": "016872:f2d66f75bbe7ea8c:21564-23042:20c8805023c2",
+          "target_passage_id": "016872:ef0715ce807747e91672945d",
+          "split_count": 1,
+          "selection_reason": "slot2_intact_parent_gt_320_le_448"
+        },
+        {
+          "handle": "u000062",
+          "unit_id": "016872:f2d66f75bbe7ea8c:45547-45609:20c8805023c2",
+          "target_passage_id": "016872:b687be46235621548c0620b8",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "046523.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_3_tight_whitespace_or_fallback_boundary",
+      "metadata_summary": {
+        "case_id": "046523.txt",
+        "parent_count": 438,
+        "passage_count": 465,
+        "split_parents_count": 7,
+        "max_split_count": 10,
+        "max_full_input_tokens": 413,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 5,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 96,
+        "max_token_to_byte_ratio": 0.346746,
+        "utf8_exceptions_count": 16,
+        "french_passages_count": 0,
+        "quoted_passages_count": 12,
+        "unknown_passages_count": 449,
+        "unnumbered_passages_count": 4,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 1,
+        "repeated_markers_count": 30,
+        "non_monotonic_jumps_count": 40
+      },
+      "selected_regions": [
+        {
+          "handle": "p000033",
+          "unit_id": "046523:1e63977b7e811621:10363-19781:20c8805023c2",
+          "target_passage_id": "046523:08199ddf876fd660a8874c9d",
+          "split_count": 10,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000201",
+          "unit_id": "046523:1e63977b7e811621:95908-95913:20c8805023c2",
+          "target_passage_id": "046523:0841bb49a57df3533a2070cd",
+          "split_count": 1,
+          "selection_reason": "slot2_unit_without_preview_still_indexed"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "046523:1e63977b7e811621:0-12:20c8805023c2",
+          "target_passage_id": "046523:9b296573994022a68c9052d9",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "067658.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_3_tight_whitespace_or_fallback_boundary",
+      "metadata_summary": {
+        "case_id": "067658.txt",
+        "parent_count": 155,
+        "passage_count": 158,
+        "split_parents_count": 1,
+        "max_split_count": 4,
+        "max_full_input_tokens": 421,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 7,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 104,
+        "max_token_to_byte_ratio": 0.382102,
+        "utf8_exceptions_count": 12,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 155,
+        "unnumbered_passages_count": 3,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000155",
+          "unit_id": "067658:b26c6f1d2e6aa990:101025-103206:20c8805023c2",
+          "target_passage_id": "067658:2a1db17604400381cfe2bd3f",
+          "split_count": 4,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000067",
+          "unit_id": "067658:b26c6f1d2e6aa990:33438-35124:20c8805023c2",
+          "target_passage_id": "067658:d48f8b5b8cb488c02eca0fb6",
+          "split_count": 1,
+          "selection_reason": "slot2_intact_parent_gt_320_le_448"
+        },
+        {
+          "handle": "u000011",
+          "unit_id": "067658:b26c6f1d2e6aa990:5056-5075:20c8805023c2",
+          "target_passage_id": "067658:6c727264f255c0654942b1ff",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "074591.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_3_tight_whitespace_or_fallback_boundary",
+      "metadata_summary": {
+        "case_id": "074591.txt",
+        "parent_count": 383,
+        "passage_count": 392,
+        "split_parents_count": 3,
+        "max_split_count": 5,
+        "max_full_input_tokens": 385,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 2,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 90,
+        "max_token_to_byte_ratio": 0.355161,
+        "utf8_exceptions_count": 30,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 386,
+        "unnumbered_passages_count": 6,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 1
+      },
+      "selected_regions": [
+        {
+          "handle": "p000096",
+          "unit_id": "074591:e8c7fc89d11372a5:36343-39927:20c8805023c2",
+          "target_passage_id": "074591:6462cd58748a02ce1bcc3e5b",
+          "split_count": 5,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000075",
+          "unit_id": "074591:e8c7fc89d11372a5:29429-29744:20c8805023c2",
+          "target_passage_id": "074591:c7a549498ece491b7b33dd68",
+          "split_count": 1,
+          "selection_reason": "slot2_jumping_or_repeated_marker_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "074591:e8c7fc89d11372a5:0-1693:20c8805023c2",
+          "target_passage_id": "074591:a5f7d166d2e7cde0e6dd6c5b",
+          "split_count": 3,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "020740.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_4_jumping_or_repeated_markers_and_quoted",
+      "metadata_summary": {
+        "case_id": "020740.txt",
+        "parent_count": 228,
+        "passage_count": 234,
+        "split_parents_count": 3,
+        "max_split_count": 4,
+        "max_full_input_tokens": 342,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 1,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 125,
+        "max_token_to_byte_ratio": 0.284006,
+        "utf8_exceptions_count": 1168,
+        "french_passages_count": 0,
+        "quoted_passages_count": 2,
+        "unknown_passages_count": 225,
+        "unnumbered_passages_count": 7,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 124,
+        "non_monotonic_jumps_count": 47
+      },
+      "selected_regions": [
+        {
+          "handle": "p000074",
+          "unit_id": "020740:f5ded1c099bfb2d3:22160-25070:20c8805023c2",
+          "target_passage_id": "020740:4f4468fd59f4b121168c007d",
+          "split_count": 4,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000120",
+          "unit_id": "020740:f5ded1c099bfb2d3:41388-43192:20c8805023c2",
+          "target_passage_id": "020740:6109790d4d5a9e64f6948824",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "020740:f5ded1c099bfb2d3:1-280:20c8805023c2",
+          "target_passage_id": "020740:2727000134a434637933d17c",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "063659.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_4_jumping_or_repeated_markers_and_quoted",
+      "metadata_summary": {
+        "case_id": "063659.txt",
+        "parent_count": 207,
+        "passage_count": 211,
+        "split_parents_count": 2,
+        "max_split_count": 4,
+        "max_full_input_tokens": 421,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 7,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 127,
+        "max_token_to_byte_ratio": 0.259096,
+        "utf8_exceptions_count": 1461,
+        "french_passages_count": 47,
+        "quoted_passages_count": 1,
+        "unknown_passages_count": 196,
+        "unnumbered_passages_count": 14,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 107,
+        "non_monotonic_jumps_count": 43
+      },
+      "selected_regions": [
+        {
+          "handle": "p000054",
+          "unit_id": "063659:ba2b01c8a910f00e:18844-22123:20c8805023c2",
+          "target_passage_id": "063659:5a6c3d521c2a126b59b163d1",
+          "split_count": 4,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000172",
+          "unit_id": "063659:ba2b01c8a910f00e:78011-78337:20c8805023c2",
+          "target_passage_id": "063659:a6db18aab7fd202fdaffeaeb",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "063659:ba2b01c8a910f00e:1-102:20c8805023c2",
+          "target_passage_id": "063659:85d188c77e7caec95aa90643",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "070740.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_4_jumping_or_repeated_markers_and_quoted",
+      "metadata_summary": {
+        "case_id": "070740.txt",
+        "parent_count": 186,
+        "passage_count": 198,
+        "split_parents_count": 5,
+        "max_split_count": 5,
+        "max_full_input_tokens": 438,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 3,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 125,
+        "max_token_to_byte_ratio": 0.346062,
+        "utf8_exceptions_count": 1646,
+        "french_passages_count": 0,
+        "quoted_passages_count": 1,
+        "unknown_passages_count": 193,
+        "unnumbered_passages_count": 4,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 102,
+        "non_monotonic_jumps_count": 40
+      },
+      "selected_regions": [
+        {
+          "handle": "p000017",
+          "unit_id": "070740:8665754e87c69d0e:5031-8124:20c8805023c2",
+          "target_passage_id": "070740:aa8ff9310ae0cdac6fa8b547",
+          "split_count": 5,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000120",
+          "unit_id": "070740:8665754e87c69d0e:48822-49754:20c8805023c2",
+          "target_passage_id": "070740:2db25120b45eb2b55d24963a",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "070740:8665754e87c69d0e:1-277:20c8805023c2",
+          "target_passage_id": "070740:f32fe661fe4c9a861906991e",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "084744.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_4_jumping_or_repeated_markers_and_quoted",
+      "metadata_summary": {
+        "case_id": "084744.txt",
+        "parent_count": 207,
+        "passage_count": 208,
+        "split_parents_count": 1,
+        "max_split_count": 2,
+        "max_full_input_tokens": 438,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 2,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 128,
+        "max_token_to_byte_ratio": 0.310958,
+        "utf8_exceptions_count": 1661,
+        "french_passages_count": 0,
+        "quoted_passages_count": 11,
+        "unknown_passages_count": 193,
+        "unnumbered_passages_count": 4,
+        "unnumbered_split_parents_count": 0,
+        "no_preview_units_count": 0,
+        "repeated_markers_count": 129,
+        "non_monotonic_jumps_count": 69
+      },
+      "selected_regions": [
+        {
+          "handle": "p000056",
+          "unit_id": "084744:88724d1b75afb7cb:23748-25450:20c8805023c2",
+          "target_passage_id": "084744:0f693744c9e8f5653c0dce01",
+          "split_count": 2,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "p000078",
+          "unit_id": "084744:88724d1b75afb7cb:33751-34046:20c8805023c2",
+          "target_passage_id": "084744:7dcbc59aed12bf15c946568f",
+          "split_count": 1,
+          "selection_reason": "slot2_quoted_role_parent"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "084744:88724d1b75afb7cb:1-411:20c8805023c2",
+          "target_passage_id": "084744:87a8c7cc0d6ee6d218e810cb",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "027864.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_5_unknown_unnumbered_and_no_preview",
+      "metadata_summary": {
+        "case_id": "027864.txt",
+        "parent_count": 36,
+        "passage_count": 37,
+        "split_parents_count": 1,
+        "max_split_count": 2,
+        "max_full_input_tokens": 321,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 128,
+        "max_token_to_byte_ratio": 0.196884,
+        "utf8_exceptions_count": 101,
+        "french_passages_count": 0,
+        "quoted_passages_count": 1,
+        "unknown_passages_count": 27,
+        "unnumbered_passages_count": 9,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 3,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "u000002",
+          "unit_id": "027864:aaea27417f992ac0:745-3184:20c8805023c2",
+          "target_passage_id": "027864:cbdfc09b876928367d024287",
+          "split_count": 2,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "u000007",
+          "unit_id": "027864:aaea27417f992ac0:4380-4381:20c8805023c2",
+          "target_passage_id": "027864:1526f0d705f883ce02a072cb",
+          "split_count": 1,
+          "selection_reason": "slot2_unit_without_preview_still_indexed"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "027864:aaea27417f992ac0:25-717:20c8805023c2",
+          "target_passage_id": "027864:d872edf1b8e7f1cc208c851a",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "050528.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_5_unknown_unnumbered_and_no_preview",
+      "metadata_summary": {
+        "case_id": "050528.txt",
+        "parent_count": 70,
+        "passage_count": 76,
+        "split_parents_count": 2,
+        "max_split_count": 5,
+        "max_full_input_tokens": 325,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 1,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 126,
+        "max_token_to_byte_ratio": 0.255747,
+        "utf8_exceptions_count": 380,
+        "french_passages_count": 0,
+        "quoted_passages_count": 1,
+        "unknown_passages_count": 66,
+        "unnumbered_passages_count": 9,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 3,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "p000037",
+          "unit_id": "050528:70ea194357aa1294:20920-25095:20c8805023c2",
+          "target_passage_id": "050528:f0dfe8c8fa533085d3ff1c17",
+          "split_count": 5,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "u000007",
+          "unit_id": "050528:70ea194357aa1294:5808-5809:20c8805023c2",
+          "target_passage_id": "050528:331143fa4c399691d9db046e",
+          "split_count": 1,
+          "selection_reason": "slot2_unit_without_preview_still_indexed"
+        },
+        {
+          "handle": "u000002",
+          "unit_id": "050528:70ea194357aa1294:620-4225:20c8805023c2",
+          "target_passage_id": "050528:d064c9c724df4d92d51b0e01",
+          "split_count": 3,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "065680.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_5_unknown_unnumbered_and_no_preview",
+      "metadata_summary": {
+        "case_id": "065680.txt",
+        "parent_count": 55,
+        "passage_count": 60,
+        "split_parents_count": 1,
+        "max_split_count": 6,
+        "max_full_input_tokens": 376,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 1,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 125,
+        "max_token_to_byte_ratio": 0.300144,
+        "utf8_exceptions_count": 101,
+        "french_passages_count": 0,
+        "quoted_passages_count": 1,
+        "unknown_passages_count": 46,
+        "unnumbered_passages_count": 13,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 4,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "u000002",
+          "unit_id": "065680:5b1476a3ef696f0e:696-5887:20c8805023c2",
+          "target_passage_id": "065680:81e179158c919f7e3155a764",
+          "split_count": 6,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "u000010",
+          "unit_id": "065680:5b1476a3ef696f0e:7700-7701:20c8805023c2",
+          "target_passage_id": "065680:2f22dcdd96b4c5fa0e8b427e",
+          "split_count": 1,
+          "selection_reason": "slot2_unit_without_preview_still_indexed"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "065680:5b1476a3ef696f0e:25-668:20c8805023c2",
+          "target_passage_id": "065680:6015d3201127a99cc2c9c829",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    },
+    {
+      "case_id": "076001.txt",
+      "sample_group": "risk_stratified_20",
+      "stratum": "risk_5_unknown_unnumbered_and_no_preview",
+      "metadata_summary": {
+        "case_id": "076001.txt",
+        "parent_count": 38,
+        "passage_count": 39,
+        "split_parents_count": 1,
+        "max_split_count": 2,
+        "max_full_input_tokens": 321,
+        "passages_at_448_count": 0,
+        "intact_gt_320_le_448_count": 0,
+        "word_boundary_splits": 0,
+        "min_positive_overlap": 128,
+        "max_token_to_byte_ratio": 0.201887,
+        "utf8_exceptions_count": 101,
+        "french_passages_count": 0,
+        "quoted_passages_count": 0,
+        "unknown_passages_count": 30,
+        "unnumbered_passages_count": 9,
+        "unnumbered_split_parents_count": 1,
+        "no_preview_units_count": 4,
+        "repeated_markers_count": 0,
+        "non_monotonic_jumps_count": 0
+      },
+      "selected_regions": [
+        {
+          "handle": "u000002",
+          "unit_id": "076001:55e08cd5b9da5605:657-3117:20c8805023c2",
+          "target_passage_id": "076001:a3e88ff2f372d89b84c73ac7",
+          "split_count": 2,
+          "selection_reason": "slot1_longest_split_parent_middle_child"
+        },
+        {
+          "handle": "u000008",
+          "unit_id": "076001:55e08cd5b9da5605:4345-4346:20c8805023c2",
+          "target_passage_id": "076001:d4170285fc25e50d03046fae",
+          "split_count": 1,
+          "selection_reason": "slot2_unit_without_preview_still_indexed"
+        },
+        {
+          "handle": "u000001",
+          "unit_id": "076001:55e08cd5b9da5605:25-629:20c8805023c2",
+          "target_passage_id": "076001:3ba6d3c779e834f027b54200",
+          "split_count": 1,
+          "selection_reason": "slot3_unnumbered_unit_neighbor_expansion"
+        }
+      ]
+    }
+  ]
+}
