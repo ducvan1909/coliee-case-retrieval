@@ -1,6 +1,8 @@
 # Project data
 data/
 /pipeline_v2/artifacts/
+/cache/
+/restore_input/
 # Python bytecode and caches
 __pycache__/
 *.py[cod]

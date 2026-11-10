@@ -99,7 +99,7 @@ Git không chứa toàn bộ runtime lớn và secrets. Chuyển riêng các th�
 4. Kiểm đủ evidence/review được code dẫn chiếu, đặc biệt full verify receipt.
 5. Dữ liệu Qdrant Docker chuyển riêng bằng snapshot/backup nhất quán. Named volumes là `coliee_pipeline_v2_qdrant_storage_v1` và `coliee_pipeline_v2_qdrant_snapshots_v1`. Dừng writer trước backup, kiểm restore trên máy mới.
 
-Compose mới tạo server/volume trống. Full snapshot/restore tự động chưa triển khai. Nếu chưa chuyển DB, vẫn tiếp tục code và fixture tests. Trước hybrid thật phải khôi phục collection rồi verify so cache. Nếu cần tái tạo DB từ cache, triển khai/kiểm runner bounded-memory chỉ đọc committed cache và upsert idempotent trước. Không chạy `m3_full run` để thử khi chưa kiểm đầy đủ cache, vì đường đó có thể gọi model cho batch thiếu cache. Helper restore pilot có giới hạn RAM khi áp cho full corpus, xem M3_FULL.md.
+Compose mới tạo server/volume trống. Có thể nạp lại collection bằng quy trình cache-only bên dưới. Đây là script vận hành dùng các adapter hiện có, chưa có CLI restore riêng. Trước hybrid thật phải khôi phục collection rồi verify so cache. Không chạy `m3_full run` để thử khi chưa kiểm đầy đủ cache, vì đường đó có thể gọi model cho batch thiếu cache. Helper restore pilot có giới hạn RAM khi áp cho full corpus, xem M3_FULL.md.
 
 Nếu cần auth Modal, copy `pipeline_v2/.env.example` thành `pipeline_v2/.env` rồi nhập credential local, hoặc dùng SDK profile đã đăng nhập. Không commit `.env` hay in token. Tên app hiện hành lấy từ `configs/m3_full.json` và `m3_opt_v2.json`; tài liệu pilot lịch sử có app khác.
 
@@ -134,6 +134,171 @@ Full DB verification kiểm đủ 415.693 vectors/payload/IDs, mất khoảng 25
 & .venv/Scripts/python.exe -m pipeline_v2.m3_full verify --run-dir pipeline_v2/artifacts/m3_full_train_20261108_v1
 ```
 
+## Khôi phục chi tiết từ artifacts local và cache đặt ở root
+
+Quy ước trên máy mới là đặt vector cache tại `cache/vectors/` ở root repo. Nếu người dùng đặt tên khác, Codex hỏi tên hoặc kiểm inventory rồi sửa đường dẫn nguồn trong lệnh copy. Runtime vẫn đọc tại `pipeline_v2/artifacts/m3_full_train_20261108_v1/vectors/`. Chuyển cache về vị trí runtime bằng copy bảo toàn bytes, giữ bản nguồn ở root cho đến khi nghiệm thu xong. `cache/` và `restore_input/` đã được Git ignore.
+
+### Chuẩn bị gói từ máy cũ
+
+Dừng các writer trước khi copy, gồm full ingestion, benchmark có ghi ledger và mọi tiến trình đang sửa artifact. Nếu có SQLite WAL, để ứng dụng đóng kết nối bình thường trước khi copy toàn thư mục. Giữ cả file phụ còn tồn tại, tránh lấy riêng DB đang được ghi.
+
+```text
+<repo-moi>/
+  cache/
+    vectors/                       # 6.496 .npz + 6.496 .json, nguyên tên file
+  restore_input/
+    artifacts/                     # copy cây pipeline_v2/artifacts từ máy cũ
+      m0_20261105_v2/
+      m1_20261105_v2/
+      m2_navigation_20261106_v3/
+      m2_passages_20261106_v1/
+      m3_pilot_20261106_l4_v1/
+      m3_opt_v2_index_20261108_v1/
+      m3_opt_v2_compat_20261108_v1/
+      m3_full_train_20261108_v1/     # giữ manifest, seal, lexical, ledger, execution state...
+      m3_sparse_20261110_v1/
+      ...                          # giữ các checkpoint khác nếu chuyển toàn bộ
+  data/                            # dữ liệu chuẩn copy riêng
+```
+
+Nếu đã tách `vectors/` sang `cache/vectors/`, có thể bỏ bản vector trùng trong gói `restore_input/artifacts/` để giảm dung lượng vận chuyển. Giữ mọi file khác của full run, đặc biệt `manifest.json`, `seal.json`, `lexical.sqlite3`, `execution_state.json`, `ledger.sqlite3` và lịch sử invocations/receipts. Giữ chain pilot compatibility trong bảng phía trên. Clone Git đã chứa vendor tokenizer, review receipt và 11 exposure manifests.
+
+Kiểm trên máy cũ ngày 10/11/2026 xác nhận cache còn 6.496 `.npz` tổng 4.422.922.572 bytes và 6.496 `.json` tổng 43.219.233 bytes. Tổng 4.466.141.805 bytes, khoảng 4,16 GiB. Ledger có 6.496 committed batches, 6.496 success attempts và 1 started attempt lịch sử. Số lượng là kiểm inventory, bước kiểm SHA-256 theo schedule ở dưới mới xác nhận nội dung.
+
+Chỉ vector cache không đủ tái tạo nguyên checkpoint hiện tại. Các manifest, metadata/schedule, upstream source bundles và compatibility receipts cần được chuyển cùng. Nếu thiếu, Codex liệt kê phần thiếu và dựng revision mới có nghiệm thu khi được giao. Không tự tạo receipt thành công, sửa seal hoặc chỉnh hash để nối snapshot mới vào lịch sử cũ.
+
+### Copy về vị trí runtime
+
+Chạy PowerShell từ root repo sau khi clone và cài môi trường. Ví dụ này yêu cầu đích artifacts mới, tránh trộn với một run đã có.
+
+```powershell
+$artifactSource = Join-Path (Get-Location) 'restore_input/artifacts'
+$artifactTarget = Join-Path (Get-Location) 'pipeline_v2/artifacts'
+if (!(Test-Path -LiteralPath $artifactSource -PathType Container)) { throw 'Thieu goi artifacts nguon' }
+if (Test-Path -LiteralPath $artifactTarget) { throw 'Dich da ton tai. Kiem inventory/hash truoc khi merge, khong ghi de tu dong.' }
+robocopy $artifactSource $artifactTarget /E /COPY:DAT /DCOPY:DAT /R:1 /W:1
+if ($LASTEXITCODE -ge 8) { throw 'Copy artifacts that bai' }
+
+$vectorSource = Join-Path (Get-Location) 'cache/vectors'
+$vectorTarget = Join-Path $artifactTarget 'm3_full_train_20261108_v1/vectors'
+if (!(Test-Path -LiteralPath $vectorSource -PathType Container)) { throw 'Thieu cache/vectors' }
+if (!(Test-Path -LiteralPath $vectorTarget)) {
+    robocopy $vectorSource $vectorTarget /E /COPY:DAT /DCOPY:DAT /R:1 /W:1
+    if ($LASTEXITCODE -ge 8) { throw 'Copy vectors that bai' }
+} else {
+    Write-Output 'Dich vectors da co tu goi artifacts. Kiem cache theo schedule o buoc tiep theo.'
+}
+```
+
+Nếu artifacts đã có local trên máy mới, bỏ bước copy artifacts. Chỉ thêm `vectors/` khi đích chưa có. Khi đích chứa cache dở, giữ evidence và đối chiếu hash từng file trước khi bổ sung từ nguồn. Không dùng `/MIR`, không xóa run hoặc ledger để xử lý lỗi copy.
+
+### Kiểm đầy đủ cache trước khi ghi Qdrant
+
+Đoạn sau chỉ đọc snapshot và cache. Nó kiểm toàn bộ schedule, SHA-256 của từng `.npz`, metadata, IDs, input hashes, fingerprint, shape và vector norms qua adapter đã có. Thiếu/hỏng bất kỳ batch nào sẽ dừng bằng lỗi. Chạy từ root repo, chờ hoàn tất, giữ stdout và exit code nếu cần báo cáo chuyển máy.
+
+```powershell
+@'
+from pathlib import Path
+from pipeline_v2.full_corpus.runner import load_plan, batches
+from pipeline_v2.full_corpus.storage import ReadonlyCache
+
+root, run, manifest, lexical = load_plan(
+    Path.cwd(), 'pipeline_v2/artifacts/m3_full_train_20261108_v1')
+try:
+    cache = ReadonlyCache(run, manifest['embedding_fingerprint'],
+                          manifest['profile']['embedding']['dimensions'])
+    batch_count = point_count = 0
+    for number, docs in batches(lexical):
+        values = cache.get_batch([p['passage_id'] for p in docs],
+                                 [p['exact_input_sha256'] for p in docs])
+        if values is None:
+            raise RuntimeError(f'Missing cache batch {number}')
+        batch_count += 1
+        point_count += len(docs)
+    if (batch_count, point_count) != (6496, 415693):
+        raise RuntimeError('Unexpected full cache coverage')
+    print({'status': 'PASS', 'batches': batch_count,
+           'points': point_count, 'model_requests': 0})
+finally:
+    lexical.close()
+'@ | & .venv/Scripts/python.exe -
+if ($LASTEXITCODE -ne 0) { throw 'Cache audit that bai. Dung khoi phuc DB.' }
+```
+
+`load_plan` cũng kiểm source hashes, full seal và compatibility chain. Vì vậy lỗi thiếu M0/M1/M2/pilot assets phải được giải quyết trước khi dùng full cache. Giữ nguyên đường dẫn tương đối khi đổi ổ hoặc tên thư mục checkout.
+
+### Khởi động Qdrant và nạp lại từ cache
+
+Mở Docker Desktop Linux Engine. Cấu hình Compose đã có image Qdrant 1.20.0, cổng loopback 6333/6334 và hai named volumes. Chạy `docker compose ... up -d` như mục trên, sau đó kiểm API. Nếu dùng DB backup đã restore và full verify PASS thì bỏ bước nạp lại này.
+
+Script bên dưới chỉ dùng `ReadonlyCache`, `FullQdrant` và các hàm kiểm snapshot. Nó kiểm hết cache trước khi tạo/sửa collection, rồi upsert theo batch 64. Nó không khởi tạo embedder hoặc gọi hàm inference. `run_lock` tránh writer cùng run của repo. Dừng mọi writer DB khác trong thời gian restore. Script tạo lock DB nếu chưa có, dữ liệu vector và lịch sử usage được đọc nguyên trạng. Log tiến độ ở console, nếu bị ngắt có thể chạy lại để bỏ qua các batch đã khớp DB.
+
+```powershell
+@'
+from pathlib import Path
+from pipeline_v2.full_corpus.runner import (
+    load_plan, batches, make_store, guard, verify_batches)
+from pipeline_v2.full_corpus.storage import ReadonlyCache
+from pipeline_v2.retrieval.cache import run_lock
+
+root, run, manifest, lexical = load_plan(
+    Path.cwd(), 'pipeline_v2/artifacts/m3_full_train_20261108_v1')
+try:
+    cache = ReadonlyCache(run, manifest['embedding_fingerprint'],
+                          manifest['profile']['embedding']['dimensions'])
+    with run_lock(run):
+        count = 0
+        for number, docs in batches(lexical):
+            values = cache.get_batch([p['passage_id'] for p in docs],
+                                     [p['exact_input_sha256'] for p in docs])
+            if values is None:
+                raise RuntimeError(f'Missing cache batch {number}')
+            count += len(docs)
+        if count != manifest['passages']:
+            raise RuntimeError('Cache coverage differs')
+        guard(root, manifest)
+        store = make_store(manifest)
+        if store.server_info()['version'] != manifest['profile']['qdrant']['version']:
+            raise RuntimeError('Qdrant version differs')
+        store.ensure()
+        store.validate_existing(lexical)
+        if store.count() > manifest['passages']:
+            raise RuntimeError('Unexpected collection count')
+        upserted = skipped = 0
+        for number, docs in batches(lexical):
+            guard(root, manifest)
+            values = cache.get_batch([p['passage_id'] for p in docs],
+                                     [p['exact_input_sha256'] for p in docs])
+            if values is None:
+                raise RuntimeError(f'Cache disappeared at batch {number}')
+            if store.matches(docs, values):
+                skipped += 1
+            else:
+                store.upsert(docs, values)
+                upserted += 1
+            if number % 100 == 0:
+                print({'batch': number, 'upserted': upserted,
+                       'skipped': skipped, 'model_requests': 0}, flush=True)
+        guard(root, manifest)
+        result = verify_batches(lexical, cache, store, manifest)
+        print({**result, 'upserted_batches': upserted,
+               'skipped_batches': skipped, 'model_requests': 0}, flush=True)
+finally:
+    lexical.close()
+'@ | & .venv/Scripts/python.exe -
+if ($LASTEXITCODE -ne 0) { throw 'Restore Qdrant that bai. Giu log va resume sau khi sua nguyen nhan.' }
+```
+
+Nếu DB có ID/payload/vector khác snapshot, adapter sẽ báo lỗi. Giữ nguyên collection để kiểm tra, không xóa tự động. Cache thiếu/hỏng phải lấy lại file từ máy cũ hoặc bản backup. Một lần restore có thể mất nhiều phút đến hàng chục phút, riêng full verify trước đây khoảng 25 phút. Tránh để Windows sleep khi chạy.
+
+Đây là đoạn hướng dẫn mới, đã kiểm cú pháp Python nhưng chưa chạy restore thật trong đợt cập nhật tài liệu. Codex trên máy mới cần thử một collection tạm bằng fixture/cache nhỏ trước khi chạy toàn bộ nếu chuyển thành tool production. Sau restore, chạy CLI `m3_full verify` và diagnostic hybrid ở mục kiểm tra sau chuyển máy, lưu evidence mới. Chỉ chốt phục hồi khi full verify PASS đủ 415.693 points và diagnostic có provenance đúng.
+
+### Khi thiếu artifact ngoài vector cache
+
+M0, M1, navigation, passages và lexical/sparse indices có code dựng local. Tuy nhiên rebuild có thể thay manifest, elapsed time, collection identity và seals, làm chain hiện tại từ chối mở. Dựng vào output mới, kiểm lại theo milestone và tạo revision/config/receipt mới khi cần. Chỉ riêng cache gốc không phục hồi được lịch sử ledger hoặc chứng nhận compatibility bị mất. Nếu mất cache vector thì việc tạo lại vector cần Modal và một run trả phí được người dùng/AG thực hiện.
+
+Ưu tiên lấy đủ artifact đã có trên máy cũ, chuyển cache vào root như quy ước, copy về vị trí runtime và kiểm hash. Giữ gói nguồn cho đến khi full cache audit, DB verify và diagnostic hoàn tất.
+
 ## Việc Codex tiếp tục làm
 
 Đọc `docs/plan/M3_FULL_SEARCH.md`, `reviews/m3_full_search_plan_ag_review_v1/` và review sparse. Draft full-search còn mô tả lựa chọn đã điều chỉnh trong code, như dense một request exact top 4.096. Chốt decision delta trước triển khai phần còn lại, giữ policy các kênh đã nghiệm thu.
@@ -150,4 +315,4 @@ Sau M3 mới triển khai M4 rồi M5–M7 theo plan. Chưa tự chốt controll
 
 ## Prompt mở đầu cho Codex mới
 
-> Đọc CODEX_HANDOFF.md và AGENTS.md. Kiểm checkout, commit, runtime assets và fingerprints thực tế. Báo phần đã phục hồi, phần thiếu và tiến độ M0–M7. Sau đó chốt decision delta của M3 full-search rồi triển khai search_case/case_map/case_anchors, phrase/identity và open_source theo thứ tự phụ thuộc. Giữ modules/config/artifacts đã bind hash, thêm revision/module mới khi cần. Dùng implementer và tester theo AGENTS.md. Chuẩn bị lệnh Modal để tôi hoặc AG chạy. Thiếu data/DB chỉ chặn kiểm tích hợp tương ứng, vẫn tiếp tục code và fixture tests làm độc lập được.
+> Đọc CODEX_HANDOFF.md và AGENTS.md. Kiểm checkout, commit, runtime assets và fingerprints thực tế. Tôi đặt vector cache ở cache/vectors/ tại root repo. Dùng mục khôi phục chi tiết để copy artifacts/cache về đúng vị trí, kiểm đủ cache và phục hồi Qdrant local bằng cache-only khi DB chưa có. Kiểm script bằng collection tạm trước khi dùng full, ghi báo cáo restore riêng và giữ nguyên ledger lịch sử. Báo phần đã phục hồi, phần thiếu và tiến độ M0–M7. Sau đó chốt decision delta của M3 full-search rồi triển khai search_case/case_map/case_anchors, phrase/identity và open_source theo thứ tự phụ thuộc. Giữ modules/config/artifacts đã bind hash, thêm revision/module mới khi cần. Dùng implementer và tester theo AGENTS.md. Chuẩn bị lệnh Modal để tôi hoặc AG chạy. Thiếu data/DB chỉ chặn kiểm tích hợp tương ứng, vẫn tiếp tục code và fixture tests làm độc lập được.
