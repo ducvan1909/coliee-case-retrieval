@@ -210,7 +210,8 @@ class CachedDiagnosticTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             request_id = "a" * 32
             session = object.__new__(hybrid.HybridSession)
-            session.root = Path(temp)
+            # tempfile may return a Windows 8.3 path; production sessions resolve roots.
+            session.root = Path(temp).resolve()
             session.profile = {"embedding": {"query_instruction": "retrieve", "max_tokens": 448}}
             session.fingerprint = FINGERPRINT
             session.dimensions = 2

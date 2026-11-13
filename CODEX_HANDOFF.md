@@ -2,6 +2,21 @@
 
 Cập nhật ngày 10/11/2026. Đọc file này trước, rồi `AGENTS.md`, `pipeline_v2/docs/PROGRESS.md` và ba tài liệu trong `pipeline_v2/docs/plan/`. Các đoạn trạng thái cũ trong tài liệu kỹ thuật là checkpoint lịch sử. Tiến độ dưới đây phản ánh kết quả hiện hành.
 
+## Cập nhật checkout đã có dữ liệu Pipeline V2
+
+Sau khi pull, dùng lại raw corpus, các bundle đã seal, cache embedding và sparse index tại đường dẫn cũ. Kiểm collection Qdrant nếu dùng hybrid. Phần tiến độ M4–M6 mới nhất nằm trong [PROGRESS.md](pipeline_v2/docs/PROGRESS.md).
+
+Để kiểm đường chạy M6 trên máy đích, cài dependencies và chuẩn bị tokenizer controller đã pin nếu máy chưa có. Lệnh `prepare` kiểm nguồn, index, tokenizer và payload ban đầu với 0 request inference.
+
+```powershell
+& .venv/Scripts/python.exe -m pip install -r pipeline_v2/requirements-m4-local.txt
+& .venv/Scripts/python.exe -m pipeline_v2.m4_live prepare-tokenizer --tokenizer-dir cache/tokenizers/qwen36_27b_fp8
+$run = "cache/m6-preflight-$(Get-Date -Format yyyyMMdd-HHmmss)"
+& .venv/Scripts/python.exe -m pipeline_v2.m6_live prepare --settings pipeline_v2/reviews/m6_local_v1/live_preflight_settings.json --run-dir $run
+```
+
+Settings trên dùng BM25. Với hybrid, chạy thêm `diagnostic-hybrid` bên dưới hoặc dùng [settings kiểm tích hợp hybrid](pipeline_v2/reviews/m6_hybrid_local_v1/live_settings.json) cho một thư mục preflight mới. Các log và ledger lịch sử được giữ trên máy đã chạy. Chuẩn bị thư mục run mới cho các lượt thử trên máy đích.
+
 ## Mục tiêu và các quyết định đã chốt
 
 COLIEE Task 1 nhận query case A và trả tập candidate cases được A thực sự viện dẫn hoặc sử dụng theo nhãn chuẩn. Agent truy tìm nguồn và evidence A→B, phân biệt source identity, vị trí đoạn và cách sử dụng. Tương đồng nội dung là tín hiệu truy hồi. Lập luận của đương sự, lời tòa và trích dẫn lồng giữ attribution riêng.

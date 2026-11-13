@@ -1,0 +1,23 @@
+{
+  "query_id": "017984.txt",
+  "tokenizer_dir": "cache/tokenizers/qwen36_27b_fp8",
+  "byte_budget": 4096,
+  "map_limit": 5,
+  "adaptive_config": {
+    "channel": "lexical_both",
+    "search_limit": 3,
+    "read_limit": 2,
+    "no_progress_actions": 4,
+    "max_reviews": 1,
+    "audit_untriggered": 1
+  },
+  "budget": {
+    "max_requests": 12,
+    "max_actions": 12,
+    "max_input_tokens": 120000,
+    "max_payload_tokens": 16384,
+    "max_output_tokens": 512,
+    "max_total_tokens": 126144,
+    "max_retries": 0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "m6-discovery-pilot-v1",
+  "queries": ["017984.txt", "090579.txt", "021095.txt"],
+  "selection": "first three discovery queries in sealed M0 order; previously used for M5 discovery diagnostics",
+  "cohort": "pipeline_v2/artifacts/m0_20261105_v2/cohort.json",
+  "profile": {
+    "tokenizer_dir": "cache/tokenizers/qwen36_27b_fp8",
+    "byte_budget": 1024,
+    "map_limit": 2,
+    "adaptive_config": {
+      "channel": "hybrid",
+      "search_limit": 3,
+      "read_limit": 2,
+      "no_progress_actions": 4,
+      "max_reviews": 0,
+      "audit_untriggered": 0
+    },
+    "embedding_budget": {"max_requests": 2, "max_input_tokens": 896},
+    "budget": {
+      "max_requests": 8,
+      "max_actions": 8,
+      "max_input_tokens": 60000,
+      "max_payload_tokens": 7400,
+      "max_output_tokens": 384,
+      "max_total_tokens": 63072,
+      "max_retries": 0
+    }
+  }
+}

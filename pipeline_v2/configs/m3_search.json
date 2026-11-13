@@ -1,0 +1,10 @@
+{
+  "schema_version": "pipeline-v2-m3-source-tools-1",
+  "full_run": "pipeline_v2/artifacts/m3_full_train_20261108_v1",
+  "max_limit": 100,
+  "default_case_scan_limit": 128,
+  "max_case_scan_limit": 7708,
+  "byte_cap": 65536,
+  "case_cache_size": 4,
+  "bm25": {"k1": 1.5, "b": 0.75}
+}

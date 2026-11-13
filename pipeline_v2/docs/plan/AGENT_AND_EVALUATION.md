@@ -25,6 +25,20 @@ Policy đọc sau passage hit theo [contract nguồn Section 3.4](SOURCE_CHUNK_I
 
 Khi cần so nguồn cạnh tranh, cấp cùng context A và một nhóm nhỏ B có nguồn đã mở; không bắt một winner. Missing context có next action cụ thể, không vòng reasoning tự do không thêm evidence.
 
+### 1.1. Giao diện tool theo mục đích của controller
+
+Các action ở mục 1 là công cụ nội bộ. Khi thiết kế giao diện cho controller thích ứng, dùng tên theo quyết định nghiệp vụ và ánh xạ về công cụ M3/M4 đã nghiệm thu. Mỗi tool có mô tả ngắn về lúc dùng, lúc chuyển sang tool dễ nhầm, tham số model cần chọn và ý nghĩa kết quả. Thêm ví dụ đúng và ví dụ dễ nhầm khi định dạng hoặc ngữ cảnh ảnh hưởng đến kết quả. Chỉ đưa mô tả và schema của các tool khả dụng trong lượt hiện tại. [OpenAI tool choice](https://developers.openai.com/api/docs/guides/function-calling#tool-choice) · [Claude tool definitions](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools)
+
+| Tool dự kiến cho model | Khi nào khả dụng và model chọn gì | Host thực thi và trả gì |
+|---|---|---|
+| `search_cases_by_issue(issue)` | Có vấn đề pháp lý cần tìm ứng viên. Model viết cụm tìm theo ngữ cảnh A. Khi đã có chuỗi viện dẫn nguyên văn và cần xác định đích, dùng nhánh tra viện dẫn. | Dùng `search_corpus` với retriever, kênh, giới hạn và dedup theo profile. Trả các án ứng viên, preview và ref để mở nếu có. Preview là tín hiệu truy hồi. |
+| `find_citation_matches(citation_ref)` | Có ref tới một citation nguyên văn trong đoạn A đã giao. Model chọn citation đang cần tra. | Host lấy đúng chuỗi từ nguồn đã bind hash và dùng `search_identity` hoặc `search_phrase` để tìm dấu vết văn bản. Trả ứng viên, vị trí khớp và độ phủ. Kết quả hiện hành là quan sát. Tên `resolve_case_citation` và trạng thái `resolved` dành cho bước có quy tắc xác minh danh tính đích. Nhiều đích còn hợp lý thì giữ `ambiguous`, thiếu căn cứ thì giữ `unresolved`. |
+| `read_case_passages(candidate_ref, focus)` | Đã có ứng viên trong state và cần tìm đoạn về một vấn đề cụ thể trong án đó. Model chọn ứng viên và trọng tâm đọc. | Dùng `search_case` trong đúng án rồi mở đoạn theo policy đã khóa. Nếu hit đã có `open_ref` thích hợp và bước mở là bắt buộc, host gọi `open_source` trực tiếp. Trả raw text, refs, byte spans, provenance và phần còn chờ. |
+
+Model chọn vấn đề, citation hoặc ứng viên cần đọc sâu. Host giữ retriever, `top_k`, cap lượt, budget, source hash, offset và ánh xạ ref trong run. Nếu hợp đồng ngoài cần `case_id`, chỉ chấp nhận án có trong state và kiểm nó khớp với ref đã cấp. Citation ref phải trỏ tới nguồn A đã giao trong payload. Áp dụng bộ lọc action theo mục 2.1 trước khi sinh và kiểm lại tham số theo state trước khi chạy tool. Lịch tìm/đọc cố định của M5 vẫn do host điều phối. Lượt nghiệm thu M4 dùng phần giao diện phù hợp với lịch một hit. Khi chỉ có một `open_ref` được phép, model gọi `read_case_passages` với args rỗng và host điền ref đã xác minh. Các lựa chọn tra citation và chọn trọng tâm đọc thuộc giao diện thích ứng.
+
+Trên discovery, dùng fixture có tập action và tham số chấp nhận được theo trạng thái. Bao gồm vấn đề chưa có citation, citation mơ hồ, ref từ án khác, candidate chưa được cấp và hit đã mở được. Báo tỷ lệ chọn đúng tool ở lượt có lựa chọn, tỷ lệ tham số đúng ngữ cảnh, lỗi schema, số lượt và token. Với bước host ép hoặc chạy trực tiếp, báo mức tuân thủ riêng. Đo chất lượng truy hồi và quan hệ A→B trên gold theo các mục 5–6.
+
 ## 2. Hồ sơ liên kết gọn
 
 ```text
@@ -40,6 +54,18 @@ reason, counterevidence, missing_evidence, version
 Host materialize raw quote/offsets, model không tính số ký tự. Không bắt soạn doctrine/AU tự do. Không nhận một câu “verified” làm bằng chứng; mỗi kết luận phải gắn refs và giới hạn.
 
 Source identity, passage pinpoint và legal relevance là các trục khác nhau. Một candidate chưa định vị được passage vẫn có thể là noticed. B trích C không tự loại B; A/B cùng trích C cũng không chứng minh A→B. Lời đương sự, adopted reasoning và quotation phải tách rõ, không ép mọi nguồn thành holding của B.
+
+### 2.1. Ràng buộc đầu ra và kiểm bằng chứng cho M4/M5
+
+M4 định nghĩa contract assessment dùng chung và áp dụng ba lớp dưới đây. Khi M5 bắt đầu assess các hồ sơ từ lịch cố định, dùng cùng contract và validator với M4. Hồ sơ chỉ có điểm retrieval giữ `case_relation=unknown` và chờ bằng chứng.
+
+1. **Ràng buộc lúc sinh.** Khai báo tổ hợp hợp lệ theo nghĩa của từng trường. Nếu `type` chỉ có nghĩa sau khi biết `role`, schema phân nhánh theo `role`. Nhánh `unknown` bỏ `type`, các nhánh có role xác định chỉ nhận type tương ứng. Giữ riêng các trục độc lập như `case_relation` và `passage_location`. Ví dụ `unknown` đi cùng `pinpoint` khi đã định vị được đoạn nhưng còn thiếu căn cứ về quan hệ A→B. Gửi schema vào structured decoding của engine, dùng schema theo nhánh kiểu discriminated union khi các nhánh có tập trường khác nhau. Model chỉ sinh nhãn, refs và nhận định cần suy luận. Host điền ID, phiên bản, raw quote và offsets từ dữ liệu đã xác thực. [Pydantic unions](https://docs.pydantic.dev/latest/concepts/unions/) · [vLLM structured outputs](https://docs.vllm.ai/en/v0.19.1/examples/offline_inference/structured_outputs/)
+2. **Kiểm tất định trước khi ghi assessment.** Host kiểm lại schema, các quy tắc liên trường và các ràng buộc theo state. Refs phải thuộc raw text trong payload hiện tại, đúng vai trò A/B, đúng nguồn và provenance. Quy tắc về speaker, container hoặc quote chain dùng refs tương ứng khi kết luận phụ thuộc vào chúng. Các kiểm tra phụ thuộc state chạy trong validator ứng dụng. Assessment qua các kiểm tra này vẫn cần đối chiếu bằng chứng có nhãn khi đánh giá đúng sai về attribution và quan hệ pháp lý. [Pydantic model validators](https://docs.pydantic.dev/latest/concepts/validators/)
+3. **Điều phối theo kết quả kiểm.** Chấp nhận assessment hợp lệ. Nếu thiếu nguồn thì giữ hồ sơ ở trạng thái chờ bằng chứng, ghi phần thiếu và chỉ mở thêm nếu lịch/budget cho phép. Nếu output sai schema, mâu thuẫn giữa các trường hoặc viện dẫn ref sai, ghi lỗi vào ledger và từ chối assessment đó. Dùng fallback đã khóa khi đủ điều kiện. Mặc định 0 lần gọi model để sửa các lỗi này. Retry lỗi transport/provider vẫn theo quy tắc ở mục 4. [LangChain structured output](https://docs.langchain.com/oss/python/langchain/structured-output) · [LangGraph workflows](https://docs.langchain.com/oss/python/langgraph/workflows-agents)
+
+Khóa phiên bản schema và validator cùng model, prompt và ngân sách. Dùng cùng bộ kiểm cho fixture, replay và adapter live để đối chiếu tỷ lệ đạt ở lần đầu.
+
+Trước mỗi request có tool, host xác định action khả dụng từ trạng thái đã xác minh và payload sẽ giao. Engine nhận schema chỉ gồm các nhánh khả dụng. Host kiểm lại action theo chính schema của lượt đó trước khi thực thi và ghi policy cùng schema fingerprint vào hồ sơ run. Lượt nghiệm thu M4 một cặp giới hạn theo thứ tự tìm một hit → mở nguồn → nạp lại raw refs nếu cần → assessment → dừng. Hit có `open_ref` khóa nhánh tìm lại. Assessment cần raw refs A/B trong payload hiện tại. M5 dùng lịch tìm và mở nguồn đã cố định rồi mới chuyển hồ sơ sang assessment.
 
 ## 3. Final selector và baseline
 
@@ -71,11 +97,15 @@ Tính đủ controller/selector/reviewer/embedding requests, tokens, latency, l�
 Tạo fixtures/replay cho:
 - Query dài/reading bị cắt, nguồn song ngữ, quoted paragraph trùng số.
 - Zero hits; wrong/missing candidate; chưa mở hit mà cite; source hash drift.
+- Tổ hợp phụ thuộc bị cấm như `role=unknown` kèm `type` chỉ có nghĩa khi biết role. Tổ hợp độc lập hợp lệ như `case_relation=unknown` và `passage_location=pinpoint`. JSON đúng schema nhưng ref sai án, sai provenance hoặc chưa được giao.
+- Hồ sơ chỉ có retrieval, hồ sơ thiếu bằng chứng và output bị validator từ chối đều đi đúng nhánh đã định. Assert số request sửa output bằng 0 và ledger ghi đúng lý do.
 - Lỗi output/unknown provider receipt; resume giữ caps; duplicate action; cache stale.
 - Last open chưa giao; budget stop; fallback; aggregation cùng B qua nhiều context.
 - Metric perfect/empty/FP/FN; gold ngoài pool; query lỗi không biến mất.
 
 Không đánh dấu live agent ready từ FakeTransport hoặc CLI tool tests. Live adapter và source evidence selector là phần mới phải được nghiệm thu riêng.
+
+Trước khi so mô hình, kiểm schema theo nhánh trên đúng model/engine/backend bằng fixture có nhánh hợp lệ và prompt cố yêu cầu tổ hợp cấm. Dùng cap token, timeout và 0 retry sửa output. Canary schema đơn giản chỉ xác nhận đường gọi structured decoding. Báo tỷ lệ qua schema lần đầu, tỷ lệ qua validator theo state, tỷ lệ chờ bằng chứng và lỗi theo loại, kèm requests, tokens và latency cả lượt lỗi. Đo độ đúng về attribution/quan hệ A→B riêng trên mẫu có nhãn.
 
 ### 5.2. Retrieval-only
 
