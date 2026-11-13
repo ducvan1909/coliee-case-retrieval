@@ -1,20 +1,87 @@
 """Durable M6 admission around the accepted M3 arbitrary-query hybrid runtime."""
 from dataclasses import asdict, dataclass
-from contextlib import closing
+from contextlib import closing, contextmanager
 from hashlib import sha256
 import json
 from pathlib import Path
 import sqlite3
+import sys
+from threading import Event, Thread
 from time import perf_counter
+from urllib.parse import urlsplit
+
+from requests import HTTPError
 
 from .agent_harness import ToolResult
 from .agent_harness.contracts import HarnessError, encode, fingerprint, source_hash
+from .full_corpus.storage import FullQdrant
 from .full_search.hybrid import RUNTIME_DIR, POLICY, CHANNEL_BUDGET, DENSE_CAP, RRF_K, OUTPUT_CAP
 from .m4 import _lead
 from .sparse_bm25.index import SparseHybridSession
 
-VERSION = 'm6-live-hybrid-v1'
+VERSION = 'm6-live-hybrid-v2'
 CHANNELS = ('case_bm25', 'passage_bm25', 'dense_passage')
+# Qdrant exact search requires a server-side duration. Keep a long safety
+# limit on the server and no read deadline on the HTTP client.
+M6_DENSE_SERVER_TIMEOUT_SECONDS = 86400
+M6_DENSE_CONNECT_TIMEOUT_SECONDS = 10
+M6_WAIT_PROGRESS_SECONDS = 60
+
+
+@contextmanager
+def _report_pending(label):
+    """Report a pending operation without inferring its remote state."""
+    done = Event()
+    started = perf_counter()
+
+    def report_wait():
+        while not done.wait(M6_WAIT_PROGRESS_SECONDS):
+            print(f'M6 {label}: awaiting result after {perf_counter() - started:.0f}s '
+                  '(operation progress unavailable)', file=sys.stderr, flush=True)
+
+    heartbeat = Thread(target=report_wait, daemon=True)
+    heartbeat.start()
+    try:
+        yield
+    finally:
+        done.set()
+        heartbeat.join()
+
+
+class M6Qdrant(FullQdrant):
+    """Apply the M6 timeout to the inherited exact query only."""
+
+    def _request(self, method, path, body=None, allow404=False):
+        if method != 'POST' or not path.startswith(self.path + '/points/query?timeout='):
+            return super()._request(method, path, body, allow404)
+        previous_timeout = self.timeout
+        self.timeout = (M6_DENSE_CONNECT_TIMEOUT_SECONDS, None)
+        try:
+            path = f'{self.path}/points/query?timeout={M6_DENSE_SERVER_TIMEOUT_SECONDS}'
+            with _report_pending('Qdrant exact'):
+                return super()._request(method, path, body, allow404)
+        finally:
+            self.timeout = previous_timeout
+
+
+def _http_failure(exc):
+    """Keep safe REST diagnostics without copying response bodies or request headers."""
+    if not isinstance(exc, HTTPError) or exc.response is None:
+        return {}
+    response = exc.response
+    request = response.request
+    path = urlsplit(request.url).path if request is not None and request.url else ''
+    if path.endswith('/points/query'):
+        endpoint = 'points/query'
+    elif path.endswith('/points/count'):
+        endpoint = 'points/count'
+    elif path.startswith('/collections/'):
+        endpoint = 'collection'
+    else:
+        endpoint = 'unknown'
+    return {'http_status': response.status_code, 'http_endpoint': endpoint,
+            'http_timeout_reported': 'timeout' in response.text.casefold() or
+                                     'timed out' in response.text.casefold()}
 
 
 class EmbeddingBudgetExceeded(HarnessError):
@@ -38,6 +105,9 @@ def implementation_binding():
              'pipeline_v2/configs/qwen3_embedding_4b_tokenizer.lock.json')
     return {'version': VERSION, 'files': {name: sha256((root / name).read_bytes()).hexdigest() for name in names},
             'policy': POLICY, 'channel_budget': CHANNEL_BUDGET, 'dense_cap': DENSE_CAP,
+            'dense_server_timeout_seconds': M6_DENSE_SERVER_TIMEOUT_SECONDS,
+            'dense_http_connect_timeout_seconds': M6_DENSE_CONNECT_TIMEOUT_SECONDS,
+            'dense_http_read_timeout_seconds': None,
             'rrf_k': RRF_K, 'output_cap': OUTPUT_CAP}
 
 
@@ -160,6 +230,14 @@ class AccountedSparseHybridSession(SparseHybridSession):
     def __init__(self, root, journal):
         self.m6_journal = journal
         super().__init__(root)
+        previous = self.db
+        try:
+            self.db = M6Qdrant(self.profile['qdrant']['url'], self.manifest['collection'],
+                               self.fingerprint, self.dimensions, timeout=previous.timeout)
+        except BaseException:
+            self.close()
+            raise
+        previous.session.close()
 
     def _query_embedding(self, query, query_case, request_id):
         from .passages import PinnedTokenizer
@@ -171,7 +249,8 @@ class AccountedSparseHybridSession(SparseHybridSession):
         self.m6_journal.reserve(request_id, len(tokens))
         started = perf_counter()
         try:
-            result = super()._query_embedding(query, query_case, request_id)
+            with _report_pending('query embedding'):
+                result = super()._query_embedding(query, query_case, request_id)
         except Exception as exc:
             self.m6_journal.append('embedding_returned', operation=self.m6_journal.context,
                                    m3_request_id=request_id, status='error', error_type=type(exc).__name__,
@@ -235,7 +314,8 @@ class HybridSearch:
         except Exception as exc:
             status = 'budget' if isinstance(exc, EmbeddingBudgetExceeded) else 'error'
             self.journal.append('search_returned', operation=operation, status=status, error_type=type(exc).__name__,
-                                m3_request_id=getattr(self.session, 'last_request_id', None), elapsed_seconds=perf_counter()-started)
+                                m3_request_id=getattr(self.session, 'last_request_id', None),
+                                elapsed_seconds=perf_counter()-started, **_http_failure(exc))
             raise
         finally:
             self.journal.context = None

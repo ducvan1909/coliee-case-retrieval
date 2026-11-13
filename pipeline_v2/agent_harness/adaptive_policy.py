@@ -6,7 +6,7 @@ from .contracts import HarnessError, ModelReply, TransportError, encode, fingerp
 from .schema import ResponseSchemaError, parse_model_response, CASE_RELATIONS, PASSAGE_LOCATIONS, assessment_schema
 from .evidence import slice_record
 
-VERSION = 'm6-adaptive-purpose-v3'
+VERSION = 'm6-adaptive-purpose-v6'
 ISSUE_SCHEMA = {'type': 'string', 'minLength': 4, 'maxLength': 160}
 # Conservative observations only: this is neither citation resolution nor semantic extraction.
 CITATION_PATTERN = re.compile(r'\b\d{4}\s+(?:SCC|FCA|FC|CanLII)\s+\d+\b|\[\d{4}\]\s+\d+\s+S\.?C\.?R\.?\s+\d+', re.IGNORECASE)
@@ -28,8 +28,17 @@ def choice(values):
     return {'type': 'string', 'enum': sorted(values)}
 
 
-def text(limit=160):
-    return {'type': 'string', 'minLength': 1, 'maxLength': limit, 'pattern': r'\S'}
+def text(limit=160, *, minimum=1):
+    # XGrammar's pattern conversion can replace length constraints and force
+    # single-character output for a bare non-whitespace pattern.
+    return {'type': 'string', 'minLength': minimum, 'maxLength': limit}
+
+
+def nonblank(value, field):
+    stripped = value.strip()
+    if not stripped:
+        raise ToolSemanticError(f'blank_{field}')
+    return stripped
 
 
 def citations(body):
@@ -60,8 +69,10 @@ def catalog(body):
         required = list(fields)
         if name in ('assess_case_link', 'review_conflicting_link'):
             optional = {'speaker': assessment_schema()['properties']['speaker'],
-                        **{key: {'type': 'array', 'uniqueItems': True, 'items': choice(current)} for key in ('identity_support_refs', 'speaker_evidence_refs', 'quote_chain_refs', 'container_refs')},
-                        'counterevidence': {'type': 'array', 'uniqueItems': True, 'items': choice(current)},
+                        # vLLM's XGrammar backend rejects uniqueItems. Check
+                        # distinct refs in translate before dispatch instead.
+                        **{key: {'type': 'array', 'items': choice(current)} for key in ('identity_support_refs', 'speaker_evidence_refs', 'quote_chain_refs', 'container_refs')},
+                        'counterevidence': {'type': 'array', 'items': choice(current)},
                         'missing_evidence': {'type': 'array', 'items': text(240)}}
             fields = {**fields, **optional}
         parameters = obj(fields)
@@ -93,10 +104,13 @@ def catalog(body):
             'Use when coverage reports unscanned cases; this does not verify source identity.',
             'The next bounded search page, with observation method and coverage.',
             ['Choose a search_ref for the observed citation; do not supply cursor or scan limits.'])
-    if candidates:
-        add('read_case_passages', {'candidate_ref': choice(candidates), 'focus': text()},
+    fresh_case = state.get('fresh_evidence_candidate')
+    readable = {ref: candidate for ref, candidate in candidates.items()
+                if not candidate.get('read_status') and candidate['case_id'] != fresh_case}
+    if readable:
+        add('read_case_passages', {'candidate_ref': choice(readable), 'focus': text(minimum=4)},
             'Read raw B passages about the chosen legal issue.',
-            'Choose a known candidate. Host opens an available passage lead directly; otherwise searches within B.',
+            'Choose a known candidate and a short legal phrase of at least two words. Host opens a passage lead directly when available; otherwise searches within B.',
             'Full parent and source-order neighbors under the M3 page cap, with provenance and pending coverage.',
             ['Good: choose a candidate ref and focus on whether the court adopted the quoted test.',
              'Wrong: supply a case ID, retrieval channel, top_k or arbitrary open handle.'])
@@ -202,7 +216,10 @@ def translate(body, action):
         return {'action': 'search_identity', 'args': state['citation_search_pages'][args['search_ref']]['binding']}
     if name == 'read_case_passages':
         row = state['candidates'][args['candidate_ref']]
-        return {'action': 'open_source', 'args': {'m6_candidate': row, 'focus': args['focus'].strip()}}
+        focus = args['focus'].strip()
+        if len(focus) < 4 or len(re.findall(r'[^\W_]+', focus)) < 2:
+            raise ToolSemanticError('focus_requires_legal_phrase')
+        return {'action': 'open_source', 'args': {'m6_candidate': row, 'focus': focus}}
     if name == 'read_query_passages':
         return {'action': 'open_query', 'args': state['query_targets'][args['query_ref']]['binding']}
     if name == 'read_more_context':
@@ -212,13 +229,17 @@ def translate(body, action):
     if name in ('assess_case_link', 'review_conflicting_link'):
         row = {key: value for key, value in pairs[args['pair_ref']].items() if key != 'context_coverage'}
         row.update({key: args[key].strip() for key in ('case_relation', 'passage_location', 'reason')})
+        row['reason'] = nonblank(args['reason'], 'reason')
         row['speaker'] = args.get('speaker', {'role': 'unknown'})
         for key in ('identity_support_refs', 'speaker_evidence_refs', 'quote_chain_refs', 'container_refs', 'counterevidence', 'missing_evidence'):
             if key in args:
+                if key != 'missing_evidence' and len(set(args[key])) != len(args[key]):
+                    raise ToolSemanticError('duplicate_evidence_refs')
                 if key != 'missing_evidence' and any(ref not in body['current_payload_source_refs'] or
                     next(source['case_id'] for source in body['excerpts'] if source['ref'] == ref) not in (body['query_id'], row['candidate_id']) for ref in args[key]):
                     raise ToolSemanticError('evidence_ref_belongs_to_another_pair')
-                row[key] = args[key]
+                row[key] = ([nonblank(value, key) for value in args[key]]
+                            if key == 'missing_evidence' else args[key])
         if row.get('counterevidence'):
             dependencies = set().union(*(set(row.get(key, [])) for key in ('a_context_refs', 'b_passage_refs', 'identity_support_refs', 'speaker_evidence_refs', 'quote_chain_refs', 'container_refs')))
             if not set(row['counterevidence']) <= dependencies:
@@ -228,7 +249,7 @@ def translate(body, action):
         if name == 'assess_case_link' and row['reason'].startswith('Targeted review: '):
             raise ToolSemanticError('reserved_review_marker')
         if name == 'review_conflicting_link':
-            row['reason'] = 'Targeted review: ' + args['finding'].strip() + ' | ' + row['reason']
+            row['reason'] = 'Targeted review: ' + nonblank(args['finding'], 'finding') + ' | ' + row['reason']
         return {'action': 'assess_links', 'args': {'assessments': [row]}}
     return {'action': 'stop', 'args': {'reason': 'complete', 'prediction': []} if args['reason'] == 'complete_policy'
             else {'reason': args['reason']}}

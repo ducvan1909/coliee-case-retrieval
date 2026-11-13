@@ -6,7 +6,27 @@ Profile thử nghiệm cho mỗi query có tối đa 8 request controller, 384 o
 
 ## AG chạy live
 
-**Bước hiện tại là canary grammar, sau đó chạy riêng `runs_v12/017984.txt`.** Dùng [hướng dẫn canary](ISSUE_GRAMMAR_CANARY.md) trước khi mở lại batch. `runs_v11` là lượt lịch sử đã ghi được phản hồi một ký tự. [Kết quả v10–v11](PILOT_V10_FINDINGS.md)
+M6 hiện chờ cùng một Modal controller call qua các lượt kiểm tra 30 giây. Nhật ký stderr có call ID và trạng thái chờ. Embedding cũng ghi thông báo khi chờ lâu. Qdrant dense exact không có hạn đọc phản hồi phía client, với trần xử lý phía Qdrant là 86.400 giây và timeout thiết lập kết nối là 10 giây. Thông báo đang chờ chỉ xác nhận phía client chưa nhận kết quả. Deployment Modal hiện áp giới hạn khởi động/thực thi 900/120 giây cho controller và 1.800/600 giây cho embedding. Các giới hạn này khác thời gian xếp hàng chờ GPU.
+
+V19 hoàn thành Qdrant dense exact sau 454,33 giây. Request 4 có đủ raw A/B và tool assessment, nhưng Modal trả `ValueError` trước khi có output. Schema assessment chứa `uniqueItems`, từ khóa mà vLLM 0.19.1 từ chối khi dùng XGrammar. Receipt v19 thiếu thông báo exception gốc, nên chưa xác nhận được đây là nguyên nhân duy nhất. Bản sửa bỏ từ khóa khỏi schema decoder và kiểm ref trùng tại host. [Report v19](runs_v19/017984.txt/report_1794560623836988300.json) · [Validator upstream](https://github.com/vllm-project/vllm/blob/v0.19.1/vllm/v1/structured_output/backend_xgrammar.py)
+
+V20 có 8/8 phản hồi hợp lệ và một assessment chờ bằng chứng. Đọc lại `073752.txt` trả 0 đoạn mới rồi controller lặp ba lượt. Schema v6 thu hồi lựa chọn đọc của B khi cùng đầu mối đã trả 0 đoạn mới. B vẫn nằm trong pool, có thể mở tiếp qua cursor, và các B khác vẫn đọc được. Đầu mối tìm mới có thể mở lại đường đọc. [Report v20](runs_v20/017984.txt/report_1794562392545685900.json)
+
+V21 đã chuyển từ `073752.txt` sang `049344.txt` sau khi lần đọc lại trả 0 đoạn mới. Payload sau khi mở `049344.txt` đã có cặp A/B và tool assessment, nhưng controller chọn đọc lại B. Lần đọc này trả 0 đoạn mới, rồi payload kế tiếp vượt trần. M6 hiện lược lựa chọn đọc lại B ngay trong lượt giao bằng chứng A/B mới. Khi cần co payload, M6 cũng rút gọn các danh sách điều hướng ngay cả ở lượt chưa có cặp A/B. [Report v21](runs_v21/017984.txt/report_1794564604995732800.json)
+
+AG chạy riêng `017984.txt` trong `runs_v22`. Kiểm action ngay sau mỗi lần giao cặp A/B, số đoạn mới sau khi mở B và trạng thái dừng. Ghi raw refs, assessment, số request và token. Khi chờ lâu, giữ log tiến độ và kiểm call ID, trạng thái container hoặc log Qdrant trước khi can thiệp.
+
+```powershell
+& .venv/Scripts/python.exe -m pipeline_v2.m6_live run --run-dir "pipeline_v2/reviews/m6_discovery_pilot/runs_v22/017984.txt"
+```
+
+**Đối chứng Qdrant bằng vector cache.** V15 chạy dense exact thành công sau 149,11 giây. V17 dùng cùng cụm tìm và timeout 240 giây nhưng Qdrant trả HTTP 500 báo timeout tại `points/query`. Thời gian 323,17 giây là toàn bước hybrid. [Report v17](runs_v17/017984.txt/report_1794556328542838900.json)
+
+```powershell
+& .venv/Scripts/python.exe -m pipeline_v2.reviews.m3_completion_v1.diagnose_dense_timeout
+```
+
+Probe dùng vector passage cache, 0 request controller/embedding, và dùng timeout 120 giây cho đối chứng toàn corpus. Khi so máy hiện tại với Linux/OCI CPU, dùng cùng collection, vector, bộ lọc và timeout. Dùng namespace mới cho lượt live sau khi xác nhận retrieval ổn định.
 
 Các lệnh dưới đây ghi lại quy trình chạy batch v11. Khi mở batch mới, chuẩn bị cả ba query vào namespace mới và dùng cùng đường dẫn xuyên suốt.
 
@@ -14,7 +34,7 @@ Các lệnh dưới đây ghi lại quy trình chạy batch v11. Khi mở batch 
 $pilot = 'pipeline_v2/reviews/m6_discovery_pilot'
 $runs = "$pilot/runs_v11"
 # Chỉ khi cần chuẩn bị lại, chọn namespace mới.
-# $runs = "$pilot/runs_v13"
+# $runs = "$pilot/runs_v14"
 # & .venv/Scripts/python.exe -m pipeline_v2.reviews.m6_discovery_pilot.prepare --runs-dir $runs
 Get-Content "$runs/preflight_summary.json"
 

@@ -1,6 +1,7 @@
 """Adaptive M6 evidence acquisition on the accepted M4 ledger and validators."""
 from dataclasses import asdict, dataclass
 from hashlib import sha256
+import json
 from pathlib import Path
 from .agent_harness import AgentHarness, ToolResult
 from .agent_harness.contracts import HarnessError, encode, fingerprint
@@ -214,6 +215,19 @@ class AdaptiveHarness(AgentHarness):
         used = {}
         for action in completed:
             used.setdefault(action['action'], set()).add(fingerprint(action['args']))
+        exhausted_reads = {}
+        for event in events:
+            if event['kind'] != 'action_result' or event['status'] != 'success':
+                continue
+            action = action_by_id[event['action_id']]
+            if action['action'] != 'open_source' or 'm6_candidate' not in action['args']:
+                continue
+            result = event.get('result') or {}
+            binding = action['args']['m6_candidate']
+            if result.get('excerpts'):
+                exhausted_reads.pop(binding['case_id'], None)
+            else:
+                exhausted_reads[binding['case_id']] = binding.get('open_ref')
         candidates = {fingerprint(['candidate', case]): {'case_id': case, 'needs': [], 'leads': []} for case in state.candidates}
         by_case = {row['case_id']: row for row in candidates.values()}
         query_targets, expansions, citation_search_pages = {}, {}, {}
@@ -260,6 +274,9 @@ class AdaptiveHarness(AgentHarness):
             continuation = observation.get('continuation')
             if continuation:
                 expansions[fingerprint(continuation)] = {'binding': continuation, 'description': {'purpose': 'continue_pending_raw_page', 'case_id': observation.get('case_id')}}
+        for case, lead in exhausted_reads.items():
+            if case in by_case and by_case[case].get('open_ref') == lead:
+                by_case[case]['read_status'] = 'no_new_raw_use_context_or_another_candidate'
         for row in state.catalog.values():
             for component in row.get('provenance', {}).get('components', []):
                 for role in ('parent_ref', 'previous_ref', 'next_ref'):
@@ -270,7 +287,7 @@ class AdaptiveHarness(AgentHarness):
         visible = {ref: state.catalog[ref] for ref in state.delivered if ref in state.catalog}
         visible.update({row['ref']: row for row in payload['excerpts']})
         delivered = list(visible.values())
-        delivered.sort(key=lambda row: (row['case_id'], row['span_bytes'], row['ref']))
+        delivered.sort(key=lambda row: (row['case_id'], tuple(row['span_bytes']), row['ref']))
         a = [row['ref'] for row in delivered if row['case_id'] == self.identity.query_id]
         reloads = {fingerprint([ref]): [ref] for ref in a}
         for case in state.candidates:
@@ -334,6 +351,10 @@ class AdaptiveHarness(AgentHarness):
         return anchors
 
     def _fit_payload(self, state, cap):
+        paired = self._fit_opened_pair(state, cap)
+        if paired is not None:
+            return paired
+
         # Budget the exact model-facing catalog too. Never hide instruction/catalog overhead.
         low, high, best = 0, cap, None
         inner_cap = cap
@@ -343,7 +364,6 @@ class AdaptiveHarness(AgentHarness):
                 low = inner_cap + 1
             else:
                 body, _, consumed, remaining, rows = prepared
-                import json
                 payload = json.loads(body)
                 payload['m6'] = self._registry(state, payload)
                 def render():
@@ -368,15 +388,16 @@ class AdaptiveHarness(AgentHarness):
                         count = self._count(exact)
                         if count <= cap:
                             break
-                if count > cap and payload['m6']['pair_refs']:
-                    # Preserve the assessable pair if optional navigation consumes
-                    # the remaining prompt. Unshown handles remain in the ledger.
-                    for field in ('expansions', 'query_targets', 'reloads'):
+                if count > cap:
+                    # Retain actionable choices even after a read yielded no raw.
+                    # Unshown handles remain available to later turns.
+                    for field in ('expansions', 'query_targets', 'reloads', 'citation_search_pages'):
                         options = payload['m6'][field]
-                        if not options:
+                        if len(options) <= 1:
                             continue
-                        payload['m6'][field] = {}
-                        payload['m6'].setdefault('omitted_tool_options', {})[field] = len(options)
+                        key = next(reversed(options))
+                        payload['m6'][field] = {key: options[key]}
+                        payload['m6'].setdefault('omitted_tool_options', {})[field] = len(options) - 1
                         exact, count = render()
                         if count <= cap:
                             break
@@ -390,6 +411,81 @@ class AdaptiveHarness(AgentHarness):
             if low > high:
                 break
             inner_cap = (low + high) // 2
+        return best
+
+    def _fit_opened_pair(self, state, cap):
+        """Put the search anchor beside newly opened candidate evidence when they fit."""
+        if not state.full_query_considered or not state.pending or not state.observation:
+            return None
+        b = state.catalog[state.pending[0]]
+        case = state.observation.get('m6_opened_candidate', state.observation.get('case_id'))
+        if case == self.identity.query_id or case != b['case_id'] or case not in state.candidates:
+            return None
+        needs = [event['result']['observation']['m6_source_need'] for event in self.events()
+                 if event['kind'] == 'action_result' and event.get('result')
+                 and case in event['result']['candidates']
+                 and event['result']['observation'].get('m6_source_need')]
+        for need in reversed(needs):
+            paragraph = need.get('a_paragraph')
+            for ref in need['a_refs']:
+                if ref not in state.delivered:
+                    continue
+                source = state.catalog[ref]
+                if source['case_id'] != self.identity.query_id:
+                    continue
+                a = source
+                if paragraph is not None:
+                    start, end = paragraph['span_bytes']
+                    if (paragraph['source_ref'] != ref or paragraph['source_hash'] != source['source_hash']
+                            or not source['span_bytes'][0] <= start < end <= source['span_bytes'][1]):
+                        continue
+                    a = slice_record(source, start, end)
+                    if a['text_sha256'] != paragraph['text_sha256']:
+                        continue
+                paired = self._fit_evidence_rows(state, cap, a, b)
+                if paired is not None:
+                    return paired
+        return None
+
+    def _fit_evidence_rows(self, state, cap, a, b):
+        consumed = [ref for ref in (a['ref'], b['ref']) if ref in state.pending]
+        best = None
+
+        def offer(b_part):
+            nonlocal best
+            rows = [a, b_part]
+            end = b_part['span_bytes'][1]
+            remaining = [slice_record(b, end, b['span_bytes'][1])] if end < b['span_bytes'][1] else []
+            payload = {
+                'query_id': self.identity.query_id, 'query_source_hash': self.identity.query_source_hash,
+                'max_output_tokens': self.budget.max_output_tokens, 'query_delivery': 'continuation',
+                'excerpts': rows, 'current_payload_source_refs': [row['ref'] for row in rows],
+                'pending_source_count': len(state.pending) - len(consumed) + len(remaining),
+                'observation_omitted': bool(state.observation), 'candidate_count': len(state.candidates),
+                'active_assessment_count': len(state.active_assessments),
+            }
+            registry = self._registry(state, payload)
+            registry['fresh_evidence_candidate'] = b['case_id']
+            payload['m6'] = registry
+            for field in (None, 'expansions', 'query_targets', 'reloads', 'citation_search_pages'):
+                if field is not None and registry[field]:
+                    registry.setdefault('omitted_tool_options', {})[field] = len(registry[field])
+                    registry[field] = {}
+                tools, schema, citation_rows, pairs = catalog(payload)
+                if not pairs:
+                    return False
+                registry.update(schema_fingerprint=fingerprint(schema), citation_refs=citation_rows,
+                                pair_refs=pairs, policy_version=VERSION)
+                payload['available_tools'] = tools
+                exact = encode(payload)
+                count = self._count(exact)
+                if count <= cap:
+                    best = exact, count, consumed, remaining, rows
+                    return True
+            return False
+
+        if not offer(b):
+            self._fit_prefix(b, offer)
         return best
 
     def prepare(self):
@@ -411,20 +507,35 @@ class AdaptiveHarness(AgentHarness):
 
     def _turn(self, db, state):
         # Reconstruct progress from durable effects, including resume, not transport memory.
-        replay, stalled, navigation_seen = RunState(), 0, set()
+        replay, stalled = RunState(), 0
+        navigation_seen, assessments_seen = set(), set()
         for event in self.events():
-            before = (len(replay.candidates), len(replay.catalog), len(replay.assessments),
-                      len(replay.pending_assessments))
+            before = (len(replay.candidates), len(replay.catalog))
             replay.apply(event)
             if event['kind'] == 'action_result' and event.get('final') is None:
                 navigation = event.get('result', {}).get('observation', {}) if event.get('result') else {}
-                navigation_key = fingerprint(navigation) if (navigation.get('kind') == 'query_map' or navigation.get('tool') == 'search_identity') else None
+                navigation_key = None
+                if navigation.get('kind') == 'query_map':
+                    navigation_key = fingerprint(['query_map', navigation.get('offset'),
+                                                  [item['handle'] for item in navigation.get('items', [])]])
+                elif navigation.get('tool') == 'search_identity':
+                    navigation_key = fingerprint(['citation_scan', navigation.get('m6_source_need'),
+                                                  navigation.get('coverage'), navigation.get('next_cursor')])
                 new_navigation = navigation_key is not None and navigation_key not in navigation_seen
                 if navigation_key:
                     navigation_seen.add(navigation_key)
-                after = (len(replay.candidates), len(replay.catalog), len(replay.assessments),
-                         len(replay.pending_assessments))
-                stalled = 0 if after != before or new_navigation else stalled + 1
+                new_assessment = False
+                for row in (*event.get('assessments', ()), *event.get('pending_assessments', ())):
+                    key = fingerprint({field: row.get(field) for field in (
+                        'source_need_id', 'candidate_id', 'status', 'case_relation', 'passage_location',
+                        'speaker', 'a_context_refs', 'b_passage_refs', 'identity_support_refs',
+                        'speaker_evidence_refs', 'quote_chain_refs', 'container_refs', 'counterevidence',
+                    )})
+                    if key not in assessments_seen:
+                        assessments_seen.add(key)
+                        new_assessment = True
+                after = (len(replay.candidates), len(replay.catalog))
+                stalled = 0 if after != before or new_navigation or new_assessment else stalled + 1
         if stalled >= self.adaptive_config.no_progress_actions:
             self._stop(db, state, 'no_progress', 'no_new_candidate_source_or_assessment')
             return

@@ -69,6 +69,7 @@ def _settings(value):
 
 @contextmanager
 def _runtime(root, run_dir, settings):
+    from .agent_harness import modal_qwen
     from .agent_harness.modal_qwen import (
         APP_NAME, MODAL_FUNCTION_ID, MODEL, MODEL_REVISION, VLLM_VERSION, ModalQwenTransport,
     )
@@ -77,7 +78,8 @@ def _runtime(root, run_dir, settings):
     from .m6 import AdaptiveConfig, AdaptiveHarness
     from .sparse_bm25.index import SparseSession
 
-    transport = ModalQwenTransport(root / settings["tokenizer_dir"], instructions=INSTRUCTIONS)
+    transport = ModalQwenTransport(root / settings["tokenizer_dir"], instructions=INSTRUCTIONS,
+                                   wait_seconds=None)
     lexical = SparseSession(root)
     sources = None
     hybrid_search = None
@@ -117,6 +119,7 @@ def _runtime(root, run_dir, settings):
             "excerpts": [row.to_record() for row in initial.excerpts],
             "candidates": initial.candidates, "source_requests": initial.source_requests,
         }), "harness_config": harness.config, "model": model,
+                   "controller_transport_sha256": sha256(Path(modal_qwen.__file__).read_bytes()).hexdigest(),
                    "runner_sha256": sha256(Path(__file__).read_bytes()).hexdigest()}
         yield harness, transport, binding
     finally:
@@ -168,7 +171,7 @@ def run(root, run_dir):
             report = {"version": VERSION, "result": result,
                       "modal_receipts_this_invocation": transport.receipts,
                       "elapsed_seconds_this_invocation": perf_counter() - started}
-        except Exception:
+        except (Exception, KeyboardInterrupt):
             report = {"version": VERSION, "status": "runner_error", "result": harness.inspect(),
                       "modal_receipts_this_invocation": transport.receipts,
                       "elapsed_seconds_this_invocation": perf_counter() - started}

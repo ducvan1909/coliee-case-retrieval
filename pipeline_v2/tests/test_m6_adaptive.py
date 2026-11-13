@@ -123,14 +123,19 @@ class AdaptiveTests(unittest.TestCase):
     def test_second_focus_searches_within_candidate(self):
         with TemporaryDirectory() as path:
             tools = Tools()
-            transport = Transport(['search_cases_by_issue', 'read_case_passages', 'read_case_passages', 'finish_case_review'])
+            transport = Transport(['search_cases_by_issue', 'read_case_passages', 'assess_case_link',
+                                   'read_case_passages', 'finish_case_review'])
             result = harness(path, transport, tools).run()
             self.assertEqual(result['stop_reason'], 'complete')
             self.assertEqual([kind for kind, _ in tools.reads], ['open', 'search', 'open'])
 
     def test_no_progress_and_baseline_binding(self):
         with TemporaryDirectory() as path:
-            steps = ['search_cases_by_issue'] + ['read_case_passages'] * 7
+            def stop_when_read_exhausted(body):
+                self.assertNotIn('read_case_passages', {tool['name'] for tool in body['available_tools']})
+                return {'action': 'finish_case_review', 'args': {'reason': 'no_progress'}}
+            steps = ['search_cases_by_issue', 'read_case_passages', 'assess_case_link', 'read_case_passages',
+                     stop_when_read_exhausted]
             result = harness(path, Transport(steps), config=AdaptiveConfig(no_progress_actions=2)).run()
             self.assertEqual(result['stop_reason'], 'no_progress')
             self.assertIsNone(result['prediction'])

@@ -4,16 +4,32 @@ from hashlib import sha256
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import Mock
+from requests import HTTPError, Request, Response
 
 from pipeline_v2.agent_harness.contracts import HarnessError
 from pipeline_v2.full_search.hybrid import POLICY, RUNTIME_DIR, fuse_channels
 from pipeline_v2.m6 import AdaptiveConfig
-from pipeline_v2.m6_hybrid import EmbeddingBudget, HybridSearch
+from pipeline_v2.m6_hybrid import EmbeddingBudget, HybridSearch, M6Qdrant
 from pipeline_v2.retrieval.cache import Cache
 from pipeline_v2.tests.test_m6_adaptive import Tools, Transport, harness
 
 
 class HybridTests(unittest.TestCase):
+    def test_only_exact_query_uses_extended_timeout(self):
+        session = Mock()
+        session.request.return_value.status_code = 200
+        session.request.return_value.json.return_value = {'status': 'ok', 'result': {}}
+        db = M6Qdrant('http://127.0.0.1:6333', 'fixture', 'fingerprint', session=session, timeout=135)
+        body = {'params': {'exact': True}}
+        db._request('POST', db.path + '/points/query?timeout=120', body)
+        session.request.assert_called_once_with(
+            'POST', 'http://127.0.0.1:6333/collections/fixture/points/query?timeout=86400',
+            json=body, timeout=(10, None))
+        db._request('GET', db.path)
+        session.request.assert_called_with(
+            'GET', 'http://127.0.0.1:6333/collections/fixture', json=None, timeout=135)
+
     def setUp(self):
         temp = TemporaryDirectory()
         self.addCleanup(temp.cleanup)
@@ -39,7 +55,11 @@ class HybridTests(unittest.TestCase):
                 finally:
                     ledger.db.close()
                 if dense_failure:
-                    raise HarnessError('fixture dense timeout')
+                    response = Response()
+                    response.status_code = 500
+                    response._content = b'{"status":{"error":"Timeout: Search"}}'
+                    response.request = Request('POST', 'http://127.0.0.1:6333/collections/fixture/points/query?timeout=120').prepare()
+                    raise HTTPError(response=response)
                 lead = {'case_id': 'B', 'passage_id': 'B-1', 'source_hash': owner.tools.b.source_hash,
                         'score': 0.75, 'rank': 1, 'span_bytes': [0, 8]}
                 channels = {'case_bm25': [], 'passage_bm25': [], 'dense_passage': [lead]}
@@ -109,6 +129,10 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(result['embedding_usage']['input_tokens'], 7)
         self.assertEqual(result['embedding_usage']['model_requests'], 1)
         self.assertEqual(result['candidates'], [])
+        receipt = result['embedding_usage']['search_receipts'][0]
+        self.assertEqual(receipt['http_status'], 500)
+        self.assertEqual(receipt['http_endpoint'], 'points/query')
+        self.assertTrue(receipt['http_timeout_reported'])
 
     def test_interrupted_embedding_is_not_resent_on_resume(self):
         hybrid = self.runtime(interrupt=True)
