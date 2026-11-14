@@ -41,7 +41,7 @@ def _load(path):
 
 def _settings(value):
     required = {"query_id", "tokenizer_dir", "budget", "adaptive_config", "byte_budget", "map_limit"}
-    if not required <= value.keys() or value.keys() - required - {"embedding_budget"}:
+    if not required <= value.keys() or value.keys() - required - {"embedding_budget", "query_navigation"}:
         raise HarnessError("Invalid M6 settings fields")
     if not all(isinstance(value[key], str) and value[key].strip() for key in ("query_id", "tokenizer_dir")):
         raise HarnessError("Expected query ID and tokenizer directory")
@@ -50,6 +50,12 @@ def _settings(value):
     if not isinstance(value["budget"], dict) or set(value["budget"]) != budget_fields:
         raise HarnessError("All M6 budget fields must be explicitly declared")
     Budget(**value["budget"])
+    if 'query_navigation' in value:
+        from .query_navigation import QueryNavigationConfig
+        config = value['query_navigation']
+        if not isinstance(config, dict) or set(config) != {'mode', 'max_children', 'leaf_bytes', 'map_max_tokens', 'snippet_chars'}:
+            raise HarnessError('All hierarchical query navigation settings must be explicit')
+        QueryNavigationConfig(**config)
     if not isinstance(value["adaptive_config"], dict):
         raise HarnessError("Expected an explicit adaptive_config object")
     hybrid = value["adaptive_config"].get("channel") == "hybrid"
@@ -85,8 +91,15 @@ def _runtime(root, run_dir, settings):
     hybrid_search = None
     try:
         sources = SourceToolsSession(root, snapshot=lexical)
-        tools = M3Tools(sources, lexical, settings["query_id"],
-                        byte_budget=settings["byte_budget"], map_limit=settings["map_limit"])
+        if 'query_navigation' in settings:
+            from .query_navigation import HierarchicalM3Tools, QueryNavigationConfig
+            tools = HierarchicalM3Tools(
+                sources, lexical, settings['query_id'], byte_budget=settings['byte_budget'], map_limit=settings['map_limit'],
+                navigation_config=QueryNavigationConfig(**settings['query_navigation']),
+                count_tokens=transport.count_tokens, output_token_cap=settings['budget']['max_output_tokens'])
+        else:
+            tools = M3Tools(sources, lexical, settings["query_id"],
+                            byte_budget=settings["byte_budget"], map_limit=settings["map_limit"])
         initial, whole = tools.query_start()
         config = AdaptiveConfig(**settings["adaptive_config"])
         if config.channel == "hybrid":

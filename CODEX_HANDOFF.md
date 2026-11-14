@@ -1,5 +1,11 @@
 # Bàn giao Pipeline V2 cho Codex trên máy khác
 
+## Bàn giao retrieval mới ngày 14/11/2026
+
+Nếu tiếp tục đợt tối ưu retrieval RT1–RT5, đọc thêm `pipeline_v2/docs/RETRIEVAL_HANDOFF_20261114.md` trước khi thao tác. Tại checkpoint này RT1/RT2 đã nghiệm thu engineering, RT3 chờ AG review cuối; profile mới input 8.500/context source 12.288 chưa nghiệm thu live. Pull commit bàn giao chứa cả code/tests/hướng dẫn mới, không chỉ base `c0ab182`. File bàn giao ghi phạm vi selector máy kia, trạng thái AG và gate trước RT4. Các nội dung phía dưới giữ làm lịch sử nền/khôi phục assets.
+
+Cập nhật kết quả AG: deploy v2 báo exit 0 nhưng canary 8.500 của call `fc-01M7CBMZWGZDPFSPB4BBT9WB94` timeout/unknown, đã yêu cầu cancel; actual provider usage chưa biết. Không resend run đã admission hoặc coi context live PASS. Theo yêu cầu bàn giao mới nhất, chỉ push code/tests/hướng dẫn cần thiết, không yêu cầu chuyển run/evidence/inventory cũ; người dùng tiếp quản phần tiếp theo theo file bàn giao mới.
+
 Cập nhật ngày 10/11/2026. Đọc file này trước, rồi `AGENTS.md`, `pipeline_v2/docs/PROGRESS.md` và ba tài liệu trong `pipeline_v2/docs/plan/`. Các đoạn trạng thái cũ trong tài liệu kỹ thuật là checkpoint lịch sử. Tiến độ dưới đây phản ánh kết quả hiện hành.
 
 ## Cập nhật checkout đã có dữ liệu Pipeline V2

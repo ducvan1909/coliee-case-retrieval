@@ -1,12 +1,16 @@
 """Independent tests for M6 paragraph-bound issue search provenance."""
 from copy import deepcopy
 from hashlib import sha256
+import json
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
-from pipeline_v2.agent_harness import Budget, RunIdentity
-from pipeline_v2.agent_harness.adaptive_policy import catalog, translate
+from pipeline_v2.agent_harness import Budget, RunIdentity, SourceExcerpt
+from pipeline_v2.agent_harness.adaptive_policy import VERSION, ToolSemanticError, catalog, translate
+from pipeline_v2.agent_harness.contracts import fingerprint
 from pipeline_v2.agent_harness.evidence import slice_record
+from pipeline_v2.agent_harness.ledger import RunState
 from pipeline_v2.m4 import M3Tools
 from pipeline_v2.m6 import AdaptiveHarness
 from pipeline_v2.tests.test_m3_source_tools import SourceToolsFixture
@@ -106,22 +110,153 @@ class M6ParagraphAnchorTests(SourceToolsFixture):
                     "issue": "procedural fairness notice"}})
             self.assertTrue(schema["anyOf"])
 
-    def test_no_wholly_covered_paragraph_means_no_search_tool(self):
+    def clipped_body(self, agent, body, ranges):
+        source = next(row for row in body['excerpts'] if row['case_id'] == self.query_id)
+        result = deepcopy(body)
+        result['excerpts'] = [slice_record(source, start, end) for start, end in ranges]
+        result['current_payload_source_refs'] = [row['ref'] for row in result['excerpts']]
+        result['m6']['a_paragraphs'] = agent._visible_paragraphs(result)
+        return result
+
+    def test_clipped_paragraphs_are_searchable_with_exact_raw_provenance(self):
         with TemporaryDirectory() as temp:
             agent, body = self.prepared_payload(temp)
-            a = next(row for row in body["excerpts"] if row["case_id"] == self.query_id)
-            # This clipped source ends inside p-second, so neither paragraph is fully present.
             start = self.paragraph_spans[0][0] + 2
             end = self.paragraph_spans[1][1] - 3
-            clipped = slice_record(a, start, end)
-            clipped_body = deepcopy(body)
-            clipped_body["excerpts"] = [clipped if row["ref"] == a["ref"] else row
-                                         for row in body["excerpts"]]
-            clipped_body["current_payload_source_refs"] = [row["ref"] for row in clipped_body["excerpts"]]
-            clipped_body["m6"]["a_paragraphs"] = agent._visible_paragraphs(clipped_body)
-            self.assertEqual(clipped_body["m6"]["a_paragraphs"], {})
-            names = {row["name"] for row in catalog(clipped_body)[0]}
-            self.assertNotIn("search_cases_by_issue", names)
+            clipped = self.clipped_body(agent, body, [(start, end)])
+            self.assertEqual(len(clipped['m6']['a_paragraphs']), 2)
+            self.assertIn('search_cases_by_issue', {row['name'] for row in catalog(clipped)[0]})
+            raw = self.text.encode('utf-8')
+            for handle, row in clipped['m6']['a_paragraphs'].items():
+                need = translate(clipped, self.search_action(None, handle))['args']['_m6_need']
+                left, right = row['span_bytes']
+                self.assertEqual(row['paragraph_coverage'], 'partial')
+                self.assertEqual(row['text_sha256'], sha256(raw[left:right]).hexdigest())
+                self.assertEqual(need['a_paragraph'], {'handle': handle, **row})
+                self.assertEqual(need['a_sources'][0]['span_bytes'], row['span_bytes'])
+
+    def test_beginning_middle_and_end_utf8_fragments(self):
+        with TemporaryDirectory() as temp:
+            agent, body = self.prepared_payload(temp)
+            start, end = self.paragraph_spans[1]
+            middle = start + len('Deuxième règle: '.encode('utf-8'))
+            for left, right in ((start, middle), (middle, end - 3), (middle, end)):
+                with self.subTest(span=(left, right)):
+                    clipped = self.clipped_body(agent, body, [(left, right)])
+                    handle = f'p-second@{left}:{right}'
+                    self.assertEqual(set(clipped['m6']['a_paragraphs']), {handle})
+                    row = clipped['m6']['a_paragraphs'][handle]
+                    self.assertEqual(row['paragraph_span_bytes'], list(self.paragraph_spans[1]))
+                    self.assertEqual(row['paragraph_handle'], 'p-second')
+                    self.assertEqual(row['preview'], self.text.encode('utf-8')[left:right].decode('utf-8'))
+                    translate(clipped, self.search_action(None, handle))
+
+    def test_disjoint_or_overlapping_pieces_never_stitched_and_order_is_stable(self):
+        with TemporaryDirectory() as temp:
+            agent, body = self.prepared_payload(temp)
+            start, end = self.paragraph_spans[1]
+            a = start + len('Deuxième règle: '.encode('utf-8'))
+            b = a + len('notice and '.encode('utf-8'))
+            for spans in ([(start, a), (b, end)], [(start, b), (a, end)]):
+                one = self.clipped_body(agent, body, spans)
+                two = self.clipped_body(agent, body, list(reversed(spans)))
+                self.assertEqual(one['m6']['a_paragraphs'], two['m6']['a_paragraphs'])
+                self.assertEqual(len(one['m6']['a_paragraphs']), 2)
+                self.assertNotIn('p-second', one['m6']['a_paragraphs'])
+                self.assertEqual(fingerprint(catalog(one)[1]), fingerprint(catalog(two)[1]))
+                for handle in one['m6']['a_paragraphs']:
+                    self.assertEqual(translate(one, self.search_action(None, handle)),
+                                     translate(two, self.search_action(None, handle)))
+
+    def test_full_precedence_and_duplicate_contained_piece_dedup(self):
+        with TemporaryDirectory() as temp:
+            agent, body = self.prepared_payload(temp)
+            start, end = self.paragraph_spans[1]
+            middle = start + len('Deuxième règle: '.encode('utf-8'))
+            ranges = [(start, end), (middle, end), (start, middle), (start, end)]
+            clipped = self.clipped_body(agent, body, ranges)
+            self.assertEqual(set(clipped['m6']['a_paragraphs']), {'p-second'})
+            self.assertEqual(clipped['m6']['a_paragraphs']['p-second']['paragraph_coverage'], 'full')
+            # Distinct raw excerpts cover the same prefix intersection; narrowest wins.
+            ranges = [(0, middle), (start, middle), (start + len('Deuxième '.encode('utf-8')), middle)]
+            one = self.clipped_body(agent, body, ranges)
+            two = self.clipped_body(agent, body, list(reversed(ranges)))
+            self.assertEqual(one['m6']['a_paragraphs'], two['m6']['a_paragraphs'])
+            partial = one['m6']['a_paragraphs'][f'p-second@{start}:{middle}']
+            narrow = next(row for row in one['excerpts'] if tuple(row['span_bytes']) == (start, middle))
+            self.assertEqual(partial['source_ref'], narrow['ref'])
+
+    def test_stale_foreign_and_empty_raw_do_not_offer_search(self):
+        with TemporaryDirectory() as temp:
+            agent, body = self.prepared_payload(temp)
+            original = next(row for row in body['excerpts'] if row['case_id'] == self.query_id)
+            for mode in ('stale', 'foreign_case', 'foreign_source', 'no_raw'):
+                clipped = deepcopy(body)
+                if mode == 'stale': clipped['current_payload_source_refs'] = []
+                if mode == 'no_raw': clipped['excerpts'] = []
+                if mode.startswith('foreign'):
+                    row = deepcopy(original)
+                    row['case_id' if mode == 'foreign_case' else 'source_hash'] = '000099.txt' if mode == 'foreign_case' else 'f' * 64
+                    clipped['excerpts'] = [row]
+                clipped['m6']['a_paragraphs'] = agent._visible_paragraphs(clipped)
+                self.assertEqual(clipped['m6']['a_paragraphs'], {}, mode)
+                self.assertNotIn('search_cases_by_issue', {row['name'] for row in catalog(clipped)[0]})
+
+    def test_tampered_hash_span_coverage_and_current_ref_rejected(self):
+        with TemporaryDirectory() as temp:
+            agent, body = self.prepared_payload(temp)
+            start, end = self.paragraph_spans[1]
+            start += len('Deuxième règle: '.encode('utf-8'))
+            clipped = self.clipped_body(agent, body, [(start, end)])
+            handle = next(iter(clipped['m6']['a_paragraphs']))
+            for mutation in ('hash', 'span', 'coverage', 'original', 'stale', 'foreign'):
+                modified = deepcopy(clipped)
+                row = modified['m6']['a_paragraphs'][handle]
+                if mutation == 'hash': row['text_sha256'] = '0' * 64
+                if mutation == 'span': row['span_bytes'] = [start + 1, end]
+                if mutation == 'coverage': row['paragraph_coverage'] = 'full'
+                if mutation == 'original': row['paragraph_span_bytes'] = [end, end + 5]
+                if mutation == 'stale': modified['current_payload_source_refs'] = []
+                if mutation == 'foreign': row['source_hash'] = 'f' * 64
+                with self.subTest(mutation=mutation), self.assertRaises(ToolSemanticError):
+                    translate(modified, self.search_action(None, handle))
+
+    def test_partial_need_pairs_only_actual_fragment_with_new_b(self):
+        with TemporaryDirectory() as temp:
+            agent, body = self.prepared_payload(temp)
+            start, end = self.paragraph_spans[1]
+            clipped = self.clipped_body(agent, body, [(0, end - 3)])
+            handle = f'p-second@{start}:{end - 3}'
+            need = translate(clipped, self.search_action(None, handle))['args']['_m6_need']
+            # The source ref may still identify a wider excerpt; pairing must slice
+            # to the exact search fragment, preserving neither unseen prefix nor tail.
+            clipped_source = clipped['excerpts'][0]
+            b_raw = b'The notice requirement applies.'
+            b = SourceExcerpt('000002.txt', sha256(b_raw).hexdigest(), (0, len(b_raw)),
+                              b_raw.decode(), sha256(b_raw).hexdigest()).to_record()
+            state = RunState()
+            state.full_query_considered = True
+            state.initial_result = {'observation': {}}
+            state.pending = [b['ref']]
+            state.catalog = {clipped_source['ref']: clipped_source, b['ref']: b}
+            state.delivered = {clipped_source['ref']}
+            state.candidates = {'000002.txt': None}
+            state.observation = {'case_id': '000002.txt', 'm6_opened_candidate': '000002.txt'}
+            event = {'kind': 'action_result', 'action_id': 'fixture-action', 'status': 'success',
+                     'result': {'observation': {'m6_source_need': need, 'hits': [{'case_id': '000002.txt'}]},
+                                'candidates': ['000002.txt']}}
+            started = {'kind': 'action_started', 'action_id': 'fixture-action',
+                       'action': {'action': 'search_corpus', 'args': {}}}
+            with patch.object(agent, 'events', return_value=[started, event]):
+                paired = agent._fit_opened_pair(state, 18000)
+            self.assertIsNotNone(paired)
+            delivered = json.loads(paired[0])
+            raw_a = next(row for row in delivered['excerpts'] if row['case_id'] == self.query_id)
+            self.assertEqual(raw_a['span_bytes'], [start, end - 3])
+            self.assertEqual(raw_a['text'], self.text.encode('utf-8')[start:end - 3].decode('utf-8'))
+            self.assertEqual(delivered['m6']['a_paragraphs'][handle]['paragraph_coverage'], 'partial')
+            self.assertIn('assess_case_link', {row['name'] for row in delivered['available_tools']})
+            self.assertEqual(VERSION, 'm6-adaptive-purpose-v8')
 
 
 if __name__ == "__main__":

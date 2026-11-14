@@ -1,5 +1,129 @@
 # M6: điều phối thích ứng trên M4
 
+## RT3: bản đồ cấu trúc phân cấp của A (opt-in)
+
+Profile mới có thể khai báo đầy đủ:
+
+```json
+"query_navigation": {
+  "mode": "hierarchical",
+  "max_children": 6,
+  "leaf_bytes": 1024,
+  "map_max_tokens": 2400,
+  "snippet_chars": 96
+}
+```
+
+Không có trường này thì giữ cách đọc bản đồ phẳng. Adapter
+`HierarchicalM3Tools` trong `query_navigation.py` dùng raw/navigation/headings đã
+khóa của M3; không thay source reader, chỉ mục, model hay ngân sách. Policy v8
+bind config, source/case, cấu trúc và module mới; dùng namespace mới, không resume
+run khóa bằng phiên bản cũ.
+
+Map slot ban đầu đề xuất 1.600 token không giữ được literal preview cho mọi child
+trong kiểm tra tokenizer thật: chỉ metadata span/hash đã vượt slot khi giữ sáu
+child. Main điều chỉnh riêng slot bản đồ lên 2.400 token trong RT3. Tổng payload
+vẫn tối đa 7.400, output/request/embedding caps giữ nguyên; đây không phải tăng
+ngân sách tổng hoặc thay topology để che lỗi.
+
+Cây interval lazy phủ `[0, len(raw))`, kể cả heading, khoảng trống và đuôi án không
+có paragraph. Mỗi nút có tối đa `max_children`; ưu tiên ranh giới cấu trúc gần điểm
+chia cân bằng, còn paragraph rất dài chia tại ranh giới UTF-8. Leaf hữu hạn theo
+`leaf_bytes`. Ref vùng opaque chứa tree binding và đường đi tất định, có thể resolve
+trên tiến trình mới, từ chối source/config/case khác hoặc đường dẫn không tồn tại.
+Mỗi vùng ghi byte length, số paragraph giao vùng và số paragraph chỉ phủ một
+phần; đây là thống kê cấu trúc theo spans, không phải nhãn nội dung.
+
+Root map hiện toàn A. `expand_query_map(map_ref)` mở cấp nhỏ hơn hoặc quay lại
+parent/root; từ parent có thể chọn sibling. `read_query_passages(query_ref)` đọc
+raw ở current node hoặc child ngay ở bất kỳ cấp nào, không bắt buộc xuống leaf.
+Host chuyển ref thành `hit_spans` cho M3; byte cap và continuation hiện hành giữ
+nguyên. M3 có thể trả thêm context theo contract nguồn; coverage tính theo bytes
+thực sự giao, không tự coi toàn vùng đã đọc. A ngắn vẫn được giao toàn văn nếu
+vừa payload; hierarchical mode không ép seed paragraph như đường cũ.
+
+Map chỉ dùng nhãn trung tính, heading có thật và snippets nguyên văn với raw
+spans/hash. Thử ba vị trí đầu/giữa/cuối nếu vừa slot; khi cần dùng một literal
+giữa vùng cho mỗi child. Nút trong không lặp snippets của chính nó cạnh snippets
+các child. Trang leaf giữ literal của current node. Không tạo nhãn ngữ nghĩa,
+tóm tắt model hay trích citation từ map.
+Một trang phải vừa `map_max_tokens` theo counter thật của transport, gồm fixed
+instructions/chat template trong minimal payload. Khi cần, giảm số/độ dài snippets
+và headings, không bỏ child hoặc tạo lỗ coverage. Mọi child (hoặc current leaf)
+phải còn literal không rỗng; `snippet_chars=0` bị từ chối. Nếu metadata và literal
+tối thiểu vẫn không vừa thì báo unfit, không trả map chỉ có refs. Harness kiểm
+tiếp toàn prompt/catalog/schema/raw với payload cap hiện hành; các route map/read
+của mọi child được giữ khi trim. Khi có raw A, map dùng một literal tối đa 24 ký
+tự mỗi child; dưới áp lực toàn payload có thể thu ngắn thêm nhưng không về rỗng,
+để phần raw và tool tìm từ paragraph partial còn vào được lượt tiếp theo.
+
+Registry chỉ giữ current map, current children và route parent/root thay cho tích
+lũy mọi map từng mở. `map_opened` là tool đã mở bản đồ; `map_seen`/`preview_seen`
+chỉ ghi sau request receipt xác nhận phản hồi đã về cho payload đó. `raw_read`
+là unread/partial/full theo union raw spans trong các payload đã nhận response;
+`raw_offered` là none/partial/full của payload đang chuẩn bị. Vì vậy raw vừa mở
+nhưng chưa có lượt model tiếp theo vẫn chưa được tính đã đọc. Có thêm cờ
+`preview_currently_offered`, `search_used` và totals hữu hạn; đã thấy map không
+đồng nghĩa đã đọc/hiểu A. State được dựng lại từ ledger, không cần cache trong RAM.
+Để tránh lặp metadata, page giữ `status_defaults`; status hiệu lực của một nút là
+defaults cộng `node.status` (các field khác mặc định). Cờ preview đang offer ở cấp
+page không được tính thành raw read hoặc seen trước receipt.
+
+Host gắn visit epoch vào binding nội bộ, không thêm tham số model, cho phép quay
+lại một vùng cũ mà không mắc duplicate-action. Epoch không được tính là tiến bộ:
+map lặp vẫn chịu no-progress cap. Model chỉ được dùng refs của payload/schema
+hiện tại; bản đồ/snippets không cấp raw ref để search hoặc assessment.
+
+```powershell
+& .venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m6_query_navigation -v
+```
+
+Fixture và replay scripted chỉ xác nhận engineering contract. RT3 chưa chứng minh
+model chọn vùng tốt hơn hoặc tăng recall; chưa thêm debug proposition, đổi output/
+embedding caps hay hướng dẫn tạo query của các mốc sau.
+
+## RT1: lưu kết quả từng kênh ngoài payload (14/11/2026)
+
+Hybrid adapter v3 lưu nguyên response M3 thành JSON write-once tại
+`<run_dir>/retrieval_diagnostics/<operation_sha256>.json`. Envelope giữ query UTF-8
+thực sự gửi, hash, query case, limit, action ID, operation ID, M3 request ID và runtime
+bindings. `result` giữ mọi channel list, ranks/scores/leads, fused hits, coverage,
+timings và query-vector provenance đã trả về, kể cả án ngoài top K giao cho M6.
+“Đầy đủ” chỉ bao gồm dữ liệu runtime trả theo các cap hiện hành.
+
+Journal embedding ghi path tương đối/hash/bindings trong `search_returned`, không
+đưa các channel lists này vào observation hoặc payload model. Liên kết `action_id`
+tới `action_started` trong ledger M6 cho biết query và `args._m6_need` cùng nguồn A
+làm căn cứ. RT1 không thêm trường mệnh đề debug, không đổi prompt/schema, caps,
+thứ tự/candidate pool hoặc gọi thêm retrieval/embedding.
+
+Nếu lưu local thất bại, retrieval hợp lệ vẫn được trả; receipt ghi
+`diagnostic_status=missing` cùng `diagnostic_error_type`. File có sẵn không được
+ghi đè hoặc tái dùng. Usage embedding giữ theo ledger hiện hành; thiếu diagnostic
+không được coi là 0 usage. Lỗi journal làm mất khả năng ghi receipt vẫn là lỗi
+durability hiện hành, không cho phép tự gửi lại action đã admission.
+
+Nếu retrieval lỗi trước khi trả response hoàn chỉnh, diagnostic là `unavailable`.
+M3 kế thừa chưa cung cấp các channel trung gian khi dense/embedding lỗi; vì vậy
+partial channel results là unknown, không tạo danh sách rỗng hoặc receipt partial
+giả. Nếu bị ngắt sau khi lưu file nhưng trước receipt, file mồ côi không tự được
+nghiệm thu hoặc dùng để replay; action đã admission vẫn chặn gửi lại.
+
+Kiểm tra read-only (không inference, không gold):
+
+```powershell
+& .venv/Scripts/python.exe -m pipeline_v2.retrieval_diagnostics --run-dir <run_dir>
+& .venv/Scripts/python.exe -m unittest pipeline_v2.tests.test_m6_retrieval_diagnostics pipeline_v2.tests.test_m6_hybrid -v
+```
+
+Verifier kiểm containment/path, hash bytes, operation fingerprint, action/query/
+request links và bindings với admission/receipt. Nó phát hiện file thiếu/hỏng;
+không xác thực lại toàn snapshot M3, không chấm recall hoặc độ đúng semantic.
+Run cũ không có diagnostic vẫn được báo `legacy_unavailable`; không tạo evidence
+hồi tố. `diagnostic_save_seconds` tách chi phí ghi local khỏi inference; elapsed
+toàn lượt tìm hiện bao gồm phần ghi này. Binding code v3 có module diagnostic mới,
+vì vậy dùng run namespace mới thay vì resume run đã khóa bằng phiên bản trước.
+
 `AdaptiveHarness` trong `pipeline_v2/m6.py` dùng lại admission, append-only ledger, token accounting, recovery, source verifier và assessment validator M4. M6 không sửa M4/M5 hay snapshot đã seal. Chưa có selector được hiệu chỉnh: mặc định đầu ra `selection_status=pending_selection`, `prediction=null`.
 
 ## Tool theo mục đích
@@ -21,7 +145,31 @@ Model nhận `available_tools` cùng JSON Schema chỉ chứa các nhánh hợp 
 
 Đặt `adaptive_config.channel=hybrid` để dùng trực tiếp M3 hybrid. Mỗi issue mới được gửi qua query embedding Qwen V2 đã khóa. M3 chạy case BM25, passage BM25 và dense exact trên Qdrant, rồi xếp hạng theo RRF với `k=60`. Giữ trần M3 là 100 án mỗi kênh, 4.096 dense hits và tối đa 20 án sau fusion. Host giữ điểm RRF, thứ hạng từng kênh, coverage và passage refs để đọc nguồn.
 
-Schema v3 yêu cầu `search_cases_by_issue(issue, a_paragraph_ref)`. `m6.a_paragraphs` gắn handle đoạn M2 với preview, khoảng byte, source hash và ref của raw excerpt chứa đoạn. Khi giao toàn văn, một raw excerpt có thể cấp nhiều handle. Khi giao một trang nguồn, chỉ cấp handle cho đoạn nằm đầy đủ trong một raw excerpt hiện tại. Nếu thiếu đoạn nguyên vẹn, model có thể mở thêm nguồn hoặc tra citation có sẵn. Host kiểm lại ref và hash đoạn trước khi tìm, ghi `a_paragraph` vào action và source need. Cụm `issue` vẫn là input retrieval. Handle cho biết đoạn model chọn làm căn cứ.
+`search_cases_by_issue(issue, a_paragraph_ref)` giữ nguyên hai trường model chọn.
+`m6.a_paragraphs` gắn ref với phần raw A hiện có, preview, khoảng byte, source hash
+và source excerpt. Host kiểm ref và hash trước khi tìm; `issue` tiếp tục là query.
+
+RT2 ngày 14/11/2026 (policy v7) cho phép cả phần paragraph bị cắt làm căn cứ tìm.
+Quy tắc cũ chỉ cấp handle khi toàn paragraph nằm trong một raw excerpt được thay
+bằng giao không rỗng giữa paragraph M2 và từng excerpt A thuộc
+`current_payload_source_refs`, đúng query ID và source hash. Không có raw A hiện
+tại thì không cấp ref tìm theo issue. Preview bản đồ vẫn chỉ là điều hướng.
+
+Paragraph đầy đủ giữ handle gốc; phần bị cắt dùng `<handle-gốc>@<start>:<end>`.
+Mỗi row có `span_bytes`, `source_ref`, `text_sha256` và preview của đúng phần raw
+đó; đồng thời giữ `paragraph_handle`, `paragraph_span_bytes` gốc và
+`paragraph_coverage=full|partial`. Source need `a_paragraph` giữ nguyên các field
+này để debug và chọn lại đúng phần A bên cạnh B. Ref partial không chứng minh đã
+đọc toàn paragraph hoặc đủ ngữ cảnh; model có thể tìm ngay hoặc mở thêm theo nhu cầu.
+
+Các phần rời/overlap không chứa nhau vẫn là lựa chọn riêng, không ghép bytes từ
+nhiều excerpt. Phần trùng hoặc nằm trọn trong một phần hiện có được bỏ; nếu có
+toàn paragraph thì không cấp partial dư thừa. Khi nhiều excerpt cấp cùng một
+phần, ưu tiên excerpt ngắn hơn rồi span/ref ổn định, không phụ thuộc thứ tự payload.
+Validator kiểm coverage/handle/span gốc nhất quán và tiếp tục kiểm hash phần raw
+hiện tại. Chưa thêm mệnh đề debug, bản đồ phân cấp hoặc thay ngân sách trong RT2;
+chưa có bằng chứng live rằng đổi hợp đồng này tăng recall. Dùng run namespace
+mới vì code/policy binding đã đổi; không resume run khóa dưới v6.
 
 Schema v4 bỏ regex `\S` khỏi các trường văn bản tự do M6 để tránh lỗi chuyển JSON Schema sang grammar. `issue` và `focus` cần ít nhất bốn ký tự và hai từ sau trim. Host từ chối lý do, finding hoặc mô tả bằng chứng thiếu nếu chỉ gồm khoảng trắng. Rà soát các schema decoder của M4 và M5 cho thấy các trường văn bản ở đó dùng giới hạn độ dài và không dùng regex này.
 

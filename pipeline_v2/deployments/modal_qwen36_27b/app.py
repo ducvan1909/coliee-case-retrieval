@@ -14,7 +14,8 @@ VLLM_VERSION = "0.19.1"
 VLLM_IMAGE = (
     "vllm/vllm-openai@sha256:89c1d0629d377daa3f7f369cbea6167a7b48ea89aaacd12555e2b0b2f7f740d3"
 )
-MAX_CONTEXT_TOKENS = 8192
+# 8,500 input tokens plus up to 512 output tokens, with headroom.
+MAX_CONTEXT_TOKENS = 12288
 MAX_OUTPUT_TOKENS = 512
 HF_HOME = "/models/huggingface"
 

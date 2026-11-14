@@ -6,7 +6,7 @@ from .contracts import HarnessError, ModelReply, TransportError, encode, fingerp
 from .schema import ResponseSchemaError, parse_model_response, CASE_RELATIONS, PASSAGE_LOCATIONS, assessment_schema
 from .evidence import slice_record
 
-VERSION = 'm6-adaptive-purpose-v6'
+VERSION = 'm6-adaptive-purpose-v8'
 ISSUE_SCHEMA = {'type': 'string', 'minLength': 4, 'maxLength': 160}
 # Conservative observations only: this is neither citation resolution nor semantic extraction.
 CITATION_PATTERN = re.compile(r'\b\d{4}\s+(?:SCC|FCA|FC|CanLII)\s+\d+\b|\[\d{4}\]\s+\d+\s+S\.?C\.?R\.?\s+\d+', re.IGNORECASE)
@@ -87,9 +87,9 @@ def catalog(body):
         add('search_cases_by_issue', {'issue': dict(ISSUE_SCHEMA),
                                       'a_paragraph_ref': choice(paragraphs)},
             'Find candidate cases for a legal issue grounded in the current raw A excerpts.',
-            'Use for an issue or proposition; use find_citation_matches for an observed citation.',
+            'Use a full or partial paragraph currently shown as raw A. Partial coverage is enough to search; read more context when needed. Use find_citation_matches for an observed citation.',
             'Ranked leads and previews, not evidence. Host fixes channels and limits.',
-            ['Choose an a_paragraph_ref from m6.a_paragraphs and write a short issue grounded in that paragraph.',
+            ['Choose an a_paragraph_ref from m6.a_paragraphs and ground the issue in its visible raw span. A partial ref does not mean the whole paragraph was read.',
              'Wrong: t, a single word, or an invented case ID.'])
     citation_rows = citations(body)
     if citation_rows:
@@ -114,10 +114,19 @@ def catalog(body):
             'Full parent and source-order neighbors under the M3 page cap, with provenance and pending coverage.',
             ['Good: choose a candidate ref and focus on whether the court adopted the quoted test.',
              'Wrong: supply a case ID, retrieval channel, top_k or arbitrary open handle.'])
+    if state.get('query_maps'):
+        add('expand_query_map', {'map_ref': choice(state['query_maps'])},
+            'Expand a structural map of A, or return to its parent/root.',
+            'Choose a current map option to inspect smaller regions or navigate back. Map snippets are previews only.',
+            'A bounded structural map; no raw evidence is delivered by this action.',
+            ['Read raw at any level with read_query_passages; reaching a leaf is not required.'])
     if state['query_targets']:
+        hierarchical = 'query_navigation' in state
         add('read_query_passages', {'query_ref': choice(state['query_targets'])},
+            'Read raw query A at the current region or a child, at any tree level.' if hierarchical else
             'Read another observed region of query A or another map page.',
             'Use when A context is missing; query previews are navigation only.',
+            'Raw A text with bounded continuation; use expand_query_map for maps.' if hierarchical else
             'Raw A text or the next bounded navigation page.', ['Choose a ref listed in query_targets.'])
     if state['expansions']:
         add('read_more_context', {'context_ref': choice(state['expansions'])},
@@ -193,6 +202,17 @@ def translate(body, action):
         handle = args['a_paragraph_ref']
         paragraph = state['a_paragraphs'][handle]
         start, end = paragraph['span_bytes']
+        original = paragraph.get('paragraph_span_bytes')
+        paragraph_handle = paragraph.get('paragraph_handle')
+        if (not isinstance(original, (tuple, list)) or len(original) != 2
+                or any(type(offset) is not int or offset < 0 for offset in original)
+                or not original[0] <= start < end <= original[1]
+                or not isinstance(paragraph_handle, str) or not paragraph_handle):
+            raise ToolSemanticError('paragraph_coverage_metadata_mismatch')
+        full = (start, end) == tuple(original)
+        expected_handle = paragraph_handle if full else f'{paragraph_handle}@{start}:{end}'
+        if paragraph.get('paragraph_coverage') != ('full' if full else 'partial') or handle != expected_handle:
+            raise ToolSemanticError('paragraph_coverage_metadata_mismatch')
         source = next((row for row in body['excerpts'] if row['ref'] == paragraph['source_ref']
                        and row['ref'] in body['current_payload_source_refs']
                        and row['case_id'] == paragraph['case_id'] == body['query_id']
@@ -201,8 +221,7 @@ def translate(body, action):
         if source is None or slice_record(source, start, end)['text_sha256'] != paragraph['text_sha256']:
             raise ToolSemanticError('paragraph_not_in_current_query_evidence')
         need = {'a_refs': [paragraph['source_ref']], 'intent': issue, 'route': 'issue',
-                'a_paragraph': {'handle': handle, **{key: paragraph[key] for key in
-                                ('case_id', 'source_hash', 'span_bytes', 'source_ref', 'text_sha256')}},
+                'a_paragraph': {'handle': handle, **paragraph},
                 'a_sources': [{key: paragraph[key] for key in ('case_id', 'source_hash', 'span_bytes')}]}
         need['source_need_id'] = 'need-' + fingerprint(need)[:24]
         return {'action': 'search_corpus', 'args': {'text': issue, 'channel': state['channel'], 'limit': state['search_limit'], '_m6_need': need}}
@@ -220,6 +239,8 @@ def translate(body, action):
         if len(focus) < 4 or len(re.findall(r'[^\W_]+', focus)) < 2:
             raise ToolSemanticError('focus_requires_legal_phrase')
         return {'action': 'open_source', 'args': {'m6_candidate': row, 'focus': focus}}
+    if name == 'expand_query_map':
+        return {'action': 'open_query', 'args': state['query_maps'][args['map_ref']]['binding']}
     if name == 'read_query_passages':
         return {'action': 'open_query', 'args': state['query_targets'][args['query_ref']]['binding']}
     if name == 'read_more_context':

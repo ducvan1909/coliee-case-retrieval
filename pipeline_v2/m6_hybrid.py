@@ -18,8 +18,9 @@ from .full_corpus.storage import FullQdrant
 from .full_search.hybrid import RUNTIME_DIR, POLICY, CHANNEL_BUDGET, DENSE_CAP, RRF_K, OUTPUT_CAP
 from .m4 import _lead
 from .sparse_bm25.index import SparseHybridSession
+from .retrieval_diagnostics import capture as capture_diagnostic
 
-VERSION = 'm6-live-hybrid-v2'
+VERSION = 'm6-live-hybrid-v3'
 CHANNELS = ('case_bm25', 'passage_bm25', 'dense_passage')
 # Qdrant exact search requires a server-side duration. Keep a long safety
 # limit on the server and no read deadline on the HTTP client.
@@ -100,7 +101,7 @@ class EmbeddingBudget:
 
 def implementation_binding():
     root = Path(__file__).resolve().parents[1]
-    names = ('pipeline_v2/m6_hybrid.py', 'pipeline_v2/full_search/hybrid.py',
+    names = ('pipeline_v2/m6_hybrid.py', 'pipeline_v2/retrieval_diagnostics.py', 'pipeline_v2/full_search/hybrid.py',
              'pipeline_v2/sparse_bm25/index.py', 'pipeline_v2/optimization_v2/runtime.py',
              'pipeline_v2/configs/qwen3_embedding_4b_tokenizer.lock.json')
     return {'version': VERSION, 'files': {name: sha256((root / name).read_bytes()).hexdigest() for name in names},
@@ -308,12 +309,40 @@ class HybridSearch:
             cases = [hit['case_id'] for hit in result['hits']]
             if query_case in cases or len(cases) != len(set(cases)):
                 raise HarnessError('Hybrid response contains query case or duplicate cases')
-            self.journal.append('search_returned', operation=operation, status='success',
-                                m3_request_id=result.get('request_id'), elapsed_seconds=perf_counter()-started)
+            diagnostic_started = perf_counter()
+            try:
+                diagnostic = capture_diagnostic(
+                    self.journal.directory, operation=operation, action_id=action_id,
+                    query=query, query_case=query_case, limit=limit, result=result)
+            except Exception as exc:
+                # A valid result and its provider usage survive local diagnostic failure.
+                # Do not retry retrieval or reuse an existing/partial capture.
+                diagnostic = {'diagnostic_status': 'missing', 'diagnostic_error_type': type(exc).__name__,
+                              'diagnostic_save_seconds': perf_counter() - diagnostic_started}
+            receipt = dict(operation=operation, status='success', action_id=action_id,
+                           query_sha256=sha256(query.encode('utf-8')).hexdigest(), query_case=query_case, limit=limit,
+                           m3_request_id=result.get('request_id'), elapsed_seconds=perf_counter()-started, **diagnostic)
+            try:
+                self.journal.append('search_returned', **receipt)
+            except Exception as exc:
+                # A link failure is not a retrieval failure. If commit succeeded
+                # before an exception, recognize the exact receipt rather than
+                # appending a duplicate terminal event. Otherwise record missing
+                # diagnostic evidence through a fresh success receipt if possible.
+                committed = {'kind': 'search_returned', **receipt} in self.journal.events()
+                if not committed:
+                    missing = {key: value for key, value in receipt.items() if not key.startswith('diagnostic_')}
+                    self.journal.append('search_returned', **missing, diagnostic_status='missing',
+                                        diagnostic_error_type=type(exc).__name__,
+                                        diagnostic_reason='Diagnostic journal link failed; saved artifact, if any, is unverified',
+                                        diagnostic_save_seconds=perf_counter() - diagnostic_started)
             return result
         except Exception as exc:
             status = 'budget' if isinstance(exc, EmbeddingBudgetExceeded) else 'error'
             self.journal.append('search_returned', operation=operation, status=status, error_type=type(exc).__name__,
+                                action_id=action_id, query_sha256=sha256(query.encode('utf-8')).hexdigest(),
+                                query_case=query_case, limit=limit, diagnostic_status='unavailable',
+                                diagnostic_reason='No complete validated hybrid response; partial channel results unknown',
                                 m3_request_id=getattr(self.session, 'last_request_id', None),
                                 elapsed_seconds=perf_counter()-started, **_http_failure(exc))
             raise

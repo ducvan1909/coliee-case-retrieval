@@ -151,6 +151,7 @@ class ModalQwenTransport:
         self.prompt_fingerprint = fingerprint({
             "instructions": instructions, "payload_header": PAYLOAD_HEADER,
             "message_role": "user", "add_generation_prompt": True,
+            "max_context_tokens": MAX_CONTEXT_TOKENS, "max_output_tokens": MAX_OUTPUT_TOKENS,
         })
 
     def _request(self, payload):

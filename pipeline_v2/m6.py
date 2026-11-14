@@ -80,7 +80,8 @@ class AdaptiveHarness(AgentHarness):
         bridge = AdaptiveTransport(transport, counter)
         if initial_observation is None:
             initial_observation, query_excerpt = m3_tools.query_start()
-        if isinstance(initial_observation, ToolResult) and query_excerpt is not None:
+        if (isinstance(initial_observation, ToolResult) and query_excerpt is not None
+                and not hasattr(m3_tools, 'query_tree')):
             initial_observation = self._seed_query_paragraph(initial_observation, query_excerpt)
         actions = {'search_corpus': self._issue_search, 'search_identity': self._identity_search,
                    'open_source': self._read_candidate, 'expand_source': m3_tools.expand_source,
@@ -324,7 +325,11 @@ class AdaptiveHarness(AgentHarness):
         audit = sorted({row['candidate_id'] for row in active} - set(triggers))[:self.adaptive_config.audit_untriggered]
         triggers.update({case: 'untriggered_audit' for case in audit})
         hybrid_budget = self.hybrid_search.remaining() if self.hybrid_search is not None else None
-        return {**asdict(self.adaptive_config), 'candidates': candidates, 'query_targets': query_targets,
+        hierarchical = {}
+        if hasattr(self.m3, 'query_tree'):
+            page, maps, query_targets = self.m3.registry(events, state, payload)
+            hierarchical = {'query_navigation': page, 'query_maps': maps}
+        return {**asdict(self.adaptive_config), **hierarchical, 'candidates': candidates, 'query_targets': query_targets,
                 'a_paragraphs': self._visible_paragraphs(payload),
                 'hybrid_budget_remaining': hybrid_budget,
                 'search_completed': bool(used.keys() & {'search_corpus', 'search_identity'}),
@@ -334,20 +339,36 @@ class AdaptiveHarness(AgentHarness):
 
     def _visible_paragraphs(self, payload):
         rows = [row for row in payload['excerpts']
-                if row['case_id'] == self.identity.query_id and row['source_hash'] == self.identity.query_source_hash]
+                if row['ref'] in payload['current_payload_source_refs']
+                and row['case_id'] == self.identity.query_id and row['source_hash'] == self.identity.query_source_hash]
+        # Prefer the narrowest containing excerpt, then a stable ref. Choice must
+        # not depend on the order overlapping/reloaded excerpts reached a payload.
+        rows.sort(key=lambda row: (row['span_bytes'][1] - row['span_bytes'][0],
+                                   tuple(row['span_bytes']), row['ref']))
         anchors = {}
-        for paragraph in self.query_paragraphs:
+        for paragraph in sorted(self.query_paragraphs, key=lambda row: (tuple(row['span_bytes']), row['handle'])):
             start, end = paragraph['span_bytes']
-            excerpt = next((row for row in rows if row['span_bytes'][0] <= start
-                            and end <= row['span_bytes'][1]), None)
-            if excerpt is None:
-                continue
-            part = slice_record(excerpt, start, end)
-            anchors[paragraph['handle']] = {
-                'case_id': part['case_id'], 'source_hash': part['source_hash'],
-                'span_bytes': part['span_bytes'], 'source_ref': excerpt['ref'],
-                'text_sha256': part['text_sha256'], 'preview': part['text'][:100],
-            }
+            pieces = {}
+            for row in rows:
+                left, right = max(start, row['span_bytes'][0]), min(end, row['span_bytes'][1])
+                if left < right:
+                    pieces.setdefault((left, right), row)
+            for (left, right), excerpt in sorted(pieces.items()):
+                # Retain a maximal visible slice from one excerpt, never a union
+                # stitched across distinct excerpts or a gap in raw evidence.
+                if any(other_left <= left and right <= other_right and (left, right) != (other_left, other_right)
+                       for other_left, other_right in pieces):
+                    continue
+                part = slice_record(excerpt, left, right)
+                full = (left, right) == (start, end)
+                handle = paragraph['handle'] if full else f"{paragraph['handle']}@{left}:{right}"
+                anchors[handle] = {
+                    'case_id': part['case_id'], 'source_hash': part['source_hash'],
+                    'span_bytes': part['span_bytes'], 'source_ref': excerpt['ref'],
+                    'text_sha256': part['text_sha256'], 'preview': part['text'][:100],
+                    'paragraph_handle': paragraph['handle'], 'paragraph_span_bytes': [start, end],
+                    'paragraph_coverage': 'full' if full else 'partial',
+                }
         return anchors
 
     def _fit_payload(self, state, cap):
@@ -366,6 +387,11 @@ class AdaptiveHarness(AgentHarness):
                 body, _, consumed, remaining, rows = prepared
                 payload = json.loads(body)
                 payload['m6'] = self._registry(state, payload)
+                if hasattr(self.m3, 'query_tree'):
+                    # Current bounded map replaces old map observations; do not
+                    # duplicate previews or accumulate previously expanded pages.
+                    payload.pop('observation', None)
+                    payload['observation_omitted'] = bool(state.observation)
                 def render():
                     tools, schema, citation_rows, pairs = catalog(payload)
                     payload['m6'].update(schema_fingerprint=fingerprint(schema), citation_refs=citation_rows,
@@ -392,15 +418,27 @@ class AdaptiveHarness(AgentHarness):
                     # Retain actionable choices even after a read yielded no raw.
                     # Unshown handles remain available to later turns.
                     for field in ('expansions', 'query_targets', 'reloads', 'citation_search_pages'):
+                        if field == 'query_targets' and hasattr(self.m3, 'query_tree'):
+                            continue  # Never hide coverage/read routes to current children.
                         options = payload['m6'][field]
                         if len(options) <= 1:
                             continue
-                        key = next(reversed(options))
+                        continuations = ([key for key, option in options.items()
+                                          if option.get('description', {}).get('purpose') == 'continue_pending_raw_page']
+                                         if field == 'expansions' else [])
+                        key = continuations[-1] if field == 'expansions' and continuations else next(reversed(options))
                         payload['m6'][field] = {key: options[key]}
                         payload['m6'].setdefault('omitted_tool_options', {})[field] = len(options) - 1
                         exact, count = render()
                         if count <= cap:
                             break
+                if count > cap and hasattr(self.m3, 'query_tree'):
+                    while count > cap:
+                        page = self.m3.shrink_map_page(payload['m6']['query_navigation'])
+                        if page is None:
+                            break
+                        payload['m6']['query_navigation'] = page
+                        exact, count = render()
                 if count <= cap:
                     best = exact, count, consumed, remaining, rows
                     if inner_cap == cap or (not remaining and len(consumed) == len(state.pending)):
@@ -468,6 +506,8 @@ class AdaptiveHarness(AgentHarness):
             registry['fresh_evidence_candidate'] = b['case_id']
             payload['m6'] = registry
             for field in (None, 'expansions', 'query_targets', 'reloads', 'citation_search_pages'):
+                if field == 'query_targets' and hasattr(self.m3, 'query_tree'):
+                    continue
                 if field is not None and registry[field]:
                     registry.setdefault('omitted_tool_options', {})[field] = len(registry[field])
                     registry[field] = {}
@@ -479,6 +519,14 @@ class AdaptiveHarness(AgentHarness):
                 payload['available_tools'] = tools
                 exact = encode(payload)
                 count = self._count(exact)
+                if hasattr(self.m3, 'query_tree'):
+                    while count > cap:
+                        page = self.m3.shrink_map_page(registry['query_navigation'])
+                        if page is None:
+                            break
+                        registry['query_navigation'] = page
+                        exact = encode(payload)
+                        count = self._count(exact)
                 if count <= cap:
                     best = exact, count, consumed, remaining, rows
                     return True
@@ -512,12 +560,20 @@ class AdaptiveHarness(AgentHarness):
         for event in self.events():
             before = (len(replay.candidates), len(replay.catalog))
             replay.apply(event)
+            if event['kind'] == 'run_created':
+                initial = event['initial_result']['observation']
+                if initial.get('kind') == 'query_hierarchy_map':
+                    navigation_seen.add(fingerprint(['query_hierarchy_map', initial['tree_binding'],
+                                                     initial['current']['region_ref']]))
             if event['kind'] == 'action_result' and event.get('final') is None:
                 navigation = event.get('result', {}).get('observation', {}) if event.get('result') else {}
                 navigation_key = None
                 if navigation.get('kind') == 'query_map':
                     navigation_key = fingerprint(['query_map', navigation.get('offset'),
                                                   [item['handle'] for item in navigation.get('items', [])]])
+                elif navigation.get('kind') == 'query_hierarchy_map':
+                    navigation_key = fingerprint(['query_hierarchy_map', navigation['tree_binding'],
+                                                  navigation['current']['region_ref']])
                 elif navigation.get('tool') == 'search_identity':
                     navigation_key = fingerprint(['citation_scan', navigation.get('m6_source_need'),
                                                   navigation.get('coverage'), navigation.get('next_cursor')])
