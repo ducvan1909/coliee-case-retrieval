@@ -105,12 +105,14 @@ def _chain_matches(chain, quoted):
     return len(matched) == len(chain)
 
 
-def _speaker_evidence(speaker, evidence, query_id, candidate):
+def _speaker_evidence(speaker, evidence, query_id, candidate, *, validate_attribution=True):
     role = speaker["role"]
     quote_required = role == "quoted_source" or speaker.get("type") == "adopted_reasoning"
     speaker_refs, container_refs, chain_refs = ("speaker_evidence_refs", "container_refs", "quote_chain_refs")
     expected_case = query_id if speaker.get("side") == "A" else candidate
     _require_side(evidence, (speaker_refs, container_refs, chain_refs), expected_case)
+    if not validate_attribution:
+        return [], {"container_ids": [], "quoted_markers": []}
     missing = []
     if role != "unknown" and not evidence[speaker_refs]:
         missing.append(speaker_refs)
@@ -196,8 +198,13 @@ def validate_assessment_state(args, state, action_id):
         if context_refs and revised.setdefault(need, context_refs) != context_refs:
             raise AssessmentStateError("conflicting_a_context_for_one_need")
         speaker = raw.get("speaker", {"role": "unknown"})
-        missing, structure = _speaker_evidence(speaker, evidence, query_id, candidate)
-        missing.extend(name for name in REF_FIELDS[:2] if not evidence[name])
+        missing, structure = _speaker_evidence(
+            speaker, evidence, query_id, candidate,
+            validate_attribution=not state.config.get("m6", {}).get("model_attribution", False),
+        )
+        missing_raw = [name for name in REF_FIELDS[:2]
+                       if not any(row["text"].strip() for row in evidence[name])]
+        missing.extend(missing_raw)
         if raw.get("missing_evidence"):
             missing.append("reported_missing_evidence")
         row = {
@@ -208,7 +215,7 @@ def validate_assessment_state(args, state, action_id):
         if missing:
             pending.append({
                 **row, "status": "pending_evidence", "case_relation": "unknown",
-                "passage_location": raw["passage_location"] if refs["b_passage_refs"] else "unresolved",
+                "passage_location": "unresolved" if "b_passage_refs" in missing_raw else raw["passage_location"],
                 "missing_evidence": missing, "reported_missing_evidence": raw.get("missing_evidence"),
             })
             continue

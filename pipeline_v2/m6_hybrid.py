@@ -3,6 +3,7 @@ from dataclasses import asdict, dataclass
 from contextlib import closing, contextmanager
 from hashlib import sha256
 import json
+import math
 from pathlib import Path
 import sqlite3
 import sys
@@ -15,13 +16,14 @@ from requests import HTTPError
 from .agent_harness import ToolResult
 from .agent_harness.contracts import HarnessError, encode, fingerprint, source_hash
 from .full_corpus.storage import FullQdrant
-from .full_search.hybrid import RUNTIME_DIR, POLICY, CHANNEL_BUDGET, DENSE_CAP, RRF_K, OUTPUT_CAP
+from .full_search.hybrid import RUNTIME_DIR, POLICY, CHANNEL_BUDGET, DENSE_CAP, RRF_K, OUTPUT_CAP, _best_cases
 from .m4 import _lead
 from .sparse_bm25.index import SparseHybridSession
 from .retrieval_diagnostics import capture as capture_diagnostic
 
 VERSION = 'm6-live-hybrid-v3'
 CHANNELS = ('case_bm25', 'passage_bm25', 'dense_passage')
+MAX_OUTPUT_CAP = 50
 # Qdrant exact search requires a server-side duration. Keep a long safety
 # limit on the server and no read deadline on the HTTP client.
 M6_DENSE_SERVER_TIMEOUT_SECONDS = 86400
@@ -109,7 +111,21 @@ def implementation_binding():
             'dense_server_timeout_seconds': M6_DENSE_SERVER_TIMEOUT_SECONDS,
             'dense_http_connect_timeout_seconds': M6_DENSE_CONNECT_TIMEOUT_SECONDS,
             'dense_http_read_timeout_seconds': None,
-            'rrf_k': RRF_K, 'output_cap': OUTPUT_CAP}
+            'rrf_k': RRF_K, 'output_cap': MAX_OUTPUT_CAP, 'default_output_cap': OUTPUT_CAP}
+
+
+def fuse_m6_channels(channels, limit):
+    """Widen accepted case-rank RRF output without changing channel retrieval."""
+    if type(limit) is not int or not 1 <= limit <= MAX_OUTPUT_CAP:
+        raise HarnessError(f'M6 hybrid limit must be between 1 and {MAX_OUTPUT_CAP}')
+    leads = {}
+    for channel, hits in channels.items():
+        for hit in _best_cases(hits):
+            leads.setdefault(hit['case_id'], {})[channel] = hit
+    rows = [{'case_id': case, 'channels': matches,
+             'score': math.fsum(1 / (RRF_K + hit['rank']) for hit in matches.values())}
+            for case, matches in leads.items()]
+    return sorted(rows, key=lambda row: (-row['score'], row['case_id']))[:limit]
 
 
 class EmbeddingJournal:
@@ -239,6 +255,16 @@ class AccountedSparseHybridSession(SparseHybridSession):
             self.close()
             raise
         previous.session.close()
+
+    def _search(self, query, query_case, limit, passage_id):
+        if type(limit) is not int or not 1 <= limit <= MAX_OUTPUT_CAP:
+            raise HarnessError(f'M6 hybrid limit must be between 1 and {MAX_OUTPUT_CAP}')
+        result = super()._search(query, query_case, min(limit, OUTPUT_CAP), passage_id)
+        if limit > OUTPUT_CAP:
+            started = perf_counter()
+            result['hits'] = fuse_m6_channels(result['channels'], limit)
+            result['timings']['total_seconds'] += perf_counter() - started
+        return result
 
     def _query_embedding(self, query, query_case, request_id):
         from .passages import PinnedTokenizer

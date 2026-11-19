@@ -293,10 +293,16 @@ class RunState:
         return result
 
     def candidate_states(self):
+        from .selection import aggregate_assessments
+
         states = {}
+        policy = self.config.get("m6", {})
+        validate_support = policy.get("validated_support", False)
+        model_support = policy.get("model_support", False)
         for candidate in self.candidates:
-            accepted = [self.assessments[key] for (_, current), key in self.active_assessments.items()
-                        if current == candidate]
+            accepted = [self.assessments[key] for pair, key in self.active_assessments.items()
+                        if pair[1] == candidate and (not (validate_support or model_support)
+                                                    or pair not in self.pending_assessments)]
             pending = [row for (_, current), row in self.pending_assessments.items() if current == candidate]
             relations = {row["case_relation"] for row in accepted}
             missing = {reason for row in pending for reason in row["missing_evidence"]}
@@ -308,4 +314,8 @@ class RunState:
                 "missing_evidence": sorted(missing),
                 "assessment_ids": [row["assessment_id"] for row in accepted],
             }
+            if validate_support or model_support:
+                relation, witness = aggregate_assessments(
+                    accepted, pending, require_identity_witness=not model_support)
+                states[candidate].update(case_relation=relation, selection_assessment_id=witness)
         return states

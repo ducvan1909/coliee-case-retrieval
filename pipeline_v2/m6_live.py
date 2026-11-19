@@ -122,10 +122,14 @@ def _runtime(root, run_dir, settings):
             model_fingerprint=fingerprint(model), prompt_fingerprint=transport.prompt_fingerprint,
             tools_fingerprint=tools.fingerprint, tokenizer_fingerprint=transport.tokenizer_fingerprint,
         )
+        from .agent_harness.selection import select_supported_cases, selector_fingerprint
+
         harness = AdaptiveHarness(
             run_dir, identity=identity, budget=Budget(**settings["budget"]),
             m3_tools=tools, transport=transport, config=config,
             initial_observation=initial, query_excerpt=whole, hybrid_search=hybrid_search,
+            selector=select_supported_cases, selector_fingerprint=selector_fingerprint(),
+            explicit_leads=True,
         )
         binding = {"identity": asdict(identity), "initial_sha256": fingerprint({
             "observation": initial.observation,

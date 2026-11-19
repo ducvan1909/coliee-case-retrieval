@@ -11,7 +11,7 @@ from .contracts import (
 )
 from .assessment import AssessmentStateError, assessment_validator_fingerprint, validate_assessment_state
 from .evidence import (
-    SourceDrift, assessment_refs, excerpt, normalize_result, slice_record, string_list, validate_assessments,
+    SourceDrift, assessment_refs, excerpt, normalize_result, slice_record, source_record, string_list, validate_assessments,
 )
 from .ledger import Ledger, RunState
 from .schema import (
@@ -495,6 +495,9 @@ class AgentHarness:
             return self._final(reason, "controller_stop")
         if set(args) - {"reason", "prediction", "assessment_ids"} or "prediction" not in args:
             raise HarnessError("Complete stop requires an explicit prediction")
+        return self._validate_prediction(state, args, require_current=True)
+
+    def _validate_prediction(self, state, args, *, require_current):
         prediction = string_list(args["prediction"], "prediction candidate IDs")
         selected = string_list(args.get("assessment_ids", []), "prediction assessment IDs")
         if not set(selected) <= set(state.active_assessments.values()):
@@ -503,7 +506,21 @@ class AgentHarness:
         if set(prediction) != {row["candidate_id"] for row in rows}:
             raise HarnessError("Each predicted candidate requires an active assessment")
         refs = set().union(*(assessment_refs(row) for row in rows))
-        if not refs <= set(state.current):
+        if require_current and not refs <= set(state.current):
             raise HarnessError("Prediction references require raw text in the current payload")
+        if not require_current:
+            for row in rows:
+                pair = row["source_need_id"], row["candidate_id"]
+                if pair in state.pending_assessments:
+                    raise HarnessError("Prediction references an assessment pending review")
+                recorded = {record["ref"]: record for records in row.get("raw_evidence", {}).values()
+                            for record in records}
+                if set(recorded) != assessment_refs(row):
+                    raise HarnessError("Prediction assessment has incomplete recorded evidence")
+                for ref, record in recorded.items():
+                    if (record != state.catalog.get(ref) or ref not in state.delivered
+                            or state.source_hashes.get(record["case_id"]) != record["source_hash"]
+                            or source_record(excerpt(record), overlay=record.get("provenance_overlay", False))["ref"] != ref):
+                        raise HarnessError("Prediction evidence does not match the ledger")
         self._verify(state.catalog[ref] for ref in refs)
-        return self._final(reason, "controller_stop", prediction, selected)
+        return self._final("complete", "controller_stop", prediction, selected)

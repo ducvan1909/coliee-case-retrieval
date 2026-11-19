@@ -1,0 +1,21 @@
+{
+  "experiment_mode": "rt5",
+  "query_id": "021095.txt",
+  "tokenizer_dir": "cache/tokenizers/qwen36_27b_fp8",
+  "byte_budget": 1024,
+  "map_limit": 2,
+  "query_navigation": {
+    "mode": "hierarchical", "max_children": 6, "leaf_bytes": 1024,
+    "map_max_tokens": 2400, "snippet_chars": 96
+  },
+  "adaptive_config": {
+    "channel": "hybrid", "search_limit": 3, "read_limit": 2,
+    "no_progress_actions": 4, "max_reviews": 0, "audit_untriggered": 0
+  },
+  "budget": {
+    "max_requests": 8, "max_actions": 8, "max_input_tokens": 68000,
+    "max_payload_tokens": 8500, "max_output_tokens": 512,
+    "max_total_tokens": 72096, "max_retries": 0
+  },
+  "embedding_budget": {"max_requests": 5, "max_input_tokens": 2240}
+}

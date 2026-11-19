@@ -1,5 +1,57 @@
 # Tiếp tục tối ưu retrieval trên máy còn lại
 
+## Checkpoint bàn giao mới — 19/11/2026
+
+**Đọc mục này trước các mục ngày 14/11 phía dưới.** Đây là checkpoint chuyển tiếp công việc đang làm, chưa phải nghiệm thu selector, CM4 live hoặc chất lượng COLIEE. Base trước commit bàn giao: `19283dc`, nhánh `main`. Ngày 19/11 đã fetch và xác nhận base local/remote khớp. Không ghi đè các sửa độc lập trên máy đích.
+
+### Code đi cùng lần push này
+
+- `agent_harness/selection.py`, `ledger.py`, `harness.py`, `m6.py`, `m6_live.py`: nối selector vào M6 live; tổng hợp assessment theo candidate; kiểm assessment còn active, không pending, evidence đã giao và khớp catalog/hash/source trước khi chốt prediction, kể cả khi raw đã rời payload. Selector mặc định yêu cầu citation A khớp identifier quan sát được trong header B. Đây là heuristic bảo thủ, không phải gold hoặc bộ nhận diện mọi loại citation.
+- `adaptive_policy.py`, `m6.py`: tùy chọn `explicit_leads`, tool `open_retrieved_passage` mở đúng lead đang hiển thị và đúng source need. `read_case_passages` dùng focus cho tìm nội bộ khi bật chế độ này. Lead thường giữ handle đầu tiên thay vì âm thầm ghi đè bằng hit sau.
+- `m6_hybrid.py`: M6 cho phép output đến 50 cases, tái tính cùng case-rank RRF từ channels hiện có khi yêu cầu hơn 20; không thêm lượt backend/embedding để mở rộng output. Default M6 config và mặc định CM4 khác nhau: CM4 không truyền settings riêng thì dùng search limit 50; settings truyền rõ vẫn được giữ.
+- `assessment.py`: từ chối evidence A/B chỉ có whitespace; bổ sung mode `model_attribution` dùng trong thử nghiệm. `evidence.py`: chuẩn hóa tuple khi sort spans hỗn hợp list/tuple.
+- `modal_qwen.py`: function pin local đang là `fu-JifUyUWll3lk5ctQEedpCW`. Pin này được chuyển nguyên trạng, **chưa xác minh deployment hiện tại trong đợt bàn giao**. Máy đích kiểm metadata trước inference, giữ function-ID guard.
+- Chuyển toàn bộ source, tests, settings và tài liệu trong `experiments/uncapped_probe/`, `experiments/context_manager_v1/`, `experiments/context_manager_v2/`. Không chuyển bytecode hoặc run/cache. CM4 hiện là `cm4-anchor-flow-v23`; đọc `experiments/context_manager_v2/CM4.md`, `MODEL_CONTEXT_FLOW.md` và code hiện tại. Các tài liệu v1–v22 là checkpoint lịch sử, không phải chỉ dẫn resume run cũ với code v23.
+
+### Trạng thái CM4 và khác biệt với M6 thường
+
+CM4 nối source gate, đọc toàn query nếu vừa payload (không vừa thì điều hướng vùng), model view dùng mã ngắn, đọc lead/continuation theo cặp need–candidate, phản hồi pending và tool repair, search reuse, draft `issue/source_proposition/anchor_quote` có đường sửa hoặc xác nhận nguyên văn. Anchor khớp duy nhất được ánh xạ về raw offsets; trường hợp nhiều vị trí hoặc gần giống trả các đoạn nguyên văn để xác nhận trước retrieval. Chỉ `issue` đi vào retrieval; `source_proposition` là model annotation.
+
+CM4 bật `model_attribution=True` và `model_support=True`: attribution/identity support dựa đánh giá model trên evidence; host vẫn kiểm refs, raw và phía A/B. Vì vậy không được mô tả CM4 là đã qua cùng heuristic citation/header của selector M6 mặc định. `supported`/`accepted` trong ledger không chứng minh nhãn COLIEE đúng.
+
+Theo các tài liệu thử nghiệm, người dùng trước đó đã cho phép nhánh uncapped/RT4/RT5 và nối CM4; điều đó không nghiệm thu các gate RT3/context còn ghi ở dưới. Lần bàn giao này chỉ kiểm local và chuyển code, không inference/deploy. CM4 giữ cap mỗi lượt input 8.500/output 512; cumulative caps mặc định rất lớn (`2**60`), có loop guard, STOP và tùy chọn max-turns. Không xem profile này là pilot ngân sách nhỏ. `live.py` CM4 không nhận profile RT5 bounded.
+
+### Kiểm lại ngày 19/11 và lỗi còn lại
+
+Các lệnh đều dùng `.venv/Scripts/python.exe`; các lượt kiểm là local/offline, không chủ động chạy inference/deploy hoặc embedding mới.
+
+- `-m unittest pipeline_v2.tests.test_source_selection pipeline_v2.tests.test_m6_hybrid -q`: **14 tests PASS**.
+- `-m unittest discover -s pipeline_v2/experiments/context_manager_v1/tests -p 'test_*.py' -q`: **19 tests PASS**.
+- `-m unittest discover -s pipeline_v2/experiments/uncapped_probe/tests -p 'test_*.py' -q`: **25 tests PASS**, có replay dựa dữ liệu/tokenizer/run local.
+- `-m unittest discover -s pipeline_v2/tests -p 'test_m6*.py' -q`: **82 tests, FAILED (errors=6)**. Tất cả lỗi báo `AttributeError: 'AdaptiveHarness' object has no attribute 'explicit_leads'` trong `test_m6_v15_regression.py` (có hai subtest). Fixture tạo harness bằng `__new__` và không khởi tạo thuộc tính mới. Chưa sửa trong công việc bàn giao. Máy đích cần sửa fixture hoặc thiết kế default tương thích sau khi review; chạy lại đúng suite. Không báo M6 regression xanh từ kết quả 14 tests chọn lọc.
+- `-m unittest discover -s pipeline_v2/experiments/context_manager_v2/tests -p 'test_*.py' -q`: **109 tests PASS**, 69,210 giây. Đây là kiểm offline; chưa kiểm inference/deployment hoặc chất lượng ngữ nghĩa mới.
+
+### Việc tiếp theo trên máy đích
+
+1. Pull `main` sau khi cất/commit sửa local nếu có; đọc `AGENTS.md`, mục này và CM4.md. Review diff selector/evidence với công việc độc lập ở máy đích trước khi merge. Không reset hoặc chép đè cả module.
+2. Sửa lỗi fixture M6 nói trên, chạy lại tests liên quan. Review sâu progress từng pair, draft cũ sau đổi focus/need và ambiguity của normalized anchor; tests PASS chỉ bao phủ tình huống đã kiểm, chưa đủ kết luận các invariants này đúng mọi đường.
+3. Dùng raw/artifacts/tokenizer/vector cache/Qdrant máy đích đã có. Các `cache/...` và `pipeline_v2/reviews/...` chưa tracked ở máy nguồn không nằm trong push. Replay CLI, offline_acceptance và một số tests có dependency vào run local lịch sử; thiếu fixture thì ghi rõ thiếu/skip, không tạo receipt thay thế. Các báo cáo local cũ trong thư mục experiments giữ như tài liệu lịch sử và có thể trỏ tới evidence không chuyển.
+4. Khi cần preflight CM4 mới, dùng namespace mới. Plan bind root/code/config/source nên không resume plan từ máy cũ hay version khác. `prepare` kiểm local, chưa gọi inference:
+
+```powershell
+$cmRun = 'cache/cm4-handoff-' + (Get-Date -Format 'yyyyMMdd-HHmmssfff')
+& .venv/Scripts/python.exe -m pipeline_v2.experiments.context_manager_v2.live prepare --run-dir $cmRun
+```
+
+5. Chỉ người dùng/AG chạy `live run --run-dir $cmRun` sau khi review preflight và deployment metadata. Codex không tự inference/deploy. STOP đặt tại `$cmRun/STOP`, chỉ có hiệu lực safe boundary; đang chờ call thì poll cùng call, không gửi trùng. Run/admission unknown phải giữ nguyên accounting, không reset để retry. Không dùng lệnh run namespace lịch sử trong tài liệu v1–v22 như lệnh chạy tiếp trên máy mới.
+6. Chỉ mở rộng đánh giá sau gate tương ứng; giữ gold ngoài solver, không tự đổi model/chunk/reranker hoặc tune holdout. Báo retrieval → mở nguồn → assessment → selection riêng, cùng request/token/latency và errors/unknown.
+
+### Prompt tiếp tục hiện hành
+
+> Đọc AGENTS.md, CODEX_HANDOFF.md và checkpoint 19/11 trong pipeline_v2/docs/RETRIEVAL_HANDOFF_20261114.md trước phần lịch sử. Pull/merge cẩn thận với sửa local. Tiếp tục selector M6 và thử nghiệm CM4 cm4-anchor-flow-v23; chưa coi đây là nghiệm thu live/semantic. Trước tiên xử lý 6 errors của fixture test_m6_v15_regression do thiếu explicit_leads, kiểm lại tests và review pair progress/draft/anchor ambiguity. Dùng code, settings và fixtures có thật; không yêu cầu hoặc dựng lại run cũ không chuyển. Giữ nguồn/hash/offset/provenance và unknown accounting. Codex chỉ code, local checks và chuẩn bị lệnh; người dùng/AG chạy inference/deploy. Không tự mở pilot hoặc mốc tiếp theo.
+
+---
+
 Cập nhật ngày 14/11/2026. Theo yêu cầu người dùng: chỉ chuyển code, tests và hướng dẫn cần thiết qua Git; **không cần chuyển các run/evidence thử nghiệm cũ**. Người dùng tiếp quản bước chạy và nghiệm thu tiếp theo.
 
 ## 1. Bắt đầu trên máy đích

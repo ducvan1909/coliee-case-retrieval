@@ -7,6 +7,7 @@ from .agent_harness import AgentHarness, ToolResult
 from .agent_harness.contracts import HarnessError, encode, fingerprint
 from .agent_harness.evidence import slice_record
 from .agent_harness.ledger import RunState
+from .agent_harness.selection import select_supported_cases
 from .agent_harness.schema import RESPONSE_SCHEMA_VERSION
 from .agent_harness.adaptive_policy import AdaptiveTransport, ModelToolReplyRejected, VERSION, catalog
 
@@ -36,9 +37,9 @@ class AdaptiveConfig:
             if type(getattr(self, name)) is not int or getattr(self, name) < 0:
                 raise HarnessError('M6 nonnegative integer setting required: ' + name)
         if self.channel == 'hybrid':
-            from .full_search.hybrid import OUTPUT_CAP
-            if self.search_limit > OUTPUT_CAP:
-                raise HarnessError(f'M6 hybrid search_limit exceeds M3 output cap {OUTPUT_CAP}')
+            from .m6_hybrid import MAX_OUTPUT_CAP
+            if self.search_limit > MAX_OUTPUT_CAP:
+                raise HarnessError(f'M6 hybrid search_limit exceeds output cap {MAX_OUTPUT_CAP}')
 
 
 def implementation_fingerprint():
@@ -52,7 +53,7 @@ class AdaptiveHarness(AgentHarness):
     def __init__(self, run_dir, *, identity, budget, m3_tools, transport, count_tokens=None,
                  config=None, baseline=None, baseline_fingerprint=None, selector=None,
                  selector_fingerprint=None, initial_observation=None, query_excerpt=None,
-                 hybrid_search=None):
+                 hybrid_search=None, explicit_leads=False):
         self.adaptive_config = config or AdaptiveConfig()
         self.m3 = m3_tools
         if hasattr(m3_tools, 'sources'):
@@ -69,6 +70,7 @@ class AdaptiveHarness(AgentHarness):
             raise HarnessError('Hybrid channel requires an explicitly budgeted hybrid runtime')
         self._executing_action_id = None
         self.selector = selector
+        self.explicit_leads = explicit_leads
         self.has_baseline = baseline is not None
         if (self.has_baseline and not baseline_fingerprint) or (selector is not None and not selector_fingerprint):
             raise HarnessError('Frozen baseline and selector require explicit fingerprints')
@@ -94,6 +96,10 @@ class AdaptiveHarness(AgentHarness):
                              'config': asdict(self.adaptive_config), 'selector': selector_fingerprint,
                              'baseline': baseline_fingerprint, 'has_baseline': self.has_baseline,
                              'tools_binding': m3_tools.fingerprint}
+        if selector is select_supported_cases:
+            self.config['m6']['validated_support'] = True
+        if explicit_leads:
+            self.config['m6']['explicit_leads'] = True
         if self.hybrid_search is not None:
             self.config['m6']['hybrid_binding'] = self.hybrid_search.fingerprint
 
@@ -188,9 +194,12 @@ class AdaptiveHarness(AgentHarness):
     def _read_candidate(self, args):
         row, focus = args['m6_candidate'], args['focus']
         lead = row.get('open_ref')
-        if lead and not row.get('already_opened'):
+        if lead and (args.get('m6_selected_lead') or not (self.explicit_leads or row.get('already_opened'))):
             result = self.m3.open_source(lead)
-            return ToolResult({**result.observation, 'reading_focus': focus, 'route': 'open_observed_lead', 'm6_opened_candidate': row['case_id']},
+            binding = ({'m6_opened_lead_ref': args['m6_selected_lead'], 'm6_source_need_id': args['m6_source_need_id']}
+                       if args.get('m6_selected_lead') else {})
+            return ToolResult({**result.observation, **binding, 'reading_focus': focus,
+                               'route': 'open_observed_lead', 'm6_opened_candidate': row['case_id']},
                               result.excerpts, result.candidates, result.source_requests)
         searched = self.m3.search_case({'case_id': row['case_id'], 'text': focus,
                                         'limit': self.adaptive_config.read_limit})
@@ -258,10 +267,13 @@ class AdaptiveHarness(AgentHarness):
                                            'truncated': len(preview.get('text', '')) > 320,
                                            'original_span_bytes': preview.get('span_bytes'),
                                            'original_text_sha256': preview.get('text_sha256')}
+                    if hit.get('open_ref') and self.explicit_leads:
+                        lead['lead_ref'] = fingerprint([case, lead['source_need_id'], hit['open_ref']])
+                        lead['open_ref'] = hit['open_ref']
                     if lead not in by_case[case]['leads'] and len(by_case[case]['leads']) < 3:
                         by_case[case]['leads'].append(lead)
-                if case in by_case and hit.get('open_ref'):
-                    by_case[case]['open_ref'] = hit['open_ref']
+                        if hit.get('open_ref') and not self.explicit_leads:
+                            by_case[case].setdefault('open_ref', hit['open_ref'])
             if observation.get('kind') == 'query_map':
                 for item in observation.get('items', []):
                     args = {'handles': [item['handle']]}
@@ -330,6 +342,7 @@ class AdaptiveHarness(AgentHarness):
             page, maps, query_targets = self.m3.registry(events, state, payload)
             hierarchical = {'query_navigation': page, 'query_maps': maps}
         return {**asdict(self.adaptive_config), **hierarchical, 'candidates': candidates, 'query_targets': query_targets,
+                **({'explicit_leads': True} if self.explicit_leads else {}),
                 'a_paragraphs': self._visible_paragraphs(payload),
                 'hybrid_budget_remaining': hybrid_budget,
                 'search_completed': bool(used.keys() & {'search_corpus', 'search_identity'}),
@@ -621,4 +634,4 @@ class AdaptiveHarness(AgentHarness):
         decision = self.selector(state.snapshot())
         if not isinstance(decision, dict) or set(decision) != {'prediction', 'assessment_ids'}:
             raise HarnessError('Shared selector must return prediction and assessment_ids')
-        return super()._validate_stop(state, {'reason': 'complete', **decision})
+        return self._validate_prediction(state, decision, require_current=False)

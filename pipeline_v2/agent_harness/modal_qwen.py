@@ -31,7 +31,7 @@ from pipeline_v2.deployments.modal_qwen36_27b.app import (
 from .contracts import HarnessError, ModelReply, TransportError, fingerprint, integer
 
 
-MODAL_FUNCTION_ID = "fu-H0trMyuxzOOOWOyVIHfKp5"
+MODAL_FUNCTION_ID = "fu-JifUyUWll3lk5ctQEedpCW"
 DEFAULT_WAIT_SECONDS = 1080
 RESULT_POLL_SECONDS = 30
 RESULT_RECONNECT_SECONDS = 5

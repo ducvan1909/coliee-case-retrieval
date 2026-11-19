@@ -107,10 +107,19 @@ def catalog(body):
     fresh_case = state.get('fresh_evidence_candidate')
     readable = {ref: candidate for ref, candidate in candidates.items()
                 if not candidate.get('read_status') and candidate['case_id'] != fresh_case}
+    leads = {lead['lead_ref']: lead for row in readable.values() for lead in row.get('leads', [])
+             if 'lead_ref' in lead}
+    if leads:
+        add('open_retrieved_passage', {'lead_ref': choice(leads)},
+            'Open the exact displayed passage lead for this source need and candidate.',
+            'Use a lead_ref from the current candidate cards.',
+            'Raw source and surrounding context with provenance.', ['Use read_case_passages for a new focus.'])
     if readable:
         add('read_case_passages', {'candidate_ref': choice(readable), 'focus': text(minimum=4)},
             'Read raw B passages about the chosen legal issue.',
-            'Choose a known candidate and a short legal phrase of at least two words. Host opens a passage lead directly when available; otherwise searches within B.',
+            ('Choose a candidate and a new legal phrase of at least two words for within-case search.'
+             if state.get('explicit_leads') else
+             'Choose a known candidate and a short legal phrase of at least two words. Host opens a passage lead directly when available; otherwise searches within B.'),
             'Full parent and source-order neighbors under the M3 page cap, with provenance and pending coverage.',
             ['Good: choose a candidate ref and focus on whether the court adopted the quoted test.',
              'Wrong: supply a case ID, retrieval channel, top_k or arbitrary open handle.'])
@@ -233,6 +242,14 @@ def translate(body, action):
         return {'action': 'search_identity', 'args': {'text': row['text'], 'limit': state['search_limit'], '_m6_need': need}}
     if name == 'continue_citation_search':
         return {'action': 'search_identity', 'args': state['citation_search_pages'][args['search_ref']]['binding']}
+    if name == 'open_retrieved_passage':
+        row, lead = next((row, lead) for row in state['candidates'].values()
+                         for lead in row.get('leads', []) if lead.get('lead_ref') == args['lead_ref'])
+        return {'action': 'open_source', 'args': {
+            'm6_candidate': {'case_id': row['case_id'], 'open_ref': lead['open_ref']},
+            'm6_selected_lead': args['lead_ref'], 'm6_source_need_id': lead['source_need_id'],
+            'focus': 'displayed retrieval lead',
+        }}
     if name == 'read_case_passages':
         row = state['candidates'][args['candidate_ref']]
         focus = args['focus'].strip()

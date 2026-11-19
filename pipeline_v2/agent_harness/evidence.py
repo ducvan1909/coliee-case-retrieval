@@ -48,7 +48,7 @@ def slice_record(record, start, end):
 def _uncovered(excerpt_value, known):
     start, end = excerpt_value.span_bytes
     pieces = []
-    for record in sorted(known, key=lambda row: row["span_bytes"]):
+    for record in sorted(known, key=lambda row: tuple(row["span_bytes"])):
         other_start, other_end = record["span_bytes"]
         if max(excerpt_value.span_bytes[0], other_start) >= min(end, other_end):
             continue

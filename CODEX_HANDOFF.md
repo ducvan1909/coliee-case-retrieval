@@ -1,5 +1,10 @@
 # Bàn giao Pipeline V2 cho Codex trên máy khác
 
+## Checkpoint mới nhất — 19/11/2026
+
+Đọc **mục Checkpoint bàn giao mới — 19/11/2026** trong [RETRIEVAL_HANDOFF_20261114.md](pipeline_v2/docs/RETRIEVAL_HANDOFF_20261114.md) trước các phần lịch sử dưới đây. Lần push này chuyển selector/M6, explicit passage leads, M6 hybrid output đến 50 và ba bộ thử nghiệm context (CM4 hiện `cm4-anchor-flow-v23`), cùng tests/settings/tài liệu. Không chuyển run/cache/evidence local cũ. Có lỗi fixture regression M6 đã tái hiện và hướng dẫn xử lý trong checkpoint; chưa nghiệm thu live/semantic. Tạo namespace mới khi đổi máy/code, giữ unknown admissions, không tự resend. Codex chỉ chuẩn bị code/lệnh và kiểm local; người dùng/AG chạy inference/deploy.
+
+
 ## Bàn giao retrieval mới ngày 14/11/2026
 
 Nếu tiếp tục đợt tối ưu retrieval RT1–RT5, đọc thêm `pipeline_v2/docs/RETRIEVAL_HANDOFF_20261114.md` trước khi thao tác. Tại checkpoint này RT1/RT2 đã nghiệm thu engineering, RT3 chờ AG review cuối; profile mới input 8.500/context source 12.288 chưa nghiệm thu live. Pull commit bàn giao chứa cả code/tests/hướng dẫn mới, không chỉ base `c0ab182`. File bàn giao ghi phạm vi selector máy kia, trạng thái AG và gate trước RT4. Các nội dung phía dưới giữ làm lịch sử nền/khôi phục assets.

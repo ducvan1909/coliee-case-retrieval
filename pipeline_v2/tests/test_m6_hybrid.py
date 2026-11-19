@@ -4,18 +4,74 @@ from hashlib import sha256
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 from requests import HTTPError, Request, Response
 
 from pipeline_v2.agent_harness.contracts import HarnessError
 from pipeline_v2.full_search.hybrid import POLICY, RUNTIME_DIR, fuse_channels
 from pipeline_v2.m6 import AdaptiveConfig
-from pipeline_v2.m6_hybrid import EmbeddingBudget, HybridSearch, M6Qdrant
+from pipeline_v2.m6_hybrid import (MAX_OUTPUT_CAP, OUTPUT_CAP, AccountedSparseHybridSession,
+                                   EmbeddingBudget, HybridSearch, M6Qdrant, fuse_m6_channels)
+from pipeline_v2.sparse_bm25.index import SparseHybridSession
 from pipeline_v2.retrieval.cache import Cache
 from pipeline_v2.tests.test_m6_adaptive import Tools, Transport, harness
 
 
 class HybridTests(unittest.TestCase):
+    def test_m6_fusion_expands_to_fifty_without_changing_rrf_order(self):
+        channels = {
+            name: [{'case_id': f'{i:06d}.txt', 'passage_id': f'{name}-{i}', 'score': 1000-i}
+                   for i in range(1, 61)]
+            for name in ('dense', 'case', 'passage')
+        }
+        default_rows = fuse_m6_channels(channels, OUTPUT_CAP)
+        rows = fuse_m6_channels(channels, 50)
+
+        self.assertEqual(MAX_OUTPUT_CAP, 50)
+        self.assertEqual(len(default_rows), OUTPUT_CAP)
+        self.assertEqual(len(rows), 50)
+        self.assertEqual([row['case_id'] for row in rows],
+                         [f'{i:06d}.txt' for i in range(1, 51)])
+        self.assertEqual([row['channels']['dense']['rank'] for row in rows],
+                         list(range(1, 51)))
+
+    def test_accounted_search_expands_from_one_twenty_result_backend_call(self):
+        channels = {
+            name: [{'case_id': f'{i:06d}.txt', 'passage_id': f'{name}-{i}', 'score': 1000-i}
+                   for i in range(1, 61)]
+            for name in ('dense', 'case', 'passage')
+        }
+        baseline = {
+            'hits': fuse_m6_channels(channels, OUTPUT_CAP),
+            'channels': channels,
+            'timings': {'total_seconds': 1.0},
+        }
+        session = object.__new__(AccountedSparseHybridSession)
+        calls = []
+
+        def base_search(_session, query, query_case, limit, passage_id):
+            calls.append((query, query_case, limit, passage_id))
+            return dict(baseline, timings=dict(baseline['timings']))
+
+        with patch.object(SparseHybridSession, '_search', base_search):
+            result = session._search('issue', 'query.txt', 50, None)
+
+        self.assertEqual(calls, [('issue', 'query.txt', OUTPUT_CAP, None)])
+        self.assertEqual(result['hits'], fuse_m6_channels(channels, 50))
+        self.assertGreaterEqual(result['timings']['total_seconds'], 1.0)
+
+    def test_m6_fusion_and_search_reject_fifty_one(self):
+        with self.assertRaises(HarnessError):
+            fuse_m6_channels({}, 51)
+        session = object.__new__(AccountedSparseHybridSession)
+        with self.assertRaises(HarnessError):
+            session._search('issue', 'query.txt', 51, None)
+
+    def test_hybrid_config_accepts_fifty_and_rejects_fifty_one(self):
+        self.assertEqual(AdaptiveConfig(channel='hybrid', search_limit=50).search_limit, 50)
+        with self.assertRaises(HarnessError):
+            AdaptiveConfig(channel='hybrid', search_limit=51)
+
     def test_only_exact_query_uses_extended_timeout(self):
         session = Mock()
         session.request.return_value.status_code = 200
