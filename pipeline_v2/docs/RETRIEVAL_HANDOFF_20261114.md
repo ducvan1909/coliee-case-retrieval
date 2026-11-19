@@ -4,6 +4,10 @@
 
 **Đọc mục này trước các mục ngày 14/11 phía dưới.** Đây là checkpoint chuyển tiếp công việc đang làm, chưa phải nghiệm thu selector, CM4 live hoặc chất lượng COLIEE. Base trước commit bàn giao: `19283dc`, nhánh `main`. Ngày 19/11 đã fetch và xác nhận base local/remote khớp. Không ghi đè các sửa độc lập trên máy đích.
 
+### Bổ sung sau commit a398de0 — 19/11/2026
+
+CM4 thêm `report_review_blocker(kind, reason)` để ghi vướng mắc theo scope cặp/vùng và trả hướng recovery/navigation đang thực sự được cấp. Khi review chưa xong, schema không cấp `finish_case_review`; khi đã đủ điều kiện, chỉ cho `complete_policy`. Báo blocker giữ review mở và không được báo lại cùng kind trong cùng scope. Nếu host dừng lỗi, `inspect()` trả `partial_supported_cases` riêng; đây không phải final prediction. Prompt live đã đổi theo hợp đồng này; test mới ở `experiments/context_manager_v2/tests/test_review_blocker.py`. Code binding thay đổi: prepare namespace mới, không resume plan của a398de0. Kiểm local bản bổ sung: suite context_manager_v2 đạt 112 tests PASS trong 67,334 giây; chưa chạy inference/deploy mới.
+
 ### Code đi cùng lần push này
 
 - `agent_harness/selection.py`, `ledger.py`, `harness.py`, `m6.py`, `m6_live.py`: nối selector vào M6 live; tổng hợp assessment theo candidate; kiểm assessment còn active, không pending, evidence đã giao và khớp catalog/hash/source trước khi chốt prediction, kể cả khi raw đã rời payload. Selector mặc định yêu cầu citation A khớp identifier quan sát được trong header B. Đây là heuristic bảo thủ, không phải gold hoặc bộ nhận diện mọi loại citation.

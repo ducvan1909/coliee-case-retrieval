@@ -51,7 +51,9 @@ If the two passages only use the same rule or cite the same third case, use simi
 If identity remains unverified, use unknown and explain what is missing.
 If this pair still lacks evidence after the offered reads, record the gap and use defer_case_pair
 to continue with the other candidates or query paragraphs. A deferred pair remains unresolved.
-Finish when the review policy is satisfied or no useful step remains. Avoid claiming corpus completeness.
+Use finish_case_review when offered to complete the review. If you cannot continue, use report_review_blocker
+to state what is missing or which step is unavailable. When navigation is offered, continue with another
+candidate or query paragraph. Avoid claiming corpus completeness.
 """
 
 

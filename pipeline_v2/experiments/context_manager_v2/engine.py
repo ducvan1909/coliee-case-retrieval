@@ -34,6 +34,15 @@ CONTEXT_ACTIONS |= {'stage_query_anchor', 'defer_query_anchor', 'resume_query_an
 CONTEXT_ACTIONS |= {'assess_source_need', 'defer_source_need', 'close_query_anchor'}
 CONTEXT_ACTIONS |= {'defer_approved_source_need', 'resume_approved_source_need'}
 CONTEXT_ACTIONS.add('defer_case_pair')
+CONTEXT_ACTIONS.add('report_review_blocker')
+BLOCKER_RECOVERY = {
+    'missing_identity': ('open_candidate_header', 'read_more_context', 'record_missing_evidence', 'defer_case_pair'),
+    'no_readable_text': ('reload_pair_evidence', 'continue_raw_evidence', 'read_more_context',
+                         'read_query_passages', 'record_missing_evidence', 'defer_case_pair'),
+    'tool_rejected': ('read_more_context', 'continue_raw_evidence', 'defer_case_pair'),
+    'cannot_find_next_step': (),
+    'other': (),
+}
 ANCHOR_VIEW_KEYS = ('need_id', 'candidate_id', 'stage', 'mode', 'offset', 'back', 'query_leaf_region', 'query_map_region')
 
 
@@ -410,6 +419,13 @@ class Engine:
         pair = pair or fingerprint([context['need_id'], context['candidate_id']])
         return context['pair_progress'].setdefault(pair, {'window_offsets': {}, 'next_offsets': {},
             'active_roots': {}, 'completed_roots': []})
+
+    @staticmethod
+    def _blocker_scope(context):
+        if context['mode'] in ('assessment', 'results', 'pool', 'needs', 'parked'):
+            return fingerprint([context['need_id'], context['candidate_id']])
+        return fingerprint([context.get('query_leaf_region') if context['mode'] == 'query_leaf'
+                            else context.get('query_map_region')])
 
     @classmethod
     def _sync_missing(cls, context):
@@ -1570,11 +1586,15 @@ class Engine:
             review['complete_policy_allowed'] = complete
         for tool in tools:
             if tool['name'] == 'finish_case_review':
-                reasons = ['complete_policy', 'failure'] if complete else ['failure']
-                tool['parameters']['properties']['reason']['enum'] = reasons
+                tool['parameters']['properties']['reason']['enum'] = ['complete_policy']
+                tool['when'] = 'Use when the review is complete. The prediction uses the active supported assessments.'
         for branch in branches:
             if branch['properties']['action']['const'] == 'finish_case_review':
-                branch['properties']['args']['properties']['reason']['enum'] = ['complete_policy', 'failure'] if complete else ['failure']
+                branch['properties']['args']['properties']['reason']['enum'] = ['complete_policy']
+        if not complete:
+            tools = [tool for tool in tools if tool['name'] != 'finish_case_review']
+            branches = [branch for branch in branches
+                        if branch['properties']['action']['const'] != 'finish_case_review']
         if can_search:
             allowed = {'search_cases_by_issue', 'defer_approved_source_need'}
             tools = [tool for tool in tools if tool['name'] in allowed]
@@ -1602,9 +1622,49 @@ class Engine:
                     payload['last_action_feedback']['guidance'] = 'Open the next query region with unscreened paragraphs.'
                     payload['last_action_feedback']['navigation_options'] = [
                         {'tool': 'read_query_passages', 'args': {'query_ref': next_ref}}]
+        if not complete and not can_search:
+            reports = context.get('review_blockers', {}).get(self._blocker_scope(context), {})
+            kinds = [kind for kind in BLOCKER_RECOVERY if kind not in reports]
+            if kinds:
+                add('report_review_blocker', {
+                    'kind': {'type': 'string', 'enum': kinds},
+                    'reason': {'type': 'string', 'minLength': 4, 'maxLength': 240},
+                }, 'Report a specific obstacle in the current review. This action keeps the review open.')
+            self._blocker_feedback(payload, tools, reports)
         payload['available_tools'] = tools
         payload['last_action_feedback']['next_options'] = [tool['name'] for tool in tools]
         return {'type': 'object', 'anyOf': branches}
+
+    @staticmethod
+    def _blocker_feedback(payload, tools, reports):
+        feedback = payload['last_action_feedback']
+        last = feedback['last_action']
+        if last.get('action') != 'report_review_blocker' or not reports:
+            return
+        # Context is serialized in the ledger with sorted keys. Bind the report to
+        # the preceding action ID instead of relying on dictionary order.
+        report = next((row for row in reports.values() if row['action_id'] == last['action_id']), None)
+        if report is None:
+            return
+        offered = {tool['name'] for tool in tools}
+        controls = payload['m6']['cm_page'].get('controls', {})
+        routes = [option for option in feedback.get('navigation_options', []) if option['tool'] in offered]
+        if 'show_context_page' in offered:
+            for mode in ('results', 'next', 'query', 'needs'):
+                if mode in controls:
+                    option = {'tool': 'show_context_page', 'args': {'page_ref': controls[mode]}, 'view': mode}
+                    if option not in routes:
+                        routes.append(option)
+        suggested = [name for name in BLOCKER_RECOVERY[report['kind']] if name in offered]
+        suggested.extend(dict.fromkeys(option['tool'] for option in routes if option['tool'] not in suggested))
+        feedback['review_blocker'] = {key: report[key] for key in ('kind', 'reason')}
+        feedback['review_blocker']['suggested_tools'] = suggested
+        if 'observed_repair' in report:
+            feedback['review_blocker']['observed_repair'] = report['observed_repair']
+        if routes:
+            feedback['navigation_options'] = routes
+        if suggested:
+            feedback['guidance'] = 'The obstacle was recorded. Choose an available recovery or navigation action.'
 
     def _verify_search_permit(self, action, context):
         require(action['action'] == 'search_corpus', 'Source gate disallows ungated identity retrieval')
@@ -1917,7 +1977,7 @@ class Engine:
                 if self.gate_enabled and internal['action'] in ('search_corpus', 'search_identity'):
                     self._verify_search_permit(internal, manifest['context'])
                 encode(internal)
-                if action['action'] in ('record_missing_evidence', 'defer_case_pair'):
+                if action['action'] in ('record_missing_evidence', 'defer_case_pair', 'report_review_blocker'):
                     if not action['args']['reason'].strip():
                         raise policy.ToolSemanticError('blank_reason')
                 if action['action'] in ASSESSMENT_TOOLS:
@@ -2095,7 +2155,20 @@ class Engine:
             name, args = action['action'], action['args']
             reload_refs = []
             action_status, action_reason = 'success', None
-            if name == 'assess_source_need':
+            if name == 'report_review_blocker':
+                require(self.gate_enabled, 'Review blocker is unavailable')
+                reports = context.setdefault('review_blockers', {}).setdefault(self._blocker_scope(context), {})
+                require(args['kind'] not in reports, 'Review blocker already reported in this scope')
+                report = {'action_id': action_id, 'kind': args['kind'], 'reason': args['reason'].strip(),
+                          'need_id': context['need_id'], 'candidate_id': context['candidate_id'],
+                          'query_region': context.get('query_leaf_region') if context['mode'] == 'query_leaf'
+                          else context.get('query_map_region') if context['mode'] == 'query' else None}
+                if args['kind'] == 'tool_rejected':
+                    repair = json.loads(admission['payload'])['last_action_feedback'].get('tool_repair')
+                    if repair:
+                        report['observed_repair'] = {key: repair[key] for key in ('tool', 'code', 'fields', 'hint')}
+                reports[args['kind']] = report
+            elif name == 'assess_source_need':
                 assessment = deepcopy(args['assessment'])
                 try:
                     self.store.verify(state.current_records[assessment['source_ref']])
@@ -2282,6 +2355,11 @@ class Engine:
     def inspect(self):
         result = {'context': self.context(), 'state': self.state().snapshot(),
                   'execution_mode': self.execution_mode}
+        snapshot = result['state']
+        if self.gate_enabled and snapshot['stop_reason'] not in (None, 'complete'):
+            result['partial_supported_cases'] = sorted(
+                case for case, row in snapshot['candidate_states'].items()
+                if row['case_relation'] == 'supported' and row.get('selection_assessment_id'))
         if self.execution_mode == 'offline':
             result.update(controller_inference_requests=0, embedding_requests=0, receipt_kind='scripted_offline_not_provider')
         else:
