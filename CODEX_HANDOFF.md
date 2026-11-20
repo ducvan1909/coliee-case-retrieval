@@ -1,5 +1,83 @@
 # Bàn giao Pipeline V2 cho Codex trên máy khác
 
+## Điểm bàn giao hiện hành — Pilot CM4 v30 và hướng tiếp theo cho COLIEE Task 1
+
+Mục tiêu là trả về tập án trong corpus mà án A tham chiếu. Dùng micro precision, recall và F1 để so kết quả, kèm số lượt, token và thời gian chạy. Bắt đầu bằng hai việc offline: xác minh danh tính B trước khi chọn và dùng lại phần khảo sát khi truy hồi trả cùng tập kết quả. Các mục bên dưới là lịch sử của những phiên bản trước. [Đề bài Task 1](https://coliee.org/COLIEE2026/tasks/task1) · [Cách tính điểm](https://coliee.org/COLIEE2026/evaluation)
+
+### Code và bằng chứng cần đối chiếu
+
+- Run nguồn `cache/cm4-query-review-v30-ag-20261120-105534942`, án A `021095.txt`, engine `cm4-query-review-v30`, commit nền `7c230e5`. Đối chiếu source đang dùng với `plan.json` và `plan.code_binding` nếu có run. Commit nền chỉ xác định điểm xuất phát vì run bind cả code trong working tree.
+- Code chính ở `pipeline_v2/experiments/context_manager_v2/`. Xem `engine.py` và `query_review.py` cho trạng thái từng query, `tool_repair.py` cho lỗi refs, và `pipeline_v2/agent_harness/{selection,ledger}.py` cho điều kiện chọn án. Đọc [AGENTS.md](AGENTS.md) trước khi sửa.
+- Nếu có run nguồn, đọc `semantic_review.md`, `semantic_steps.md`, `result.json`, `session/events.sqlite3`, manifests và retrieval diagnostics trong namespace đó. Đọc ledger lịch sử ở chế độ chỉ đọc. Nếu máy kia chỉ có repo, dùng các fixture và suite hiện có để tái hiện các lỗi mô tả bên dưới, rồi bổ sung regression đúng ca sửa. Ghi rõ phần nào kiểm bằng fixture và phần nào kiểm được với run thật. Chuyển cache và receipts cũ là tùy chọn.
+
+### Những phần đã sửa và phạm vi kiểm
+
+| Mốc | Thay đổi đã có | Bằng chứng và giới hạn |
+|---|---|---|
+| RT1 · Chẩn đoán retrieval | Ghi kết quả từng kênh case BM25, passage BM25 và dense passage ngoài payload. Liên kết query, need, operation, refs A và thứ hạng RRF/hits đã giao. Giữ riêng lỗi, unknown và trường hợp dense scan chạm cap. | Cached hybrid trên Qdrant và verifier provenance đã đạt, 0 inference mới. Dùng để tìm gold rơi ở kênh, fusion hay cutoff khi có evaluator. |
+| RT2 · Đoạn A bị cắt | Cho phép tìm từ span raw đủ ý dù paragraph bị chia trang. Host giữ source hash, UTF-8 byte span và text hash. | 41 unit test và 9 kiểm tra từ corpus thật đạt. Đây là kiểm contract và nguồn. |
+| RT3 · Điều hướng A và tokenizer | Bản đồ nhiều cấp có ref mở vùng con, byte span và preview literal. Vùng vừa ngân sách có thể mở nguyên văn. Vùng lớn dùng bản đồ và subdivision. Tokenizer và chat template được pin để đếm payload thật. | Xem các checkpoint RT3 và replay CM4. Profile RT3 lịch sử có output 384, khác launcher CM4 v30. |
+| RT4/RT5 và nhánh thử nghiệm | CM4 nhận `issue` và `source_proposition`. Chỉ `issue` gửi retrieval, còn mệnh đề do model diễn đạt để truy vết. Output mỗi lượt lên 512. Repo có profile RT5 bounded với tối đa 5 embedding request. Pilot CM4 dùng nhánh `uncapped` bên dưới. | Phân biệt profile và scope nghiệm thu. Launcher CM4 live yêu cầu `experiment_mode=uncapped`. |
+| M6 selector và đọc B | Host tổng hợp assessment theo ứng viên. Explicit passage lead mở đúng đoạn retrieval và đúng need. Hybrid hỗ trợ tới 50 án theo RRF trên các danh sách kênh đã có. | M6 selector bảo thủ có kiểm định danh header. CM4 live hiện bật `model_attribution` / `model_support`, vì vậy cần mốc xác minh B ở phần làm tiếp. |
+| CM4 v24–v25 · Một query đang mở | Khóa query tới khi có conclusion. Survey đủ tập kết quả rồi mới mở raw B. Có priority, receipt-based coverage, kết luận partial và trạng thái dang dở tách riêng. Source gate cho mệnh đề chưa có citation và span partial đủ ý. Có `read_query_span` để ghép cửa sổ liên tục đã được giao. V25 bỏ alias gate và công cụ anchor/citation cũ khỏi catalog live. | V25 đạt 126 test local. Pilot thật dừng trước T5 vì map thừa ở results mode. |
+| V26 · Map chỉ ở query mode | Bỏ dựng map A ngoài query mode. Đếm cap map trên payload đã compact, giữ mã định danh đầy đủ ở host. Map thực sự không vừa có lỗi terminal được ghi. | 129 test CM4 và 11 test navigation đạt. Replay trước T5 đạt. Pilot vượt T5 rồi AG STOP khi mới survey 10/50 và chưa mở raw B. |
+| V27 · Focus và survey | Khi query còn mở, chặn thay đổi source gate ở schema và host. Giữ đường đọc A. Hiện `query_gate_paused`, trang đang xem và `next_unseen`. Loại lượt gán lại cùng priority. | 132 test đạt. Replay T08/T12/T44 đạt. Pilot đủ năm tập 50 thẻ, mở raw 3 án rồi AG STOP do lặp mệnh đề đã tìm. |
+| V28 · Preview, đọc B và mệnh đề đã tìm | Thẻ survey có preview literal tối đa 320 ký tự, gắn span/hash. `read_next` dẫn về ứng viên ưu tiên chưa đọc. Trước khi kết luận phải đọc hoặc hạ ưu tiên có lý do. Query có hits và chưa có raw B chỉ được kết luận partial. Mệnh đề đã tìm bị loại khỏi lựa chọn tìm mới và có thể mở lại qua `revisit_source_need`. Prompt bổ sung giữ điều kiện pháp lý, phân biệt người nói, chiều A tham chiếu B và kiểm ngày khi đã xác minh. STOP sau admission và trước gửi được ghi là operator stop với `submission_attempted=false`. | 135 test đạt. Pilot 250 lượt mở raw 59 án B và dừng khi dựng payload lượt 251. |
+| V29 · Vùng A không còn vừa | Khi full region vượt cap do feedback/catalog thay đổi, cấp payload điều hướng tới bản đồ cha hoặc subdivision. Lượt này chưa giao raw và chưa tăng coverage. | 136 test đạt. Dựng lại đúng boundary T250 cho payload 1.940 token với tokenizer thật, 0 request Modal mới. |
+| V30 · Phân trang nhu cầu nguồn | `unresolved_source_needs` và enum `defer_source_need` chỉ xuất tối đa năm mục. `show_source_need_page` chuyển trang theo ref được cấp và giữ nguyên focus. Host giữ toàn bộ trạng thái và ẩn các thao tác gate khi query còn mở. | 137 test đạt. Với 96 mục giả lập, map giảm từ 9.550 xuống 5.198 token và fallback từ 9.419 xuống 2.065 token. Pilot v30 chưa đi qua nhánh phân trang này. |
+
+Chi tiết implementation và evidence nằm ở [bàn giao retrieval RT1–RT5](pipeline_v2/docs/RETRIEVAL_HANDOFF_20261114.md), [luồng CM4](pipeline_v2/experiments/context_manager_v2/CM4.md) và [báo cáo v28–v30](pipeline_v2/reviews/cm4_survey_focus_fix_v1/PILOT_20261120.md). Lịch sử đã test local, pilot live và điểm Task 1 cần được báo riêng khi tiếp quản.
+
+### Uncapped đã chạy như thế nào?
+
+- **Ngân sách cộng dồn:** profile `uncapped` dùng `2**60` cho số request/action và input token cộng dồn của controller, cùng số request và input token cộng dồn của embedding. `max_total_tokens=null`, `max_retries=0`. Pilot không phát `--max-turns`, nên `max_turns=null`. Các giá trị cực lớn phục vụ thí nghiệm quan sát khả năng model đi được tới đâu.
+- **Giới hạn từng lượt:** CM4 có 8.500 input và 512 output. Map có cap 2.400. Source deployment controller khai context 12.288. Launcher mặc định nâng `search_limit` lên 50 khi dùng settings mặc định. Nếu truyền `--settings` riêng thì đọc giá trị thật trong plan. Cần phân biệt giá trị `search_limit=3` trong JSON profile gốc với 50 của pilot CM4.
+- **Điều kiện dừng:** pilot dùng loop guard `warn`, tiếp tục ghi cảnh báo cycle/no-progress và cho AG giám sát. File `STOP` được xử lý ở ranh giới an toàn. Lỗi context, nguồn hoặc provider vẫn có thể kết thúc run. Lượt đã admission nhưng chưa gửi, lượt đã gửi chưa rõ kết quả và lượt đã có receipt được ghi và đối chiếu riêng.
+- **Chờ GPU:** controller dùng `wait_seconds=null` để poll cùng call. Khi Modal đang chờ GPU, chỉ đạo hiện hành là AG tiếp tục chờ và giám sát request gốc, tránh gửi trùng hoặc cắt chỉ vì chờ lâu. Phân biệt thời gian xếp lịch với thời gian model chạy và lý do người dùng dừng cả pilot. Xem [hướng dẫn AG](pipeline_v2/reviews/cm4_query_review_v24/AG_CHECK.md).
+- **Môi trường pilot:** profile Modal `g38180254`, controller Qwen 27B pin `fu-TfWPSIRNQIkZWM1W5O7HEv`, Qwen3-Embedding-4B trên L4 và Qdrant local collection `coliee_m3_full_ef2f4d6950a5b9fd`. Dùng tokenizer, sparse index và vectors đã pin. Tạo namespace mới khi đổi code, máy hoặc settings và đối chiếu binding trước khi chạy. [Bàn giao endpoint và accounting](pipeline_v2/reviews/cm4_survey_focus_fix_v1/MODAL_ACCOUNT_20261120.md)
+
+Uncapped là cấu hình đã dùng để thu bằng chứng ở pilot v30. Việc đề xuất ngân sách hữu hạn cho thử nghiệm tối ưu Task 1 ở phần làm tiếp cần được chốt dựa trên dữ liệu discovery. Đây chưa phải thay đổi đã triển khai.
+
+### Kết quả pilot v30
+
+AG dừng theo yêu cầu của người dùng vì thời gian và chi phí. Run kéo dài **26.072,776 giây, khoảng 7 giờ 15 phút**, với **501 lượt controller**, **476 action**, **2.525.932 input token**, **43.792 output token** và không có usage unknown trong run này. T501 đã nhận phản hồi, STOP chặn action tại `after_reply_before_action`. Kết quả ghi `operator_stop_file`, `pending_selection` và `prediction=null`. Retrieval có năm query và ba request embedding, tổng 121 token. Q4 và Q5 dùng lại kết quả Q3.
+
+Cả năm query khảo sát đủ 50 thẻ. Ledger giữ 250 cặp query–ứng viên, 119 án duy nhất trong pool và 79 án duy nhất được cấp raw. Bốn query đã kết luận và Q5 còn đang review. Model được cấp raw A ở `[0, 16061)` trong tổng 48.635 byte, khoảng 33%, và mới sàng lọc tới đoạn đánh số [18]. Phần nhận định từ [89] nằm ngoài vùng đã cấp. V30 vượt mốc từng gặp lỗi context ở v28. Đường dự phòng context và phân trang nhu cầu nguồn chưa phát sinh trong pilot v30.
+
+Mỗi hàng dưới đây tính từ lượt phát lệnh tìm tới lượt kết luận. Q5 tính tới T501. Khoảng giữa các hàng có các lượt đọc A và xác định nhu cầu.
+
+| Query | Lượt | Span A, byte | Text gửi retrieval | Controller / input token | Thẻ / raw B | Kết luận |
+|---|---|---|---|---:|---:|---|
+| Q1 | T015–T107 | `[5805, 6186)` | `leave to file reply affidavit judicial review` | 93 / 443.277 | 50 / 25 | `no_supported_source_found` |
+| Q2 | T117–T255 | `[7580, 7829)` | `standard of review prothonotary discretion` | 139 / 679.049 | 50 / 36 | `partially_resolved` |
+| Q3 | T257–T357 | `[7829, 7999)` | `standard of review interlocutory prothonotary` | 101 / 500.632 | 50 / 28 | `partially_resolved` |
+| Q4 | T359–T462 | `[7999, 8574)` | `standard of review interlocutory prothonotary` | 104 / 534.569 | 50 / 28 | `partially_resolved` |
+| Q5 | T464–T501 | `[8574, 8660)` | `standard of review interlocutory prothonotary` | 38 / 193.560 | 50 / 6 | Dừng giữa review |
+
+### Các lỗi có bằng chứng và tiêu chí nghiệm thu
+
+1. **Nhầm B trích án X thành B là X.** AG đối chiếu 12 án tạm `supported` và xác định chúng đều sai danh tính đối với nguồn F.C.A. được nêu ở [18]. Raw A còn `315 N.R. 175 (F.C.A.)`. Các B là quyết định Federal Court trích lại nguồn đó hoặc nguồn liên quan. Bảy B ra đời sau A theo ngày AG kiểm được. CM4 live hiện dùng `model_support=True`, nên đoạn trích trong B có thể được model gán `supported` mà thiếu bằng chứng nhận dạng của chính B. Tái hiện bằng A, đoạn B trích án thứ ba và header B. Regression phải giữ B ở `unknown` hoặc loại khỏi nguồn cho mệnh đề đó khi thiếu hoặc mâu thuẫn định danh. Ca positive cần giữ được khi A khớp định danh của chính B. Mười hai nhận định của AG chỉ áp dụng cho nguồn đang xét ở [18]. Chưa đối chiếu gold của cả án.
+2. **Q4–Q5 duyệt lại cùng tập kết quả Q3.** Ba query dùng span A khác nhau nhưng gửi cùng text. Q4–Q5 nhận cùng 50 án, cùng thứ tự, có receipt `search_reuse` trỏ về Q3. Hai vòng dùng lại vẫn tốn **142 lượt controller và 728.129 input token**, khảo sát thêm 100 thẻ. Q4 mở raw 28 B, trong đó 23 B đã mở trong Q3. Cả 6 B Q5 mở đều đã mở trong Q3 hoặc Q4. Như vậy 34 lần cấp raw tính theo hai query chỉ thêm 5 B duy nhất trong nhóm Q3–Q5. Tổng run dành **165 action chuyển trang và 53 action đổi ưu tiên**, khoảng 46% action đã thực thi. Regression cần giữ lịch sử query riêng nhưng dùng lại thẻ đã khảo sát, danh tính đã xác minh và raw đã cấp khi nguồn khớp. Mệnh đề hoặc evidence mới vẫn có đường đánh giá riêng. Đo số lượt tránh được trên replay và phân biệt với chi phí live thực tế.
+3. **Tool ref trùng làm tốn thêm lượt.** Có 24 reply bị từ chối vì `duplicate_evidence_refs` ở `container_refs`, tốn 118.378 input và 5.710 output token. Q2 có 15 lượt lỗi. T180–T184 lặp lại ref giống hệt trong cùng trường. Thử khử trùng giữ thứ tự ở trường mà ref mang nghĩa tập hợp, sau đó áp dụng lại validation về quyền dùng ref, vai trò và provenance. Regression phải bao gồm cả ref trùng hợp lệ và ref sai hoặc ngoài payload. Giữ reply gốc và accounting.
+4. **Độ phủ A và mệnh đề còn thiếu.** T003 đóng cả [2] là thủ tục, che hai căn cứ về tài liệu có thể có sẵn sớm hơn và việc tách vụ án. Ở Q1, text tìm làm mất điều kiện về thời điểm tài liệu có thể được cung cấp. Đoạn [18] lại chiếm bốn query, tổng 383 lượt controller và 1.907.810 input token. Phần nhận định [89] trở đi chưa được cấp. Xem raw của `021095.txt` và review theo lượt. Sàng lọc theo span phải để các mệnh đề khác trong cùng paragraph còn đường xét.
+
+### Thứ tự làm tiếp
+
+1. **Mốc đầu · Xác minh danh tính B.** Rà `witnessed_identity` hiện có và đường `model_support` của CM4. Phân biệt định danh trong header B với citation nằm trong thân B. Dùng ngày và cấp tòa khi chứng cứ xác minh được. Đối với citation bị che, thử đường kiểm nhận dạng dựa trên các bằng chứng còn thấy và giữ `unknown` khi thiếu căn cứ. So ca positive và ca B chỉ trích lại X trước khi đổi selector rộng hơn.
+2. **Mốc đầu · Giảm công việc lặp.** Tách cache pool, lịch sử khảo sát và evidence theo B khỏi kết luận theo mệnh đề. Khi receipt cho thấy kết quả giống hệt, giữ đường đến các ứng viên hoặc evidence chưa kiểm. Xác minh danh tính B một lần theo hash nguồn. Khử trùng refs hợp lệ và kiểm lại guard. Hai mốc đầu yêu cầu regression local và review độc lập. Nếu có ledger v30, dựng lại các điểm Q4–Q5 và chuỗi T180–T184 mà giữ nguyên run nguồn. Khi thiếu ledger, chạy fixture và báo giới hạn tái hiện.
+3. **Đề xuất sau hai mốc đầu · Thử giảm survey và đọc A có ưu tiên.** So khảo sát 50/50 với shortlist đọc sâu dựa trên dấu hiệu định danh và điểm retrieval. Giữ danh sách top 50 ngoài prompt để đo candidate recall. Tận dụng các dấu hiệu còn thấy trong corpus, cấu trúc A và vùng nhận định để chọn mệnh đề. So query theo định danh còn thấy với query theo mệnh đề trên discovery. Giảm lặp trên cùng cụm nguồn, giữ quyền xét span khác khi nó đặt câu hỏi độc lập.
+4. **Đề xuất đánh giá · Chốt ngân sách qua so sánh trên discovery.** Đo gold vào pool, qua shortlist và vào prediction cuối. So với BM25/hybrid hiện có trên cùng cohort, báo micro precision, recall, F1, số lượt, input/output token, latency và thống kê án dừng sớm. Khi tới ngân sách, thử đường chốt tập án đã qua xác minh và ghi rõ trạng thái dừng. Chọn ngưỡng chi phí từ kết quả đo. Tách gold ở evaluator và giữ test queries ngoài quá trình chỉnh hệ thống. Xem [kế hoạch đánh giá](pipeline_v2/docs/plan/AGENT_AND_EVALUATION.md).
+
+Máy kia tiếp quản kiểm và triển khai local trước. Báo riêng lỗi retrieval khi gold chưa vào pool và lỗi chọn án khi gold đã vào pool. Pilot v30 chưa có prediction cuối hoặc evaluator gold nên chưa kết luận thay đổi F1. Nếu cần pilot live sau kiểm local, người dùng hoặc AG chạy theo [hướng dẫn AG](pipeline_v2/reviews/cm4_query_review_v24/AG_CHECK.md) với namespace mới. Quy định chờ request đang pending GPU vẫn áp dụng cho lượt đã gửi.
+
+## CM4 v30
+
+V30 phân trang các nhu cầu nguồn đủ điều kiện hoãn. Host giữ toàn bộ trạng thái và chỉ cấp tối đa năm lựa chọn mỗi lượt cùng đường chuyển trang. Dùng namespace mới theo [hướng dẫn AG](pipeline_v2/reviews/cm4_query_review_v24/AG_CHECK.md). Số token đối chiếu nằm trong [báo cáo kiểm](pipeline_v2/reviews/cm4_survey_focus_fix_v1/PILOT_20261120.md).
+
+## CM4 v29 sau pilot v28
+
+Pilot `021095.txt` hoàn tất 250 lượt rồi dừng `context_unfit` khi dựng lượt kế tiếp. V29 cấp đường chia nhỏ hoặc quay về bản đồ cha nếu vùng A đang mở vượt ngân sách. Dùng fresh namespace theo [hướng dẫn AG](pipeline_v2/reviews/cm4_query_review_v24/AG_CHECK.md) và xem [evidence pilot](pipeline_v2/reviews/cm4_survey_focus_fix_v1/PILOT_20261120.md). Giữ nguyên receipts run v28.
+
 ## CM4 v28 sau pilot v27
 
 Bảng thay đổi pipeline từ base `7c230e5`, phạm vi file, evidence và giới hạn nghiệm thu được ghi tại [PROGRESS.md — cập nhật 20/11/2026](pipeline_v2/docs/PROGRESS.md).
