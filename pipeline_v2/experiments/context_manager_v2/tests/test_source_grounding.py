@@ -6,7 +6,7 @@ from pipeline_v2.tests.test_m6_adaptive import source
 
 
 class SourceGroundingTests(unittest.TestCase):
-    def assess(self, text, *, decision='has_source_signal', adjacent=None, complete=True):
+    def assess(self, text, *, decision='search_needed', adjacent=None, complete=True):
         raw = source('A', text + ('\n' + adjacent if adjacent else ''))
         row = raw.to_record()
         cut = len(text.encode('utf-8'))
@@ -20,14 +20,14 @@ class SourceGroundingTests(unittest.TestCase):
         payload['m6']['source_gate_segments'] = segments(payload)
         issued = payload['m6']['source_gate_segments']
         args = dict(paragraph_ref='p1', decision=decision, attribution='court',
-                    reason_code='masked_authority' if decision == 'has_source_signal' else 'procedural_history',
+                    reason_code='masked_authority' if decision == 'search_needed' else 'procedural_history',
                     reason='The paragraph reports an earlier source.', context_complete=complete,
                     proposition_ref=next(iter(issued)), signal_ref=list(issued)[-1])
         return evaluate(payload, args, [{'handle': ref} for ref in paragraphs])
 
     def test_local_order_keeps_model_decision(self):
         text = 'The earlier order in this case resolved costs: <FRAGMENT_SUPPRESSED> para.31;'
-        for proposed, expected in (('has_source_signal', 'approved'), ('no_source_signal', 'screened')):
+        for proposed, expected in (('search_needed', 'approved'), ('no_search_needed', 'screened')):
             with self.subTest(proposed=proposed):
                 result = self.assess(text, decision=proposed)
                 self.assertEqual(result['status'], expected)
@@ -37,12 +37,12 @@ class SourceGroundingTests(unittest.TestCase):
 
     def test_weak_signal_keeps_positive_decision(self):
         result = self.assess('The applicant filed a motion on Monday.')
-        self.assertEqual(result['decision'], 'has_source_signal')
+        self.assertEqual(result['decision'], 'search_needed')
         self.assertEqual(result['status'], 'approved')
 
     def test_citation_keeps_negative_decision(self):
-        result = self.assess('The fairness rule in 2010 FC 413 applies.', decision='no_source_signal')
-        self.assertEqual(result['decision'], 'no_source_signal')
+        result = self.assess('The fairness rule in 2010 FC 413 applies.', decision='no_search_needed')
+        self.assertEqual(result['decision'], 'no_search_needed')
         self.assertEqual(result['status'], 'screened')
 
     def test_adjacent_signal_remains_bound_to_issued_span(self):

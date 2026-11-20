@@ -27,9 +27,9 @@ def make_engine(directory, text=AUTHORITY, *, paragraphs=None):
     return engine, tools
 
 
-def screen(prepared, text, decision='has_source_signal', reason_code='authority_reference'):
+def screen(prepared, text, decision='search_needed', reason_code='authority_reference'):
     refs = {}
-    if decision == 'has_source_signal':
+    if decision == 'search_needed':
         ref = next(iter(prepared['payload']['m6']['source_gate_segments']))
         refs = dict(proposition_ref=ref, signal_ref=ref)
     return choose(prepared, 'assess_source_need', decision=decision,
@@ -67,15 +67,15 @@ class SourceGateTests(unittest.TestCase):
                       {'handle': 'p000002', 'span_bytes': [cut + 1, len(text.encode('utf-8'))]})
         with TemporaryDirectory() as directory:
             engine, _ = make_engine(directory, text, paragraphs=paragraphs)
-            engine.step(lambda p: screen(p, text, 'no_source_signal', 'procedural_history'))
+            engine.step(lambda p: screen(p, text, 'no_search_needed', 'procedural_history'))
             decided, = engine.context()['source_gate'].values()
-            self.assertEqual(decided['decision'], 'no_source_signal')
+            self.assertEqual(decided['decision'], 'no_search_needed')
             self.assertEqual(decided['status'], 'screened')
             followup = engine.prepare(admit=False)
             self.assertNotIn('search_cases_by_issue', names(followup))
             self.assertNotIn('defer_source_need', names(followup))
             self.assertEqual(followup['payload']['last_action_feedback']['query_gate_progress']['paragraphs_screened'], 1)
-            engine.step(lambda p: screen(p, text, 'no_source_signal', 'facts'))
+            engine.step(lambda p: screen(p, text, 'no_search_needed', 'facts'))
             self.assertTrue(engine.prepare(admit=False)['payload']['last_action_feedback']['query_gate_progress']['complete'])
 
     def test_partial_map_view_cannot_rescreen_or_overwrite_a_full_decision(self):
@@ -83,7 +83,7 @@ class SourceGateTests(unittest.TestCase):
         with TemporaryDirectory() as directory:
             engine, tools = make_engine(directory, text)
             original = engine.prepare(admit=False)
-            engine.step(lambda p: screen(p, text, 'no_source_signal', 'procedural_history'))
+            engine.step(lambda p: screen(p, text, 'no_search_needed', 'procedural_history'))
             context = engine.context()
             saved, = context['source_gate'].values()
             partial = tools.a.slice(0, 44).to_record()
@@ -94,11 +94,11 @@ class SourceGateTests(unittest.TestCase):
                        'm6': {'a_paragraphs': {'p000001@0:44': paragraph}}}
             self.assertEqual(screening_choices(payload, context), [])
             self.assertEqual(screening_choices(payload, {}), ['p000001@0:44'])
-            args = screen(original, text, 'no_source_signal', 'procedural_history')['args']
+            args = screen(original, text, 'no_search_needed', 'procedural_history')['args']
             args['paragraph_ref'] = 'p000001@0:44'
             rejected = evaluate(payload, args, tools.query_paragraphs)
-            self.assertEqual(rejected['source_need_ref'], saved['source_need_ref'])
-            self.assertEqual(rejected['status'], 'unresolved')
+            self.assertNotEqual(rejected['source_need_ref'], saved['source_need_ref'])
+            self.assertEqual(rejected['status'], 'screened')
             self.assertFalse(commit_decision(context, rejected))
             self.assertEqual(context['source_gate'][saved['source_need_ref']], saved)
             self.assertTrue(progress(context, tools.query_paragraphs)['complete'])
@@ -118,8 +118,13 @@ class SourceGateTests(unittest.TestCase):
             engine.step(lambda p: choose(p, 'search_cases_by_issue', issue='procedural fairness rule',
                                         source_proposition='The Court relied on the fairness rule.'))
             self.assertEqual(engine.context()['mode'], 'results')
+            engine.step(lambda p: choose(p, 'prioritize_query_results',
+                candidate_refs=list(p['payload']['m6']['query_result_choices']),
+                priority='read_next', reason='The lead addresses the rule.'))
             engine.step(lambda p: choose(p, 'open_retrieved_passage'))
             engine.step(lambda p: test_engine.EngineTests().action(p, 'assess_case_link'))
+            engine.step(lambda p: choose(p, 'conclude_search_query', outcome='partially_resolved',
+                reason='The candidate has been assessed.', unresolved_reason='The model kept the relation unknown.', remaining_source_need=''))
             done = engine.prepare(admit=False)
             self.assertIn('complete_policy', next(branch for branch in done['manifest']['schema']['anyOf']
                 if branch['properties']['action']['const'] == 'finish_case_review')
@@ -151,7 +156,7 @@ class SourceGateTests(unittest.TestCase):
         for text in cases:
             with self.subTest(text=text), TemporaryDirectory() as directory:
                 engine, _ = make_engine(directory, text)
-                engine.step(lambda p: screen(p, text, 'no_source_signal', 'authority_reference'))
+                engine.step(lambda p: screen(p, text, 'no_search_needed', 'authority_reference'))
                 decided, = engine.context()['source_gate'].values()
                 self.assertEqual(decided['status'], 'screened')
                 self.assertEqual(decided['reason_code'], 'authority_reference')
@@ -165,7 +170,7 @@ class SourceGateTests(unittest.TestCase):
             approved = engine.prepare(admit=False)
             self.assertIn('search_cases_by_issue', names(approved))
             decided, = engine.context()['source_gate'].values()
-            self.assertEqual(decided['decision'], 'has_source_signal')
+            self.assertEqual(decided['decision'], 'search_needed')
             self.assertEqual(decided['reason_code'], 'facts')
             self.assertEqual(decided['status'], 'approved')
             engine.step(lambda p: choose(p, 'search_cases_by_issue', issue='reply affidavit rules',
@@ -193,7 +198,7 @@ class SourceGateTests(unittest.TestCase):
             engine, _ = make_engine(directory, text)
             preview = engine.prepare(admit=False)
             self.assertEqual(len(preview['payload']['m6']['source_gate_segments']), 4)
-            engine.step(lambda p: screen(p, text, 'no_source_signal', 'procedural_history'))
+            engine.step(lambda p: screen(p, text, 'no_search_needed', 'procedural_history'))
             engine, _ = make_engine(directory, text)
             done = engine.prepare(admit=False)
             self.assertNotIn('search_cases_by_issue', names(done))

@@ -1,4 +1,5 @@
 """Regression for premature controller stops while results remain unread."""
+from pipeline_v2.experiments.context_manager_v2.tests.view_helpers import survey_results, conclude_query
 from tempfile import TemporaryDirectory
 import unittest
 
@@ -36,6 +37,7 @@ class ReviewBlockerTests(unittest.TestCase):
         engine.step(lambda prepared: screen(prepared, tools.a.text))
         engine.step(lambda prepared: choose(prepared, 'search_cases_by_issue', issue='procedural fairness',
                                             source_proposition='The query considers procedural fairness.'))
+        survey_results(engine)
         engine.step(lambda prepared: read_candidate(prepared, 'B'))
         engine.step(lambda prepared: assess(prepared, 'supported'))
         return engine
@@ -64,6 +66,7 @@ class ReviewBlockerTests(unittest.TestCase):
             engine.step(lambda prepared: read_candidate(prepared, 'C'))
             engine.step(lambda prepared: assess(prepared, 'similarity_only'))
 
+            conclude_query(engine)
             done = engine.prepare(admit=False)
             self.assertIn('finish_case_review', names(done))
             finish = choose(done, 'finish_case_review', reason='complete_policy')

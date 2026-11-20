@@ -85,7 +85,21 @@ def quote_for_paragraph(payload, paragraph_ref=None):
 
 
 def choose(prepared, name, **values):
-    row = next(row for row in prepared['manifest']['schema']['anyOf'] if row['properties']['action']['const'] == name)
+    candidates = [row for row in prepared['manifest']['schema']['anyOf']
+                  if row['properties']['action']['const'] == name]
+    def matches(row):
+        fields = row['properties']['args']['properties']
+        for key, value in values.items():
+            field = fields.get(key, {})
+            if 'enum' in field and value not in field['enum']:
+                return False
+            if isinstance(value, list) and 'enum' in field.get('items', {}):
+                if any(item not in field['items']['enum'] for item in value):
+                    return False
+        return True
+    row = next((row for row in candidates if matches(row)), candidates[0] if candidates else None)
+    if row is None:
+        raise ValueError('Tool is not offered: ' + name)
     params = row['properties']['args']
     fields = params['properties']
     if name == 'search_cases_by_issue' and 'anchor_quote' not in values:

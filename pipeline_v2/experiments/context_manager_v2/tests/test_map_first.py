@@ -77,13 +77,62 @@ class MapFirstTests(SourceToolsFixture):
         )
         return engine, tools
 
+    def test_results_registry_does_not_build_an_unused_query_map(self):
+        from unittest.mock import patch
+        with TemporaryDirectory() as directory:
+            engine, tools = self.make_engine(directory)
+            context = engine.context()
+            context.update(mode='results', stage='results_ready')
+            with patch.object(engine, 'context', return_value=context), patch.object(
+                    tools, 'map_page', side_effect=AssertionError('Unused map must not compile')):
+                prepared = engine.prepare(admit=False)
+            self.assertEqual(prepared['status'], 'ready')
+            self.assertNotIn('query_navigation', prepared['payload']['m6'])
+            self.assertEqual(prepared['manifest']['dispatch_m6']['query_targets'], {})
+
+    def test_map_cap_counts_exact_compact_projection_and_keeps_routes(self):
+        from pipeline_v2.agent_harness.contracts import encode
+        from pipeline_v2.experiments.context_manager_v2.model_view import project
+        with TemporaryDirectory() as directory:
+            _, tools = self.make_engine(directory, leaf_bytes=1024)
+            tools.navigation_config = QueryNavigationConfig(max_children=2, leaf_bytes=1024,
+                snippet_chars=24, map_max_tokens=2400)
+            def status(_):
+                return {'map_opened': True, 'map_seen': True, 'preview_seen': True,
+                        'raw_read': 'partial', 'search_used': True, 'raw_offered': 'partial'}
+            page = tools.map_page(tools.query_tree.root_ref, status=status,
+                totals={'maps_opened': 10, 'maps_seen': 10, 'previews_seen': 60,
+                        'raw_read_bytes': 12345, 'search_source_spans': 4}, compact=True)
+            minimal = {'query_id': tools.query_case, 'query_source_hash': tools.query_tree.source_hash,
+                       'max_output_tokens': tools.output_token_cap, 'excerpts': [],
+                       'current_payload_source_refs': [], 'm6': {'query_navigation': page}}
+            wire, _, _ = project(minimal, {})
+            self.assertEqual(tools.page_tokens(page), tools.navigation_counter(encode(wire)))
+            self.assertLessEqual(tools.page_tokens(page), 2400)
+            self.assertEqual([row['region_ref'] for row in page['children']],
+                             [row['region_ref'] for row in tools.query_tree.children(tools.query_tree.root_ref)])
+            self.assertTrue(all(row['snippets'] for row in page['children']))
+            self.assertGreater(tools.navigation_counter(encode(minimal)), tools.page_tokens(page))
+
+    def test_truly_unfit_query_map_is_a_recorded_terminal_not_an_exception(self):
+        from unittest.mock import patch
+        from pipeline_v2.agent_harness.contracts import HarnessError
+        with TemporaryDirectory() as directory:
+            engine, tools = self.make_engine(directory)
+            error = HarnessError('Query map with nonempty literal previews cannot fit its explicit token cap')
+            with patch.object(tools, 'map_page', side_effect=error):
+                result = engine.prepare(admit=False)
+            self.assertEqual(result['status'], 'unfit')
+            self.assertEqual(engine.state().final['stop_detail'], 'query_navigation_map_unfit')
+            self.assertEqual(engine.state().usage()['requests'], 0)
+
     def test_query_leaf_shows_gate_feedback_and_hides_settled_paragraph(self):
         with TemporaryDirectory() as directory:
             engine, _ = self.make_engine(directory, query_case="000001.txt", gate_enabled=True)
             engine.step(lambda p: choose(p, "read_query_passages"))
 
             def screen(p, complete):
-                return choose(p, "assess_source_need", decision="no_source_signal", attribution="court",
+                return choose(p, "assess_source_need", decision="no_search_needed", attribution="court",
                               reason_code="procedural_history", reason="The passage gives procedural context.",
                               context_complete=complete)
 

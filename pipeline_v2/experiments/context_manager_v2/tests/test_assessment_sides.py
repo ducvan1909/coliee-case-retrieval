@@ -1,4 +1,5 @@
 """Exercise the assessment options issued by the CM4 engine."""
+from pipeline_v2.experiments.context_manager_v2.tests.view_helpers import survey_results, conclude_query
 from dataclasses import replace
 from tempfile import TemporaryDirectory
 import unittest
@@ -28,6 +29,7 @@ class AssessmentSideTests(unittest.TestCase):
             engine.step(lambda p: screen(p, tools.a.text))
             engine.step(lambda p: choose(p, 'search_cases_by_issue', issue='procedural fairness',
                                          source_proposition='The model considers procedural fairness.'))
+            survey_results(engine)
             engine.step(lambda p: choose(p, 'open_retrieved_passage'))
             prepared = engine.prepare()
             refs = {row['case_id']: row['ref'] for row in prepared['payload']['excerpts']}
@@ -46,6 +48,7 @@ class AssessmentSideTests(unittest.TestCase):
             self.assertEqual(assessment['speaker']['role'], 'quoted_source')
             self.assertEqual(assessment['case_relation'], 'supported')
             self.assertEqual(assessment['identity_support_refs'], [])
+            conclude_query(engine)
             engine.step(lambda p: choose(p, 'finish_case_review', reason='complete_policy'))
             self.assertEqual(engine.state().final['prediction'], ['B'])
             self.assertEqual(engine.state().final['prediction_assessment_ids'], [assessment['assessment_id']])
@@ -65,6 +68,7 @@ class AssessmentSideTests(unittest.TestCase):
                 raw_reader=lambda case: sources[case].text.encode())
             engine.step(lambda p: choose(p, 'search_cases_by_issue', issue='procedural fairness',
                                          source_proposition='A asks about a procedural rule.'))
+            survey_results(engine)
             engine.step(lambda p: choose(p, 'open_retrieved_passage'))
             prepared = engine.prepare()
             schema = prepared['manifest']['schema']

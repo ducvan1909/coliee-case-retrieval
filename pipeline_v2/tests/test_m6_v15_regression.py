@@ -70,6 +70,7 @@ class V15PayloadRegressionTests(unittest.TestCase):
         harness.count_tokens = cls.transport.count_tokens
         harness.transport = cls.transport
         harness.adaptive_config = AdaptiveConfig(**cls.run_created["config"]["m6"]["config"])
+        harness.explicit_leads = cls.run_created["config"]["m6"].get("explicit_leads", False)
         harness.query_paragraphs = (cls._source_need["a_paragraph"],)
         harness.hybrid_search = type("HybridBudget", (), {"remaining": lambda self: {"requests": 1}})()
         harness.events = lambda: cls.prefix

@@ -1,6 +1,26 @@
 # Bàn giao Pipeline V2 cho Codex trên máy khác
 
+## CM4 v28 sau pilot v27
+
+Bảng thay đổi pipeline từ base `7c230e5`, phạm vi file, evidence và giới hạn nghiệm thu được ghi tại [PROGRESS.md — cập nhật 20/11/2026](pipeline_v2/docs/PROGRESS.md).
+
+Pilot v27 đã khảo sát đủ 5 tập kết quả nhưng chỉ mở raw 3 án B, sau đó AG dừng vì lặp screening ở `p000020`. V28 thêm preview có provenance, đường quay lại `read_next`, điều kiện kết luận và loại mệnh đề đã xử lý khỏi lựa chọn tìm mới. Xem [báo cáo pilot và yêu cầu kiểm v28](pipeline_v2/reviews/cm4_survey_focus_fix_v1/PILOT_20261120.md) và [lệnh AG](pipeline_v2/reviews/cm4_query_review_v24/AG_CHECK.md). Dùng namespace mới và giữ chỉ đạo chờ GPU vô hạn bên dưới.
+
+## Modal mới — 20/11/2026
+
+**Quy định chờ GPU mới:** người dùng yêu cầu AG chờ vô hạn khi Modal pending cấp worker, không tự kill/STOP/cancel/redeploy hoặc gửi probe/request mới vì chờ lâu. Giữ request gốc và theo dõi read-only đến kết quả; tiếp tục run khi có GPU. Chỉ dừng theo chỉ đạo người dùng hoặc lỗi terminal thật. Không áp loop/no-progress của model lên thời gian scheduler chờ. Chi tiết ở mục 4 [AG_CHECK](pipeline_v2/reviews/cm4_query_review_v24/AG_CHECK.md).
+
+AG chuyển profile và deploy hai dịch vụ; code controller pin hiện `fu-TfWPSIRNQIkZWM1W5O7HEv`. V27 pilot mới có 4 controller replies nhưng dừng giữa query embedding, attempt vẫn started/remote usage unknown, chưa tới survey. Đọc [bàn giao account và điều kiện chạy lại](pipeline_v2/reviews/cm4_survey_focus_fix_v1/MODAL_ACCOUNT_20261120.md). Không retry chỉ vì client đã kill; xác định call gốc trước. Chưa đổi GPU/cap/model, chưa có semantic/live acceptance v27. Không tự inference/deploy.
+
 ## Checkpoint mới nhất — 19/11/2026
+
+**V27 hiện tại:** sau run AG v26 STOP ở 10/50 survey và 0 raw B, khóa gate mutations khi active query, thêm next-unseen/progress và bỏ priority assignment không đổi. Giữ đọc A, coverage thật, warn/STOP và cap 8500/512. Đọc [REPORT v27 và lệnh AG](pipeline_v2/reviews/cm4_survey_focus_fix_v1/REPORT.md); không resume v26 STOP bằng code mới. Kết quả local không phải semantic/live PASS.
+
+**Checkpoint sửa map v26:** không dựng map ngoài query mode; cap map đếm theo CM4 projection thật. Run AG v25 đã xong 4 lượt rồi crash trước lượt 5, chưa có survey/B assessment. [Báo cáo v26](pipeline_v2/reviews/cm4_map_projection_fix_v1/REPORT.md) giữ lịch sử; dùng lệnh v27 ở trên cho pilot tiếp. Codex vẫn không tự inference/deploy.
+
+**Cleanup trước bản sửa map:** v25 chuyển gate sang v4 chỉ còn `search_needed` / `no_search_needed` / `need_more_context`; v26 giữ contract này. Không cấp tool citation/nháp anchor của luồng cũ; recovery hints chỉ trỏ tool đang được cấp. [CM4.md](pipeline_v2/experiments/context_manager_v2/CM4.md) và [MODEL_CONTEXT_FLOW.md](pipeline_v2/experiments/context_manager_v2/MODEL_CONTEXT_FLOW.md) đã tách lịch sử khỏi hướng dẫn hiện hành. Xem [kiểm cleanup](pipeline_v2/reviews/cm4_query_review_v24/CLEANUP.md). Phải prepare namespace mới, không chạy plan revision cũ.
+
+**Đợt Q1–Q4 sau review:** người dùng đã yêu cầu làm toàn bộ [kế hoạch CM4 query review](pipeline_v2/docs/plan/CM4_QUERY_REVIEW_PLAN_20261119.md). Engine mới `cm4-query-review-v24` / live `cm4-live-v2`: khóa từng search query, survey trước deep read, gate nhu cầu nguồn/partial span và loop warn mặc định. Đọc [báo cáo local](pipeline_v2/reviews/cm4_query_review_v24/REPORT.md) và [lệnh giao AG](pipeline_v2/reviews/cm4_query_review_v24/AG_CHECK.md) để biết kết quả nghiệm thu thực tế. Chưa có live/semantic PASS mới; Codex không tự inference/deploy. Chuẩn bị namespace mới, không resume plan v23 bằng code v24. Các checkpoint v23 phía dưới là lịch sử trước đợt này.
 
 Đọc **mục Checkpoint bàn giao mới — 19/11/2026** trong [RETRIEVAL_HANDOFF_20261114.md](pipeline_v2/docs/RETRIEVAL_HANDOFF_20261114.md) trước các phần lịch sử dưới đây. Lần push này chuyển selector/M6, explicit passage leads, M6 hybrid output đến 50 và ba bộ thử nghiệm context (CM4 hiện `cm4-anchor-flow-v23`), cùng tests/settings/tài liệu. Không chuyển run/cache/evidence local cũ. Có lỗi fixture regression M6 đã tái hiện và hướng dẫn xử lý trong checkpoint; chưa nghiệm thu live/semantic. Tạo namespace mới khi đổi máy/code, giữ unknown admissions, không tự resend. Codex chỉ chuẩn bị code/lệnh và kiểm local; người dùng/AG chạy inference/deploy.
 

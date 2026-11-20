@@ -1,5 +1,7 @@
 # Kế hoạch: KB cấu trúc, truy hồi hybrid và agent truy nguồn citation
 
+Cập nhật 19/11/2026: [CM4 Q1–Q4 — xử lý từng query, khảo sát kết quả và mở quyền điều hướng](CM4_QUERY_REVIEW_PLAN_20261119.md) đã triển khai và đạt kiểm local; xem báo cáo và lệnh giao AG trong kế hoạch trước khi chạy live.
+
 [Tiến độ M0–M7 hiện hành ngày 10/11/2026](../PROGRESS.md). Full ingestion và hybrid đã có kết quả thực tế. Phạm vi M3 còn phrase/identity, hoàn thiện context delivery và review cuối. Các checkpoint cũ bên dưới giữ để truy vết quyết định.
 
 Kế hoạch chi tiết mới chờ review: [M3 full search](M3_FULL_SEARCH.md). [Prompt AG review thiết kế](../AG_REVIEW_M3_FULL_SEARCH_PLAN_PROMPT.md). Chưa chốt các giá trị đề xuất hoặc triển khai từ draft này.

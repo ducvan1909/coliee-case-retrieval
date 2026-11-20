@@ -10,6 +10,7 @@ TRANSLATION_FIELDS = {
     'anchor_quote_not_found': ('anchor_quote', 'Copy at least 12 characters from one visible query paragraph and keep its wording and punctuation.'),
     'anchor_quote_ambiguous': ('anchor_quote', 'Copy a longer distinctive phrase from the same paragraph, including words next to the repeated quote.'),
     'anchor_quote_outside_paragraph': ('anchor_quote', 'Copy a continuous phrase that stays inside one visible query paragraph.'),
+    'invalid_query_conclusion': ('unresolved_reason', 'Keep unknown or unread candidates unresolved, explain the gap, and use a partial conclusion where required.'),
     'blank_reason': ('reason', 'State a concrete reason.'),
     'blank_finding': ('finding', 'State a concrete review finding.'),
     'blank_missing_evidence': ('missing_evidence', 'Describe the missing evidence or omit the optional note.'),
@@ -62,4 +63,4 @@ def visible_repair(events):
     if not repair.get('retry_allowed'):
         return None
     return {**{key: repair[key] for key in ('tool', 'code', 'fields', 'refs', 'hint')},
-            'guidance': 'One correction in this context. Use current options or report the evidence gap.'}
+            'guidance': 'Correct the rejected fields using current options or report the evidence gap.'}

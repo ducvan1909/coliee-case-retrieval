@@ -1,6 +1,22 @@
 # Tiếp tục tối ưu retrieval trên máy còn lại
 
+## Checkpoint hiện hành — 20/11/2026
+
+CM4 hiện `cm4-query-review-v28` / `cm4-live-v2`, gate v4. Xem [bảng thay đổi pipeline](PROGRESS.md) và [pilot v27 / kiểm v28](../reviews/cm4_survey_focus_fix_v1/PILOT_20261120.md). Prepare namespace v28 mới theo [AG_CHECK](../reviews/cm4_query_review_v24/AG_CHECK.md); chưa có nghiệm thu live/semantic v28. Controller pin hiện `fu-TfWPSIRNQIkZWM1W5O7HEv`. Giữ request gốc khi chờ GPU theo chỉ đạo mới; Codex không tự inference/deploy. Các chỉ dẫn v27 trở về trước dưới đây là checkpoint lịch sử.
+
 ## Checkpoint bàn giao mới — 19/11/2026
+
+**V27 hiện tại:** [REPORT focus/survey và lệnh AG](../reviews/cm4_survey_focus_fix_v1/REPORT.md). Active query không cấp gate mutations nhưng vẫn đọc được A; next-unseen/progress tách cards đã giao và preview, priority không đổi không được cấp. Bảo toàn coverage nhiều nhu cầu/paragraph. Fresh namespace v27, không resume v26 STOP. Các checkpoint v26 trở về trước dưới đây là lịch sử.
+
+**Phiên bản hiện tại v26:** sau pilot v25, sửa blocker map sau search; xem [REPORT và lệnh AG](../reviews/cm4_map_projection_fix_v1/REPORT.md). Không dựng bản đồ A ở results mode; đếm cap map theo projection CM4, không tăng ngân sách. Run cũ 4 lượt thành công, chưa tới survey/B/assessment, giữ nguyên receipts. Prepare namespace v26 mới theo hướng dẫn, không resume v25.
+
+**Hướng dẫn dùng hiện tại:** cleanup engine `cm4-query-review-v25`, gate v4; các nhãn gate và tool anchor/citation cũ không còn trong API CM4. Đọc [CM4](../experiments/context_manager_v2/CM4.md), [luồng tools](../experiments/context_manager_v2/MODEL_CONTEXT_FLOW.md), [cleanup](../reviews/cm4_query_review_v24/CLEANUP.md) và [AG_CHECK](../reviews/cm4_query_review_v24/AG_CHECK.md). Các đoạn v24/v23 và lệnh run lịch sử dưới đây không dùng để resume với code v25. Luôn prepare namespace mới.
+
+### Q1–Q4 sau review — CM4 query review v24
+
+Người dùng đã yêu cầu triển khai đủ [kế hoạch Q1–Q4](plan/CM4_QUERY_REVIEW_PLAN_20261119.md). Bản mới khóa một **search query** đến explicit conclusion, survey toàn bộ hits trước đọc sâu B, giữ counters/unread/unresolved, nới source gate cho mệnh đề không citation và partial span, loop guard mặc định warn để AG giám sát. Xem [REPORT](../reviews/cm4_query_review_v24/REPORT.md) cho nghiệm thu local và [AG_CHECK](../reviews/cm4_query_review_v24/AG_CHECK.md) cho lệnh chạy thật. Không diễn giải plan hoặc test protocol thành live/semantic PASS.
+
+Engine `cm4-query-review-v24`, live CLI `cm4-live-v2`; code/settings/root binding đổi nên phải prepare namespace mới. Không cần run/evidence cũ để chạy mới. Người dùng/AG chạy Modal, Codex chỉ code/local. Báo kết quả dừng partial cả STOP và các non-complete terminal stops; không chỉ lỗi. Các mục a398de0/7c230e5/v23 bên dưới giữ làm lịch sử.
 
 **Đọc mục này trước các mục ngày 14/11 phía dưới.** Đây là checkpoint chuyển tiếp công việc đang làm, chưa phải nghiệm thu selector, CM4 live hoặc chất lượng COLIEE. Base trước commit bàn giao: `19283dc`, nhánh `main`. Ngày 19/11 đã fetch và xác nhận base local/remote khớp. Không ghi đè các sửa độc lập trên máy đích.
 

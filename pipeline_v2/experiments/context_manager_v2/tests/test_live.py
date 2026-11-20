@@ -181,7 +181,7 @@ class LiveTests(unittest.TestCase):
                 target = 'pool' if mode != 'pool' else 'query'
                 return {'action': 'show_context_page', 'args': {'page_ref': body['m6']['cm_page']['controls'][target]}}
             t = Transport(select)
-            run_loop(e, t, Trace(), no_progress_limit=6, cycle_limit=3)
+            run_loop(e, t, Trace(), no_progress_limit=6, cycle_limit=3, loop_guard_mode='stop')
             self.assertLessEqual(len(t.calls), 8)
             self.assertIsNotNone(e.state().final)
             self.assertFalse(e.state().in_flight)
@@ -228,6 +228,8 @@ class LiveTests(unittest.TestCase):
             self.assertFalse(t.calls)
             self.assertFalse(e.state().in_flight)
             self.assertFalse(e.state().last_receipt['transport_metadata']['submission_attempted'])
+            self.assertEqual(e.state().final['stop_detail'], 'operator_stop_file')
+            self.assertEqual(e.state().final['stop_reason'], 'no_progress')
 
     def test_bare_action_without_modelreply_contract_never_executes(self):
         class BareTransport(Transport):

@@ -4,9 +4,10 @@ from dataclasses import replace
 import json
 
 from pipeline_v2.agent_harness import ToolResult
-from pipeline_v2.agent_harness.contracts import HarnessError, fingerprint
+from pipeline_v2.agent_harness.contracts import HarnessError, fingerprint, encode
 from pipeline_v2.m4 import M3Tools
 from pipeline_v2.query_navigation import HierarchicalM3Tools, QueryTree
+from .model_view import project
 
 
 class _SplittableQueryTree(QueryTree):
@@ -85,13 +86,27 @@ class MapFirstQueryTools(HierarchicalM3Tools):
         self.query_tree = _SplittableQueryTree(self.query_tree)
         self.whole_region_reader = M3Tools(sources, lexical, query_case, byte_budget=sources.profile['byte_cap'],
                                           map_limit=map_limit)
-        self.fingerprint = fingerprint([self.fingerprint, 'cm4-unified-query-read-v17'])
+        self.fingerprint = fingerprint([self.fingerprint, 'cm4-unified-query-read-v26'])
 
     def preview_expansion(self, binding):
         """Plan an expansion through the same local reader used at execution."""
         return self.expand_source(binding)
 
+    def page_tokens(self, page):
+        # Count the exact CM4 projection, including the live instruction/template
+        # overhead in navigation_counter. Canonical hashes/refs stay host-side.
+        minimal = {'query_id': self.query_case, 'query_source_hash': self.query_tree.source_hash,
+                   'max_output_tokens': self.output_token_cap, 'excerpts': [],
+                   'current_payload_source_refs': [], 'm6': {'query_navigation': page}}
+        wire, _, _ = project(minimal, {})
+        count = self.navigation_counter(encode(wire))
+        if type(count) is not int or count < 0:
+            raise HarnessError('Invalid navigation token count')
+        return count
+
     def registry(self, events, state, payload):
+        if payload.get('_cm4_query_navigation_enabled') is False:
+            return None, {}, {}
         page, _, reads = super().registry(self._navigation_events(events), state, payload)
         visible = {row['region_ref']: row for row in (page['current'], *page['children'])}
         epoch = next(iter(reads.values()))['binding']['visit_epoch']

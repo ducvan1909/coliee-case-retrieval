@@ -1,4 +1,5 @@
 """Exercise CM4 candidate identity reads and their evidence binding."""
+from pipeline_v2.experiments.context_manager_v2.tests.view_helpers import survey_results, conclude_query
 from tempfile import TemporaryDirectory
 import unittest
 
@@ -49,6 +50,7 @@ class CandidateHeaderTests(unittest.TestCase):
         engine.step(lambda p: choose(p, 'search_cases_by_issue', issue='procedural fairness',
                                      source_proposition='The issue is the applicable fairness standard.'))
         self.assertNotIn('open_candidate_header', names(engine.prepare(admit=False)))
+        survey_results(engine)
         engine.step(lambda p: choose(p, 'open_retrieved_passage'))
         prepared = engine.prepare(admit=False)
         self.assertIn('open_candidate_header', names(prepared))

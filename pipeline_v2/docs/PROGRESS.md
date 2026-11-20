@@ -1,5 +1,39 @@
 # Tiến độ pipeline_v2 ngày 12/11/2026
 
+## Cập nhật pipeline hiện hành — 20/11/2026, CM4 v28
+
+Đối chiếu code hiện tại: engine `cm4-query-review-v28`, live CLI `cm4-live-v2`, source gate v4. Đây là phần thay đổi kể từ commit `7c230e5`; các checkpoint v24–v27 và tiến độ M0–M7 bên dưới giữ làm lịch sử. Hướng dẫn chạy hiện hành: [CM4](../experiments/context_manager_v2/CM4.md), [luồng model/context](../experiments/context_manager_v2/MODEL_CONTEXT_FLOW.md), [AG_CHECK](../reviews/cm4_query_review_v24/AG_CHECK.md).
+
+| Thành phần | Thay đổi so với pipeline trước đợt này |
+|---|---|
+| Query lifecycle (`engine.py`, `query_review.py`, `cli.py`) | Khóa từng search query tới khi có conclusion; phải survey toàn bộ hits trước đọc raw B. Ledger giữ riêng survey/raw exposure, ưu tiên, assessment và unresolved. Query trùng sau conclusion trả lại kết quả cũ, không tự retrieval lại. |
+| Source gate (`source_gate.py`, `query_options.py`) | Dùng `search_needed` / `no_search_needed` / `need_more_context`, không còn aliases gate cũ trong API CM4. Cho xét mệnh đề chưa có tên án/citation và span partial đủ ngữ cảnh; `signal_ref` tùy chọn. Positive một mệnh đề không phủ cả paragraph. |
+| Đọc A và context | Ghép lại vùng A liên tục đã được giao qua `read_query_span`, kiểm provenance và cap; không lấp khoảng chưa đọc. V26 chỉ dựng map khi ở query mode và đếm theo projection CM4 thực, sửa crash sau search. |
+| Focus và survey | V27 khóa gate mutations ở schema và host khi query đang mở nhưng vẫn cho đọc A; thêm first-unseen/progress, bỏ assignment priority không đổi. V28 thêm preview tối đa 320 ký tự có span/hash, đường quay lại ứng viên `read_next` chưa đọc và chặn conclusion khi còn ưu tiên chưa xử lý. Query có hits nhưng chưa đọc raw B chỉ được kết luận partial. |
+| Nhu cầu đã xử lý | V28 loại span mệnh đề đã tìm khỏi lựa chọn tìm mới; chỉ tìm lại có chủ đích qua `revisit_source_need` sau conclusion. Những mệnh đề khác trong cùng paragraph vẫn được xét. |
+| Live và STOP (`live.py`, `engine.py`) | Loop guard mặc định `warn`, mode `stop` chọn rõ; log kèm query progress/usage/context. STOP sau admission nhưng trước gửi ghi `submission_attempted=false` và `operator_stop_file`; tách ngân sách giữ chỗ khỏi usage provider. |
+| Prompt | Giữ điều kiện/ngoại lệ pháp lý trong query; phân biệt lời đương sự với nhận định tòa; kiểm chiều A viện dẫn B và ngày quyết định đã xác minh, không suy ngày từ case ID. |
+| Modal controller | Pin chuyển sang `fu-TfWPSIRNQIkZWM1W5O7HEv` theo đợt AG đổi profile/deploy đã ghi trong [bàn giao Modal](../reviews/cm4_survey_focus_fix_v1/MODAL_ACCOUNT_20261120.md). Chỉ đạo mới: giữ request gốc và chờ GPU vô hạn khi pending, không tự probe/retry/cancel vì chờ lâu. |
+| Tests và tài liệu | Bổ sung query-review acceptance/current catalog và regression survey, gate, nguồn, STOP; fixture M6 nạp `explicit_leads` theo config. Tách hướng dẫn hiện hành khỏi `*_HISTORY.md` và offline replay; thêm plan Q1–Q4, báo cáo local/pilot và scripts kiểm prefix chỉ đọc. |
+
+Giữ model/embedding/index/RRF, top 50 mặc định CM4, map cap 2.400 và input/output 8.500/512, cumulative uncapped. Chưa mở mốc mới hoặc có prediction/gold evaluation mới.
+
+Evidence gần nhất: [pilot v27 và sửa v28](../reviews/cm4_survey_focus_fix_v1/PILOT_20261120.md). V27 có 153 admissions, 152 lượt controller thực gửi, 5 query survey đủ 250 cặp kết quả/220 án duy nhất nhưng chỉ 3 án nhận raw; AG STOP khi lặp screening. Provider: 685.243 input / 15.376 output controller tokens và 192 embedding tokens qua 5 request. Usage unknown của request embedding gián đoạn trước được giữ riêng, không coi là tiết kiệm. Chi tiết latency và run v26 ở [REPORT](../reviews/cm4_survey_focus_fix_v1/REPORT.md).
+
+Kiểm lại trước push ngày 20/11: suite CM4 đạt **135 tests PASS trong 94,638 giây**, không gọi provider; `git diff --check` PASS. Regression M6 v15 bị skip vì thiếu fixture local (0 tests chạy), nên chưa xác minh lại regression đó trong đợt push này.
+
+V28 đã có kiểm local 135 tests PASS và fresh prepare 3.129 tokens, 0 controller/embedding requests theo báo cáo pilot. Chưa có live/semantic acceptance v28 hoặc metric COLIEE mới. Khi code/root/settings đổi phải prepare namespace mới; không sửa plan/receipts cũ để resume. Codex chỉ kiểm local và chuẩn bị lệnh; người dùng/AG chạy inference/deploy.
+
+CM4 v27 hiện tại: sau run v26 49 admissions, STOP sạch khi survey 10/50/0 raw B, sửa focus/cấp tool gate và route survey. Xem [REPORT v27](../reviews/cm4_survey_focus_fix_v1/REPORT.md) cho evidence, kiểm local và lệnh AG; chưa inference/deploy mới.
+
+CM4 v26 sửa host crash sau query đầu của pilot `021095.txt`: bỏ map không dùng ở results mode, đếm map theo model projection, giữ cap 2400/8500/512. Kết quả và lệnh AG chạy lại ở [REPORT v26](../reviews/cm4_map_projection_fix_v1/REPORT.md). Chưa chạy inference/deploy mới hoặc đánh giá semantic toàn run mới.
+
+Cleanup CM4 hiện hành ngày 19/11: engine `cm4-query-review-v25`, gate v4 bỏ aliases cũ, giới hạn catalog và recovery theo tools hiện hành, tách tài liệu lịch sử. Xem [kết quả cleanup](../reviews/cm4_query_review_v24/CLEANUP.md). Checkpoint v24 bên dưới giữ kết quả đợt triển khai trước cleanup.
+
+## CM4 Q1–Q4 — 19/11/2026
+
+Người dùng đã yêu cầu triển khai toàn bộ [kế hoạch query review](plan/CM4_QUERY_REVIEW_PLAN_20261119.md). Engine `cm4-query-review-v24` / live `cm4-live-v2` bổ sung khóa từng search query, survey toàn bộ tập hits trước đọc sâu, nguồn theo mệnh đề/partial span và loop warn mặc định cho AG điều khiển STOP. Kết quả local cùng hạn chế cập nhật tại [REPORT](../reviews/cm4_query_review_v24/REPORT.md); [AG_CHECK](../reviews/cm4_query_review_v24/AG_CHECK.md) có lệnh giao người dùng/AG chạy thật. Chưa có inference/deploy/live semantic acceptance mới. Trạng thái và receipts lịch sử bên dưới không thay thế kết quả đợt này.
+
 Đã nghiệm thu kỹ thuật M3 và lượt tích hợp live M4 trên một query. Nền nguồn và passage đã qua kiểm tra toàn corpus. Full embedding, DB integrity, BM25 sparse, source tools và hybrid đã qua các bước kiểm tra ghi bên dưới.
 
 AG review sparse đã hoàn tất ngày 10/11/2026, đạt correctness, index integrity và corpus parity, với 0 lỗi production chặn nghiệm thu. Hybrid local dùng vector cache đạt. Bốn ghi nhận còn lại liên quan startup/RAM, chi phí guard, revalidate và phạm vi M3. Khi nối harness, dùng session xuyên nhiều truy vấn; cân nhắc gom guard ở biên request sau khi giữ đủ kiểm tra invalidation. [Báo cáo AG](../reviews/m3_sparse_ag_review_v1/REPORT.md).

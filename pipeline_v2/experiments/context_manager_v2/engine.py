@@ -7,7 +7,7 @@ from pathlib import Path
 from time import perf_counter
 
 from jsonschema import Draft202012Validator
-from pipeline_v2.agent_harness import Budget, ToolResult
+from pipeline_v2.agent_harness import Budget, ToolResult, SourceExcerpt
 from pipeline_v2.agent_harness.contracts import HarnessError, encode, fingerprint
 from pipeline_v2.agent_harness.evidence import SourceDrift, normalize_result, slice_record, source_record
 from pipeline_v2.agent_harness.ledger import Ledger, RunState
@@ -23,9 +23,9 @@ from .query_options import MapFirstQueryTools
 from .model_view import project, restore_action
 from .read_options import execute_candidate_header, execute_retrieved_passage, opened_lead_keys, retrieved_passages
 from .tool_repair import bind_repair, repair_feedback, visible_repair
-from . import source_gate
+from . import source_gate, query_review
 
-VERSION = 'cm4-anchor-flow-v23'
+VERSION = 'cm4-query-review-v28'
 ASSESSMENT_TOOLS = ('assess_case_link', 'review_conflicting_link')
 SPEAKER_SIDE_REFS = ('speaker_evidence_refs', 'quote_chain_refs', 'container_refs')
 EVIDENCE_CHOICES = (('identity_support_choice', 'identity_support_refs'), ('counterevidence_choice', 'counterevidence'))
@@ -34,7 +34,9 @@ CONTEXT_ACTIONS |= {'stage_query_anchor', 'defer_query_anchor', 'resume_query_an
 CONTEXT_ACTIONS |= {'assess_source_need', 'defer_source_need', 'close_query_anchor'}
 CONTEXT_ACTIONS |= {'defer_approved_source_need', 'resume_approved_source_need'}
 CONTEXT_ACTIONS.add('defer_case_pair')
-CONTEXT_ACTIONS.add('report_review_blocker')
+CONTEXT_ACTIONS |= {'report_review_blocker', 'prioritize_query_results', 'conclude_search_query', 'revisit_source_need', 'read_query_span'}
+GATE_MUTATIONS = {'assess_source_need', 'defer_source_need', 'defer_approved_source_need',
+                  'resume_approved_source_need', 'revisit_source_need'}
 BLOCKER_RECOVERY = {
     'missing_identity': ('open_candidate_header', 'read_more_context', 'record_missing_evidence', 'defer_case_pair'),
     'no_readable_text': ('reload_pair_evidence', 'continue_raw_evidence', 'read_more_context',
@@ -51,7 +53,7 @@ def code_binding():
     directory = Path(__file__).parent
     files = [directory / name for name in ('engine.py', 'evidence.py', 'tool_repair.py', 'assessment_options.py',
                                            'read_options.py', 'query_options.py', 'model_view.py', 'anchor_quote.py',
-                                           'source_gate.py')]
+                                           'source_gate.py', 'query_review.py')]
     files += [directory.parent / 'context_manager_v1' / 'core.py']
     root = directory.parents[2]
     result = base_binding(root)
@@ -78,6 +80,15 @@ class IntegratedHarness(policy.AdaptiveHarness):
             final['deferred_pair_count'] = len(deferred)
             if reason == 'complete':
                 final['review_status'] = 'complete_with_deferred_pairs'
+        if self.engine.gate_enabled:
+            rows = query_review.queries(self.engine.events(), self.engine.context())
+            unresolved = [key for key, row in rows.items() if not row['conclusion']
+                          or row['conclusion']['unresolved_candidate_ids']
+                          or row['conclusion']['remaining_source_need'].strip()]
+            final['unresolved_search_query_count'] = len(unresolved)
+            final['unresolved_search_query_ids'] = unresolved
+            if reason == 'complete' and unresolved:
+                final['review_status'] = 'complete_with_unresolved_queries'
         return final
 
     def _reuse_hybrid_search(self, state, action, actions, outcomes):
@@ -132,6 +143,9 @@ class IntegratedHarness(policy.AdaptiveHarness):
         receipt = state.pending_action
         action = receipt['action']
         args = action['args']
+        if self.engine.gate_enabled and action['action'] == 'open_source':
+            query = query_review.active(self.engine.events(), self.engine.context())
+            require(query is None or query['phase'] == 'reviewing', 'Survey all results before reading candidates')
         if self.engine.gate_enabled and action['action'] in ('search_corpus', 'search_identity'):
             self.engine._verify_search_permit(action, self.engine.context())
         if action['action'] == 'expand_source' and hasattr(self.m3, 'preview_expansion'):
@@ -199,7 +213,9 @@ class IntegratedHarness(policy.AdaptiveHarness):
             self._action_result(db, state, 'success', result=outcome, reason='reused_exact_hybrid_search', started=started)
 
     def _registry(self, state, payload):
-        full = policy.OriginalAdaptiveHarness._registry(self, state, payload)
+        context = self.engine.context()
+        registry_payload = {**payload, '_cm4_query_navigation_enabled': context['mode'] == 'query'}
+        full = policy.OriginalAdaptiveHarness._registry(self, state, registry_payload)
         if self.engine.gate_enabled:
             full['review_candidates'] = {}
         context = self.engine.context()
@@ -265,7 +281,7 @@ class IntegratedHarness(policy.AdaptiveHarness):
                 row['read_status'] = 'other_need_select_need_first'
             elif fingerprint([need_id, case]) in deferred:
                 row['read_status'] = 'deferred_missing_evidence'
-            elif context['stage'] == 'reading' and candidate_id != case:
+            elif not self.engine.gate_enabled and context['stage'] == 'reading' and candidate_id != case:
                 row['read_status'] = 'finish_pair_or_record_missing_first'
             elif prioritize_unfinished:
                 row['read_status'] = 'assessed_use_unfinished_results'
@@ -324,6 +340,12 @@ class IntegratedHarness(policy.AdaptiveHarness):
         ordered_cards = [{'candidate_ref': by_case[case][0], 'case_id': case,
                           'original_rank': native_ranks.get(case), 'read_allowed': False}
                          for case in page if case in by_case and by_case[case][0] in selected]
+        for card in ordered_cards:
+            lead = leading_hits.get(card['case_id'])
+            if lead:
+                preview = self.engine._survey_preview(lead)
+                if preview:
+                    card['literal_preview'] = preview
         full['cm_page'] = {'total': len(order), 'offset': context['offset'], 'count': len(ordered_cards),
                            'candidates': ordered_cards}
         full['cm_context'] = {key: context[key] for key in ('need_id', 'candidate_id', 'stage', 'mode')}
@@ -361,14 +383,17 @@ class Engine:
     def __init__(self, directory, *, identity, tools, count_tokens, raw_reader,
                  config=None, initial_observation=None, query_excerpt=None,
                  hybrid_search=None, counter_binding=None, page_size=5, execution_mode='offline', run_binding=None,
-                 gate_enabled=False, selector=None, selector_fingerprint=None):
+                 gate_enabled=False, selector=None, selector_fingerprint=None, loop_guard_mode=None):
         from pipeline_v2.m6 import AdaptiveConfig
         require(execution_mode in ('offline', 'live'), 'Invalid execution mode')
         self.execution_mode = execution_mode
         self.gate_enabled = gate_enabled
+        self.loop_guard_mode = loop_guard_mode or ('warn' if gate_enabled else 'stop')
+        require(self.loop_guard_mode in ('warn', 'stop'), 'Invalid loop guard mode')
         require(type(gate_enabled) is bool, 'Source gate flag must be boolean')
         self._reply_metadata = {}
         self._expansion_previews = {}
+        self._survey_previews = {}
         self.directory = Path(directory)
         self.page_size = page_size
         self.render_page_size = page_size
@@ -572,6 +597,16 @@ class Engine:
                     'paragraph_handle', 'proposed_decision', 'decision', 'status', 'validation_message')}
             if search and last['status'] == 'duplicate':
                 outcome['message'] = 'Duplicate search was not executed. Existing results are retained; this is not a no-hit search.'
+                prior = next((q for q in query_review.queries(events, context).values()
+                              if q['need_id'] == action['args'].get('_m6_need', {}).get('source_need_id')
+                              and q['issue'] == action['args'].get('text') and q['conclusion']), None)
+                if prior:
+                    outcome['concluded_query_id'] = prior['query_id']
+                    outcome['previous_conclusion'] = {key: prior['conclusion'][key]
+                        for key in ('outcome', 'reason', 'unresolved_reason', 'remaining_source_need')}
+                    outcome['message'] = ('This exact query and anchor were already concluded. '
+                        'The prior conclusion is retained without new retrieval or survey. '
+                        'Revisit the source need and change the query if more evidence is needed.')
             elif last['status'] == 'duplicate' and (read_key := focused_read_key(action)) is not None:
                 need_id, case_id, focus = read_key
                 outcome['duplicate_focus'] = {'need_id': need_id, 'case_id': case_id, 'focus': focus}
@@ -1122,7 +1157,7 @@ class Engine:
         pair_key = fingerprint([context['need_id'], context['candidate_id']])
         parked = [pair for pair, target in context['pair_targets'].items()
                   if pair != pair_key and pair in context['pair_pins'] and target['need_id'] and target['candidate_id']]
-        safe = context['stage'] in ('ready', 'assessed', 'missing_evidence', 'error', 'no_hit')
+        safe = self.gate_enabled or context['stage'] in ('ready', 'assessed', 'missing_evidence', 'error', 'no_hit')
         if context['mode'] == 'needs':
             need_ids = list(snapshot.needs)[context['offset']:context['offset'] + self.render_page_size]
             page.update(total=len(snapshot.needs), count=len(need_ids))
@@ -1150,15 +1185,38 @@ class Engine:
                      'pool': bool(state.candidates), 'needs': any(key != context['need_id'] for key in snapshot.needs),
                      'parked': safe and bool(parked), 'assessment': bool(context['candidate_id']),
                      'anchor_drafts': safe and not active_draft and len(drafts) > self.render_page_size}
+        active_query = query_review.active(self.events(), context) if self.gate_enabled else None
         for mode, available in reachable.items():
-            if available and (mode != context['mode'] or context['offset'] != 0):
-                controls[mode] = handle('page', {'mode': mode, 'offset': 0, 'back': []})
+            target_offset = (query_review.first_unseen_offset(active_query) or 0) if mode == 'results' and active_query else 0
+            if available and (mode != context['mode'] or context['offset'] != target_offset):
+                controls[mode] = handle('page', {'mode': mode, 'offset': target_offset, 'back': []})
+        if active_query:
+            backlog = query_review.pending_read_next(active_query)
+            if active_query['phase'] == 'reviewing' and backlog:
+                target_offset = active_query['candidate_ids'].index(backlog[0])
+                if context['mode'] != 'results' or context['offset'] != target_offset:
+                    controls['read_next'] = handle('page', {'mode': 'results', 'offset': target_offset, 'back': []})
+            current_cases = [card['case_id'] for card in page.get('candidates', [])] if context['mode'] == 'results' else []
+            unseen = query_review.first_unseen_offset(active_query, current_cases)
+            if unseen is not None:
+                target = {'mode': 'results', 'offset': unseen, 'back': [*context['back'], context['offset']] if context['mode'] == 'results' else []}
+                controls['next_unseen'] = handle('page', target)
+            # Results is a resume route, not a duplicate previous/next control.
+            for preferred in ('previous', 'next', 'next_unseen'):
+                if preferred in controls and 'results' in controls:
+                    a, b = handles[controls[preferred]], handles[controls['results']]
+                    if (a['mode'], a['offset']) == (b['mode'], b['offset']):
+                        del controls['results']
+            if 'next' in controls and 'next_unseen' in controls:
+                a, b = handles[controls['next']], handles[controls['next_unseen']]
+                if (a['mode'], a['offset']) == (b['mode'], b['offset']):
+                    del controls['next']
         page['controls'] = controls
         branches = list(schema['anyOf'])
         def add(name, fields, description):
             branches.append(self._branch(name, fields))
             tools.append({'name': name, 'description': description, 'parameters': {'type': 'object', 'properties': fields, 'required': list(fields)}})
-        if drafts:
+        if drafts and not self.gate_enabled:
             anchor_view = {'status': 'parked', 'unresolved_total': len(drafts), 'candidates': [], 'parked': []}
             if active_draft:
                 resolved, suggested = find_anchor(payload, active_draft['args']['anchor_quote'])
@@ -1447,7 +1505,7 @@ class Engine:
             feedback['pending_source_count'] = payload['pending_source_count']
             feedback['navigation_options'] = [{'tool': 'show_context_page', 'args': {'page_ref': controls[mode]}, 'view': mode}
                 for mode in ('query', 'results', 'pool', 'needs', 'parked') if mode in controls]
-        if recover_search:
+        if recover_search and not self.gate_enabled:
             feedback['guidance'] = 'The repeated query was skipped. Choose an unread candidate in these existing results or change need.'
         if lead_waiting:
             feedback['guidance'] = ('Use lead_review_option to bring the selected candidate lead back for assessment.'
@@ -1464,11 +1522,160 @@ class Engine:
             feedback['guidance'] = 'This page has no remaining candidate reads for this need. Open the next results page.'
             feedback['navigation_options'] = [{'tool': 'show_context_page',
                                                'args': {'page_ref': controls['next']}, 'view': 'next'}]
-        self._draft_close_catalog(payload, context, schema, handles)
+        if not self.gate_enabled:
+            self._draft_close_catalog(payload, context, schema, handles)
         if self.gate_enabled:
             schema = self._gate_catalog(payload, state, context, schema, handles)
+            schema = self._query_review_catalog(payload, state, context, schema, handles)
+            schema = self._current_tool_catalog(payload, schema)
         payload['m6']['schema_fingerprint'] = fingerprint(schema if self.gate_enabled else policy.catalog(payload)[1])
         return schema, handles
+
+    @staticmethod
+    def _current_tool_catalog(payload, schema):
+        """Keep CM4's public catalog and all recovery hints on the current API."""
+        allowed = {
+            'expand_query_map', 'read_query_passages', 'read_query_span',
+            'assess_source_need', 'search_cases_by_issue', 'defer_source_need',
+            'defer_approved_source_need', 'resume_approved_source_need', 'revisit_source_need',
+            'show_context_page', 'set_context_focus', 'prioritize_query_results',
+            'open_retrieved_passage', 'read_case_passages', 'open_candidate_header',
+            'read_more_context', 'continue_raw_evidence', 'reload_pair_evidence', 'resume_pair_evidence',
+            'assess_case_link', 'review_conflicting_link', 'record_missing_evidence',
+            'defer_case_pair', 'report_review_blocker', 'conclude_search_query', 'finish_case_review',
+        }
+        payload['available_tools'] = [tool for tool in payload['available_tools'] if tool['name'] in allowed]
+        branches = [branch for branch in schema['anyOf']
+                    if branch['properties']['action']['const'] in allowed]
+        offered = {tool['name'] for tool in payload['available_tools']}
+        for tool in payload['available_tools']:
+            if tool['name'] == 'record_missing_evidence':
+                tool['description'] = 'Record the evidence gap for this pair. You may compare other candidates within the active query.'
+        feedback = payload['last_action_feedback']
+        blocker = feedback.get('review_blocker')
+        if blocker:
+            blocker['suggested_tools'] = [name for name in blocker.get('suggested_tools', []) if name in offered]
+        feedback['next_options'] = [tool['name'] for tool in payload['available_tools']]
+        for key in ('navigation_options', 'evidence_options'):
+            if key in feedback:
+                feedback[key] = [option for option in feedback[key] if option.get('tool') in offered]
+        for key in ('anchor_resolution', 'closable_anchor_drafts', 'anchor_replacements'):
+            feedback.pop(key, None)
+            payload['m6'].pop(key, None)
+        return {'type': 'object', 'anyOf': branches}
+
+    def _query_review_catalog(self, payload, state, context, schema, handles):
+        """Lock retrieval to one immutable result set and require complete survey."""
+        query = query_review.active(self.events(), context)
+        if query is None:
+            return schema
+        payload['m6']['query_review'] = query_review.progress(query, state)
+        feedback = payload['last_action_feedback']
+        gate_progress = feedback.pop('query_gate_progress', {})
+        feedback['query_gate_paused'] = {'reason': 'Conclude the active search query before more source screening.',
+            'approved_waiting_search': gate_progress.get('unsearched_count', 0),
+            'screening_paused': True}
+        payload['m6'].pop('source_gate_segments', None)
+        payload['m6'].pop('source_gate_proposition_refs', None)
+        payload['m6'].pop('source_gate_permits', None)
+        payload['m6'].pop('deferred_source_searches', None)
+        page = payload['m6']['cm_page']
+        page['survey_position'] = query_review.page_status(query, page.get('candidates', []), context['offset'])
+        for card in page.get('candidates', []):
+            card['survey_received_before'] = card['case_id'] in query['survey_exposed']
+        pending_ref = page.get('controls', {}).get('read_next')
+        if pending_ref:
+            feedback.setdefault('navigation_options', []).insert(0, {
+                'tool': 'show_context_page', 'args': {'page_ref': pending_ref}, 'view': 'read_next'})
+            feedback['guidance'] = 'Return to the highest-ranked unread read_next candidate. Read it or change its priority with a reason before concluding.'
+        unseen_ref = page.get('controls', {}).get('next_unseen')
+        if unseen_ref:
+            feedback['navigation_options'] = [{'tool': 'show_context_page', 'args': {'page_ref': unseen_ref}, 'view': 'next_unseen'}]
+
+        payload['m6']['query_review']['priorities'] = {
+            case: row for case, row in query['priorities'].items()
+            if case in [card['case_id'] for card in payload['m6']['cm_page'].get('candidates', [])]}
+        blocked = {'search_cases_by_issue', 'find_citation_matches', 'continue_citation_search',
+                   'choose_query_anchor', 'set_context_focus', 'resume_query_anchor', 'finish_case_review'} | GATE_MUTATIONS
+        if query['phase'] == 'surveying':
+            for card in page.get('candidates', []):
+                card['read_allowed'] = False
+            blocked |= {'open_retrieved_passage', 'read_case_passages', 'open_candidate_header',
+                        'assess_case_link', 'review_conflicting_link', 'resume_pair_evidence',
+                        'reload_pair_evidence', 'read_more_context', 'continue_raw_evidence'}
+            payload['last_action_feedback']['guidance'] = (
+                'Survey every results page before reading candidate raw. Cards are leads, not assessments. '
+                'Choose priorities; then use another page. Conclude this query before starting another search.')
+        for name in ('resume_pair_evidence', 'reload_pair_evidence'):
+            for branch in schema['anyOf']:
+                if branch['properties']['action']['const'] == name:
+                    props = branch['properties']['args']['properties']
+                    refs = props['evidence_ref'].get('enum', [])
+                    valid = [ref for ref in refs if handles.get(ref, {}).get('need_id', query['need_id']) == query['need_id']]
+                    if not valid:
+                        blocked.add(name)
+                    else:
+                        props['evidence_ref']['enum'] = valid
+        tools = [tool for tool in payload['available_tools'] if tool['name'] not in blocked]
+        branches = [branch for branch in schema['anyOf']
+                    if branch['properties']['action']['const'] not in blocked]
+        def add(name, props, description):
+            branches.append(self._branch(name, props))
+            tools.append({'name': name, 'description': description,
+                          'parameters': {'type': 'object', 'additionalProperties': False,
+                                         'properties': props, 'required': list(props)}})
+        choices = {}
+        for card in payload['m6']['cm_page'].get('candidates', []):
+            case = card['case_id']
+            if case in query['candidate_ids']:
+                ref = 'survey-' + fingerprint([query['query_id'], case])[:16]
+                handles[ref] = {'kind': 'query_candidate', 'case_id': case}
+                choices[ref] = case
+        if choices:
+            payload['m6']['query_result_choices'] = choices
+            eligibility = {}
+            for priority in ('read_next', 'maybe', 'low_priority'):
+                changed = [ref for ref, case in choices.items()
+                           if query['priorities'].get(case, {}).get('priority') != priority]
+                if changed:
+                    eligibility[priority] = changed
+                    add('prioritize_query_results', {
+                        'candidate_refs': {'type': 'array', 'items': {'type': 'string', 'enum': changed},
+                                           'minItems': 1, 'maxItems': 5},
+                        'priority': {'type': 'string', 'enum': [priority]},
+                        'reason': {'type': 'string', 'minLength': 4, 'maxLength': 240}},
+                        'Set or change reading priorities for shown results. Unchanged assignments are not offered; '
+                        'use the next unseen page instead of repeating a classification.')
+            priority_tools = [tool for tool in tools if tool['name'] == 'prioritize_query_results']
+            if priority_tools:
+                descriptor = deepcopy(priority_tools[0])
+                descriptor['parameters']['properties']['priority']['enum'] = list(eligibility)
+                descriptor['parameters']['properties']['candidate_refs']['items']['enum'] = list(dict.fromkeys(
+                    ref for refs in eligibility.values() for ref in refs))
+                descriptor['description'] = ('Set or change reading priority. Select candidate_refs from '
+                    'm6.priority_choices_by_value for the chosen priority. Unchanged assignments are unavailable.')
+                tools = [tool for tool in tools if tool['name'] != 'prioritize_query_results']
+                tools.append(descriptor)
+                payload['m6']['priority_choices_by_value'] = eligibility
+        if query['phase'] == 'reviewing' and not query_review.pending_read_next(query):
+            outcomes = ['partially_resolved']
+            if not query_review.unresolved_candidates(query, state):
+                outcomes.insert(0, 'resolved')
+            if (not query['candidate_ids'] or query['raw_exposed']) and not any(state.assessments.get(state.active_assessments.get((query['need_id'], case)), {}).get('case_relation') == 'supported'
+                       and (query['need_id'], case) not in state.pending_assessments for case in query['candidate_ids']):
+                outcomes.append('no_supported_source_found')
+            add('conclude_search_query', {
+                'outcome': {'type': 'string', 'enum': outcomes},
+                'reason': {'type': 'string', 'minLength': 4, 'maxLength': 240},
+                'unresolved_reason': {'type': 'string', 'maxLength': 240},
+                'remaining_source_need': {'type': 'string', 'maxLength': 240}},
+                'Conclude this search explicitly. State why unread or unresolved results will not be read further; '
+                'the host keeps their IDs and raw/assessment counters. Partial conclusions permit a new search, '
+                'but do not mark unread cases as unsupported or assert corpus completeness.')
+        # Keep navigation inside the current query, while query raw remains accessible.
+        payload['available_tools'] = tools
+        payload['last_action_feedback']['next_options'] = [tool['name'] for tool in tools]
+        return {'type': 'object', 'anyOf': branches}
 
     def _gate_catalog(self, payload, state, context, schema, handles):
         """Publish assessment first, then permit-bound search on a later admission."""
@@ -1514,27 +1721,47 @@ class Engine:
                           'parameters': {'type': 'object', 'additionalProperties': False,
                                          'properties': properties, 'required': list(properties)}})
 
+        adjacent_spans = {} if context.get('_checking_query_span') else source_gate.span_options(state, payload)
+        fitted_spans = {}
+        for ref, target in adjacent_spans.items():
+            record = self._combined_query_record(state, target)
+            projected = {**context, 'mode': 'query_span', 'query_span_record': record,
+                         'offset': 0, 'back': [], '_checking_query_span': True}
+            if self._query_leaf_payload(state, projected)[4] <= self.harness.budget.max_payload_tokens:
+                fitted_spans[ref] = target
+        adjacent_spans = fitted_spans
+        if adjacent_spans:
+            for ref, target in adjacent_spans.items():
+                handles[ref] = {'kind': 'query_span', **target}
+            payload['m6']['query_span_options'] = {ref: {'span_bytes': row['span_bytes'],
+                'paragraph_handle': row['paragraph_handle']} for ref, row in adjacent_spans.items()}
+            add('read_query_span', {'span_ref': {'type': 'string', 'enum': list(adjacent_spans)}},
+                'Reload an issued contiguous query region spanning previously received windows. '
+                'Use it when one proposition crosses a page boundary; it need not contain the full paragraph.')
         paragraphs = source_gate.screening_choices(payload, context)
         permits = source_gate.visible_permits(payload, context)
-        can_search = bool(permits) and context['stage'] not in ('reading', 'results_ready')
+        can_search = (bool(permits) and context['stage'] not in ('reading', 'results_ready')
+                      and query_review.active(self.events(), context) is None)
         if paragraphs and context['stage'] != 'reading' and not can_search:
-            segments = source_gate.segments(payload)
+            segments = source_gate.segments(payload, context)
             payload['m6']['source_gate_segments'] = segments
+            payload['m6']['source_gate_proposition_refs'] = [ref for ref, row in segments.items() if row.get('proposition_selectable', True)]
             add('assess_source_need', source_gate.assessment_properties(paragraphs, segments),
-                'Screen this complete query paragraph for source-case signals before searching. '
-                'For has_source_signal select proposition_ref and signal_ref from source_gate_segments. '
-                'For other decisions omit both refs. context_complete declares you reviewed the full target '
-                'paragraph including mixed factual and legal clauses. need_more_context identifies a gap; '
-                'no_source_signal applies only to the current paragraph. No search text belongs in this action.')
-            optional = {'proposition_ref', 'signal_ref'}
+                'Decide whether the visible query span contains a proposition needing a source case. '
+                'For search_needed select proposition_ref; signal_ref is optional and no named source is required. '
+                'sufficient_for_search declares the selected proposition understandable even in a partial paragraph. '
+                'context_complete concerns the visible span; no_search_needed does not clear unread text. '
+                'need_more_context records a concrete gap. No search text belongs in this action.')
+            optional = {'proposition_ref', 'signal_ref', 'sufficient_for_search', 'missing_context'}
             branch = branches[-1]
             params = branch['properties']['args']
             params['required'] = [key for key in params['required'] if key not in optional]
             prompt = tools[-1]['parameters']
             prompt['required'] = [key for key in prompt['required'] if key not in optional]
             prompt['properties'] = {
-                key: ({'type': 'string', 'choices_from': 'm6.source_gate_segments keys'}
-                      if key in optional else spec)
+                key: ({'type': 'string', 'choices_from': ('m6.source_gate_proposition_refs'
+                      if key == 'proposition_ref' else 'm6.source_gate_segments keys')}
+                      if key in ('proposition_ref', 'signal_ref') else spec)
                 for key, spec in prompt['properties'].items()}
         if can_search:
             add('search_cases_by_issue', {
@@ -1548,6 +1775,13 @@ class Engine:
                 'reason_code': {'type': 'string', 'enum': ['duplicate_source_question', 'search_terms_unclear']},
                 'reason': {'type': 'string', 'minLength': 4, 'maxLength': 240}},
                 'Record why this approved search should wait. The ledger keeps it as an unexecuted search.')
+        if query_review.active(self.events(), context) is None:
+            searched = source_gate.visible_permits(payload, context, status='searched')
+            if searched:
+                add('revisit_source_need', {
+                    'source_need_ref': {'type': 'string', 'enum': list(searched)},
+                    'reason': {'type': 'string', 'minLength': 4, 'maxLength': 240}},
+                    'Reopen a searched proposition after concluding its query, to formulate a different search.')
         deferred = source_gate.visible_permits(payload, context, status='search_deferred')
         if not can_search and deferred and context['stage'] not in ('reading', 'results_ready'):
             add('resume_approved_source_need', {
@@ -1559,7 +1793,7 @@ class Engine:
                 for key, item in deferred.items()}
         payload['m6']['source_gate_permits'] = {key: {
             'paragraph_ref': row['paragraph_ref'], 'anchor_quote': row['decision']['proposition']['text'],
-            'signal': row['decision']['signal']['text'], 'attribution': row['decision']['attribution']}
+            'signal': row['decision']['signal']['text'] if row['decision'].get('signal') else None, 'attribution': row['decision']['attribution']}
             for key, row in permits.items()}
         status = source_gate.progress(context, self.harness.query_paragraphs)
         payload['last_action_feedback']['query_gate_progress'] = status
@@ -1579,11 +1813,12 @@ class Engine:
                 'validation_message': row.get('validation_message')} for key, row in deferrable.items()}
         review = payload['last_action_feedback'].get('review_progress', {})
         complete = (status['complete'] and not context.get('anchor_drafts')
-                    and not review.get('pending_pairs', len(state.pending_assessments))
-                    and not review.get('unreviewed_pairs', 0)
-                    and not review.get('retrieval_only_candidates', 0))
+                    and query_review.active(self.events(), context) is None)
         if review:
             review['complete_policy_allowed'] = complete
+        if complete and not any(tool['name'] == 'finish_case_review' for tool in tools):
+            add('finish_case_review', {'reason': {'type': 'string', 'enum': ['complete_policy']}},
+                'Complete screened case review; unresolved query conclusions remain explicit in the report.')
         for tool in tools:
             if tool['name'] == 'finish_case_review':
                 tool['parameters']['properties']['reason']['enum'] = ['complete_policy']
@@ -1666,8 +1901,43 @@ class Engine:
         if suggested:
             feedback['guidance'] = 'The obstacle was recorded. Choose an available recovery or navigation action.'
 
+    def _survey_preview(self, hit):
+        """Bounded literal lead content, verified locally; not raw assessment evidence."""
+        options = [hit, *hit.get('channels', {}).values()]
+        lead = next((row for row in options if isinstance(row.get('preview'), dict)
+                     and row['preview'].get('span_bytes') and row.get('source_hash')), None)
+        supplied = lead.get('preview') if lead else None
+        lead = lead or next((row for row in options if row.get('span_bytes') and row.get('source_hash')), None)
+        if lead is None:
+            return None
+        left, right = (supplied or lead)['span_bytes']
+        key = (hit['case_id'], lead['source_hash'], left, right)
+        if key in self._survey_previews:
+            return deepcopy(self._survey_previews[key])
+        raw = self.store.raw_reader(hit['case_id'])
+        if sha256(raw).hexdigest() != lead['source_hash']:
+            raise SourceDrift(hit['case_id'])
+        require(0 <= left < right <= len(raw), 'Retrieval preview span outside source')
+        text = raw[left:right].decode('utf-8')
+        if supplied:
+            require(supplied.get('text') == text and supplied.get('text_sha256') == sha256(text.encode('utf-8')).hexdigest(),
+                    'Retrieval preview differs from its source binding')
+        excerpt = text[:320]
+        end = left + len(excerpt.encode('utf-8'))
+        preview = {'text': excerpt, 'span_bytes': [left, end], 'source_hash': lead['source_hash'],
+                   'text_sha256': sha256(excerpt.encode('utf-8')).hexdigest(),
+                   'truncated': end < right, 'lead_only': True}
+        self._survey_previews[key] = preview
+        return deepcopy(preview)
+
+    def _verify_gate_mutation(self, name, context):
+        if self.gate_enabled and name in GATE_MUTATIONS:
+            require(query_review.active(self.events(), context) is None,
+                    'Conclude the active search query before changing source screening decisions')
+
     def _verify_search_permit(self, action, context):
         require(action['action'] == 'search_corpus', 'Source gate disallows ungated identity retrieval')
+        require(query_review.active(self.events(), context) is None, 'Conclude the active search query before another retrieval')
         need = action['args'].get('_m6_need', {})
         decision = context.get('source_gate', {}).get(need.get('source_gate_ref'))
         require(decision is not None and (decision['status'] == 'approved'
@@ -1713,9 +1983,27 @@ class Engine:
         wire, wire_schema, aliases = project(payload, schema)
         return wire, self.harness._count(encode(wire)), wire_schema, aliases
 
+    def _combined_query_record(self, state, target):
+        span = target['span_bytes']
+        records = source_gate.delivered_query_rows(state, self.harness.identity.query_id, target['source_hash'])
+        require(not unread_spans(span, [row['span_bytes'] for row in records]), 'Combined query span includes unreceived bytes')
+        for row in records:
+            if row['span_bytes'][0] < span[1] and span[0] < row['span_bytes'][1]:
+                self.store.verify(row)
+        raw = self.store.raw_reader(self.harness.identity.query_id)
+        if sha256(raw).hexdigest() != target['source_hash']:
+            raise SourceDrift(self.harness.identity.query_id)
+        components = {fingerprint(component): component for row in records
+                      for component in row.get('provenance', {}).get('components', [])
+                      if component['span_bytes'][0] < span[1] and span[0] < component['span_bytes'][1]}
+        text = raw[span[0]:span[1]].decode('utf-8')
+        return source_record(SourceExcerpt(self.harness.identity.query_id, target['source_hash'], tuple(span),
+            text, sha256(text.encode('utf-8')).hexdigest(), provenance={'components': list(components.values())}))
+
     def _query_leaf_payload(self, state, context, progress_warning=None):
         """Offer and publish a region using the same full-source, map-free projection."""
-        record = source_record(self.harness.m3.read_leaf(context['query_leaf_region']).excerpts[0])
+        record = (deepcopy(context['query_span_record']) if context['mode'] == 'query_span'
+                  else source_record(self.harness.m3.read_leaf(context['query_leaf_region']).excerpts[0]))
         span = record['span_bytes']
         rows = [record]
         coverage = [{'requested': span, 'offered': span, 'pending': None, 'canonical_ref': record['ref']}]
@@ -1767,7 +2055,7 @@ class Engine:
             context = self.context()
             best = None
             try:
-                leaf_read = context['mode'] == 'query_leaf'
+                leaf_read = context['mode'] in ('query_leaf', 'query_span')
                 if leaf_read:
                     payload, schema, handles, rows, tokens, coverage, dispatch, aliases = self._query_leaf_payload(
                         state, context, progress_warning)
@@ -1802,8 +2090,14 @@ class Engine:
             except SourceDrift as exc:
                 self.harness._record_drift(db, state, exc.case_id)
                 return {'status': 'source_drift', 'model_requests': 0}
+            except HarnessError as exc:
+                if str(exc) != 'Query map with nonempty literal previews cannot fit its explicit token cap':
+                    raise
+                self.harness._stop(db, state, 'failure', 'query_navigation_map_unfit')
+                return {'status': 'unfit', 'reason': 'query_navigation_map_unfit', 'model_requests': 0}
             finally:
                 self._expansion_previews.clear()
+                self._survey_previews.clear()
             request_id = fingerprint([self.harness.identity.run_id, 'request', state.usage()['requests'] + 1])
             body = encode(payload)
             manifest = {'version': VERSION, 'request_id': request_id, 'context': context,
@@ -1821,6 +2115,8 @@ class Engine:
                 payload=body.decode('utf-8'), admitted_input_tokens=tokens, output_token_cap=512,
                 consumed_refs=[], remaining_excerpts=[], excerpts=rows, current_payload_source_refs=[r['ref'] for r in rows],
                 cm_query_navigation=dispatch_m6.get('query_navigation'),
+                cm_search_query_id=dispatch_m6.get('query_review', {}).get('query_id'),
+                cm_survey_candidates=[card['case_id'] for card in dispatch_m6.get('cm_page', {}).get('candidates', [])],
                 cm_manifest_path=relative, cm_manifest_sha256=fingerprint(manifest),
                 cm_scripted_offline=self.execution_mode == 'offline')
             return {'status': 'ready', 'request_id': request_id, 'input_tokens': tokens, 'soft_target_exceeded': tokens > 7900,
@@ -1901,7 +2197,11 @@ class Engine:
             if status != 'success':
                 self.harness._receipt(db, state, state.in_flight, status, telemetry=telemetry, started=started,
                                       error=error or ('scripted_' if self.execution_mode == 'offline' else 'transport_') + status)
-                self.harness._stop(db, state, 'failure', ('scripted_' if self.execution_mode == 'offline' else 'transport_') + status)
+                if (status == 'error' and error == 'operator_stop_before_submission'
+                        and (transport_metadata or {}).get('submission_attempted') is False):
+                    self.harness._stop(db, state, 'no_progress', 'operator_stop_file')
+                else:
+                    self.harness._stop(db, state, 'failure', ('scripted_' if self.execution_mode == 'offline' else 'transport_') + status)
                 return
             try:
                 action = parse_model_response(action)
@@ -1913,6 +2213,7 @@ class Engine:
                 payload['current_payload_source_refs'] = state.in_flight['current_payload_source_refs']
                 payload['query_source_hash'] = self.harness.identity.query_source_hash
                 name = action['action']
+                self._verify_gate_mutation(name, manifest['context'])
                 if name in CONTEXT_ACTIONS:
                     internal = action
                     if name == 'assess_source_need':
@@ -1977,9 +2278,17 @@ class Engine:
                 if self.gate_enabled and internal['action'] in ('search_corpus', 'search_identity'):
                     self._verify_search_permit(internal, manifest['context'])
                 encode(internal)
-                if action['action'] in ('record_missing_evidence', 'defer_case_pair', 'report_review_blocker'):
+                if action['action'] in ('record_missing_evidence', 'defer_case_pair', 'report_review_blocker',
+                                        'prioritize_query_results', 'conclude_search_query', 'revisit_source_need'):
                     if not action['args']['reason'].strip():
                         raise policy.ToolSemanticError('blank_reason')
+                if action['action'] == 'conclude_search_query':
+                    try:
+                        query_review.conclude(query_review.active(self.events(), manifest['context']), state, action['args'])
+                    except HarnessError as exc:
+                        raise policy.ToolSemanticError('invalid_query_conclusion') from exc
+                if action['action'] == 'prioritize_query_results' and len(action['args']['candidate_refs']) != len(set(action['args']['candidate_refs'])):
+                    raise policy.ToolSemanticError('duplicate_evidence_refs')
                 if action['action'] in ASSESSMENT_TOOLS:
                     notes = internal['args']['assessments'][0].get('missing_evidence', [])
                     if len(notes) != len(set(notes)):
@@ -1988,6 +2297,9 @@ class Engine:
                 feedback = repair_feedback(action, str(exc))
                 repair = bind_repair(self.harness.ledger.read(db), feedback, manifest) if feedback else None
                 if repair:
+                    if self.loop_guard_mode == 'warn':
+                        repair['warning_threshold_reached'] = not repair['retry_allowed']
+                        repair['retry_allowed'] = True
                     self._reply_metadata['cm_tool_repair'] = repair
                 self.harness._receipt(db, state, state.in_flight, 'malformed', received=True, telemetry=telemetry,
                                       started=started, error=str(exc), schema_validation='passed')
@@ -2012,6 +2324,7 @@ class Engine:
             require(state.pending_action is not None, 'No pending model action')
             action = state.pending_action['action']
             context = self.context()
+            self._verify_gate_mutation(action['action'], context)
             if action['action'] not in CONTEXT_ACTIONS:
                 # Source verification and actual M4 assessment validator execute here.
                 try:
@@ -2052,6 +2365,9 @@ class Engine:
                             if feedback:
                                 admission = state_.requests[receipt['request_id']]
                                 repair = bind_repair(self.harness.ledger.read(db_), feedback, self._manifest(admission))
+                                if self.loop_guard_mode == 'warn':
+                                    repair['warning_threshold_reached'] = not repair['retry_allowed']
+                                    repair['retry_allowed'] = True
                                 fields['cm_tool_repair'] = repair
                                 fields['final'] = None if repair['retry_allowed'] else self.harness._final(
                                     'no_progress', 'repeated_tool_input_rejection')
@@ -2155,7 +2471,30 @@ class Engine:
             name, args = action['action'], action['args']
             reload_refs = []
             action_status, action_reason = 'success', None
-            if name == 'report_review_blocker':
+            if name == 'read_query_span':
+                target = manifest['handles'][args['span_ref']]
+                try:
+                    record = self._combined_query_record(state, target)
+                except SourceDrift as exc:
+                    self.harness._record_drift(db, state, exc.case_id)
+                    return state.snapshot()
+                context.update(mode='query_span', offset=0, back=[], query_span_record=record)
+            elif name == 'prioritize_query_results':
+                query = query_review.active(self.events(), context)
+                require(query is not None, 'No active query')
+                decisions = context.setdefault('query_priorities', {}).setdefault(query['query_id'], {})
+                require(len(args['candidate_refs']) == len(set(args['candidate_refs'])), 'Duplicate priority refs')
+                for ref in args['candidate_refs']:
+                    case = manifest['handles'][ref]['case_id']
+                    require(case in query['survey_exposed'], 'Priority requires a delivered survey card')
+                    require(decisions.get(case, {}).get('priority') != args['priority'], 'Unchanged priority assignment')
+                    decisions[case] = {'priority': args['priority'], 'reason': args['reason'].strip()}
+            elif name == 'conclude_search_query':
+                query = query_review.active(self.events(), context)
+                require(query is not None, 'No active query')
+                context.setdefault('query_conclusions', {})[query['query_id']] = query_review.conclude(query, state, args)
+                context.update(candidate_id=None, stage='ready', mode='query', offset=0, back=[])
+            elif name == 'report_review_blocker':
                 require(self.gate_enabled, 'Review blocker is unavailable')
                 reports = context.setdefault('review_blockers', {}).setdefault(self._blocker_scope(context), {})
                 require(args['kind'] not in reports, 'Review blocker already reported in this scope')
@@ -2180,6 +2519,11 @@ class Engine:
                     return state.snapshot()
                 if not source_gate.commit_decision(context, assessment):
                     action_status, action_reason = 'duplicate', 'partial_view_already_screened'
+            elif name == 'revisit_source_need':
+                require(query_review.active(self.events(), context) is None, 'Conclude the current query first')
+                decision = context['source_gate'][args['source_need_ref']]
+                require(decision['status'] == 'searched', 'Only searched source needs may be revisited')
+                decision.update(status='approved', revisit_reason=args['reason'].strip())
             elif name in ('defer_approved_source_need', 'resume_approved_source_need'):
                 require(self.gate_enabled, 'Source gate is disabled')
                 decision = context['source_gate'][args['source_need_ref']]
@@ -2254,7 +2598,7 @@ class Engine:
                 target = manifest['handles'][args['page_ref']]
                 context.update(mode=target['mode'], offset=target['offset'], back=target['back'])
             elif name == 'set_context_focus':
-                require(context['stage'] != 'reading', 'Pair still being read')
+                require(self.gate_enabled or context['stage'] != 'reading', 'Pair still being read')
                 target = manifest['handles'][args['need_ref']]
                 context.update(need_id=target['need_id'], candidate_id=None, stage='ready', mode='results', offset=0, back=[])
             elif name in ('reload_pair_evidence', 'resume_pair_evidence'):
@@ -2305,7 +2649,7 @@ class Engine:
                             progress['window_offsets'][ref] = offset
                 context.update(mode='assessment', offset=0, back=[])
                 if name == 'resume_pair_evidence':
-                    require(context['stage'] in ('ready', 'assessed', 'missing_evidence', 'error', 'no_hit'), 'Finish current pair before resuming another')
+                    require(self.gate_enabled or context['stage'] in ('ready', 'assessed', 'missing_evidence', 'error', 'no_hit'), 'Finish current pair before resuming another')
                     pair = target['need_id'], target['candidate_id']
                     stage = 'reading'
                     if pair in state.pending_assessments or progress.get('missing_reason'):
@@ -2356,6 +2700,14 @@ class Engine:
         result = {'context': self.context(), 'state': self.state().snapshot(),
                   'execution_mode': self.execution_mode}
         snapshot = result['state']
+        if self.gate_enabled:
+            result['search_queries'] = query_review.queries(self.events(), self.context())
+            qs = list(result['search_queries'].values())
+            result['query_review_totals'] = {
+                'queries': len(qs), 'query_candidate_pairs': sum(len(q['candidate_ids']) for q in qs),
+                'unique_candidates': len({case for q in qs for case in q['candidate_ids']}),
+                'unique_survey_exposed': len({case for q in qs for case in q['survey_exposed']}),
+                'unique_raw_exposed': len({case for q in qs for case in q['raw_exposed']})}
         if self.gate_enabled and snapshot['stop_reason'] not in (None, 'complete'):
             result['partial_supported_cases'] = sorted(
                 case for case, row in snapshot['candidate_states'].items()
