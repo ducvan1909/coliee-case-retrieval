@@ -2,7 +2,11 @@
 
 ## Contract mới Q1–Q4 — 19/11/2026
 
-Engine `cm4-query-review-v28` chạy qua live CLI `cm4-live-v2`. Model phải kết luận query đang mở trước khi tìm câu khác. Mỗi query gồm một câu tìm kiếm và tập kết quả của nó.
+Engine `cm4-query-review-v30` chạy qua live CLI `cm4-live-v2`. Model phải kết luận query đang mở trước khi tìm câu khác. Mỗi query gồm một câu tìm kiếm và tập kết quả của nó.
+
+V30 cấp tối đa năm nhu cầu nguồn đủ điều kiện hoãn mỗi lượt. Dùng `show_source_need_page` với ref trên trang để xem phần còn lại, giữ nguyên focus đọc.
+
+V29 cấp `read_query_passages` để mở bản đồ chia nhỏ hoặc bản đồ cha khi vùng đã chọn không còn vừa payload. Lượt điều hướng này không giao raw. Khi mở bản đồ, model có thể chọn vùng nhỏ hơn để đọc trong ngân sách hiện hành.
 
 V28 đưa preview của đoạn truy hồi vào thẻ survey và đưa `read_next` về những án ưu tiên chưa đọc. Model cần mở raw hoặc đổi ưu tiên kèm lý do trước khi kết luận. Mệnh đề đã tìm chỉ có thể mở lại có chủ đích qua `revisit_source_need`. Xem [pilot v27 và kiểm v28](../../reviews/cm4_survey_focus_fix_v1/PILOT_20261120.md).
 

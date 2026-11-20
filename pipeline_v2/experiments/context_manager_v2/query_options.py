@@ -86,7 +86,7 @@ class MapFirstQueryTools(HierarchicalM3Tools):
         self.query_tree = _SplittableQueryTree(self.query_tree)
         self.whole_region_reader = M3Tools(sources, lexical, query_case, byte_budget=sources.profile['byte_cap'],
                                           map_limit=map_limit)
-        self.fingerprint = fingerprint([self.fingerprint, 'cm4-unified-query-read-v26'])
+        self.fingerprint = fingerprint([self.fingerprint, 'cm4-unified-query-read-v29'])
 
     def preview_expansion(self, binding):
         """Plan an expansion through the same local reader used at execution."""
@@ -152,6 +152,32 @@ class MapFirstQueryTools(HierarchicalM3Tools):
         split = {**binding, 'navigation_mode': 'map', 'region_ref': row['region_ref'] + '~'}
         description = {**raw_option['description'], 'response': 'map', 'split_for_context': True}
         return fingerprint(split), {'binding': split, 'description': description}
+
+    def context_fallback_options(self, region_ref, visit_epoch):
+        """Keep source-stable subdivision and ancestor routes for a stale full read."""
+        row = self.query_tree.region(region_ref)
+        original = {'binding': {'navigation_mode': 'raw', 'region_ref': region_ref,
+                                'visit_epoch': visit_epoch},
+                    'description': {key: row[key] for key in ('label', 'span_bytes', 'byte_length')}}
+        choices = {}
+        split = self.split_option(original)
+        if split:
+            choices[split[0]] = split[1]
+        for ref in (self.query_tree.parent(region_ref), self.query_tree.root_ref):
+            if ref is None or ref == region_ref:
+                continue
+            target = self.query_tree.region(ref)
+            binding = {'navigation_mode': 'map' if not target['is_leaf'] else 'raw',
+                       'region_ref': ref, 'visit_epoch': visit_epoch}
+            option = {'binding': binding, 'description': {key: target[key]
+                      for key in ('label', 'span_bytes', 'byte_length')}}
+            if target['is_leaf']:
+                alternate = self.split_option(option)
+                if alternate:
+                    choices[alternate[0]] = alternate[1]
+            else:
+                choices[fingerprint(binding)] = option
+        return choices
 
     def read_leaf(self, region_ref):
         """Read an entire selected region and keep native M3 provenance."""

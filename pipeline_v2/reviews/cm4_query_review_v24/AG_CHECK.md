@@ -1,12 +1,12 @@
 # AG kiểm CM4: từng search query, survey và giám sát
 
-**Đợt kiểm tiếp theo dùng CM4 v28.** Đọc [kết quả pilot v27 và phạm vi kiểm v28](../cm4_survey_focus_fix_v1/PILOT_20261120.md). Các mô tả v27 bên dưới cung cấp bối cảnh. Khi chạy v28, kiểm riêng preview của thẻ survey, đường quay lại `read_next`, trạng thái mệnh đề đã tìm, chiều A viện dẫn B và lý do dừng theo ledger.
+**Đợt kiểm tiếp theo dùng CM4 v30.** Đọc [kết quả pilot v28 và kiểm lỗi dựng context](../cm4_survey_focus_fix_v1/PILOT_20261120.md). Nếu có nhiều nhu cầu nguồn chưa xử lý, kiểm tổng số, danh sách của trang hiện tại và khả năng chuyển trang. Khi `query_context_fallback` xuất hiện, kiểm model dùng `read_query_passages` để mở bản đồ vùng nhỏ hơn và đọc tiếp. Chỉ tính raw đã giao theo receipt. Tiếp tục đối chiếu query với mệnh đề A và kiểm chiều A viện dẫn B.
 
 Ngày 19/11/2026. Hướng dẫn chạy sau khi Main xác nhận local PASS ở `REPORT.md` cùng thư mục. Không phải receipt live PASS.
 
-Source gate hiện dùng v4 sau đợt cleanup; xem `CLEANUP.md` cho kết quả lịch sử của v25. Thư mục review giữ tên v24 để liên kết báo cáo Q1–Q4, không phải version engine phải chạy. Dùng version v27 và namespace mới theo mục dưới.
+Source gate hiện dùng v4 sau đợt cleanup. Thư mục này giữ tên v24 để liên kết báo cáo Q1–Q4. Dùng engine v30 và namespace mới theo mục dưới. Xem `CLEANUP.md` cho kết quả lịch sử của v25.
 
-Pilot giới hạn ở một án A `021095.txt`. Khi được giao v28, AG kiểm đầu vào, tạo namespace mới, chạy và review ngữ nghĩa. Giữ nguyên STOP và receipts của các run trước. Xem [REPORT v27](../cm4_survey_focus_fix_v1/REPORT.md) và [REPORT v26](../cm4_map_projection_fix_v1/REPORT.md) cho các thay đổi trước pilot mới nhất.
+Pilot giới hạn ở một án A `021095.txt`. Khi được giao v30, AG kiểm đầu vào, tạo namespace mới, chạy và review ngữ nghĩa. Giữ nguyên STOP và receipts của các run trước. Xem [REPORT v27](../cm4_survey_focus_fix_v1/REPORT.md) và [REPORT v26](../cm4_map_projection_fix_v1/REPORT.md) cho các thay đổi trước pilot mới nhất.
 
 **Blocker sau đổi tài khoản, 20/11:** đọc [bàn giao Modal mới](../cm4_survey_focus_fix_v1/MODAL_ACCOUNT_20261120.md) trước lần chạy tiếp. Attempt embedding gốc vẫn `started`; kill client/probe cancellation chưa chứng minh call gốc được hủy. Làm rõ trạng thái/cancel call gốc trước fresh retry, giữ usage unknown. Controller đã có canary PASS và pin mới; không deploy lại chỉ vì request embedding đang chờ.
 
@@ -41,7 +41,7 @@ Ghi số tests và skips. Replay V15/V20/V21 có thể thiếu ledger cũ; khôn
 ## 3. Fresh prepare, không gọi inference
 
 ```powershell
-$cmRun = 'cache/cm4-query-review-v28-ag-' + (Get-Date -Format 'yyyyMMdd-HHmmssfff')
+$cmRun = 'cache/cm4-query-review-v30-ag-' + (Get-Date -Format 'yyyyMMdd-HHmmssfff')
 & .venv/Scripts/python.exe -m pipeline_v2.experiments.context_manager_v2.live prepare --run-dir $cmRun --loop-guard-mode warn
 if ($LASTEXITCODE -ne 0) { throw 'Prepare failed; do not submit live requests.' }
 Write-Output $cmRun

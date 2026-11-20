@@ -2,7 +2,9 @@
 import json
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
+from jsonschema import Draft202012Validator
 from pipeline_v2.experiments.context_manager_v2.tests.view_helpers import wire_ref
 
 from pipeline_v2.agent_harness import RunIdentity
@@ -125,6 +127,93 @@ class MapFirstTests(SourceToolsFixture):
             self.assertEqual(result['status'], 'unfit')
             self.assertEqual(engine.state().final['stop_detail'], 'query_navigation_map_unfit')
             self.assertEqual(engine.state().usage()['requests'], 0)
+
+    def test_previously_fitting_query_leaf_can_subdivide_after_context_growth(self):
+        with TemporaryDirectory() as directory:
+            engine, tools = self.make_engine(directory, leaf_bytes=4096)
+            root = tools.query_tree.root_ref
+            engine.step(lambda p: choose(p, 'read_query_passages'))
+            before = engine.state().usage()['requests']
+            delivered_before = set(engine.state().delivered)
+            def grown_counter(body):
+                data = json.loads(body)
+                largest = max((len(row['text'].encode('utf-8')) for row in data.get('excerpts', [])), default=0)
+                return 9000 if largest > 1800 else count_tokens(body)
+            engine.harness.count_tokens = grown_counter
+            preview = engine.prepare(admit=False)
+            self.assertEqual(preview['status'], 'ready')
+            self.assertLessEqual(preview['input_tokens'], 8500)
+            self.assertFalse(preview['payload']['excerpts'])
+            self.assertFalse(preview['manifest']['coverage'])
+            self.assertEqual(engine.state().usage()['requests'], before)
+            self.assertEqual(engine.state().delivered, delivered_before)
+            self.assertIn('query_context_fallback', preview['payload']['last_action_feedback'])
+            self.assertIn('read_query_passages', names(preview))
+            target = choose_target(preview, lambda _ref, row: row['binding']['region_ref'] == root + '~')
+            engine.step({'action': 'read_query_passages', 'args': {'query_ref': target}})
+            self.assertEqual(engine.context()['mode'], 'query')
+            split = engine.prepare(admit=False)
+            self.assertIsNone(engine.state().final)
+            page = split['manifest']['dispatch_m6']['query_navigation']
+            self.assertEqual(page['current']['region_ref'], root + '~')
+            targets = target_rows(split)
+            ref, choice = next((ref, row) for ref, row in targets.items()
+                               if row['description'].get('response') == 'full_text')
+            span = tools.query_tree.region(choice['binding']['region_ref'])['span_bytes']
+            engine.step({'action': 'read_query_passages', 'args': {'query_ref': ref}})
+            raw = engine.prepare(admit=False)
+            self.assertTrue(raw['payload']['excerpts'])
+            excerpt = raw['payload']['excerpts'][0]
+            self.assertEqual(tuple(excerpt['span_bytes']), tuple(span))
+            self.assertEqual(excerpt['text'].encode('utf-8'), tools.query_tree.raw[span[0]:span[1]])
+            self.assertLessEqual(raw['input_tokens'], 8500)
+
+    def test_unresolved_needs_fit_and_stay_reachable_after_deferral(self):
+        with TemporaryDirectory() as directory:
+            engine, _ = self.make_engine(directory, gate_enabled=True)
+            engine.step(lambda p: choose(p, 'read_query_passages'))
+            original_context = engine.context
+            seeded = original_context()
+            seeded['source_gate'] = {
+                f'gate-{index:024x}': {
+                    'status': 'unresolved', 'decision': 'need_more_context',
+                    'paragraph_handle': f'p{index:06}', 'context_complete': True,
+                    'reason': 'This source question requires review of the relevant evidence. ' * 3,
+                    'validation_message': 'The available context does not identify a reliable source.',
+                    'source_hash': engine.harness.identity.query_source_hash,
+                    'paragraph_span_bytes': [0, 1], 'visible_span_bytes': [0, 1],
+                } for index in range(96)
+            }
+            with patch.object(engine, 'context', side_effect=lambda: (
+                    original_context() if 'source_gate' in original_context() else seeded)):
+                base = engine.state().usage()['requests']
+                seen = []
+                for _ in range(20):
+                    preview = engine.prepare(admit=False)
+                    self.assertEqual(preview['status'], 'ready')
+                    self.assertLessEqual(preview['input_tokens'], 8500)
+                    m6 = preview['payload']['m6']
+                    page = m6['unresolved_source_need_page']
+                    visible = list(m6['unresolved_source_needs'])
+                    self.assertEqual(page['total'], 96)
+                    self.assertLessEqual(len(visible), 5)
+                    seen.extend(visible)
+                    validator = Draft202012Validator(preview['manifest']['schema'])
+                    self.assertFalse(validator.is_valid({'action': 'defer_source_need', 'args': {
+                        'source_need_ref': 'never-issued', 'reason': 'The ref is outside this page.'}}))
+                    if 'next' not in page['controls']:
+                        break
+                    engine.step(lambda p: choose(p, 'show_source_need_page', page_ref=
+                        p['payload']['m6']['unresolved_source_need_page']['controls']['next']))
+                self.assertEqual(len(seen), 96)
+                self.assertEqual(len(set(seen)), 96)
+                self.assertEqual(engine.state().usage()['requests'] - base, 19)
+                engine.step(lambda p: choose(p, 'defer_source_need', reason='The source remains unclear.'))
+                after = engine.prepare(admit=False)
+                self.assertEqual(after['payload']['m6']['unresolved_source_need_page']['total'], 95)
+                self.assertEqual(engine.context()['mode'], seeded['mode'])
+                self.assertEqual(engine.context()['query_leaf_region'], seeded['query_leaf_region'])
+                self.assertEqual(len(engine.context()['source_gate']), 96)
 
     def test_query_leaf_shows_gate_feedback_and_hides_settled_paragraph(self):
         with TemporaryDirectory() as directory:

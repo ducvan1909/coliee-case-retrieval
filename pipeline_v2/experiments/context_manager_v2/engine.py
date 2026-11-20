@@ -25,18 +25,18 @@ from .read_options import execute_candidate_header, execute_retrieved_passage, o
 from .tool_repair import bind_repair, repair_feedback, visible_repair
 from . import source_gate, query_review
 
-VERSION = 'cm4-query-review-v28'
+VERSION = 'cm4-query-review-v30'
 ASSESSMENT_TOOLS = ('assess_case_link', 'review_conflicting_link')
 SPEAKER_SIDE_REFS = ('speaker_evidence_refs', 'quote_chain_refs', 'container_refs')
 EVIDENCE_CHOICES = (('identity_support_choice', 'identity_support_refs'), ('counterevidence_choice', 'counterevidence'))
 CONTEXT_ACTIONS = {'show_context_page', 'set_context_focus', 'record_missing_evidence', 'reload_pair_evidence', 'resume_pair_evidence', 'continue_raw_evidence'}
 CONTEXT_ACTIONS |= {'stage_query_anchor', 'defer_query_anchor', 'resume_query_anchor'}
-CONTEXT_ACTIONS |= {'assess_source_need', 'defer_source_need', 'close_query_anchor'}
+CONTEXT_ACTIONS |= {'assess_source_need', 'defer_source_need', 'show_source_need_page', 'close_query_anchor'}
 CONTEXT_ACTIONS |= {'defer_approved_source_need', 'resume_approved_source_need'}
 CONTEXT_ACTIONS.add('defer_case_pair')
 CONTEXT_ACTIONS |= {'report_review_blocker', 'prioritize_query_results', 'conclude_search_query', 'revisit_source_need', 'read_query_span'}
 GATE_MUTATIONS = {'assess_source_need', 'defer_source_need', 'defer_approved_source_need',
-                  'resume_approved_source_need', 'revisit_source_need'}
+                  'resume_approved_source_need', 'revisit_source_need', 'show_source_need_page'}
 BLOCKER_RECOVERY = {
     'missing_identity': ('open_candidate_header', 'read_more_context', 'record_missing_evidence', 'defer_case_pair'),
     'no_readable_text': ('reload_pair_evidence', 'continue_raw_evidence', 'read_more_context',
@@ -533,7 +533,7 @@ class Engine:
             return
         observation = (fields.get('result') or {}).get('observation', {})
         if name == 'open_query' and observation.get('kind') == 'query_hierarchy_map':
-            context['query_map_region'] = observation['current']['region_ref']
+            context.update(mode='query', offset=0, back=[], query_map_region=observation['current']['region_ref'])
         if name == 'open_query' and observation.get('cm4_query_leaf_span') is not None:
             context.update(mode='query_leaf', offset=0, back=[], query_leaf_region=observation['query_navigation_ref'])
         if name in ('search_corpus', 'search_identity') and args.get('_m6_need') and 'hits' in observation:
@@ -1538,7 +1538,7 @@ class Engine:
             'expand_query_map', 'read_query_passages', 'read_query_span',
             'assess_source_need', 'search_cases_by_issue', 'defer_source_need',
             'defer_approved_source_need', 'resume_approved_source_need', 'revisit_source_need',
-            'show_context_page', 'set_context_focus', 'prioritize_query_results',
+            'show_context_page', 'show_source_need_page', 'set_context_focus', 'prioritize_query_results',
             'open_retrieved_passage', 'read_case_passages', 'open_candidate_header',
             'read_more_context', 'continue_raw_evidence', 'reload_pair_evidence', 'resume_pair_evidence',
             'assess_case_link', 'review_conflicting_link', 'record_missing_evidence',
@@ -1579,6 +1579,8 @@ class Engine:
         payload['m6'].pop('source_gate_proposition_refs', None)
         payload['m6'].pop('source_gate_permits', None)
         payload['m6'].pop('deferred_source_searches', None)
+        payload['m6'].pop('unresolved_source_needs', None)
+        payload['m6'].pop('unresolved_source_need_page', None)
         page = payload['m6']['cm_page']
         page['survey_position'] = query_review.page_status(query, page.get('candidates', []), context['offset'])
         for card in page.get('candidates', []):
@@ -1802,15 +1804,40 @@ class Engine:
         if unresolved and len(deferrable) < len(unresolved) and source_gate.query_fully_read(
                 state, self.harness.query_paragraphs, self.harness.identity.query_id, self.harness.identity.query_source_hash):
             deferrable = unresolved
-        if deferrable:
+        if deferrable and not can_search and query_review.active(self.events(), context) is None:
+            all_keys = list(context.get('source_gate', {}))
+            eligible = list(deferrable)
+            cursor = context.get('source_need_page_start')
+            ranks = {key: index for index, key in enumerate(all_keys)}
+            start = next((index for index, key in enumerate(eligible)
+                          if ranks[key] >= ranks.get(cursor, 0)), len(eligible))
+            if start == len(eligible):
+                start = max(0, len(eligible) - self.render_page_size)
+            page_keys = eligible[start:start + self.render_page_size]
+            controls = {}
+            for name, index in (('previous', max(0, start - self.render_page_size)),
+                                ('next', start + len(page_keys))):
+                if (name == 'previous' and start == 0) or index >= len(eligible):
+                    continue
+                target = {'kind': 'source_need_page', 'start_ref': eligible[index]}
+                ref = 'gate-page-' + fingerprint([self.harness.identity.run_id, context['revision'], target])[:16]
+                handles[ref] = target
+                controls[name] = ref
             add('defer_source_need', {
-                'source_need_ref': {'type': 'string', 'enum': list(deferrable)},
+                'source_need_ref': {'type': 'string', 'enum': page_keys},
                 'reason': {'type': 'string', 'minLength': 4, 'maxLength': 240}},
-                'Record why this source question remains unresolved after reading its context. '
-                'It stays auditable and grants no retrieval permission.')
+                'Record why a listed source question remains unresolved after reading its context. '
+                'Other unresolved questions remain available on the next/previous source-need page.')
+            if controls:
+                add('show_source_need_page', {'page_ref': {'type': 'string', 'enum': list(controls.values())}},
+                    'View another bounded page of unresolved source questions without changing the current '
+                    'query region, candidate, evidence, or reading focus.')
             payload['m6']['unresolved_source_needs'] = {
-                key: {'paragraph_handle': row['paragraph_handle'], 'reason': row['reason'],
-                'validation_message': row.get('validation_message')} for key, row in deferrable.items()}
+                key: {'paragraph_handle': deferrable[key]['paragraph_handle'], 'reason': deferrable[key]['reason'],
+                      'validation_message': deferrable[key].get('validation_message')} for key in page_keys}
+            payload['m6']['unresolved_source_need_page'] = {
+                'total': len(eligible), 'offset': start, 'count': len(page_keys),
+                'first_index': start + 1, 'last_index': start + len(page_keys), 'controls': controls}
         review = payload['last_action_feedback'].get('review_progress', {})
         complete = (status['complete'] and not context.get('anchor_drafts')
                     and query_review.active(self.events(), context) is None)
@@ -2004,6 +2031,7 @@ class Engine:
         """Offer and publish a region using the same full-source, map-free projection."""
         record = (deepcopy(context['query_span_record']) if context['mode'] == 'query_span'
                   else source_record(self.harness.m3.read_leaf(context['query_leaf_region']).excerpts[0]))
+        self.store.verify(record)
         span = record['span_bytes']
         rows = [record]
         coverage = [{'requested': span, 'offered': span, 'pending': None, 'canonical_ref': record['ref']}]
@@ -2039,6 +2067,38 @@ class Engine:
             packed, tokens, wire_schema, aliases = self._pack_payload(compact, schema)
         return packed, wire_schema, handles, rows, tokens, coverage, dispatch, aliases
 
+    def _query_leaf_navigation_payload(self, state, context, full_tokens):
+        """If a once-fitting region grows unfit, offer smaller source-bound reads."""
+        tools = self.harness.m3
+        if not isinstance(tools, MapFirstQueryTools):
+            return None
+        region = context.get('query_leaf_region') or tools.query_tree.root_ref
+        epoch = sum(event['kind'] == 'action_started' for event in self.events())
+        choices = tools.context_fallback_options(region, epoch)
+        if not choices:
+            return None
+        feedback = self._feedback(context)
+        payload = self._payload_base(state, [], [], feedback)
+        backend = self.harness.hybrid_search
+        dispatch = {**asdict(self.harness.adaptive_config), 'a_paragraphs': {},
+            'hybrid_budget_remaining': backend.remaining() if backend is not None else None,
+            'search_completed': bool(query_review.queries(self.events(), context)),
+            'candidates': {}, 'expansions': {}, 'reloads': {}, 'review_candidates': {}, 'review_count': 0,
+            'query_targets': choices, 'citation_search_pages': {},
+            'cm_context': {key: context[key] for key in ('need_id', 'candidate_id', 'stage', 'mode')},
+            'cm_page': {'total': 0, 'offset': 0, 'count': 0, 'candidates': []}}
+        payload['m6'] = dispatch
+        projected = {**context, 'pair_pins': {}, 'pair_targets': {}, 'pair_progress': {}}
+        schema, handles = self._catalog(payload, state, projected, [])
+        feedback['query_context_fallback'] = {'reason': 'full_region_payload_unfit',
+            'full_region_input_tokens': full_tokens, 'max_payload_tokens': self.harness.budget.max_payload_tokens,
+            'region_ref': region, 'raw_delivered_in_this_payload': False}
+        feedback['guidance'] = ('The complete region no longer fits with current review state. '
+            'Choose read_query_passages to open its subdivision or an ancestor map, then read a smaller region. '
+            'No query raw or new source coverage is delivered by this navigation-only payload.')
+        packed, tokens, wire_schema, aliases = self._pack_payload(payload, schema)
+        return packed, wire_schema, handles, [], tokens, [], dispatch, aliases
+
     def prepare(self, *, admit=True, progress_warning=None):
         with self.harness.ledger.writer() as db:
             state = RunState(self.harness.ledger.read(db))
@@ -2061,6 +2121,11 @@ class Engine:
                         state, context, progress_warning)
                     if tokens <= self.harness.budget.max_payload_tokens:
                         best = payload, schema, handles, rows, coverage, tokens, dispatch, aliases
+                    else:
+                        fallback = self._query_leaf_navigation_payload(state, context, tokens)
+                        if fallback is not None and fallback[4] <= self.harness.budget.max_payload_tokens:
+                            payload, schema, handles, rows, tokens, coverage, dispatch, aliases = fallback
+                            best = payload, schema, handles, rows, coverage, tokens, dispatch, aliases
                 # Try compact metadata at each raw size before clipping more raw.
                 sizes = () if leaf_read else ((size, limit) for limit in (2048, 1024, 512, 256, 128, 64)
                                               for size in range(self.page_size, 0, -1))
@@ -2534,6 +2599,11 @@ class Engine:
                 else:
                     require(decision['status'] == 'search_deferred', 'Only a deferred search can be reopened')
                     decision.update(status='approved', search_resume_reason=args['reason'].strip())
+            elif name == 'show_source_need_page':
+                target = manifest['handles'][args['page_ref']]
+                require(self.gate_enabled and target['kind'] == 'source_need_page', 'Invalid source-need page handle')
+                require(target['start_ref'] in context.get('source_gate', {}), 'Unknown source-need page cursor')
+                context['source_need_page_start'] = target['start_ref']
             elif name == 'defer_source_need':
                 require(self.gate_enabled, 'Source gate is disabled')
                 decision = context['source_gate'][args['source_need_ref']]
