@@ -1,5 +1,11 @@
 # Tiến độ pipeline_v2 ngày 12/11/2026
 
+## CM4 — 23/11/2026, phân biệt kết thúc partial với complete
+
+Final còn unresolved search query hoặc deferred pair trả `stop_reason=partial` và `review_status=partial_with_unresolved_queries` / `partial_with_deferred_pairs`. Giữ prediction đã có, selection status và provenance; không kích baseline fallback khi đổi nhãn. Host citation matches vẫn được ghép vào prediction của run partial. Run xét xong giữ `complete`; lỗi/budget giữ trạng thái riêng. Chỉ áp dụng run mới, không sửa ledger/báo cáo lịch sử. Prepare namespace mới do code binding thay đổi.
+
+Kiểm local bản production cuối: smoke engine/offline terminal/citation 36/36 đạt. Suite liên quan 67 ca có 66 đạt, một kỳ vọng cũ về prediction khi thiếu selector đã sửa; chạy lại ba regression sau sửa đều đạt (unresolved và mở lại, deferred, host citation partial). Kiểm diff với CRLF đạt. Không gọi inference/deploy; chưa có kết quả COLIEE mới.
+
 ## CM4 — 23/11/2026, ngân sách permit và evaluator CM4
 
 Host kiểm toàn bộ query sau render instruction/special tokens/EOS bằng tokenizer embedding pin trước khi ghi permit. Nhóm vượt cap được chia lại, giữ nguyên text, hash, offsets và citation provenance; span đơn quá cap trở về unresolved để sửa. Regression nhóm 454 token tách 2+1 và thực thi, biên 448/449, citation provenance và fit lặp đều đạt. Live dùng embedding profile từ manifest; không cắt nguồn âm thầm.

@@ -83,7 +83,7 @@ class IntegratedHarness(policy.AdaptiveHarness):
         if deferred:
             final['deferred_pair_count'] = len(deferred)
             if reason == 'complete':
-                final['review_status'] = 'complete_with_deferred_pairs'
+                final['review_status'] = 'partial_with_deferred_pairs'
         if self.engine.gate_enabled:
             rows = query_review.queries(self.engine.events(), self.engine.context())
             unresolved = [key for key, row in rows.items() if not row['conclusion']
@@ -92,12 +92,16 @@ class IntegratedHarness(policy.AdaptiveHarness):
             final['unresolved_search_query_count'] = len(unresolved)
             final['unresolved_search_query_ids'] = unresolved
             if reason == 'complete' and unresolved:
-                final['review_status'] = 'complete_with_unresolved_queries'
+                final['review_status'] = 'partial_with_unresolved_queries'
+        if reason == 'complete' and final.get('review_status', '').startswith('partial_'):
+            # Preserve the validated selection, rather than invoking the base
+            # harness's fallback path for a non-complete stop reason.
+            final['stop_reason'] = 'partial'
         return final
 
     def _validate_stop(self, state, args):
         final = super()._validate_stop(state, args)
-        if final['stop_reason'] != 'complete' or final['prediction'] is None:
+        if final['stop_reason'] not in ('complete', 'partial') or final['prediction'] is None:
             return final
         matches = self.engine.context().get('host_citation_matches', {})
         if not matches:

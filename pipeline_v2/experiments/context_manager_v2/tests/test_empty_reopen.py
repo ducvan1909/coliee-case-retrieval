@@ -227,7 +227,9 @@ class EmptyReopenTests(unittest.TestCase):
             result = engine.prepare(admit=False)
             self.assertTrue(result["payload"]["last_action_feedback"]["review_progress"]["complete_policy_allowed"])
             engine.step({"action": "finish_case_review", "args": {"reason": "complete_policy"}})
-            self.assertEqual(engine.state().final["review_status"], "complete_with_deferred_pairs")
+            self.assertEqual(engine.state().final["stop_reason"], "partial")
+            self.assertEqual(engine.state().final["review_status"], "partial_with_deferred_pairs")
+            self.assertFalse(engine.state().final["fallback"])
             self.assertEqual(engine.state().final["deferred_pair_count"], 1)
 
 

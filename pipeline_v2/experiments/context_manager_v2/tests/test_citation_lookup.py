@@ -2,6 +2,7 @@
 from hashlib import sha256
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 from pipeline_v2.agent_harness.contracts import HarnessError
 from pipeline_v2.experiments.context_manager_v2.cli import choose
@@ -160,6 +161,19 @@ class CitationLookupTests(unittest.TestCase):
             self.assertEqual(conclusion['decision'], 'select')
             self.assertEqual(conclusion['selection_origin'], 'host_exact_citation')
             self.assertEqual(tools.hybrid.queries, [])
+
+            # Isolate the unresolved-query finalization branch while keeping the
+            # real host citation match and validator from this end-to-end fixture.
+            unresolved = {'fixture-query': {
+                'conclusion': {'unresolved_candidate_ids': ['B_B'], 'remaining_source_need': ''}}}
+            with patch('pipeline_v2.experiments.context_manager_v2.engine.query_review.queries',
+                       return_value=unresolved):
+                partial = engine.harness._validate_stop(
+                    engine.state(), {'reason': 'complete', 'prediction': []})
+            self.assertEqual(partial['stop_reason'], 'partial')
+            self.assertEqual(partial['review_status'], 'partial_with_unresolved_queries')
+            self.assertEqual(partial['prediction'], ['B_A'])
+            self.assertEqual(len(partial['prediction_host_citation_matches']), 1)
 
             final_prompt = engine.prepare(admit=False)
             self.assertIn('finish_case_review', [row['name'] for row in final_prompt['payload']['available_tools']])

@@ -129,6 +129,21 @@ class SourceGateTests(unittest.TestCase):
             self.assertIn('complete_policy', next(branch for branch in done['manifest']['schema']['anyOf']
                 if branch['properties']['action']['const'] == 'finish_case_review')
                 ['properties']['args']['properties']['reason']['enum'])
+            empty_prediction = engine.harness._final('complete', 'controller_stop', prediction=[])
+            self.assertEqual(empty_prediction['stop_reason'], 'partial')
+            self.assertIsNone(empty_prediction['prediction'])
+            self.assertFalse(empty_prediction['fallback'])
+            engine.step(lambda p: choose(p, 'finish_case_review', reason='complete_policy'))
+            final = engine.state().final
+            self.assertEqual(final['stop_reason'], 'partial')
+            self.assertEqual(final['review_status'], 'partial_with_unresolved_queries')
+            self.assertFalse(final['fallback'])
+            self.assertIsNone(final['prediction'])
+            self.assertEqual(final['unresolved_search_query_count'], 1)
+            query_id, = final['unresolved_search_query_ids']
+            self.assertTrue(query_id)
+            engine, _ = make_engine(directory, AUTHORITY)
+            self.assertEqual(engine.state().final, final)
 
     def test_defer_keeps_search_unexecuted_and_resume_restores_priority(self):
         with TemporaryDirectory() as directory:
