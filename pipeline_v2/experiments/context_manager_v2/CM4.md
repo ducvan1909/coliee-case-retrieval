@@ -1,5 +1,13 @@
 # CM4 — kết nối inference cho một query
 
+## Nhánh dual-query/rerank — contract kết luận một lần, 21/11/2026
+
+Khi bật `--reranker-function-id` lúc prepare, host chỉ gom passage cùng B trong top 10, cho mở án trực tiếp và rời/mở lại theo quyết định model. `conclude_candidate` kết luận đúng một lần cho mỗi `(search_query_id, B)`; không còn `assess_passages` hay tool sửa phiếu. Mặc định `not_select` là pending, không phải nhận định phủ định. Model chốt select khi đủ evidence A→B và định danh B; chốt không chọn khi kết thúc xem xét mà không đủ hoặc có phản chứng. Không ép đọc hết nhóm. Sau chốt vẫn đọc/mở lại được nhưng không thay kết luận, kể cả resume. Phần chưa đọc giữ trạng thái riêng; query còn B pending phải báo partial.
+
+`read_case_passages` tìm lexical trong B đang mở, phân biệt source bytes mới với các đoạn đã có receipt và không có hit. `revisit_case_passage` mở lại đoạn cũ có chủ đích. `read_passage_attribution` mở ngữ cảnh trước/sau khoảng ±1.200 byte cho model kiểm tra người nói/nguồn trích, không tự nhận diện câu attribution. Đổi focus hoặc lời giải thích không tự tính là tiến triển.
+
+Xem [kế hoạch](../../docs/plan/CM4_DUAL_QUERY_RRF_RERANK.md) và [PROGRESS](../../docs/PROGRESS.md) cho kiểm local. Không dùng pilot v2 làm nghiệm thu live contract này; prepare namespace mới sau thay code. Các mô tả survey/priority bên dưới áp dụng nhánh không bật reranker hoặc checkpoint lịch sử.
+
 ## Contract mới Q1–Q4 — 19/11/2026
 
 Engine `cm4-query-review-v30` chạy qua live CLI `cm4-live-v2`. Model phải kết luận query đang mở trước khi tìm câu khác. Mỗi query gồm một câu tìm kiếm và tập kết quả của nó.

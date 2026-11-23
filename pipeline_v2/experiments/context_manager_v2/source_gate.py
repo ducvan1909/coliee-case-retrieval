@@ -4,8 +4,10 @@ import re
 
 from pipeline_v2.agent_harness.contracts import HarnessError, fingerprint
 from .evidence import unread_spans
+from .anchor_quote import _matches, _visible_paragraphs, _normalized_text, _typographic_text, _nearby_anchors
 
 VERSION = 'cm4-source-gate-v5'
+BOUND_VERSION = 'cm4-source-bound-v2'
 DECISIONS = ('search_needed', 'need_more_context', 'no_search_needed')
 ATTRIBUTIONS = ('court', 'party', 'quoted_source', 'lower_tribunal', 'unknown')
 REASONS = ('authority_reference', 'quoted_authority', 'masked_authority', 'facts',
@@ -35,6 +37,152 @@ def assessment_properties(paragraph_refs, segment_refs):
     return fields
 
 
+def bound_assessment_properties(paragraph_refs, segment_refs):
+    fields = assessment_properties(paragraph_refs, segment_refs)
+    fields['proposition_quote'] = {'type': 'string', 'minLength': 1, 'maxLength': 4096}
+    if segment_refs:
+        fields['a_supports'] = {'type': 'array', 'maxItems': 4, 'items': {
+            'type': 'object', 'additionalProperties': False,
+            'properties': {'role': {'type': 'string', 'enum': ['attribution', 'citation']},
+                           'span_ref': {'type': 'string', 'enum': [ref for ref,row in segment_refs.items() if not row.get('negative_only')]}},
+            'required': ['role', 'span_ref']}}
+    return fields
+
+
+def bound_assessment_variants(paragraph_refs, segment_refs):
+    """Use flat, mutually exclusive branches supported by structured decoders."""
+    common = bound_assessment_properties(paragraph_refs, segment_refs)
+    variants = []
+    for decision in DECISIONS:
+        for selector in ('proposition_ref', 'proposition_quote', None):
+            if selector is None and decision != 'need_more_context':
+                continue
+            fields = {key: deepcopy(value) for key,value in common.items()
+                      if key not in ('proposition_ref','proposition_quote') or key == selector}
+            fields['decision'] = {'type':'string','enum':[decision]}
+            if selector == 'proposition_ref':
+                choices = [ref for ref,row in segment_refs.items()
+                           if row.get('proposition_selectable',True)
+                           or (decision == 'no_search_needed' and row.get('negative_only'))]
+                if not choices:
+                    continue
+                fields['proposition_ref'] = {'type':'string','enum':choices}
+            required = [key for key in fields if key not in ('signal_ref','sufficient_for_search','missing_context','a_supports')]
+            variants.append((fields, required))
+    return variants
+
+
+def evaluate_bound(payload, args, query_paragraphs):
+    """Resolve a source span; approximate matches never authorize retrieval."""
+    rows = _query_rows(payload)
+    paragraph = payload['m6']['a_paragraphs'][args['paragraph_ref']]
+    issued = payload['m6']['source_gate_segments']
+    has_ref = bool(args.get('proposition_ref'))
+    has_quote = bool(args.get('proposition_quote'))
+    if has_ref and has_quote:
+        raise HarnessError('Choose exactly one proposition_ref or proposition_quote.')
+    if args['decision'] != 'need_more_context' and not (has_ref or has_quote):
+        raise HarnessError('Choose one offered proposition_ref or provide a literal proposition_quote for this decision.')
+    chosen = issued.get(args.get('proposition_ref'))
+    resolved = None
+    suggestions = []
+    if args.get('proposition_quote'):
+        # Reuse exact/whitespace/paired-quote normalization and exact-source
+        # suggestions. The resolver never accepts a fuzzy suggestion itself.
+        visible=list(_visible_paragraphs(payload))
+        unique={}
+        quote=args['proposition_quote'].strip()
+        for normalizer in (None,_normalized_text,_typographic_text):
+            for ref,anchor in _matches(visible,quote,normalize=normalizer):
+                unique.setdefault(tuple(anchor['span_bytes']),(ref,anchor))
+        resolved=next(iter(unique.values())) if len(unique)==1 else None
+        suggestions=list(unique.values())[:3] if len(unique)>1 else ([] if resolved else _nearby_anchors(visible,quote))
+        if not resolved and not unique and len(quote) > 240:
+            # A full visible paragraph is a confirmation choice for a long
+            # imperfect copy, never an automatically accepted match.
+            words = set(re.findall(r'\w+', quote.casefold()))
+            for ref, source_ref, left, text in visible:
+                candidate_words = set(re.findall(r'\w+', text.casefold()))
+                if (ref == args['paragraph_ref'] and len(text) <= 4096 and words
+                        and len(words & candidate_words) / len(words) >= 0.65):
+                    suggestions.insert(0, (ref, {'source_ref': source_ref,
+                        'span_bytes': [left,left+len(text.encode('utf-8'))], 'text': text}))
+                    suggestions = suggestions[:3]
+                    break
+    elif chosen and chosen.get('negative_only'):
+        if (args['decision'] != 'no_search_needed' or not args['context_complete']
+                or chosen['paragraph_ref'] != args['paragraph_ref']):
+            raise HarnessError('The remaining-visible reference only supports no_search_needed for its shown paragraph.')
+        spans = chosen['selected_spans']
+        for span in spans:
+            _slice(rows[chosen['source_ref']], span)
+        scaffold = {**args, 'decision': 'need_more_context'}
+        result = evaluate(payload, scaffold, query_paragraphs)
+        result.update(bound_mode=True, proposed_decision='no_search_needed', requested_args=deepcopy(args),
+                      a_supports=[], resolution_choices=[], settled_spans=deepcopy(spans),
+                      decision='no_search_needed', status='screened', validation_message=None,
+                      visible_span_bytes=[spans[0][0], spans[-1][1]],
+                      source_need_ref='gate-'+fingerprint([BOUND_VERSION,payload['query_source_hash'],paragraph['paragraph_handle'],spans])[:24])
+        return result
+    elif chosen and chosen.get('proposition_selectable', True):
+        resolved = (chosen['paragraph_ref'], {key: deepcopy(chosen[key]) for key in ('source_ref', 'span_bytes')})
+        resolved[1]['text'] = _slice(rows[chosen['source_ref']], chosen['span_bytes'])
+    # Use legacy metadata validation only as a scaffold, then bind every
+    # positive/negative decision to exactly the resolved primary span.
+    scaffold = {**args, 'decision': 'need_more_context'}
+    result = evaluate(payload, scaffold, query_paragraphs)
+    result.update(bound_mode=True, proposed_decision=args['decision'], requested_args=deepcopy(args),
+                  a_supports=[], resolution_choices=[])
+    if resolved:
+        ref, anchor = resolved
+        selected = payload['m6']['a_paragraphs'][ref]
+        if selected['paragraph_handle'] != paragraph['paragraph_handle']:
+            result['validation_message'] = 'Choose the paragraph containing the selected literal span.'
+            return result
+        left, right = anchor['span_bytes']
+        heading_only = any(start <= left < right <= end for start,end in payload['m6'].get('known_heading_spans', []))
+        settled = payload['m6'].get('settled_source_spans', [])
+        blocked_heading = heading_only and args['decision'] == 'search_needed'
+        if blocked_heading or not unread_spans([left,right], settled):
+            result['validation_message'] = ('A heading alone cannot authorize a source search.' if blocked_heading else
+                                            'This exact source span has already been processed; select another span.')
+            return result
+        order = {row['handle']: i for i,row in enumerate(query_paragraphs)}
+        supports = []
+        for item in args.get('a_supports', []):
+            support = issued.get(item['span_ref'])
+            if item['role'] not in ('attribution', 'citation') or support is None or support.get('negative_only'):
+                raise HarnessError('Unknown typed A support')
+            support_p = payload['m6']['a_paragraphs'][support['paragraph_ref']]
+            if abs(order[support_p['paragraph_handle']]-order[paragraph['paragraph_handle']]) > 1:
+                raise HarnessError('Typed A support is outside the selected source region')
+            supports.append({'role': item['role'], 'case_id': payload['query_id'],
+                             'source_hash': payload['query_source_hash'], 'source_ref': support['source_ref'],
+                             'span_bytes': list(support['span_bytes']),
+                             'text': _slice(rows[support['source_ref']], support['span_bytes'])})
+        decision = args['decision']
+        if decision == 'search_needed' and not args.get('sufficient_for_search', args['context_complete']):
+            decision = 'need_more_context'
+        if decision == 'no_search_needed' and not args['context_complete']:
+            decision = 'need_more_context'
+        result.update(proposition=anchor, source_ref=anchor['source_ref'], visible_span_bytes=[left,right],
+                      a_supports=supports, decision=decision,
+                      status='approved' if decision=='search_needed' else 'screened' if decision=='no_search_needed' else 'unresolved',
+                      validation_message=None if decision != 'need_more_context' else 'Read more context while retaining this source span.',
+                      source_need_ref='gate-'+fingerprint([BOUND_VERSION,payload['query_source_hash'],paragraph['paragraph_handle'],[left,right]])[:24])
+    else:
+        if not suggestions:
+            for ref,item in issued.items():
+                if item['paragraph_ref'] == args['paragraph_ref'] and item.get('proposition_selectable',True) and not item.get('negative_only'):
+                    suggestions.append((item['paragraph_ref'], {'source_ref':item['source_ref'],
+                        'span_bytes':item['span_bytes'],'text':_slice(rows[item['source_ref']],item['span_bytes'])}))
+                    if len(suggestions) == 3:
+                        break
+        result['validation_message'] = 'The quote does not identify a unique source span. Choose a literal source suggestion or an offered remaining span.'
+        result['resolution_choices'] = [{'paragraph_ref': ref, **anchor} for ref,anchor in suggestions]
+    return result
+
+
 def _query_rows(payload):
     current = set(payload['current_payload_source_refs'])
     return {row['ref']: row for row in payload['excerpts'] if row['ref'] in current
@@ -50,9 +198,27 @@ def _slice(row, span):
 
 
 _BOUNDARY = re.compile(r'(?<=[:;])\s+(?=\([a-z0-9]+\))|(?:\r?\n)+(?=\s*\([a-z0-9]+\))|(?<=[!?])\s+|(?<=\.)\s+(?=[A-Z\u00c0-\u00d6])')
+_LETTERED_ITEM = re.compile(r'(?im)^[ \t]*\([a-z]\)[ \t]+\S')
 
 
-def segments(payload, context=None):
+def heading_spans(raw):
+    """Recognize a standalone title between prose and the next numbered paragraph."""
+    matches = re.finditer(
+        rb'[.!?]["\x27]?[ \t]*[\r\n]+(?P<title>[A-Z][A-Za-z ]{3,79})[ \t]*[\r\n]+\[\d{1,3}\]',
+        raw,
+    )
+    spans = []
+    for match in matches:
+        title = match['title'].rstrip()
+        words = title.split()
+        if len(words) >= 2 and sum(word[:1].isupper() for word in words) >= 2 and all(
+                word[:1].isupper() or word in (b'a', b'an', b'and', b'for', b'in', b'of', b'on', b'or', b'the', b'to')
+                for word in words):
+            spans.append((match.start('title'), match.start('title') + len(title)))
+    return spans
+
+
+def segments(payload, context=None, *, bound=False):
     """Issue selectable sentence or list-item spans from current query excerpts."""
     rows = _query_rows(payload)
     result = {}
@@ -85,6 +251,28 @@ def segments(payload, context=None):
                     result[f'{ref}.remaining{i}'] = {**item, 'span_bytes': gap,
                         'preview': ' '.join(_slice(rows[item['source_ref']], gap).split())[:56],
                         'proposition_selectable': True}
+        if bound:
+            for ref,paragraph in payload['m6']['a_paragraphs'].items():
+                visible_text = _slice(rows[paragraph['source_ref']], paragraph['span_bytes'])
+                if _LETTERED_ITEM.search(visible_text):
+                    continue
+                gaps = unread_spans(paragraph['span_bytes'],settled.get((payload['query_source_hash'],paragraph['paragraph_handle']),[]))
+                if gaps:
+                    result[f'{ref}.remaining_visible'] = {'paragraph_ref':ref,'source_ref':paragraph['source_ref'],
+                        'span_bytes':list(paragraph['span_bytes']),'selected_spans':gaps,'negative_only':True,
+                        'proposition_selectable':False,'preview':'All remaining shown text of this paragraph',
+                        'byte_count':sum(right-left for left,right in gaps)}
+    if bound and 'source_survey' in payload['m6']:
+        from .citation_lookup import literal_citations
+        for ref, paragraph in payload['m6']['a_paragraphs'].items():
+            source = rows[paragraph['source_ref']]
+            text = _slice(source, paragraph['span_bytes'])
+            origin = paragraph['span_bytes'][0]
+            for index, (left, right) in enumerate(literal_citations(text), 1):
+                span = [origin + left, origin + right]
+                result[f'{ref}.citation{index}'] = {
+                    'paragraph_ref': ref, 'source_ref': source['ref'], 'span_bytes': span,
+                    'preview': _slice(source, span), 'proposition_selectable': False, 'citation_cue': True}
     return result
 
 
@@ -154,7 +342,92 @@ def visible_permits(payload, context, *, status='approved'):
                          and tuple(row['span_bytes']) == tuple(paragraph['span_bytes'])), None)
         if matching:
             permits[key] = {'decision': decision, 'paragraph_ref': matching}
+        elif payload.get('m6', {}).get('source_survey', {}).get('phase') == 'retrieval':
+            permits[key] = {'decision': decision, 'paragraph_ref': decision['paragraph_handle']}
+    if payload.get('m6', {}).get('source_survey', {}).get('phase') == 'retrieval':
+        return dict(list(permits.items())[:5])
     return permits
+
+
+def survey_ready(context, paragraphs):
+    progress_state = progress(context, paragraphs)
+    return (progress_state['paragraphs_screened'] == progress_state['paragraphs_total']
+            and progress_state['unresolved_count'] == 0)
+
+
+def group_needs(context, refs, reason, paragraphs):
+    if not survey_ready(context, paragraphs) or not 2 <= len(refs) <= 3 or len(set(refs)) != len(refs):
+        raise HarnessError('Grouping needs two or three distinct queued needs after survey')
+    decisions = context.get('source_gate', {})
+    rows = [decisions.get(ref) for ref in refs]
+    if any(row is None or row['status'] != 'approved' for row in rows) or not reason.strip():
+        raise HarnessError('Grouping requires approved needs and source-based confirmation')
+    if len({row['source_hash'] for row in rows}) != 1:
+        raise HarnessError('Grouped needs must have the same canonical source')
+    from .citation_lookup import explicit_citation_key
+    identifiers = {key for row in rows for support in row.get('a_supports', [])
+                   if support['role'] == 'citation' and (key := explicit_citation_key(support['text']))}
+    if len(identifiers) > 1:
+        raise HarnessError('Keep approved needs with distinct scoped citations separate')
+    main = rows[0]
+    members = [member for row, ref in zip(rows, refs) for member in row.get('group_members', [ref])]
+    main['group_members'] = list(dict.fromkeys(members))
+    main['group_reason'] = reason.strip()
+    main['group_kind'] = 'model_confirmed'
+    for ref in main['group_members']:
+        if ref == refs[0]:
+            continue
+        row = decisions[ref]
+        row.update(status='grouped', grouped_into=refs[0])
+        for field in ('group_members', 'group_kind', 'group_reason'):
+            row.pop(field, None)
+        row['a_supports'] = [support for support in row.get('a_supports', []) if support['role'] != 'group_member']
+        support = {'role': 'group_member',
+                   'source_hash': row['source_hash'], 'source_ref': row['source_ref'],
+                   'span_bytes': row['proposition']['span_bytes'], 'text': row['proposition']['text']}
+        main.setdefault('group_context', []).append(support)
+
+
+def evaluate_batch(payload, items, paragraphs):
+    if not 1 <= len(items) <= 3:
+        raise HarnessError('Survey accepts one to three decisions')
+    assessments = [evaluate_bound(payload, item, paragraphs) for item in items]
+    for index, current in enumerate(assessments):
+        a, b = current['visible_span_bytes']
+        for previous in assessments[:index]:
+            c, d = previous['visible_span_bytes']
+            if max(a, c) < min(b, d):
+                raise HarnessError('Batch decisions must address distinct nonoverlapping spans')
+    return assessments
+
+
+def group_exact_citations(context, paragraphs, query_case, raw_reader):
+    if not survey_ready(context, paragraphs):
+        return
+    from .citation_lookup import approved_citation
+    groups = {}
+    for ref, row in context.get('source_gate', {}).items():
+        if row['status'] != 'approved':
+            continue
+        need = {'source_bound': True, 'a_anchor': row['proposition'],
+                'a_supports': row.get('a_supports', []),
+                'a_sources': [{'case_id': query_case, 'source_hash': row['source_hash']}]}
+        match = approved_citation(need, raw_reader)
+        if match is None:
+            continue
+        key, citation = match
+        # Shared scoped citation ref is required, so adjacent quotation blocks
+        # carrying separate authorities cannot collapse through topic overlap.
+        identity = key, tuple(citation['span_bytes']), row['source_hash']
+        if identity not in groups:
+            groups[identity] = ref
+            continue
+        main_ref = groups[identity]
+        main = context['source_gate'][main_ref]
+        main['group_members'] = list(dict.fromkeys([*main.get('group_members', [main_ref]), ref]))
+        main['group_reason'] = 'The approved spans share one exact scoped citation.'
+        main.setdefault('group_kind', 'exact_citation')
+        row.update(status='grouped', grouped_into=main_ref)
 
 
 def authorized(context, need_id):
@@ -164,9 +437,9 @@ def authorized(context, need_id):
 def _settled_spans(context):
     spans = {}
     for row in context.get('source_gate', {}).values():
-        if row['status'] in ('screened', 'approved', 'searched', 'deferred', 'search_deferred'):
+        if row['status'] in ('screened', 'approved', 'searched', 'deferred', 'search_deferred', 'grouped'):
             key = row['source_hash'], row['paragraph_handle']
-            spans.setdefault(key, []).append(row['proposition']['span_bytes'] if row.get('proposition') else row['visible_span_bytes'])
+            spans.setdefault(key, []).extend(row.get('settled_spans') or [row['proposition']['span_bytes'] if row.get('proposition') else row['visible_span_bytes']])
     return spans
 
 
@@ -174,8 +447,7 @@ def screening_choices(payload, context):
     """A narrower view of a settled paragraph adds no screening work."""
     evaluated = _settled_spans(context)
     return [ref for ref, row in payload['m6']['a_paragraphs'].items()
-            if not any(start <= row['span_bytes'][0] < row['span_bytes'][1] <= end
-                       for start, end in evaluated.get((row['source_hash'], row['paragraph_handle']), []))]
+            if unread_spans(row['span_bytes'], evaluated.get((row['source_hash'], row['paragraph_handle']), []))]
 
 
 def commit_decision(context, assessment):
@@ -212,6 +484,13 @@ def screened_paragraphs(context):
             if (row['decision'] != 'need_more_context' or row['status'] == 'deferred')
             and not unread_spans(row['paragraph_span_bytes'], _settled_spans(context).get(
                 (row['source_hash'], row['paragraph_handle']), []))}
+
+
+def unscreened_spans(context, source_hash, paragraphs):
+    settled = _settled_spans(context)
+    return [gap for paragraph in paragraphs
+            for gap in unread_spans(paragraph['span_bytes'],
+                                    settled.get((source_hash, paragraph['handle']), []))]
 
 
 def progress(context, paragraphs):

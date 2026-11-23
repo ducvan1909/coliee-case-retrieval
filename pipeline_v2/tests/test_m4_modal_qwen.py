@@ -241,28 +241,31 @@ class ModalQwenTransportTests(unittest.TestCase):
             remote = SimpleNamespace(generate=SimpleNamespace(spawn=spawn))
             transport = self.build_transport(root, lambda: remote)
             with self.assertRaises(HarnessError):
-                transport.count_tokens(self.payload(cap=513))
+                transport.count_tokens(self.payload(cap=modal_qwen.MAX_OUTPUT_TOKENS + 1))
             oversized = self.payload("x" * modal_qwen.MAX_CONTEXT_TOKENS, cap=512)
             with self.assertRaises(TransportError) as error:
                 transport.send_structured(oversized, "request-2", {"type": "object"})
             self.assertEqual(str(error.exception), "modal_context_limit")
             spawn.assert_not_called()
 
-    def test_ten_thousand_input_fits_new_context_and_exact_boundary_is_enforced(self):
+    def test_doubled_output_cap_fits_cm4_input_and_exact_context_boundary(self):
         with tempfile.TemporaryDirectory() as tmp:
             call = FakeModalCall()
             spawn = unittest.mock.Mock(return_value=call)
             transport = self.build_transport(Path(tmp), lambda: SimpleNamespace(
                 generate=SimpleNamespace(spawn=spawn)))
-            payload = self.payload('x', cap=512)
+            payload = self.payload('x', cap=1024)
             self.assertEqual(modal_qwen.MAX_CONTEXT_TOKENS, 12288)
-            for count in (10000, modal_qwen.MAX_CONTEXT_TOKENS - 512):
+            self.assertEqual(modal_qwen.MAX_OUTPUT_TOKENS, 1024)
+            boundary = modal_qwen.MAX_CONTEXT_TOKENS - 1024
+            for count in (8500, boundary):
                 with self.subTest(count=count), patch.object(transport, '_count_prompt', return_value=count):
                     call.result = self.result(transport, payload)
                     reply = transport.send_structured(payload, f'boundary-{count}', {'type': 'object'})
                     self.assertEqual(reply.input_tokens, count)
+                    self.assertEqual(spawn.call_args.args[2], 1024)
             calls = spawn.call_count
-            with patch.object(transport, '_count_prompt', return_value=modal_qwen.MAX_CONTEXT_TOKENS - 511):
+            with patch.object(transport, '_count_prompt', return_value=boundary + 1):
                 with self.assertRaisesRegex(TransportError, 'modal_context_limit'):
                     transport.send_structured(payload, 'over-boundary', {'type': 'object'})
             self.assertEqual(spawn.call_count, calls)

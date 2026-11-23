@@ -3,6 +3,7 @@ from copy import deepcopy
 from hashlib import sha256
 from pipeline_v2.agent_harness.contracts import HarnessError
 from pipeline_v2.agent_harness.evidence import SourceDrift, excerpt, slice_record, source_record
+from pipeline_v2.runtime_timing import timed
 
 
 def unread_spans(span, offered):
@@ -40,6 +41,7 @@ class EvidenceStore:
     def __init__(self, raw_reader):
         self.raw_reader = raw_reader
 
+    @timed('verify_source')
     def verify(self, record):
         value = excerpt(record)
         raw = self.raw_reader(value.case_id)

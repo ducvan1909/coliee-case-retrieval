@@ -308,6 +308,48 @@ class MapFirstTests(SourceToolsFixture):
             self.assertEqual(search["action"], "search_corpus")
             self.assertEqual(search["args"]["_m6_need"]["a_anchor"]["text"], valid["args"]["anchor_quote"])
 
+    def test_gate_map_hides_ancestor_while_a_child_has_unscreened_bytes(self):
+        with TemporaryDirectory() as directory:
+            engine, tools = self.make_engine(directory, leaf_bytes=2048, gate_enabled=True)
+            root = tools.query_tree.root_ref
+            original_count = engine.harness.count_tokens
+
+            def constrained_count(body):
+                if any(row['span_bytes'][1] - row['span_bytes'][0] > 1100
+                       for row in json.loads(body)['excerpts']):
+                    return 9000
+                return original_count(body)
+
+            engine.harness.count_tokens = constrained_count
+            at_root = engine.prepare(admit=False)
+            child_map = choose_target(at_root, lambda _ref, row: (
+                row['binding']['region_ref'] != root and row['description']['response'] == 'map'))
+            engine.step({'action': 'read_query_passages', 'args': {'query_ref': child_map}})
+            at_child = engine.prepare(admit=False)
+            targets = target_rows(at_child)
+            self.assertNotIn(root, {row['binding']['region_ref'] for row in targets.values()})
+            recommended, = at_child['payload']['last_action_feedback']['navigation_options']
+            target = targets[recommended['args']['query_ref']]
+            self.assertEqual(target['description']['response'], 'full_text')
+            self.assertTrue(Draft202012Validator(at_child['manifest']['schema']).is_valid(
+                {'action': recommended['tool'], 'args': recommended['args']}))
+
+            # The parent is a valid exit once the current map's bytes have been screened.
+            context = engine.context()
+            source_hash = engine.harness.identity.query_source_hash
+            local_span = at_child['manifest']['dispatch_m6']['query_navigation']['current']['span_bytes']
+            context['source_gate'] = {
+                paragraph['handle']: {'status': 'screened', 'decision': 'no_search_needed',
+                                      'source_hash': source_hash, 'paragraph_handle': paragraph['handle'],
+                                      'paragraph_span_bytes': paragraph['span_bytes'],
+                                      'visible_span_bytes': local_span, 'settled_spans': [local_span]}
+                for paragraph in engine.harness.query_paragraphs}
+            with patch.object(engine, 'context', return_value=context):
+                settled = engine.prepare(admit=False)
+            parent = choose_target(settled, lambda _ref, row: row['binding']['region_ref'] == root)
+            self.assertFalse(Draft202012Validator(at_child['manifest']['schema']).is_valid(
+                {'action': 'read_query_passages', 'args': {'query_ref': parent}}))
+
     def test_over_budget_region_returns_a_map_then_child_uses_same_tool_and_exact_raw(self):
         with TemporaryDirectory() as directory:
             engine, tools = self.make_engine(directory, leaf_bytes=2048)

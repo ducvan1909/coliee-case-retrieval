@@ -11,7 +11,7 @@ from pipeline_v2.agent_harness.contracts import ModelReply, TransportError, fing
 from pipeline_v2.experiments.context_manager_v2.cli import choose
 from pipeline_v2.experiments.context_manager_v2.engine import Engine
 from pipeline_v2.agent_harness.ledger import RunState
-from pipeline_v2.experiments.context_manager_v2.live import LoopGuard, load_settings, run_loop
+from pipeline_v2.experiments.context_manager_v2.live import LoopGuard, load_settings, run_loop, PASSAGE_INSTRUCTIONS
 from pipeline_v2.tests.test_m6_adaptive import Tools
 
 
@@ -48,9 +48,54 @@ class Transport:
 
 
 class LiveTests(unittest.TestCase):
+    def test_guard_counts_new_reviewed_bytes_within_the_same_paragraph(self):
+        state = RunState()
+        guard = LoopGuard()
+        base = {'source_hash': 'source-a', 'paragraph_handle': 'p000001',
+                'decision': 'no_search_needed', 'status': 'screened'}
+        decisions = {'bad': {**base, 'status': 'unresolved', 'visible_span_bytes': [0, 927]}}
+        context = {'mode': 'query_leaf', 'source_gate': decisions}
+        self.assertEqual(guard.observe(state, context)['screened_query_bytes'], 0)
+        decisions['s1'] = {**base, 'visible_span_bytes': [0, 239]}
+        self.assertEqual(guard.observe(state, context)['screened_query_bytes'], 239)
+        self.assertEqual(guard.observe(state, context)['no_progress'], 1)
+        decisions['s2'] = {**base, 'visible_span_bytes': [239, 285]}
+        outcome = guard.observe(state, context)
+        self.assertEqual(outcome['screened_query_bytes'], 285)
+        self.assertEqual(outcome['no_progress'], 0)
+        decisions['duplicate'] = {**base, 'visible_span_bytes': [5, 250], 'reason': 'Reworded.'}
+        self.assertEqual(guard.observe(state, context)['no_progress'], 1)
+        decisions['s2']['status'] = 'unresolved'
+        self.assertEqual(guard.observe(state, context)['no_progress'], 2)
+        decisions['s2']['status'] = 'screened'
+        self.assertEqual(guard.observe(state, context)['no_progress'], 3)
+
+    def test_passage_prompt_requires_one_case_conclusion_and_honest_context_reading(self):
+        self.assertIn('conclude_candidate exactly once', PASSAGE_INSTRUCTIONS)
+        self.assertIn('cannot be repeated, revised, or retracted', PASSAGE_INSTRUCTIONS)
+        self.assertIn('Leaving a case does not finalize it', PASSAGE_INSTRUCTIONS)
+        self.assertIn('revisit_case_passage', PASSAGE_INSTRUCTIONS)
+        self.assertIn('does not semantically identify the speaker', PASSAGE_INSTRUCTIONS)
+        self.assertNotIn('Return only passage assessments', PASSAGE_INSTRUCTIONS)
+        self.assertNotIn('Survey every results page', PASSAGE_INSTRUCTIONS)
+
+    def test_conclusion_wording_and_repeated_search_feedback_are_not_new_progress(self):
+        state = RunState()
+        guard = LoopGuard(cycle_limit=3)
+        context = {'mode': 'assessment', 'candidate_id': 'B', 'stage': 'reading'}
+        guard.observe(state, context)
+        context['candidate_conclusions'] = {'q1': {'B': {'decision': 'not_select', 'reason': 'Insufficient evidence'}}}
+        self.assertEqual(guard.observe(state, context)['no_progress'], 0)
+        context['candidate_conclusions']['q1']['B']['reason'] = 'Different wording'
+        context['passage_session'] = {'search_feedback': {'status': 'already_read', 'focus': 'new words'}}
+        self.assertEqual(guard.observe(state, context)['no_progress'], 1)
+        context['passage_session']['search_feedback']['focus'] = 'other words'
+        self.assertTrue(guard.observe(state, context)['stop'])
+
     def test_default_settings_use_fifty_search_results_but_explicit_settings_are_preserved(self):
         default = load_settings()
         self.assertEqual(default['adaptive_config']['search_limit'], 50)
+        self.assertEqual(default['budget']['max_output_tokens'], 1024)
 
         configured = json.loads(load_settings.__globals__['DEFAULT_SETTINGS'].read_bytes())
         configured['adaptive_config']['search_limit'] = 7
@@ -113,6 +158,8 @@ class LiveTests(unittest.TestCase):
             run_loop(e, t, Trace())
             self.assertEqual(len(t.calls), 1)
             admission = next(x for x in e.events() if x['kind'] == 'request_admitted')
+            self.assertEqual(admission['output_token_cap'], 1024)
+            self.assertEqual(json.loads(t.calls[0][0])['max_output_tokens'], 1024)
             manifest = json.loads((e.directory / admission['cm_manifest_path']).read_bytes())
             self.assertEqual(fingerprint(t.calls[0][2]), manifest['schema_sha256'])
             self.assertEqual(t.calls[0][2], preview['manifest']['schema'])

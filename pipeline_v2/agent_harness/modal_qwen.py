@@ -31,7 +31,7 @@ from pipeline_v2.deployments.modal_qwen36_27b.app import (
 from .contracts import HarnessError, ModelReply, TransportError, fingerprint, integer
 
 
-MODAL_FUNCTION_ID = "fu-TfWPSIRNQIkZWM1W5O7HEv"
+MODAL_FUNCTION_ID = "fu-EebPFmRFbonO5T97FTMSH4"
 DEFAULT_WAIT_SECONDS = 1080
 RESULT_POLL_SECONDS = 30
 RESULT_RECONNECT_SECONDS = 5
@@ -250,13 +250,13 @@ class ModalQwenTransport:
         return self._model_reply(result, input_tokens, max_tokens, receipt)
 
     @staticmethod
-    def _wait_for_result(call, receipt):
+    def _wait_for_result(call, receipt, *, component="modal_controller"):
         """Observe the same call while queued or running, without a local deadline."""
         started = perf_counter()
         receipt.update(wait_policy="poll_same_call", pending_polls=0, connection_errors=0)
 
         def progress(status):
-            print(json.dumps({"component": "modal_controller", "status": status,
+            print(json.dumps({"component": component, "status": status,
                               "request_id": receipt["request_id"], "call_id": receipt["call_id"],
                               "elapsed_seconds": round(perf_counter() - started, 2)}),
                   file=sys.stderr, flush=True)

@@ -10,6 +10,9 @@ from pipeline_v2.query_navigation import HierarchicalM3Tools, QueryTree
 from .model_view import project
 
 
+CONTROLLER_OUTPUT_TOKEN_CAP = 1024
+
+
 class _SplittableQueryTree(QueryTree):
     """Give an over-budget leaf a subdivision without changing its sibling refs."""
 
@@ -78,7 +81,7 @@ class MapFirstQueryTools(HierarchicalM3Tools):
     """Keep CM4's query routing separate from the shared M3 reader."""
 
     def __init__(self, sources, lexical, query_case, *, byte_budget, map_limit,
-                 navigation_config, count_tokens, output_token_cap=512):
+                 navigation_config, count_tokens, output_token_cap=CONTROLLER_OUTPUT_TOKEN_CAP):
         leaf_bytes = min(navigation_config.leaf_bytes, byte_budget)
         config = replace(navigation_config, leaf_bytes=leaf_bytes)
         super().__init__(sources, lexical, query_case, byte_budget=byte_budget, map_limit=map_limit,

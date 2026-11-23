@@ -6,6 +6,8 @@ import json
 from pathlib import Path
 import sqlite3
 
+from pipeline_v2.runtime_timing import measure, timed
+
 from .contracts import HarnessError, encode
 
 
@@ -20,7 +22,8 @@ class Ledger:
         # separate database so an admission can survive loss of the writer.
         with self._connect("writer.sqlite3", timeout=0) as lock:
             try:
-                lock.execute("BEGIN EXCLUSIVE")
+                with measure('ledger_writer_lock'):
+                    lock.execute("BEGIN EXCLUSIVE")
             except sqlite3.OperationalError as exc:
                 raise HarnessError("Another writer owns this run") from exc
             with self._connect("events.sqlite3") as db:
@@ -44,6 +47,7 @@ class Ledger:
         finally:
             db.close()
 
+    @timed('ledger_read')
     def read(self, db=None):
         if db is not None:
             return self._read(db)
@@ -66,6 +70,7 @@ class Ledger:
                 for seq, record in db.execute("SELECT seq, record FROM events ORDER BY seq")]
 
     @staticmethod
+    @timed('ledger_append')
     def append(db, kind, **fields):
         event = {"kind": kind, "at_utc": datetime.now(timezone.utc).isoformat(), **fields}
         body = encode(event)
@@ -75,6 +80,7 @@ class Ledger:
 
 
 class RunState:
+    @timed('ledger_state_replay')
     def __init__(self, events=()):
         self.config = None
         self.initial_result = None

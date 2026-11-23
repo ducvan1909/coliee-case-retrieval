@@ -13,30 +13,34 @@ from pipeline_v2.agent_harness.evidence import SourceDrift, normalize_result, sl
 from pipeline_v2.agent_harness.ledger import Ledger, RunState
 from pipeline_v2.agent_harness.harness import AgentHarness
 from pipeline_v2.agent_harness.schema import parse_model_response
+from pipeline_v2.runtime_timing import measure, timed
 from pipeline_v2.experiments.uncapped_probe import policy
 from pipeline_v2.experiments.context_manager_v1.core import Snapshot, require, write_once
 from .anchor_quote import ANCHOR_QUOTE_SCHEMA, find_anchor
 from .assessment_options import attribution_options, speaker_refs
 from .evidence import EvidenceStore, lead_window_start, unread_spans
 from .read_options import focused_action, focused_read_key, next_unread_expansion, retrieved_action
-from .query_options import MapFirstQueryTools
+from .query_options import CONTROLLER_OUTPUT_TOKEN_CAP, MapFirstQueryTools
 from .model_view import project, restore_action
 from .read_options import execute_candidate_header, execute_retrieved_passage, opened_lead_keys, retrieved_passages
 from .tool_repair import bind_repair, repair_feedback, visible_repair
-from . import source_gate, query_review
+from . import source_gate, query_review, passage_review
 
-VERSION = 'cm4-query-review-v30'
+VERSION = 'cm4-query-review-v31'
 ASSESSMENT_TOOLS = ('assess_case_link', 'review_conflicting_link')
 SPEAKER_SIDE_REFS = ('speaker_evidence_refs', 'quote_chain_refs', 'container_refs')
 EVIDENCE_CHOICES = (('identity_support_choice', 'identity_support_refs'), ('counterevidence_choice', 'counterevidence'))
 CONTEXT_ACTIONS = {'show_context_page', 'set_context_focus', 'record_missing_evidence', 'reload_pair_evidence', 'resume_pair_evidence', 'continue_raw_evidence'}
 CONTEXT_ACTIONS |= {'stage_query_anchor', 'defer_query_anchor', 'resume_query_anchor'}
-CONTEXT_ACTIONS |= {'assess_source_need', 'defer_source_need', 'show_source_need_page', 'close_query_anchor'}
+CONTEXT_ACTIONS |= {'assess_source_need', 'assess_source_needs', 'defer_source_need', 'show_source_need_page', 'close_query_anchor', 'choose_source_span', 'revise_source_need', 'read_source_context'}
 CONTEXT_ACTIONS |= {'defer_approved_source_need', 'resume_approved_source_need'}
+CONTEXT_ACTIONS.add('group_source_needs')
 CONTEXT_ACTIONS.add('defer_case_pair')
 CONTEXT_ACTIONS |= {'report_review_blocker', 'prioritize_query_results', 'conclude_search_query', 'revisit_source_need', 'read_query_span'}
-GATE_MUTATIONS = {'assess_source_need', 'defer_source_need', 'defer_approved_source_need',
-                  'resume_approved_source_need', 'revisit_source_need', 'show_source_need_page'}
+CONTEXT_ACTIONS |= passage_review.ACTIONS
+GATE_MUTATIONS = {'assess_source_need', 'assess_source_needs', 'defer_source_need', 'defer_approved_source_need',
+                  'resume_approved_source_need', 'revisit_source_need', 'show_source_need_page', 'choose_source_span', 'revise_source_need'}
+GATE_MUTATIONS.add('group_source_needs')
 BLOCKER_RECOVERY = {
     'missing_identity': ('open_candidate_header', 'read_more_context', 'record_missing_evidence', 'defer_case_pair'),
     'no_readable_text': ('reload_pair_evidence', 'continue_raw_evidence', 'read_more_context',
@@ -53,7 +57,7 @@ def code_binding():
     directory = Path(__file__).parent
     files = [directory / name for name in ('engine.py', 'evidence.py', 'tool_repair.py', 'assessment_options.py',
                                            'read_options.py', 'query_options.py', 'model_view.py', 'anchor_quote.py',
-                                           'source_gate.py', 'query_review.py')]
+                                           'source_gate.py', 'query_review.py', 'passage_review.py')]
     files += [directory.parent / 'context_manager_v1' / 'core.py']
     root = directory.parents[2]
     result = base_binding(root)
@@ -89,6 +93,20 @@ class IntegratedHarness(policy.AdaptiveHarness):
             final['unresolved_search_query_ids'] = unresolved
             if reason == 'complete' and unresolved:
                 final['review_status'] = 'complete_with_unresolved_queries'
+        return final
+
+    def _validate_stop(self, state, args):
+        final = super()._validate_stop(state, args)
+        if final['stop_reason'] != 'complete' or final['prediction'] is None:
+            return final
+        matches = self.engine.context().get('host_citation_matches', {})
+        if not matches:
+            return final
+        for match in matches.values():
+            self.engine.citation_lookup.verify(match)
+        selected = {match['b']['case_id'] for match in matches.values()}
+        final['prediction'] = sorted(set(final['prediction']) | selected)
+        final['prediction_host_citation_matches'] = sorted(matches)
         return final
 
     def _reuse_hybrid_search(self, state, action, actions, outcomes):
@@ -143,6 +161,37 @@ class IntegratedHarness(policy.AdaptiveHarness):
         receipt = state.pending_action
         action = receipt['action']
         args = action['args']
+        if (self.engine.dual_search is not None and action['action'] == 'search_corpus'
+                and args.get('channel') == 'hybrid'):
+            self.engine._verify_search_permit(action, self.engine.context())
+            original = self.tools['search_corpus']
+            parent_id = fingerprint([receipt['request_id'], 'action'])
+            def execute_branch(branch):
+                previous = self._executing_action_id
+                branch_id = fingerprint([parent_id, 'cm4-hybrid-branch', branch['args']['text']])
+                self._executing_action_id = branch_id
+                try:
+                    result = original(branch['args'])
+                    return ToolResult({**result.observation, 'cm4_branch_action_id': branch_id},
+                                      result.excerpts, result.candidates, result.source_requests)
+                finally:
+                    self._executing_action_id = previous
+            def execute_search(bound):
+                lookup = getattr(self.engine, 'citation_lookup', None)
+                if lookup is not None:
+                    with measure('citation_lookup'):
+                        match = lookup.match(bound['_m6_need'])
+                    if match is not None:
+                        return ToolResult({'hits': [], 'cm4_passage_review': True, 'host_citation_match': match,
+                                           'm6_source_need': bound['_m6_need'], 'query_case': self.identity.query_id})
+                return self.engine.dual_search(
+                    {'action': 'search_corpus', 'args': bound}, execute_branch, self.engine.store.raw_reader)
+
+            self.tools['search_corpus'] = execute_search
+            try:
+                return super()._apply_action(db, state)
+            finally:
+                self.tools['search_corpus'] = original
         if self.engine.gate_enabled and action['action'] == 'open_source':
             query = query_review.active(self.engine.events(), self.engine.context())
             require(query is None or query['phase'] == 'reviewing', 'Survey all results before reading candidates')
@@ -212,6 +261,7 @@ class IntegratedHarness(policy.AdaptiveHarness):
             outcome = normalize_result(reused, state, search=True)
             self._action_result(db, state, 'success', result=outcome, reason='reused_exact_hybrid_search', started=started)
 
+    @timed('registry_and_map')
     def _registry(self, state, payload):
         context = self.engine.context()
         registry_payload = {**payload, '_cm4_query_navigation_enabled': context['mode'] == 'query'}
@@ -323,6 +373,17 @@ class IntegratedHarness(policy.AdaptiveHarness):
                             map_ref, map_option = split
                             if map_option['binding']['region_ref'] != current_map:
                                 targets[map_ref] = map_option
+                if self.engine.gate_enabled:
+                    left, right = full['query_navigation']['current']['span_bytes']
+                    remaining = source_gate.unscreened_spans(
+                        context, self.identity.query_source_hash, self.query_paragraphs)
+                    spans = {ref: tuple(option['description']['span_bytes']) for ref, option in targets.items()}
+                    if any(left <= start < end <= right and (start, end) != (left, right)
+                           and any(start < gap_end and gap_start < end for gap_start, gap_end in remaining)
+                           for start, end in spans.values()):
+                        # Returning to a larger map would reoffer this unfinished branch.
+                        targets = {ref: option for ref, option in targets.items()
+                                   if not (spans[ref][0] <= left and right <= spans[ref][1])}
                 full['query_targets'] = targets
                 full['query_maps'] = {}
                 whole_choice = next((row for row in targets.values()
@@ -369,6 +430,8 @@ class IntegratedHarness(policy.AdaptiveHarness):
             self.engine._reply_metadata = {}
             if fields.get('telemetry_error') and fields.get('cm_tool_repair'):
                 fields['cm_tool_repair']['retry_allowed'] = False
+            if fields.get('telemetry_error'):
+                fields.pop('cm_batch_length_recovery', None)
         if kind == 'action_result' and 'cm_context' not in fields:
             context = self.engine.context()
             action = state.active_action['action'] if state.active_action else {}
@@ -383,11 +446,13 @@ class Engine:
     def __init__(self, directory, *, identity, tools, count_tokens, raw_reader,
                  config=None, initial_observation=None, query_excerpt=None,
                  hybrid_search=None, counter_binding=None, page_size=5, execution_mode='offline', run_binding=None,
-                 gate_enabled=False, selector=None, selector_fingerprint=None, loop_guard_mode=None):
+                 gate_enabled=False, selector=None, selector_fingerprint=None, loop_guard_mode=None,
+                 dual_search=None):
         from pipeline_v2.m6 import AdaptiveConfig
         require(execution_mode in ('offline', 'live'), 'Invalid execution mode')
         self.execution_mode = execution_mode
         self.gate_enabled = gate_enabled
+        self.dual_search = dual_search
         self.loop_guard_mode = loop_guard_mode or ('warn' if gate_enabled else 'stop')
         require(self.loop_guard_mode in ('warn', 'stop'), 'Invalid loop guard mode')
         require(type(gate_enabled) is bool, 'Source gate flag must be boolean')
@@ -401,7 +466,7 @@ class Engine:
         self.store = EvidenceStore(raw_reader)
         self.counter_binding = counter_binding
         self.harness = IntegratedHarness(directory, engine=self, identity=identity,
-            budget=Budget(2**60, 2**60, 2**60, 8500, 512, None, 0), m3_tools=tools,
+            budget=Budget(2**60, 2**60, 2**60, 8500, CONTROLLER_OUTPUT_TOKEN_CAP, None, 0), m3_tools=tools,
             transport=NoInferenceTransport(count_tokens), config=config or AdaptiveConfig(),
             initial_observation=initial_observation, query_excerpt=query_excerpt, hybrid_search=hybrid_search,
             selector=selector, selector_fingerprint=selector_fingerprint)
@@ -410,6 +475,7 @@ class Engine:
             self.harness.config['m6'].update(model_attribution=True, model_support=True)
         self.harness.config['cm23'] = {'version': VERSION, 'code': code_binding(),
                                      'counter_binding': counter_binding, 'page_size': page_size,
+                                     'passage_review': dual_search is not None,
                                      'source_gate': source_gate.VERSION if gate_enabled else None,
                                      'provider_execution': 'forbidden_offline' if execution_mode == 'offline' else 'live_user_or_AG',
                                      'run_binding': run_binding}
@@ -436,6 +502,8 @@ class Engine:
         for event in self.events():
             if event.get('cm_context'):
                 context = deepcopy(event['cm_context'])
+            if event.get('cm_auto_query_view'):
+                context.update(deepcopy(event['cm_auto_query_view']))
         self._sync_missing(context)
         return context
 
@@ -532,6 +600,23 @@ class Engine:
                 context['stage'] = 'error'
             return
         observation = (fields.get('result') or {}).get('observation', {})
+        if name == 'search_corpus' and (match := observation.get('host_citation_match')):
+            require(getattr(self, 'citation_lookup', None) is not None, 'Host citation selection is disabled')
+            query_id, case = fields['action_id'], match['b']['case_id']
+            need_id = args['_m6_need']['source_need_id']
+            context.setdefault('host_citation_matches', {})[query_id] = deepcopy(match)
+            context.setdefault('candidate_conclusions', {})[query_id] = {case: {
+                'decision': 'select', 'disposition': 'confirmed_identity', 'status': 'final',
+                'selection_origin': 'host_exact_citation', 'action_id': query_id, 'query_id': query_id,
+                'need_id': need_id, 'a_refs': [match['a']['ref']], 'identity_refs': [match['b']['ref']],
+                'reason': 'The approved A citation matches the self-identified decision B.'}}
+            context.setdefault('query_conclusions', {})[query_id] = {
+                'outcome': 'resolved', 'reason': 'Exact self-citation matched a unique corpus decision.',
+                'remaining_source_need': '', 'unresolved_reason': '', 'candidate_ids': [case],
+                'unresolved_candidate_ids': [], 'not_read_candidate_ids': []}
+            context.pop('passage_session', None)
+            context.update(need_id=need_id, candidate_id=None, stage='ready', mode='query', offset=0, back=[])
+            return
         if name == 'open_query' and observation.get('kind') == 'query_hierarchy_map':
             context.update(mode='query', offset=0, back=[], query_map_region=observation['current']['region_ref'])
         if name == 'open_query' and observation.get('cm4_query_leaf_span') is not None:
@@ -557,6 +642,7 @@ class Engine:
                     progress.pop(key, None)
         self._sync_missing(context)
 
+    @timed('feedback_from_history')
     def _feedback(self, context):
         """Bounded projection of durable outcomes, not an unbounded chat history."""
         events = self.events()
@@ -580,6 +666,9 @@ class Engine:
                     for index, row in enumerate(hits[:5])], 'results_omitted': max(0, len(hits) - 5)}
             if observation.get('search_reuse'):
                 summary['source_action_id'] = observation['search_reuse']['source_action_id']
+            if match := observation.get('host_citation_match'):
+                summary['host_selection'] = {'case_id': match['b']['case_id'],
+                                             'citation': match['a']['text'], 'decision': 'select'}
         outcome = {'status': 'not_yet_executed'}
         if last:
             started = actions[last['action_id']]
@@ -611,6 +700,9 @@ class Engine:
                 need_id, case_id, focus = read_key
                 outcome['duplicate_focus'] = {'need_id': need_id, 'case_id': case_id, 'focus': focus}
                 outcome['message'] = 'This candidate focus was already tried for this need. It was not searched again.'
+            elif search and (match := observation.get('host_citation_match')):
+                outcome.update(search_executed=False, matched_case_id=match['b']['case_id'],
+                               message='The host resolved this need by exact self-citation. No retrieval ran.')
             elif search and observation.get('search_reuse'):
                 outcome['source_action_id'] = observation['search_reuse']['source_action_id']
                 outcome['message'] = 'Reused exact hybrid results for this need. No retrieval or embedding ran again.'
@@ -741,6 +833,7 @@ class Engine:
                     visible |= max(start, current[ref][0]) < min(end, current[ref][1])
         return (True, first) if first and not visible else (False, None)
 
+    @timed('assemble_source_rows')
     def _rows(self, state, context, byte_limit):
         pair = fingerprint([context['need_id'], context['candidate_id']])
         pins = list(context['pair_pins'].get(pair, []))
@@ -1011,6 +1104,7 @@ class Engine:
                     break
         return choices
 
+    @timed('catalog_and_schema')
     def _catalog(self, payload, state, context, coverage):
         lead_cursor = self._progress(context).get('lead_source_continuation')
         lead_can_continue = any(option['binding'] == lead_cursor for option in payload['m6']['expansions'].values())
@@ -1536,7 +1630,8 @@ class Engine:
         """Keep CM4's public catalog and all recovery hints on the current API."""
         allowed = {
             'expand_query_map', 'read_query_passages', 'read_query_span',
-            'assess_source_need', 'search_cases_by_issue', 'defer_source_need',
+            'assess_source_need', 'assess_source_needs', 'group_source_needs', 'search_cases_by_issue', 'defer_source_need',
+            'choose_source_span', 'read_source_context', 'revise_source_need',
             'defer_approved_source_need', 'resume_approved_source_need', 'revisit_source_need',
             'show_context_page', 'show_source_need_page', 'set_context_focus', 'prioritize_query_results',
             'open_retrieved_passage', 'read_case_passages', 'open_candidate_header',
@@ -1724,6 +1819,44 @@ class Engine:
                                          'properties': properties, 'required': list(properties)}})
 
         adjacent_spans = {} if context.get('_checking_query_span') else source_gate.span_options(state, payload)
+        if self.dual_search is not None and not context.get('_checking_query_span'):
+            # Small source-bound routes to received text with unfinished work.
+            settled = source_gate._settled_spans(context)
+            received = source_gate.delivered_query_rows(state, self.harness.identity.query_id, self.harness.identity.query_source_hash)
+            pending = []
+            received_spans = sorted((r['span_bytes'] for r in received))
+            merged = []
+            for left, right in received_spans:
+                if merged and left <= merged[-1][1]:
+                    merged[-1][1] = max(merged[-1][1], right)
+                else:
+                    merged.append([left, right])
+            raw = self.store.raw_reader(self.harness.identity.query_id) if merged else b''
+            if merged and sha256(raw).hexdigest() != self.harness.identity.query_source_hash:
+                raise SourceDrift(self.harness.identity.query_id)
+            for paragraph in self.harness.query_paragraphs:
+                for received_left, received_right in merged:
+                    left=max(paragraph['span_bytes'][0],received_left)
+                    right=min(paragraph['span_bytes'][1],received_right)
+                    if left >= right:
+                        continue
+                    for span in unread_spans([left,right], settled.get((self.harness.identity.query_source_hash,paragraph['handle']),[])):
+                        end=min(span[1],span[0]+4096)
+                        while end > span[0] and end < len(raw) and raw[end] & 0xc0 == 0x80:
+                            end-=1
+                        if not raw[span[0]:end].strip():
+                            continue
+                        target={'source_hash':self.harness.identity.query_source_hash,
+                                'span_bytes':[span[0],end],'paragraph_handle':paragraph['handle']}
+                        if target not in pending:
+                            pending.append(target)
+                if len(pending) >= 3:
+                    break
+            if focus := context.get('source_return_focus'):
+                pending.insert(0,focus)
+            for target in pending[:3]:
+                ref='query-pending-'+fingerprint(target)[:16]
+                adjacent_spans.setdefault(ref,target)
         fitted_spans = {}
         for ref, target in adjacent_spans.items():
             record = self._combined_query_record(state, target)
@@ -1741,35 +1874,106 @@ class Engine:
                 'Reload an issued contiguous query region spanning previously received windows. '
                 'Use it when one proposition crosses a page boundary; it need not contain the full paragraph.')
         paragraphs = source_gate.screening_choices(payload, context)
+        surveying = getattr(self, 'survey_first', False)
+        if surveying:
+            ready = source_gate.survey_ready(context, self.harness.query_paragraphs)
+            payload['m6']['source_survey'] = {'phase': 'retrieval' if ready else 'survey',
+                'queued_needs': sum(row['status'] == 'approved' for row in context.get('source_gate', {}).values())}
+            queued = {key: row for key, row in context.get('source_gate', {}).items() if row['status'] == 'approved'}
+            if ready and len(queued) > 1:
+                visible_queue = dict(list(queued.items())[:self.render_page_size])
+                payload['m6']['source_survey']['group_choices'] = {
+                    key: {'text': row['proposition']['text'], 'supports': row.get('a_supports', [])}
+                    for key, row in visible_queue.items()}
+                add('group_source_needs', {
+                    'source_need_refs': {'type': 'array', 'minItems': 2, 'maxItems': 3,
+                                         'items': {'type': 'string', 'enum': list(visible_queue)}},
+                    'reason': {'type': 'string', 'minLength': 8, 'maxLength': 240}},
+                    'Confirm these spans cite the same decision using their source details. Keep separate quotations with different authorities separate. The first need supplies the main search span.')
         permits = source_gate.visible_permits(payload, context)
+        if surveying and not ready:
+            permits = {}
         can_search = (bool(permits) and context['stage'] not in ('reading', 'results_ready')
                       and query_review.active(self.events(), context) is None)
         if paragraphs and context['stage'] != 'reading' and not can_search:
-            segments = source_gate.segments(payload, context)
+            segments = source_gate.segments(payload, context, bound=self.dual_search is not None)
             payload['m6']['source_gate_segments'] = segments
+            bound = self.dual_search is not None
+            if bound:
+                tree=getattr(self.harness.m3,'query_tree',None)
+                raw = self.store.raw_reader(self.harness.identity.query_id)
+                headings = set(map(tuple, getattr(tree, 'headings', []))) | set(source_gate.heading_spans(raw))
+                payload['m6']['known_heading_spans'] = [list(span) for span in sorted(headings)
+                    if any(p['span_bytes'][0] < span[1] and span[0] < p['span_bytes'][1]
+                           for p in payload['m6']['a_paragraphs'].values())]
+                payload['m6']['settled_source_spans'] = [span for (digest,_),spans in source_gate._settled_spans(context).items()
+                                                        if digest==self.harness.identity.query_source_hash for span in spans]
             payload['m6']['source_gate_proposition_refs'] = [ref for ref, row in segments.items() if row.get('proposition_selectable', True)]
-            add('assess_source_need', source_gate.assessment_properties(paragraphs, segments),
-                'Decide whether the visible query span contains a proposition needing a source case. '
-                'For search_needed select proposition_ref; signal_ref is optional and no named source is required. '
-                'sufficient_for_search declares the selected proposition understandable even in a partial paragraph. '
-                'context_complete concerns the visible span; no_search_needed does not clear unread text. '
-                'need_more_context records a concrete gap. No search text belongs in this action.')
-            optional = {'proposition_ref', 'signal_ref', 'sufficient_for_search', 'missing_context'}
-            branch = branches[-1]
-            params = branch['properties']['args']
-            params['required'] = [key for key in params['required'] if key not in optional]
-            prompt = tools[-1]['parameters']
-            prompt['required'] = [key for key in prompt['required'] if key not in optional]
-            prompt['properties'] = {
-                key: ({'type': 'string', 'choices_from': ('m6.source_gate_proposition_refs'
-                      if key == 'proposition_ref' else 'm6.source_gate_segments keys')}
-                      if key in ('proposition_ref', 'signal_ref') else spec)
-                for key, spec in prompt['properties'].items()}
+            description = ('Choose exactly one offered source ref or literal quote for search_needed or no_search_needed. '
+                           'remaining_visible refs settle only their listed remaining ranges with no_search_needed. '
+                           'Use need_more_context to read more. Typed supports do not settle their text.')
+            if bound:
+                repair = visible_repair(self.events()) or {}
+                quote_recovery = repair.get('code') == 'source_span_required' or any(
+                    row['status'] == 'unresolved' and row.get('requested_args', {}).get('proposition_quote')
+                    and row['paragraph_handle'] in {p['paragraph_handle'] for p in payload['m6']['a_paragraphs'].values()}
+                    for row in context.get('source_gate', {}).values())
+                first_tool = len(tools)
+                for fields, required in source_gate.bound_assessment_variants(paragraphs, segments):
+                    if quote_recovery and 'proposition_quote' in fields:
+                        continue
+                    add('assess_source_need', fields, description)
+                    branches[-1]['properties']['args']['required'] = required
+                    tools[-1]['parameters']['required'] = required
+                # Keep decoder branches explicit while displaying one compact
+                # catalog entry to the model.
+                entries = tools[first_tool:]
+                if entries:
+                    properties = {}
+                    for entry in entries:
+                        for key,spec in entry['parameters']['properties'].items():
+                            if key not in properties:
+                                properties[key] = deepcopy(spec)
+                            elif 'enum' in spec:
+                                properties[key]['enum'] = list(dict.fromkeys(properties[key].get('enum', []) + spec['enum']))
+                    tools[first_tool:] = [{**entries[0], 'parameters': {'type':'object','properties':properties,
+                        'required':[key for key in properties if key not in ('proposition_ref','proposition_quote','signal_ref',
+                                                                          'sufficient_for_search','missing_context','a_supports')],
+                        'additionalProperties':False}}]
+            else:
+                add('assess_source_need', source_gate.assessment_properties(paragraphs, segments),
+                    'Decide whether the visible query span needs a source. Select proposition_ref for search_needed.')
+                optional = {'proposition_ref', 'signal_ref', 'sufficient_for_search', 'missing_context', 'proposition_quote', 'a_supports'}
+                branch = branches[-1]
+                params = branch['properties']['args']
+                params['required'] = [key for key in params['required'] if key not in optional]
+                prompt = tools[-1]['parameters']
+                prompt['required'] = [key for key in prompt['required'] if key not in optional]
+                prompt['properties'] = {
+                    key: ({'type': 'string', 'choices_from': ('m6.source_gate_proposition_refs'
+                          if key == 'proposition_ref' else 'm6.source_gate_segments keys')}
+                          if key in ('proposition_ref', 'signal_ref') else spec)
+                    for key, spec in prompt['properties'].items()}
+        if surveying and paragraphs and context['stage'] != 'reading' and not can_search and self.dual_search is not None:
+            variants = source_gate.bound_assessment_variants(paragraphs, segments)
+            if quote_recovery:
+                variants = [(fields, required) for fields, required in variants if 'proposition_quote' not in fields]
+            item_schemas = [{'type': 'object', 'properties': fields, 'required': required,
+                             'additionalProperties': False} for fields, required in variants]
+            add('assess_source_needs', {'items': {'type': 'array', 'minItems': 1,
+                                                'maxItems': context.get('batch_item_limit', 3),
+                                                'items': {'anyOf': item_schemas}}},
+                'Screen one to three distinct visible source spans. Search decisions are queued until A survey completes.')
         if can_search:
-            add('search_cases_by_issue', {
+            properties = {
                 'source_need_ref': {'type': 'string', 'enum': list(permits)},
                 'issue': {'type': 'string', 'minLength': 4, 'maxLength': 160},
-                'source_proposition': {'type': 'string', 'minLength': 4, 'maxLength': 240}},
+                'source_proposition': {'type': 'string', 'minLength': 4, 'maxLength': 240}}
+            if self.dual_search is not None:
+                properties = {'source_need_ref': properties['source_need_ref']}
+            add('search_cases_by_issue', properties,
+                'Run retrieval from the locked source permit. Revise the permit if the selected text needs to change.'
+                if self.dual_search is not None else
                 'Find source cases for one approved query proposition. Select its source_need_ref; '
                 'the host fixes the anchor. Search terms must address that approved proposition.')
             add('defer_approved_source_need', {
@@ -1777,7 +1981,51 @@ class Engine:
                 'reason_code': {'type': 'string', 'enum': ['duplicate_source_question', 'search_terms_unclear']},
                 'reason': {'type': 'string', 'minLength': 4, 'maxLength': 240}},
                 'Record why this approved search should wait. The ledger keeps it as an unexecuted search.')
-        if query_review.active(self.events(), context) is None:
+            if self.dual_search is not None:
+                add('revise_source_need',{'source_need_ref':{'type':'string','enum':list(permits)}},
+                    'Revise an unconsumed source permit before searching. This withdraws approval and returns to source-span selection; it does not run retrieval.')
+        if self.dual_search is not None and not can_search:
+            choices={}
+            for key,draft in reversed(list(context.get('source_gate',{}).items())):
+                if draft['status']!='unresolved':
+                    continue
+                for candidate in draft.get('resolution_choices',[]):
+                    record=next((row for row in payload['excerpts'] if row['ref']==candidate['source_ref']),None)
+                    if record is None:
+                        continue
+                    ref='source-choice-'+fingerprint([key,candidate])[:16]
+                    handles[ref]={'kind':'source_choice','draft_ref':key,'candidate':candidate}
+                    choices[ref]={'span_bytes':candidate['span_bytes'],'text':candidate['text']}
+                    if len(choices) == 3:
+                        break
+                if len(choices) == 3:
+                    break
+            if choices:
+                payload['m6']['source_span_choices']=choices
+                add('choose_source_span',{'choice_ref':{'type':'string','enum':list(choices)}},
+                    'Confirm an exact canonical source suggestion for the saved decision; an approximate quote alone never authorizes retrieval.')
+            raw=self.store.raw_reader(self.harness.identity.query_id)
+            context_options={}
+            for key,draft in list(context.get('source_gate',{}).items())[-3:]:
+                if draft['status'] not in ('unresolved','revision_requested'):
+                    continue
+                left,right=draft['visible_span_bytes']
+                start=max(0,left-700)
+                end=min(len(raw),max(right+700,start+2000),start+4096)
+                while start>0 and raw[start] & 0xc0 == 0x80:
+                    start-=1
+                while end<len(raw) and raw[end] & 0xc0 == 0x80:
+                    end-=1
+                target={'source_hash':self.harness.identity.query_source_hash,'span_bytes':[start,end],
+                        'paragraph_handle':draft['paragraph_handle'],'draft_ref':key}
+                ref='source-context-'+fingerprint(target)[:16]
+                handles[ref]={'kind':'source_context',**target}
+                context_options[ref]={'span_bytes':[start,end],'source_need_ref':key}
+            if context_options:
+                payload['m6']['source_context_options']=context_options
+                add('read_source_context',{'context_ref':{'type':'string','enum':list(context_options)}},
+                    'Read bounded literal A context around a pending source span. The saved decision and typed supports remain a draft; reading does not settle additional text.')
+        if query_review.active(self.events(), context) is None and self.dual_search is None:
             searched = source_gate.visible_permits(payload, context, status='searched')
             if searched:
                 add('revisit_source_need', {
@@ -1795,7 +2043,11 @@ class Engine:
                 for key, item in deferred.items()}
         payload['m6']['source_gate_permits'] = {key: {
             'paragraph_ref': row['paragraph_ref'], 'anchor_quote': row['decision']['proposition']['text'],
-            'signal': row['decision']['signal']['text'] if row['decision'].get('signal') else None, 'attribution': row['decision']['attribution']}
+            'signal': row['decision']['signal']['text'] if row['decision'].get('signal') else None,
+            'attribution': row['decision']['attribution'],
+            **({'supports': [{k: support[k] for k in ('role', 'span_bytes', 'text')}
+                             for support in row['decision'].get('a_supports', [])]}
+               if self.dual_search is not None else {})}
             for key, row in permits.items()}
         status = source_gate.progress(context, self.harness.query_paragraphs)
         payload['last_action_feedback']['query_gate_progress'] = status
@@ -1858,7 +2110,7 @@ class Engine:
             branches = [branch for branch in branches
                         if branch['properties']['action']['const'] != 'finish_case_review']
         if can_search:
-            allowed = {'search_cases_by_issue', 'defer_approved_source_need'}
+            allowed = {'search_cases_by_issue', 'defer_approved_source_need', 'revise_source_need', 'group_source_needs'}
             tools = [tool for tool in tools if tool['name'] in allowed]
             branches = [branch for branch in branches if branch['properties']['action']['const'] in allowed]
             payload['last_action_feedback']['guidance'] = (
@@ -1872,9 +2124,8 @@ class Engine:
                     'No paragraph in this view needs screening. Use show_context_page to return to the '
                     'query map and read another region.')
             elif context['mode'] == 'query' and not paragraphs and not status['complete']:
-                screened = source_gate.screened_paragraphs(context)
-                remaining = [row['span_bytes'] for row in self.harness.query_paragraphs
-                             if row['handle'] not in screened]
+                remaining = source_gate.unscreened_spans(
+                    context, self.harness.identity.query_source_hash, self.harness.query_paragraphs)
                 targets = [(option['description']['span_bytes'], ref)
                            for ref, option in payload['m6']['query_targets'].items()
                            if 'span_bytes' in option['description']]
@@ -1963,6 +2214,8 @@ class Engine:
                     'Conclude the active search query before changing source screening decisions')
 
     def _verify_search_permit(self, action, context):
+        if getattr(self, 'survey_first', False):
+            require(source_gate.survey_ready(context, self.harness.query_paragraphs), 'Finish surveying A before retrieval')
         require(action['action'] == 'search_corpus', 'Source gate disallows ungated identity retrieval')
         require(query_review.active(self.events(), context) is None, 'Conclude the active search query before another retrieval')
         need = action['args'].get('_m6_need', {})
@@ -1974,6 +2227,15 @@ class Engine:
         anchor = need.get('a_anchor', {})
         require(anchor.get('span_bytes') == decision['proposition']['span_bytes']
                 and anchor.get('text') == decision['proposition']['text'], 'Retrieval anchor differs from its approved proposition')
+        if self.dual_search is not None:
+            require(need.get('source_bound') is True,'Source-bound retrieval mode is required')
+            require(need.get('a_supports')==decision.get('a_supports',[]),'Retrieval supports differ from the approved source')
+            citations=[row['text'] for row in decision.get('a_supports',[]) if row['role'] in ('citation', 'group_member')
+                       and row['text'] not in decision['proposition']['text']]
+            expected='\n'.join([decision['proposition']['text'],*dict.fromkeys(citations)])
+            require(action['args']['text']==expected and need.get('source_query_text')==expected
+                    and need.get('source_query_sha256')==sha256(expected.encode('utf-8')).hexdigest(),
+                    'Retrieval query text differs from the locked canonical source')
         self.harness.m3.verify_source(self.harness.identity.query_id, decision['source_hash'])
 
     def _draft_close_catalog(self, payload, context, schema, handles):
@@ -1999,7 +2261,7 @@ class Engine:
 
     def _payload_base(self, state, rows, coverage, feedback):
         return {'query_id': self.harness.identity.query_id, 'query_source_hash': self.harness.identity.query_source_hash,
-                'max_output_tokens': 512, 'query_delivery': 'continuation', 'excerpts': rows,
+                'max_output_tokens': CONTROLLER_OUTPUT_TOKEN_CAP, 'query_delivery': 'continuation', 'excerpts': rows,
                 'current_payload_source_refs': [r['ref'] for r in rows],
                 'pending_source_count': sum(bool(c['pending']) for c in coverage),
                 'observation_omitted': True, 'observation_scope': 'full_observation_omitted_bounded_feedback_included',
@@ -2007,8 +2269,11 @@ class Engine:
                 'active_assessment_count': len(state.active_assessments), 'cm_coverage': coverage}
 
     def _pack_payload(self, payload, schema):
-        wire, wire_schema, aliases = project(payload, schema)
-        return wire, self.harness._count(encode(wire)), wire_schema, aliases
+        with measure('project_wire_payload'):
+            wire, wire_schema, aliases = project(payload, schema)
+        with measure('serialize_wire_payload'):
+            body = encode(wire)
+        return wire, self.harness._count(body), wire_schema, aliases
 
     def _combined_query_record(self, state, target):
         span = target['span_bytes']
@@ -2027,10 +2292,12 @@ class Engine:
         return source_record(SourceExcerpt(self.harness.identity.query_id, target['source_hash'], tuple(span),
             text, sha256(text.encode('utf-8')).hexdigest(), provenance={'components': list(components.values())}))
 
+    @timed('leaf_payload_projection')
     def _query_leaf_payload(self, state, context, progress_warning=None):
         """Offer and publish a region using the same full-source, map-free projection."""
-        record = (deepcopy(context['query_span_record']) if context['mode'] == 'query_span'
-                  else source_record(self.harness.m3.read_leaf(context['query_leaf_region']).excerpts[0]))
+        with measure('open_query_leaf'):
+            record = (deepcopy(context['query_span_record']) if context['mode'] == 'query_span'
+                      else source_record(self.harness.m3.read_leaf(context['query_leaf_region']).excerpts[0]))
         self.store.verify(record)
         span = record['span_bytes']
         rows = [record]
@@ -2099,12 +2366,68 @@ class Engine:
         packed, tokens, wire_schema, aliases = self._pack_payload(payload, schema)
         return packed, wire_schema, handles, [], tokens, [], dispatch, aliases
 
+    @timed('auto_survey_read')
+    def _next_survey_read(self, state, context, progress_warning):
+        """Choose the first remaining A region when navigation needs no model decision."""
+        tools = self.harness.m3
+        if not getattr(self, 'survey_first', False) or not isinstance(tools, MapFirstQueryTools):
+            return None
+        receipt = state.last_receipt or {}
+        if (context['stage'] != 'ready' or context.get('active_anchor_draft')
+                or receipt.get('cm_batch_length_recovery') or receipt.get('cm_tool_repair')):
+            return None
+        tree = tools.query_tree
+        mode = context['mode']
+        if mode == 'query_leaf':
+            current = tree.region(context['query_leaf_region'])['span_bytes']
+        elif mode == 'query_span':
+            current = context['query_span_record']['span_bytes']
+        elif mode == 'query' and not state.requests:
+            current = None
+        else:
+            return None
+
+        remaining = source_gate.unscreened_spans(
+            context, self.harness.identity.query_source_hash, self.harness.query_paragraphs)
+        if not remaining:
+            return None
+        if current:
+            start, end = current
+            unresolved = [row['visible_span_bytes'] for row in context.get('source_gate', {}).values()
+                          if row['status'] == 'unresolved']
+            if any(left < end and start < right for left, right in [*remaining, *unresolved]):
+                return None
+
+        next_byte = min(left for left, _ in remaining)
+        region = tree.region(tree.root_ref)
+        while True:
+            ref = region['region_ref']
+            left, right = region['span_bytes']
+            overlaps_previous = current and left < current[1] and current[0] < right
+            if not overlaps_previous and tools.can_read_region(ref):
+                view = {'mode': 'query_leaf', 'query_leaf_region': ref, 'offset': 0, 'back': [],
+                        'revision': context['revision'] + 1}
+                projected = {**context, **view}
+                payload, schema, handles, rows, tokens, coverage, dispatch, aliases = self._query_leaf_payload(
+                    state, projected, progress_warning)
+                if tokens <= self.harness.budget.max_payload_tokens:
+                    return view, (payload, schema, handles, rows, coverage, tokens, dispatch, aliases)
+            if region['is_leaf']:
+                split = tools.split_option({
+                    'binding': {'region_ref': ref, 'navigation_mode': 'raw'},
+                    'description': {}})
+                if not split:
+                    return None
+                ref = split[1]['binding']['region_ref']
+            region = next(row for row in tree.children(ref) if row['span_bytes'][0] <= next_byte < row['span_bytes'][1])
+
     def prepare(self, *, admit=True, progress_warning=None):
         with self.harness.ledger.writer() as db:
             state = RunState(self.harness.ledger.read(db))
             require(state.final is None, 'Run already terminal')
+            recovery = (state.last_receipt or {}).get('cm_batch_length_recovery')
             require(not state.last_receipt or state.last_receipt['status'] == 'success'
-                    or state.last_receipt.get('cm_tool_repair', {}).get('retry_allowed'),
+                    or state.last_receipt.get('cm_tool_repair', {}).get('retry_allowed') or recovery,
                     'Prior error/unknown receipt blocks a new request; no resend')
             if state.in_flight or state.active_action:
                 self.harness._recover(db, state)
@@ -2113,10 +2436,27 @@ class Engine:
                 return {'status': 'blocked_unknown', 'model_requests': 0}
             require(state.pending_action is None, 'Execute pending action before new request')
             context = self.context()
-            best = None
+            if recovery:
+                context['batch_item_limit'] = recovery['max_items']
+            best, auto_query_view = None, None
             try:
+                review = query_review.active(self.events(), context)
+                if review is None and (automatic := self._next_survey_read(state, context, progress_warning)):
+                    auto_query_view, best = automatic
+                    context.update(auto_query_view)
+                if passage_review.enabled(review):
+                    for byte_limit in (5000, 3000, 1800, 900, 450, 180):
+                        payload, schema, handles, rows = passage_review.compile_view(
+                            self, state, context, review, byte_limit)
+                        if progress_warning is not None:
+                            payload['last_action_feedback']['progress_warning'] = deepcopy(progress_warning)
+                        dispatch = payload['m6']
+                        payload, tokens, schema, aliases = self._pack_payload(payload, schema)
+                        if tokens <= self.harness.budget.max_payload_tokens:
+                            best = payload, schema, handles, rows, [], tokens, dispatch, aliases
+                            break
                 leaf_read = context['mode'] in ('query_leaf', 'query_span')
-                if leaf_read:
+                if best is None and leaf_read and not passage_review.enabled(review):
                     payload, schema, handles, rows, tokens, coverage, dispatch, aliases = self._query_leaf_payload(
                         state, context, progress_warning)
                     if tokens <= self.harness.budget.max_payload_tokens:
@@ -2127,7 +2467,7 @@ class Engine:
                             payload, schema, handles, rows, tokens, coverage, dispatch, aliases = fallback
                             best = payload, schema, handles, rows, coverage, tokens, dispatch, aliases
                 # Try compact metadata at each raw size before clipping more raw.
-                sizes = () if leaf_read else ((size, limit) for limit in (2048, 1024, 512, 256, 128, 64)
+                sizes = () if leaf_read or passage_review.enabled(review) else ((size, limit) for limit in (2048, 1024, 512, 256, 128, 64)
                                               for size in range(self.page_size, 0, -1))
                 for size, byte_limit in sizes:
                     self.render_page_size = size
@@ -2175,15 +2515,18 @@ class Engine:
             if not admit:
                 return {'status': 'ready', 'input_tokens': tokens, 'soft_target_exceeded': tokens > 7900,
                         'payload': payload, 'manifest': manifest, 'admitted': False}
-            write_once(self.directory / relative, manifest)
-            self.harness._write(db, state, 'request_admitted', request_id=request_id, retry_of=None,
-                payload=body.decode('utf-8'), admitted_input_tokens=tokens, output_token_cap=512,
+            with measure('write_request_manifest'):
+                write_once(self.directory / relative, manifest)
+            retry_of = state.last_receipt['request_id'] if recovery else None
+            self.harness._write(db, state, 'request_admitted', request_id=request_id, retry_of=retry_of,
+                payload=body.decode('utf-8'), admitted_input_tokens=tokens, output_token_cap=CONTROLLER_OUTPUT_TOKEN_CAP,
                 consumed_refs=[], remaining_excerpts=[], excerpts=rows, current_payload_source_refs=[r['ref'] for r in rows],
                 cm_query_navigation=dispatch_m6.get('query_navigation'),
                 cm_search_query_id=dispatch_m6.get('query_review', {}).get('query_id'),
                 cm_survey_candidates=[card['case_id'] for card in dispatch_m6.get('cm_page', {}).get('candidates', [])],
                 cm_manifest_path=relative, cm_manifest_sha256=fingerprint(manifest),
-                cm_scripted_offline=self.execution_mode == 'offline')
+                cm_scripted_offline=self.execution_mode == 'offline',
+                **({'cm_auto_query_view': auto_query_view} if auto_query_view else {}))
             return {'status': 'ready', 'request_id': request_id, 'input_tokens': tokens, 'soft_target_exceeded': tokens > 7900,
                     'payload': payload, 'manifest': manifest, 'model_requests': 0}
 
@@ -2260,8 +2603,23 @@ class Engine:
                                     'transport_metadata': deepcopy(transport_metadata), 'raw_model_reply': raw_reply,
                                     'raw_model_reply_encoding': raw_encoding}
             if status != 'success':
+                metadata = transport_metadata or {}
+                max_items = manifest['context'].get('batch_item_limit', 3)
+                admission = state.in_flight
+                if (getattr(self, 'survey_first', False) and status == 'error'
+                        and error == 'modal_incomplete_generation' and metadata.get('finish_reason') == 'length'
+                        and metadata.get('submission_attempted') is True and metadata.get('call_id')
+                        and getattr(telemetry, 'input_tokens', None) == admission['admitted_input_tokens']
+                        and getattr(telemetry, 'output_tokens', None) == admission['output_token_cap']
+                        and type(getattr(telemetry, 'latency_ms', None)) in (int, float)
+                        and any(branch['properties']['action']['const'] == 'assess_source_needs'
+                                for branch in manifest['schema']['anyOf'])
+                        and max_items > 1):
+                    self._reply_metadata['cm_batch_length_recovery'] = {'max_items': max_items - 1}
                 self.harness._receipt(db, state, state.in_flight, status, telemetry=telemetry, started=started,
                                       error=error or ('scripted_' if self.execution_mode == 'offline' else 'transport_') + status)
+                if state.last_receipt.get('cm_batch_length_recovery'):
+                    return
                 if (status == 'error' and error == 'operator_stop_before_submission'
                         and (transport_metadata or {}).get('submission_attempted') is False):
                     self.harness._stop(db, state, 'no_progress', 'operator_stop_file')
@@ -2270,6 +2628,24 @@ class Engine:
                 return
             try:
                 action = parse_model_response(action)
+                if (self.dual_search is not None and action.get('action') == 'assess_source_need'
+                        and isinstance(action.get('args'), dict)):
+                    submitted = action['args']
+                    if (submitted.get('decision') in ('search_needed', 'no_search_needed')
+                            and bool(submitted.get('proposition_ref')) == bool(submitted.get('proposition_quote'))):
+                        # Repair this known schema error using a valid branch as
+                        # the scaffold; unrelated schema errors remain terminal.
+                        probe = deepcopy(action)
+                        probe['args'].pop('proposition_quote', None)
+                        ref = next((ref for ref,row in manifest['dispatch_m6'].get('source_gate_segments', {}).items()
+                                    if row.get('proposition_selectable', True)), None)
+                        if ref:
+                            aliases = manifest.get('wire_aliases', {})
+                            # Probe values must use the same wire ref encoding.
+                            wire_ref = next((key for key,value in aliases.items() if value == ref), ref)
+                            probe['args']['proposition_ref'] = wire_ref
+                            if Draft202012Validator(manifest['schema']).is_valid(probe):
+                                raise policy.ToolSemanticError('source_span_required')
                 Draft202012Validator(manifest['schema']).validate(action)
                 action = restore_action(action, manifest.get('wire_aliases', {}))
                 payload = json.loads(state.in_flight['payload'])
@@ -2279,13 +2655,45 @@ class Engine:
                 payload['query_source_hash'] = self.harness.identity.query_source_hash
                 name = action['action']
                 self._verify_gate_mutation(name, manifest['context'])
-                if name in CONTEXT_ACTIONS:
+                if passage_review.enabled(query_review.active(self.events(), manifest['context'])):
                     internal = action
-                    if name == 'assess_source_need':
+                elif name in CONTEXT_ACTIONS:
+                    internal = action
+                    if name == 'assess_source_needs':
+                        require(getattr(self, 'survey_first', False), 'Batch survey disabled')
+                        try:
+                            assessments = source_gate.evaluate_batch(payload, action['args']['items'],
+                                                                     self.harness.query_paragraphs)
+                        except HarnessError as exc:
+                            raise policy.ToolSemanticError('invalid_survey_batch') from exc
+                        internal = {'action': name, 'args': {'assessments': assessments}}
+                    elif name == 'group_source_needs':
+                        try:
+                            source_gate.group_needs(deepcopy(manifest['context']), action['args']['source_need_refs'],
+                                                    action['args']['reason'], self.harness.query_paragraphs)
+                        except HarnessError as exc:
+                            raise policy.ToolSemanticError('invalid_source_group') from exc
+                    elif name == 'assess_source_need':
                         require(self.gate_enabled, 'Source gate is disabled')
                         args = action['args']
-                        internal = {'action': name, 'args': {'assessment': source_gate.evaluate(
+                        evaluate = source_gate.evaluate_bound if self.dual_search is not None else source_gate.evaluate
+                        internal = {'action': name, 'args': {'assessment': evaluate(
                             payload, args, self.harness.query_paragraphs)}}
+                    elif name == 'choose_source_span':
+                        target = manifest['handles'][action['args']['choice_ref']]
+                        draft = manifest['context']['source_gate'][target['draft_ref']]
+                        candidate = target['candidate']
+                        args = {**draft['requested_args'], 'paragraph_ref': candidate['paragraph_ref'],
+                                'proposition_quote': candidate['text']}
+                        # Confirmation is positional, including when literal text
+                        # occurs at several sites in the visible source.
+                        segment_ref='confirmed-source-choice'
+                        payload['m6']['source_gate_segments'][segment_ref]={
+                            **candidate,'proposition_selectable':True}
+                        args.pop('proposition_quote',None)
+                        args['proposition_ref']=segment_ref
+                        internal={'action':'assess_source_need','args':{'assessment':source_gate.evaluate_bound(
+                            payload,args,self.harness.query_paragraphs)}}
                 elif name == 'open_retrieved_passage':
                     if self.gate_enabled:
                         require(source_gate.authorized(manifest['context'], manifest['context']['need_id']), 'Candidate reading requires an approved retrieval need')
@@ -2303,7 +2711,29 @@ class Engine:
                         permit = source_gate.visible_permits(payload, manifest['context'])[args['source_need_ref']]
                         decision = permit['decision']
                         anchor = {**decision['proposition'], 'source_ref': decision['source_ref']}
-                        internal = self._anchored_search(payload, args, permit['paragraph_ref'], anchor)
+                        if self.dual_search is not None:
+                            query_text=decision['proposition']['text']
+                            citations=[row['text'] for row in decision.get('a_supports',[]) if row['role'] in ('citation', 'group_member')
+                                       and row['text'] not in query_text]
+                            query_text='\n'.join([query_text,*dict.fromkeys(citations)])
+                            need={'a_refs':[anchor['source_ref']],'intent':query_text,'route':'issue',
+                                  'a_paragraph':{'handle':permit['paragraph_ref'], **deepcopy(decision['paragraph'])},
+                                  'a_sources':[{'case_id':self.harness.identity.query_id,
+                                                'source_hash':decision['source_hash'],'span_bytes':anchor['span_bytes']}],
+                                  'a_anchor':anchor,'source_proposition':decision['proposition']['text']}
+                            need.update(source_bound=True,a_supports=deepcopy(decision.get('a_supports',[])),
+                                        source_query_text=query_text,source_query_sha256=sha256(query_text.encode('utf-8')).hexdigest())
+                            if decision.get('group_members'):
+                                need.update(group_members=deepcopy(decision['group_members']),
+                                            group_kind=decision['group_kind'])
+                            need['source_need_id']='need-'+fingerprint([source_gate.BOUND_VERSION,
+                                decision['source_hash'],anchor['span_bytes'],
+                                [(row['role'],row['source_hash'],row['span_bytes']) for row in need['a_supports']]])[:24]
+                            internal={'action':'search_corpus','args':{'text':query_text,
+                                'channel':self.harness.adaptive_config.channel,
+                                'limit':self.harness.adaptive_config.search_limit,'_m6_need':need}}
+                        else:
+                            internal = self._anchored_search(payload, args, permit['paragraph_ref'], anchor)
                         internal['args']['_m6_need']['source_gate_ref'] = args['source_need_ref']
                     else:
                         resolved, _ = find_anchor(payload, args['anchor_quote'])
@@ -2347,7 +2777,8 @@ class Engine:
                                         'prioritize_query_results', 'conclude_search_query', 'revisit_source_need'):
                     if not action['args']['reason'].strip():
                         raise policy.ToolSemanticError('blank_reason')
-                if action['action'] == 'conclude_search_query':
+                if (action['action'] == 'conclude_search_query'
+                        and not passage_review.enabled(query_review.active(self.events(), manifest['context']))):
                     try:
                         query_review.conclude(query_review.active(self.events(), manifest['context']), state, action['args'])
                     except HarnessError as exc:
@@ -2361,13 +2792,15 @@ class Engine:
             except policy.ToolSemanticError as exc:
                 feedback = repair_feedback(action, str(exc))
                 repair = bind_repair(self.harness.ledger.read(db), feedback, manifest) if feedback else None
+                missing_selector = str(exc) == 'source_span_required'
                 if repair:
-                    if self.loop_guard_mode == 'warn':
+                    if self.loop_guard_mode == 'warn' and not missing_selector:
                         repair['warning_threshold_reached'] = not repair['retry_allowed']
                         repair['retry_allowed'] = True
                     self._reply_metadata['cm_tool_repair'] = repair
                 self.harness._receipt(db, state, state.in_flight, 'malformed', received=True, telemetry=telemetry,
-                                      started=started, error=str(exc), schema_validation='passed')
+                                      started=started, error=str(exc),
+                                      schema_validation='rejected' if missing_selector else 'passed')
                 if state.last_receipt['telemetry_error']:
                     self.harness._stop(db, state, 'failure', state.last_receipt['telemetry_error'])
                 elif repair and not repair['retry_allowed']:
@@ -2390,7 +2823,8 @@ class Engine:
             action = state.pending_action['action']
             context = self.context()
             self._verify_gate_mutation(action['action'], context)
-            if action['action'] not in CONTEXT_ACTIONS:
+            if (action['action'] not in CONTEXT_ACTIONS
+                    and not passage_review.enabled(query_review.active(self.events(), context))):
                 # Source verification and actual M4 assessment validator execute here.
                 try:
                     for ref in state.current:
@@ -2536,7 +2970,45 @@ class Engine:
             name, args = action['action'], action['args']
             reload_refs = []
             action_status, action_reason = 'success', None
-            if name == 'read_query_span':
+            review = query_review.active(self.events(), context)
+            if passage_review.enabled(review):
+                try:
+                    passage_review.execute(self, db, state, context, review, action, manifest, action_id)
+                except SourceDrift as exc:
+                    self.harness._record_drift(db, state, exc.case_id)
+                except HarnessError as exc:
+                    restored = self.context()
+                    restored.setdefault('passage_session', {})['last_read_feedback'] = str(exc)[:240]
+                    self.harness._write(db, state, 'action_result', action_id=action_id,
+                        status='error', result=None, reason=str(exc), reload_refs=[],
+                        invalidated_assessments=[], assessments=[], pending_assessments=[], final=None,
+                        local_elapsed_ms=0, cm_context=restored)
+                return state.snapshot()
+            if name == 'read_source_context':
+                target=manifest['handles'][args['context_ref']]
+                raw=self.store.raw_reader(self.harness.identity.query_id)
+                require(target['source_hash']==self.harness.identity.query_source_hash
+                        and sha256(raw).hexdigest()==target['source_hash'],'Query context source changed')
+                left,right=target['span_bytes']
+                text=raw[left:right].decode('utf-8')
+                record=source_record(SourceExcerpt(self.harness.identity.query_id,target['source_hash'],(left,right),text,
+                    sha256(text.encode('utf-8')).hexdigest(),provenance={'extraction_method':source_gate.BOUND_VERSION}))
+                context.update(mode='query_span',offset=0,back=[],query_span_record=record)
+            elif name == 'revise_source_need':
+                decision=context['source_gate'][args['source_need_ref']]
+                require(decision['status']=='approved','Only an unconsumed permit can be revised')
+                context.setdefault('source_gate_history',[]).append(deepcopy(decision))
+                for member in decision.pop('group_members', []):
+                    row = context['source_gate'].get(member)
+                    if row and row.get('grouped_into') == args['source_need_ref']:
+                        row.pop('grouped_into')
+                        row['status'] = 'approved'
+                decision.pop('group_kind', None)
+                decision.pop('group_reason', None)
+                decision['a_supports'] = [row for row in decision.get('a_supports', []) if row['role'] != 'group_member']
+                decision.update(status='unresolved',decision='need_more_context',resolution_choices=[],
+                                validation_message='Approval withdrawn for a revised source-span selection.')
+            elif name == 'read_query_span':
                 target = manifest['handles'][args['span_ref']]
                 try:
                     record = self._combined_query_record(state, target)
@@ -2572,6 +3044,33 @@ class Engine:
                     if repair:
                         report['observed_repair'] = {key: repair[key] for key in ('tool', 'code', 'fields', 'hint')}
                 reports[args['kind']] = report
+            elif name == 'group_source_needs':
+                require(getattr(self, 'survey_first', False), 'Survey grouping disabled')
+                source_gate.group_needs(context, args['source_need_refs'], args['reason'],
+                                        self.harness.query_paragraphs)
+                main = context['source_gate'][args['source_need_refs'][0]]
+                for support in main.pop('group_context', []):
+                    support['case_id'] = self.harness.identity.query_id
+                    if support not in main.setdefault('a_supports', []):
+                        main['a_supports'].append(support)
+            elif name == 'assess_source_needs':
+                assessments = args['assessments']
+                refs = set()
+                for assessment in assessments:
+                    refs.add(assessment['source_ref'])
+                    refs.update(s['source_ref'] for s in assessment.get('a_supports', []))
+                    if signal := assessment.get('signal'):
+                        refs.add(signal['source_ref'])
+                try:
+                    for ref in sorted(refs):
+                        self.store.verify(state.current_records[ref])
+                except SourceDrift as exc:
+                    self.harness._record_drift(db, state, exc.case_id)
+                    return state.snapshot()
+                updated = deepcopy(context)
+                for assessment in assessments:
+                    source_gate.commit_decision(updated, assessment)
+                context.update(updated)
             elif name == 'assess_source_need':
                 assessment = deepcopy(args['assessment'])
                 try:
@@ -2579,11 +3078,16 @@ class Engine:
                     if signal := assessment['signal']:
                         if signal['source_ref'] != assessment['source_ref']:
                             self.store.verify(state.current_records[signal['source_ref']])
+                    for support in assessment.get('a_supports',[]):
+                        self.store.verify(state.current_records[support['source_ref']])
                 except SourceDrift as exc:
                     self.harness._record_drift(db, state, exc.case_id)
                     return state.snapshot()
                 if not source_gate.commit_decision(context, assessment):
                     action_status, action_reason = 'duplicate', 'partial_view_already_screened'
+                elif self.dual_search is not None:
+                    context['source_return_focus']={'source_hash':assessment['source_hash'],
+                        'span_bytes':assessment['visible_span_bytes'],'paragraph_handle':assessment['paragraph_handle']}
             elif name == 'revisit_source_need':
                 require(query_review.active(self.events(), context) is None, 'Conclude the current query first')
                 decision = context['source_gate'][args['source_need_ref']]
@@ -2744,6 +3248,10 @@ class Engine:
                 progress = self._progress(context, pair)
                 progress['window_offsets'][target['ref']] = target['offset']
                 progress['active_roots'][state.catalog[target['ref']]['case_id']] = target['ref']
+            if getattr(self, 'survey_first', False) and name in (
+                    'assess_source_need', 'assess_source_needs', 'defer_source_need', 'resume_approved_source_need'):
+                source_gate.group_exact_citations(context, self.harness.query_paragraphs,
+                                                 self.harness.identity.query_id, self.store.raw_reader)
             self._sync_missing(context)
             context['revision'] += 1
             self.harness._write(db, state, 'action_result', action_id=action_id, status=action_status, result=None,
@@ -2778,10 +3286,14 @@ class Engine:
                 'unique_candidates': len({case for q in qs for case in q['candidate_ids']}),
                 'unique_survey_exposed': len({case for q in qs for case in q['survey_exposed']}),
                 'unique_raw_exposed': len({case for q in qs for case in q['raw_exposed']})}
+        matches = result['context'].get('host_citation_matches', {})
+        if matches:
+            result['host_citation_match_count'] = len(matches)
         if self.gate_enabled and snapshot['stop_reason'] not in (None, 'complete'):
-            result['partial_supported_cases'] = sorted(
+            result['partial_supported_cases'] = sorted({
                 case for case, row in snapshot['candidate_states'].items()
-                if row['case_relation'] == 'supported' and row.get('selection_assessment_id'))
+                if row['case_relation'] == 'supported' and row.get('selection_assessment_id')}
+                | {match['b']['case_id'] for match in matches.values()})
         if self.execution_mode == 'offline':
             result.update(controller_inference_requests=0, embedding_requests=0, receipt_kind='scripted_offline_not_provider')
         else:

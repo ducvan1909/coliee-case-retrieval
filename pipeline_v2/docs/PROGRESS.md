@@ -1,5 +1,73 @@
 # Tiến độ pipeline_v2 ngày 12/11/2026
 
+## CM4 — 23/11/2026, tự cấp vùng A kế tiếp
+
+Profile `--survey-first` cấp thẳng nguyên văn khi bắt đầu và khi vùng hiện tại đã xét xong. Host dùng cây nguồn và giới hạn context để chọn vùng còn việc, lưu lựa chọn ở admission và dùng lại khi replay. Model vẫn được chọn cách xử lý mục chưa đủ ngữ cảnh. Preflight `cache/cm4-auto-survey-nav-local-20261123-151440587` mở trực tiếp `[0, 929)` của `021095.txt` với 6.546 input token và 0 request inference. Replay local ghi quyết định cho [1] rồi nhận thẳng vùng `[929, 2551)`; ledger chỉ có action đánh giá A, coverage giữ nguyên khi vùng mới vừa được cấp. Pilot cũ đã dừng với `operator_stop_file`; namespace mới cần để kiểm hiệu quả live. Xem [mục 5.5 của kế hoạch](plan/CM4_SOURCE_BOUND_SEARCH_IDENTITY.md#55-cấp-thẳng-nguyên-văn-a-ở-bước-điều-hướng-xác-định-được).
+
+## CM4 — 23/11/2026, profile khảo sát A trước
+
+Triển khai mục 5–9 của [kế hoạch](plan/CM4_SOURCE_BOUND_SEARCH_IDENTITY.md). Profile `--survey-first` chờ hoàn tất khảo sát A rồi cấp quyền tìm. Batch nhận tối đa ba quyết định theo ref. Receipt Modal `finish_reason=length` đã xác thực và chưa có action cho phép giảm nhóm 3 → 2 → 1, giữ coverage và hàng chờ. Lượt chốt B ánh xạ nhãn do model trả và tự hiện trang ứng viên sau commit. Đường chốt citation duy nhất ghi trực tiếp vào kết quả, kiểm bằng fixture. Corpus thật có 7.708 file, chưa thấy header đạt quy tắc tự định danh hẹp. `--profile-timing` thêm thời gian các khâu và thống kê. Trần hiện dùng 1.024 token. Kết quả local/preflight là mốc kỹ thuật trước pilot AG.
+
+Preflight `cache/cm4-survey-first-local-20261123-115942490` dùng đúng code binding, bắt đầu ở pha khảo sát với 3.270 input token và 0 request controller, embedding hay reranker. Dựng payload đầu mất 4,08 giây, trong đó 7 lần mở vùng A thử chiếm 2,66 giây. Ba phép đo local cho mỗi chế độ trên cùng payload đầu cho trung vị 4,42 giây khi tắt timing và 4,56 giây khi bật. Mẫu nhỏ chỉ kiểm chi phí ở preflight. Chưa quy được nguyên nhân của các đỉnh T181–T182 và T214–T215 trong run live.
+
+Kiểm local bản cuối đạt 194/194 test CM4 và 35/35 test timing, transport và hybrid. Ca [5]/[18] trên byte gốc xác nhận host gom các span Hargrave đã được xác nhận cùng nguồn và giữ hai khối trích riêng với citation scoped. Các test dùng quyết định được script. Cần pilot AG để xác nhận model tự tạo đúng nhóm, mức giảm request và độ chính xác định danh.
+
+## CM4 — chọn phạm vi A và hiển thị đủ shortlist B
+
+Pilot `cache/cm4-identity-commit-fix-ag-20261122-181709912` ghi thành công `070847.txt = select` ở T035. Sau đó run dừng vì model qua lại giữa hai bản đồ A. Payload T045 gợi ý mở vùng chưa xét nhưng ref trỏ lên bản đồ toàn án. Bản sửa lọc lối lên khỏi catalog và schema khi bản đồ hiện tại có vùng con chứa byte chưa xét. Khi không còn lối xuống cho phần chưa xét, host cấp lại lối lên để model tiếp tục vùng khác. Chưa chạy live bản sửa điều hướng.
+
+Pilot `cache/cm4-identity-first-ag-20261122-165805297` cho thấy model nhận mở đầu Hargrave của `070847.txt` ở T033, yêu cầu kiểm định danh ngay và trả `select` ở T034. Host từ chối ghi vì cùng ref [0, 900) xuất hiện hai lần với nhãn provenance khác nhau. AG đặt STOP sau 38 request, run chưa có prediction. Đã đồng nhất kiểu span khi kiểm trùng và mở rộng regression local tới lúc ghi quyết định. Pilot đã dừng giữ nguyên kết quả lịch sử.
+
+CM4 bật reranker đưa tối đa 900 byte đầu của B vào lượt mở án và nhắc model đối chiếu định danh trước. Dòng metadata nhận diện được là gợi ý bổ sung. Model có thể đọc thêm hoặc để pending, và chỉ yêu cầu lượt kiểm định danh cuối khi định chọn B. Kiểm local trên nguyên văn `070847.txt` và `011064.txt` xác nhận phần mở đầu được cấp đúng vai trò, còn đoạn B trích Aqua-Gem chỉ được cấp làm bằng chứng về quy tắc. Thay đổi này đang ở mức kiểm local, chưa có kết quả inference live.
+
+Pilot `cache/cm4-source-span-page-check-20261122-111459932` xác nhận live quay về A hai lần, dừng theo yêu cầu sau 59 request và 58 action. [2] được xét theo mục nhưng model vẫn phân loại hai căn cứ (a)/(b) thành facts. Model nhận đủ thẻ trước khi đóng cả hai lượt tìm. Ở lượt thứ hai, `070847.txt` lên đầu sau rerank và được mở nhưng model chốt không chọn. Host thiếu nhận diện chức danh Prothonotary ở phần mở đầu nên chưa cấp lượt kiểm định danh. Đã bổ sung mẫu mở đầu này và kiểm trên nguyên văn `070847.txt`: 20/20 test passage review đạt. Pilot cũ chưa có kết luận định danh hay prediction cuối.
+
+Sau pilot dừng ở T028, regression local xác nhận `search → conclude_search_query → prepare` quay lại A với đúng ref và byte span. Nhánh khóa nguyên văn không cấp ref `remaining_visible` khi phần paragraph hiển thị có mục dạng `(a)`, `(b)` đứng đầu dòng. [1] của `021095.txt` vẫn có ref gộp. [2] vẫn có ref từng mục.
+
+Trong luồng passage review, model được mở passage B từ trang đang có. Trước khi kết thúc lượt tìm, model phải nhận các trang thẻ còn lại. Payload chỉ rõ số thẻ chưa hiện, số B còn pending và ref mở thẳng trang chưa hiện tiếp theo. Các án chưa mở nguyên văn có thể giữ pending khi kết luận partial. Regression kiểm cả giao thẻ trang sau, lưu pending và quay về A.
+
+Kiểm local 28/28 test passage review và span recovery, 33/33 test query review và live orchestration. Preflight `cache/cm4-source-span-page-check-20261122-111459932` dựng payload đầu 3.258 token và phát 0 request inference. AG dùng namespace này để xác nhận đường quay về A trên pilot.
+
+## CM4 — phục hồi chọn span, 22/11/2026
+
+Pilot `cache/cm4-source-span-recovery-ready-20261122-094355232` qua được [1] → [2] và search đầu tiên, với 27 reply hợp lệ. Sau khi chốt 4 án không chọn và kết thúc search ở T027, host crash khi dựng T028 vì source need thiếu `a_paragraph`. Đã tái hiện bằng regression search → conclude → prepare, rồi bổ sung metadata paragraph từ permit. Pilot cũ chưa có prediction. `070847.txt` đã vào shortlist nhưng chưa được mở, nên chưa có lượt kiểm định danh B.
+
+Toàn suite đạt **171/171 PASS** trên bản trước chỉnh cuối bộ lọc catalog. Sau chỉnh bộ lọc, kiểm lại 58 test liên quan và replay T008/T020.
+
+Đã sửa vòng lặp `no_search_needed` thiếu span ở đoạn [1] của `021095.txt`. Schema bắt buộc ref hoặc quote cho hai quyết định kết thúc. Ref `remaining_visible` ghi đúng từng khoảng chưa xét. Quote lệch đưa ref nguyên văn để xác nhận. LoopGuard đếm hợp byte mới đã xét và giữ tiến triển qua replay ledger. Reply thiếu span được ghi là schema reject; host cấp một lần sửa cùng phạm vi rồi dừng nếu lỗi lặp lại.
+
+Kiểm liên quan trên bản cuối **58/58 PASS**. Replay reply thiếu selector cấp đường phục hồi, rồi xét [0,239), [239,285) và phần còn lại [285,927) để đóng đúng [1]. Replay nguyên văn T008/T020 xác nhận ref gợi ý hiện cả trong catalog và schema, chỉ ghi phạm vi sau khi chọn. Test LoopGuard xác nhận 239 → 285 byte và đổi lời hoặc lặp byte không tăng độ phủ. Preflight `cache/cm4-source-span-recovery-ready-20261122-094355232` khớp binding, cap 1.024, input 3.258 token, 0 request inference ở cả ba dịch vụ. Mốc live tiếp theo là tự qua [1] sang [2], rồi kiểm permit/search và định danh B. Xem [kế hoạch](plan/CM4_SOURCE_SPAN_LOOP_RECOVERY.md).
+
+## CM4 — khóa nguyên văn A và kiểm định danh B, 22/11/2026
+
+Đã nối hai bước mới vào profile live bật reranker. A ghi quyết định theo span, đính lời dẫn/citation theo vai trò, cấp permit chỉ chạy nguyên văn đã khóa và giữ đường đọc lại phần chưa xét. Thử nghiệm đầu dùng một nhánh nguồn, không nhân đôi RRF. B có lượt kiểm định danh riêng trước select, với ref A, tự định danh B và passage quy tắc trong B. Kết luận vẫn khóa một lần theo lượt tìm và B.
+
+Toàn suite CM4 trên bản cuối đạt **163/163 PASS trong 135,673 giây** bằng `.venv/Scripts/python.exe -m unittest discover -s pipeline_v2/experiments/context_manager_v2/tests`. Local preflight `cache/cm4-source-bound-local-check-20261122-010201972` dựng payload đầu 3.233 token, 0 request đến cả ba dịch vụ. Kiểm trực tiếp nguyên văn pilot xác nhận heading `[9151,9170)` và phân biệt phần mở đầu `011064.txt` với thân [37] khi cấp vai trò tự định danh. Kế hoạch, ca kiểm và giới hạn nhận diện header/closing ở [CM4 source-bound](plan/CM4_SOURCE_BOUND_SEARCH_IDENTITY.md). Recall và độ chính xác ngữ nghĩa cần đối chứng live.
+
+## Sửa schema xgrammar — 21/11/2026
+
+Pilot `cache/cm4-final-once-20261121-160727278` dừng ở T030 khi schema `conclude_candidate` chứa `uniqueItems`, bị backend xgrammar từ chối trước sinh token. Đã bỏ keyword này khỏi ba mảng ref gửi model; giữ nguyên kiểm trùng `a_refs`, `b_refs`, `identity_refs` ở host và khóa kết luận một lần. Regression kiểm schema không có keyword, cả ba ca ref trùng qua được schema nhưng bị host từ chối, không ghi kết luận lỗi, và ref hợp lệ vẫn chọn được B. Nhóm passage/live/dual đạt **36/36 PASS, 14,826 giây**. Local chưa cài xgrammar, nên chưa biên dịch schema trực tiếp bằng backend; cần AG chạy namespace mới để xác minh live. Không inference/deploy trong đợt sửa.
+
+## CM4 passage review v3 — 21/11/2026, một kết luận cho B trong lượt tìm
+
+Đã thay chấm/sửa phiếu từng hit bằng `conclude_candidate` đúng một lần cho mỗi `(search_query_id, case_id B)`. Trước khi chốt, mặc định không chọn nhưng pending; rời tạm không tạo nhận định phủ định. Chốt select cần evidence A/B và định danh B theo ref được giao; chốt không chọn không bắt đọc hết nhóm. Schema bỏ tool kết luận sau chốt và host từ chối nộp lại/đổi nhãn, kể cả mở lại hoặc dựng lại Engine từ ledger. Vẫn cho đọc tiếp, rời và mở lại, chỉ tự gom hit trong top 10. Kết luận âm ở query khác không xóa phiếu dương đã khóa; tiến độ từng query giữ riêng.
+
+`read_case_passages` kiểm tối đa 3 kết quả bằng hash/span/receipt, phân biệt `new_content`, `already_read`, `no_hits`; kết quả có phần mới mở từ gap chưa giao đầu tiên, không đọc lại prefix cũ vì reset cursor. `revisit_case_passage` mở lại kết quả cũ có chủ đích. Cảnh báo tiến độ không tính đổi focus/lý do là nội dung mới. `read_passage_attribution` giữ tool nhưng mô tả/nhãn đúng là ngữ cảnh ±1.200 byte để model kiểm tra, không khẳng định host nhận diện attribution.
+
+Kiểm local: toàn suite CM4 **158/158 PASS, 127,940 giây**; sau bổ sung kiểm metadata để không gán relation giả cho kết luận âm thiếu evidence, nhóm passage/live/dual đạt **35/35 PASS, 14,372 giây** trên bản cuối. Test phủ khóa một lần cả hai nhãn, nhiều hit chung một kết luận, rời pending, resume, ref sai, top 10, tìm hit đầu cũ/hit sau mới, overlap, đuôi mới sau prefix dài, no-hit, nguồn sai và kết luận qua nhiều query cùng need. AST/prompt được kiểm local.
+
+Review độc lập phát hiện hai lỗi (tiến độ liên query và cursor prefix cũ), đã sửa và có regression. Replay chỉ đọc đúng raw reply T045 của `cache/cm4-grouped-reading-20261121-113512216` xác nhận schema v3 từ chối `assess_passages`; sau chốt không còn tool kết luận. Đây là kiểm wiring, không chứng minh model live tự phục hồi hoặc F1. Agent implementer/reviewer chạm usage limit trước báo cáo cuối; Main nghiệm thu trực tiếp bằng code và test. Không inference/deploy mới; AG cần prepare namespace mới. Contract/tài liệu: [kế hoạch](plan/CM4_DUAL_QUERY_RRF_RERANK.md), [CM4](../experiments/context_manager_v2/CM4.md).
+
+## CM4 passage review — 21/11/2026, đọc theo án do model điều khiển
+
+Theo chỉ đạo mới, nhánh dual-query/rerank gom passage theo án **chỉ từ top 10 hit đã giữ**, không bổ sung passage từ pool rerank. Model mở trực tiếp một án từ thẻ kết quả, không phải survey hết hoặc gán ưu tiên trước. Gói đọc giữ span A, định danh/giới thiệu B và các vùng passage cùng B theo thứ tự nguồn; vùng chồng lấn được hợp, vùng dài có continuation.
+
+Model quyết định đọc tới đâu, đánh giá, đọc thêm ngữ cảnh hoặc dùng `return_to_candidates` để rời án đang mở và mở lại sau. Phiếu `select` không tự đóng án; phần chưa đọc/chưa đánh giá vẫn được ghi riêng. Có thể kết luận query khi còn ứng viên dang dở và host phải lưu trạng thái partial tương ứng. Trạng thái/cảnh báo tiến độ được giao trong payload passage review. Nhánh CM4 không bật reranker giữ contract survey cũ.
+
+Phạm vi đợt này là code và kiểm offline, không inference/deploy Modal. Chi tiết: [kế hoạch dual-query/rerank](plan/CM4_DUAL_QUERY_RRF_RERANK.md). Các checkpoint dưới đây giữ bằng chứng lịch sử; kiểm local không chứng minh chất lượng liên kết A→B hoặc F1.
+
+Kiểm bản cuối ngày 21/11: `.venv/Scripts/python.exe -m unittest discover -s pipeline_v2/experiments/context_manager_v2/tests` đạt **152/152 PASS trong 129,995 giây**, không gọi provider. Nhóm passage review có 9 test, bao gồm chỉ gom top 10 và loại hit thứ 11 trong pool, hợp vùng/thứ tự nguồn, continuation, rời/mở lại đúng vị trí, giữ án sau `select`, thu hồi phiếu dương qua nhiều trang, partial conclusion và cảnh báo/lỗi trong payload. Kiểm prompt và whitespace/conflict trên các file thay đổi đạt; `git diff --check` không chạy được trong môi trường này (`must be run in a work tree`), không ghi nhận là PASS. Agent tester bổ sung test nhưng bị usage limit trước khi báo cáo; Main đã sửa fixture dang dở và chạy toàn suite trên bản cuối.
+
 ## Cập nhật pipeline hiện hành — 20/11/2026, CM4 v28
 
 Đối chiếu code hiện tại: engine `cm4-query-review-v28`, live CLI `cm4-live-v2`, source gate v4. Đây là phần thay đổi kể từ commit `7c230e5`; các checkpoint v24–v27 và tiến độ M0–M7 bên dưới giữ làm lịch sử. Hướng dẫn chạy hiện hành: [CM4](../experiments/context_manager_v2/CM4.md), [luồng model/context](../experiments/context_manager_v2/MODEL_CONTEXT_FLOW.md), [AG_CHECK](../reviews/cm4_query_review_v24/AG_CHECK.md).

@@ -3,6 +3,9 @@ from pipeline_v2.agent_harness.contracts import fingerprint
 
 
 TRANSLATION_FIELDS = {
+    'invalid_survey_batch': ('items', 'Use one to three distinct nonoverlapping offered spans. You can assess a single span first.'),
+    'invalid_source_group': ('source_need_refs', 'Choose distinct queued needs for the same decision. Keep distinct cited decisions separate.'),
+    'source_span_required': ('proposition_ref', 'Choose exactly one offered remaining source ref, or copy a literal proposition_quote. no_search_needed also requires a selected span.'),
     'issue_requires_legal_phrase': ('issue', 'Use at least two words for the search.'),
     'issue_contains_case_id': ('issue', 'Use a search phrase without a corpus case ID.'),
     'focus_requires_legal_phrase': ('focus', 'Give a legal focus of at least two words.'),
@@ -52,6 +55,9 @@ def bind_repair(events, feedback, manifest):
     evidence = sorted((row['canonical_ref'], offsets.get(row['canonical_ref'], -1))
                       for row in manifest['coverage'])
     scope = fingerprint([pair, feedback['tool'], evidence])
+    if feedback['code'] == 'source_span_required':
+        scope = fingerprint([feedback['tool'], feedback['code'],
+                             manifest.get('dispatch_m6', {}).get('a_paragraphs', {})])
     already_offered = any(row.get('cm_tool_repair', {}).get('scope') == scope for row in events)
     return {**feedback, 'scope': scope, 'retry_allowed': not already_offered}
 

@@ -1,5 +1,36 @@
 # Bàn giao Pipeline V2 cho Codex trên máy khác
 
+## Bàn giao đầy đủ sau pull — 23/11/2026
+
+Đọc [checkpoint chi tiết 23/11 trong file bàn giao cũ](pipeline_v2/docs/RETRIEVAL_HANDOFF_20261114.md#checkpoint-bàn-giao-đầy-đủ--23112026-thay-đổi-kể-từ-lần-pull-gần-nhất) trước các mốc lịch sử. Phạm vi từ lần pull `dce7163` ngày 20/11 lúc 20:00:43 +07:00; checkpoint ghi thay đổi theo từng khâu/file, pilot và lỗi đã gặp, kiểm local, artifact không chuyển và cách tiếp quản.
+
+Code hiện hành: engine `cm4-query-review-v31`, live `cm4-live-v3`, output cap 1.024; controller pin source `fu-EebPFmRFbonO5T97FTMSH4`. Profile source-bound chạy một truy vấn nguyên văn đã khóa; `--survey-first` khảo sát A trước và tự cấp vùng nguồn kế tiếp khi xác định được. Đọc mốc kiểm đóng gói trong file bàn giao; prepare namespace mới, người dùng/AG chạy inference/deploy. Các mô tả v30/v2/output 512 phía dưới là lịch sử.
+
+
+## CM4 — 23/11/2026, khảo sát hết A trước khi tìm
+
+Profile thử dùng `--survey-first` cùng `--reranker-function-id` khi prepare namespace mới. Có thể thêm `--profile-timing` để ghi từng khâu, số lần gọi, p50/p95 và lượt chậm nhất. Giữ các cờ của prepare khi chuyển sang run bằng cách dùng đúng namespace; lệnh run chỉ cần `--run-dir`.
+
+Model khảo sát A trước, gửi tối đa ba quyết định mỗi lượt. Host gom các mục có cùng ref citation đã khóa hoặc theo liên kết được model xác nhận. Lượt chốt B nhận nhãn định danh, host ghi kết quả và tự quay về trang ứng viên. Chốt trực tiếp bằng citation chỉ áp dụng khi hai ref cho thấy cùng định danh và chỉ có một B. Quét corpus hiện tại không thấy header đạt quy tắc hẹp. Duy trì trần 1.024; 1.536 là tùy chọn thí nghiệm sau khi có số đo. Xem [kế hoạch](pipeline_v2/docs/plan/CM4_SOURCE_BOUND_SEARCH_IDENTITY.md) và [tiến độ](pipeline_v2/docs/PROGRESS.md). AG thực hiện pilot live.
+
+## CM4 — 22/11/2026, khóa nguyên văn A và kiểm định danh B
+
+Profile bật reranker dùng permit chỉ chứa quyền chạy truy vấn từ span A đã duyệt. Model chọn ref hoặc trích nguyên văn, có thể gắn ngữ cảnh theo vai trò và quay lại sửa permit trước khi chạy. Host dùng mệnh đề và citation được chọn để dựng một truy vấn nguồn. Phần A chưa xét vẫn có đường mở lại. Trước `select`, model yêu cầu `request_identity_check` với ref A, ref tự định danh B và ref quy tắc trong B. Lượt tiếp theo chỉ chốt định danh. Kết luận âm có thể chốt trực tiếp trong lúc review. Quyết định hợp lệ vẫn chốt một lần theo lượt tìm và B.
+
+Xem [kế hoạch và ca kiểm](pipeline_v2/docs/plan/CM4_SOURCE_BOUND_SEARCH_IDENTITY.md) và [PROGRESS](pipeline_v2/docs/PROGRESS.md). Chuẩn bị namespace mới để chạy pilot. Đo recall của truy vấn nguyên văn so với baseline diễn giải và kiểm ca dương định danh bằng nguồn thật trước khi nghiệm thu ngữ nghĩa.
+
+## Chỉ đạo hiện hành — 21/11/2026, một kết luận duy nhất cho B
+
+Nhánh dual-query/rerank dùng `conclude_candidate` đúng một lần cho mỗi `(search_query_id, B)`. Mặc định không chọn nhưng `pending`, không phải phiếu phủ định. Model chốt `select` khi đủ căn cứ hoặc chốt `not_select` khi kết thúc xem xét mà không đủ/không đúng nguồn. Đã chốt thì không sửa hoặc thu hồi, kể cả mở lại/resume; model vẫn được đọc tiếp, rời tạm và mở lại. Nhiều passage trong top 10 của cùng B là evidence cho một kết luận chung. Các ghi chú sửa phiếu ở checkpoint v2 bên dưới là lịch sử.
+
+Tìm trong B phân biệt `new_content`, `already_read`, `no_hits` bằng source spans và receipt; `revisit_case_passage` mở lại kết quả cũ có chủ đích. `read_passage_attribution` chỉ mở ngữ cảnh trước/sau khoảng ±1.200 byte để model kiểm tra người nói/nguồn, không khẳng định host nhận diện đúng câu attribution. Đối chiếu [kế hoạch mục 8](pipeline_v2/docs/plan/CM4_DUAL_QUERY_RRF_RERANK.md) và kiểm local ở [PROGRESS](pipeline_v2/docs/PROGRESS.md). Không tự inference/deploy; chuẩn bị namespace mới trước pilot AG, không resume artifacts v2 với binding mới.
+
+## Chỉ đạo mới — 21/11/2026, nhóm passage top 10 và quyền đọc của model
+
+Nhánh dual-query/reranker thử nghiệm được đổi sang mở trực tiếp án B từ thẻ kết quả, bỏ bước bắt buộc survey toàn bộ/gán priority. Chỉ nhóm các passage thuộc top 10 hit đã giữ, không mở rộng từ pool rerank. Khi mở B, giao các vùng cùng án theo thứ tự nguồn trong ngân sách; model chọn đọc tiếp, đánh giá hoặc `return_to_candidates` và có thể mở lại B. Không tự rời B khi có một phiếu `select`. Giữ riêng tiến độ chưa đọc/chưa đánh giá và kết luận partial khi còn ứng viên chưa giải quyết.
+
+Đối chiếu [PROGRESS](pipeline_v2/docs/PROGRESS.md) và [kế hoạch dual-query](pipeline_v2/docs/plan/CM4_DUAL_QUERY_RRF_RERANK.md). Đợt này chỉ triển khai/kiểm local, không gọi inference hoặc deploy Modal. Pilot cũ `cache/cm4-dual-query-20261121-082213228` đã dừng ở T41 trong vòng lặp priority; không dùng receipts đó để tuyên bố nghiệm thu hành vi mới. Khi chạy lại phải `prepare` namespace mới vì code/prompt binding thay đổi. Nhánh không bật reranker vẫn giữ survey contract cũ.
+
 ## Điểm bàn giao hiện hành — Pilot CM4 v30 và hướng tiếp theo cho COLIEE Task 1
 
 Mục tiêu là trả về tập án trong corpus mà án A tham chiếu. Dùng micro precision, recall và F1 để so kết quả, kèm số lượt, token và thời gian chạy. Bắt đầu bằng hai việc offline: xác minh danh tính B trước khi chọn và dùng lại phần khảo sát khi truy hồi trả cùng tập kết quả. Các mục bên dưới là lịch sử của những phiên bản trước. [Đề bài Task 1](https://coliee.org/COLIEE2026/tasks/task1) · [Cách tính điểm](https://coliee.org/COLIEE2026/evaluation)

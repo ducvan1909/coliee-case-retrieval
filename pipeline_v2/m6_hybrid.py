@@ -20,6 +20,7 @@ from .full_search.hybrid import RUNTIME_DIR, POLICY, CHANNEL_BUDGET, DENSE_CAP, 
 from .m4 import _lead
 from .sparse_bm25.index import SparseHybridSession
 from .retrieval_diagnostics import capture as capture_diagnostic
+from .runtime_timing import measure, timed
 
 VERSION = 'm6-live-hybrid-v3'
 CHANNELS = ('case_bm25', 'passage_bm25', 'dense_passage')
@@ -262,10 +263,12 @@ class AccountedSparseHybridSession(SparseHybridSession):
         result = super()._search(query, query_case, min(limit, OUTPUT_CAP), passage_id)
         if limit > OUTPUT_CAP:
             started = perf_counter()
-            result['hits'] = fuse_m6_channels(result['channels'], limit)
+            with measure('retrieval_fusion'):
+                result['hits'] = fuse_m6_channels(result['channels'], limit)
             result['timings']['total_seconds'] += perf_counter() - started
         return result
 
+    @timed('embedding_query')
     def _query_embedding(self, query, query_case, request_id):
         from .passages import PinnedTokenizer
         from .retrieval.runtime import render_query
@@ -288,6 +291,14 @@ class AccountedSparseHybridSession(SparseHybridSession):
                                observed_elapsed_seconds=perf_counter() - started)
         return result
 
+    @timed('lexical_retrieval')
+    def _lexical(self, query, query_case):
+        return super()._lexical(query, query_case)
+
+    @timed('dense_retrieval')
+    def _dense(self, vector, query_case):
+        return super()._dense(vector, query_case)
+
 
 class HybridSearch:
     """Lazy reusable accepted M3 session. Constructing/preparing this object is inference-free."""
@@ -309,7 +320,8 @@ class HybridSearch:
         started = perf_counter()
         try:
             if self.session is None:
-                self.session = self.factory(self.root, self.journal)
+                with measure('hybrid_session_open'):
+                    self.session = self.factory(self.root, self.journal)
                 if self.expected_snapshot:
                     actual = {
                         'full_manifest_sha256': self.session.lexical.binding['manifest.json'],
@@ -337,9 +349,10 @@ class HybridSearch:
                 raise HarnessError('Hybrid response contains query case or duplicate cases')
             diagnostic_started = perf_counter()
             try:
-                diagnostic = capture_diagnostic(
-                    self.journal.directory, operation=operation, action_id=action_id,
-                    query=query, query_case=query_case, limit=limit, result=result)
+                with measure('save_retrieval_diagnostic'):
+                    diagnostic = capture_diagnostic(
+                        self.journal.directory, operation=operation, action_id=action_id,
+                        query=query, query_case=query_case, limit=limit, result=result)
             except Exception as exc:
                 # A valid result and its provider usage survive local diagnostic failure.
                 # Do not retry retrieval or reuse an existing/partial capture.

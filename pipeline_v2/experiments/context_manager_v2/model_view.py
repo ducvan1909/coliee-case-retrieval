@@ -5,7 +5,7 @@ import re
 
 
 _OPAQUE = re.compile(r'(?:[a-f0-9]{32,}|[a-z][a-f0-9]{16,}|need-[a-f0-9]+|qn-.+|\d{6}:[a-f0-9:.-]+)\Z')
-_LITERAL_FIELDS = {'text', 'preview', 'reason', 'finding', 'issue', 'intent', 'focus', 'anchor_quote',
+_LITERAL_FIELDS = {'text', 'preview', 'reason', 'finding', 'issue', 'intent', 'focus', 'anchor_quote', 'proposition_quote',
                    'source_proposition', 'guidance', 'message', 'hint', 'description',
                    'when', 'examples', 'result', 'heading', 'label', 'missing_reason',
                    'reported_missing_evidence', 'attribution_cues'}
@@ -121,6 +121,8 @@ def _compact(payload):
     wire['context_projection'] = 'compact_model_view'
     wire['excerpts'] = [
         {**{key: record[key] for key in ('case_id', 'ref', 'span_bytes', 'text')},
+         **({'provenance': {'source_label': record['provenance']['source_label']}}
+            if record.get('provenance', {}).get('source_label') else {}),
          'structure': _structure(record)}
         for record in payload['excerpts']
     ]
@@ -144,7 +146,6 @@ def _compact(payload):
                 row.pop(key)
     for segment in m6.get('source_gate_segments', {}).values():
         segment.pop('source_ref', None)
-        segment.pop('span_bytes', None)
     for row in m6.get('candidates', {}).values():
         row.pop('open_ref', None)
         for lead in row.get('leads', []):

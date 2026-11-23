@@ -89,6 +89,10 @@ def choose(prepared, name, **values):
                   if row['properties']['action']['const'] == name]
     def matches(row):
         fields = row['properties']['args']['properties']
+        if name == 'assess_source_need':
+            selectors = {'proposition_ref', 'proposition_quote'} & values.keys()
+            if not selectors <= fields.keys():
+                return False
         for key, value in values.items():
             field = fields.get(key, {})
             if 'enum' in field and value not in field['enum']:
@@ -135,7 +139,7 @@ def replay(root, source, output):
         stack.callback(sources.close)
         tools = HierarchicalM3Tools(sources, lexical, cfg['query_id'], byte_budget=cfg['byte_budget'],
                     map_limit=cfg['map_limit'], navigation_config=QueryNavigationConfig(**cfg['query_navigation']),
-                    count_tokens=transport.count_tokens, output_token_cap=512)
+                    count_tokens=transport.count_tokens)
         initial, whole = tools.query_start()
         recorded = RecordedHybrid(source, lexical)
         from pipeline_v2.agent_harness.contracts import RunIdentity

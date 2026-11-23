@@ -1,6 +1,7 @@
 """Durable per-search review derived from receipts, never from compile previews."""
 from copy import deepcopy
 from pipeline_v2.agent_harness.contracts import fingerprint, HarnessError
+from . import passage_review
 
 VERSION = 'cm4-query-review-v1'
 
@@ -28,7 +29,8 @@ def queries(events, context):
                     'retrieval_request_id': observation.get('request_id'),
                     'query_sha256': observation.get('query_sha256'),
                     'search_reuse': deepcopy(observation.get('search_reuse')),
-                    'hits': deepcopy(observation['hits']), 'survey_exposed': [], 'raw_exposed': []}
+                    'hits': deepcopy(observation['hits']), 'survey_exposed': [], 'raw_exposed': [],
+                    'passage_review': bool(observation.get('cm4_passage_review'))}
         elif kind == 'request_result' and event.get('received_response'):
             admission = requests.get(event['request_id'], {})
             key = admission.get('cm_search_query_id')
@@ -45,6 +47,13 @@ def queries(events, context):
         query['conclusion'] = deepcopy(context.get('query_conclusions', {}).get(key))
         query['phase'] = ('concluded' if query['conclusion'] else
                           'reviewing' if set(query['candidate_ids']) <= set(query['survey_exposed']) else 'surveying')
+        if query['passage_review']:
+            # Grouped passage reading has no mandatory survey phase. Cards and
+            # raw exposure still come only from received model requests.
+            query['phase'] = 'concluded' if query['conclusion'] else 'reviewing'
+            query['completed_candidates'] = [case for case in query['candidate_ids']
+                                             if passage_review.case_done(context, query, case)]
+            query['candidate_conclusions'] = deepcopy(passage_review.conclusions(context, query))
     return result
 
 
@@ -53,6 +62,9 @@ def active(events, context):
 
 
 def unresolved_candidates(query, state):
+    if query.get('passage_review'):
+        completed = set(query['completed_candidates'])
+        return [case for case in query['candidate_ids'] if case not in completed]
     result = []
     for case in query['candidate_ids']:
         pair = query['need_id'], case
@@ -66,9 +78,9 @@ def unresolved_candidates(query, state):
 
 
 def pending_read_next(query):
-    exposed = set(query['raw_exposed'])
+    completed = set(query['completed_candidates'] if query.get('passage_review') else query['raw_exposed'])
     return [case for case in query['candidate_ids']
-            if query['priorities'].get(case, {}).get('priority') == 'read_next' and case not in exposed]
+            if query['priorities'].get(case, {}).get('priority') == 'read_next' and case not in completed]
 
 
 def progress(query, state):
@@ -79,7 +91,7 @@ def progress(query, state):
     for assessment_id in assessed.values():
         relation = state.assessments.get(assessment_id, {}).get('case_relation', 'unknown')
         relations[relation] = relations.get(relation, 0) + 1
-    return {'query_id': query['query_id'], 'phase': query['phase'], 'issue': query['issue'],
+    result = {'query_id': query['query_id'], 'phase': query['phase'], 'issue': query['issue'],
         'retrieved': len(ids), 'survey_exposed': len(query['survey_exposed']),
         'not_exposed': len(set(ids) - set(query['survey_exposed'])),
         'selected_for_read': sum(row['priority'] == 'read_next' for row in query['priorities'].values()),
@@ -88,6 +100,26 @@ def progress(query, state):
         'raw_exposed': len(query['raw_exposed']), 'assessed': len(assessed), 'assessed_by_relation': relations,
         'not_read': len(set(ids) - set(query['raw_exposed'])), 'unresolved': len(unresolved_candidates(query, state)),
         'conclusion': query['conclusion']}
+    if query.get('passage_review'):
+        final = query['candidate_conclusions']
+        selected = {case for case, row in final.items() if row['decision'] == 'select'}
+        negative = {case for case, row in final.items() if row['decision'] == 'not_select'}
+        final_relations = {}
+        for case, row in final.items():
+            assessment = state.assessments.get(fingerprint([row['action_id'], need, case]))
+            if assessment is not None:
+                relation = assessment['case_relation']
+                final_relations[relation] = final_relations.get(relation, 0) + 1
+        result.update(completed_candidates=len(final), passage_hits=len(query['hits']),
+                      assessed=len(final),
+                      assessed_by_relation=final_relations,
+                      conclusions_by_decision={'select': len(selected), 'not_select': len(negative)},
+                      candidates_final=len(final), candidates_pending=len(set(ids)-set(final)),
+                      selected_candidates=len(selected), final_not_select_candidates=len(negative),
+                      candidate_states={case: {'status': 'final' if case in final else 'pending',
+                                              'decision': final.get(case, {}).get('decision', 'not_select')}
+                                        for case in ids})
+    return result
 
 
 def conclude(query, state, args):
