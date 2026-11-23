@@ -73,6 +73,55 @@ class DualSearchTests(unittest.TestCase):
                                1 / (RRF_K + 1) + 1 / (RRF_K + 2))
         self.assertEqual(result.candidates, tuple(dict.fromkeys(row['case_id'] for row in result.observation['hits'])))
 
+    def test_source_bound_reranker_receives_the_same_locked_query_as_retrieval(self):
+        for with_supports in (False, True):
+            with self.subTest(with_supports=with_supports):
+                self.actions.clear()
+                self.query = 'prefix 😀 exact issue span suffix\n[1998] 1 S.C.R. 27\nExample v. Canada'.encode('utf-8')
+                self.sources['A'] = self.query
+                supports = []
+                if with_supports:
+                    for role, text in [('citation', '[1998] 1 S.C.R. 27'),
+                                       ('group_member', 'Example v. Canada')]:
+                        encoded = text.encode('utf-8')
+                        start = self.query.index(encoded)
+                        supports.append({'case_id': 'A', 'source_hash': digest(self.query),
+                                         'span_bytes': [start, start + len(encoded)],
+                                         'role': role, 'text': text})
+                expected = '\n'.join(['exact issue span', *(s['text'] for s in supports)])
+                action = self.action(expected)
+                action['args']['_m6_need'].update(
+                    source_bound=True, source_query_text=expected,
+                    source_query_sha256=digest(expected.encode('utf-8')), a_supports=supports)
+                captured = []
+
+                def execute(branch_action):
+                    return self.branch(branch_action, [{'case_id': 'B_A', 'channels': {
+                        'one': self.lead('B_A', 0, 12)}}])
+
+                def rerank(query, documents):
+                    captured.append((query, list(documents)))
+                    return [0.7] * len(documents)
+
+                result = DualSearch(rerank)(action, execute, self.raw_reader)
+                self.assertEqual([call['args']['text'] for call in self.actions], [expected])
+                self.assertEqual(captured, [(expected, ['B_A lead one'])])
+                self.assertEqual(result.candidates, ('B_A',))
+
+    def test_source_bound_tampered_support_is_rejected_before_retrieval_or_rerank(self):
+        action = self.action('exact issue span\nsuffix')
+        action['args']['_m6_need'].update(
+            source_bound=True, source_query_text=action['args']['text'],
+            source_query_sha256=digest(action['args']['text'].encode('utf-8')),
+            a_supports=[{'case_id': 'A', 'source_hash': digest(self.query),
+                         'span_bytes': self.anchor_span, 'role': 'citation', 'text': 'suffix'}])
+
+        def unexpected(*args):
+            self.fail('Invalid source must not reach retrieval or reranking')
+
+        with self.assertRaisesRegex(HarnessError, 'support text differs'):
+            DualSearch(unexpected)(action, unexpected, self.raw_reader)
+
     def test_same_source_passage_found_in_both_branches_is_reranked_once_with_both_origins(self):
         calls = []
         start, end = 0, 12

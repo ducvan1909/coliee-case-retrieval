@@ -41,6 +41,7 @@ class DualSearch:
         if sha256(query_raw).hexdigest() != source['source_hash']:
             raise HarnessError('CM4 retrieval anchor source changed')
         query = _source_text(query_raw, anchor['span_bytes'])
+        rerank_query = query
         if ('text' in anchor and anchor['text'] != query) or (
                 'span_bytes' in source and list(source['span_bytes']) != list(anchor['span_bytes'])):
             raise HarnessError('CM4 retrieval anchor differs from the approved source')
@@ -64,6 +65,7 @@ class DualSearch:
             if expected != '\n'.join([query,*dict.fromkeys(citations)]):
                 raise HarnessError('Source-bound query is not the canonical proposition and scoped citation')
             branches=(('source',expected),)
+            rerank_query = expected
         else:
             branches=(('issue',args['text']),('verbatim',query))
         for name, text in branches:
@@ -120,7 +122,7 @@ class DualSearch:
                 documents.append(text)
 
         with measure('reranker_client'):
-            scores = list(self.rerank(query, documents)) if passages else []
+            scores = list(self.rerank(rerank_query, documents)) if passages else []
         if (len(scores) != len(passages) or any(type(score) not in (float, int)
                                                 or not isfinite(score) for score in scores)):
             raise HarnessError('CM4 reranker returned invalid scores')

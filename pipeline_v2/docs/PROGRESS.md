@@ -1,5 +1,11 @@
 # Tiến độ pipeline_v2 ngày 12/11/2026
 
+## CM4 — 23/11/2026, đồng nhất truy vấn source-bound cho reranker
+
+`DualSearch` truyền nguyên `source_query_text` đã kiểm nguồn/hash cho reranker trong nhánh `source_bound`, cùng chuỗi retrieval nhận: anchor và các citation/group members scoped được ghép thêm. Nhánh dual-query cũ giữ truy vấn rerank nguyên văn anchor. Giữ nguyên passage pool, top-k và kiểm provenance.
+
+Kiểm local bằng `.venv/Scripts/python.exe -m unittest pipeline_v2.experiments.context_manager_v2.tests.test_dual_search pipeline_v2.experiments.context_manager_v2.tests.test_passage_review`: **32/32 PASS trong 52,248 giây**. Regression kiểm truy vấn hai bước trùng nhau khi có/không có supports và từ chối support lệch nguồn trước retrieval/rerank. Không gọi inference/deploy; chưa có số đo recall/F1 mới. Prepare namespace mới trước pilot vì code binding thay đổi.
+
 ## CM4 — 23/11/2026, tự cấp vùng A kế tiếp
 
 Profile `--survey-first` cấp thẳng nguyên văn khi bắt đầu và khi vùng hiện tại đã xét xong. Host dùng cây nguồn và giới hạn context để chọn vùng còn việc, lưu lựa chọn ở admission và dùng lại khi replay. Model vẫn được chọn cách xử lý mục chưa đủ ngữ cảnh. Preflight `cache/cm4-auto-survey-nav-local-20261123-151440587` mở trực tiếp `[0, 929)` của `021095.txt` với 6.546 input token và 0 request inference. Replay local ghi quyết định cho [1] rồi nhận thẳng vùng `[929, 2551)`; ledger chỉ có action đánh giá A, coverage giữ nguyên khi vùng mới vừa được cấp. Pilot cũ đã dừng với `operator_stop_file`; namespace mới cần để kiểm hiệu quả live. Xem [mục 5.5 của kế hoạch](plan/CM4_SOURCE_BOUND_SEARCH_IDENTITY.md#55-cấp-thẳng-nguyên-văn-a-ở-bước-điều-hướng-xác-định-được).
