@@ -1,5 +1,13 @@
 # Tiến độ pipeline_v2 ngày 12/11/2026
 
+## CM4 — 23/11/2026, ngân sách permit và evaluator CM4
+
+Host kiểm toàn bộ query sau render instruction/special tokens/EOS bằng tokenizer embedding pin trước khi ghi permit. Nhóm vượt cap được chia lại, giữ nguyên text, hash, offsets và citation provenance; span đơn quá cap trở về unresolved để sửa. Regression nhóm 454 token tách 2+1 và thực thi, biên 448/449, citation provenance và fit lặp đều đạt. Live dùng embedding profile từ manifest; không cắt nguồn âm thầm.
+
+Evaluator v2 nhận cả run root và session, freeze ledger cùng journal/diagnostics/reranker receipts, nối action cha–nhánh theo fingerprint của truy vấn durable và kiểm kết quả branch. Báo riêng hybrid pool 50, scored passages, top 10 passage, B duy nhất, kết luận định danh do model suy luận, pending và prediction precision/recall/F1. Prediction chưa có giữ unavailable/null; thiếu diagnostics giữ recall chưa xác định. Có thống kê reranker cùng controller/embedding usage.
+
+Kiểm local bằng `.venv/Scripts/python.exe`: **87/87 PASS** cho cap, source gate, survey, passage, live, tool repair, evaluator và retrieval diagnostics; regression evaluator riêng sau review **6/6 PASS**. Bản sửa cap/evaluator còn được kiểm với implementation dual_search ở HEAD trước thay đổi đồng thời về reranker. Artifact thật `cache/cm4-query-review-v30-ag-20261120-105534942` freeze/score qua cả root/session đồng nhất: 3 diagnostics verified, 3 embedding requests lịch sử, 0 unknown attempt, prediction unavailable. Không gọi inference/deploy mới; chưa có artifact source-bound/reranker live local, chưa kết luận cải thiện COLIEE. Prepare namespace mới trước pilot vì code binding thay đổi.
+
 ## CM4 — 23/11/2026, đồng nhất truy vấn source-bound cho reranker
 
 `DualSearch` truyền nguyên `source_query_text` đã kiểm nguồn/hash cho reranker trong nhánh `source_bound`, cùng chuỗi retrieval nhận: anchor và các citation/group members scoped được ghép thêm. Nhánh dual-query cũ giữ truy vấn rerank nguyên văn anchor. Giữ nguyên passage pool, top-k và kiểm provenance.

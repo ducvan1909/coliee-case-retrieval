@@ -3,6 +3,7 @@ from pipeline_v2.agent_harness.contracts import fingerprint
 
 
 TRANSLATION_FIELDS = {
+    'source_query_embedding_cap': ('source_need_ref', 'Revise this permit and select a smaller complete source proposition or citation supports. The rendered embedding input exceeds the pinned token cap; no source text was truncated.'),
     'invalid_survey_batch': ('items', 'Use one to three distinct nonoverlapping offered spans. You can assess a single span first.'),
     'invalid_source_group': ('source_need_refs', 'Choose distinct queued needs for the same decision. Keep distinct cited decisions separate.'),
     'source_span_required': ('proposition_ref', 'Choose exactly one offered remaining source ref, or copy a literal proposition_quote. no_search_needed also requires a selected span.'),

@@ -1,18 +1,111 @@
 """Source-bound decisions made before CM4 may issue a corpus search."""
 from copy import deepcopy
+from functools import lru_cache
+import json
+from pathlib import Path
 import re
 
 from pipeline_v2.agent_harness.contracts import HarnessError, fingerprint
 from .evidence import unread_spans
 from .anchor_quote import _matches, _visible_paragraphs, _normalized_text, _typographic_text, _nearby_anchors
 
-VERSION = 'cm4-source-gate-v5'
+VERSION = 'cm4-source-gate-v6'
 BOUND_VERSION = 'cm4-source-bound-v2'
 DECISIONS = ('search_needed', 'need_more_context', 'no_search_needed')
 ATTRIBUTIONS = ('court', 'party', 'quoted_source', 'lower_tribunal', 'unknown')
 REASONS = ('authority_reference', 'quoted_authority', 'masked_authority', 'facts',
            'procedural_history', 'relief_requested', 'truncated', 'attribution_unclear',
            'mixed_or_unclear', 'source_unresolved', 'legal_proposition', 'source_relationship')
+
+
+@lru_cache(maxsize=1)
+def _embedding_tokenizer():
+    from pipeline_v2.passages import PinnedTokenizer
+    return PinnedTokenizer(Path(__file__).resolve().parents[3],
+                           'pipeline_v2/configs/qwen3_embedding_4b_tokenizer.lock.json')
+
+
+def embedding_query_budget(text, profile=None):
+    """Count precisely the input accepted by AccountedSparseHybridSession."""
+    from pipeline_v2.retrieval.runtime import render_query
+    if profile is None:
+        profile = json.loads((Path(__file__).resolve().parents[3] /
+                              'pipeline_v2/configs/m3_full.json').read_bytes())
+    ids = _embedding_tokenizer().backend.encode(render_query(text, profile), add_special_tokens=True).ids
+    cap = profile['embedding']['max_tokens']
+    return {'input_tokens': len(ids), 'max_tokens': cap,
+            'accepted': bool(ids) and ids[-1] == 151643 and len(ids) <= cap}
+
+
+def query_text(decision):
+    text = decision['proposition']['text']
+    additions = [row['text'] for row in decision.get('a_supports', [])
+                 if row['role'] in ('citation', 'group_member') and row['text'] not in text]
+    return '\n'.join([text, *dict.fromkeys(additions)])
+
+
+def _set_group(context, refs, kind, reason, query_case):
+    main = context['source_gate'][refs[0]]
+    main.update(group_members=list(refs), group_kind=kind, group_reason=reason)
+    for ref in refs[1:]:
+        row = context['source_gate'][ref]
+        row.update(status='grouped', grouped_into=refs[0])
+        main.setdefault('a_supports', []).append({
+            'role': 'group_member', 'case_id': query_case,
+            'source_hash': row['source_hash'], 'source_ref': row['source_ref'],
+            'span_bytes': deepcopy(row['proposition']['span_bytes']), 'text': row['proposition']['text']})
+        # Each member's citation remains bound even when different source refs
+        # carry the same literal citation; query_text alone deduplicates text.
+        for support in row.get('a_supports', []):
+            if support not in main['a_supports']:
+                main['a_supports'].append(deepcopy(support))
+
+
+def fit_query_permits(context, query_case, budget=embedding_query_budget):
+    """Partition oversized groups before persisting approval, never cut source text."""
+    decisions = context.get('source_gate', {})
+    for ref, main in list(decisions.items()):
+        if main['status'] != 'approved':
+            continue
+        members = main.get('group_members', [ref])
+        if len(members) > 1:
+            kind, reason = main['group_kind'], main['group_reason']
+            # Rebuild from original member records. Group-only supports must not
+            # leak into a later split query or survive revising the main span.
+            for member in members:
+                row = decisions[member]
+                originals = row.pop('ungrouped_a_supports', None)
+                row['a_supports'] = originals if originals is not None else [
+                    s for s in row.get('a_supports', []) if s['role'] != 'group_member']
+                row['status'] = 'approved'
+                for key in ('group_members', 'group_kind', 'group_reason', 'grouped_into', 'group_context'):
+                    row.pop(key, None)
+            partitions = []
+            for member in members:
+                row = decisions[member]
+                if partitions:
+                    trial = deepcopy(context)
+                    _set_group(trial, [*partitions[-1], member], kind, reason, query_case)
+                    if budget(query_text(trial['source_gate'][partitions[-1][0]]))['accepted']:
+                        partitions[-1].append(member)
+                        continue
+                partitions.append([member])
+            for part in partitions:
+                row = decisions[part[0]]
+                row['ungrouped_a_supports'] = deepcopy(row.get('a_supports', []))
+                if len(part) > 1:
+                    _set_group(context, part, kind, reason, query_case)
+                if len(partitions) > 1:
+                    row['embedding_split_from'] = list(members)
+        # Check every approved partition, including a single oversized span.
+    for row in decisions.values():
+        if row['status'] != 'approved':
+            continue
+        row['embedding_query_budget'] = budget(query_text(row))
+        if not row['embedding_query_budget']['accepted']:
+            row.update(status='unresolved', decision='need_more_context', resolution_choices=[],
+                       validation_message='The full rendered embedding query exceeds its token cap. '
+                       'Select a smaller complete source proposition or revise citation supports; no text was truncated.')
 
 
 def assessment_properties(paragraph_refs, segment_refs):
@@ -370,6 +463,7 @@ def group_needs(context, refs, reason, paragraphs):
     if len(identifiers) > 1:
         raise HarnessError('Keep approved needs with distinct scoped citations separate')
     main = rows[0]
+    main.setdefault('ungrouped_a_supports', deepcopy(main.get('a_supports', [])))
     members = [member for row, ref in zip(rows, refs) for member in row.get('group_members', [ref])]
     main['group_members'] = list(dict.fromkeys(members))
     main['group_reason'] = reason.strip()
@@ -424,6 +518,7 @@ def group_exact_citations(context, paragraphs, query_case, raw_reader):
             continue
         main_ref = groups[identity]
         main = context['source_gate'][main_ref]
+        main.setdefault('ungrouped_a_supports', deepcopy(main.get('a_supports', [])))
         main['group_members'] = list(dict.fromkeys([*main.get('group_members', [main_ref]), ref]))
         main['group_reason'] = 'The approved spans share one exact scoped citation.'
         main.setdefault('group_kind', 'exact_citation')

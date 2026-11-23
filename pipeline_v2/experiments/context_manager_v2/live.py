@@ -454,7 +454,8 @@ def runtime(root, run_dir, cfg, options, trace):
             config=AdaptiveConfig(**cfg['adaptive_config']), initial_observation=initial, query_excerpt=whole,
             hybrid_search=hybrid, counter_binding=fingerprint([transport.tokenizer_fingerprint, transport.prompt_fingerprint]),
             execution_mode='live', run_binding={'code': binding(), 'settings': cfg, 'options': options},
-            gate_enabled=True, loop_guard_mode=options['loop_guard_mode'], selector=select_supported_cases,
+            gate_enabled=True, embedding_profile=lexical.manifest['profile'],
+            loop_guard_mode=options['loop_guard_mode'], selector=select_supported_cases,
             selector_fingerprint=selector_fingerprint(), **({'dual_search': dual_search} if dual_search else {}))
         engine.identity_check_enabled = bool(reranker_id)
         engine.survey_first = survey_first

@@ -447,12 +447,13 @@ class Engine:
                  config=None, initial_observation=None, query_excerpt=None,
                  hybrid_search=None, counter_binding=None, page_size=5, execution_mode='offline', run_binding=None,
                  gate_enabled=False, selector=None, selector_fingerprint=None, loop_guard_mode=None,
-                 dual_search=None):
+                 dual_search=None, embedding_profile=None):
         from pipeline_v2.m6 import AdaptiveConfig
         require(execution_mode in ('offline', 'live'), 'Invalid execution mode')
         self.execution_mode = execution_mode
         self.gate_enabled = gate_enabled
         self.dual_search = dual_search
+        self.embedding_profile = deepcopy(embedding_profile)
         self.loop_guard_mode = loop_guard_mode or ('warn' if gate_enabled else 'stop')
         require(self.loop_guard_mode in ('warn', 'stop'), 'Invalid loop guard mode')
         require(type(gate_enabled) is bool, 'Source gate flag must be boolean')
@@ -2230,13 +2231,16 @@ class Engine:
         if self.dual_search is not None:
             require(need.get('source_bound') is True,'Source-bound retrieval mode is required')
             require(need.get('a_supports')==decision.get('a_supports',[]),'Retrieval supports differ from the approved source')
-            citations=[row['text'] for row in decision.get('a_supports',[]) if row['role'] in ('citation', 'group_member')
-                       and row['text'] not in decision['proposition']['text']]
-            expected='\n'.join([decision['proposition']['text'],*dict.fromkeys(citations)])
+            expected = source_gate.query_text(decision)
             require(action['args']['text']==expected and need.get('source_query_text')==expected
                     and need.get('source_query_sha256')==sha256(expected.encode('utf-8')).hexdigest(),
                     'Retrieval query text differs from the locked canonical source')
+            require(self._embedding_query_budget(expected)['accepted'],
+                    'Approved source query exceeds the pinned embedding token/EOS cap')
         self.harness.m3.verify_source(self.harness.identity.query_id, decision['source_hash'])
+
+    def _embedding_query_budget(self, text):
+        return source_gate.embedding_query_budget(text, self.embedding_profile)
 
     def _draft_close_catalog(self, payload, context, schema, handles):
         drafts = context.get('anchor_drafts', {})
@@ -2712,10 +2716,9 @@ class Engine:
                         decision = permit['decision']
                         anchor = {**decision['proposition'], 'source_ref': decision['source_ref']}
                         if self.dual_search is not None:
-                            query_text=decision['proposition']['text']
-                            citations=[row['text'] for row in decision.get('a_supports',[]) if row['role'] in ('citation', 'group_member')
-                                       and row['text'] not in query_text]
-                            query_text='\n'.join([query_text,*dict.fromkeys(citations)])
+                            query_text = source_gate.query_text(decision)
+                            if not self._embedding_query_budget(query_text)['accepted']:
+                                raise policy.ToolSemanticError('source_query_embedding_cap')
                             need={'a_refs':[anchor['source_ref']],'intent':query_text,'route':'issue',
                                   'a_paragraph':{'handle':permit['paragraph_ref'], **deepcopy(decision['paragraph'])},
                                   'a_sources':[{'case_id':self.harness.identity.query_id,
@@ -3005,7 +3008,8 @@ class Engine:
                         row['status'] = 'approved'
                 decision.pop('group_kind', None)
                 decision.pop('group_reason', None)
-                decision['a_supports'] = [row for row in decision.get('a_supports', []) if row['role'] != 'group_member']
+                decision['a_supports'] = decision.pop('ungrouped_a_supports', [
+                    row for row in decision.get('a_supports', []) if row['role'] != 'group_member'])
                 decision.update(status='unresolved',decision='need_more_context',resolution_choices=[],
                                 validation_message='Approval withdrawn for a revised source-span selection.')
             elif name == 'read_query_span':
@@ -3252,6 +3256,10 @@ class Engine:
                     'assess_source_need', 'assess_source_needs', 'defer_source_need', 'resume_approved_source_need'):
                 source_gate.group_exact_citations(context, self.harness.query_paragraphs,
                                                  self.harness.identity.query_id, self.store.raw_reader)
+            if self.dual_search is not None and name in (
+                    'assess_source_need', 'assess_source_needs', 'group_source_needs', 'defer_source_need',
+                    'resume_approved_source_need', 'revisit_source_need', 'revise_source_need'):
+                source_gate.fit_query_permits(context, self.harness.identity.query_id, self._embedding_query_budget)
             self._sync_missing(context)
             context['revision'] += 1
             self.harness._write(db, state, 'action_result', action_id=action_id, status=action_status, result=None,
