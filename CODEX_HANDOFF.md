@@ -1,5 +1,9 @@
 # Bàn giao Pipeline V2 cho Codex trên máy khác
 
+## Checkpoint hiện hành — 24/11/2026, incremental runtime và input profiles
+
+Working tree đã triển khai [kế hoạch runtime/snapshot](pipeline_v2/docs/plan/CM4_INCREMENTAL_RUNTIME_SNAPSHOT.md#19-checkpoint-triển-khai-local--24112026). Đọc [báo cáo local](pipeline_v2/reviews/cm4_incremental_runtime_20261124/REPORT.md) trước các mốc 23/11 phía dưới: suffix runtime/index, compile frame và profile catalog/instructions/paging đã có code. Prompt/navigation mới là opt-in, full/full/manual giữ mặc định. Bản cuối **313 test PASS**; preflight án gốc **3.443 token, 0 inference**. Có exact baseline differential và local projection/token measurements, chưa có live speedup hoặc xác minh chất lượng model. Chuẩn bị namespace mới vì code binding thay đổi; người dùng/AG chạy inference/deploy, Codex chưa gọi provider. Các mô tả “đề xuất/chưa triển khai” trong phần lịch sử được giữ nguyên, xem checkpoint ngày 24/11 trong kế hoạch để biết phạm vi đã làm.
+
 ## Bàn giao đầy đủ sau pull — 23/11/2026
 
 Đọc [checkpoint chi tiết 23/11 trong file bàn giao cũ](pipeline_v2/docs/RETRIEVAL_HANDOFF_20261114.md#checkpoint-bàn-giao-đầy-đủ--23112026-thay-đổi-kể-từ-lần-pull-gần-nhất) trước các mốc lịch sử. Phạm vi từ lần pull `dce7163` ngày 20/11 lúc 20:00:43 +07:00; checkpoint ghi thay đổi theo từng khâu/file, pilot và lỗi đã gặp, kiểm local, artifact không chuyển và cách tiếp quản.

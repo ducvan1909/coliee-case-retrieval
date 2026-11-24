@@ -59,13 +59,17 @@ def bind_repair(events, feedback, manifest):
     if feedback['code'] == 'source_span_required':
         scope = fingerprint([feedback['tool'], feedback['code'],
                              manifest.get('dispatch_m6', {}).get('a_paragraphs', {})])
-    already_offered = any(row.get('cm_tool_repair', {}).get('scope') == scope for row in events)
+    runtime = getattr(events, 'runtime', None)
+    already_offered = (scope in runtime.repair_scopes if runtime is not None else
+                       any(row.get('cm_tool_repair', {}).get('scope') == scope for row in events))
     return {**feedback, 'scope': scope, 'retry_allowed': not already_offered}
 
 
 def visible_repair(events):
     """Project the latest repair that the model can still act on."""
-    boundary = next((row for row in reversed(events) if row['kind'] in ('request_result', 'action_result')), {})
+    runtime = getattr(events, 'runtime', None)
+    boundary = (runtime.latest_boundary if runtime is not None else
+                next((row for row in reversed(events) if row['kind'] in ('request_result', 'action_result')), {}))
     repair = boundary.get('cm_tool_repair', {})
     if not repair.get('retry_allowed'):
         return None

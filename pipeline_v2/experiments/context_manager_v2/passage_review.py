@@ -122,7 +122,10 @@ def _unique_rows(engine, rows):
 
 def delivered(engine, case, digest):
     ranges = []
-    events = engine.events()
+    events = engine._events()
+    runtime = getattr(events, 'runtime', None)
+    if runtime is not None:
+        return deepcopy(runtime.delivered.get((case, digest), []))
     requests = {row['request_id']: row for row in events if row['kind'] == 'request_admitted'}
     for event in events:
         if event['kind'] != 'request_result' or not event.get('received_response'):
@@ -572,6 +575,10 @@ def compile_view(engine, state, context, query, byte_limit):
 
 
 def execute(engine, db, state, context, query, action, manifest, action_id):
+    # The entry point is also used by offline tooling with a public StateView.
+    # Writes always operate on the writer-synchronized internal state.
+    if getattr(engine, '_runtime', None) is not None:
+        state = engine._state(db)
     name, args = action['action'], action['args']
     local = context.setdefault('passage_session', {})
     local.pop('last_read_feedback', None)

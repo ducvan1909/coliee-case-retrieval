@@ -181,6 +181,54 @@ class ModalQwenTransport:
     def count_tokens(self, payload):
         return self._count_prompt(self.render_prompt(payload))
 
+    def freeze_request(self, payload, schema, *, instructions=None, profile_id='full', policy_fingerprint=None):
+        """Bind literal instructions and the exact body/schema before admission.
+
+        The normal counter remains unchanged for legacy evidence planning. This
+        separate spec is used only by explicitly enabled request profiles.
+        """
+        self._request(payload)  # same payload/output-cap validation as legacy
+        if instructions is None:
+            instructions = self._instructions
+        if not isinstance(instructions, str) or not instructions.strip():
+            raise HarnessError('Frozen prompt instructions must be nonempty')
+        if not isinstance(schema, dict) or not schema or not isinstance(profile_id, str) or not profile_id:
+            raise HarnessError('Invalid frozen prompt schema/profile')
+        prompt = instructions + PAYLOAD_HEADER + payload.decode('utf-8')
+        return {'version': 'modal-frozen-prompt-v1', 'profile_id': profile_id,
+                'policy_fingerprint': policy_fingerprint, 'instructions': instructions,
+                'instructions_sha256': sha256(instructions.encode('utf-8')).hexdigest(),
+                'payload_sha256': sha256(payload).hexdigest(), 'schema_sha256': fingerprint(schema),
+                'rendered_prompt_sha256': sha256(prompt.encode('utf-8')).hexdigest(),
+                'tokenizer_fingerprint': self.tokenizer_fingerprint,
+                'input_tokens': self._count_prompt(prompt),
+                'output_token_cap': json.loads(payload)['max_output_tokens']}
+
+    def verify_frozen_request(self, payload, schema, spec):
+        if not isinstance(spec, dict):
+            raise HarnessError('Invalid frozen prompt record')
+        expected = self.freeze_request(payload, schema, instructions=spec.get('instructions'),
+            profile_id=spec.get('profile_id'), policy_fingerprint=spec.get('policy_fingerprint'))
+        if expected != spec:
+            raise HarnessError('Frozen prompt binding mismatch')
+        return expected['instructions'] + PAYLOAD_HEADER + payload.decode('utf-8'), expected['input_tokens']
+
+    def send_frozen(self, payload, request_id, schema, spec):
+        """Send an admitted request without choosing its phase again."""
+        self.last_call_id = None
+        receipt = {'request_id': request_id, 'call_id': None, 'submission_attempted': False}
+        self.receipts.append(receipt)
+        try:
+            reply = self._send(payload, request_id, schema, receipt, frozen_spec=spec)
+        except TransportError as exc:
+            receipt.update(status='unknown' if exc.unknown else 'error', error_code=str(exc))
+            raise
+        except KeyboardInterrupt:
+            receipt.update(status='unknown', error_code='modal_interrupted')
+            raise
+        receipt.update(status='received', error_code=None)
+        return reply
+
     def send_structured(self, payload, request_id, schema):
         self.last_call_id = None
         receipt = {"request_id": request_id, "call_id": None, "submission_attempted": False}
@@ -196,10 +244,18 @@ class ModalQwenTransport:
         receipt.update(status="received", error_code=None)
         return reply
 
-    def _send(self, payload, request_id, schema, receipt):
+    def _send(self, payload, request_id, schema, receipt, *, frozen_spec=None):
         try:
-            prompt, max_tokens = self._request(payload)
-            input_tokens = self._count_prompt(prompt)
+            if frozen_spec is None:
+                prompt, max_tokens = self._request(payload)
+                input_tokens = self._count_prompt(prompt)
+            else:
+                prompt, input_tokens = self.verify_frozen_request(payload, schema, frozen_spec)
+                max_tokens = frozen_spec['output_token_cap']
+                receipt.update(prompt_profile_id=frozen_spec['profile_id'],
+                               rendered_prompt_sha256=frozen_spec['rendered_prompt_sha256'],
+                               instruction_sha256=frozen_spec['instructions_sha256'],
+                               input_policy_fingerprint=frozen_spec['policy_fingerprint'])
         except HarnessError as exc:
             raise TransportError("modal_invalid_payload") from exc
         receipt.update(expected_input_tokens=input_tokens, output_token_cap=max_tokens)

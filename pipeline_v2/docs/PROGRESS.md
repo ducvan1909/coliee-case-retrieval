@@ -4,6 +4,12 @@
 
 Đã ghi [thiết kế chi tiết ở mục 5.6](plan/CM4_SOURCE_BOUND_SEARCH_IDENTITY.md#56-model-quyết-định-hoàn-thành-khảo-sát-và-map-thu-hẹp): giữ survey/gom trước retrieval, model chủ động chốt khi đủ thay vì bắt buộc hết A/hết unresolved. Map chỉ hiện phần còn khảo sát, nhu cầu có danh sách riêng; host tách đã giao, đã xét, skipped và hidden, có đường mở lại và snapshot độ phủ khi chốt. Kèm contract chuyển pha, resume, scope file và ca nghiệm thu. **Chỉ cập nhật tài liệu; chưa triển khai hoặc chạy pilot.** Các checkpoint 23/11 bên dưới vẫn mô tả code hiện hành.
 
+## CM4 — 24/11/2026, incremental runtime và profile giảm input
+
+Đã triển khai runtime đọc suffix theo seq, state/context/index/hash tăng dần và public views detached; common compile frame/exact memo giữ source integrity và packet baseline. Query/passage/read/repair/M6/map dùng index đường nóng. Có catalog batch gọn, frozen instructions theo pha và auto candidate paging có điều kiện. Các profile prompt/navigation mới vẫn opt-in `full/full/manual` là mặc định; decoder, output cap và model không đổi. Xem [kế hoạch mục 19](plan/CM4_INCREMENTAL_RUNTIME_SNAPSHOT.md#19-checkpoint-triển-khai-local--24112026) và [báo cáo](../reviews/cm4_incremental_runtime_20261124/REPORT.md).
+
+Bản cuối đạt **228 CM4 + 85 shared = 313 test PASS**, differential baseline 10 stage giữ payload/schema/refs/state. Preflight `cache/cm4-incremental-compact-final-20261124` trên `021095.txt [0,929)` có **3.443 input token**, frozen spec/binding khớp, **0 controller/embedding/reranker calls**. Cùng hai packet A audit, compact catalog giảm khoảng 32% input; ghép instructions theo pha giảm khoảng 45–47%. Projection state/context/prefix-hash trên ledger 716 event: p50 1.434,376 → 12,407 ms sau bootstrap; đây không phải tốc độ toàn pipeline. RAM còn tăng theo history; báo cáo giữ samples/RSS và giới hạn. Chưa có inference/deploy, quality/F1 hay noninferiority mới; không resume run cũ với binding mới.
+
 ## CM4 — 23/11/2026, phân biệt kết thúc partial với complete
 
 Final còn unresolved search query hoặc deferred pair trả `stop_reason=partial` và `review_status=partial_with_unresolved_queries` / `partial_with_deferred_pairs`. Giữ prediction đã có, selection status và provenance; không kích baseline fallback khi đổi nhãn. Host citation matches vẫn được ghép vào prediction của run partial. Run xét xong giữ `complete`; lỗi/budget giữ trạng thái riêng. Chỉ áp dụng run mới, không sửa ledger/báo cáo lịch sử. Prepare namespace mới do code binding thay đổi.
