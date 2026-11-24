@@ -4,6 +4,8 @@ Phạm vi ngày 22/11/2026. Áp dụng cho pilot dual-query/rerank. Giữ Qwen3.
 
 Bản 23/11/2026 triển khai các mục 5–8 trong profile thử `--survey-first` và mục 9 bằng `--profile-timing`. Cả hai cờ được khóa lúc `prepare`. Trần live giữ 1.024 token. Thử mức 1.536 phụ thuộc số liệu batch thực tế. Đường chốt trực tiếp hiện chỉ dùng header gốc có các trường citation, ngày và hồ sơ trong cùng cụm tự định danh ở đầu quyết định. Quét 7.708 file của corpus không tìm được header đủ điều kiện theo quy tắc này. Ca dương dùng fixture và đã được kiểm từ ref A đến prediction. Chất lượng ngữ nghĩa, số lượt tiết kiệm và các đỉnh latency cần AG kiểm live.
 
+**Điều chỉnh kế hoạch 24/11/2026, chưa triển khai:** [mục 5.6](#56-model-quyết-định-hoàn-thành-khảo-sát-và-map-thu-hẹp) thay gate khảo sát hết A/xử lý hết unresolved bằng quyết định hoàn thành khảo sát của model. Vẫn gom nhu cầu trước retrieval; host lưu trung thực phần đã giao, đã xét, bỏ qua và chưa khảo sát. Các checkpoint 23/11 ở trên mô tả code hiện hành, không phải bằng chứng đã triển khai điều chỉnh này.
+
 ## 1. Khóa lượt tìm vào nguyên văn A
 
 Mục này mô tả luồng đã triển khai ở pilot. Phương án tiếp theo ở [mục 5](#5-khảo-sát-a-trước-rồi-gom-nhu-cầu-tìm) đổi thời điểm cấp permit, đồng thời giữ các kiểm tra nguyên văn, ref và hash.
@@ -43,13 +45,13 @@ Ca kiểm: T054 ở B `011064.txt` dùng cùng ref thân [37] cho rule và ident
 
 ## 5. Khảo sát A trước rồi gom nhu cầu tìm
 
-Thiết kế ngày 23/11/2026. Trong profile thử, khảo sát hết A theo từng vùng đang vừa ngân sách context, lưu các đoạn cần tìm, rồi chuyển sang retrieval và review B. Pilot `cm4-map-loop-fix-ag-20261122-203215184` mất ba lượt tìm cho cùng lệnh ở [5] và cắt hai khối trích ở [18] qua ba query. Khảo sát trước cho host cơ hội thấy các đánh dấu liên quan trước khi trả chi phí tìm và duyệt B.
+Thiết kế nền ngày 23/11/2026 khảo sát hết A theo từng vùng đang vừa ngân sách context, lưu các đoạn cần tìm, rồi chuyển sang retrieval và review B. **Kế hoạch thay thế ngày 24/11 ở mục 5.6 giữ khảo sát/gom trước retrieval nhưng để model quyết định khi nào đã đủ; không bắt buộc đọc hết A hoặc xử lý mọi unresolved.** Pilot `cm4-map-loop-fix-ag-20261122-203215184` mất ba lượt tìm cho cùng lệnh ở [5] và cắt hai khối trích ở [18] qua ba query. Khảo sát trước cho host cơ hội thấy các đánh dấu liên quan trước khi trả chi phí tìm và duyệt B.
 
 ### 5.1. Khảo sát và lưu đánh dấu
 
 1. Model đọc từng vùng A, đánh dấu đoạn nguyên văn cần tìm và có thể chọn ref lời dẫn, điều kiện, hoặc citation. Phần đã xét và không cần tìm ghi quyết định theo span. Phần cần thêm ngữ cảnh giữ đường mở lại.
 2. Host xác minh ref, hash nguồn và byte offsets như luồng hiện tại. Đoạn cần tìm được lưu vào danh sách chờ, kèm ranh giới khối trích và vai trò từng ref. Catalog tiếp tục cho model khảo sát các vùng A khác. Embedding, retrieval và reranker bắt đầu ở pha sau.
-3. Lưu riêng các span đã giao, đã xét, đã đánh dấu cần tìm, và đã tìm. Ref hỗ trợ chỉ mang ngữ cảnh. Khi dừng hoặc resume giữa pha khảo sát, giữ các đánh dấu đã ghi cùng vị trí còn việc. Sang pha gom khi khảo sát xong, với các mục còn thiếu ngữ cảnh được lưu riêng để mở lại.
+3. Lưu riêng các span đã giao, đã xét, đã đánh dấu cần tìm, và đã tìm. Ref hỗ trợ chỉ mang ngữ cảnh. Khi dừng hoặc resume giữa pha khảo sát, giữ các đánh dấu đã ghi cùng vị trí còn việc. Theo điều chỉnh 24/11, gom trong quá trình khảo sát và chốt danh sách khi model chọn hoàn thành; các mục còn thiếu ngữ cảnh được lưu riêng để mở lại, không chặn chuyển pha toàn cục.
 
 ### 5.2. Gom và cấp quyền tìm
 
@@ -84,8 +86,88 @@ So với pilot theo cùng phạm vi byte đã xét, đo số đánh dấu, số 
 ### 5.5. Cấp thẳng nguyên văn A ở bước điều hướng xác định được
 
 - Khi bắt đầu pha khảo sát và khi vùng A đang đọc đã xét xong, host tìm byte chưa xét đầu tiên theo thứ tự văn bản. Host cấp nguyên văn của vùng chứa byte đó nếu vừa context. Với vùng quá rộng, host tự xuống vùng con theo cây nguồn và dùng phép đếm token hiện có. Lượt tiếp theo có thể đánh giá A ngay.
-- Nếu vùng hiện tại còn span chưa xét, draft còn vướng hoặc request đang phục hồi, giữ nguyên vị trí. Điều hướng do model chủ động chọn vẫn có các tool hiện tại. Khi không còn byte để mở, giữ đường xử lý mục unresolved và chuyển pha theo điều kiện cũ.
+- Nếu vùng hiện tại còn span chưa xét, draft còn vướng hoặc request đang phục hồi, giữ nguyên vị trí trong cơ chế cấp tự động hiện hành. Điều hướng do model chủ động chọn vẫn có các tool hiện tại. Điều chỉnh 24/11 ở mục 5.6 thay điều kiện chuyển pha cũ và cho phép model bỏ qua/mở lại hoặc hoàn thành sớm; không dùng cơ chế tự cấp vùng tiếp theo để buộc model đi hết A.
 - Ghi vùng được cấp tự động trong admission để khôi phục cùng vị trí sau restart. Preview chỉ dựng payload. Cấp nguyên văn không tự thay đổi số byte đã xét hoặc số lượt đánh giá. Chạy đối chứng trên cùng lượng byte đã xét, đếm riêng lượt `open_query` và `show_context_page` còn lại.
+
+### 5.6. Model quyết định hoàn thành khảo sát và map thu hẹp
+
+**Quyết định thiết kế ngày 24/11/2026 — chỉ lập kế hoạch trong đợt này.** Áp dụng cho profile thử `--survey-first`; giữ model, chunk, corpus, index, reranker, top 10, giới hạn context/output và kiểm định danh B hiện hành. Không tự triển khai, inference hoặc deploy từ việc cập nhật tài liệu này. Mục này có hiệu lực thay các câu yêu cầu khảo sát hết A hoặc xử lý hết unresolved ở mục 5.1–5.5; các quy tắc nguồn và gom đúng authority vẫn giữ.
+
+#### Mục tiêu và hợp đồng hiển thị
+
+- Payload luôn ghi rõ **SURVEY PHASE** khi đang khảo sát: đọc A để nhận diện và gom các nhu cầu tìm án B mà A viện dẫn hoặc sử dụng làm nguồn cho nhận định, lập luận hay quy tắc pháp lý; chưa thực hiện retrieval. Nội dung tương tự về chủ đề hoặc quy tắc chưa đủ để tạo nhu cầu tìm nguồn. Model quyết định nhu cầu ngữ nghĩa, host xác minh ref, offsets, hash và ghi provenance.
+- Map mặc định chỉ hiện các phần còn trong lượt khảo sát hiện tại. Danh sách nhu cầu đã ghi nhận là phần riêng, có phân trang và tổng số, giữ ref mở lại mọi span thành viên cùng trạng thái gom/tìm. Một nhu cầu biến mất khỏi map không mất evidence và không tự thành đã tìm.
+- Hiện tóm tắt độ phủ và số phần đã ẩn, kèm đường **Mở lại phần đã ẩn**. Map rỗng chỉ có nghĩa không còn mục trong chế độ xem hiện tại; không tự chứng minh A đã được đọc hết hoặc không còn citation.
+- Có lựa chọn **Hoàn thành khảo sát** từ các màn hình khảo sát A, kể cả khi còn phần chưa đọc hoặc unresolved. Model có thể tiếp tục khảo sát toàn bộ nếu thấy cần. Không đặt ngưỡng phần trăm coverage, số đoạn, số nhu cầu tối thiểu hoặc xác suất do host suy đoán để thay quyết định này.
+
+Mô tả đầy đủ cho lựa chọn hoàn thành khảo sát:
+
+> Hoàn thành khảo sát và chuyển sang tìm kiếm. Chọn khi bạn đã ghi nhận, gom các nhu cầu tìm án B mà A viện dẫn hoặc sử dụng làm nguồn cho nhận định, lập luận hay quy tắc pháp lý, và đánh giá rằng không cần đọc thêm phần A còn lại để phát hiện nhu cầu mới hoặc bổ sung cho nhu cầu đã có. Án chỉ có nội dung tương tự chưa đủ để trở thành một nhu cầu tìm nguồn. Những phần chưa đọc vẫn được ghi là chưa khảo sát.
+
+Không diễn đạt quyết định này thành “A không còn citation nào khác”. Ý nghĩa được lưu là **model đánh giá không cần khảo sát thêm để xác lập các nhu cầu tìm nguồn hiện có**, không phải host chứng nhận đã phát hiện đầy đủ mọi nguồn của A.
+
+#### Trạng thái host và map đi tới
+
+Không dùng một cờ `done` chung cho việc hiển thị map, đọc A, xử lý nhu cầu và retrieval. Tên trường dưới đây là đề xuất contract khi triển khai; mọi interval dùng UTF-8 byte offsets `[start, end)` gắn với source hash.
+
+| Trục trạng thái | Dữ liệu tối thiểu và ý nghĩa |
+| --- | --- |
+| Đã giao nguồn (`exposed`) | Raw thực sự được giao trong admission/receipt hợp lệ; preview hoặc chỉ mở map không tính là đọc raw. Giao raw chưa chứng minh model đã xét nội dung. |
+| Đã xét (`assessed`) | Span có quyết định hợp lệ của model, gồm cần tìm hoặc không cần tìm. Support ref chỉ cung cấp ngữ cảnh; không tự đóng span khác. |
+| Bỏ qua (`skipped`) | Span được model chủ động bỏ qua khi đi tới, lưu action, lý do ngắn và thời điểm. Không tăng exposed/assessed; phần chưa được xét vẫn là chưa khảo sát. |
+| Đang ẩn (`hidden`) | Trạng thái trình bày, có thể do đã xét/đã đánh dấu hoặc bị bỏ qua. Có nguyên nhân ẩn và đường mở lại. Mở lại không xóa lịch sử quyết định hay evidence. |
+| Còn việc/chưa khảo sát | Tính từ nguồn và các span đã xét, phân biệt chưa giao, đã giao nhưng chưa xét, skipped chưa xét, và unresolved. Các số liệu có thể chồng lấn theo trục; không cộng chúng thành một tỷ lệ hoàn tất giả. |
+| Nhu cầu đã ghi nhận | ID ổn định, span chính, support refs phân vai, thành viên nhóm, trạng thái approved/unresolved/deferred/searched và liên kết query/kết quả. Không phụ thuộc vòng đời item trên map. |
+| Pha và lần chốt khảo sát | `survey` hoặc `retrieval`, revision của danh sách nhu cầu, event hoàn thành, lý do model và snapshot coverage/phần còn lại. Nếu quay lại khảo sát, lưu revision mới và giữ event cũ. |
+
+**Ví dụ đoạn 1–3:** model chỉ đọc/xét đoạn 3 thì host chỉ ghi exposure/assessment của đúng span đoạn 3. Không đánh dấu đoạn 1–2 đã đọc. Nếu model muốn cả 1–3 biến mất khỏi map, dùng lựa chọn đi tới có thông báo rõ **bỏ qua các phần trước vị trí này**: ghi skipped cho phần chưa xét ở 1–2, còn 3 giữ trạng thái thực tế của nó. Hành động chỉ mở/đọc đoạn 3 không mặc nhiên mang ý nghĩa bỏ qua 1–2. Khi đoạn chứa nhiều ý, chỉ trừ đúng interval đã xét; phần còn lại vẫn còn việc hoặc được bỏ qua rõ ràng.
+
+Map cần lọc theo interval thực tế, không xóa cả paragraph/nhánh cha chỉ vì một span con được đánh dấu. Khi vùng chỉ còn một phần chưa xét, cấp đường mở đúng phần đó, vẫn cho đọc ngữ cảnh lân cận. Mở lại 1–2 đưa chúng về chế độ xem đang khảo sát, giữ lịch sử skipped; chỉ quyết định mới trên đúng span mới tăng assessed. Việc compact refs, phân trang, map vượt cap hoặc dựng preview không được tự sinh event bỏ qua/đã xét.
+
+#### Chốt khảo sát, gom và chuyển pha
+
+1. Trong survey, model tiếp tục đánh dấu tối đa ba quyết định/lượt theo contract hiện tại. Host gom citation exact đúng phạm vi như hiện hành; cho model xác nhận nhóm có căn cứ ngay trong survey thay vì đợi `survey_ready` cũ. Không ép giải quyết mọi cặp nhóm mơ hồ: giữ riêng là lựa chọn hợp lệ. Giữ phân biệt hai khối [18], các lệnh khác ngày/nội dung và các nguồn `see also`.
+2. Bổ sung action đề xuất `complete_source_survey(reason)`. Host kiểm đúng pha, đúng revision/admission, reply hợp lệ và không có request/action khác đang pending hoặc kết quả chưa rõ. Draft chưa commit, unresolved hoặc phần chưa đọc được giữ trong snapshot; chúng không phải gate ngữ nghĩa toàn cục. Action hoàn thành là action riêng sau khi batch đánh dấu đã commit; không suy hoàn thành từ output bị cắt hoặc trộn thêm quyết định chưa thực thi trong cùng lần chốt.
+3. Commit nguyên tử event hoàn thành và snapshot danh sách nhu cầu/nhóm hiện có, cùng phần chưa khảo sát, unresolved/deferred và lý do. Chuyển sang retrieval, không chạy embedding/retrieval/reranker ngay bên trong action hoàn thành. Nếu chốt lỗi hoặc receipt chưa rõ, không đổi pha và không cấp permit chạy tìm. Replay cùng action không tạo lần chốt hoặc search trùng.
+4. Sau chốt, các nhóm approved được cấp permit theo nguyên văn, hash, citation scope và ngân sách embedding hiện hành. Nhóm chưa hợp lệ hoặc span đơn vượt cap vẫn unresolved và chỉ chặn tìm chính nhóm đó. Một unresolved không ngăn nhóm approved khác tìm. Có thể hoàn thành khảo sát với 0 nhu cầu: không phát truy vấn rỗng, không tự tạo nhu cầu mới và không tuyên bố A không viện dẫn án nào.
+5. Trong survey, schema và host đều chặn đường tìm, kể cả gọi action trực tiếp bằng permit cũ. Cả embedding, retrieval, reranker và tra citation có thể tự chốt B theo mục 7 đều chỉ được thực thi ở pha sau. Gom và xác minh ref/hash cục bộ không phải retrieval. Khi đã chốt, bỏ gate yêu cầu hết byte chưa xét/hết unresolved ở cả catalog lẫn execute; giữ mọi gate nguồn, cap và định danh hiện hành.
+6. Hết map/hết byte chưa xét không tự chuyển pha. Vẫn hiển thị danh sách nhu cầu và lựa chọn hoàn thành để model chốt; không tạo yêu cầu phải giải quyết hết unresolved. Cơ chế tự cấp vùng tiếp theo chỉ hoạt động khi survey còn mở, dùng trạng thái còn việc và skipped mới, không đưa lại vùng đã bỏ qua chỉ để đạt độ phủ toàn A.
+7. Giữ đường mở lại phần ẩn và quay lại survey khi model cần bổ sung. Khi một search query đang active, vẫn cho đọc A theo quyền hiện hành nhưng hoãn sửa nhóm/permit hoặc quay pha đến ranh giới query an toàn. Sau khi quay lại survey, ghi revision mới, giữ query/kết luận cũ và chốt lại trước lần tìm mới. Không sửa permit đã dùng, không xóa evidence và không tự tìm lại nhóm đã tìm chỉ vì mở lại map.
+
+#### Resume, kết quả và số đo
+
+- Persist phase, intervals, nguyên nhân ẩn/bỏ qua, hàng chờ/nhóm và event chốt vào ledger; dựng lại từ event đã commit khi restart. Phân biệt dừng giữa survey, dừng sau chốt nhưng chưa search và dừng giữa review B. Drift nguồn làm refs/đánh dấu mất hiệu lực theo cơ chế hiện hành; không dùng snapshot cũ để cấp permit trên nguồn mới.
+- Báo riêng `survey_completed_by_model`, full/partial A coverage và phần chưa khảo sát. Hoàn thành pha do model chọn không đồng nghĩa full coverage. Khi kết thúc còn A chưa khảo sát hoặc nhu cầu unresolved/deferred, kết quả phải thể hiện phạm vi đó, giữ prediction đã có và trạng thái review/retrieval riêng; không coi chốt survey là chứng nhận hoàn tất toàn A hay tự đổi lỗi/budget/STOP thành complete. Contract nhãn final phải kiểm cùng cơ chế partial hiện hành trước triển khai.
+- Đo byte đã giao/đã xét, byte skipped chưa xét, phần còn lại, số needs/nhóm, số unresolved, lần mở lại, thời điểm chốt và thời gian đến search đầu. Báo request/token/latency controller, embedding, reranker gồm lỗi/retry/unknown; không coi dừng sớm hay thiếu evidence là tiết kiệm.
+- So với gate cũ trên cùng A, model và profile: đo độ phủ lẫn gold recall theo pool/top 10/prediction khi có evaluator. Kiểm nhu cầu bị bỏ sót ở phần chưa đọc, gom nhầm/tách thừa và nhận định đủ khảo sát của model. Kiểm contract bằng fixture không chứng minh semantic recall hoặc cải thiện COLIEE.
+
+#### Phạm vi triển khai dự kiến và thứ tự nghiệm thu
+
+| Bước | File/scope dự kiến | Đầu ra cần đạt |
+| --- | --- | --- |
+| 1. State và replay | `source_gate.py`, phần context/events trong `engine.py` | Tách phase khỏi `survey_ready` dựa coverage; lưu intervals, skipped/hidden, revision và event chốt. Khôi phục nguyên trạng, không viết lại run cũ. |
+| 2. Map và hàng nhu cầu | Bộ dựng map/catalog/compact payload trong `engine.py` và module điều hướng liên quan sau khi kiểm code | Map chỉ hiện phần còn khảo sát; danh sách nhu cầu phân trang riêng; nút mở lại phần ẩn và đi tới có skip rõ ràng; refs round-trip đúng nguồn/cap. |
+| 3. Actions và prompt | `engine.py`, `source_gate.py`, `live.py` | `SURVEY PHASE`, mô tả hoàn thành nêu trên, action chốt/quay lại survey, gom trước chốt; khóa tìm trước chốt và mở tìm từng nhóm hợp lệ sau chốt ở cả schema/execute. |
+| 4. Result và kiểm local | Phần final/coverage của engine và evaluator liên quan nếu cần; `tests/test_survey_first.py`, `test_survey_auto_navigation.py`, `test_source_gate.py`, `test_engine.py`, `test_live.py` | Kết quả tách model completion khỏi full coverage; regression bảng dưới đạt trên code cuối. Chỉ sửa evaluator nếu cần đưa độ phủ mới vào báo cáo. |
+| 5. Pilot | Namespace mới có code/prompt binding, lệnh prepare/run và hướng dẫn AG | Codex chuẩn bị lệnh, người dùng/AG chạy; không resume namespace bind gate cũ như thể cùng policy. So semantic/cost sau kiểm local, không mở sang đổi model/chunk/reranker. |
+
+Khi được giao triển khai đáng kể, Main giao implementer sửa các file production thuộc scope trên và tester kiểm độc lập bản cuối theo AGENTS.md; thống nhất ownership trước khi sửa để tránh hai agent đụng cùng file. Đợt hiện tại chỉ cập nhật kế hoạch.
+
+| Ca nghiệm thu | Kết quả bắt buộc |
+| --- | --- |
+| Survey chưa chốt, có permit hoặc gọi search trực tiếp | Schema không cấp search; host từ chối bypass; 0 request embedding/retrieval/reranker và không tự chốt B qua citation. |
+| Chỉ đọc/xét đoạn 3 | Exposure/assessment chỉ đúng span 3; đoạn 1–2 không bị ghi đã đọc hoặc tự skipped. |
+| Đi tới sau đoạn 3 và bỏ qua 1–2 | 1–2 được ghi skipped chưa khảo sát; map ẩn 1–3 theo trạng thái thật; có đường mở lại; coverage không tăng giả. |
+| Một ý trong paragraph/nhánh lớn đã đánh dấu | Chỉ span đó rời phần việc mặc định; ý còn lại mở được; need/evidence đã đánh dấu còn trong danh sách riêng. |
+| Complete khi chưa đọc hết và còn unresolved | Chốt được; giữ snapshot coverage/unresolved; nhóm approved tìm được, nhóm chưa hợp lệ không có permit; không yêu cầu clear hết unresolved. |
+| Complete với 0 needs hoặc map đã hết | Không phát query rỗng/khẳng định không còn citation; chỉ chuyển pha sau action chốt hợp lệ, kể cả khi assessed đủ A. |
+| Gom trước chốt và search sau chốt | [5] gom đúng authority; [18] giữ hai khối; ref/hash/cap đúng; một nhóm không phát search trùng qua replay. |
+| Reply length/lỗi, stale revision, request pending/unknown | Không commit hoàn thành, không đổi coverage/queue từ output dở, không gửi request thay thế khi receipt chưa rõ. |
+| Resume trước/sau chốt, phân trang/compact/vượt cap | Cùng phase, map, hidden/skipped, needs và provenance; preview/render không đổi state; drift không tái dùng permit sai nguồn. |
+| Mở lại phần ẩn/quay survey sau search | Giữ evidence/kết luận đã có; chờ query active kết thúc trước sửa nhóm; chốt revision mới trước tìm tiếp; không tự rerun nhóm cũ. |
+| Final còn phần chưa khảo sát/unresolved hoặc STOP/lỗi | Báo độ phủ thiếu và trạng thái thực tế riêng; prediction không bị xóa chỉ vì partial; không báo full survey hay semantic PASS từ việc hoàn thành action. |
+
+Kiểm local bằng `.venv/Scripts/python.exe` theo các module thay đổi; thêm replay trên byte gốc của `021095.txt` cho ca 1–3, [5], [18] và khối vượt trang. Nghiệm thu engineering cần đủ evidence của state/schema/execute/resume; nghiệm thu quyết định dừng sớm và chất lượng gom cần pilot model thật, được báo riêng.
 
 ## 6. Host ghi kết luận B theo nhãn định danh
 

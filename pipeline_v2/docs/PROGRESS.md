@@ -1,5 +1,9 @@
 # Tiến độ pipeline_v2 ngày 12/11/2026
 
+## CM4 — 24/11/2026, kế hoạch hoàn thành khảo sát do model quyết định
+
+Đã ghi [thiết kế chi tiết ở mục 5.6](plan/CM4_SOURCE_BOUND_SEARCH_IDENTITY.md#56-model-quyết-định-hoàn-thành-khảo-sát-và-map-thu-hẹp): giữ survey/gom trước retrieval, model chủ động chốt khi đủ thay vì bắt buộc hết A/hết unresolved. Map chỉ hiện phần còn khảo sát, nhu cầu có danh sách riêng; host tách đã giao, đã xét, skipped và hidden, có đường mở lại và snapshot độ phủ khi chốt. Kèm contract chuyển pha, resume, scope file và ca nghiệm thu. **Chỉ cập nhật tài liệu; chưa triển khai hoặc chạy pilot.** Các checkpoint 23/11 bên dưới vẫn mô tả code hiện hành.
+
 ## CM4 — 23/11/2026, phân biệt kết thúc partial với complete
 
 Final còn unresolved search query hoặc deferred pair trả `stop_reason=partial` và `review_status=partial_with_unresolved_queries` / `partial_with_deferred_pairs`. Giữ prediction đã có, selection status và provenance; không kích baseline fallback khi đổi nhãn. Host citation matches vẫn được ghép vào prediction của run partial. Run xét xong giữ `complete`; lỗi/budget giữ trạng thái riêng. Chỉ áp dụng run mới, không sửa ledger/báo cáo lịch sử. Prepare namespace mới do code binding thay đổi.

@@ -1,5 +1,7 @@
 # Kế hoạch: KB cấu trúc, truy hồi hybrid và agent truy nguồn citation
 
+Cập nhật kế hoạch 24/11/2026: [CM4 — model quyết định hoàn thành khảo sát A, map thu hẹp và lưu trung thực độ phủ](CM4_SOURCE_BOUND_SEARCH_IDENTITY.md#56-model-quyết-định-hoàn-thành-khảo-sát-và-map-thu-hẹp). Giữ gom nhu cầu trước retrieval; bỏ yêu cầu khảo sát hết A/giải quyết mọi unresolved trước tìm. Đây là thiết kế chờ triển khai, không phải thay đổi runtime đã nghiệm thu.
+
 Cập nhật 19/11/2026: [CM4 Q1–Q4 — xử lý từng query, khảo sát kết quả và mở quyền điều hướng](CM4_QUERY_REVIEW_PLAN_20261119.md) đã triển khai và đạt kiểm local; xem báo cáo và lệnh giao AG trong kế hoạch trước khi chạy live.
 
 [Tiến độ M0–M7 hiện hành ngày 10/11/2026](../PROGRESS.md). Full ingestion và hybrid đã có kết quả thực tế. Phạm vi M3 còn phrase/identity, hoàn thiện context delivery và review cuối. Các checkpoint cũ bên dưới giữ để truy vết quyết định.
