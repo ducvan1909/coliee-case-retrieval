@@ -212,32 +212,39 @@ class AdaptiveHarness(AgentHarness):
                            'local_search': searched.observation}, opened.excerpts, opened.candidates, opened.source_requests)
 
     def _registry(self, state, payload):
-        observations = [state.initial_result['observation']]
-        events = self.events()
-        observations.extend(event['result']['observation'] for event in events
-                            if event['kind'] == 'action_result' and event.get('result'))
-        observations.extend(observation['priority_open'] for observation in list(observations)
-                            if isinstance(observation.get('priority_open'), dict))
-        action_by_id = {event['action_id']: event['action'] for event in events
-                        if event['kind'] == 'action_started'}
-        completed = [action_by_id[event['action_id']] for event in events
-                     if event['kind'] == 'action_result' and event['status'] in ('success', 'pending_evidence')]
-        used = {}
-        for action in completed:
-            used.setdefault(action['action'], set()).add(fingerprint(action['args']))
-        exhausted_reads = {}
-        for event in events:
-            if event['kind'] != 'action_result' or event['status'] != 'success':
-                continue
-            action = action_by_id[event['action_id']]
-            if action['action'] != 'open_source' or 'm6_candidate' not in action['args']:
-                continue
-            result = event.get('result') or {}
-            binding = action['args']['m6_candidate']
-            if result.get('excerpts'):
-                exhausted_reads.pop(binding['case_id'], None)
-            else:
-                exhausted_reads[binding['case_id']] = binding.get('open_ref')
+        events = self._events()
+        history = getattr(events, 'runtime', None)
+        if history is not None:
+            observations = [*history.observations, *history.priority_observations]
+            action_by_id = {key: row['action'] for key, row in history.actions.items()}
+            completed, used, exhausted_reads = history.completed, history.used, history.exhausted_reads
+        else:
+            observations = [state.initial_result['observation']]
+            events = self._events()
+            observations.extend(event['result']['observation'] for event in events
+                                if event['kind'] == 'action_result' and event.get('result'))
+            observations.extend(observation['priority_open'] for observation in list(observations)
+                                if isinstance(observation.get('priority_open'), dict))
+            action_by_id = {event['action_id']: event['action'] for event in events
+                            if event['kind'] == 'action_started'}
+            completed = [action_by_id[event['action_id']] for event in events
+                         if event['kind'] == 'action_result' and event['status'] in ('success', 'pending_evidence')]
+            used = {}
+            for action in completed:
+                used.setdefault(action['action'], set()).add(fingerprint(action['args']))
+            exhausted_reads = {}
+            for event in events:
+                if event['kind'] != 'action_result' or event['status'] != 'success':
+                    continue
+                action = action_by_id[event['action_id']]
+                if action['action'] != 'open_source' or 'm6_candidate' not in action['args']:
+                    continue
+                result = event.get('result') or {}
+                binding = action['args']['m6_candidate']
+                if result.get('excerpts'):
+                    exhausted_reads.pop(binding['case_id'], None)
+                else:
+                    exhausted_reads[binding['case_id']] = binding.get('open_ref')
         candidates = {fingerprint(['candidate', case]): {'case_id': case, 'needs': [], 'leads': []} for case in state.candidates}
         by_case = {row['case_id']: row for row in candidates.values()}
         query_targets, expansions, citation_search_pages = {}, {}, {}
@@ -316,14 +323,17 @@ class AdaptiveHarness(AgentHarness):
         if completed and completed[-1]['action'] == 'reload_source':
             reloads.pop(fingerprint(completed[-1]['args']['refs']), None)
         active = [state.assessments[key] for key in state.active_assessments.values()]
-        reviewed = set()
-        review_count = 0
-        for event in events:
-            if event['kind'] == 'action_started' and event['action']['action'] == 'assess_links':
-                for row in event['action']['args']['assessments']:
-                    if row['reason'].startswith('Targeted review: '):
-                        reviewed.add(row['candidate_id'])
-                        review_count += 1
+        if history is not None:
+            reviewed, review_count = history.reviewed, history.review_count
+        else:
+            reviewed = set()
+            review_count = 0
+            for event in events:
+                if event['kind'] == 'action_started' and event['action']['action'] == 'assess_links':
+                    for row in event['action']['args']['assessments']:
+                        if row['reason'].startswith('Targeted review: '):
+                            reviewed.add(row['candidate_id'])
+                            review_count += 1
         triggers = {}
         for case in state.candidates:
             rows = [row for row in active if row['candidate_id'] == case]
@@ -472,7 +482,7 @@ class AdaptiveHarness(AgentHarness):
         case = state.observation.get('m6_opened_candidate', state.observation.get('case_id'))
         if case == self.identity.query_id or case != b['case_id'] or case not in state.candidates:
             return None
-        needs = [event['result']['observation']['m6_source_need'] for event in self.events()
+        needs = [event['result']['observation']['m6_source_need'] for event in self._events()
                  if event['kind'] == 'action_result' and event.get('result')
                  and case in event['result']['candidates']
                  and event['result']['observation'].get('m6_source_need')]
@@ -570,7 +580,7 @@ class AdaptiveHarness(AgentHarness):
         # Reconstruct progress from durable effects, including resume, not transport memory.
         replay, stalled = RunState(), 0
         navigation_seen, assessments_seen = set(), set()
-        for event in self.events():
+        for event in self._events():
             before = (len(replay.candidates), len(replay.catalog))
             replay.apply(event)
             if event['kind'] == 'run_created':

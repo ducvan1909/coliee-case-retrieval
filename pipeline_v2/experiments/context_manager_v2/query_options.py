@@ -13,6 +13,23 @@ from .model_view import project
 CONTROLLER_OUTPUT_TOKEN_CAP = 1024
 
 
+class _NavigationEvents:
+    """Legacy iterable plus optional incremental facts for the shared reader."""
+    def __init__(self, events):
+        self.events = events
+        self.runtime = getattr(events, 'runtime', None)
+
+    def __iter__(self):
+        for event in self.events:
+            if event['kind'] == 'request_admitted' and 'cm_query_navigation' in event:
+                body = {'m6': {'query_navigation': event['cm_query_navigation']},
+                        'current_payload_source_refs': event['current_payload_source_refs'],
+                        'excerpts': [{key: row[key] for key in ('ref', 'case_id', 'span_bytes', 'source_hash')}
+                                     for row in event['excerpts']]}
+                event = {**event, 'payload': json.dumps(body)}
+            yield event
+
+
 class _SplittableQueryTree(QueryTree):
     """Give an over-budget leaf a subdivision without changing its sibling refs."""
 
@@ -128,14 +145,7 @@ class MapFirstQueryTools(HierarchicalM3Tools):
     @staticmethod
     def _navigation_events(events):
         """Feed the shared reader the canonical history used to track source coverage."""
-        for event in events:
-            if event['kind'] == 'request_admitted' and 'cm_query_navigation' in event:
-                body = {'m6': {'query_navigation': event['cm_query_navigation']},
-                        'current_payload_source_refs': event['current_payload_source_refs'],
-                        'excerpts': [{key: row[key] for key in ('ref', 'case_id', 'span_bytes', 'source_hash')}
-                                     for row in event['excerpts']]}
-                event = {**event, 'payload': json.dumps(body)}
-            yield event
+        return _NavigationEvents(events)
 
     def can_read_region(self, region_ref):
         return self.query_tree.region(region_ref)['byte_length'] <= self.sources.profile['byte_cap']

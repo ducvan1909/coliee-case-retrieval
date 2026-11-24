@@ -1,0 +1,132 @@
+{
+  "measurement": "Frozen original audit packets, current compact descriptor/phase renderer. Not live inference or latency.",
+  "provider_requests": 0,
+  "rows": [
+    {
+      "name": "real_A_0",
+      "baseline_input": 6546,
+      "variants": {
+        "compact_catalog_v1+full": {
+          "input_tokens": 4392,
+          "phase": "full",
+          "saved_percent": 32.91
+        },
+        "full+phase_instructions_v1": {
+          "input_tokens": 5591,
+          "phase": "source_survey",
+          "saved_percent": 14.59
+        },
+        "compact_catalog_v1+phase_instructions_v1": {
+          "input_tokens": 3437,
+          "phase": "source_survey",
+          "saved_percent": 47.49
+        }
+      }
+    },
+    {
+      "name": "real_A_1",
+      "baseline_input": 7621,
+      "variants": {
+        "compact_catalog_v1+full": {
+          "input_tokens": 5176,
+          "phase": "full",
+          "saved_percent": 32.08
+        },
+        "full+phase_instructions_v1": {
+          "input_tokens": 6666,
+          "phase": "source_survey",
+          "saved_percent": 12.53
+        },
+        "compact_catalog_v1+phase_instructions_v1": {
+          "input_tokens": 4221,
+          "phase": "source_survey",
+          "saved_percent": 44.61
+        }
+      }
+    },
+    {
+      "name": "default_fixture_permit",
+      "baseline_input": 2525,
+      "variants": {
+        "compact_catalog_v1+full": {
+          "input_tokens": 2525,
+          "phase": "full",
+          "saved_percent": 0.0
+        },
+        "full+phase_instructions_v1": {
+          "input_tokens": 1471,
+          "phase": "permit_selection",
+          "saved_percent": 41.74
+        },
+        "compact_catalog_v1+phase_instructions_v1": {
+          "input_tokens": 1471,
+          "phase": "permit_selection",
+          "saved_percent": 41.74
+        }
+      }
+    },
+    {
+      "name": "default_fixture_B_cards_page1",
+      "baseline_input": 2071,
+      "variants": {
+        "compact_catalog_v1+full": {
+          "input_tokens": 2071,
+          "phase": "full",
+          "saved_percent": 0.0
+        },
+        "full+phase_instructions_v1": {
+          "input_tokens": 1021,
+          "phase": "candidate_list",
+          "saved_percent": 50.7
+        },
+        "compact_catalog_v1+phase_instructions_v1": {
+          "input_tokens": 1021,
+          "phase": "candidate_list",
+          "saved_percent": 50.7
+        }
+      }
+    },
+    {
+      "name": "default_fixture_B_open",
+      "baseline_input": 3969,
+      "variants": {
+        "compact_catalog_v1+full": {
+          "input_tokens": 3969,
+          "phase": "full",
+          "saved_percent": 0.0
+        },
+        "full+phase_instructions_v1": {
+          "input_tokens": 3009,
+          "phase": "candidate_review",
+          "saved_percent": 24.19
+        },
+        "compact_catalog_v1+phase_instructions_v1": {
+          "input_tokens": 3009,
+          "phase": "candidate_review",
+          "saved_percent": 24.19
+        }
+      }
+    },
+    {
+      "name": "default_fixture_identity_only",
+      "baseline_input": 2860,
+      "variants": {
+        "compact_catalog_v1+full": {
+          "input_tokens": 2860,
+          "phase": "full",
+          "saved_percent": 0.0
+        },
+        "full+phase_instructions_v1": {
+          "input_tokens": 1852,
+          "phase": "identity_only",
+          "saved_percent": 35.24
+        },
+        "compact_catalog_v1+phase_instructions_v1": {
+          "input_tokens": 1852,
+          "phase": "identity_only",
+          "saved_percent": 35.24
+        }
+      }
+    }
+  ]
+}

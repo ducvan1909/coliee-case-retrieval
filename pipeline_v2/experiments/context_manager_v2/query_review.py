@@ -7,41 +7,45 @@ VERSION = 'cm4-query-review-v1'
 
 
 def queries(events, context):
-    starts, requests, result = {}, {}, {}
-    for event in events:
-        kind = event['kind']
-        if kind == 'action_started':
-            starts[event['action_id']] = event['action']
-        elif kind == 'request_admitted':
-            requests[event['request_id']] = event
-        elif kind == 'action_result' and event.get('status') == 'success':
-            action = starts.get(event.get('action_id'), {})
-            observation = (event.get('result') or {}).get('observation', {})
-            if action.get('action') == 'search_corpus' and 'hits' in observation:
-                need = action['args'].get('_m6_need', {})
-                if not need:
-                    continue
-                key = event['action_id']
-                hits = list(dict.fromkeys(row['case_id'] for row in observation['hits']))
-                result[key] = {'query_id': key, 'need_id': need['source_need_id'],
-                    'issue': action['args']['text'], 'candidate_ids': hits,
-                    'action_id': key, 'source_need': deepcopy(need),
-                    'retrieval_request_id': observation.get('request_id'),
-                    'query_sha256': observation.get('query_sha256'),
-                    'search_reuse': deepcopy(observation.get('search_reuse')),
-                    'hits': deepcopy(observation['hits']), 'survey_exposed': [], 'raw_exposed': [],
-                    'passage_review': bool(observation.get('cm4_passage_review'))}
-        elif kind == 'request_result' and event.get('received_response'):
-            admission = requests.get(event['request_id'], {})
-            key = admission.get('cm_search_query_id')
-            if key in result:
-                query = result[key]
-                query['survey_exposed'] = list(dict.fromkeys([*query['survey_exposed'],
-                    *(case for case in admission.get('cm_survey_candidates', []) if case in query['candidate_ids'])]))
-                query['raw_exposed'] = list(dict.fromkeys([*query['raw_exposed'],
-                    *(row['case_id'] for row in admission.get('excerpts', [])
-                      if row['ref'] in admission.get('current_payload_source_refs', [])
-                      and row['case_id'] in query['candidate_ids'] and row['text'].strip())]))
+    runtime = getattr(events, 'runtime', None)
+    if runtime is not None:
+        result = deepcopy(runtime.queries)
+    else:
+        starts, requests, result = {}, {}, {}
+        for event in events:
+            kind = event['kind']
+            if kind == 'action_started':
+                starts[event['action_id']] = event['action']
+            elif kind == 'request_admitted':
+                requests[event['request_id']] = event
+            elif kind == 'action_result' and event.get('status') == 'success':
+                action = starts.get(event.get('action_id'), {})
+                observation = (event.get('result') or {}).get('observation', {})
+                if action.get('action') == 'search_corpus' and 'hits' in observation:
+                    need = action['args'].get('_m6_need', {})
+                    if not need:
+                        continue
+                    key = event['action_id']
+                    hits = list(dict.fromkeys(row['case_id'] for row in observation['hits']))
+                    result[key] = {'query_id': key, 'need_id': need['source_need_id'],
+                        'issue': action['args']['text'], 'candidate_ids': hits,
+                        'action_id': key, 'source_need': deepcopy(need),
+                        'retrieval_request_id': observation.get('request_id'),
+                        'query_sha256': observation.get('query_sha256'),
+                        'search_reuse': deepcopy(observation.get('search_reuse')),
+                        'hits': deepcopy(observation['hits']), 'survey_exposed': [], 'raw_exposed': [],
+                        'passage_review': bool(observation.get('cm4_passage_review'))}
+            elif kind == 'request_result' and event.get('received_response'):
+                admission = requests.get(event['request_id'], {})
+                key = admission.get('cm_search_query_id')
+                if key in result:
+                    query = result[key]
+                    query['survey_exposed'] = list(dict.fromkeys([*query['survey_exposed'],
+                        *(case for case in admission.get('cm_survey_candidates', []) if case in query['candidate_ids'])]))
+                    query['raw_exposed'] = list(dict.fromkeys([*query['raw_exposed'],
+                        *(row['case_id'] for row in admission.get('excerpts', [])
+                          if row['ref'] in admission.get('current_payload_source_refs', [])
+                          and row['case_id'] in query['candidate_ids'] and row['text'].strip())]))
     for key, query in result.items():
         query['priorities'] = deepcopy(context.get('query_priorities', {}).get(key, {}))
         query['conclusion'] = deepcopy(context.get('query_conclusions', {}).get(key))

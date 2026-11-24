@@ -95,13 +95,25 @@ class AgentHarness:
     def events(self):
         return self.ledger.read()
 
+    def _events(self):
+        """Trusted internal history; preserve public overrides outside CM4."""
+        return self.events()
+
     def inspect(self):
         return RunState(self.events()).snapshot()
 
-    @staticmethod
-    def _write(db, state, kind, **fields):
+    def _write(self, db, state, kind, **fields):
         event = Ledger.append(db, kind, **fields)
-        state.apply(event)
+        try:
+            state.apply(event)
+            committed = getattr(self, '_committed_event', None)
+            if committed is not None:
+                committed(event, state)
+        except BaseException:
+            invalidate = getattr(self, '_invalidate_runtime', None)
+            if invalidate is not None:
+                invalidate()
+            raise
         return event
 
     def _start(self, db, state):

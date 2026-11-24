@@ -8,6 +8,10 @@ from pipeline_v2.agent_harness.evidence import SourceDrift, excerpt, normalize_r
 
 
 def _opened_leads(events):
+    runtime = getattr(events, 'runtime', None)
+    if runtime is not None:
+        yield from reversed(runtime.opened_leads)
+        return
     actions = {event['action_id']: event['action'] for event in events if event['kind'] == 'action_started'}
     for outcome in reversed(events):
         if outcome['kind'] != 'action_result' or outcome['status'] != 'success':
@@ -30,6 +34,9 @@ def _opened_leads(events):
 
 
 def opened_lead_keys(events):
+    runtime = getattr(events, 'runtime', None)
+    if runtime is not None:
+        return set(runtime.opened_lead_keys)
     return {fingerprint([need, case, lead]) for need, case, lead, _ in _opened_leads(events)}
 
 
@@ -149,7 +156,7 @@ def execute_candidate_header(harness, state, binding):
 
 def execute_retrieved_passage(harness, state, args):
     case, lead = args['m6_candidate']['case_id'], args['cm4_retrieved_lead']
-    for _, previous_case, previous_lead, outcome in _opened_leads(harness.events()):
+    for _, previous_case, previous_lead, outcome in _opened_leads(harness._events()):
         if previous_case != case or previous_lead != lead:
             continue
         result = outcome['result']

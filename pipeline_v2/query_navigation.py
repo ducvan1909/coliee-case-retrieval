@@ -281,39 +281,50 @@ class HierarchicalM3Tools(M3Tools):
 
     def registry(self, events, state, payload):
         """Rebuild bounded current navigation from durable effects and actual receipts."""
-        current = self.query_tree.root_ref
-        opened, seen, previews, searched = set(), set(), set(), []
-        delivered = []
-        admissions, actions = {}, {}
-        epoch = 0
-        for event in events:
-            kind = event['kind']
-            if kind == 'request_admitted':
-                admissions[event['request_id']] = json.loads(event['payload'])
-            elif kind == 'request_result' and event.get('received_response'):
-                body = admissions.get(event['request_id'], {})
-                page = body.get('m6', {}).get('query_navigation')
-                if page and page.get('tree_binding') == self.query_tree.binding:
-                    seen.add(page['current']['region_ref'])
-                    previews.update(row['region_ref'] for row in (page['current'], *page['children']))
-                delivered.extend(row['span_bytes'] for row in body.get('excerpts', [])
-                                 if row['ref'] in body.get('current_payload_source_refs', [])
-                                 and row['case_id'] == self.query_case and row['source_hash'] == self.query_tree.source_hash)
-            elif kind == 'action_started':
-                actions[event['action_id']] = event
-                epoch += 1
-            elif kind == 'action_result' and event.get('result') and event.get('status') in ('success', 'pending_evidence'):
-                observation = event['result']['observation']
-                if observation.get('kind') == 'query_hierarchy_map':
-                    if observation.get('tree_binding') != self.query_tree.binding:
-                        raise HarnessError('Query map result uses a different tree')
-                    current = self.query_tree.region(observation['current']['region_ref'])['region_ref']
-                    opened.add(current)
-                action = actions.get(event['action_id'], {})
-                if action.get('executes_tool') and action['action']['action'] == 'search_corpus':
-                    need = action['action']['args'].get('_m6_need', {})
-                    searched.extend(row['span_bytes'] for row in need.get('a_sources', [])
-                                    if row['case_id'] == self.query_case and row['source_hash'] == self.query_tree.source_hash)
+        runtime = getattr(events, 'runtime', None)
+        if runtime is not None and callable(getattr(runtime, 'navigation_state', None)):
+            facts = runtime.navigation_state(self.query_case, self.query_tree.source_hash, self.query_tree.binding)
+            current = facts['current'] or self.query_tree.root_ref
+            # Validate the stored region using the exact same source tree.
+            current = self.query_tree.region(current)['region_ref']
+            opened, seen, previews = facts['opened'], facts['seen'], facts['previews']
+            for ref in opened:
+                self.query_tree.region(ref)
+            searched, delivered, epoch = facts['searched'], facts['delivered'], facts['epoch']
+        else:
+            current = self.query_tree.root_ref
+            opened, seen, previews, searched = set(), set(), set(), []
+            delivered = []
+            admissions, actions = {}, {}
+            epoch = 0
+            for event in events:
+                kind = event['kind']
+                if kind == 'request_admitted':
+                    admissions[event['request_id']] = json.loads(event['payload'])
+                elif kind == 'request_result' and event.get('received_response'):
+                    body = admissions.get(event['request_id'], {})
+                    page = body.get('m6', {}).get('query_navigation')
+                    if page and page.get('tree_binding') == self.query_tree.binding:
+                        seen.add(page['current']['region_ref'])
+                        previews.update(row['region_ref'] for row in (page['current'], *page['children']))
+                    delivered.extend(row['span_bytes'] for row in body.get('excerpts', [])
+                                     if row['ref'] in body.get('current_payload_source_refs', [])
+                                     and row['case_id'] == self.query_case and row['source_hash'] == self.query_tree.source_hash)
+                elif kind == 'action_started':
+                    actions[event['action_id']] = event
+                    epoch += 1
+                elif kind == 'action_result' and event.get('result') and event.get('status') in ('success', 'pending_evidence'):
+                    observation = event['result']['observation']
+                    if observation.get('kind') == 'query_hierarchy_map':
+                        if observation.get('tree_binding') != self.query_tree.binding:
+                            raise HarnessError('Query map result uses a different tree')
+                        current = self.query_tree.region(observation['current']['region_ref'])['region_ref']
+                        opened.add(current)
+                    action = actions.get(event['action_id'], {})
+                    if action.get('executes_tool') and action['action']['action'] == 'search_corpus':
+                        need = action['action']['args'].get('_m6_need', {})
+                        searched.extend(row['span_bytes'] for row in need.get('a_sources', [])
+                                        if row['case_id'] == self.query_case and row['source_hash'] == self.query_tree.source_hash)
         intervals = _union(delivered)
         offered = _union(row['span_bytes'] for row in payload.get('excerpts', [])
                          if row['ref'] in payload.get('current_payload_source_refs', [])

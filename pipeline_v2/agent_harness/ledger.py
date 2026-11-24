@@ -69,6 +69,34 @@ class Ledger:
         return [{"seq": seq, **json.loads(record)}
                 for seq, record in db.execute("SELECT seq, record FROM events ORDER BY seq")]
 
+    def latest_seq(self, db=None):
+        """Small head probe; full audit reads retain their existing semantics."""
+        if db is not None:
+            return db.execute("SELECT COALESCE(MAX(seq), 0) FROM events").fetchone()[0]
+        path = self.path / 'events.sqlite3'
+        if not path.exists():
+            return 0
+        with self._connect('events.sqlite3') as reader:
+            exists = reader.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='events'").fetchone()
+            return self.latest_seq(reader) if exists else 0
+
+    @timed('ledger_tail_read')
+    def read_after(self, seq, db=None, through_seq=None):
+        """Read only a durable suffix, optionally within a captured head."""
+        if type(seq) is not int or seq < 0:
+            raise HarnessError('Invalid ledger cursor')
+        if db is None:
+            path = self.path / 'events.sqlite3'
+            if not path.exists():
+                return []
+            with self._connect('events.sqlite3') as reader:
+                return self.read_after(seq, reader, through_seq)
+        end = self.latest_seq(db) if through_seq is None else through_seq
+        if type(end) is not int or end < seq:
+            raise HarnessError('Ledger head moved backwards')
+        return [{"seq": number, **json.loads(record)} for number, record in db.execute(
+            'SELECT seq, record FROM events WHERE seq > ? AND seq <= ? ORDER BY seq', (seq, end))]
+
     @staticmethod
     @timed('ledger_append')
     def append(db, kind, **fields):

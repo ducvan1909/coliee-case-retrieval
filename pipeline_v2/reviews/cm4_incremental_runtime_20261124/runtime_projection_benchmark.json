@@ -1,0 +1,72 @@
+{
+  "scope": "Readonly historical ledger, paired state+context+prefix hash workload. Not complete compile or live speedup.",
+  "provider_requests": 0,
+  "source": "cache\\cm4-survey-first-ag-20261123-120716794\\session",
+  "events": 716,
+  "bootstrap_seconds": 2.262720199999876,
+  "samples_ms": {
+    "legacy": [
+      1213.6674000000767,
+      1202.6303000000098,
+      1172.2566000000825,
+      1165.882700000111,
+      1189.6575000000666
+    ],
+    "incremental": [
+      11.317000000190092,
+      10.157899999967412,
+      11.506300000064584,
+      10.411599999997634,
+      12.086299999964467
+    ]
+  },
+  "p50_ms": {
+    "legacy": 1189.6575000000666,
+    "incremental": 11.317000000190092
+  },
+  "runtime_stats": {
+    "full_reads": 1,
+    "tail_reads": 0,
+    "rows_decoded": 716,
+    "events_applied": 716,
+    "rebuilds": 1
+  },
+  "source_db_unchanged": true,
+  "production_binding": {
+    "pipeline_v2/experiments/uncapped_probe/runner.py": "d984ce3551c23714d8944868e77936f46c92add1c68168062890433b4005d2e1",
+    "pipeline_v2/experiments/uncapped_probe/policy.py": "96693fbe316d5cd01b15a8c8835adf3b68cf9ec639f997c3896ec9fc5f1c65d9",
+    "pipeline_v2/experiments/uncapped_probe/replay_payload.py": "29b890b5dc17a481448249cbde71079ededb5a0998f4c785b3d587deff1fe75a",
+    "pipeline_v2/m6.py": "df1c6611e5b17103a5f8ac82bbf1164a7dd17b8bd09e4062ff02c81d0b2e19b5",
+    "pipeline_v2/m6_live.py": "adcaa460b7cac9bd4005c8eaa0ab51d2b98d458f539ff1ecbda4785a6b39f135",
+    "pipeline_v2/m6_hybrid.py": "f3b6209de8c1d82c1e7a9d2c445e273f05e5e6a56489bb5d604cdf60b10d6720",
+    "pipeline_v2/m4.py": "6e1552d78581801e86481b6f0fa60aa4c484d5d04e5bbbb8bfbcedb21a32a663",
+    "pipeline_v2/query_navigation.py": "e9878e70cc69cc9a91a2a59521c89f785e2c654826b6354c1c6aebc362c3ba63",
+    "pipeline_v2/retrieval_diagnostics.py": "2661026f0bcd42100d45f6a6f0fa82528a701eccdd9487552f612f9138315795",
+    "pipeline_v2/agent_harness/adaptive_policy.py": "abd7a3fae3e4e7d667a619a09d1ff0942c5a213e74aeb678373f9d823a66ec1a",
+    "pipeline_v2/agent_harness/harness.py": "ea7c641c32c54fb675eea9a45b8eb68b4f89d1801cf41c31c9b39f19925407b8",
+    "pipeline_v2/agent_harness/ledger.py": "d131f1aa9e5263366f6942f0d2e42859df0a1fb661add5844580d34943a42f5c",
+    "pipeline_v2/agent_harness/contracts.py": "7768fe9e9676cb0daec7f512d20b111d927c24c1d207dee727c7ffedf5e3e2d0",
+    "pipeline_v2/agent_harness/evidence.py": "37053a2dcc2da25b2a9d5444ab3e062ba2c0d3949003d1491324aee4d086c2b2",
+    "pipeline_v2/agent_harness/schema.py": "2b4dca1666442e713a0d23611b9c1d6fe20fe061609408bde7153364308c305c",
+    "pipeline_v2/agent_harness/assessment.py": "49d9e906de38719e6fe9f3759ccf75ecdae1e3ed31ba5dfb1a90750d2bc31036",
+    "pipeline_v2/agent_harness/modal_qwen.py": "49f9a1979e473e4490da3680d83f64ba739e5c9de687a583a2004ff30aae3e86",
+    "pipeline_v2/deployments/modal_qwen36_27b/app.py": "fa077fffbe22bd1e551412180ebd50f3b420b0b7177104857cf303bebfb9fe51",
+    "pipeline_v2/experiments/context_manager_v2/engine.py": "cfe44aaee917cea53bfb4c9fa59df5a897496022d98cf6abb6edd48a60b09ce5",
+    "pipeline_v2/experiments/context_manager_v2/evidence.py": "c1afedaddb9a689c57f7c448629e8e15373bd8dfe4d8e200635aaf7703ba4ecb",
+    "pipeline_v2/experiments/context_manager_v2/tool_repair.py": "a131016d64e19482a25837f1de6afa5c935d21e1fa67f0245a42d143bb7c6b92",
+    "pipeline_v2/experiments/context_manager_v2/assessment_options.py": "1104383cd253b13d33ad4c5b47a6e50eff7aadc97240e3d7c598f622808d759e",
+    "pipeline_v2/experiments/context_manager_v2/read_options.py": "852395e3a16762f70fd39cb9654e565646f443b055d903a7f107c8c361df2ec7",
+    "pipeline_v2/experiments/context_manager_v2/query_options.py": "fc3f9620fb93a13d1e26460d72589cac298de6061a161578ee8641a11a3c439d",
+    "pipeline_v2/experiments/context_manager_v2/model_view.py": "0ce102b7bd9776ed37c08e44d6435341ae7b45a8a44c949bed703d5c43586fcf",
+    "pipeline_v2/experiments/context_manager_v2/anchor_quote.py": "50ec94af11ece52ab4e337d6260d40e984b6a998e0a5e29b8f388f085beccb11",
+    "pipeline_v2/experiments/context_manager_v2/source_gate.py": "883de03feb66f4f551b7b962e6d3030f037a02ece7682c770c4602601d1f9a54",
+    "pipeline_v2/experiments/context_manager_v2/query_review.py": "777897e1a4e4c480232891a15f698d3af0e034b08956c1e4530dc5dbe6fde7d9",
+    "pipeline_v2/experiments/context_manager_v2/passage_review.py": "166ad2659f7b1d8efa255bd3c77e7dce4465d79a759997aadf72df2fb7fbc1f0",
+    "pipeline_v2/experiments/context_manager_v2/runtime_snapshot.py": "303504aa5f0b03079c3c6de642d6ff1daba85870d12260c7d00c70132e31003e",
+    "pipeline_v2/experiments/context_manager_v2/payload_planning.py": "7c3fdcae8717f0b1d6ca2e21505114d2742fbcaa482a8e933d925ce1d55ff61a",
+    "pipeline_v2/experiments/context_manager_v2/catalog_descriptor.py": "77cccb9905dfa1b45c5bea08fd4f04cf465d457b82b9b79aa1e0dc84f64277e6",
+    "pipeline_v2/experiments/context_manager_v2/prompt_profiles.py": "fccd301c8267b7c167d894f8d1baeebd2ac540fb687172c614a53426c2103431",
+    "pipeline_v2/experiments/context_manager_v2/candidate_navigation.py": "b210f80f401d0f5c1e0672b9f095c77c9a9d240915e013c88a9cf3250eee77c5",
+    "pipeline_v2/experiments/context_manager_v1/core.py": "da73549cf0a244823763667e9749397c4320745456b7103efd817f54be11f339"
+  }
+}

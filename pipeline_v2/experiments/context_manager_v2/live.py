@@ -1,6 +1,7 @@
 """One-query CM4 entry point. prepare is local; only run may call providers."""
 import argparse
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
+from copy import deepcopy
 from dataclasses import asdict
 from hashlib import sha256
 import json
@@ -28,6 +29,9 @@ from .query_options import CONTROLLER_OUTPUT_TOKEN_CAP, MapFirstQueryTools
 from .dual_search import DualSearch
 from .reranker_modal import ModalReranker
 from .source_gate import _settled_spans
+from . import query_review
+from .prompt_profiles import InputPolicy, registry as prompt_registry, PROFILES as INSTRUCTION_PROFILES
+from .catalog_descriptor import PROFILES as CATALOG_PROFILES
 
 VERSION = 'cm4-live-v3'
 DEFAULT_SETTINGS = Path(__file__).parent.parent / 'uncapped_probe/settings.json'
@@ -146,6 +150,9 @@ def binding():
              'pipeline_v2/experiments/context_manager_v2/reranker_protocol.py',
              'pipeline_v2/experiments/context_manager_v2/reranker_modal.py',
              'pipeline_v2/experiments/context_manager_v2/citation_lookup.py',
+             'pipeline_v2/experiments/context_manager_v2/catalog_descriptor.py',
+             'pipeline_v2/experiments/context_manager_v2/prompt_profiles.py',
+             'pipeline_v2/experiments/context_manager_v2/candidate_navigation.py',
              'pipeline_v2/runtime_timing.py',
              'pipeline_v2/deployments/modal_cm4_reranker/app.py',
              'pipeline_v2/agent_harness/modal_qwen.py')
@@ -252,13 +259,27 @@ def _prime_guard(engine, guard):
     state = RunState([])
     context = {'mode': 'query', 'stage': 'ready', 'candidate_id': None, 'offset': 0}
     outcome = guard.observe(state, context)
-    for event in engine.events():
-        state.apply(event)
+    for event in engine._events():
+        # Replay once at bootstrap without letting RunState's mutable aliases
+        # modify the canonical event objects used by incremental prefix hashing.
+        state.apply(deepcopy(event))
         if event.get('cm_context'):
             context = event['cm_context']
         if event['kind'] == 'action_result' or (event['kind'] == 'request_result' and event.get('cm_tool_repair')):
             outcome = guard.observe(state, context)
     return outcome
+
+
+def _observe_progress(engine, guard, trace, loop_guard_mode):
+    runtime = getattr(engine, '_runtime', None)
+    with runtime.operation() if runtime is not None else nullcontext():
+        state, context = engine.state(), engine.context()
+        outcome = guard.observe(state, context)
+        trace.emit('progress_guard', loop_guard_mode=loop_guard_mode,
+                   query_review=query_review.queries(engine._events(), context), usage=state.usage(),
+                   context={key: context.get(key) for key in ('need_id', 'candidate_id', 'stage', 'mode', 'offset')},
+                   **outcome)
+        return outcome
 
 
 def run_loop(engine, transport, trace, *, max_turns=None, no_progress_limit=6, cycle_limit=3, loop_guard_mode='warn'):
@@ -290,16 +311,14 @@ def run_loop(engine, transport, trace, *, max_turns=None, no_progress_limit=6, c
             break
         state = engine.state()
         if state.pending_action is not None and not state.active_action:
-            with trace.stage('execute_pending_after_restart', action=state.pending_action['action']):
-                with profile.record('execute_pending_after_restart', request_id=state.pending_action['request_id']):
+            pending = state.pending_action
+            with trace.stage('execute_pending_after_restart', action=pending['action']):
+                with profile.record('execute_pending_after_restart', request_id=pending['request_id']):
                     engine.execute_pending()
             if engine.state().final is not None:
                 break
-            with profile.record('progress_guard', request_id=state.pending_action['request_id']):
-                outcome = guard.observe(engine.state(), engine.context())
-                trace.emit('progress_guard', loop_guard_mode=loop_guard_mode,
-                           query_review=engine.inspect().get('search_queries', {}), usage=engine.state().usage(),
-                           context={k: engine.context().get(k) for k in ('need_id', 'candidate_id', 'stage', 'mode', 'offset')}, **outcome)
+            with profile.record('progress_guard', request_id=pending['request_id']):
+                outcome = _observe_progress(engine, guard, trace, loop_guard_mode)
             if outcome['stop'] and loop_guard_mode == 'stop' and engine.state().final is None:
                 engine.stop(outcome['reason'])
             continue
@@ -312,6 +331,8 @@ def run_loop(engine, transport, trace, *, max_turns=None, no_progress_limit=6, c
                 prepared = engine.prepare(progress_warning=warning)
                 timing['request_id'] = prepared.get('request_id')
                 timing['mode'] = prepared.get('payload', {}).get('m6', {}).get('cm_context', {}).get('mode')
+            trace.emit('compile_cache', request_id=prepared.get('request_id'),
+                       counters=dict(getattr(engine, 'last_compile_cache', {})))
         if prepared['status'] != 'ready':
             if engine.state().final is None:
                 engine.stop('context_' + prepared['status'], status='failure')
@@ -331,7 +352,11 @@ def run_loop(engine, transport, trace, *, max_turns=None, no_progress_limit=6, c
                         with measure('request_serialize'):
                             body = encode(prepared['payload'])
                         with measure('transport'):
-                            reply = transport.send_structured(body, prepared['request_id'], prepared['manifest']['schema'])
+                            spec = prepared['manifest'].get('cm_prompt_spec')
+                            if spec is None:
+                                reply = transport.send_structured(body, prepared['request_id'], prepared['manifest']['schema'])
+                            else:
+                                reply = transport.send_frozen(body, prepared['request_id'], prepared['manifest']['schema'], spec)
                     finally:
                         if profile.enabled:
                             measured = deepcopy_receipt(transport)
@@ -374,16 +399,13 @@ def run_loop(engine, transport, trace, *, max_turns=None, no_progress_limit=6, c
                 with profile.record('execute_action', request_id=prepared['request_id'],
                                     action=after_reply.pending_action['action']['action']):
                     engine.execute_pending()
-            last_event = engine.events()[-1]
+            last_event = engine._events()[-1]
             if last_event.get('cm_tool_repair'):
                 trace.emit('tool_input_rejected', **last_event['cm_tool_repair'])
         if engine.state().final is not None:
             break
         with profile.record('progress_guard', request_id=prepared['request_id']):
-            outcome = guard.observe(engine.state(), engine.context())
-            trace.emit('progress_guard', loop_guard_mode=loop_guard_mode,
-                       query_review=engine.inspect().get('search_queries', {}), usage=engine.state().usage(),
-                       context={k: engine.context().get(k) for k in ('need_id', 'candidate_id', 'stage', 'mode', 'offset')}, **outcome)
+            outcome = _observe_progress(engine, guard, trace, loop_guard_mode)
         if outcome['warning']:
             trace.emit('progress_warning', **outcome)
         if outcome['stop'] and loop_guard_mode == 'stop' and engine.state().final is None:
@@ -395,6 +417,9 @@ def run_loop(engine, transport, trace, *, max_turns=None, no_progress_limit=6, c
         result['reranker_usage'] = rerank.usage()
     if profile.enabled:
         result['timing_profile'] = profile.summary()
+    if getattr(engine, '_runtime', None) is not None:
+        result['runtime_snapshot'] = dict(engine._runtime.stats)
+        result['last_compile_cache'] = dict(getattr(engine, 'last_compile_cache', {}))
     trace.emit('run_finished', result=result)
     return result
 
@@ -411,11 +436,23 @@ def runtime(root, run_dir, cfg, options, trace):
     require(options['wait_seconds'] is None, 'CM4 requires polling without a local deadline; prepare a fresh namespace')
     reranker_id = options.get('reranker_function_id')
     survey_first = options.get('survey_first', False)
+    catalog_profile = options.get('catalog_profile', 'full')
+    instruction_profile = options.get('instruction_profile', 'full')
+    candidate_navigation = options.get('candidate_navigation', 'manual')
+    require(catalog_profile in CATALOG_PROFILES and instruction_profile in INSTRUCTION_PROFILES
+            and candidate_navigation in ('manual', 'deterministic_candidate_paging_v1'), 'Unknown CM4 runtime profile')
+    experimental = catalog_profile != 'full' or instruction_profile != 'full' or candidate_navigation != 'manual'
+    require(not experimental or survey_first and reranker_id, 'Experimental input/navigation profiles require survey-first')
+    if instruction_profile != 'full':
+        require(options.get('prompt_registry') == prompt_registry(), 'Frozen prompt registry drift; prepare a fresh namespace')
     profile = TimingProfile(options.get('profile_timing', False), trace)
     instructions = SURVEY_FIRST_INSTRUCTIONS if survey_first else (SOURCE_BOUND_INSTRUCTIONS if reranker_id else INSTRUCTIONS)
     with profile.record('startup_tokenizer'):
         transport = ModalQwenTransport(root / cfg['tokenizer_dir'],
             instructions=instructions, wait_seconds=None)
+    input_policy = (InputPolicy(transport, catalog_profile=catalog_profile,
+        instruction_profile=instruction_profile, frozen_registry=options.get('prompt_registry'))
+        if catalog_profile != 'full' or instruction_profile != 'full' else None)
     lexical = sources = hybrid = None
     try:
         with trace.stage('open_local_source_and_index'), profile.record('startup_source'):
@@ -455,6 +492,7 @@ def runtime(root, run_dir, cfg, options, trace):
             hybrid_search=hybrid, counter_binding=fingerprint([transport.tokenizer_fingerprint, transport.prompt_fingerprint]),
             execution_mode='live', run_binding={'code': binding(), 'settings': cfg, 'options': options},
             gate_enabled=True, embedding_profile=lexical.manifest['profile'],
+            input_policy=input_policy, deterministic_candidate_paging=candidate_navigation != 'manual',
             loop_guard_mode=options['loop_guard_mode'], selector=select_supported_cases,
             selector_fingerprint=selector_fingerprint(), **({'dual_search': dual_search} if dual_search else {}))
         engine.identity_check_enabled = bool(reranker_id)
@@ -485,6 +523,12 @@ def main():
     parser.add_argument('--reranker-function-id', help='Enable dual retrieval and passage review on prepare')
     parser.add_argument('--survey-first', action='store_true', help='Enable the CM4 survey-first policy on prepare')
     parser.add_argument('--profile-timing', action='store_true', help='Record per-stage local timing on prepare and run')
+    parser.add_argument('--catalog-profile', choices=CATALOG_PROFILES,
+                        help='Experimental prompt-only catalog profile; bound during prepare')
+    parser.add_argument('--instruction-profile', choices=INSTRUCTION_PROFILES,
+                        help='Experimental frozen instructions by phase; bound during prepare')
+    parser.add_argument('--candidate-navigation', choices=('manual', 'deterministic_candidate_paging_v1'),
+                        help='Optional deterministic candidate paging; bound during prepare')
     args = parser.parse_args()
     root, directory = args.root.resolve(), args.run_dir.resolve()
     if args.command == 'prepare':
@@ -494,10 +538,18 @@ def main():
         require(args.reranker_function_id is None or re.fullmatch(r'fu-[A-Za-z0-9]+', args.reranker_function_id),
                 'Expected a Modal reranker function ID of the form fu-...')
         require(not args.survey_first or args.reranker_function_id, 'Survey-first requires the passage reranker profile')
+        require(not (args.catalog_profile not in (None, 'full') or args.instruction_profile not in (None, 'full')
+                     or args.candidate_navigation not in (None, 'manual')) or args.survey_first,
+                'Experimental input/navigation profiles require survey-first')
         options = {'wait_seconds': None, 'max_turns': args.max_turns,
                    'no_progress_limit': args.no_progress_limit, 'cycle_limit': args.cycle_limit,
                    'loop_guard_mode': args.loop_guard_mode, 'reranker_function_id': args.reranker_function_id,
-                   'survey_first': args.survey_first, 'profile_timing': args.profile_timing}
+                   'survey_first': args.survey_first, 'profile_timing': args.profile_timing,
+                   'catalog_profile': args.catalog_profile or 'full',
+                   'instruction_profile': args.instruction_profile or 'full',
+                   'candidate_navigation': args.candidate_navigation or 'manual'}
+        if options['instruction_profile'] != 'full':
+            options['prompt_registry'] = prompt_registry()
         LoopGuard(args.no_progress_limit, args.cycle_limit)
         require(args.max_turns is None or args.max_turns > 0, 'Optional turn cap must be positive')
         plan = {'version': VERSION, 'root': str(root), 'settings': cfg, 'options': options, 'code_binding': binding()}
@@ -510,10 +562,13 @@ def main():
             write_once(directory / 'preview.json', preview)
             write_once(directory / 'plan.json', plan)
             trace.emit('preflight_ready', admitted=False, input_tokens=preview['input_tokens'],
-                       controller_requests=0, embedding_requests=0, reranker_requests=0)
+                       controller_requests=0, embedding_requests=0, reranker_requests=0,
+                       runtime_snapshot=dict(engine._runtime.stats),
+                       compile_cache=dict(getattr(engine, 'last_compile_cache', {})))
     else:
-        require(args.reranker_function_id is None and not args.survey_first and not args.profile_timing,
-                'Reranker, survey and timing settings are bound during prepare')
+        require(args.reranker_function_id is None and not args.survey_first and not args.profile_timing
+                and args.catalog_profile is None and args.instruction_profile is None and args.candidate_navigation is None,
+                'Reranker, survey, timing and input/navigation settings are bound during prepare')
         plan = json.loads((directory / 'plan.json').read_bytes())
         require(plan['version'] == VERSION and plan['root'] == str(root) and plan['code_binding'] == binding(), 'Plan/source/code drift; use new namespace')
         trace = runner.Trace(directory)

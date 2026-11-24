@@ -24,7 +24,9 @@ from .query_options import CONTROLLER_OUTPUT_TOKEN_CAP, MapFirstQueryTools
 from .model_view import project, restore_action
 from .read_options import execute_candidate_header, execute_retrieved_passage, opened_lead_keys, retrieved_passages
 from .tool_repair import bind_repair, repair_feedback, visible_repair
-from . import source_gate, query_review, passage_review
+from . import source_gate, query_review, passage_review, candidate_navigation
+from .runtime_snapshot import RuntimeSnapshot, StateView, runtime_operation
+from .payload_planning import CompileFrame, memoized_leaf, memoized_feedback, memoized_record
 
 VERSION = 'cm4-query-review-v31'
 ASSESSMENT_TOOLS = ('assess_case_link', 'review_conflicting_link')
@@ -57,7 +59,8 @@ def code_binding():
     directory = Path(__file__).parent
     files = [directory / name for name in ('engine.py', 'evidence.py', 'tool_repair.py', 'assessment_options.py',
                                            'read_options.py', 'query_options.py', 'model_view.py', 'anchor_quote.py',
-                                           'source_gate.py', 'query_review.py', 'passage_review.py')]
+                                           'source_gate.py', 'query_review.py', 'passage_review.py', 'runtime_snapshot.py', 'payload_planning.py',
+                                           'catalog_descriptor.py', 'prompt_profiles.py', 'candidate_navigation.py')]
     files += [directory.parent / 'context_manager_v1' / 'core.py']
     root = directory.parents[2]
     result = base_binding(root)
@@ -77,6 +80,19 @@ class IntegratedHarness(policy.AdaptiveHarness):
         self.engine = engine
         super().__init__(*args, **kwargs)
 
+    def events(self):
+        return deepcopy(list(self._events()))
+
+    def _events(self):
+        runtime = getattr(self.engine, '_runtime', None)
+        return runtime.sync().events if runtime is not None else super().events()
+
+    def inspect(self):
+        runtime = getattr(self.engine, '_runtime', None)
+        if runtime is None:
+            return super().inspect()
+        return deepcopy(self._with_embedding_usage(self.engine._state().snapshot()))
+
     def _final(self, reason, detail, prediction=None, assessment_ids=()):
         final = super()._final(reason, detail, prediction, assessment_ids)
         deferred = self.engine.context().get('deferred_pairs', {})
@@ -85,7 +101,7 @@ class IntegratedHarness(policy.AdaptiveHarness):
             if reason == 'complete':
                 final['review_status'] = 'partial_with_deferred_pairs'
         if self.engine.gate_enabled:
-            rows = query_review.queries(self.engine.events(), self.engine.context())
+            rows = query_review.queries(self.engine._events(), self.engine.context())
             unresolved = [key for key, row in rows.items() if not row['conclusion']
                           or row['conclusion']['unresolved_candidate_ids']
                           or row['conclusion']['remaining_source_need'].strip()]
@@ -197,7 +213,7 @@ class IntegratedHarness(policy.AdaptiveHarness):
             finally:
                 self.tools['search_corpus'] = original
         if self.engine.gate_enabled and action['action'] == 'open_source':
-            query = query_review.active(self.engine.events(), self.engine.context())
+            query = query_review.active(self.engine._events(), self.engine.context())
             require(query is None or query['phase'] == 'reviewing', 'Survey all results before reading candidates')
         if self.engine.gate_enabled and action['action'] in ('search_corpus', 'search_identity'):
             self.engine._verify_search_permit(action, self.engine.context())
@@ -245,7 +261,7 @@ class IntegratedHarness(policy.AdaptiveHarness):
         if digest in state.tool_actions:
             return super()._apply_action(db, state)
 
-        events = self.events()
+        events = self._events()
         actions = {row['action_id']: row for row in events if row['kind'] == 'action_started'}
         outcomes = [row for row in events if row['kind'] == 'action_result']
         duplicated = any(actions[row['action_id']]['action_fingerprint'] == digest
@@ -273,8 +289,8 @@ class IntegratedHarness(policy.AdaptiveHarness):
         if self.engine.gate_enabled:
             full['review_candidates'] = {}
         context = self.engine.context()
-        events = self.events()
-        snapshot = Snapshot.from_events(events, {})
+        events = self._events()
+        snapshot = self.engine._snapshot()
         opened_leads = opened_lead_keys(events)
         need_id, candidate_id = context['need_id'], context['candidate_id']
         mode = context['mode']
@@ -451,12 +467,14 @@ class Engine:
                  config=None, initial_observation=None, query_excerpt=None,
                  hybrid_search=None, counter_binding=None, page_size=5, execution_mode='offline', run_binding=None,
                  gate_enabled=False, selector=None, selector_fingerprint=None, loop_guard_mode=None,
-                 dual_search=None, embedding_profile=None):
+                 dual_search=None, embedding_profile=None, input_policy=None, deterministic_candidate_paging=False):
         from pipeline_v2.m6 import AdaptiveConfig
         require(execution_mode in ('offline', 'live'), 'Invalid execution mode')
         self.execution_mode = execution_mode
         self.gate_enabled = gate_enabled
         self.dual_search = dual_search
+        self.input_policy = input_policy
+        self.deterministic_candidate_paging = bool(deterministic_candidate_paging)
         self.embedding_profile = deepcopy(embedding_profile)
         self.loop_guard_mode = loop_guard_mode or ('warn' if gate_enabled else 'stop')
         require(self.loop_guard_mode in ('warn', 'stop'), 'Invalid loop guard mode')
@@ -483,7 +501,9 @@ class Engine:
                                      'passage_review': dual_search is not None,
                                      'source_gate': source_gate.VERSION if gate_enabled else None,
                                      'provider_execution': 'forbidden_offline' if execution_mode == 'offline' else 'live_user_or_AG',
-                                     'run_binding': run_binding}
+                                     'run_binding': run_binding,
+                                     **({'input_policy': input_policy.fingerprint} if input_policy is not None else {}),
+                                     **({'deterministic_candidate_paging': True} if deterministic_candidate_paging else {})}
         self._observed_excerpts = []
         for name, tool in list(self.harness.tools.items()):
             def observe(args, tool=tool):
@@ -491,24 +511,31 @@ class Engine:
                 self._observed_excerpts = list(result.excerpts)
                 return result
             self.harness.tools[name] = observe
+        self._runtime = RuntimeSnapshot(self.harness.ledger)
+        self.harness._committed_event = self._runtime.committed
+        self.harness._invalidate_runtime = self._runtime.invalidate
         with self.harness.ledger.writer() as db:
-            state = RunState(self.harness.ledger.read(db))
+            state = self._state(db)
             self.harness._start(db, state)
 
+    def _events(self, db=None):
+        return self._runtime.sync(db).events
+
     def events(self):
-        return self.harness.events()
+        return deepcopy(list(self._events()))
+
+    def _state(self, db=None):
+        return self._runtime.sync(db).state
 
     def state(self):
-        return RunState(self.events())
+        return StateView(self._runtime.sync())
+
+    def _snapshot(self):
+        self._runtime.sync()
+        return self._runtime.snapshot()
 
     def context(self):
-        context = {'need_id': None, 'candidate_id': None, 'stage': 'ready', 'mode': 'query',
-                   'offset': 0, 'back': [], 'revision': 0, 'pair_pins': {}, 'pair_targets': {}, 'pair_progress': {}}
-        for event in self.events():
-            if event.get('cm_context'):
-                context = deepcopy(event['cm_context'])
-            if event.get('cm_auto_query_view'):
-                context.update(deepcopy(event['cm_auto_query_view']))
+        context = deepcopy(self._runtime.sync().context)
         self._sync_missing(context)
         return context
 
@@ -571,7 +598,7 @@ class Engine:
         if status == 'duplicate':
             need = args.get('_m6_need', {}).get('source_need_id')
             if name in ('search_corpus', 'search_identity') and need and (need == context['need_id'] or confirmed_draft):
-                snapshot = Snapshot.from_events(self.events(), {})
+                snapshot = self._snapshot()
                 operation = next((row for row in reversed(snapshot.operations) if row['need_id'] == need), None)
                 if operation and confirmed_draft:
                     context.update(need_id=need, candidate_id=None, mode='results', offset=0, back=[],
@@ -647,18 +674,15 @@ class Engine:
                     progress.pop(key, None)
         self._sync_missing(context)
 
+    @memoized_feedback
     @timed('feedback_from_history')
     def _feedback(self, context):
         """Bounded projection of durable outcomes, not an unbounded chat history."""
-        events = self.events()
-        actions = {row['action_id']: row for row in events if row['kind'] == 'action_started'}
-        outcomes = [row for row in events if row['kind'] == 'action_result']
+        events = self._events()
+        actions = self._runtime.actions
+        outcomes = self._runtime.outcomes
         last = outcomes[-1] if outcomes else None
-        last_search = next((row for row in reversed(outcomes)
-            if row.get('status') == 'success' and row['action_id'] in actions
-            and actions[row['action_id']]['action']['action'] in ('search_corpus', 'search_identity')
-            and (actions[row['action_id']]['executes_tool'] or row.get('reason') == 'reused_exact_hybrid_search')
-            and 'hits' in (row.get('result') or {}).get('observation', {})), None)
+        last_search = self._runtime.last_search
         summary = None
         if last_search:
             started = actions[last_search['action_id']]
@@ -714,8 +738,7 @@ class Engine:
             elif last.get('reason') == 'reopened_without_new_raw':
                 outcome['message'] = 'The reader found no new candidate text for this pair. Its accepted assessment is still active.'
         if last:
-            receipt = next((row for row in reversed(events) if row['kind'] == 'request_result'
-                            and row['request_id'] == started['request_id']), {})
+            receipt = self._runtime.receipts.get(started['request_id'], {})
             raw = receipt.get('raw_model_reply')
             try:
                 chosen = parse_model_response(raw) if isinstance(raw, str) else raw
@@ -843,9 +866,7 @@ class Engine:
         pair = fingerprint([context['need_id'], context['candidate_id']])
         pins = list(context['pair_pins'].get(pair, []))
         progress = self._progress(context, pair)
-        needs = [e['result']['observation'].get('m6_source_need') for e in self.events()
-                 if e['kind'] == 'action_result' and e.get('result')]
-        need = next((n for n in reversed(needs) if n and n['source_need_id'] == context['need_id']), None)
+        need = self._runtime.result_needs.get(context['need_id'])
         if not pins:
             if need:
                 pins.extend(ref for ref in need['a_refs'] if ref in state.catalog)
@@ -1158,8 +1179,8 @@ class Engine:
         citations = {}
         payload['m6']['citation_search_pages'] = {}
         # Completion describes reviewed retrieval results.
-        events = self.events()
-        snapshot = Snapshot.from_events(events, {})
+        events = self._events()
+        snapshot = self._snapshot()
         feedback = payload['last_action_feedback']
         drafts = context.get('anchor_drafts', {})
         active_draft_id = context.get('active_anchor_draft')
@@ -1284,7 +1305,7 @@ class Engine:
                      'pool': bool(state.candidates), 'needs': any(key != context['need_id'] for key in snapshot.needs),
                      'parked': safe and bool(parked), 'assessment': bool(context['candidate_id']),
                      'anchor_drafts': safe and not active_draft and len(drafts) > self.render_page_size}
-        active_query = query_review.active(self.events(), context) if self.gate_enabled else None
+        active_query = query_review.active(self._events(), context) if self.gate_enabled else None
         for mode, available in reachable.items():
             target_offset = (query_review.first_unseen_offset(active_query) or 0) if mode == 'results' and active_query else 0
             if available and (mode != context['mode'] or context['offset'] != target_offset):
@@ -1666,7 +1687,7 @@ class Engine:
 
     def _query_review_catalog(self, payload, state, context, schema, handles):
         """Lock retrieval to one immutable result set and require complete survey."""
-        query = query_review.active(self.events(), context)
+        query = query_review.active(self._events(), context)
         if query is None:
             return schema
         payload['m6']['query_review'] = query_review.progress(query, state)
@@ -1826,7 +1847,10 @@ class Engine:
         adjacent_spans = {} if context.get('_checking_query_span') else source_gate.span_options(state, payload)
         if self.dual_search is not None and not context.get('_checking_query_span'):
             # Small source-bound routes to received text with unfinished work.
-            settled = source_gate._settled_spans(context)
+            frame = getattr(self, '_compile_memo', None)
+            settled_key = ('settled', fingerprint(context.get('source_gate', {})))
+            settled = (frame.get_or_build(settled_key, lambda: source_gate._settled_spans(context))
+                       if frame is not None else source_gate._settled_spans(context))
             received = source_gate.delivered_query_rows(state, self.harness.identity.query_id, self.harness.identity.query_source_hash)
             pending = []
             received_spans = sorted((r['span_bytes'] for r in received))
@@ -1899,7 +1923,7 @@ class Engine:
         if surveying and not ready:
             permits = {}
         can_search = (bool(permits) and context['stage'] not in ('reading', 'results_ready')
-                      and query_review.active(self.events(), context) is None)
+                      and query_review.active(self._events(), context) is None)
         if paragraphs and context['stage'] != 'reading' and not can_search:
             segments = source_gate.segments(payload, context, bound=self.dual_search is not None)
             payload['m6']['source_gate_segments'] = segments
@@ -1907,7 +1931,11 @@ class Engine:
             if bound:
                 tree=getattr(self.harness.m3,'query_tree',None)
                 raw = self.store.raw_reader(self.harness.identity.query_id)
-                headings = set(map(tuple, getattr(tree, 'headings', []))) | set(source_gate.heading_spans(raw))
+                frame = getattr(self, '_compile_memo', None)
+                heading_key = ('headings', self.harness.identity.query_source_hash)
+                source_headings = (frame.get_or_build(heading_key, lambda: source_gate.heading_spans(raw))
+                                   if frame is not None else source_gate.heading_spans(raw))
+                headings = set(map(tuple, getattr(tree, 'headings', []))) | set(source_headings)
                 payload['m6']['known_heading_spans'] = [list(span) for span in sorted(headings)
                     if any(p['span_bytes'][0] < span[1] and span[0] < p['span_bytes'][1]
                            for p in payload['m6']['a_paragraphs'].values())]
@@ -1918,7 +1946,7 @@ class Engine:
                            'remaining_visible refs settle only their listed remaining ranges with no_search_needed. '
                            'Use need_more_context to read more. Typed supports do not settle their text.')
             if bound:
-                repair = visible_repair(self.events()) or {}
+                repair = visible_repair(self._events()) or {}
                 quote_recovery = repair.get('code') == 'source_span_required' or any(
                     row['status'] == 'unresolved' and row.get('requested_args', {}).get('proposition_quote')
                     and row['paragraph_handle'] in {p['paragraph_handle'] for p in payload['m6']['a_paragraphs'].values()}
@@ -2030,7 +2058,7 @@ class Engine:
                 payload['m6']['source_context_options']=context_options
                 add('read_source_context',{'context_ref':{'type':'string','enum':list(context_options)}},
                     'Read bounded literal A context around a pending source span. The saved decision and typed supports remain a draft; reading does not settle additional text.')
-        if query_review.active(self.events(), context) is None and self.dual_search is None:
+        if query_review.active(self._events(), context) is None and self.dual_search is None:
             searched = source_gate.visible_permits(payload, context, status='searched')
             if searched:
                 add('revisit_source_need', {
@@ -2061,7 +2089,7 @@ class Engine:
         if unresolved and len(deferrable) < len(unresolved) and source_gate.query_fully_read(
                 state, self.harness.query_paragraphs, self.harness.identity.query_id, self.harness.identity.query_source_hash):
             deferrable = unresolved
-        if deferrable and not can_search and query_review.active(self.events(), context) is None:
+        if deferrable and not can_search and query_review.active(self._events(), context) is None:
             all_keys = list(context.get('source_gate', {}))
             eligible = list(deferrable)
             cursor = context.get('source_need_page_start')
@@ -2097,7 +2125,7 @@ class Engine:
                 'first_index': start + 1, 'last_index': start + len(page_keys), 'controls': controls}
         review = payload['last_action_feedback'].get('review_progress', {})
         complete = (status['complete'] and not context.get('anchor_drafts')
-                    and query_review.active(self.events(), context) is None)
+                    and query_review.active(self._events(), context) is None)
         if review:
             review['complete_policy_allowed'] = complete
         if complete and not any(tool['name'] == 'finish_case_review' for tool in tools):
@@ -2215,14 +2243,14 @@ class Engine:
 
     def _verify_gate_mutation(self, name, context):
         if self.gate_enabled and name in GATE_MUTATIONS:
-            require(query_review.active(self.events(), context) is None,
+            require(query_review.active(self._events(), context) is None,
                     'Conclude the active search query before changing source screening decisions')
 
     def _verify_search_permit(self, action, context):
         if getattr(self, 'survey_first', False):
             require(source_gate.survey_ready(context, self.harness.query_paragraphs), 'Finish surveying A before retrieval')
         require(action['action'] == 'search_corpus', 'Source gate disallows ungated identity retrieval')
-        require(query_review.active(self.events(), context) is None, 'Conclude the active search query before another retrieval')
+        require(query_review.active(self._events(), context) is None, 'Conclude the active search query before another retrieval')
         need = action['args'].get('_m6_need', {})
         decision = context.get('source_gate', {}).get(need.get('source_gate_ref'))
         require(decision is not None and (decision['status'] == 'approved'
@@ -2264,17 +2292,19 @@ class Engine:
             'description': 'Close an unusable draft explicitly. superseded requires a listed replacement_ref; discarded uses an empty replacement_ref.',
             'parameters': {'type': 'object', 'properties': properties, 'required': list(properties)}})
         payload['m6']['closable_anchor_drafts'] = refs
-        snapshot = Snapshot.from_events(self.events(), {})
+        snapshot = self._snapshot()
         payload['m6']['anchor_replacements'] = [*snapshot.needs, *context.get('source_gate', {}), *refs]
 
     def _payload_base(self, state, rows, coverage, feedback):
-        return {'query_id': self.harness.identity.query_id, 'query_source_hash': self.harness.identity.query_source_hash,
-                'max_output_tokens': CONTROLLER_OUTPUT_TOKEN_CAP, 'query_delivery': 'continuation', 'excerpts': rows,
-                'current_payload_source_refs': [r['ref'] for r in rows],
+        frame = getattr(self, '_compile_memo', None)
+        base = frame.base if frame is not None else {
+            'query_id': self.harness.identity.query_id, 'query_source_hash': self.harness.identity.query_source_hash,
+            'max_output_tokens': CONTROLLER_OUTPUT_TOKEN_CAP, 'query_delivery': 'continuation',
+            'observation_omitted': True, 'observation_scope': 'full_observation_omitted_bounded_feedback_included',
+            'candidate_count': len(state.candidates), 'active_assessment_count': len(state.active_assessments)}
+        return {**base, 'excerpts': rows, 'current_payload_source_refs': [r['ref'] for r in rows],
                 'pending_source_count': sum(bool(c['pending']) for c in coverage),
-                'observation_omitted': True, 'observation_scope': 'full_observation_omitted_bounded_feedback_included',
-                'last_action_feedback': feedback, 'candidate_count': len(state.candidates),
-                'active_assessment_count': len(state.active_assessments), 'cm_coverage': coverage}
+                'last_action_feedback': feedback, 'cm_coverage': coverage}
 
     def _pack_payload(self, payload, schema):
         with measure('project_wire_payload'):
@@ -2283,6 +2313,7 @@ class Engine:
             body = encode(wire)
         return wire, self.harness._count(body), wire_schema, aliases
 
+    @memoized_record
     def _combined_query_record(self, state, target):
         span = target['span_bytes']
         records = source_gate.delivered_query_rows(state, self.harness.identity.query_id, target['source_hash'])
@@ -2300,6 +2331,7 @@ class Engine:
         return source_record(SourceExcerpt(self.harness.identity.query_id, target['source_hash'], tuple(span),
             text, sha256(text.encode('utf-8')).hexdigest(), provenance={'components': list(components.values())}))
 
+    @memoized_leaf
     @timed('leaf_payload_projection')
     def _query_leaf_payload(self, state, context, progress_warning=None):
         """Offer and publish a region using the same full-source, map-free projection."""
@@ -2317,8 +2349,7 @@ class Engine:
             feedback['guidance'] = 'Correct the rejected tool input using the current query excerpt.'
         payload = self._payload_base(state, rows, coverage, feedback)
         backend = self.harness.hybrid_search
-        searched = any((row.get('result') or {}).get('observation', {}).get('m6_source_need') and
-                       'hits' in row['result']['observation'] for row in self.events() if row['kind'] == 'action_result')
+        searched = self._runtime.has_search_results
         dispatch = {**asdict(self.harness.adaptive_config), 'a_paragraphs': self.harness._visible_paragraphs(payload),
                     'hybrid_budget_remaining': backend.remaining() if backend is not None else None,
                     'search_completed': searched, 'candidates': {}, 'expansions': {}, 'reloads': {},
@@ -2348,7 +2379,7 @@ class Engine:
         if not isinstance(tools, MapFirstQueryTools):
             return None
         region = context.get('query_leaf_region') or tools.query_tree.root_ref
-        epoch = sum(event['kind'] == 'action_started' for event in self.events())
+        epoch = self._runtime.state.actions
         choices = tools.context_fallback_options(region, epoch)
         if not choices:
             return None
@@ -2357,7 +2388,7 @@ class Engine:
         backend = self.harness.hybrid_search
         dispatch = {**asdict(self.harness.adaptive_config), 'a_paragraphs': {},
             'hybrid_budget_remaining': backend.remaining() if backend is not None else None,
-            'search_completed': bool(query_review.queries(self.events(), context)),
+            'search_completed': bool(query_review.queries(self._events(), context)),
             'candidates': {}, 'expansions': {}, 'reloads': {}, 'review_candidates': {}, 'review_count': 0,
             'query_targets': choices, 'citation_search_pages': {},
             'cm_context': {key: context[key] for key in ('need_id', 'candidate_id', 'stage', 'mode')},
@@ -2429,9 +2460,10 @@ class Engine:
                 ref = split[1]['binding']['region_ref']
             region = next(row for row in tree.children(ref) if row['span_bytes'][0] <= next_byte < row['span_bytes'][1])
 
+    @runtime_operation
     def prepare(self, *, admit=True, progress_warning=None):
         with self.harness.ledger.writer() as db:
-            state = RunState(self.harness.ledger.read(db))
+            state = self._state(db)
             require(state.final is None, 'Run already terminal')
             recovery = (state.last_receipt or {}).get('cm_batch_length_recovery')
             require(not state.last_receipt or state.last_receipt['status'] == 'success'
@@ -2446,9 +2478,12 @@ class Engine:
             context = self.context()
             if recovery:
                 context['batch_item_limit'] = recovery['max_items']
-            best, auto_query_view = None, None
+            self._compile_memo = CompileFrame(self, state)
+            self.store.raw_reader = self._compile_memo.raw
+            self.store.verify = self._compile_memo.verify
+            best, auto_query_view, auto_candidate_view = None, None, None
             try:
-                review = query_review.active(self.events(), context)
+                review = query_review.active(self._events(), context)
                 if review is None and (automatic := self._next_survey_read(state, context, progress_warning)):
                     auto_query_view, best = automatic
                     context.update(auto_query_view)
@@ -2456,6 +2491,15 @@ class Engine:
                     for byte_limit in (5000, 3000, 1800, 900, 450, 180):
                         payload, schema, handles, rows = passage_review.compile_view(
                             self, state, context, review, byte_limit)
+                        if getattr(self, 'deterministic_candidate_paging', False) and auto_candidate_view is None:
+                            proposal = candidate_navigation.propose(context, review, payload, schema, handles,
+                                blocked=bool(progress_warning or recovery or (self.directory.parent / 'STOP').is_file() or
+                                             (state.last_receipt or {}).get('cm_tool_repair')))
+                            if proposal is not None:
+                                auto_candidate_view = proposal
+                                context.update(deepcopy(proposal))
+                                payload, schema, handles, rows = passage_review.compile_view(
+                                    self, state, context, review, byte_limit)
                         if progress_warning is not None:
                             payload['last_action_feedback']['progress_warning'] = deepcopy(progress_warning)
                         dispatch = payload['m6']
@@ -2499,6 +2543,10 @@ class Engine:
                 if best is None:
                     return {'status': 'unfit', 'reason': 'minimum_source_aware_window_or_catalog_unfit', 'model_requests': 0}
                 payload, schema, handles, rows, coverage, tokens, dispatch_m6, aliases = best
+                self._compile_memo.verify_sources_fresh()
+                self._compile_memo.restore(self.store)
+                for row in rows:
+                    self.store.verify(row)
                 self.harness._verify(rows)
             except SourceDrift as exc:
                 self.harness._record_drift(db, state, exc.case_id)
@@ -2511,18 +2559,29 @@ class Engine:
             finally:
                 self._expansion_previews.clear()
                 self._survey_previews.clear()
+                frame = self._compile_memo
+                frame.restore(self.store)
+                self.last_compile_cache = {'hits': frame.hits, 'misses': frame.misses,
+                    'common_frame_builds': frame.common_builds, 'source_opens': frame.source_opens,
+                    'record_verifications': frame.record_verifications}
+                self._compile_memo = None
+            prompt_spec = None
+            if getattr(self, 'input_policy', None) is not None:
+                payload, tokens, prompt_spec = self.input_policy.prepare(
+                    payload, schema, max_payload_tokens=self.harness.budget.max_payload_tokens)
             request_id = fingerprint([self.harness.identity.run_id, 'request', state.usage()['requests'] + 1])
             body = encode(payload)
             manifest = {'version': VERSION, 'request_id': request_id, 'context': context,
                         'schema': schema, 'schema_sha256': fingerprint(schema), 'handles': handles,
-                        'source_revision': fingerprint(self.events()), 'code_binding': code_binding(),
+                        'source_revision': self._runtime.prefix_sha256, 'code_binding': code_binding(),
                         'counter_binding': self.counter_binding, 'payload_sha256': sha256(body).hexdigest(), 'coverage': coverage,
                         'dispatch_m6': dispatch_m6, 'wire_aliases': aliases,
-                        'excerpts': rows, 'excerpts_sha256': fingerprint(rows)}
+                        'excerpts': rows, 'excerpts_sha256': fingerprint(rows),
+                        **({'cm_prompt_spec': prompt_spec} if prompt_spec is not None else {})}
             relative = f'manifests/{request_id}.json'
             if not admit:
                 return {'status': 'ready', 'input_tokens': tokens, 'soft_target_exceeded': tokens > 7900,
-                        'payload': payload, 'manifest': manifest, 'admitted': False}
+                        'payload': payload, 'manifest': deepcopy(manifest), 'admitted': False}
             with measure('write_request_manifest'):
                 write_once(self.directory / relative, manifest)
             retry_of = state.last_receipt['request_id'] if recovery else None
@@ -2534,9 +2593,11 @@ class Engine:
                 cm_survey_candidates=[card['case_id'] for card in dispatch_m6.get('cm_page', {}).get('candidates', [])],
                 cm_manifest_path=relative, cm_manifest_sha256=fingerprint(manifest),
                 cm_scripted_offline=self.execution_mode == 'offline',
-                **({'cm_auto_query_view': auto_query_view} if auto_query_view else {}))
+                **({'cm_auto_query_view': auto_query_view} if auto_query_view else {}),
+                **({'cm_auto_candidate_view': auto_candidate_view} if auto_candidate_view else {}),
+                **({'cm_prompt_spec': prompt_spec} if prompt_spec is not None else {}))
             return {'status': 'ready', 'request_id': request_id, 'input_tokens': tokens, 'soft_target_exceeded': tokens > 7900,
-                    'payload': payload, 'manifest': manifest, 'model_requests': 0}
+                    'payload': payload, 'manifest': deepcopy(manifest), 'model_requests': 0}
 
     def _manifest(self, admission):
         relative = Path(admission['cm_manifest_path'])
@@ -2565,14 +2626,9 @@ class Engine:
             return {**candidate, '_m6_need': source}
 
         proposed = binding(args)
-        events = self.events()
-        committed = {row['action_id'] for row in events if row['kind'] == 'action_result' and row['status'] == 'success'
-                     and (row.get('result') or {}).get('observation', {}).get('m6_source_need')}
-        for row in events:
-            if (row['kind'] == 'action_started' and row['action_id'] in committed
-                    and row['action']['action'] == 'search_corpus'
-                    and binding(row['action']['args']) == proposed):
-                return row['action']
+        for previous in self._runtime.successful_search_actions:
+            if binding(previous['args']) == proposed:
+                return previous
         return action
 
     @staticmethod
@@ -2589,10 +2645,11 @@ class Engine:
                 if key not in ('source_need_id', 'source_proposition')})[:24]
         return internal
 
+    @runtime_operation
     def reply(self, request_id, action=None, status='success', *, telemetry=None, started=None,
               transport_metadata=None, error=None):
         with self.harness.ledger.writer() as db:
-            state = RunState(self.harness.ledger.read(db))
+            state = self._state(db)
             require(state.in_flight and state.in_flight['request_id'] == request_id, 'Stale or duplicate response')
             manifest = self._manifest(state.in_flight)
             require(status in ('success', 'unknown', 'error'), 'Invalid response status')
@@ -2663,7 +2720,7 @@ class Engine:
                 payload['query_source_hash'] = self.harness.identity.query_source_hash
                 name = action['action']
                 self._verify_gate_mutation(name, manifest['context'])
-                if passage_review.enabled(query_review.active(self.events(), manifest['context'])):
+                if passage_review.enabled(query_review.active(self._events(), manifest['context'])):
                     internal = action
                 elif name in CONTEXT_ACTIONS:
                     internal = action
@@ -2785,9 +2842,9 @@ class Engine:
                     if not action['args']['reason'].strip():
                         raise policy.ToolSemanticError('blank_reason')
                 if (action['action'] == 'conclude_search_query'
-                        and not passage_review.enabled(query_review.active(self.events(), manifest['context']))):
+                        and not passage_review.enabled(query_review.active(self._events(), manifest['context']))):
                     try:
-                        query_review.conclude(query_review.active(self.events(), manifest['context']), state, action['args'])
+                        query_review.conclude(query_review.active(self._events(), manifest['context']), state, action['args'])
                     except HarnessError as exc:
                         raise policy.ToolSemanticError('invalid_query_conclusion') from exc
                 if action['action'] == 'prioritize_query_results' and len(action['args']['candidate_refs']) != len(set(action['args']['candidate_refs'])):
@@ -2798,7 +2855,7 @@ class Engine:
                         raise policy.ToolSemanticError('duplicate_missing_evidence')
             except policy.ToolSemanticError as exc:
                 feedback = repair_feedback(action, str(exc))
-                repair = bind_repair(self.harness.ledger.read(db), feedback, manifest) if feedback else None
+                repair = bind_repair(self._events(db), feedback, manifest) if feedback else None
                 missing_selector = str(exc) == 'source_span_required'
                 if repair:
                     if self.loop_guard_mode == 'warn' and not missing_selector:
@@ -2823,22 +2880,23 @@ class Engine:
             self.harness._receipt(db, state, state.in_flight, 'success', received=True, telemetry=telemetry, started=started,
                                   action=internal, schema_validation='passed')
 
+    @runtime_operation
     def execute_pending(self):
         with self.harness.ledger.writer() as db:
-            state = RunState(self.harness.ledger.read(db))
+            state = self._state(db)
             require(state.pending_action is not None, 'No pending model action')
             action = state.pending_action['action']
             context = self.context()
             self._verify_gate_mutation(action['action'], context)
             if (action['action'] not in CONTEXT_ACTIONS
-                    and not passage_review.enabled(query_review.active(self.events(), context))):
+                    and not passage_review.enabled(query_review.active(self._events(), context))):
                 # Source verification and actual M4 assessment validator execute here.
                 try:
                     for ref in state.current:
                         self.store.verify(state.current_records[ref])
                 except SourceDrift as exc:
                     self.harness._record_drift(db, state, exc.case_id)
-                    return state.snapshot()
+                    return deepcopy(state.snapshot())
                 if context['candidate_id']:
                     pair = fingerprint([context['need_id'], context['candidate_id']])
                     admission = state.requests[state.pending_action['request_id']]
@@ -2870,7 +2928,7 @@ class Engine:
                             feedback = repair_feedback(chosen, reason.split(':', 1)[1], provenance=True)
                             if feedback:
                                 admission = state_.requests[receipt['request_id']]
-                                repair = bind_repair(self.harness.ledger.read(db_), feedback, self._manifest(admission))
+                                repair = bind_repair(self._events(db_), feedback, self._manifest(admission))
                                 if self.loop_guard_mode == 'warn':
                                     repair['warning_threshold_reached'] = not repair['retry_allowed']
                                     repair['retry_allowed'] = True
@@ -2941,8 +2999,7 @@ class Engine:
                                             or (continuing_lead and r in progress.get('lead_windows', {}))]
                                 # Keep the exact active need's A anchor when only B is newly read.
                                 if self.harness.identity.query_id not in fresh_sides and not any(known[r]['case_id'] == self.harness.identity.query_id for r in retained):
-                                    need = next((n for e in reversed(self.events()) if e['kind'] == 'action_result' and e.get('result')
-                                                 for n in [e['result']['observation'].get('m6_source_need')] if n and n['source_need_id'] == cm['need_id']), None)
+                                    need = self._runtime.result_needs.get(cm['need_id'])
                                     retained.extend(r for r in (need or {}).get('a_refs', []) if r in known)
                                 cm['pair_pins'][pair_key] = list(dict.fromkeys([*retained, *fresh_refs]))
                                 if cm['need_id'] and cm['candidate_id']:
@@ -2965,7 +3022,7 @@ class Engine:
                     self.harness._record_drift(db, state, exc.case_id)
                 finally:
                     self.harness._write = original
-                return state.snapshot()
+                return deepcopy(state.snapshot())
             receipt = state.pending_action
             admission = state.requests[receipt['request_id']]
             manifest = self._manifest(admission)
@@ -2977,7 +3034,7 @@ class Engine:
             name, args = action['action'], action['args']
             reload_refs = []
             action_status, action_reason = 'success', None
-            review = query_review.active(self.events(), context)
+            review = query_review.active(self._events(), context)
             if passage_review.enabled(review):
                 try:
                     passage_review.execute(self, db, state, context, review, action, manifest, action_id)
@@ -2990,7 +3047,7 @@ class Engine:
                         status='error', result=None, reason=str(exc), reload_refs=[],
                         invalidated_assessments=[], assessments=[], pending_assessments=[], final=None,
                         local_elapsed_ms=0, cm_context=restored)
-                return state.snapshot()
+                return deepcopy(state.snapshot())
             if name == 'read_source_context':
                 target=manifest['handles'][args['context_ref']]
                 raw=self.store.raw_reader(self.harness.identity.query_id)
@@ -3022,10 +3079,10 @@ class Engine:
                     record = self._combined_query_record(state, target)
                 except SourceDrift as exc:
                     self.harness._record_drift(db, state, exc.case_id)
-                    return state.snapshot()
+                    return deepcopy(state.snapshot())
                 context.update(mode='query_span', offset=0, back=[], query_span_record=record)
             elif name == 'prioritize_query_results':
-                query = query_review.active(self.events(), context)
+                query = query_review.active(self._events(), context)
                 require(query is not None, 'No active query')
                 decisions = context.setdefault('query_priorities', {}).setdefault(query['query_id'], {})
                 require(len(args['candidate_refs']) == len(set(args['candidate_refs'])), 'Duplicate priority refs')
@@ -3035,7 +3092,7 @@ class Engine:
                     require(decisions.get(case, {}).get('priority') != args['priority'], 'Unchanged priority assignment')
                     decisions[case] = {'priority': args['priority'], 'reason': args['reason'].strip()}
             elif name == 'conclude_search_query':
-                query = query_review.active(self.events(), context)
+                query = query_review.active(self._events(), context)
                 require(query is not None, 'No active query')
                 context.setdefault('query_conclusions', {})[query['query_id']] = query_review.conclude(query, state, args)
                 context.update(candidate_id=None, stage='ready', mode='query', offset=0, back=[])
@@ -3074,7 +3131,7 @@ class Engine:
                         self.store.verify(state.current_records[ref])
                 except SourceDrift as exc:
                     self.harness._record_drift(db, state, exc.case_id)
-                    return state.snapshot()
+                    return deepcopy(state.snapshot())
                 updated = deepcopy(context)
                 for assessment in assessments:
                     source_gate.commit_decision(updated, assessment)
@@ -3090,14 +3147,14 @@ class Engine:
                         self.store.verify(state.current_records[support['source_ref']])
                 except SourceDrift as exc:
                     self.harness._record_drift(db, state, exc.case_id)
-                    return state.snapshot()
+                    return deepcopy(state.snapshot())
                 if not source_gate.commit_decision(context, assessment):
                     action_status, action_reason = 'duplicate', 'partial_view_already_screened'
                 elif self.dual_search is not None:
                     context['source_return_focus']={'source_hash':assessment['source_hash'],
                         'span_bytes':assessment['visible_span_bytes'],'paragraph_handle':assessment['paragraph_handle']}
             elif name == 'revisit_source_need':
-                require(query_review.active(self.events(), context) is None, 'Conclude the current query first')
+                require(query_review.active(self._events(), context) is None, 'Conclude the current query first')
                 decision = context['source_gate'][args['source_need_ref']]
                 require(decision['status'] == 'searched', 'Only searched source needs may be revisited')
                 decision.update(status='approved', revisit_reason=args['reason'].strip())
@@ -3244,7 +3301,7 @@ class Engine:
                         self.store.verify(state.catalog[ref])
                 except SourceDrift as exc:
                     self.harness._record_drift(db, state, exc.case_id)
-                    return state.snapshot()
+                    return deepcopy(state.snapshot())
             elif name == 'continue_raw_evidence':
                 target = manifest['handles'][args['context_ref']]
                 require(target['pair'] == fingerprint([context['need_id'], context['candidate_id']]), 'Continuation belongs to another pair')
@@ -3269,29 +3326,30 @@ class Engine:
             self.harness._write(db, state, 'action_result', action_id=action_id, status=action_status, result=None,
                 reason=action_reason, reload_refs=reload_refs, invalidated_assessments=[], assessments=[], pending_assessments=[],
                 final=None, local_elapsed_ms=0, cm_context=context)
-            return state.snapshot()
+            return deepcopy(state.snapshot())
 
     def step(self, action):
         prepared = self.prepare()
         require(prepared['status'] == 'ready', 'Cannot script an unready context')
         reply = action(prepared) if callable(action) else action
         self.reply(prepared['request_id'], reply)
-        if self.state().pending_action is not None:
+        if self._state().pending_action is not None:
             self.execute_pending()
         return prepared
 
+    @runtime_operation
     def stop(self, reason, *, status='no_progress'):
         with self.harness.ledger.writer() as db:
-            state = RunState(self.harness.ledger.read(db))
+            state = self._state(db)
             if state.final is None:
                 self.harness._stop(db, state, status, reason)
 
     def inspect(self):
-        result = {'context': self.context(), 'state': self.state().snapshot(),
+        result = {'context': self.context(), 'state': self._state().snapshot(),
                   'execution_mode': self.execution_mode}
         snapshot = result['state']
         if self.gate_enabled:
-            result['search_queries'] = query_review.queries(self.events(), self.context())
+            result['search_queries'] = query_review.queries(self._events(), self.context())
             qs = list(result['search_queries'].values())
             result['query_review_totals'] = {
                 'queries': len(qs), 'query_candidate_pairs': sum(len(q['candidate_ids']) for q in qs),
@@ -3309,12 +3367,12 @@ class Engine:
         if self.execution_mode == 'offline':
             result.update(controller_inference_requests=0, embedding_requests=0, receipt_kind='scripted_offline_not_provider')
         else:
-            receipts = [e for e in self.events() if e['kind'] == 'request_result']
+            receipts = list(self._runtime.receipts.values())
             known = sum((e.get('transport_metadata') or {}).get('submission_attempted') is True for e in receipts)
             unknown = sum((e.get('transport_metadata') or {}).get('submission_attempted') not in (True, False) for e in receipts)
-            unknown += len(self.state().requests) - len(receipts)
+            unknown += len(self._state().requests) - len(receipts)
             result.update(controller_submission_attempts=None if unknown else known,
                           known_controller_submission_attempts=known, unknown_controller_submission_receipts=unknown,
                           receipt_kind='provider_actual_or_unknown',
                           embedding_usage=self.harness.hybrid_search.usage() if self.harness.hybrid_search else None)
-        return result
+        return deepcopy(result)
